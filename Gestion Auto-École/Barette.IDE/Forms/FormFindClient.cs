@@ -1,16 +1,11 @@
 using System;
 using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.IO; 
-using System.Diagnostics;
 using System.Linq;
-
-using Barette.Library.Win32;
+using System.Windows.Forms;
 using Barette.Library.Client;
 using Barette.Library.Collections;
 using Barette.Library.Listview;
+using Barette.Library.Win32;
 
 
 namespace Barette.IDE.Forms {

@@ -1,12 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
-using Barette.IDE.Forms;
 
 namespace Barette.IDE.Forms {
 	public partial class FormAjoutEmploye : Form {

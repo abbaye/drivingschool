@@ -1,15 +1,7 @@
 using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
-
-using System.Xml;
-using System.IO;
-using System.Text;
-
-using Barette.Library.Client;
 using Barette.Library;
+using Barette.Library.Client;
 
 namespace Barette.IDE.Forms {
     /// <summary>

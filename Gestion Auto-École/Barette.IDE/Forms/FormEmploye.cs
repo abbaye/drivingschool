@@ -1,11 +1,6 @@
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Xml;
-using System.Text; 
-using System.IO; 
 
 using Barette.Library.Employer;
 using Barette.Library.Listview;
