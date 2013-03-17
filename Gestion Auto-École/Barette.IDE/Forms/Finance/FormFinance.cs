@@ -1,12 +1,7 @@
 using System;
 using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
-using System.IO; 
-using System.Diagnostics;
 
-using Barette.Library.Win32;
 using Barette.Library.Client;
 using Barette.Library.Collections;
 using Barette.Library.Listview;
