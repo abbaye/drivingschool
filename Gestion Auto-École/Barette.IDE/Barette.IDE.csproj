@@ -203,6 +203,10 @@
     <None Include="Resources\Symbols-Find-icon.png" />
     <None Include="Resources\export-icon.png" />
     <None Include="Resources\import-icon.png" />
+    <Content Include="bin\Debug\Data\config.xml" />
+    <Content Include="bin\Debug\Data\OffDate.xml" />
+    <Content Include="bin\Debug\Data\SCHEDULE.XML" />
+    <Content Include="bin\Debug\Data\StudentGroup.xml" />
     <Content Include="user-group.ico" />
     <None Include="Resources\Cancel-2-icon.png" />
     <None Include="Resources\delete-icon.png" />
@@ -482,7 +486,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\Data\" />
     <Folder Include="Forms\TypeCoursCreator\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
