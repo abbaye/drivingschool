@@ -1730,7 +1730,7 @@ namespace Barette.IDE.Forms {
             outLookBar.Visible = tsmnuViewModuleBar.Checked = this._AppConfig.ShowOutlookBar;
             tsmnuViewTypeCours.Checked = this._AppConfig.ShowGestionClient_Groupe;
             outLookBar.Width = this._AppConfig.ModulebarWidth;
-            this.Text = this._AppConfig.ApplicationName + "  (Derek Tremblay 418-693-1875)";            
+            this.Text = this._AppConfig.ApplicationName;            
         }
 
         /// <summary>
