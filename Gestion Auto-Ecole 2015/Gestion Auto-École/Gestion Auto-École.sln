@@ -1,5 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barette.IDE", "Barette.IDE\Barette.IDE.csproj", "{1B38B35B-1224-4606-B80E-7C5A93F5548D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barette.Library", "Barette.Library\Barette.Library.csproj", "{D51CC4AD-8B13-4FCD-9749-7374BEA8F3CA}"
@@ -11,8 +13,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficePickers", "OfficePickers\OfficePickers.csproj", "{CAD56B75-481B-4C76-B090-4BC2FF5E5681}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSharpCode.SharpZLib", "SharpZipLib\src\ICSharpCode.SharpZLib.csproj", "{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GAEInstaller", "GAEInstaller\GAEInstaller.vdproj", "{6A89C04B-AE3A-4FC2-BDAD-B25993C4F502}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
@@ -94,10 +94,6 @@ Global
 		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.StrongMagic|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}.StrongMagic|Any CPU.Build.0 = Debug|Any CPU
-		{6A89C04B-AE3A-4FC2-BDAD-B25993C4F502}.Debug|Any CPU.ActiveCfg = Debug
-		{6A89C04B-AE3A-4FC2-BDAD-B25993C4F502}.Release + Setup|Any CPU.ActiveCfg = Release
-		{6A89C04B-AE3A-4FC2-BDAD-B25993C4F502}.Release|Any CPU.ActiveCfg = Release
-		{6A89C04B-AE3A-4FC2-BDAD-B25993C4F502}.StrongMagic|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

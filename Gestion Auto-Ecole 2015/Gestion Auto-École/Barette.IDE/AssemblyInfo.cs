@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Derek Tremblay")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("2003-2010 Derek Tremblay")]
+[assembly: AssemblyCopyright("2003-2015 Derek Tremblay")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]		
 
