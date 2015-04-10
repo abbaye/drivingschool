@@ -7522,7 +7522,15 @@ namespace Barette.Library.UserControls.Client {
         }
 
         private void cmdShowSeanceTheorique_Click(object sender, EventArgs e) {
-            ShowCoursTheorique();
+            if (DateInscription.Value >= new DateTime(2015,04,10))
+                ShowCours2015();
+            else
+                ShowCoursTheorique();
+        }
+
+        private void ShowCours2015()
+        {
+            
         }
 
         private void printDocContract_PrintPage(object sender, PrintPageEventArgs e) {
