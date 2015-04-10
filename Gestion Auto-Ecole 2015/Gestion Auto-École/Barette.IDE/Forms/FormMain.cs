@@ -190,6 +190,8 @@ namespace Barette.IDE.Forms {
 
             OpenAll();
 
+            Directory.CreateDirectory("Data");
+
             //Check si les information de l'école existe
             if (File.Exists(@"Data\SchoolInfo.xml") == false) {
                 this.Show();
