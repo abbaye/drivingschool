@@ -178,7 +178,6 @@
   <ItemGroup>
     <Content Include="App.ico" />
     <None Include="app.config" />
-    <None Include="bin\Debug\Data\client.xml" />
     <None Include="Ouverture du programme.dgml">
       <SubType>Designer</SubType>
     </None>
