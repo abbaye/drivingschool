@@ -7790,7 +7790,7 @@ d'argent à ce dernier. Le consommateur aura avantage à consulter les articles 19
 
 Ce contrat est d'une durée maximum de 549 jours à compter de la date d'émission. Si le solde n'est pas payé durant cette période, un ajustement de prix peut être 
 effectué par l'école. L'élève devra informer l'école au moins 48 heures à l'avance (deux jours ouvrable) pour annuler ou reporter une ou des leçons pratiques, 
-sinon une pénalité de 40$ de l'heure sera exigée. Des frais de 50$ seront exigés pour ré-ouvrir un dossier fermé ou annulé un contrat actif. J'autorise l'école 
+sinon une pénalité de 50$ de l'heure sera exigée. Des frais de 50$ seront exigés pour ré-ouvrir un dossier fermé ou annulé un contrat actif. J'autorise l'école 
 à transmettre mes coordonnées à l'A.Q.T.R (Association Québecoise du Transport et des Routes) pour lui permettre d'effectuer des sondages de satisfaction au 
 sujet de mon cours de conduite. NON ( )
 
