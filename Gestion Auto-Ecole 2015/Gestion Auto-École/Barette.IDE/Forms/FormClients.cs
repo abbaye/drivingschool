@@ -919,6 +919,17 @@ namespace Barette.IDE.Forms {
             ListViewItem itm = new ListViewItem();
             RichTextBox rich = new RichTextBox();
 
+            if (client.TypeVehicule == VehiculeType.Moto && !_AppConfig.ShowGestionClient_GroupeMoto)
+                return;
+
+            if (client.TypeVehicule == VehiculeType.Cyclomoteur && !_AppConfig.ShowGestionClient_GroupeCyclomoteur)
+                return;
+
+            if ((client.TypeVehicule == VehiculeType.Automatique ||
+                client.TypeVehicule == VehiculeType.Manuel ||
+                client.TypeVehicule == VehiculeType.Automobile) && !_AppConfig.ShowGestionClient_GroupeAutomobile)
+                return;
+
             //if (cbClientName.Checked == true)
             //    itm.Text = client.FirstName + " " + client.Name;
             //else

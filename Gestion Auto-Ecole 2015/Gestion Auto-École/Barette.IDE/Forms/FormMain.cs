@@ -824,6 +824,8 @@ namespace Barette.IDE.Forms {
             // 
             // automobileToolStripMenuItem
             // 
+            this.automobileToolStripMenuItem.Checked = true;
+            this.automobileToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.automobileToolStripMenuItem.Name = "automobileToolStripMenuItem";
             this.automobileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.automobileToolStripMenuItem.Text = "Automobile";
@@ -831,6 +833,8 @@ namespace Barette.IDE.Forms {
             // 
             // motoToolStripMenuItem
             // 
+            this.motoToolStripMenuItem.Checked = true;
+            this.motoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.motoToolStripMenuItem.Name = "motoToolStripMenuItem";
             this.motoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.motoToolStripMenuItem.Text = "Moto";
@@ -838,6 +842,8 @@ namespace Barette.IDE.Forms {
             // 
             // cyclomoteurToolStripMenuItem
             // 
+            this.cyclomoteurToolStripMenuItem.Checked = true;
+            this.cyclomoteurToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cyclomoteurToolStripMenuItem.Name = "cyclomoteurToolStripMenuItem";
             this.cyclomoteurToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cyclomoteurToolStripMenuItem.Text = "Cyclomoteur";
@@ -1751,6 +1757,9 @@ namespace Barette.IDE.Forms {
 
             XElement root = doc.Element("Root");
             root.Add(new XElement("ShowGestionClient_Groupe", AppConfig.ShowGestionClient_Groupe));
+            root.Add(new XElement("ShowGestionClient_GroupeAutomobile", AppConfig.ShowGestionClient_GroupeAutomobile));
+            root.Add(new XElement("ShowGestionClient_GroupeCyclomoteur", AppConfig.ShowGestionClient_GroupeCyclomoteur));
+            root.Add(new XElement("ShowGestionClient_GroupeMoto", AppConfig.ShowGestionClient_GroupeMoto));
             root.Add(new XElement("ShowOutlookBar", AppConfig.ShowOutlookBar));
             root.Add(new XElement("ModulebarWidth", this.outLookBar.Width));
             root.Add(new XElement("CustomerListWidth", this._formClients.SplitterDistance));
@@ -1793,6 +1802,27 @@ namespace Barette.IDE.Forms {
                             }
                             catch { }
                             break;
+                        case "ShowGestionClient_GroupeAutomobile":
+                            try
+                            {
+                                this._AppConfig.ShowGestionClient_GroupeAutomobile = Convert.ToBoolean(e.Value);
+                            }
+                            catch { }
+                            break;
+                        case "ShowGestionClient_GroupeCyclomoteur":
+                            try
+                            {
+                                this._AppConfig.ShowGestionClient_GroupeCyclomoteur = Convert.ToBoolean(e.Value);
+                            }
+                            catch { }
+                            break;
+                        case "ShowGestionClient_GroupeMoto":
+                            try
+                            {
+                                this._AppConfig.ShowGestionClient_GroupeMoto = Convert.ToBoolean(e.Value);
+                            }
+                            catch { }
+                            break;
                         case "ShowOutlookBar":
                             try {
                                 this._AppConfig.ShowOutlookBar = Convert.ToBoolean(e.Value);
@@ -1825,8 +1855,11 @@ namespace Barette.IDE.Forms {
             tsmnuViewCoursFinish.Checked = this._AppConfig.ShowGestionClient_CoursFinish;
             outLookBar.Visible = tsmnuViewModuleBar.Checked = this._AppConfig.ShowOutlookBar;
             tsmnuViewTypeCours.Checked = this._AppConfig.ShowGestionClient_Groupe;
+            automobileToolStripMenuItem.Checked = this._AppConfig.ShowGestionClient_GroupeAutomobile;
+            motoToolStripMenuItem.Checked = this._AppConfig.ShowGestionClient_GroupeMoto;
+            cyclomoteurToolStripMenuItem.Checked = this._AppConfig.ShowGestionClient_GroupeCyclomoteur;
             outLookBar.Width = this._AppConfig.ModulebarWidth;
-            this.Text = this._AppConfig.ApplicationName + "  (Derek Tremblay 418-693-1875)";
+            this.Text = this._AppConfig.ApplicationName + "  (Derek Tremblay 418-550-6494)";
         }
 
         /// <summary>
