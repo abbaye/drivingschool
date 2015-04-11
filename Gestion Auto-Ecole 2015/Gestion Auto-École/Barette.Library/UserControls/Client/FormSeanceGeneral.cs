@@ -24,12 +24,7 @@ namespace Barette.Library.UserControls.Client {
         private ClientControl _ctrlClient;
 
 		private System.Windows.Forms.Button cmdOK;
-		private System.Windows.Forms.Button cmdAnnuler;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private Label label4;
-        private Label label5;
+        private System.Windows.Forms.Button cmdAnnuler;
         private IContainer components;
 		private SeancePicker seancePicker12;
 		private SeancePicker seancePicker11;
@@ -48,6 +43,11 @@ namespace Barette.Library.UserControls.Client {
         private SeancePicker seancePicker15;
         private ImageList imageList1;
         private Button cmdPrint;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
 
 		private EmployeCollection _ListEmploye;
 
@@ -89,29 +89,24 @@ namespace Barette.Library.UserControls.Client {
 		/// </summary>
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            Barette.Library.Client.Seance seance16 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance17 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance18 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance19 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance20 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance21 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance22 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance23 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance24 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance25 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance26 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance27 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance28 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance29 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance30 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance1 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance2 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance3 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance4 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance5 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance6 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance7 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance8 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance9 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance10 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance11 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance12 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance13 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance14 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance15 = new Barette.Library.Client.Seance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeanceGeneral));
             this.cmdOK = new System.Windows.Forms.Button();
             this.cmdAnnuler = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.seancePicker15 = new Barette.Library.UserControls.SeancePicker();
             this.seancePicker14 = new Barette.Library.UserControls.SeancePicker();
             this.seancePicker13 = new Barette.Library.UserControls.SeancePicker();
@@ -129,6 +124,11 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker1 = new Barette.Library.UserControls.SeancePicker();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmdPrint = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmdOK
@@ -159,61 +159,6 @@ namespace Barette.Library.UserControls.Client {
             this.cmdAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdAnnuler.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(88, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 23);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Date et heure";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(284, 5);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 23);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Code";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(357, 5);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 23);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Employé";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(472, 5);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(176, 23);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Modification";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(666, 6);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 23);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Montant";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // seancePicker15
             // 
             this.seancePicker15.Absence = false;
@@ -226,16 +171,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker15.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.seancePicker15.Name = "seancePicker15";
             this.seancePicker15.NumeroSeance = 15;
-            seance16.Absence = false;
-            seance16.Active = false;
-            seance16.Code = "";
-            seance16.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance16.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 390);
-            seance16.DateModifiedChecked = false;
-            seance16.Employer = "";
-            seance16.Montant = "";
-            seance16.SceanceNumber = 15;
-            this.seancePicker15.Seance = seance16;
+            seance1.Absence = false;
+            seance1.Active = false;
+            seance1.Code = "";
+            seance1.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance1.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 390);
+            seance1.DateModifiedChecked = false;
+            seance1.Employer = "";
+            seance1.Montant = "";
+            seance1.SceanceNumber = 15;
+            this.seancePicker15.Seance = seance1;
             this.seancePicker15.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker15.Size = new System.Drawing.Size(790, 25);
             this.seancePicker15.TabIndex = 33;
@@ -252,16 +197,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker14.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.seancePicker14.Name = "seancePicker14";
             this.seancePicker14.NumeroSeance = 14;
-            seance17.Absence = false;
-            seance17.Active = false;
-            seance17.Code = "";
-            seance17.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance17.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 390);
-            seance17.DateModifiedChecked = false;
-            seance17.Employer = "";
-            seance17.Montant = "";
-            seance17.SceanceNumber = 14;
-            this.seancePicker14.Seance = seance17;
+            seance2.Absence = false;
+            seance2.Active = false;
+            seance2.Code = "";
+            seance2.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance2.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 390);
+            seance2.DateModifiedChecked = false;
+            seance2.Employer = "";
+            seance2.Montant = "";
+            seance2.SceanceNumber = 14;
+            this.seancePicker14.Seance = seance2;
             this.seancePicker14.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker14.Size = new System.Drawing.Size(790, 25);
             this.seancePicker14.TabIndex = 32;
@@ -278,16 +223,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker13.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.seancePicker13.Name = "seancePicker13";
             this.seancePicker13.NumeroSeance = 13;
-            seance18.Absence = false;
-            seance18.Active = false;
-            seance18.Code = "";
-            seance18.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance18.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 390);
-            seance18.DateModifiedChecked = false;
-            seance18.Employer = "";
-            seance18.Montant = "";
-            seance18.SceanceNumber = 13;
-            this.seancePicker13.Seance = seance18;
+            seance3.Absence = false;
+            seance3.Active = false;
+            seance3.Code = "";
+            seance3.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance3.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 390);
+            seance3.DateModifiedChecked = false;
+            seance3.Employer = "";
+            seance3.Montant = "";
+            seance3.SceanceNumber = 13;
+            this.seancePicker13.Seance = seance3;
             this.seancePicker13.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker13.Size = new System.Drawing.Size(790, 25);
             this.seancePicker13.TabIndex = 31;
@@ -304,16 +249,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker12.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.seancePicker12.Name = "seancePicker12";
             this.seancePicker12.NumeroSeance = 12;
-            seance19.Absence = false;
-            seance19.Active = false;
-            seance19.Code = "";
-            seance19.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance19.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 390);
-            seance19.DateModifiedChecked = false;
-            seance19.Employer = "";
-            seance19.Montant = "";
-            seance19.SceanceNumber = 12;
-            this.seancePicker12.Seance = seance19;
+            seance4.Absence = false;
+            seance4.Active = false;
+            seance4.Code = "";
+            seance4.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance4.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 390);
+            seance4.DateModifiedChecked = false;
+            seance4.Employer = "";
+            seance4.Montant = "";
+            seance4.SceanceNumber = 12;
+            this.seancePicker12.Seance = seance4;
             this.seancePicker12.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker12.Size = new System.Drawing.Size(790, 25);
             this.seancePicker12.TabIndex = 29;
@@ -330,16 +275,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker11.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.seancePicker11.Name = "seancePicker11";
             this.seancePicker11.NumeroSeance = 11;
-            seance20.Absence = false;
-            seance20.Active = false;
-            seance20.Code = "";
-            seance20.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance20.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 431);
-            seance20.DateModifiedChecked = false;
-            seance20.Employer = "";
-            seance20.Montant = "";
-            seance20.SceanceNumber = 11;
-            this.seancePicker11.Seance = seance20;
+            seance5.Absence = false;
+            seance5.Active = false;
+            seance5.Code = "";
+            seance5.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance5.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 431);
+            seance5.DateModifiedChecked = false;
+            seance5.Employer = "";
+            seance5.Montant = "";
+            seance5.SceanceNumber = 11;
+            this.seancePicker11.Seance = seance5;
             this.seancePicker11.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker11.Size = new System.Drawing.Size(790, 25);
             this.seancePicker11.TabIndex = 28;
@@ -356,16 +301,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker10.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.seancePicker10.Name = "seancePicker10";
             this.seancePicker10.NumeroSeance = 10;
-            seance21.Absence = false;
-            seance21.Active = false;
-            seance21.Code = "";
-            seance21.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance21.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 451);
-            seance21.DateModifiedChecked = false;
-            seance21.Employer = "";
-            seance21.Montant = "";
-            seance21.SceanceNumber = 10;
-            this.seancePicker10.Seance = seance21;
+            seance6.Absence = false;
+            seance6.Active = false;
+            seance6.Code = "";
+            seance6.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance6.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 451);
+            seance6.DateModifiedChecked = false;
+            seance6.Employer = "";
+            seance6.Montant = "";
+            seance6.SceanceNumber = 10;
+            this.seancePicker10.Seance = seance6;
             this.seancePicker10.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker10.Size = new System.Drawing.Size(790, 25);
             this.seancePicker10.TabIndex = 27;
@@ -382,16 +327,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker9.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
             this.seancePicker9.Name = "seancePicker9";
             this.seancePicker9.NumeroSeance = 9;
-            seance22.Absence = false;
-            seance22.Active = false;
-            seance22.Code = "";
-            seance22.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance22.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 461);
-            seance22.DateModifiedChecked = false;
-            seance22.Employer = "";
-            seance22.Montant = "";
-            seance22.SceanceNumber = 9;
-            this.seancePicker9.Seance = seance22;
+            seance7.Absence = false;
+            seance7.Active = false;
+            seance7.Code = "";
+            seance7.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance7.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 461);
+            seance7.DateModifiedChecked = false;
+            seance7.Employer = "";
+            seance7.Montant = "";
+            seance7.SceanceNumber = 9;
+            this.seancePicker9.Seance = seance7;
             this.seancePicker9.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker9.Size = new System.Drawing.Size(790, 25);
             this.seancePicker9.TabIndex = 26;
@@ -408,16 +353,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker8.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
             this.seancePicker8.Name = "seancePicker8";
             this.seancePicker8.NumeroSeance = 8;
-            seance23.Absence = false;
-            seance23.Active = false;
-            seance23.Code = "";
-            seance23.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance23.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 481);
-            seance23.DateModifiedChecked = false;
-            seance23.Employer = "";
-            seance23.Montant = "";
-            seance23.SceanceNumber = 8;
-            this.seancePicker8.Seance = seance23;
+            seance8.Absence = false;
+            seance8.Active = false;
+            seance8.Code = "";
+            seance8.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance8.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 481);
+            seance8.DateModifiedChecked = false;
+            seance8.Employer = "";
+            seance8.Montant = "";
+            seance8.SceanceNumber = 8;
+            this.seancePicker8.Seance = seance8;
             this.seancePicker8.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker8.Size = new System.Drawing.Size(790, 25);
             this.seancePicker8.TabIndex = 25;
@@ -434,16 +379,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker7.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
             this.seancePicker7.Name = "seancePicker7";
             this.seancePicker7.NumeroSeance = 7;
-            seance24.Absence = false;
-            seance24.Active = false;
-            seance24.Code = "";
-            seance24.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance24.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 491);
-            seance24.DateModifiedChecked = false;
-            seance24.Employer = "";
-            seance24.Montant = "";
-            seance24.SceanceNumber = 7;
-            this.seancePicker7.Seance = seance24;
+            seance9.Absence = false;
+            seance9.Active = false;
+            seance9.Code = "";
+            seance9.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance9.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 491);
+            seance9.DateModifiedChecked = false;
+            seance9.Employer = "";
+            seance9.Montant = "";
+            seance9.SceanceNumber = 7;
+            this.seancePicker7.Seance = seance9;
             this.seancePicker7.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker7.Size = new System.Drawing.Size(790, 25);
             this.seancePicker7.TabIndex = 24;
@@ -460,16 +405,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker6.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
             this.seancePicker6.Name = "seancePicker6";
             this.seancePicker6.NumeroSeance = 6;
-            seance25.Absence = false;
-            seance25.Active = false;
-            seance25.Code = "";
-            seance25.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance25.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
-            seance25.DateModifiedChecked = false;
-            seance25.Employer = "";
-            seance25.Montant = "";
-            seance25.SceanceNumber = 6;
-            this.seancePicker6.Seance = seance25;
+            seance10.Absence = false;
+            seance10.Active = false;
+            seance10.Code = "";
+            seance10.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance10.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
+            seance10.DateModifiedChecked = false;
+            seance10.Employer = "";
+            seance10.Montant = "";
+            seance10.SceanceNumber = 6;
+            this.seancePicker6.Seance = seance10;
             this.seancePicker6.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker6.Size = new System.Drawing.Size(790, 25);
             this.seancePicker6.TabIndex = 23;
@@ -486,16 +431,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
             this.seancePicker5.Name = "seancePicker5";
             this.seancePicker5.NumeroSeance = 5;
-            seance26.Absence = false;
-            seance26.Active = false;
-            seance26.Code = "";
-            seance26.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance26.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 521);
-            seance26.DateModifiedChecked = false;
-            seance26.Employer = "";
-            seance26.Montant = "";
-            seance26.SceanceNumber = 5;
-            this.seancePicker5.Seance = seance26;
+            seance11.Absence = false;
+            seance11.Active = false;
+            seance11.Code = "";
+            seance11.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance11.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 521);
+            seance11.DateModifiedChecked = false;
+            seance11.Employer = "";
+            seance11.Montant = "";
+            seance11.SceanceNumber = 5;
+            this.seancePicker5.Seance = seance11;
             this.seancePicker5.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker5.Size = new System.Drawing.Size(790, 25);
             this.seancePicker5.TabIndex = 22;
@@ -512,16 +457,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
             this.seancePicker4.Name = "seancePicker4";
             this.seancePicker4.NumeroSeance = 4;
-            seance27.Absence = false;
-            seance27.Active = false;
-            seance27.Code = "";
-            seance27.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance27.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 541);
-            seance27.DateModifiedChecked = false;
-            seance27.Employer = "";
-            seance27.Montant = "";
-            seance27.SceanceNumber = 4;
-            this.seancePicker4.Seance = seance27;
+            seance12.Absence = false;
+            seance12.Active = false;
+            seance12.Code = "";
+            seance12.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance12.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 541);
+            seance12.DateModifiedChecked = false;
+            seance12.Employer = "";
+            seance12.Montant = "";
+            seance12.SceanceNumber = 4;
+            this.seancePicker4.Seance = seance12;
             this.seancePicker4.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker4.Size = new System.Drawing.Size(790, 25);
             this.seancePicker4.TabIndex = 21;
@@ -538,16 +483,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
             this.seancePicker3.Name = "seancePicker3";
             this.seancePicker3.NumeroSeance = 3;
-            seance28.Absence = false;
-            seance28.Active = false;
-            seance28.Code = "";
-            seance28.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance28.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 551);
-            seance28.DateModifiedChecked = false;
-            seance28.Employer = "";
-            seance28.Montant = "";
-            seance28.SceanceNumber = 3;
-            this.seancePicker3.Seance = seance28;
+            seance13.Absence = false;
+            seance13.Active = false;
+            seance13.Code = "";
+            seance13.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance13.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 551);
+            seance13.DateModifiedChecked = false;
+            seance13.Employer = "";
+            seance13.Montant = "";
+            seance13.SceanceNumber = 3;
+            this.seancePicker3.Seance = seance13;
             this.seancePicker3.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker3.Size = new System.Drawing.Size(790, 25);
             this.seancePicker3.TabIndex = 20;
@@ -563,16 +508,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker2.Location = new System.Drawing.Point(8, 60);
             this.seancePicker2.Name = "seancePicker2";
             this.seancePicker2.NumeroSeance = 2;
-            seance29.Absence = false;
-            seance29.Active = false;
-            seance29.Code = "";
-            seance29.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance29.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 571);
-            seance29.DateModifiedChecked = false;
-            seance29.Employer = "";
-            seance29.Montant = "";
-            seance29.SceanceNumber = 2;
-            this.seancePicker2.Seance = seance29;
+            seance14.Absence = false;
+            seance14.Active = false;
+            seance14.Code = "";
+            seance14.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance14.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 571);
+            seance14.DateModifiedChecked = false;
+            seance14.Employer = "";
+            seance14.Montant = "";
+            seance14.SceanceNumber = 2;
+            this.seancePicker2.Seance = seance14;
             this.seancePicker2.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker2.Size = new System.Drawing.Size(790, 25);
             this.seancePicker2.TabIndex = 19;
@@ -588,16 +533,16 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker1.Location = new System.Drawing.Point(8, 32);
             this.seancePicker1.Name = "seancePicker1";
             this.seancePicker1.NumeroSeance = 1;
-            seance30.Absence = false;
-            seance30.Active = false;
-            seance30.Code = "";
-            seance30.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance30.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
-            seance30.DateModifiedChecked = false;
-            seance30.Employer = "";
-            seance30.Montant = "";
-            seance30.SceanceNumber = 1;
-            this.seancePicker1.Seance = seance30;
+            seance15.Absence = false;
+            seance15.Active = false;
+            seance15.Code = "";
+            seance15.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance15.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
+            seance15.DateModifiedChecked = false;
+            seance15.Employer = "";
+            seance15.Montant = "";
+            seance15.SceanceNumber = 1;
+            this.seancePicker1.Seance = seance15;
             this.seancePicker1.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker1.Size = new System.Drawing.Size(790, 25);
             this.seancePicker1.TabIndex = 17;
@@ -618,15 +563,74 @@ namespace Barette.Library.UserControls.Client {
             this.cmdPrint.TabIndex = 41;
             this.cmdPrint.Click += new System.EventHandler(this.cmdPrint_Click);
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(594, 7);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 23);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Montant";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(277, 6);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 23);
+            this.label4.TabIndex = 51;
+            this.label4.Text = "Heures (fin)";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(484, 6);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 23);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "Employé";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(411, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 23);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Code";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(90, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 23);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Date et heure (début)";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormSeanceGeneral
             // 
             this.ClientSize = new System.Drawing.Size(863, 511);
             this.ControlBox = false;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdPrint);
             this.Controls.Add(this.seancePicker15);
             this.Controls.Add(this.seancePicker14);
             this.Controls.Add(this.seancePicker13);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.seancePicker12);
             this.Controls.Add(this.seancePicker11);
             this.Controls.Add(this.seancePicker10);
@@ -638,11 +642,7 @@ namespace Barette.Library.UserControls.Client {
             this.Controls.Add(this.seancePicker4);
             this.Controls.Add(this.seancePicker3);
             this.Controls.Add(this.seancePicker2);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.seancePicker1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdAnnuler);
             this.Controls.Add(this.cmdOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

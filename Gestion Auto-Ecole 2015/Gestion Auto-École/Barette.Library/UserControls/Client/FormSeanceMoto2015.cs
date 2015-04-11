@@ -12,7 +12,8 @@ namespace Barette.Library.UserControls.Client {
 	/// <summary>
 	/// Description résumée de FormSeanceMoto.
 	/// </summary>
-	public class FormSeanceMoto : System.Windows.Forms.Form {
+    public class FormSeanceMoto2015 : System.Windows.Forms.Form
+    {
 		/// <summary>
 		/// client referer
 		/// </summary>
@@ -49,7 +50,7 @@ namespace Barette.Library.UserControls.Client {
 
 		private EmployeCollection _ListEmploye;
 
-		public FormSeanceMoto(Customer client, ClientControl ctrl, EmployeCollection ListEmploye) {
+		public FormSeanceMoto2015(Customer client, ClientControl ctrl, EmployeCollection ListEmploye) {
 			//
 			// Requis pour la prise en charge du Concepteur Windows Forms
 			//
@@ -100,7 +101,16 @@ namespace Barette.Library.UserControls.Client {
             Barette.Library.Client.Seance seance9 = new Barette.Library.Client.Seance();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.seancePicker4 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker3 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker2 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker1 = new Barette.Library.UserControls.SeancePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.seancePicker9 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker8 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker7 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker6 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker5 = new Barette.Library.UserControls.SeancePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -111,15 +121,6 @@ namespace Barette.Library.UserControls.Client {
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.seancePicker4 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker3 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker2 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker1 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker9 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker8 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker7 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker6 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker5 = new Barette.Library.UserControls.SeancePicker();
             this.cmdAnnuler = new System.Windows.Forms.Button();
             this.cmdOK = new System.Windows.Forms.Button();
             this.cmdPrintHorsRoute = new System.Windows.Forms.Button();
@@ -153,137 +154,6 @@ namespace Barette.Library.UserControls.Client {
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "");
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.seancePicker9);
-            this.groupBox2.Controls.Add(this.seancePicker8);
-            this.groupBox2.Controls.Add(this.seancePicker7);
-            this.groupBox2.Controls.Add(this.cmdPrintRoute);
-            this.groupBox2.Controls.Add(this.seancePicker6);
-            this.groupBox2.Controls.Add(this.seancePicker5);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox2.Location = new System.Drawing.Point(10, 173);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(875, 190);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Route";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(606, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 23);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "Montant";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(289, 17);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 23);
-            this.label4.TabIndex = 51;
-            this.label4.Text = "Heures (fin)";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(496, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 23);
-            this.label3.TabIndex = 50;
-            this.label3.Text = "Employé";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(423, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 23);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "Code";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(102, 17);
-            this.label9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(200, 23);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "Date et heure (début)";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(606, 14);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 23);
-            this.label5.TabIndex = 52;
-            this.label5.Text = "Montant";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(289, 13);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 23);
-            this.label6.TabIndex = 51;
-            this.label6.Text = "Heures (fin)";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(496, 13);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 23);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "Employé";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(423, 13);
-            this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 23);
-            this.label8.TabIndex = 49;
-            this.label8.Text = "Code";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(102, 13);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(200, 23);
-            this.label10.TabIndex = 48;
-            this.label10.Text = "Date et heure (début)";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // seancePicker4
             // 
@@ -386,6 +256,27 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker1.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
             this.seancePicker1.Size = new System.Drawing.Size(786, 25);
             this.seancePicker1.TabIndex = 27;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.seancePicker9);
+            this.groupBox2.Controls.Add(this.seancePicker8);
+            this.groupBox2.Controls.Add(this.seancePicker7);
+            this.groupBox2.Controls.Add(this.cmdPrintRoute);
+            this.groupBox2.Controls.Add(this.seancePicker6);
+            this.groupBox2.Controls.Add(this.seancePicker5);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBox2.Location = new System.Drawing.Point(10, 173);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(875, 190);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Route";
             // 
             // seancePicker9
             // 
@@ -517,6 +408,116 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker5.Size = new System.Drawing.Size(786, 25);
             this.seancePicker5.TabIndex = 32;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(606, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 23);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Montant";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(289, 17);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 23);
+            this.label4.TabIndex = 51;
+            this.label4.Text = "Heures (fin)";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(496, 17);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 23);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "Employé";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(423, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 23);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Code";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(102, 17);
+            this.label9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(200, 23);
+            this.label9.TabIndex = 48;
+            this.label9.Text = "Date et heure (début)";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(606, 14);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 23);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Montant";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(289, 13);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(128, 23);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "Heures (fin)";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(496, 13);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 23);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "Employé";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(423, 13);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 23);
+            this.label8.TabIndex = 49;
+            this.label8.Text = "Code";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(102, 13);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(200, 23);
+            this.label10.TabIndex = 48;
+            this.label10.Text = "Date et heure (début)";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // cmdAnnuler
             // 
             this.cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -565,7 +566,7 @@ namespace Barette.Library.UserControls.Client {
             this.cmdPrintRoute.TabIndex = 39;
             this.cmdPrintRoute.Click += new System.EventHandler(this.cmdPrintRoute_Click);
             // 
-            // FormSeanceMoto
+            // FormSeanceMoto2015
             // 
             this.ClientSize = new System.Drawing.Size(893, 439);
             this.ControlBox = false;
@@ -574,7 +575,7 @@ namespace Barette.Library.UserControls.Client {
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "FormSeanceMoto";
+            this.Name = "FormSeanceMoto2015";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Séance de cours pratique : Motocyclette";
