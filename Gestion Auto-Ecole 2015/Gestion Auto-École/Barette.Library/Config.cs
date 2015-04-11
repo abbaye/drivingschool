@@ -16,13 +16,16 @@ namespace Barette.Library {
         /// <summary>
         /// Nom de l'Application
         /// </summary>
-        private const string _ApplicationName = "Gestion Auto École 2010";
+        private const string _ApplicationName = "Gestion Auto École 2015";
         
 		public Config() {
             //Valeur par défault
             ModulebarWidth = 195;
             ShowOutlookBar = true;
             ShowGestionClient_Groupe = true;
+            ShowGestionClient_GroupeAutomobile = true;
+            ShowGestionClient_GroupeCyclomoteur = true;
+            ShowGestionClient_GroupeMoto = true;
             ShowGestionClient_CoursFinish = true;
             CustomerListWidth = 326;
             LastContractNumber = 1000;
@@ -47,6 +50,33 @@ namespace Barette.Library {
         /// Afficher les groupes dans la gestion des clients
         /// </summary>
         public bool ShowGestionClient_Groupe {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Afficher le sous groupe automobile dans la gestion des clients
+        /// </summary>
+        public bool ShowGestionClient_GroupeAutomobile
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Afficher le sous groupe automobile dans la gestion des clients
+        /// </summary>
+        public bool ShowGestionClient_GroupeMoto
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Afficher le sous groupe automobile dans la gestion des clients
+        /// </summary>
+        public bool ShowGestionClient_GroupeCyclomoteur
+        {
             get;
             set;
         }

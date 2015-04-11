@@ -78,7 +78,7 @@ namespace Barette.IDE.Forms {
 
 
             //Rafraichir la liste des clients
-            RefreshClientList(this._AppConfig.ShowGestionClient_CoursFinish);
+            RefreshClientList(this._AppConfig);
 
             //ShowGroup
             lvClient.ShowGroups = this._AppConfig.ShowGestionClient_Groupe;
@@ -556,7 +556,7 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Rafraichier la liste de clients teste en version linq
         /// </summary>
-        public void RefreshClientList(bool ShowTermine) {
+        public void RefreshClientList(Config config) {
             lvClient.Items.Clear();
 
             Cursor.Current = Cursors.WaitCursor;
@@ -570,8 +570,8 @@ namespace Barette.IDE.Forms {
                                   where V.TypeClient == ProfileType.Actif
                                   select V;
 
-            if (ShowTermine)
-                foreach (Customer client in ListClientFull)
+            if (config.ShowGestionClient_CoursFinish)
+                foreach (Customer client in ListClientFull)                    
                     this.AddClientToList(client);
             else
                 foreach (Customer client in ListClientActif)
@@ -702,7 +702,7 @@ namespace Barette.IDE.Forms {
                     mnuClientInfo_Click(this, new EventArgs());
                     break;
                 case "REFRESH":
-                    RefreshClientList(this._AppConfig.ShowGestionClient_CoursFinish);
+                    RefreshClientList(this._AppConfig);
                     RemplirListRecherche();
                     break;
                 case "CHECKDOUBLONS":
@@ -863,7 +863,7 @@ namespace Barette.IDE.Forms {
         }
 
         private void menuRefresh_Click(object sender, System.EventArgs e) {
-            RefreshClientList(this._AppConfig.ShowGestionClient_CoursFinish);
+            RefreshClientList(this._AppConfig);
             RemplirListRecherche();
         }
 

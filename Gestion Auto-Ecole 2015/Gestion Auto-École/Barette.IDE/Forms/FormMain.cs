@@ -177,6 +177,13 @@ namespace Barette.IDE.Forms {
         private ToolStripSeparator toolStripSeparator10;
         private ToolStripMenuItem tsmnuImportBackup;
         private OpenFileDialog openFileDialogImport;
+        private ToolStripSeparator toolStripSeparator11;
+        private ToolStripMenuItem tsmnuAutoCompletedCustomer;
+        private ToolStripSeparator toolStripSeparator12;
+        private ToolStripMenuItem listeDesClientsToolStripMenuItem;
+        private ToolStripMenuItem automobileToolStripMenuItem;
+        private ToolStripMenuItem motoToolStripMenuItem;
+        private ToolStripMenuItem cyclomoteurToolStripMenuItem;
         private System.ComponentModel.IContainer components;
 
         public FormMain() {
@@ -279,6 +286,8 @@ namespace Barette.IDE.Forms {
             this.tsmnuToolCodes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmnuOffDate = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmnuSchoolInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmnuAutoCompletedCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmnuBackup = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -291,6 +300,11 @@ namespace Barette.IDE.Forms {
             this.outLookBar = new UtilityLibrary.WinControls.OutlookBar();
             this.outBandGestion = new UtilityLibrary.WinControls.OutlookBarBand();
             this.openFileDialogImport = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.listeDesClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.automobileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.motoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cyclomoteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -471,7 +485,9 @@ namespace Barette.IDE.Forms {
             this.tsmnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmnuViewModuleClient,
             this.toolStripSeparator6,
-            this.tsmnuViewModuleBar});
+            this.tsmnuViewModuleBar,
+            this.toolStripSeparator12,
+            this.listeDesClientsToolStripMenuItem});
             this.tsmnuView.Name = "tsmnuView";
             this.tsmnuView.Size = new System.Drawing.Size(70, 20);
             this.tsmnuView.Text = "Affichage";
@@ -634,6 +650,8 @@ namespace Barette.IDE.Forms {
             this.tsmnuToolCodes,
             this.tsmnuOffDate,
             this.tsmnuSchoolInfo,
+            this.toolStripSeparator11,
+            this.tsmnuAutoCompletedCustomer,
             this.toolStripSeparator5,
             this.tsmnuBackup,
             this.toolStripSeparator7,
@@ -662,6 +680,18 @@ namespace Barette.IDE.Forms {
             this.tsmnuSchoolInfo.Size = new System.Drawing.Size(273, 22);
             this.tsmnuSchoolInfo.Text = "Informations sur l\'école de conduite...";
             this.tsmnuSchoolInfo.Click += new System.EventHandler(this.tsmnuSchoolInfo_Click);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(270, 6);
+            // 
+            // tsmnuAutoCompletedCustomer
+            // 
+            this.tsmnuAutoCompletedCustomer.Name = "tsmnuAutoCompletedCustomer";
+            this.tsmnuAutoCompletedCustomer.Size = new System.Drawing.Size(273, 22);
+            this.tsmnuAutoCompletedCustomer.Text = "Terminé tous les cours expiré";
+            this.tsmnuAutoCompletedCustomer.Click += new System.EventHandler(this.tsmnuAutoCompletedCustomer_Click);
             // 
             // toolStripSeparator5
             // 
@@ -777,6 +807,42 @@ namespace Barette.IDE.Forms {
             this.openFileDialogImport.Filter = "Fichier de sauvegarde Gestion Auto École|*.gaec";
             this.openFileDialogImport.Title = "Ouvrir un fichier de sauvegarde";
             // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(225, 6);
+            // 
+            // listeDesClientsToolStripMenuItem
+            // 
+            this.listeDesClientsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.automobileToolStripMenuItem,
+            this.motoToolStripMenuItem,
+            this.cyclomoteurToolStripMenuItem});
+            this.listeDesClientsToolStripMenuItem.Name = "listeDesClientsToolStripMenuItem";
+            this.listeDesClientsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.listeDesClientsToolStripMenuItem.Text = "Liste des clients";
+            // 
+            // automobileToolStripMenuItem
+            // 
+            this.automobileToolStripMenuItem.Name = "automobileToolStripMenuItem";
+            this.automobileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.automobileToolStripMenuItem.Text = "Automobile";
+            this.automobileToolStripMenuItem.Click += new System.EventHandler(this.automobileToolStripMenuItem_Click);
+            // 
+            // motoToolStripMenuItem
+            // 
+            this.motoToolStripMenuItem.Name = "motoToolStripMenuItem";
+            this.motoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.motoToolStripMenuItem.Text = "Moto";
+            this.motoToolStripMenuItem.Click += new System.EventHandler(this.motoToolStripMenuItem_Click);
+            // 
+            // cyclomoteurToolStripMenuItem
+            // 
+            this.cyclomoteurToolStripMenuItem.Name = "cyclomoteurToolStripMenuItem";
+            this.cyclomoteurToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cyclomoteurToolStripMenuItem.Text = "Cyclomoteur";
+            this.cyclomoteurToolStripMenuItem.Click += new System.EventHandler(this.cyclomoteurToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.ClientSize = new System.Drawing.Size(1016, 671);
@@ -813,7 +879,7 @@ namespace Barette.IDE.Forms {
         /// </summary>
         public void RefreshClientList() {
             if (this._formClients != null)
-                this._formClients.RefreshClientList(this._AppConfig.ShowGestionClient_CoursFinish);
+                this._formClients.RefreshClientList(this._AppConfig);
         }
 
 
@@ -1777,7 +1843,7 @@ namespace Barette.IDE.Forms {
             LoadStudentGroup();
 
             if (this._formClients != null) {
-                this._formClients.RefreshClientList(this._AppConfig.ShowGestionClient_CoursFinish);
+                this._formClients.RefreshClientList(this._AppConfig);
                 this._formClients.SplitterDistance = this._AppConfig.CustomerListWidth;
             }
 
@@ -2529,7 +2595,7 @@ namespace Barette.IDE.Forms {
             this._AppConfig.ShowGestionClient_CoursFinish = tsmnuViewCoursFinish.Checked;
 
             if (this._formClients != null)
-                this._formClients.RefreshClientList(this._AppConfig.ShowGestionClient_CoursFinish);
+                this._formClients.RefreshClientList(this._AppConfig);
 
         }
 
@@ -2572,6 +2638,52 @@ namespace Barette.IDE.Forms {
                
                 this.Cursor = Cursors.Default;
             }
+        }
+
+        private void tsmnuAutoCompletedCustomer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show(this, "Cette opération terminera automatiquement tous les clients dont leurs contrat est expiré. Voulez-vous vraiment continué ?", this.AppConfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    foreach (Customer client in ClientList)
+                    {
+                        if (DateTime.Now > client.DateExpiration)
+                            client.TypeClient = ProfileType.CoursTerminer;
+                    }
+
+                    if (_formClients != null)
+                        _formClients.RefreshClientList(AppConfig);
+                }
+            }
+            catch { }
+        }
+
+        private void automobileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            automobileToolStripMenuItem.Checked = !automobileToolStripMenuItem.Checked;
+            this._AppConfig.ShowGestionClient_GroupeAutomobile = automobileToolStripMenuItem.Checked;
+
+            if (this._formClients != null)
+                this._formClients.RefreshClientList(this._AppConfig);
+        }
+
+        private void motoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            motoToolStripMenuItem.Checked = !motoToolStripMenuItem.Checked;
+            this._AppConfig.ShowGestionClient_GroupeMoto = motoToolStripMenuItem.Checked;
+
+            if (this._formClients != null)
+                this._formClients.RefreshClientList(this._AppConfig);
+        }
+
+        private void cyclomoteurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cyclomoteurToolStripMenuItem.Checked = !cyclomoteurToolStripMenuItem.Checked;
+            this._AppConfig.ShowGestionClient_GroupeCyclomoteur = cyclomoteurToolStripMenuItem.Checked;
+
+            if (this._formClients != null)
+                this._formClients.RefreshClientList(this._AppConfig);
         }
     }
 }

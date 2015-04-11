@@ -6358,7 +6358,10 @@ namespace Barette.Library.UserControls.Client {
         #endregion
 
         private void cmdShowSeance_Click(object sender, System.EventArgs e) {
-            ShowCours();
+            if (DateInscription.Value >= new DateTime(2015, 04, 10))
+                ShowCours2015();
+            else
+                ShowCours();
         }
 
         #region Type de Seance
