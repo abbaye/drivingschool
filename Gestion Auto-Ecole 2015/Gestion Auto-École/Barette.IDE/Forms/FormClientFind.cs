@@ -138,6 +138,17 @@ namespace Barette.IDE.Forms {
         internal void AddClient(Customer client) {
             ListViewItem itm = new ListViewItem();
 
+            if (client.TypeVehicule == VehiculeType.Moto && !_AppConfig.ShowGestionClient_GroupeMoto)
+                return;
+
+            if (client.TypeVehicule == VehiculeType.Cyclomoteur && !_AppConfig.ShowGestionClient_GroupeCyclomoteur)
+                return;
+
+            if ((client.TypeVehicule == VehiculeType.Automatique ||
+                client.TypeVehicule == VehiculeType.Manuel ||
+                client.TypeVehicule == VehiculeType.Automobile) && !_AppConfig.ShowGestionClient_GroupeAutomobile)
+                return;
+
             itm.Text = client.GetFullName(false);
 
             itm.SubItems.Add(client.ContratNumber);
