@@ -17,6 +17,7 @@ namespace Barette.Library.UserControls.Client {
         InfoClient,
         InfoClientTheorique,
         Contract,
-        PaimentList
+        PaimentList,
+        Moto2015
     }
 }

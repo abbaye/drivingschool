@@ -887,7 +887,7 @@ namespace Barette.Library.UserControls.Client {
 			AddSeanceTemp();
 			
 			this._ctrlClient.Client = this._client;
-			this._ctrlClient.PrintDoc(true, true, false, PrintDocumentType.InfoClient); 
+			this._ctrlClient.PrintDoc(true, true, true, PrintDocumentType.Moto2015); 
 		}
 
 		private void AddSeanceTemp() {
