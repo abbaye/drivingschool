@@ -1256,8 +1256,8 @@ namespace Barette.Library.UserControls.Client {
             this.cmdShowSeancesMoto2015.Size = new System.Drawing.Size(104, 88);
             this.cmdShowSeancesMoto2015.TabIndex = 57;
             this.cmdShowSeancesMoto2015.TabStop = false;
-            this.cmdShowSeancesMoto2015.Text = "Séances";
-            this.cmdShowSeancesMoto2015.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.cmdShowSeancesMoto2015.Text = "Séances ";
+            this.cmdShowSeancesMoto2015.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTipText.SetToolTip(this.cmdShowSeancesMoto2015, "Afficher les séances");
             this.cmdShowSeancesMoto2015.Click += new System.EventHandler(this.cmdShowSeancesMoto2015_Click);
             // 
@@ -8678,7 +8678,8 @@ namespace Barette.Library.UserControls.Client {
                 cmdClearbox.Enabled = true;
             }
 
-            if ((TypeVehicule == VehiculeType.Moto || TypeVehicule == VehiculeType.Cyclomoteur) && DateInscription.Value >= new DateTime(2015,04,10))            
+            //if ((TypeVehicule == VehiculeType.Moto || TypeVehicule == VehiculeType.Cyclomoteur) && DateInscription.Value >= new DateTime(2015,04,10))            
+            if (TypeVehicule == VehiculeType.Moto && DateInscription.Value >= new DateTime(2015, 04, 10))
                 cmdShowSeancesMoto2015.Visible = true;
             else
                 cmdShowSeancesMoto2015.Visible = false;

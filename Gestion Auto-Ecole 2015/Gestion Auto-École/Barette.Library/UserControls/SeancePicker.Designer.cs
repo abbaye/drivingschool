@@ -36,7 +36,7 @@
             // 
             // DateSceance
             // 
-            this.DateSceance.CustomFormat = "MM/dd/yyyy \'   Heure:\' HH:mm";
+            this.DateSceance.CustomFormat = "yyyy-MM-dd \'   Heure:\' HH:mm";
             this.DateSceance.Enabled = false;
             this.DateSceance.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateSceance.Location = new System.Drawing.Point(87, 3);
