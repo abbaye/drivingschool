@@ -9125,7 +9125,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             Font printFont = new System.Drawing.Font("Courier New", 11);
             Font printFontTime = new Font("Times New Roman", 12, FontStyle.Regular);
             Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
-            Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
+            Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);            
             Font printFontBoldItalic16 = new Font("Times New Roman", 16, FontStyle.Bold & FontStyle.Italic);
 
             float yPos = 0f;
@@ -9192,17 +9192,43 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             yPos += 30;
 
             //Header des colone
-            e.Graphics.DrawString("Date et heure (début et fin de cours)", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+            e.Graphics.DrawString("Date et heure (début et fin)", printFontBold, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
 
 
             //Header de la colone montant
-            e.Graphics.DrawString("Montant", printFontBold, Brushes.Black, 580 - e.Graphics.MeasureString("Montant", printFont).Width, yPos, new StringFormat());
+            var testString1 = "Signature (élève et professeur)";
+            e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 680 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
             yPos += 16;
             
             foreach (Seance seance in SeancesList)
             {
                 if (seance.Active)
                 {
+                    switch (seance.SceanceNumber)
+                    {
+                        case 1:
+                            yPos += printFontBold.Height * 1.5F;
+                            e.Graphics.DrawString("Formation théorique (3h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
+                            //yPos += 15;
+                            break;
+                        case 2:
+                            yPos += printFontBold.Height * 1.5F;
+                            e.Graphics.DrawString("Formation pratique en circuit fermé (16h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
+                            //yPos += 15;
+                            break;
+                        case 6:
+                            yPos += printFontBold.Height * 1.5F;
+                            e.Graphics.DrawString("Formation théorique (3h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
+                            //yPos += 15;
+                            break;
+                        case 7:
+                            yPos += printFontBold.Height * 1.5F;
+                            e.Graphics.DrawString("Formation pratique sur route (10h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
+                            //yPos += 15;
+                            break;
+
+                    }
+
                     yPos += printFont.Height;
                     e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
                     e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
@@ -9211,8 +9237,8 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                     e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                     e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                    e.Graphics.DrawString("_________________", printFont, Brushes.Black, leftMargin + 360, yPos, new StringFormat());
-                    e.Graphics.DrawString("_________________", printFont, Brushes.Black, leftMargin + 370 + e.Graphics.MeasureString("_________________", printFont).Width, yPos, new StringFormat());
+                    e.Graphics.DrawString("_________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                    e.Graphics.DrawString("_________________", printFont, Brushes.Black, leftMargin + 370 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
 
                     //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
                     //e.Graphics.DrawString(seance.Montant, printFont, Brushes.Black, 580 - e.Graphics.MeasureString(seance.Montant, printFont).Width, yPos, new StringFormat());
