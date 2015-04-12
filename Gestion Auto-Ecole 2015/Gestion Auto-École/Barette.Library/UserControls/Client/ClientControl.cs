@@ -9192,7 +9192,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             yPos += 30;
 
             //Header des colone
-            e.Graphics.DrawString("Date et heure", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+            e.Graphics.DrawString("Date et heure (début et fin de cours)", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
 
 
             //Header de la colone montant
