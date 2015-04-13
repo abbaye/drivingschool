@@ -885,7 +885,10 @@ namespace Barette.IDE.Forms {
         /// </summary>
         public void RefreshClientList() {
             if (this._formClients != null)
+            {
                 this._formClients.RefreshClientList(this._AppConfig);
+                this._formClients.RefreshFindList();
+            }
         }
 
 
@@ -1877,6 +1880,7 @@ namespace Barette.IDE.Forms {
 
             if (this._formClients != null) {
                 this._formClients.RefreshClientList(this._AppConfig);
+                this._formClients.RefreshFindList();
                 this._formClients.SplitterDistance = this._AppConfig.CustomerListWidth;
             }
 
@@ -2686,7 +2690,10 @@ namespace Barette.IDE.Forms {
                     }
 
                     if (_formClients != null)
-                        _formClients.RefreshClientList(AppConfig);
+                    {
+                        this._formClients.RefreshClientList(AppConfig);
+                        this._formClients.RefreshFindList();
+                    }
                 }
             }
             catch { }
@@ -2698,7 +2705,10 @@ namespace Barette.IDE.Forms {
             this._AppConfig.ShowGestionClient_GroupeAutomobile = automobileToolStripMenuItem.Checked;
 
             if (this._formClients != null)
+            {
                 this._formClients.RefreshClientList(this._AppConfig);
+                this._formClients.RefreshFindList();
+            }
         }
 
         private void motoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2707,7 +2717,10 @@ namespace Barette.IDE.Forms {
             this._AppConfig.ShowGestionClient_GroupeMoto = motoToolStripMenuItem.Checked;
 
             if (this._formClients != null)
+            {
                 this._formClients.RefreshClientList(this._AppConfig);
+                this._formClients.RefreshFindList();
+            }
         }
 
         private void cyclomoteurToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2716,7 +2729,10 @@ namespace Barette.IDE.Forms {
             this._AppConfig.ShowGestionClient_GroupeCyclomoteur = cyclomoteurToolStripMenuItem.Checked;
 
             if (this._formClients != null)
+            {
                 this._formClients.RefreshClientList(this._AppConfig);
+                this._formClients.RefreshFindList();
+            }
         }
     }
 }

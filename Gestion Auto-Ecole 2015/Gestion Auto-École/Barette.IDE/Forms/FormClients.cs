@@ -84,7 +84,7 @@ namespace Barette.IDE.Forms {
             lvClient.ShowGroups = this._AppConfig.ShowGestionClient_Groupe;
 
             //Remplir la liste de recherche
-            RemplirListRecherche();
+            RefreshFindList();
 
         }
 
@@ -691,11 +691,11 @@ namespace Barette.IDE.Forms {
                 case "ADD":
                     FormAjoutClient frmAddClient = new FormAjoutClient(this, this._InfoSchool, this._AppConfig);
                     if (frmAddClient.ShowDialog() == DialogResult.OK)
-                        AddToListRecherche(frmAddClient.clientControl1.ContratNumber);
+                        AddToListRecherche(frmAddClient.clientControl1.Client);
                     break;
                 case "DELETE":
                     if (DeleteSelectedClient() == DialogResult.Yes)
-                        RemplirListRecherche();
+                        RefreshFindList();
                     break;
                 case "PRINT":
                     //clientControl1.PrintDoc(Barette.Library.UserControls.Client.PrintDocumentType.InfoClient);
@@ -703,7 +703,7 @@ namespace Barette.IDE.Forms {
                     break;
                 case "REFRESH":
                     RefreshClientList(this._AppConfig);
-                    RemplirListRecherche();
+                    RefreshFindList();
                     break;
                 case "CHECKDOUBLONS":
                     if (MessageBox.Show(this, "Voullez vous trouver les numéros de contrat en double dans votre liste de clients ?", this._AppConfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -757,7 +757,7 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Remplir la liste de recherche des clients
         /// </summary>
-        private void RemplirListRecherche() {
+        public void RefreshFindList() {
             lstNumeroClient.Items.Clear();
 
             var ListClientFull = from V in this._ClientList.Cast<Customer>()
@@ -769,10 +769,10 @@ namespace Barette.IDE.Forms {
 
             if (this._AppConfig.ShowGestionClient_CoursFinish)
                 foreach (Customer client in ListClientFull)
-                    lstNumeroClient.Items.Add(client.ContratNumber);
+                    AddToListRecherche(client); //lstNumeroClient.Items.Add(client.ContratNumber);
             else
                 foreach (Customer client in ListClientActif)
-                    lstNumeroClient.Items.Add(client.ContratNumber);
+                    AddToListRecherche(client); //lstNumeroClient.Items.Add(client.ContratNumber);
         }
 
         /// <summary>
@@ -789,9 +789,13 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Remplir la liste de recherche des clients
         /// </summary>
-        private void AddToListRecherche(string ContratNumber) {
-            if (ContratNumber != "")
-                lstNumeroClient.Items.Add(ContratNumber);
+        private void AddToListRecherche(Customer client) {
+
+            if (!isNeedTooAdd(client))
+                return;
+
+            if (client.ContratNumber != "")
+                lstNumeroClient.Items.Add(client.ContratNumber);
         }
 
         private void lstNumeroClient_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e) {
@@ -815,7 +819,7 @@ namespace Barette.IDE.Forms {
             switch (e.KeyCode) {
                 case Keys.Delete:
                     DeleteSelectedClient();
-                    RemplirListRecherche();
+                    RefreshFindList();
                     break;
             }
         }
@@ -859,12 +863,12 @@ namespace Barette.IDE.Forms {
 
         private void menuDeleteClient_Click(object sender, System.EventArgs e) {
             DeleteSelectedClient();
-            RemplirListRecherche();
+            RefreshFindList();
         }
 
         private void menuRefresh_Click(object sender, System.EventArgs e) {
             RefreshClientList(this._AppConfig);
-            RemplirListRecherche();
+            RefreshFindList();
         }
 
         private void cbClientName_CheckedChanged(object sender, System.EventArgs e) {
@@ -918,16 +922,8 @@ namespace Barette.IDE.Forms {
         internal void AddClientToList(Customer client) {
             ListViewItem itm = new ListViewItem();
             RichTextBox rich = new RichTextBox();
-
-            if (client.TypeVehicule == VehiculeType.Moto && !_AppConfig.ShowGestionClient_GroupeMoto)
-                return;
-
-            if (client.TypeVehicule == VehiculeType.Cyclomoteur && !_AppConfig.ShowGestionClient_GroupeCyclomoteur)
-                return;
-
-            if ((client.TypeVehicule == VehiculeType.Automatique ||
-                client.TypeVehicule == VehiculeType.Manuel ||
-                client.TypeVehicule == VehiculeType.Automobile) && !_AppConfig.ShowGestionClient_GroupeAutomobile)
+            
+            if (!isNeedTooAdd(client))
                 return;
 
             //if (cbClientName.Checked == true)
@@ -981,6 +977,23 @@ namespace Barette.IDE.Forms {
             }
 
             lvClient.Items.Add(itm);
+        }
+
+        private bool isNeedTooAdd(Customer client)
+        {
+            if (client.TypeVehicule == VehiculeType.Moto && !_AppConfig.ShowGestionClient_GroupeMoto)
+                return false;
+
+            if (client.TypeVehicule == VehiculeType.Cyclomoteur && !_AppConfig.ShowGestionClient_GroupeCyclomoteur)
+                return false;
+
+            if ((client.TypeVehicule == VehiculeType.Automatique ||
+                client.TypeVehicule == VehiculeType.Manuel ||
+                client.TypeVehicule == VehiculeType.Automobile) && !_AppConfig.ShowGestionClient_GroupeAutomobile)
+                return false;
+
+            return true;
+
         }
 
         private void mnuClientInfo_Click(object sender, EventArgs e) {

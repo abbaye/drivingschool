@@ -277,13 +277,13 @@ namespace Barette.Library.UserControls.Client {
             this.label25 = new System.Windows.Forms.Label();
             this.EmailError = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmdShowSeancesMoto2015 = new System.Windows.Forms.Button();
+            this.printDocMoto2015 = new System.Drawing.Printing.PrintDocument();
             this.ctbTauxHorairePratique = new Barette.Library.UserControls.CashTextBox();
             this.ctbTauxHoraireTheorique = new Barette.Library.UserControls.CashTextBox();
             this.ctbLocationMontant = new Barette.Library.UserControls.CashTextBox();
             this.CashBox_Solde = new Barette.Library.UserControls.CashTextBox();
             this.txtNotes = new Barette.Library.UserControls.TextEdit.TextEditor();
             this.cbCity = new Barette.Library.UserControls.ComboCityPicker();
-            this.printDocMoto2015 = new System.Drawing.Printing.PrintDocument();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.gbCoursType.SuspendLayout();
@@ -1006,7 +1006,7 @@ namespace Barette.Library.UserControls.Client {
             // 
             // dtpBVA
             // 
-            this.dtpBVA.CustomFormat = "ddd MM/dd/yyyy \'      Heure:\' HH:mm";
+            this.dtpBVA.CustomFormat = "ddd yyyy/MM/dd \'      Heure:\' HH:mm";
             this.dtpBVA.Enabled = false;
             this.dtpBVA.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpBVA.Location = new System.Drawing.Point(63, 23);
@@ -1264,6 +1264,12 @@ namespace Barette.Library.UserControls.Client {
             this.cmdShowSeancesMoto2015.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTipText.SetToolTip(this.cmdShowSeancesMoto2015, "Afficher les séances");
             this.cmdShowSeancesMoto2015.Click += new System.EventHandler(this.cmdShowSeancesMoto2015_Click);
+            // 
+            // printDocMoto2015
+            // 
+            this.printDocMoto2015.DocumentName = "Fichier du client";
+            this.printDocMoto2015.OriginAtMargins = true;
+            this.printDocMoto2015.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocMoto2015_PrintPage);
             // 
             // ctbTauxHorairePratique
             // 
@@ -7508,12 +7514,6 @@ namespace Barette.Library.UserControls.Client {
             this.cbCity.Size = new System.Drawing.Size(213, 20);
             this.cbCity.TabIndex = 29;
             // 
-            // printDocMoto2015
-            // 
-            this.printDocMoto2015.DocumentName = "Fichier du client";
-            this.printDocMoto2015.OriginAtMargins = true;
-            this.printDocMoto2015.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocMoto2015_PrintPage);
-            // 
             // ClientControl
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
@@ -9199,7 +9199,10 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             var testString1 = "Signature (élève et professeur)";
             e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 680 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
             yPos += 16;
-            
+
+            var formationPrinted1 = false;
+            var formationPrinted2 = false;            
+
             foreach (Seance seance in SeancesList)
             {
                 if (seance.Active)
@@ -9212,24 +9215,36 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                             //yPos += 15;
                             break;
                         case 2:
-                            yPos += printFontBold.Height * 1.5F;
-                            e.Graphics.DrawString("Formation pratique en circuit fermé (16h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
-                            //yPos += 15;
+                        case 3:
+                        case 4:
+                        case 5:
+                            if (!formationPrinted1)
+                            {
+                                yPos += printFontBold.Height * 1.5F;
+                                e.Graphics.DrawString("Formation pratique en circuit fermé (16h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
+                                formationPrinted1 = true;
+                            }
                             break;
                         case 6:
                             yPos += printFontBold.Height * 1.5F;
-                            e.Graphics.DrawString("Formation théorique (3h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
-                            //yPos += 15;
+                            e.Graphics.DrawString("Formation théorique (3h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());                            
                             break;
                         case 7:
-                            yPos += printFontBold.Height * 1.5F;
-                            e.Graphics.DrawString("Formation pratique sur route (10h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
-                            //yPos += 15;
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 11:
+                            if (!formationPrinted2)
+                            {
+                                yPos += printFontBold.Height * 1.5F;
+                                e.Graphics.DrawString("Formation pratique sur route (10h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
+                                formationPrinted2 = true;
+                            }
                             break;
 
                     }
 
-                    yPos += printFont.Height;
+                    yPos += printFont.Height +2;
                     e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
                     e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
                     
@@ -9240,7 +9255,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                     e.Graphics.DrawString("_________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
                     e.Graphics.DrawString("_________________", printFont, Brushes.Black, leftMargin + 370 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
 
-                    //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                   // e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
                     //e.Graphics.DrawString(seance.Montant, printFont, Brushes.Black, 580 - e.Graphics.MeasureString(seance.Montant, printFont).Width, yPos, new StringFormat());
                     //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
                 }                
