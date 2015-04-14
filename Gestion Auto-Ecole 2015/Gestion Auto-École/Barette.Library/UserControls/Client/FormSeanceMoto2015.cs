@@ -103,11 +103,11 @@ namespace Barette.Library.UserControls.Client {
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeanceMoto2015));
-            Barette.Library.Client.Seance seance7 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance11 = new Barette.Library.Client.Seance();
             Barette.Library.Client.Seance seance6 = new Barette.Library.Client.Seance();
+            Barette.Library.Client.Seance seance7 = new Barette.Library.Client.Seance();
             Barette.Library.Client.Seance seance8 = new Barette.Library.Client.Seance();
             Barette.Library.Client.Seance seance9 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance11 = new Barette.Library.Client.Seance();
             Barette.Library.Client.Seance seance10 = new Barette.Library.Client.Seance();
             Barette.Library.Client.Seance seance1 = new Barette.Library.Client.Seance();
             Barette.Library.Client.Seance seance2 = new Barette.Library.Client.Seance();
@@ -142,11 +142,11 @@ namespace Barette.Library.UserControls.Client {
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.seancePicker11 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker6 = new Barette.Library.UserControls.SeancePicker();
             this.seancePicker10 = new Barette.Library.UserControls.SeancePicker();
+            this.seancePicker11 = new Barette.Library.UserControls.SeancePicker();
             this.seancePicker7 = new Barette.Library.UserControls.SeancePicker();
             this.seancePicker9 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker6 = new Barette.Library.UserControls.SeancePicker();
             this.seancePicker8 = new Barette.Library.UserControls.SeancePicker();
             this.seancePicker1 = new Barette.Library.UserControls.SeancePicker();
             this.seancePicker2 = new Barette.Library.UserControls.SeancePicker();
@@ -495,34 +495,37 @@ namespace Barette.Library.UserControls.Client {
             this.label20.Text = "Date et heure (début)";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // seancePicker11
+            // seancePicker6
             // 
-            this.seancePicker11.Absence = false;
-            this.seancePicker11.Checked = false;
-            this.seancePicker11.Code = "";
-            this.seancePicker11.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
-            this.seancePicker11.DateModifiedChecked = false;
-            this.seancePicker11.Employer = "";
-            this.seancePicker11.Location = new System.Drawing.Point(19, 158);
-            this.seancePicker11.Name = "seancePicker11";
-            this.seancePicker11.NumeroSeance = 11;
-            seance7.Absence = false;
-            seance7.Active = false;
-            seance7.Code = "";
-            seance7.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance7.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
-            seance7.DateModifiedChecked = false;
-            seance7.Employer = "";
-            seance7.Montant = "";
-            seance7.SceanceNumber = 11;
-            this.seancePicker11.Seance = seance7;
-            this.seancePicker11.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            this.seancePicker11.Size = new System.Drawing.Size(786, 25);
-            this.seancePicker11.TabIndex = 27;
+            this.seancePicker6.Absence = false;
+            this.seancePicker6.AutoAddEndCoursHours = 3;
+            this.seancePicker6.Checked = false;
+            this.seancePicker6.Code = "";
+            this.seancePicker6.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
+            this.seancePicker6.DateModifiedChecked = false;
+            this.seancePicker6.Employer = "";
+            this.seancePicker6.Location = new System.Drawing.Point(19, 46);
+            this.seancePicker6.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
+            this.seancePicker6.Name = "seancePicker6";
+            this.seancePicker6.NumeroSeance = 6;
+            seance11.Absence = false;
+            seance11.Active = false;
+            seance11.Code = "";
+            seance11.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance11.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
+            seance11.DateModifiedChecked = false;
+            seance11.Employer = "";
+            seance11.Montant = "";
+            seance11.SceanceNumber = 6;
+            this.seancePicker6.Seance = seance11;
+            this.seancePicker6.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            this.seancePicker6.Size = new System.Drawing.Size(786, 25);
+            this.seancePicker6.TabIndex = 33;
             // 
             // seancePicker10
             // 
             this.seancePicker10.Absence = false;
+            this.seancePicker10.AutoAddEndCoursHours = 2;
             this.seancePicker10.Checked = false;
             this.seancePicker10.Code = "";
             this.seancePicker10.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
@@ -546,9 +549,36 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker10.Size = new System.Drawing.Size(786, 25);
             this.seancePicker10.TabIndex = 53;
             // 
+            // seancePicker11
+            // 
+            this.seancePicker11.Absence = false;
+            this.seancePicker11.AutoAddEndCoursHours = 2;
+            this.seancePicker11.Checked = false;
+            this.seancePicker11.Code = "";
+            this.seancePicker11.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
+            this.seancePicker11.DateModifiedChecked = false;
+            this.seancePicker11.Employer = "";
+            this.seancePicker11.Location = new System.Drawing.Point(19, 158);
+            this.seancePicker11.Name = "seancePicker11";
+            this.seancePicker11.NumeroSeance = 11;
+            seance7.Absence = false;
+            seance7.Active = false;
+            seance7.Code = "";
+            seance7.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance7.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
+            seance7.DateModifiedChecked = false;
+            seance7.Employer = "";
+            seance7.Montant = "";
+            seance7.SceanceNumber = 11;
+            this.seancePicker11.Seance = seance7;
+            this.seancePicker11.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            this.seancePicker11.Size = new System.Drawing.Size(786, 25);
+            this.seancePicker11.TabIndex = 27;
+            // 
             // seancePicker7
             // 
             this.seancePicker7.Absence = false;
+            this.seancePicker7.AutoAddEndCoursHours = 2;
             this.seancePicker7.Checked = false;
             this.seancePicker7.Code = "";
             this.seancePicker7.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
@@ -575,6 +605,7 @@ namespace Barette.Library.UserControls.Client {
             // seancePicker9
             // 
             this.seancePicker9.Absence = false;
+            this.seancePicker9.AutoAddEndCoursHours = 2;
             this.seancePicker9.Checked = false;
             this.seancePicker9.Code = "";
             this.seancePicker9.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
@@ -598,35 +629,10 @@ namespace Barette.Library.UserControls.Client {
             this.seancePicker9.Size = new System.Drawing.Size(786, 25);
             this.seancePicker9.TabIndex = 42;
             // 
-            // seancePicker6
-            // 
-            this.seancePicker6.Absence = false;
-            this.seancePicker6.Checked = false;
-            this.seancePicker6.Code = "";
-            this.seancePicker6.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
-            this.seancePicker6.DateModifiedChecked = false;
-            this.seancePicker6.Employer = "";
-            this.seancePicker6.Location = new System.Drawing.Point(19, 46);
-            this.seancePicker6.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
-            this.seancePicker6.Name = "seancePicker6";
-            this.seancePicker6.NumeroSeance = 6;
-            seance11.Absence = false;
-            seance11.Active = false;
-            seance11.Code = "";
-            seance11.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance11.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
-            seance11.DateModifiedChecked = false;
-            seance11.Employer = "";
-            seance11.Montant = "";
-            seance11.SceanceNumber = 6;
-            this.seancePicker6.Seance = seance11;
-            this.seancePicker6.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            this.seancePicker6.Size = new System.Drawing.Size(786, 25);
-            this.seancePicker6.TabIndex = 33;
-            // 
             // seancePicker8
             // 
             this.seancePicker8.Absence = false;
+            this.seancePicker8.AutoAddEndCoursHours = 2;
             this.seancePicker8.Checked = false;
             this.seancePicker8.Code = "";
             this.seancePicker8.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 511);
@@ -653,6 +659,7 @@ namespace Barette.Library.UserControls.Client {
             // seancePicker1
             // 
             this.seancePicker1.Absence = false;
+            this.seancePicker1.AutoAddEndCoursHours = 3;
             this.seancePicker1.Checked = false;
             this.seancePicker1.Code = "";
             this.seancePicker1.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
@@ -678,6 +685,7 @@ namespace Barette.Library.UserControls.Client {
             // seancePicker2
             // 
             this.seancePicker2.Absence = false;
+            this.seancePicker2.AutoAddEndCoursHours = 4;
             this.seancePicker2.Checked = false;
             this.seancePicker2.Code = "";
             this.seancePicker2.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 571);
@@ -703,6 +711,7 @@ namespace Barette.Library.UserControls.Client {
             // seancePicker4
             // 
             this.seancePicker4.Absence = false;
+            this.seancePicker4.AutoAddEndCoursHours = 4;
             this.seancePicker4.Checked = false;
             this.seancePicker4.Code = "";
             this.seancePicker4.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 541);
@@ -729,6 +738,7 @@ namespace Barette.Library.UserControls.Client {
             // seancePicker3
             // 
             this.seancePicker3.Absence = false;
+            this.seancePicker3.AutoAddEndCoursHours = 4;
             this.seancePicker3.Checked = false;
             this.seancePicker3.Code = "";
             this.seancePicker3.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 551);
@@ -755,6 +765,7 @@ namespace Barette.Library.UserControls.Client {
             // seancePicker5
             // 
             this.seancePicker5.Absence = false;
+            this.seancePicker5.AutoAddEndCoursHours = 4;
             this.seancePicker5.Checked = false;
             this.seancePicker5.Code = "";
             this.seancePicker5.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 521);

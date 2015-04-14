@@ -24,11 +24,13 @@ using Barette.Library.Win32;
 using Crownwood.Magic.Controls;
 using UtilityLibrary.WinControls;
 
-namespace Barette.IDE.Forms {
+namespace Barette.IDE.Forms
+{
     /// <summary>
     /// Description résumée de Form1.
     /// </summary>
-    public partial class FormMain : System.Windows.Forms.Form {
+    public partial class FormMain : System.Windows.Forms.Form
+    {
 
         /// <summary>
         /// instance de la fenetre client
@@ -186,7 +188,8 @@ namespace Barette.IDE.Forms {
         private ToolStripMenuItem cyclomoteurToolStripMenuItem;
         private System.ComponentModel.IContainer components;
 
-        public FormMain() {
+        public FormMain()
+        {
             //
             // Requis pour la prise en charge du Concepteur Windows Forms
             //
@@ -200,7 +203,8 @@ namespace Barette.IDE.Forms {
             Directory.CreateDirectory("Data");
 
             //Check si les information de l'école existe
-            if (File.Exists(@"Data\SchoolInfo.xml") == false) {
+            if (File.Exists(@"Data\SchoolInfo.xml") == false)
+            {
                 this.Show();
                 new FormInfoEcole(this._InfoSchool, true, _AppConfig).ShowDialog(this);
             }
@@ -213,7 +217,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Test lancer dans la fenetre debug
         /// </summary>
-        private void test() {
+        private void test()
+        {
             //var NomFamille = from client in this.ClientList.Cast<Customer>()
             //                 group client by client.Name into g
             //                 select g.Key;
@@ -225,9 +230,12 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
-        protected override void Dispose(bool disposing) {
-            if (disposing) {
-                if (components != null) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (components != null)
+                {
                     components.Dispose();
                 }
             }
@@ -239,7 +247,8 @@ namespace Barette.IDE.Forms {
         /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
         /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.OutlookBarImageList = new System.Windows.Forms.ImageList(this.components);
@@ -876,14 +885,16 @@ namespace Barette.IDE.Forms {
         #endregion
 
 
-        private void MakeStaticBorder() {
+        private void MakeStaticBorder()
+        {
             StaticBorder.ThinBorder(outLookBar.Handle.ToInt32(), true);
         }
 
         /// <summary>
         /// Refresh la list des client
         /// </summary>
-        public void RefreshClientList() {
+        public void RefreshClientList()
+        {
             if (this._formClients != null)
             {
                 this._formClients.RefreshClientList(this._AppConfig);
@@ -895,7 +906,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Ferme le client qui est ouvert dans le formulaire
         /// </summary>
-        public void CloseClient() {
+        public void CloseClient()
+        {
             if (this._formClients != null)
                 this._formClients.CloseClient();
         }
@@ -903,7 +915,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Initialise la bar de gestion des employés
         /// </summary>
-        private void InitializeBandGestion() {
+        private void InitializeBandGestion()
+        {
             //Creation des objet
             OutlookBarItem outBarClient = new OutlookBarItem("Gestion des clients", 0);
             OutlookBarItem outBarFindClient = new OutlookBarItem("Recherche", 1);
@@ -949,19 +962,24 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Configuration de l'application
         /// </summary>
-        public Config AppConfig {
-            get {
+        public Config AppConfig
+        {
+            get
+            {
                 return this._AppConfig;
             }
-            set {
+            set
+            {
                 this._AppConfig = value;
             }
         }
 
-        private void outLookBar_ItemClicked(UtilityLibrary.WinControls.OutlookBarBand band, UtilityLibrary.WinControls.OutlookBarItem item) {
+        private void outLookBar_ItemClicked(UtilityLibrary.WinControls.OutlookBarBand band, UtilityLibrary.WinControls.OutlookBarItem item)
+        {
             Cursor.Current = Cursors.WaitCursor;
 
-            switch (item.Tag.ToString()) {
+            switch (item.Tag.ToString())
+            {
                 case "CLIENT":
                     CreationListClient();
                     break;
@@ -1001,21 +1019,25 @@ namespace Barette.IDE.Forms {
             Cursor.Current = Cursors.Default;
         }
 
-        private void CreationSuivie() {
+        private void CreationSuivie()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'extracteur n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "SUIVIE") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "SUIVIE")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formSuivieCours = new FormSuivieCours(this.ClientList, this);
 
                 // Cree la page
@@ -1035,21 +1057,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre des clients
         /// </summary>
-        private void CreationListClient() {
+        private void CreationListClient()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'extracteur n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "CLIENT_LIST") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "CLIENT_LIST")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formClients = new FormClients(this.ClientList, this.EmployeList, this._InfoSchool, this._AppConfig);
 
                 // Cree la page
@@ -1069,21 +1095,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre des clients
         /// </summary>
-        private void CreationLigueSecur() {
+        private void CreationLigueSecur()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'extracteur n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "RAPPORTSECUR") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "RAPPORTSECUR")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formLigueSecuriter = new FormLigueSecuriter(this);
 
                 // Cree la page
@@ -1104,7 +1134,8 @@ namespace Barette.IDE.Forms {
         /// Ouvre la boite des client et selectionne le client passer en argument.
         /// </summary>
         /// <param name="ClientNumber"></param>
-        public void CreationListClient(string ClientNumber) {
+        public void CreationListClient(string ClientNumber)
+        {
             CreationListClient();
             this._formClients.SelectionClient(ClientNumber);
         }
@@ -1112,21 +1143,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre des clients
         /// </summary>
-        private void CreationFindClient() {
+        private void CreationFindClient()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'extracteur n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "FIND_CLIENT") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "FIND_CLIENT")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formFindClient = new FormFindClient(this, this.EmployeList);
 
                 // Cree la page
@@ -1146,21 +1181,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre des clients
         /// </summary>
-        private void CreationFinance() {
+        private void CreationFinance()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'extracteur n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "FINANCE") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "FINANCE")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formFinance = new FormFinance(this);
 
                 // Cree la page
@@ -1180,21 +1219,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre des clients
         /// </summary>
-        private void CreationEmploye() {
+        private void CreationEmploye()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'extracteur n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "EMPLOYE") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "EMPLOYE")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formEmploye = new FormEmploye(this);
 
                 // Cree la page
@@ -1214,21 +1257,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre des statistique
         /// </summary>
-        private void CreationStats() {
+        private void CreationStats()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'extracteur n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "STATS") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "STATS")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formStatistique = new FormStatistiques(this.ClientList);
 
                 // Cree la page
@@ -1248,21 +1295,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre des clients
         /// </summary>
-        private void CreationPostIt() {
+        private void CreationPostIt()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'extracteur n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "POSTIT") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "POSTIT")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formPostIt = new FormPostIt(this);
 
                 // Cree la page
@@ -1286,17 +1337,20 @@ namespace Barette.IDE.Forms {
         /// </summary>
         /// <param name="FileName"></param>
         /// <param name="CustomerList"></param>
-        private void SaveClient(string FileName, CustomerCollection CustomerList) {
+        private void SaveClient(string FileName, CustomerCollection CustomerList)
+        {
             XDocument doc = new XDocument(new XElement("EcoleConduiteBarrette",
                 new XAttribute("Version", "2.0"),
                 new XElement("BarretteClients", new XAttribute("Count", CustomerList.Count))));
 
             XElement SchoolInfoRoot = doc.Element("EcoleConduiteBarrette").Element("BarretteClients");
 
-            foreach (Customer client in CustomerList) {
+            foreach (Customer client in CustomerList)
+            {
                 //Creation des seance pratiques
                 XElement SeancePratiqueList = new XElement("SeancesList");
-                foreach (Seance seance in client.Seances) {
+                foreach (Seance seance in client.Seances)
+                {
                     SeancePratiqueList.Add(new XElement("Seances",
                         new XAttribute("Activate", seance.Active),
                         new XAttribute("Date", seance.DateHeure.ToString()),
@@ -1311,7 +1365,8 @@ namespace Barette.IDE.Forms {
 
                 //Creation des seance Theorique
                 XElement SeanceTheoriqueList = new XElement("SeancesListTheorique");
-                foreach (Seance seance in client.SeancesTheorique) {
+                foreach (Seance seance in client.SeancesTheorique)
+                {
                     SeanceTheoriqueList.Add(new XElement("Seances",
                         new XAttribute("Activate", seance.Active),
                         new XAttribute("Date", seance.DateHeure.ToString()),
@@ -1326,7 +1381,8 @@ namespace Barette.IDE.Forms {
 
                 //Creation des Paiments
                 XElement PaimentList = new XElement("PaimentList");
-                foreach (Paiement paiment in client.Paiment) {
+                foreach (Paiement paiment in client.Paiment)
+                {
                     if (!paiment.Montant.EndsWith(" $"))
                         paiment.Montant += " $";
 
@@ -1389,10 +1445,12 @@ namespace Barette.IDE.Forms {
                     PaimentList));
             }
 
-            try {
+            try
+            {
                 doc.Save(FileName, SaveOptions.None);
             }
-            catch {
+            catch
+            {
                 MessageBox.Show(this, "Une erreur est survenue lors de l'enregistement des Informations sur l'école de conduite", AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             };
         }
@@ -1400,26 +1458,31 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Chargement de la liste des clients
         /// </summary>
-        private void LoadClient(string FileName, CustomerCollection CustomerList) {
+        private void LoadClient(string FileName, CustomerCollection CustomerList)
+        {
             XDocument doc;
             CustomerList.Clear();
             Customer client = null;
             Paiement paiment = null;
             Seance seance = null;
 
-            if (File.Exists(FileName)) {
+            if (File.Exists(FileName))
+            {
                 doc = XDocument.Load(FileName);
 
                 var clientList = from i in doc.Element("EcoleConduiteBarrette").Element("BarretteClients").Elements()
                                  select i;
 
                 //Chargement de la liste de clients
-                foreach (XElement e in clientList) {
+                foreach (XElement e in clientList)
+                {
                     client = new Customer();
 
                     //Informations sur le client
-                    foreach (XAttribute at in e.Attributes()) {
-                        switch (at.Name.ToString()) {
+                    foreach (XAttribute at in e.Attributes())
+                    {
+                        switch (at.Name.ToString())
+                        {
                             case "AttestationNumber":
                                 client.AttestationNumber1 = at.Value;
                                 break;
@@ -1503,7 +1566,8 @@ namespace Barette.IDE.Forms {
                                 break;
                             case "VehiculeType":
                                 //Type de Vehicule
-                                switch (at.Value) {
+                                switch (at.Value)
+                                {
                                     case "Automatique":
                                         client.TypeVehicule = VehiculeType.Automatique;
                                         break;
@@ -1520,7 +1584,8 @@ namespace Barette.IDE.Forms {
                                 break;
                             case "ProfileType":
                                 //Type de client
-                                switch (at.Value) {
+                                switch (at.Value)
+                                {
                                     case "Actif":
                                         client.TypeClient = ProfileType.Actif;
                                         break;
@@ -1575,15 +1640,20 @@ namespace Barette.IDE.Forms {
                     }
 
                     //Chargement des listes
-                    foreach (XElement item in e.Elements()) {
-                        switch (item.Name.ToString()) {
+                    foreach (XElement item in e.Elements())
+                    {
+                        switch (item.Name.ToString())
+                        {
                             case "SeancesList":
                                 var SeancePratiqueList = item.Elements("Seances");
 
-                                foreach (XElement XSeance in SeancePratiqueList) {
+                                foreach (XElement XSeance in SeancePratiqueList)
+                                {
                                     seance = new Seance();
-                                    foreach (XAttribute at in XSeance.Attributes()) {
-                                        switch (at.Name.ToString()) {
+                                    foreach (XAttribute at in XSeance.Attributes())
+                                    {
+                                        switch (at.Name.ToString())
+                                        {
                                             case "Activate":
                                                 seance.Active = Convert.ToBoolean(at.Value);
                                                 break;
@@ -1619,10 +1689,13 @@ namespace Barette.IDE.Forms {
                             case "SeancesListTheorique":
                                 var Seancelist = item.Elements("Seances");
 
-                                foreach (XElement XSeance in Seancelist) {
+                                foreach (XElement XSeance in Seancelist)
+                                {
                                     seance = new Seance();
-                                    foreach (XAttribute at in XSeance.Attributes()) {
-                                        switch (at.Name.ToString()) {
+                                    foreach (XAttribute at in XSeance.Attributes())
+                                    {
+                                        switch (at.Name.ToString())
+                                        {
                                             case "Activate":
                                                 seance.Active = Convert.ToBoolean(at.Value);
                                                 break;
@@ -1659,10 +1732,13 @@ namespace Barette.IDE.Forms {
 
                                 var Paimentlist = item.Elements("Paiment");
 
-                                foreach (XElement Xpaiment in Paimentlist) {
+                                foreach (XElement Xpaiment in Paimentlist)
+                                {
                                     paiment = new Paiement();
-                                    foreach (XAttribute at in Xpaiment.Attributes()) {
-                                        switch (at.Name.ToString()) {
+                                    foreach (XAttribute at in Xpaiment.Attributes())
+                                    {
+                                        switch (at.Name.ToString())
+                                        {
                                             case "Montant":
                                                 paiment.Montant = at.Value;
                                                 break;
@@ -1676,7 +1752,8 @@ namespace Barette.IDE.Forms {
                                                 paiment.PaimentAutre = at.Value;
                                                 break;
                                             case "TypePaiment":
-                                                switch (at.Value) {
+                                                switch (at.Value)
+                                                {
                                                     case "Nothing":
                                                         paiment.TypePaiment = TypePaiment.Nothing;
                                                         break;
@@ -1695,7 +1772,8 @@ namespace Barette.IDE.Forms {
                                                 }
                                                 break;
                                             case "Type":
-                                                switch (at.Value) {
+                                                switch (at.Value)
+                                                {
                                                     case "Nothing":
                                                         paiment.Type = PaiementType.Nothing;
                                                         break;
@@ -1726,7 +1804,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Enregistre les notes
         /// </summary>
-        private void SavePostIt(string FileName, PostItCollection colNotes) {
+        private void SavePostIt(string FileName, PostItCollection colNotes)
+        {
             XDocument doc = new XDocument(new XElement("GEAPostIt",
                 new XAttribute("Version", "2.0"),
                 new XElement("GestionAutoEcolePostIt", new XAttribute("Count", colNotes.Count))));
@@ -1734,7 +1813,8 @@ namespace Barette.IDE.Forms {
             XElement PostItRoot = doc.Element("GEAPostIt").Element("GestionAutoEcolePostIt");
             //XElement PostItRoot = doc.Element("GestionAutoEcolePostIt");
 
-            foreach (PostIt note in colNotes) {
+            foreach (PostIt note in colNotes)
+            {
                 PostItRoot.Add(new XElement("PostIt",
                     new XAttribute("Message", note.Message),
                     new XAttribute("Date", note.Date.ToString()),
@@ -1743,10 +1823,12 @@ namespace Barette.IDE.Forms {
                     new XAttribute("Employe", note.Employe)));
             }
 
-            try {
+            try
+            {
                 doc.Save(FileName, SaveOptions.None);
             }
-            catch {
+            catch
+            {
                 MessageBox.Show(this, "Une erreur est survenue lors de l'enregistement des PostIts.", AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             };
         }
@@ -1754,7 +1836,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Enregistrement des Configurations
         /// </summary>
-        private void SaveConfig(string FileName) {
+        private void SaveConfig(string FileName)
+        {
             XDocument doc = new XDocument(new XComment("Fichier de configuration du logiciel : " + AppConfig.ApplicationName),
                     new XElement("Root", new XAttribute("Version", "0.1")));
 
@@ -1769,10 +1852,12 @@ namespace Barette.IDE.Forms {
             root.Add(new XElement("ShowGestionClient_CoursFinish", AppConfig.ShowGestionClient_CoursFinish));
             root.Add(new XElement("LastContractNumber", AppConfig.LastContractNumber));
 
-            try {
+            try
+            {
                 doc.Save(FileName, SaveOptions.None);
             }
-            catch {
+            catch
+            {
                 MessageBox.Show(this, "Une erreur est survenue lors de l'enregistement des configurations.", AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             };
         }
@@ -1780,75 +1865,111 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Chargement des configurations de l'utilisateur
         /// </summary>
-        private void LoadConfig(string FileName) {
+        private void LoadConfig(string FileName)
+        {
             XDocument doc;
 
             this._AppConfig = new Config();
 
-            if (File.Exists(FileName)) {
+            if (File.Exists(FileName))
+            {
                 doc = XDocument.Load(FileName);
 
                 var config = from i in doc.Element("Root").Elements()
                              select i;
 
-                foreach (XElement e in config) {
-                    switch (e.Name.LocalName) {
+                foreach (XElement e in config)
+                {
+                    switch (e.Name.LocalName)
+                    {
                         case "ShowGestionClient_CoursFinish":
-                            try {
+                            try
+                            {
                                 this._AppConfig.ShowGestionClient_CoursFinish = Convert.ToBoolean(e.Value);
                             }
-                            catch { };
+                            catch
+                            {
+                                this._AppConfig.ShowGestionClient_CoursFinish = true;
+                            };
                             break;
                         case "ShowGestionClient_Groupe":
-                            try {
+                            try
+                            {
                                 this._AppConfig.ShowGestionClient_Groupe = Convert.ToBoolean(e.Value);
                             }
-                            catch { }
+                            catch
+                            {
+                                this._AppConfig.ShowGestionClient_Groupe = true;
+                            }
                             break;
                         case "ShowGestionClient_GroupeAutomobile":
                             try
                             {
                                 this._AppConfig.ShowGestionClient_GroupeAutomobile = Convert.ToBoolean(e.Value);
+                            }                            
+                            catch {
+                                this._AppConfig.ShowGestionClient_GroupeAutomobile = true;
                             }
-                            catch { }
                             break;
                         case "ShowGestionClient_GroupeCyclomoteur":
                             try
                             {
                                 this._AppConfig.ShowGestionClient_GroupeCyclomoteur = Convert.ToBoolean(e.Value);
                             }
-                            catch { }
+                            catch
+                            {
+                                this._AppConfig.ShowGestionClient_GroupeCyclomoteur = true;
+                            }
                             break;
                         case "ShowGestionClient_GroupeMoto":
                             try
                             {
                                 this._AppConfig.ShowGestionClient_GroupeMoto = Convert.ToBoolean(e.Value);
                             }
-                            catch { }
+                            catch
+                            {
+                                this._AppConfig.ShowGestionClient_GroupeMoto = true;
+                            }
                             break;
                         case "ShowOutlookBar":
-                            try {
+                            try
+                            {
                                 this._AppConfig.ShowOutlookBar = Convert.ToBoolean(e.Value);
                             }
-                            catch { }
+                            catch 
+                            {
+                                this._AppConfig.ShowOutlookBar = true;
+                            }
                             break;
                         case "ModulebarWidth":
-                            try {
+                            try
+                            {
                                 this._AppConfig.ModulebarWidth = Convert.ToInt32(e.Value);
                             }
-                            catch { }
+                            catch 
+                            {
+                                this._AppConfig.ModulebarWidth = 195;
+                            }
                             break;
                         case "CustomerListWidth":
-                            try {
+                            try
+                            {
                                 this._AppConfig.CustomerListWidth = Convert.ToInt32(e.Value);
                             }
-                            catch { }
+                            catch
+                            {
+                                this._AppConfig.CustomerListWidth = 326;
+                            }
                             break;
                         case "LastContractNumber":
-                            try {
+                            try
+                            {
                                 this._AppConfig.LastContractNumber = Convert.ToInt32(e.Value);
                             }
-                            catch { }
+                            catch 
+                            {
+                                this._AppConfig.LastContractNumber = 1000;
+                            }
                             break;
                     }
                 }
@@ -1868,7 +1989,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Ouvre tous les fichiers.
         /// </summary>
-        private void OpenAll() {
+        private void OpenAll()
+        {
             LoadConfig(@"Data\config.xml");
             LoadPostIt(@"Data\postit.xml", this.PostItList);
             LoadPostIt(@"Data\HorraireNotes.xml", this.NotesHoraire);
@@ -1878,7 +2000,8 @@ namespace Barette.IDE.Forms {
             LoadClient(@"Data\client.xml", ClientList);
             LoadStudentGroup();
 
-            if (this._formClients != null) {
+            if (this._formClients != null)
+            {
                 this._formClients.RefreshClientList(this._AppConfig);
                 this._formClients.RefreshFindList();
                 this._formClients.SplitterDistance = this._AppConfig.CustomerListWidth;
@@ -1892,7 +2015,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Enregistrement de tous les fichiers.
         /// </summary>
-        public void SaveAll() {
+        public void SaveAll()
+        {
             this.Cursor = Cursors.WaitCursor;
 
             this.SaveClient(@"Data\client.xml", this.ClientList);
@@ -1910,8 +2034,10 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Enregistre les employés
         /// </summary>
-        private void SaveEmploye() {
-            try {
+        private void SaveEmploye()
+        {
+            try
+            {
                 XmlTextWriter myWriter = new XmlTextWriter(@"Data\employe.xml", Encoding.Unicode);
                 myWriter.Formatting = Formatting.Indented;
 
@@ -1922,8 +2048,10 @@ namespace Barette.IDE.Forms {
                 //Ecriture des code 
                 myWriter.WriteStartElement("Employe");
                 myWriter.WriteAttributeString("Count", Convert.ToString(this.EmployeList.Count));
-                if (this.EmployeList.Count > 0) {
-                    for (int i = 0; i < this.EmployeList.Count; i++) {
+                if (this.EmployeList.Count > 0)
+                {
+                    for (int i = 0; i < this.EmployeList.Count; i++)
+                    {
                         Employe emp = this.EmployeList[i];
                         myWriter.WriteStartElement("Employe");
 
@@ -1969,15 +2097,18 @@ namespace Barette.IDE.Forms {
                 myWriter.Close();
 
             }
-            catch {
+            catch
+            {
             }
         }
 
         /// <summary>
         /// Enregistre les information sur les groupe d'etudiant
         /// </summary>
-        private void SaveStudentGroup() {
-            try {
+        private void SaveStudentGroup()
+        {
+            try
+            {
                 XmlTextWriter myWriter = new XmlTextWriter(@"Data\StudentGroup.xml", Encoding.Unicode);
                 myWriter.Formatting = Formatting.Indented;
 
@@ -1988,7 +2119,8 @@ namespace Barette.IDE.Forms {
                 //Ecriture des code 
                 myWriter.WriteStartElement("GAEStudentGroup");
 
-                foreach (StudentGroup group in this.StudentGroupList) {
+                foreach (StudentGroup group in this.StudentGroupList)
+                {
                     myWriter.WriteStartElement("StudentGroup");
 
                     myWriter.WriteAttributeString("GroupeNumber", group.GroupeNumber.ToString());
@@ -2005,14 +2137,16 @@ namespace Barette.IDE.Forms {
                 //Fermeture du fichier
                 myWriter.Close();
             }
-            catch {
+            catch
+            {
             }
         }
 
         /// <summary>
         /// Enregistre les informations sur l'école de conduite
         /// </summary>
-        private void SaveInfoSchool(string FileName) {
+        private void SaveInfoSchool(string FileName)
+        {
             XDocument doc = new XDocument(new XElement("GAESchoolInfo",
                 new XAttribute("Version", "2.0"),
                 new XElement("GAESchoolInfoBlock")));
@@ -2039,10 +2173,12 @@ namespace Barette.IDE.Forms {
                 new XAttribute("TauxHorairePratique", _InfoSchool.TauxHorairePratique),
                 new XAttribute("TauxHoraireTheorie", _InfoSchool.TauxHoraireTheorie)));
 
-            try {
+            try
+            {
                 doc.Save(FileName, SaveOptions.None);
             }
-            catch {
+            catch
+            {
                 MessageBox.Show(this, "Une erreur est survenue lors de l'enregistement des Informations sur l'école de conduite", AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             };
         }
@@ -2050,23 +2186,27 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Enregistre les jours férié
         /// </summary>
-        private void SaveOffDate(string FileName) {
+        private void SaveOffDate(string FileName)
+        {
             XDocument doc = new XDocument(new XElement("GAEOffDate",
                 new XAttribute("Version", "2.0"),
                 new XElement("GAEOffDate", new XAttribute("Count", OffDateList.Count))));
 
             XElement OffDateRoot = doc.Element("GAEOffDate").Element("GAEOffDate");
 
-            foreach (OffDate offdate in OffDateList) {
+            foreach (OffDate offdate in OffDateList)
+            {
                 OffDateRoot.Add(new XElement("OffDate",
                     new XAttribute("Date", offdate.Date.ToString()),
                     new XAttribute("Description", offdate.Description)));
             }
 
-            try {
+            try
+            {
                 doc.Save(FileName, SaveOptions.None);
             }
-            catch {
+            catch
+            {
                 MessageBox.Show(this, "Une erreur est survenue lors de l'enregistement des Jour Férié.", AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             };
         }
@@ -2074,22 +2214,27 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Chargement de la liste de Postit
         /// </summary>
-        private void LoadPostIt(string FileName, PostItCollection colNotes) {
+        private void LoadPostIt(string FileName, PostItCollection colNotes)
+        {
             XDocument doc;
             colNotes.Clear();
             PostIt notes = null;
 
-            if (File.Exists(FileName)) {
+            if (File.Exists(FileName))
+            {
                 doc = XDocument.Load(FileName);
 
                 var Postits = from i in doc.Element("GEAPostIt").Element("GestionAutoEcolePostIt").Elements()
                               select i;
 
-                foreach (XElement e in Postits) {
+                foreach (XElement e in Postits)
+                {
                     notes = new PostIt();
 
-                    foreach (XAttribute at in e.Attributes()) {
-                        switch (at.Name.ToString()) {
+                    foreach (XAttribute at in e.Attributes())
+                    {
+                        switch (at.Name.ToString())
+                        {
                             case "Message":
                                 notes.Message = at.Value;
                                 break;
@@ -2116,8 +2261,10 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Chargement de la liste des employé
         /// </summary>
-        private void LoadEmploye() {
-            if (File.Exists(@"Data\employe.xml")) {
+        private void LoadEmploye()
+        {
+            if (File.Exists(@"Data\employe.xml"))
+            {
                 EmployeList.Clear();
 
                 //Creation du reader
@@ -2134,7 +2281,8 @@ namespace Barette.IDE.Forms {
                 //Chargement de la liste de client
                 XmlNode node = null;
                 Employe emp = null;
-                for (int i = 0; i < AllCode.Count; i++) {
+                for (int i = 0; i < AllCode.Count; i++)
+                {
                     emp = new Employe();
 
                     //node
@@ -2169,7 +2317,8 @@ namespace Barette.IDE.Forms {
 
                     emp.TauxHorraire = node.Attributes["TauxHorraire"].Value;
 
-                    switch (node.Attributes["TypeEmployer"].Value) {
+                    switch (node.Attributes["TypeEmployer"].Value)
+                    {
                         case "Contractuel":
                             emp.TypeEmployer = TypeEmploye.Contractuel;
                             break;
@@ -2181,7 +2330,8 @@ namespace Barette.IDE.Forms {
                             break;
                     }
 
-                    switch (node.Attributes["SituationFamiliale"].Value) {
+                    switch (node.Attributes["SituationFamiliale"].Value)
+                    {
                         case "Celibataire":
                             emp.SituationFamiliale = FamilyStatus.Celibataire;
                             break;
@@ -2207,22 +2357,27 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Chargement de la liste des jour férié
         /// </summary>
-        private void LoadOffDate(string FileName) {
+        private void LoadOffDate(string FileName)
+        {
             XDocument doc;
             OffDateList.Clear();
             OffDate Offdate = null;
 
-            if (File.Exists(FileName)) {
+            if (File.Exists(FileName))
+            {
                 doc = XDocument.Load(FileName);
 
                 var OffDates = from i in doc.Element("GAEOffDate").Element("GAEOffDate").Elements()
                                select i;
 
-                foreach (XElement e in OffDates) {
+                foreach (XElement e in OffDates)
+                {
                     Offdate = new OffDate();
 
-                    foreach (XAttribute at in e.Attributes()) {
-                        switch (at.Name.ToString()) {
+                    foreach (XAttribute at in e.Attributes())
+                    {
+                        switch (at.Name.ToString())
+                        {
                             case "Description":
                                 Offdate.Description = at.Value;
                                 break;
@@ -2240,8 +2395,10 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Chargement de la liste des groupe d'etudiant
         /// </summary>
-        private void LoadStudentGroup() {
-            if (File.Exists(@"Data\StudentGroup.xml")) {
+        private void LoadStudentGroup()
+        {
+            if (File.Exists(@"Data\StudentGroup.xml"))
+            {
                 StudentGroupList.Clear();
 
                 //Creation du reader
@@ -2257,13 +2414,15 @@ namespace Barette.IDE.Forms {
                 XmlNodeList AllCode = doc.ChildNodes.Item(0).ChildNodes.Item(0).ChildNodes;
 
                 //Chargement de la liste de client
-                foreach (XmlNode node in AllCode) {
+                foreach (XmlNode node in AllCode)
+                {
                     group = new StudentGroup();
 
                     group.GroupeNumber = Convert.ToInt32(node.Attributes["GroupeNumber"].Value);
                     group.Name = node.Attributes["Name"].Value;
 
-                    switch (node.Attributes["Type"].Value) {
+                    switch (node.Attributes["Type"].Value)
+                    {
                         case "Automobile":
                             group.Type = StudentGroup.GroupType.Automobile;
                             break;
@@ -2281,7 +2440,8 @@ namespace Barette.IDE.Forms {
                     this.StudentGroupList.Add(group);
                 }
             }
-            else {
+            else
+            {
                 this.StudentGroupList.Clear();
 
                 //Groupe par défault
@@ -2295,19 +2455,24 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Chargement des informations sur l'ecole de conduite
         /// </summary>
-        private void LoadSchoolInfo(string FileName, ref SchoolInfo infoSchool) {
+        private void LoadSchoolInfo(string FileName, ref SchoolInfo infoSchool)
+        {
             XDocument doc;
             infoSchool = new SchoolInfo();
 
-            if (File.Exists(FileName)) {
+            if (File.Exists(FileName))
+            {
                 doc = XDocument.Load(FileName);
 
                 var SchoolInfoRoot = from i in doc.Element("GAESchoolInfo").Element("GAESchoolInfoBlock").Elements()
                                      select i;
 
-                foreach (XElement e in SchoolInfoRoot) {
-                    foreach (XAttribute at in e.Attributes()) {
-                        switch (at.Name.ToString()) {
+                foreach (XElement e in SchoolInfoRoot)
+                {
+                    foreach (XAttribute at in e.Attributes())
+                    {
+                        switch (at.Name.ToString())
+                        {
                             case "City":
                                 infoSchool.City = at.Value;
                                 break;
@@ -2357,9 +2522,12 @@ namespace Barette.IDE.Forms {
                                 infoSchool.CourseStreetName = at.Value;
                                 break;
                             case "CourseStreetNumber":
-                                try{
+                                try
+                                {
                                     infoSchool.CourseStreetNumber = Convert.ToInt32(at.Value);
-                                }catch{
+                                }
+                                catch
+                                {
                                     infoSchool.CourseStreetNumber = 0;
                                 }
                                 break;
@@ -2376,7 +2544,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Confirmer l'enregistrement avant la fermeture du fichier.
         /// </summary>		
-        private void FormMain_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+        private void FormMain_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
 
 #if !DEBUG
 			DialogResult result = MessageBox.Show(this, "Voulez vous enregistrer votre travail ?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -2395,21 +2564,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre Horraire
         /// </summary>
-        private void CreationHoraire() {
+        private void CreationHoraire()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'horraire n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "HORAIRE") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "HORAIRE")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formHoraire = new FormHoraire(this.ClientList, this.OffDateList, this.EmployeList, this, this.NotesHoraire);
 
                 // Cree la page
@@ -2429,21 +2602,25 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Creation de la fenetre de Gestion des groupes d'élève
         /// </summary>
-        private void CreationGestionGroupe() {
+        private void CreationGestionGroupe()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
             bool exist = false;
 
             //Verifie que l'horraire n'est pas deja ouvert
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
-                if (page.Tag.ToString() == "GROUPEELEVE") {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "GROUPEELEVE")
+                {
                     exist = true;
                     page.Selected = true;
                 }
             }
 
             //Creation de la fenetre client si il n'existe pas
-            if (!exist) {
+            if (!exist)
+            {
                 this._formGestionGroupe = new FormGestionGroupe(this.StudentGroupList, this.ClientList, this, this.EmployeList);
 
                 // Cree la page
@@ -2463,11 +2640,13 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Vérifie que la fenetre Horraire est ouverte
         /// </summary>
-        public bool isOpenSchedule() {
+        public bool isOpenSchedule()
+        {
             // Créé un access a la premiere page page du group
             TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
 
-            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages) {
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
                 if (page.Tag.ToString() == "HORAIRE")
                     return true;
             }
@@ -2475,20 +2654,24 @@ namespace Barette.IDE.Forms {
             return false;
         }
 
-        public void UpdateClientSchedule() {
+        public void UpdateClientSchedule()
+        {
             //this._formHorraire.UpdateClientList(ClientList);
         }
 
-        private void FormMain_Load(object sender, System.EventArgs e) {
+        private void FormMain_Load(object sender, System.EventArgs e)
+        {
             CreationListClient();
         }
 
 
-        private void menuItem7_Click(object sender, System.EventArgs e) {
+        private void menuItem7_Click(object sender, System.EventArgs e)
+        {
             CreationFindClient();
         }
 
-        private void splitter1_DoubleClick(object sender, System.EventArgs e) {
+        private void splitter1_DoubleClick(object sender, System.EventArgs e)
+        {
             outLookBar.Width = 112;
             splitter1.Left = 112;
         }
@@ -2496,7 +2679,8 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Demande l'enregistrement de l'horraire avant sa fermeture
         /// </summary>		
-        private void tabGroup_PageCloseRequest(Crownwood.Magic.Controls.TabbedGroups tg, Crownwood.Magic.Controls.TGCloseRequestEventArgs e) {
+        private void tabGroup_PageCloseRequest(Crownwood.Magic.Controls.TabbedGroups tg, Crownwood.Magic.Controls.TGCloseRequestEventArgs e)
+        {
             /*if (e.TabPage.Tag.ToString() == "HORRAIRE"){
                 DialogResult result = MessageBox.Show(this, "Voulez vous enregistrer votre horraire ?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
@@ -2514,10 +2698,14 @@ namespace Barette.IDE.Forms {
 
         }
 
-        private void PostItAlertTimer_Tick(object sender, EventArgs e) {
-            for (int i = 0; i < PostItList.Count; i++) {
-                if (PostItList[i].Alerte == true) {
-                    if (PostItList[i].AlerteDateTime.ToString() == DateTime.Now.ToString()) {
+        private void PostItAlertTimer_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < PostItList.Count; i++)
+            {
+                if (PostItList[i].Alerte == true)
+                {
+                    if (PostItList[i].AlerteDateTime.ToString() == DateTime.Now.ToString())
+                    {
                         ShowAlert(PostItList[i]);
                         break;
                     }
@@ -2525,7 +2713,8 @@ namespace Barette.IDE.Forms {
             }
         }
 
-        private void ShowAlert(PostIt notes) {
+        private void ShowAlert(PostIt notes)
+        {
             AlertForm alert = new AlertForm(notes);
             alert.ShowDialog(this);
 
@@ -2536,89 +2725,111 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Recoie la liste de client (Read-Only))
         /// </summary>
-        public CustomerCollection GetClientsList {
-            get {
+        public CustomerCollection GetClientsList
+        {
+            get
+            {
                 return this.ClientList;
             }
         }
 
 
-        private void tsmnuItem_Click(object sender, EventArgs e) {
+        private void tsmnuItem_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 
-        private void tsmnuEnregistrer_Click(object sender, EventArgs e) {
+        private void tsmnuEnregistrer_Click(object sender, EventArgs e)
+        {
             SaveAll();
         }
 
-        private void tsmnuOpen_Click(object sender, EventArgs e) {
+        private void tsmnuOpen_Click(object sender, EventArgs e)
+        {
             OpenAll();
         }
 
-        private void tsmnuModuleClient_Click(object sender, EventArgs e) {
+        private void tsmnuModuleClient_Click(object sender, EventArgs e)
+        {
             CreationListClient();
         }
 
-        private void tsmnuModuleEmployer_Click(object sender, EventArgs e) {
+        private void tsmnuModuleEmployer_Click(object sender, EventArgs e)
+        {
             CreationEmploye();
         }
 
-        private void tsmnuModuleFinance_Click(object sender, EventArgs e) {
+        private void tsmnuModuleFinance_Click(object sender, EventArgs e)
+        {
             CreationFinance();
         }
 
-        private void tsmnuModuleHoraire_Click(object sender, EventArgs e) {
+        private void tsmnuModuleHoraire_Click(object sender, EventArgs e)
+        {
             CreationHoraire();
         }
 
-        private void tsmnuModuleGroupe_Click(object sender, EventArgs e) {
+        private void tsmnuModuleGroupe_Click(object sender, EventArgs e)
+        {
             CreationGestionGroupe();
         }
 
-        private void tsmnuModuleSuivie_Click(object sender, EventArgs e) {
+        private void tsmnuModuleSuivie_Click(object sender, EventArgs e)
+        {
             CreationSuivie();
         }
 
-        private void tsmnuModuleStatistiques_Click(object sender, EventArgs e) {
+        private void tsmnuModuleStatistiques_Click(object sender, EventArgs e)
+        {
             CreationStats();
         }
 
-        private void tsmnuModuleNotes_Click(object sender, EventArgs e) {
+        private void tsmnuModuleNotes_Click(object sender, EventArgs e)
+        {
             CreationPostIt();
         }
 
-        private void tsmnuModuleFind_Click(object sender, EventArgs e) {
+        private void tsmnuModuleFind_Click(object sender, EventArgs e)
+        {
             CreationFindClient();
         }
 
-        private void tsmnuToolCodes_Click(object sender, EventArgs e) {
+        private void tsmnuToolCodes_Click(object sender, EventArgs e)
+        {
             new Barette.Library.Forms.FormSeanceCode(AppConfig).ShowDialog(this);
         }
 
-        private void tsmnuOffDate_Click(object sender, EventArgs e) {
+        private void tsmnuOffDate_Click(object sender, EventArgs e)
+        {
             new FormJourFerier(this.OffDateList, AppConfig).ShowDialog(this);
         }
 
-        private void tsmnuSchoolInfo_Click(object sender, EventArgs e) {
+        private void tsmnuSchoolInfo_Click(object sender, EventArgs e)
+        {
             new FormInfoEcole(this._InfoSchool, false, AppConfig).ShowDialog(this);
         }
 
-        private void tsmnuBackup_Click(object sender, EventArgs e) {
-            if (folderDialogBackup.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
-                try {
+        private void tsmnuBackup_Click(object sender, EventArgs e)
+        {
+            if (folderDialogBackup.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
                     Cursor.Current = Cursors.WaitCursor;
                     GAEBackup.CompressFolder(Application.StartupPath + @"\data", folderDialogBackup.SelectedPath + @"\GAE2010 " + DateTime.Now.ToShortDateString() + ".gaec", TauxCompression.Maximum, true);
                     Cursor.Current = Cursors.Default;
 
                     MessageBox.Show(this, "La copie de sauvegarde c'est effectué avec succès !", AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch {
+                catch
+                {
                     MessageBox.Show(this, "Une erreur est survenue la de la mise en place de votre copie de sauvegarde. \n\n Veuillez réessayer de nouveau. Si cette erreur persiste. Veuillez communiquez avec le concepteur de votre logiciel.", AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void tsmnuViewModuleBar_Click(object sender, EventArgs e) {
+        private void tsmnuViewModuleBar_Click(object sender, EventArgs e)
+        {
             tsmnuViewModuleBar.Checked = !tsmnuViewModuleBar.Checked;
             this._AppConfig.ShowOutlookBar = tsmnuViewModuleBar.Checked;
 
@@ -2626,7 +2837,8 @@ namespace Barette.IDE.Forms {
 
         }
 
-        private void tsmnuViewCoursFinish_Click(object sender, EventArgs e) {
+        private void tsmnuViewCoursFinish_Click(object sender, EventArgs e)
+        {
             tsmnuViewCoursFinish.Checked = !tsmnuViewCoursFinish.Checked;
 
             this._AppConfig.ShowGestionClient_CoursFinish = tsmnuViewCoursFinish.Checked;
@@ -2636,7 +2848,8 @@ namespace Barette.IDE.Forms {
 
         }
 
-        private void tsmnuViewTypeCours_Click(object sender, EventArgs e) {
+        private void tsmnuViewTypeCours_Click(object sender, EventArgs e)
+        {
             tsmnuViewTypeCours.Checked = !tsmnuViewTypeCours.Checked;
 
             this._AppConfig.ShowGestionClient_Groupe = tsmnuViewTypeCours.Checked;
@@ -2646,33 +2859,39 @@ namespace Barette.IDE.Forms {
 
         }
 
-        private void tsmnuExport_Click(object sender, EventArgs e) {
+        private void tsmnuExport_Click(object sender, EventArgs e)
+        {
             new FormExport(ClientList, AppConfig).ShowDialog(this);
         }
 
-        private void FormMain_FormClosed(object sender, FormClosedEventArgs e) {
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.Dispose();
         }
 
-        private void tsmnuAddCustomer_Click(object sender, EventArgs e) {
+        private void tsmnuAddCustomer_Click(object sender, EventArgs e)
+        {
             new FormAjoutClient(this._formClients, this._InfoSchool, this._AppConfig).ShowDialog(this);
         }
 
-        private void tsmnuImport_Click(object sender, EventArgs e) {
+        private void tsmnuImport_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void tsmnuImportBackup_Click(object sender, EventArgs e) {
+        private void tsmnuImportBackup_Click(object sender, EventArgs e)
+        {
             openFileDialogImport.ShowDialog(this);
             string filename = openFileDialogImport.FileName;
 
-            if (File.Exists(filename)) {
+            if (File.Exists(filename))
+            {
                 this.Cursor = Cursors.WaitCursor;
 
                 if (MessageBox.Show(this, "Votre configuration actuelle sera remplacée par celle du fichier de sauvegarde sélectionné. Si vous continué, il ne sera pas possible de faire marche arrière. Voulez-vous vraiment continué ?", this.AppConfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     if (GAEBackup.UnCompressFile(filename, Application.StartupPath + @"\Data", true))
                         OpenAll();
-               
+
                 this.Cursor = Cursors.Default;
             }
         }

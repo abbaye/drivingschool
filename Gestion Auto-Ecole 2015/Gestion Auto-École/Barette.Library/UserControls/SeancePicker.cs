@@ -14,6 +14,7 @@ using Barette.Library.Collections;
 
 namespace Barette.Library.UserControls {
 	public partial class SeancePicker : UserControl {
+
 		public SeancePicker() {
 			InitializeComponent();
 
@@ -94,6 +95,13 @@ namespace Barette.Library.UserControls {
 
 		}
 
+        [DefaultValue(0)]
+        public int AutoAddEndCoursHours { 
+            get;
+            
+            set;
+        }
+
 		public bool Checked {
 			get {
 				return lblSceanceNumber.Checked;
@@ -157,6 +165,7 @@ namespace Barette.Library.UserControls {
 			lstEmploye.Enabled = lblSceanceNumber.Checked;
 			cbAbsence.Enabled = lblSceanceNumber.Checked;
 			ctbMontantCours.Enabled = lblSceanceNumber.Checked;
+            cmdUpdateTime.Enabled = lblSceanceNumber.Checked;
 
             
 		}
@@ -224,5 +233,20 @@ namespace Barette.Library.UserControls {
 				cbAbsence.ForeColor = SystemColors.ControlText;
 			}
 		}
+
+        private void DateSceance_ValueChanged(object sender, EventArgs e)
+        {
+            AutoUpdateTime();
+        }
+
+        public void AutoUpdateTime()
+        {
+            DateModifiedPicker.Value = DateSceance.Value.AddHours(AutoAddEndCoursHours);
+        }
+
+        private void cmdUpdateTime_Click(object sender, EventArgs e)
+        {
+            AutoUpdateTime();
+        }
 	}
 }

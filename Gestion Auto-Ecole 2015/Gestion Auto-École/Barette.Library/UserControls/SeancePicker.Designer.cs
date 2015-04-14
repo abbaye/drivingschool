@@ -30,6 +30,7 @@
             this.DateModifiedPicker = new System.Windows.Forms.DateTimePicker();
             this.cbAbsence = new System.Windows.Forms.CheckBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmdUpdateTime = new System.Windows.Forms.Button();
             this.ctbMontantCours = new Barette.Library.UserControls.CashTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +44,7 @@
             this.DateSceance.Name = "DateSceance";
             this.DateSceance.Size = new System.Drawing.Size(180, 20);
             this.DateSceance.TabIndex = 0;
+            this.DateSceance.ValueChanged += new System.EventHandler(this.DateSceance_ValueChanged);
             // 
             // lstEmploye
             // 
@@ -103,6 +105,17 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // cmdUpdateTime
+            // 
+            this.cmdUpdateTime.Enabled = false;
+            this.cmdUpdateTime.Image = global::Barette.Library.Properties.Resources.datetime;
+            this.cmdUpdateTime.Location = new System.Drawing.Point(363, 2);
+            this.cmdUpdateTime.Name = "cmdUpdateTime";
+            this.cmdUpdateTime.Size = new System.Drawing.Size(28, 22);
+            this.cmdUpdateTime.TabIndex = 11;
+            this.cmdUpdateTime.UseVisualStyleBackColor = true;
+            this.cmdUpdateTime.Click += new System.EventHandler(this.cmdUpdateTime_Click);
+            // 
             // ctbMontantCours
             // 
             this.ctbMontantCours.Enabled = false;
@@ -113,6 +126,7 @@
             // 
             // SeancePicker
             // 
+            this.Controls.Add(this.cmdUpdateTime);
             this.Controls.Add(this.ctbMontantCours);
             this.Controls.Add(this.cbAbsence);
             this.Controls.Add(this.DateModifiedPicker);
@@ -139,5 +153,6 @@
 		private System.Windows.Forms.CheckBox cbAbsence;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
 		private CashTextBox ctbMontantCours;
+        private System.Windows.Forms.Button cmdUpdateTime;
 	}
 }
