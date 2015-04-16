@@ -150,6 +150,9 @@ namespace Barette.Library.UserControls.Client {
         private ComboCityPicker cbCity;
         private Button cmdShowSeancesMoto2015;
         private PrintDocument printDocMoto2015;
+        private GroupBox gbProgramMoto;
+        private RadioButton rbProgramMoto2015;
+        private RadioButton rbProgramMotoNormal;
         private System.Windows.Forms.CheckBox cbBVA;
 
         public ClientControl(SchoolInfo info) {
@@ -208,7 +211,6 @@ namespace Barette.Library.UserControls.Client {
             this.label21 = new System.Windows.Forms.Label();
             this.txtPhoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.txtCodePostal = new System.Windows.Forms.MaskedTextBox();
-            this.txtAdressNumber = new UtilityLibrary.WinControls.NumericTextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtAdressApp = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -233,7 +235,6 @@ namespace Barette.Library.UserControls.Client {
             this.label13 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.dbRecuNumber = new UtilityLibrary.WinControls.NumericTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -249,6 +250,7 @@ namespace Barette.Library.UserControls.Client {
             this.cmdAutoDateExpiration = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.cmdClearbox = new System.Windows.Forms.Button();
+            this.cmdShowSeancesMoto2015 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtpBVA = new System.Windows.Forms.DateTimePicker();
             this.cbMoto = new System.Windows.Forms.CheckBox();
@@ -267,17 +269,21 @@ namespace Barette.Library.UserControls.Client {
             this.label23 = new System.Windows.Forms.Label();
             this.DateDebutCours = new System.Windows.Forms.DateTimePicker();
             this.printDocContract = new System.Drawing.Printing.PrintDocument();
-            this.txtNumeroAttestation = new UtilityLibrary.WinControls.NumericTextBox();
-            this.txtNumeroContrat = new UtilityLibrary.WinControls.NumericTextBox();
-            this.txtNumeroAttestation2 = new UtilityLibrary.WinControls.NumericTextBox();
             this.dtpAttestation2 = new System.Windows.Forms.DateTimePicker();
             this.dtpAttestation1 = new System.Windows.Forms.DateTimePicker();
             this.printDocTheorique = new System.Drawing.Printing.PrintDocument();
-            this.txtNumeroGroupe = new UtilityLibrary.WinControls.NumericTextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.EmailError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmdShowSeancesMoto2015 = new System.Windows.Forms.Button();
             this.printDocMoto2015 = new System.Drawing.Printing.PrintDocument();
+            this.gbProgramMoto = new System.Windows.Forms.GroupBox();
+            this.rbProgramMoto2015 = new System.Windows.Forms.RadioButton();
+            this.rbProgramMotoNormal = new System.Windows.Forms.RadioButton();
+            this.txtNumeroGroupe = new UtilityLibrary.WinControls.NumericTextBox();
+            this.txtNumeroAttestation2 = new UtilityLibrary.WinControls.NumericTextBox();
+            this.txtNumeroContrat = new UtilityLibrary.WinControls.NumericTextBox();
+            this.txtNumeroAttestation = new UtilityLibrary.WinControls.NumericTextBox();
+            this.dbRecuNumber = new UtilityLibrary.WinControls.NumericTextBox();
+            this.txtAdressNumber = new UtilityLibrary.WinControls.NumericTextBox();
             this.ctbTauxHorairePratique = new Barette.Library.UserControls.CashTextBox();
             this.ctbTauxHoraireTheorique = new Barette.Library.UserControls.CashTextBox();
             this.ctbLocationMontant = new Barette.Library.UserControls.CashTextBox();
@@ -297,6 +303,7 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmailError)).BeginInit();
+            this.gbProgramMoto.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -417,7 +424,7 @@ namespace Barette.Library.UserControls.Client {
             this.gbCoursType.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.gbCoursType.Location = new System.Drawing.Point(0, 442);
             this.gbCoursType.Name = "gbCoursType";
-            this.gbCoursType.Size = new System.Drawing.Size(195, 88);
+            this.gbCoursType.Size = new System.Drawing.Size(183, 88);
             this.gbCoursType.TabIndex = 12;
             this.gbCoursType.TabStop = false;
             this.gbCoursType.Text = "Type de véhicule";
@@ -437,7 +444,7 @@ namespace Barette.Library.UserControls.Client {
             this.txtN6R.Enabled = false;
             this.txtN6R.Location = new System.Drawing.Point(48, 64);
             this.txtN6R.Name = "txtN6R";
-            this.txtN6R.Size = new System.Drawing.Size(139, 20);
+            this.txtN6R.Size = new System.Drawing.Size(122, 20);
             this.txtN6R.TabIndex = 5;
             // 
             // rbVehiculMotocyclette
@@ -578,18 +585,6 @@ namespace Barette.Library.UserControls.Client {
             this.txtCodePostal.TabIndex = 7;
             this.txtCodePostal.Enter += new System.EventHandler(this.txtCodePostal_Enter);
             this.txtCodePostal.Leave += new System.EventHandler(this.txtCodePostal_Leave);
-            // 
-            // txtAdressNumber
-            // 
-            this.txtAdressNumber.Location = new System.Drawing.Point(155, 51);
-            this.txtAdressNumber.Name = "txtAdressNumber";
-            this.txtAdressNumber.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtAdressNumber.ShortcutsEnabled = false;
-            this.txtAdressNumber.Size = new System.Drawing.Size(54, 20);
-            this.txtAdressNumber.TabIndex = 3;
-            this.txtAdressNumber.Text = "0";
-            this.txtAdressNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtAdressNumber.Value = 0;
             // 
             // pictureBox2
             // 
@@ -752,10 +747,10 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox5.Controls.Add(this.rbTypeClientFinish);
             this.groupBox5.Controls.Add(this.rbTypeClientActif);
             this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox5.Location = new System.Drawing.Point(201, 442);
+            this.groupBox5.Location = new System.Drawing.Point(190, 442);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(111, 88);
+            this.groupBox5.Size = new System.Drawing.Size(93, 88);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "États du client";
@@ -769,6 +764,7 @@ namespace Barette.Library.UserControls.Client {
             this.rbTypeClientFinish.Size = new System.Drawing.Size(95, 18);
             this.rbTypeClientFinish.TabIndex = 2;
             this.rbTypeClientFinish.Text = "Cours terminé";
+            this.rbTypeClientFinish.CheckedChanged += new System.EventHandler(this.rbTypeClientFinish_CheckedChanged);
             // 
             // rbTypeClientActif
             // 
@@ -821,18 +817,6 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox7.TabIndex = 9;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Information sur le solde";
-            // 
-            // dbRecuNumber
-            // 
-            this.dbRecuNumber.Location = new System.Drawing.Point(154, 47);
-            this.dbRecuNumber.Name = "dbRecuNumber";
-            this.dbRecuNumber.SetRange = new System.Drawing.Size(0, 9999999);
-            this.dbRecuNumber.ShortcutsEnabled = false;
-            this.dbRecuNumber.Size = new System.Drawing.Size(64, 20);
-            this.dbRecuNumber.TabIndex = 2;
-            this.dbRecuNumber.Text = "0";
-            this.dbRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.dbRecuNumber.Value = 0;
             // 
             // button1
             // 
@@ -987,6 +971,21 @@ namespace Barette.Library.UserControls.Client {
             this.cmdClearbox.UseVisualStyleBackColor = true;
             this.cmdClearbox.Click += new System.EventHandler(this.cmdClearbox_Click);
             // 
+            // cmdShowSeancesMoto2015
+            // 
+            this.cmdShowSeancesMoto2015.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.cmdShowSeancesMoto2015.Image = global::Barette.Library.Properties.Resources.book_icon;
+            this.cmdShowSeancesMoto2015.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdShowSeancesMoto2015.Location = new System.Drawing.Point(534, 353);
+            this.cmdShowSeancesMoto2015.Name = "cmdShowSeancesMoto2015";
+            this.cmdShowSeancesMoto2015.Size = new System.Drawing.Size(104, 88);
+            this.cmdShowSeancesMoto2015.TabIndex = 57;
+            this.cmdShowSeancesMoto2015.TabStop = false;
+            this.cmdShowSeancesMoto2015.Text = "Séances ";
+            this.cmdShowSeancesMoto2015.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.toolTipText.SetToolTip(this.cmdShowSeancesMoto2015, "Afficher les séances");
+            this.cmdShowSeancesMoto2015.Click += new System.EventHandler(this.cmdShowSeancesMoto2015_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dtpBVA);
@@ -996,28 +995,28 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.ctbLocationMontant);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox3.Location = new System.Drawing.Point(318, 442);
+            this.groupBox3.Location = new System.Drawing.Point(289, 444);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(319, 88);
+            this.groupBox3.Size = new System.Drawing.Size(265, 88);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Location";
             // 
             // dtpBVA
             // 
-            this.dtpBVA.CustomFormat = "ddd yyyy/MM/dd \'      Heure:\' HH:mm";
+            this.dtpBVA.CustomFormat = "ddd yyyy/MM/dd \'  Heure:\' HH:mm";
             this.dtpBVA.Enabled = false;
             this.dtpBVA.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBVA.Location = new System.Drawing.Point(63, 23);
+            this.dtpBVA.Location = new System.Drawing.Point(56, 23);
             this.dtpBVA.Name = "dtpBVA";
-            this.dtpBVA.Size = new System.Drawing.Size(231, 20);
+            this.dtpBVA.Size = new System.Drawing.Size(199, 20);
             this.dtpBVA.TabIndex = 2;
             // 
             // cbMoto
             // 
             this.cbMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbMoto.Location = new System.Drawing.Point(246, 51);
+            this.cbMoto.Location = new System.Drawing.Point(209, 52);
             this.cbMoto.Name = "cbMoto";
             this.cbMoto.Size = new System.Drawing.Size(48, 24);
             this.cbMoto.TabIndex = 5;
@@ -1026,11 +1025,12 @@ namespace Barette.Library.UserControls.Client {
             // cbAuto
             // 
             this.cbAuto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbAuto.Location = new System.Drawing.Point(160, 51);
+            this.cbAuto.Location = new System.Drawing.Point(130, 52);
             this.cbAuto.Name = "cbAuto";
             this.cbAuto.Size = new System.Drawing.Size(80, 24);
             this.cbAuto.TabIndex = 4;
             this.cbAuto.Text = "Automobile";
+            this.cbAuto.CheckedChanged += new System.EventHandler(this.cbAuto_CheckedChanged);
             // 
             // label16
             // 
@@ -1161,45 +1161,6 @@ namespace Barette.Library.UserControls.Client {
             this.printDocContract.DocumentName = "Contrat du client";
             this.printDocContract.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocContract_PrintPage);
             // 
-            // txtNumeroAttestation
-            // 
-            this.txtNumeroAttestation.Location = new System.Drawing.Point(103, 34);
-            this.txtNumeroAttestation.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.txtNumeroAttestation.Name = "txtNumeroAttestation";
-            this.txtNumeroAttestation.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtNumeroAttestation.ShortcutsEnabled = false;
-            this.txtNumeroAttestation.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroAttestation.TabIndex = 2;
-            this.txtNumeroAttestation.Text = "0";
-            this.txtNumeroAttestation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNumeroAttestation.Value = 0;
-            // 
-            // txtNumeroContrat
-            // 
-            this.txtNumeroContrat.Location = new System.Drawing.Point(103, 9);
-            this.txtNumeroContrat.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.txtNumeroContrat.Name = "txtNumeroContrat";
-            this.txtNumeroContrat.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtNumeroContrat.ShortcutsEnabled = false;
-            this.txtNumeroContrat.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroContrat.TabIndex = 1;
-            this.txtNumeroContrat.Text = "0";
-            this.txtNumeroContrat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNumeroContrat.Value = 0;
-            // 
-            // txtNumeroAttestation2
-            // 
-            this.txtNumeroAttestation2.Location = new System.Drawing.Point(103, 58);
-            this.txtNumeroAttestation2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.txtNumeroAttestation2.Name = "txtNumeroAttestation2";
-            this.txtNumeroAttestation2.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtNumeroAttestation2.ShortcutsEnabled = false;
-            this.txtNumeroAttestation2.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroAttestation2.TabIndex = 50;
-            this.txtNumeroAttestation2.Text = "0";
-            this.txtNumeroAttestation2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNumeroAttestation2.Value = 0;
-            // 
             // dtpAttestation2
             // 
             this.dtpAttestation2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -1224,19 +1185,6 @@ namespace Barette.Library.UserControls.Client {
             this.printDocTheorique.OriginAtMargins = true;
             this.printDocTheorique.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocTheorique_PrintPage);
             // 
-            // txtNumeroGroupe
-            // 
-            this.txtNumeroGroupe.Enabled = false;
-            this.txtNumeroGroupe.Location = new System.Drawing.Point(103, 82);
-            this.txtNumeroGroupe.Name = "txtNumeroGroupe";
-            this.txtNumeroGroupe.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtNumeroGroupe.ShortcutsEnabled = false;
-            this.txtNumeroGroupe.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroGroupe.TabIndex = 54;
-            this.txtNumeroGroupe.Text = "0";
-            this.txtNumeroGroupe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNumeroGroupe.Value = 0;
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -1250,26 +1198,123 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.EmailError.ContainerControl = this;
             // 
-            // cmdShowSeancesMoto2015
-            // 
-            this.cmdShowSeancesMoto2015.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.cmdShowSeancesMoto2015.Image = global::Barette.Library.Properties.Resources.book_icon;
-            this.cmdShowSeancesMoto2015.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdShowSeancesMoto2015.Location = new System.Drawing.Point(534, 353);
-            this.cmdShowSeancesMoto2015.Name = "cmdShowSeancesMoto2015";
-            this.cmdShowSeancesMoto2015.Size = new System.Drawing.Size(104, 88);
-            this.cmdShowSeancesMoto2015.TabIndex = 57;
-            this.cmdShowSeancesMoto2015.TabStop = false;
-            this.cmdShowSeancesMoto2015.Text = "Séances ";
-            this.cmdShowSeancesMoto2015.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTipText.SetToolTip(this.cmdShowSeancesMoto2015, "Afficher les séances");
-            this.cmdShowSeancesMoto2015.Click += new System.EventHandler(this.cmdShowSeancesMoto2015_Click);
-            // 
             // printDocMoto2015
             // 
             this.printDocMoto2015.DocumentName = "Fichier du client";
             this.printDocMoto2015.OriginAtMargins = true;
             this.printDocMoto2015.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocMoto2015_PrintPage);
+            // 
+            // gbProgramMoto
+            // 
+            this.gbProgramMoto.Controls.Add(this.rbProgramMoto2015);
+            this.gbProgramMoto.Controls.Add(this.rbProgramMotoNormal);
+            this.gbProgramMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.gbProgramMoto.Location = new System.Drawing.Point(560, 445);
+            this.gbProgramMoto.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            this.gbProgramMoto.Name = "gbProgramMoto";
+            this.gbProgramMoto.Size = new System.Drawing.Size(80, 88);
+            this.gbProgramMoto.TabIndex = 58;
+            this.gbProgramMoto.TabStop = false;
+            this.gbProgramMoto.Text = "Moto Program";
+            // 
+            // rbProgramMoto2015
+            // 
+            this.rbProgramMoto2015.AutoSize = true;
+            this.rbProgramMoto2015.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbProgramMoto2015.Location = new System.Drawing.Point(6, 54);
+            this.rbProgramMoto2015.Name = "rbProgramMoto2015";
+            this.rbProgramMoto2015.Size = new System.Drawing.Size(75, 18);
+            this.rbProgramMoto2015.TabIndex = 2;
+            this.rbProgramMoto2015.Text = "Nouveau";
+            this.rbProgramMoto2015.CheckedChanged += new System.EventHandler(this.rbProgramMoto2015_CheckedChanged);
+            // 
+            // rbProgramMotoNormal
+            // 
+            this.rbProgramMotoNormal.Checked = true;
+            this.rbProgramMotoNormal.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbProgramMotoNormal.Location = new System.Drawing.Point(6, 27);
+            this.rbProgramMotoNormal.Name = "rbProgramMotoNormal";
+            this.rbProgramMotoNormal.Size = new System.Drawing.Size(69, 21);
+            this.rbProgramMotoNormal.TabIndex = 1;
+            this.rbProgramMotoNormal.TabStop = true;
+            this.rbProgramMotoNormal.Text = "Ancien";
+            this.rbProgramMotoNormal.CheckedChanged += new System.EventHandler(this.rbProgramMotoNormal_CheckedChanged);
+            // 
+            // txtNumeroGroupe
+            // 
+            this.txtNumeroGroupe.Enabled = false;
+            this.txtNumeroGroupe.Location = new System.Drawing.Point(103, 82);
+            this.txtNumeroGroupe.Name = "txtNumeroGroupe";
+            this.txtNumeroGroupe.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtNumeroGroupe.ShortcutsEnabled = false;
+            this.txtNumeroGroupe.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroGroupe.TabIndex = 54;
+            this.txtNumeroGroupe.Text = "0";
+            this.txtNumeroGroupe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNumeroGroupe.Value = 0;
+            // 
+            // txtNumeroAttestation2
+            // 
+            this.txtNumeroAttestation2.Location = new System.Drawing.Point(103, 58);
+            this.txtNumeroAttestation2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.txtNumeroAttestation2.Name = "txtNumeroAttestation2";
+            this.txtNumeroAttestation2.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtNumeroAttestation2.ShortcutsEnabled = false;
+            this.txtNumeroAttestation2.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroAttestation2.TabIndex = 50;
+            this.txtNumeroAttestation2.Text = "0";
+            this.txtNumeroAttestation2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNumeroAttestation2.Value = 0;
+            // 
+            // txtNumeroContrat
+            // 
+            this.txtNumeroContrat.Location = new System.Drawing.Point(103, 9);
+            this.txtNumeroContrat.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.txtNumeroContrat.Name = "txtNumeroContrat";
+            this.txtNumeroContrat.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtNumeroContrat.ShortcutsEnabled = false;
+            this.txtNumeroContrat.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroContrat.TabIndex = 1;
+            this.txtNumeroContrat.Text = "0";
+            this.txtNumeroContrat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNumeroContrat.Value = 0;
+            // 
+            // txtNumeroAttestation
+            // 
+            this.txtNumeroAttestation.Location = new System.Drawing.Point(103, 34);
+            this.txtNumeroAttestation.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.txtNumeroAttestation.Name = "txtNumeroAttestation";
+            this.txtNumeroAttestation.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtNumeroAttestation.ShortcutsEnabled = false;
+            this.txtNumeroAttestation.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroAttestation.TabIndex = 2;
+            this.txtNumeroAttestation.Text = "0";
+            this.txtNumeroAttestation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNumeroAttestation.Value = 0;
+            // 
+            // dbRecuNumber
+            // 
+            this.dbRecuNumber.Location = new System.Drawing.Point(154, 47);
+            this.dbRecuNumber.Name = "dbRecuNumber";
+            this.dbRecuNumber.SetRange = new System.Drawing.Size(0, 9999999);
+            this.dbRecuNumber.ShortcutsEnabled = false;
+            this.dbRecuNumber.Size = new System.Drawing.Size(64, 20);
+            this.dbRecuNumber.TabIndex = 2;
+            this.dbRecuNumber.Text = "0";
+            this.dbRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.dbRecuNumber.Value = 0;
+            // 
+            // txtAdressNumber
+            // 
+            this.txtAdressNumber.Location = new System.Drawing.Point(155, 51);
+            this.txtAdressNumber.Name = "txtAdressNumber";
+            this.txtAdressNumber.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtAdressNumber.ShortcutsEnabled = false;
+            this.txtAdressNumber.Size = new System.Drawing.Size(54, 20);
+            this.txtAdressNumber.TabIndex = 3;
+            this.txtAdressNumber.Text = "0";
+            this.txtAdressNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAdressNumber.Value = 0;
             // 
             // ctbTauxHorairePratique
             // 
@@ -1298,7 +1343,7 @@ namespace Barette.Library.UserControls.Client {
             // ctbLocationMontant
             // 
             this.ctbLocationMontant.BackColor = System.Drawing.SystemColors.Window;
-            this.ctbLocationMontant.Location = new System.Drawing.Point(63, 56);
+            this.ctbLocationMontant.Location = new System.Drawing.Point(56, 56);
             this.ctbLocationMontant.Name = "ctbLocationMontant";
             this.ctbLocationMontant.Size = new System.Drawing.Size(54, 20);
             this.ctbLocationMontant.TabIndex = 3;
@@ -1333,6 +1378,1199 @@ namespace Barette.Library.UserControls.Client {
             // cbCity
             // 
             this.cbCity.AutoCompleteCustomSource.AddRange(new string[] {
+            "",
+            "Abercorn",
+            "Acton Vale",
+            "Adstock",
+            "Aguanish",
+            "Akulivik",
+            "Akwesasne",
+            "Albanel",
+            "Albertville",
+            "Alleyn-et-Cawood",
+            "Alma",
+            "Amherst",
+            "Amos",
+            "Amqui",
+            "Ange-Gardien",
+            "Angliers",
+            "Armagh",
+            "Arundel",
+            "Asbestos",
+            "Ascot Corner",
+            "Aston-Jonction",
+            "Auclair",
+            "Audet",
+            "Aumond",
+            "Aupaluk",
+            "Austin",
+            "Authier",
+            "Authier-Nord",
+            "Ayer\'s Cliff",
+            "Baie-Comeau",
+            "Baie-de-la-Bouteille",
+            "Baie-des-Sables",
+            "Baie-du-Febvre",
+            "Baie-D\'Urfé",
+            "Baie-James",
+            "Baie-Johan-Beetz",
+            "Baie-Sainte-Catherine",
+            "Baie-Saint-Paul",
+            "Baie-Trinité",
+            "Barkmere",
+            "Barnston-Ouest",
+            "Barraute",
+            "Batiscan",
+            "Beaconsfield",
+            "Béarn",
+            "Beauceville",
+            "Beauharnois",
+            "Beaulac-Garthby",
+            "Beaumont",
+            "Beaupré",
+            "Bécancour",
+            "Bedford",
+            "Bégin",
+            "Belcourt",
+            "Belleterre",
+            "Beloeil",
+            "Berry",
+            "Berthier-sur-Mer",
+            "Berthierville",
+            "Béthanie",
+            "Betsiamites",
+            "Biencourt",
+            "Blainville",
+            "Blanc-Sablon",
+            "Blue Sea",
+            "Boileau",
+            "Boisbriand",
+            "Boischatel",
+            "Bois-des-Filion",
+            "Bois-Franc",
+            "Bolton-Est",
+            "Bolton-Ouest",
+            "Bonaventure",
+            "Bonne-Espérance",
+            "Bonsecours",
+            "Boucherville",
+            "Bouchette",
+            "Bowman",
+            "Brébeuf",
+            "Brigham",
+            "Bristol",
+            "Brome",
+            "Bromont",
+            "Brossard",
+            "Brownsburg-Chatham",
+            "Bryson",
+            "Bury",
+            "Cabano",
+            "Cacouna",
+            "Calixa-Lavallée",
+            "Campbell\'s Bay",
+            "Candiac",
+            "Cantley",
+            "Canton-Tremblay",
+            "Cap-Chat",
+            "Caplan",
+            "Cap-Saint-Ignace",
+            "Cap-Santé",
+            "Carignan",
+            "Carleton-sur-Mer",
+            "Cascapédia–Saint-Jules",
+            "Causapscal",
+            "Cayamant",
+            "Chambly",
+            "Chambord",
+            "Champlain",
+            "Champneuf",
+            "Chandler",
+            "Chapais",
+            "Charlemagne",
+            "Charrette",
+            "Chartierville",
+            "Châteauguay",
+            "Château-Richer",
+            "Chazel",
+            "Chelsea",
+            "Chénéville",
+            "Chertsey",
+            "Chester-Est",
+            "Chesterville",
+            "Chibougamau",
+            "Chichester",
+            "Chicoutimi",
+            "Chicoutimi-Nord",
+            "Chisasibi",
+            "Chute-aux-Outardes",
+            "Chute-Des-Passes",
+            "Chute-Saint-Philippe",
+            "Clarendon",
+            "Clermont",
+            "Clermont",
+            "Clerval",
+            "Cleveland",
+            "Cloridorme",
+            "Coaticook",
+            "Colombier",
+            "Compton",
+            "Contrecoeur",
+            "Cookshire-Eaton",
+            "Coteau-du-Lac",
+            "Côte-Nord-du-Golfe-du-Saint-Laurent",
+            "Côte-Saint-Luc",
+            "Courcelles",
+            "Cowansville",
+            "Crabtree",
+            "Danville",
+            "Daveluyville",
+            "Dégelis",
+            "Déléage",
+            "Delson",
+            "Denholm",
+            "Desbiens",
+            "Deschaillons-sur-Saint-Laurent",
+            "Deschambault-Grondines",
+            "Deux-Montagnes",
+            "Disraeli",
+            "Dixville",
+            "Dolbeau",
+            "Dollard-Des Ormeaux",
+            "Doncaster",
+            "Donnacona",
+            "Dorval",
+            "Dosquet",
+            "Drummondville",
+            "Dudswell",
+            "Duhamel",
+            "Duhamel-Ouest",
+            "Dundee",
+            "Dunham",
+            "Duparquet",
+            "Dupuy",
+            "Durham-Sud",
+            "East Angus",
+            "East Broughton",
+            "East Farnham",
+            "East Hereford",
+            "Eastmain",
+            "Eastman",
+            "Egan-Sud",
+            "Elgin",
+            "Entrelacs",
+            "Escuminac",
+            "Esprit-Saint",
+            "Essipit",
+            "Estérel",
+            "Farnham",
+            "Fassett",
+            "Ferland-et-Boilleau",
+            "Ferme-Neuve",
+            "Fermont",
+            "Forestville",
+            "Fort-Coulonge",
+            "Fortierville",
+            "Fossambault-sur-le-Lac",
+            "Frampton",
+            "Franklin",
+            "Franquelin",
+            "Frelighsburg",
+            "Frontenac",
+            "Fugèreville",
+            "Gallichan",
+            "Gaspé",
+            "Gatineau",
+            "Gesgapegiag",
+            "Girardville",
+            "Godbout",
+            "Godmanchester",
+            "Gore",
+            "Gracefield",
+            "Granby",
+            "Grand-Calumet",
+            "Grande-Rivière",
+            "Grandes-Piles",
+            "Grande-Vallée",
+            "Grand-Métis",
+            "Grand-Remous",
+            "Grand-Saint-Esprit",
+            "Grenville",
+            "Grenville-sur-la-Rouge",
+            "Gros-Mécatina",
+            "Grosse-Île",
+            "Grosses-Roches",
+            "Guérin",
+            "Ham-Nord",
+            "Hampden",
+            "Hampstead",
+            "Harrington",
+            "Hatley",
+            "Havelock",
+            "Havre-Saint-Pierre",
+            "Hébertville",
+            "Hébertville-Station",
+            "Hemmingford",
+            "Henryville",
+            "Hérouxville",
+            "Hinchinbrooke",
+            "Honfleur",
+            "Hope",
+            "Hope Town",
+            "Howick",
+            "Huberdeau",
+            "Hudson",
+            "Huntingdon",
+            "Inukjuak",
+            "Inverness",
+            "Irlande",
+            "Ivry-sur-le-Lac",
+            "Ivujivik",
+            "Joliette",
+            "Jonquière",
+            "Kahnawake",
+            "Kamouraska",
+            "Kangiqsualujjuaq",
+            "Kangiqsujuaq",
+            "Kangirsuk",
+            "Kawawachikamach",
+            "Kazabazua",
+            "Kebaowek",
+            "Kiamika",
+            "Kingsbury",
+            "Kingsey Falls",
+            "Kinnear\'s Mills",
+            "Kipawa",
+            "Kirkland",
+            "Kitigan Zibi",
+            "Kuujjuaq",
+            "Kuujjuarapik",
+            "La Baie",
+            "La Bostonnais",
+            "La Conception",
+            "La Corne",
+            "La Doré",
+            "La Durantaye",
+            "La Guadeloupe",
+            "La Macaza",
+            "La Malbaie",
+            "La Martre",
+            "La Minerve",
+            "La Morandière",
+            "La Motte",
+            "La Patrie",
+            "La Pêche",
+            "La Pocatière",
+            "La Prairie",
+            "La Présentation",
+            "La Rédemption",
+            "La Reine",
+            "La Romaine",
+            "La Sarre",
+            "La Trinité-des-Monts",
+            "La Tuque",
+            "La Visitation-de-l\'Île-Dupas",
+            "La Visitation-de-Yamaska",
+            "Labelle",
+            "Labrecque",
+            "Lac-Ashuapmushuan",
+            "Lac-au-Brochet",
+            "Lac-au-Saumon",
+            "Lac-aux-Sables",
+            "Lac-Beauport",
+            "Lac-Bouchette",
+            "Lac-Brome",
+            "Lac-Casault",
+            "Lac-Chicobi",
+            "Lac-Delage",
+            "Lac-des-Aigles",
+            "Lac-des-Écorces",
+            "Lac-Despinassy",
+            "Lac-des-Plages",
+            "Lac-des-Seize-Îles",
+            "Lac-Devenyns",
+            "Lac-Drolet",
+            "Lac-du-Cerf",
+            "Lac-Édouard",
+            "Lac-Etchemin",
+            "Lac-Fouillac",
+            "Lac-Frontière",
+            "Lac-Granet",
+            "Lachute",
+            "Lac-John",
+            "Lac-Masketsi",
+            "Lac-Matapédia",
+            "Lac-Matawin",
+            "Lac-Mégantic",
+            "Lac-Nilgaut",
+            "Lacolle",
+            "Lac-Pikauba",
+            "Lac-Poulin",
+            "Lac-Pythonga",
+            "Lac-Rapide",
+            "Lac-Saguay",
+            "Lac-Sainte-Marie",
+            "Lac-Saint-Joseph",
+            "Lac-Saint-Paul",
+            "Lac-Sergent",
+            "Lac-Simon",
+            "Lac-Simon",
+            "Lac-Supérieur",
+            "Lac-Tremblant-Nord",
+            "Lac-Walker",
+            "Laforce",
+            "Lamarche",
+            "Lambton",
+            "L\'Ancienne-Lorette",
+            "Landrienne",
+            "L\'Ange-Gardien",
+            "L\'Ange-Gardien",
+            "Laniel",
+            "Lanoraie",
+            "L\'Anse-Saint-Jean",
+            "Lantier",
+            "Larouche",
+            "L\'Ascension",
+            "L\'Ascension-de-Notre-Seigneur",
+            "L\'Ascension-de-Patapédia",
+            "L\'Assomption",
+            "Laterrière",
+            "Latulipe-et-Gaboury",
+            "Launay",
+            "Laurier-Station",
+            "Laurierville",
+            "Laval",
+            "Lavaltrie",
+            "L\'Avenir",
+            "Laverlochère",
+            "Lawrenceville",
+            "Le Bic",
+            "Lebel-sur-Quévillon",
+            "Leclercville",
+            "Lefebvre",
+            "Lejeune",
+            "Lemieux",
+            "L\'Épiphanie",
+            "Léry",
+            "Les Bergeronnes",
+            "Les Cèdres",
+            "Les Coteaux",
+            "Les Éboulements",
+            "Les Escoumins",
+            "Les Hauteurs",
+            "Les Îles-de-la-Madeleine",
+            "Les Méchins",
+            "Lévis",
+            "L\'Île-Cadieux",
+            "L\'Île-d\'Anticosti",
+            "L\'Île-Dorval",
+            "L\'Île-Perrot",
+            "Lingwick",
+            "Linton",
+            "L\'Isle-aux-Allumettes",
+            "L\'Isle-aux-Coudres",
+            "L\'Islet",
+            "L\'Isle-Verte",
+            "Listuguj",
+            "Litchfield",
+            "Lochaber",
+            "Lochaber-Partie-Ouest",
+            "Longue-Pointe-de-Mingan",
+            "Longue-Rive",
+            "Longueuil",
+            "Lorraine",
+            "Lorrainville",
+            "Lotbinière",
+            "Louiseville",
+            "Low",
+            "Lyster",
+            "Macamic",
+            "Maddington",
+            "Magog",
+            "Malartic",
+            "Maliotenam",
+            "Manawan",
+            "Mandeville",
+            "Maniwaki",
+            "Manseau",
+            "Mansfield-et-Pontefract",
+            "Maria",
+            "Maricourt",
+            "Marieville",
+            "Marsoui",
+            "Marston",
+            "Martinville",
+            "Mascouche",
+            "Mashteuiatsh",
+            "Maskinongé",
+            "Massueville",
+            "Matagami",
+            "Matane",
+            "Matapédia",
+            "Matchi-Manitou",
+            "Matimekosh",
+            "Mayo",
+            "McMasterville",
+            "Melbourne",
+            "Mercier",
+            "Messines",
+            "Métabetchouan–Lac-à-la-Croix",
+            "Métis-sur-Mer",
+            "Milan",
+            "Mille-Isles",
+            "Mingan",
+            "Mirabel",
+            "Mistissini",
+            "Moffet",
+            "Mont-Albert",
+            "Montcalm",
+            "Mont-Carmel",
+            "Montcerf-Lytton",
+            "Montebello",
+            "Mont-Élie",
+            "Mont-Joli",
+            "Mont-Laurier",
+            "Montmagny",
+            "Montpellier",
+            "Montréal",
+            "Montréal-Est",
+            "Montréal-Ouest",
+            "Mont-Royal",
+            "Mont-Saint-Grégoire",
+            "Mont-Saint-Hilaire",
+            "Mont-Saint-Michel",
+            "Mont-Saint-Pierre",
+            "Mont-Tremblant",
+            "Mont-Valin",
+            "Morin-Heights",
+            "Mulgrave-et-Derry",
+            "Murdochville",
+            "Namur",
+            "Nantes",
+            "Napierville",
+            "Natashquan",
+            "Natashquan",
+            "Nédélec",
+            "Nemiscau",
+            "Neuville",
+            "New Carlisle",
+            "New Richmond",
+            "Newport",
+            "Nicolet",
+            "Nominingue",
+            "Norbertville",
+            "Normandin",
+            "Normétal",
+            "North Hatley",
+            "Notre-Dame-Auxiliatrice-de-Buckland",
+            "Notre-Dame-de-Bonsecours",
+            "Notre-Dame-de-Ham",
+            "Notre-Dame-de-la-Merci",
+            "Notre-Dame-de-la-Paix",
+            "Notre-Dame-de-la-Salette",
+            "Notre-Dame-de-l\'Île-Perrot",
+            "Notre-Dame-de-Lorette",
+            "Notre-Dame-de-Lourdes",
+            "Notre-Dame-de-Lourdes",
+            "Notre-Dame-de-Montauban",
+            "Notre-Dame-de-Pontmain",
+            "Notre-Dame-des-Anges",
+            "Notre-Dame-des-Bois",
+            "Notre-Dame-des-Monts",
+            "Notre-Dame-des-Neiges",
+            "Notre-Dame-des-Pins",
+            "Notre-Dame-des-Prairies",
+            "Notre-Dame-des-Sept-Douleurs",
+            "Notre-Dame-de-Stanbridge",
+            "Notre-Dame-du-Bon-Conseil",
+            "Notre-Dame-du-Lac",
+            "Notre-Dame-du-Laus",
+            "Notre-Dame-du-Mont-Carmel",
+            "Notre-Dame-du-Nord",
+            "Notre-Dame-du-Portage",
+            "Notre-Dame-du-Rosaire",
+            "Notre-Dame-du-Sacré-Coeur-d\'Issoudun",
+            "Nouvelle",
+            "Noyan",
+            "Obedjiwan",
+            "Odanak",
+            "Ogden",
+            "Oka",
+            "Orford",
+            "Ormstown",
+            "Otter Lake",
+            "Otterburn Park",
+            "Packington",
+            "Padoue",
+            "Palmarolle",
+            "Papineauville",
+            "Parisville",
+            "Paspébiac",
+            "Percé",
+            "Péribonka",
+            "Petite-Rivière-Saint-François",
+            "Petite-Vallée",
+            "Petit-Saguenay",
+            "Picard",
+            "Piedmont",
+            "Pierreville",
+            "Pikogan",
+            "Pincourt",
+            "Piopolis",
+            "Plaisance",
+            "Plessisville",
+            "Pohénégamook",
+            "Pointe-à-la-Croix",
+            "Pointe-aux-Outardes",
+            "Pointe-Calumet",
+            "Pointe-Claire",
+            "Pointe-des-Cascades",
+            "Pointe-Fortune",
+            "Pointe-Lebel",
+            "Pontiac",
+            "Pont-Rouge",
+            "Portage-du-Fort",
+            "Port-Cartier",
+            "Port-Daniel–Gascons",
+            "Portneuf",
+            "Portneuf-sur-Mer",
+            "Potton",
+            "Poularies",
+            "Preissac",
+            "Prévost",
+            "Price",
+            "Princeville",
+            "Puvirnituq",
+            "Quaqtaq",
+            "Québec",
+            "Racine",
+            "Ragueneau",
+            "Rapide-Danseur",
+            "Rapides-des-Joachims",
+            "Rawdon",
+            "Rémigny",
+            "Repentigny",
+            "Réservoir-Dozois",
+            "Richelieu",
+            "Richmond",
+            "Rigaud",
+            "Rimouski",
+            "Ripon",
+            "Ristigouche-Partie-Sud-Est",
+            "Rivière-à-Claude",
+            "Rivière-à-Pierre",
+            "Rivière-au-Tonnerre",
+            "Rivière-aux-Outardes",
+            "Rivière-Beaudette",
+            "Rivière-Bleue",
+            "Rivière-du-Loup",
+            "Rivière-Éternité",
+            "Rivière-Héva",
+            "Rivière-Mistassini",
+            "Rivière-Ojima",
+            "Rivière-Ouelle",
+            "Rivière-Rouge",
+            "Rivière-Saint-Jean",
+            "Roberval",
+            "Rochebaucourt",
+            "Roquemaure",
+            "Rosemère",
+            "Rougemont",
+            "Routhierville",
+            "Rouyn-Noranda",
+            "Roxton",
+            "Roxton Falls",
+            "Roxton Pond",
+            "Sacré-Cœur",
+            "Sacré-Coeur-de-Jésus",
+            "Sagard",
+            "Saint-Adalbert",
+            "Saint-Adelme",
+            "Saint-Adelphe",
+            "Saint-Adolphe-d\'Howard",
+            "Saint-Adrien",
+            "Saint-Adrien-d\'Irlande",
+            "Saint-Agapit",
+            "Saint-Aimé",
+            "Saint-Aimé-des-Lacs",
+            "Saint-Aimé-du-Lac-des-Îles",
+            "Saint-Alban",
+            "Saint-Albert",
+            "Saint-Alexandre",
+            "Saint-Alexandre-de-Kamouraska",
+            "Saint-Alexandre-des-Lacs",
+            "Saint-Alexis",
+            "Saint-Alexis-de-Matapédia",
+            "Saint-Alexis-des-Monts",
+            "Saint-Alfred",
+            "Saint-Alphonse",
+            "Saint-Alphonse",
+            "Saint-Alphonse-Rodrigue",
+            "Saint-Amable",
+            "Saint-Ambroise",
+            "Saint-Ambroise-de-Kildare",
+            "Saint-Anaclet-de-Lessard",
+            "Saint-André",
+            "Saint-André-Avellin",
+            "Saint-André-d\'Argenteuil",
+            "Saint-André-de-Restigouche",
+            "Saint-André-du-Lac-Saint-Jean",
+            "Saint-Anicet",
+            "Saint-Anselme",
+            "Saint-Antoine-de-l\'Isle-aux-Grues",
+            "Saint-Antoine-de-Tilly",
+            "Saint-Antoine-sur-Richelieu",
+            "Saint-Antonin",
+            "Saint-Apollinaire",
+            "Saint-Armand",
+            "Saint-Arsène",
+            "Saint-Athanase",
+            "Saint-Aubert",
+            "Saint-Augustin",
+            "Saint-Augustin",
+            "Saint-Augustin-de-Desmaures",
+            "Saint-Augustin-de-Woburn",
+            "Saint-Barnabé",
+            "Saint-Barnabé-Sud",
+            "Saint-Barthélemy",
+            "Saint-Basile",
+            "Saint-Basile-le-Grand",
+            "Saint-Benjamin",
+            "Saint-Benoît-du-Lac",
+            "Saint-Benoît-Labre",
+            "Saint-Bernard",
+            "Saint-Bernard-de-Lacolle",
+            "Saint-Bernard-de-Michaudville",
+            "Saint-Blaise-sur-Richelieu",
+            "Saint-Bonaventure",
+            "Saint-Boniface",
+            "Saint-Bruno",
+            "Saint-Bruno-de-Guigues",
+            "Saint-Bruno-de-Kamouraska",
+            "Saint-Bruno-de-Montarville",
+            "Saint-Calixte",
+            "Saint-Camille",
+            "Saint-Camille-de-Lellis",
+            "Saint-Casimir",
+            "Saint-Célestin",
+            "Saint-Césaire",
+            "Saint-Charles-Borromée",
+            "Saint-Charles-de-Bellechasse",
+            "Saint-Charles-de-Bourget",
+            "Saint-Charles-Garnier",
+            "Saint-Charles-sur-Richelieu",
+            "Saint-Christophe-d\'Arthabaska",
+            "Saint-Chrysostome",
+            "Saint-Claude",
+            "Saint-Clément",
+            "Saint-Cléophas",
+            "Saint-Cléophas-de-Brandon",
+            "Saint-Clet",
+            "Saint-Colomban",
+            "Saint-Côme",
+            "Saint-Côme–Linière",
+            "Saint-Constant",
+            "Saint-Cuthbert",
+            "Saint-Cyprien",
+            "Saint-Cyprien",
+            "Saint-Cyprien-de-Napierville",
+            "Saint-Cyrille-de-Lessard",
+            "Saint-Cyrille-de-Wendover",
+            "Saint-Damase",
+            "Saint-Damase",
+            "Saint-Damase-de-L\'Islet",
+            "Saint-Damien",
+            "Saint-Damien-de-Buckland",
+            "Saint-David",
+            "Saint-David-de-Falardeau",
+            "Saint-Denis",
+            "Saint-Denis-de-Brompton",
+            "Saint-Denis-sur-Richelieu",
+            "Saint-Didace",
+            "Saint-Dominique",
+            "Saint-Dominique-du-Rosaire",
+            "Saint-Donat",
+            "Saint-Donat",
+            "Sainte-Adèle",
+            "Sainte-Agathe-de-Lotbinière",
+            "Sainte-Agathe-des-Monts",
+            "Sainte-Angèle-de-Mérici",
+            "Sainte-Angèle-de-Monnoir",
+            "Sainte-Angèle-de-Prémont",
+            "Sainte-Anne-de-Beaupré",
+            "Sainte-Anne-de-Bellevue",
+            "Sainte-Anne-de-la-Pérade",
+            "Sainte-Anne-de-la-Pocatière",
+            "Sainte-Anne-de-la-Rochelle",
+            "Sainte-Anne-de-Sabrevois",
+            "Sainte-Anne-des-Lacs",
+            "Sainte-Anne-des-Monts",
+            "Sainte-Anne-de-Sorel",
+            "Sainte-Anne-des-Plaines",
+            "Sainte-Anne-du-Lac",
+            "Sainte-Anne-du-Sault",
+            "Sainte-Apolline-de-Patton",
+            "Sainte-Aurélie",
+            "Sainte-Barbe",
+            "Sainte-Béatrix",
+            "Sainte-Brigide-d\'Iberville",
+            "Sainte-Brigitte-de-Laval",
+            "Sainte-Brigitte-des-Saults",
+            "Sainte-Catherine",
+            "Sainte-Catherine-de-Hatley",
+            "Sainte-Catherine-de-la-Jacques-Cartier",
+            "Sainte-Cécile-de-Lévrard",
+            "Sainte-Cécile-de-Milton",
+            "Sainte-Cécile-de-Whitton",
+            "Sainte-Christine",
+            "Sainte-Christine-d\'Auvergne",
+            "Sainte-Claire",
+            "Sainte-Clotilde-de-Beauce",
+            "Sainte-Clotilde-de-Châteauguay",
+            "Sainte-Clotilde-de-Horton",
+            "Sainte-Croix",
+            "Saint-Edmond-de-Grantham",
+            "Saint-Edmond-les-Plaines",
+            "Saint-Édouard",
+            "Saint-Édouard-de-Fabre",
+            "Saint-Édouard-de-Lotbinière",
+            "Saint-Édouard-de-Maskinongé",
+            "Sainte-Edwidge-de-Clifton",
+            "Sainte-Élisabeth",
+            "Sainte-Élisabeth-de-Warwick",
+            "Sainte-Émélie-de-l\'Énergie",
+            "Sainte-Eulalie",
+            "Sainte-Euphémie-sur-Rivière-du-Sud",
+            "Sainte-Famille",
+            "Sainte-Félicité",
+            "Sainte-Félicité",
+            "Sainte-Flavie",
+            "Sainte-Florence",
+            "Sainte-Françoise",
+            "Sainte-Françoise",
+            "Sainte-Geneviève-de-Batiscan",
+            "Sainte-Geneviève-de-Berthier",
+            "Sainte-Germaine-Boulé",
+            "Sainte-Gertrude-Manneville",
+            "Sainte-Hedwidge",
+            "Sainte-Hélène",
+            "Sainte-Hélène-de-Bagot",
+            "Sainte-Hélène-de-Mancebourg",
+            "Sainte-Hénédine",
+            "Sainte-Irène",
+            "Sainte-Jeanne-d\'Arc",
+            "Sainte-Jeanne-d\'Arc",
+            "Sainte-Julie",
+            "Sainte-Julienne",
+            "Sainte-Justine",
+            "Sainte-Justine-de-Newton",
+            "Saint-Élie-de-Caxton",
+            "Saint-Éloi",
+            "Sainte-Louise",
+            "Saint-Elphège",
+            "Sainte-Luce",
+            "Sainte-Lucie-de-Beauregard",
+            "Sainte-Lucie-des-Laurentides",
+            "Saint-Elzéar",
+            "Saint-Elzéar",
+            "Saint-Elzéar-de-Témiscouata",
+            "Sainte-Madeleine",
+            "Sainte-Madeleine-de-la-Rivière-Madeleine",
+            "Sainte-Marcelline-de-Kildare",
+            "Sainte-Marguerite",
+            "Sainte-Marguerite",
+            "Sainte-Marguerite-du-Lac-Masson",
+            "Sainte-Marie",
+            "Sainte-Marie-de-Blandford",
+            "Sainte-Marie-Madeleine",
+            "Sainte-Marie-Salomé",
+            "Sainte-Marthe",
+            "Sainte-Marthe-sur-le-Lac",
+            "Sainte-Martine",
+            "Sainte-Mélanie",
+            "Saint-Émile-de-Suffolk",
+            "Sainte-Monique",
+            "Sainte-Monique",
+            "Sainte-Paule",
+            "Sainte-Perpétue",
+            "Sainte-Perpétue",
+            "Sainte-Pétronille",
+            "Saint-Éphrem-de-Beauce",
+            "Saint-Épiphane",
+            "Sainte-Praxède",
+            "Sainte-Rita",
+            "Sainte-Rose-de-Watford",
+            "Sainte-Rose-du-Nord",
+            "Sainte-Sabine",
+            "Sainte-Sabine",
+            "Sainte-Séraphine",
+            "Sainte-Sophie",
+            "Sainte-Sophie-de-Lévrard",
+            "Sainte-Sophie-d\'Halifax",
+            "Saint-Esprit",
+            "Sainte-Thècle",
+            "Sainte-Thérèse",
+            "Sainte-Thérèse-de-Gaspé",
+            "Sainte-Thérèse-de-la-Gatineau",
+            "Saint-Étienne-de-Beauharnois",
+            "Saint-Étienne-de-Bolton",
+            "Saint-Étienne-des-Grès",
+            "Saint-Eugène",
+            "Saint-Eugène-de-Guigues",
+            "Saint-Eugène-de-Ladrière",
+            "Saint-Eugènes",
+            "Sainte-Ursule",
+            "Saint-Eusèbe",
+            "Saint-Eustache",
+            "Saint-Évariste-de-Forsyth",
+            "Sainte-Victoire-de-Sorel",
+            "Saint-Fabien",
+            "Saint-Fabien-de-Panet",
+            "Saint-Faustin–Lac-Carré",
+            "Saint-Félicien",
+            "Saint-Félix-de-Dalquier",
+            "Saint-Félix-de-Kingsey",
+            "Saint-Félix-de-Valois",
+            "Saint-Félix-d\'Otis",
+            "Saint-Ferdinand",
+            "Saint-Ferréol-les-Neiges",
+            "Saint-Flavien",
+            "Saint-Fortunat",
+            "Saint-François-d\'Assise",
+            "Saint-François-de-la-Rivière-du-Sud",
+            "Saint-François-de-l\'Île-d\'Orléans",
+            "Saint-François-de-Sales",
+            "Saint-François-du-Lac",
+            "Saint-François-Xavier-de-Brompton",
+            "Saint-François-Xavier-de-Viger",
+            "Saint-Frédéric",
+            "Saint-Fulgence",
+            "Saint-Gabriel",
+            "Saint-Gabriel-de-Brandon",
+            "Saint-Gabriel-de-Rimouski",
+            "Saint-Gabriel-de-Valcartier",
+            "Saint-Gabriel-Lalemant",
+            "Saint-Gédéon",
+            "Saint-Gédéon-de-Beauce",
+            "Saint-Georges",
+            "Saint-Georges-de-Clarenceville",
+            "Saint-Georges-de-Windsor",
+            "Saint-Gérard-Majella",
+            "Saint-Germain",
+            "Saint-Germain-de-Grantham",
+            "Saint-Gervais",
+            "Saint-Gilbert",
+            "Saint-Gilles",
+            "Saint-Godefroi",
+            "Saint-Guillaume",
+            "Saint-Guillaume-Nord",
+            "Saint-Guy",
+            "Saint-Henri",
+            "Saint-Henri-de-Taillon",
+            "Saint-Herménégilde",
+            "Saint-Hilaire-de-Dorset",
+            "Saint-Hilarion",
+            "Saint-Hippolyte",
+            "Saint-Honoré-de-Chicoutimi",
+            "Saint-Honoré-de-Shenley",
+            "Saint-Honoré-de-Témiscouata",
+            "Saint-Hubert-de-Rivière-du-Loup",
+            "Saint-Hugues",
+            "Saint-Hyacinthe",
+            "Saint-Ignace-de-Loyola",
+            "Saint-Ignace-de-Stanbridge",
+            "Saint-Irénée",
+            "Saint-Isidore",
+            "Saint-Isidore",
+            "Saint-Isidore-de-Clifton",
+            "Saint-Jacques",
+            "Saint-Jacques-de-Leeds",
+            "Saint-Jacques-le-Majeur-de-Wolfestown",
+            "Saint-Jacques-le-Mineur",
+            "Saint-Janvier-de-Joly",
+            "Saint-Jean-Baptiste",
+            "Saint-Jean-de-Brébeuf",
+            "Saint-Jean-de-Cherbourg",
+            "Saint-Jean-de-Dieu",
+            "Saint-Jean-de-la-Lande",
+            "Saint-Jean-de-l\'Île-d\'Orléans",
+            "Saint-Jean-de-Matha",
+            "Saint-Jean-Port-Joli",
+            "Saint-Jean-sur-Richelieu",
+            "Saint-Jérôme",
+            "Saint-Joachim",
+            "Saint-Joachim-de-Shefford",
+            "Saint-Joseph-de-Beauce",
+            "Saint-Joseph-de-Coleraine",
+            "Saint-Joseph-de-Ham-Sud",
+            "Saint-Joseph-de-Kamouraska",
+            "Saint-Joseph-de-Lepage",
+            "Saint-Joseph-des-Érables",
+            "Saint-Joseph-de-Sorel",
+            "Saint-Joseph-du-Lac",
+            "Saint-Jude",
+            "Saint-Jules",
+            "Saint-Julien",
+            "Saint-Just-de-Bretenières",
+            "Saint-Juste-du-Lac",
+            "Saint-Justin",
+            "Saint-Lambert",
+            "Saint-Lambert",
+            "Saint-Lambert-de-Lauzon",
+            "Saint-Laurent-de-l\'Île-d\'Orléans",
+            "Saint-Lazare",
+            "Saint-Lazare-de-Bellechasse",
+            "Saint-Léandre",
+            "Saint-Léonard-d\'Aston",
+            "Saint-Léonard-de-Portneuf",
+            "Saint-Léon-de-Standon",
+            "Saint-Léon-le-Grand",
+            "Saint-Léon-le-Grand",
+            "Saint-Liboire",
+            "Saint-Liguori",
+            "Saint-Lin–Laurentides",
+            "Saint-Louis",
+            "Saint-Louis-de-Blandford",
+            "Saint-Louis-de-Gonzague",
+            "Saint-Louis-de-Gonzague",
+            "Saint-Louis-de-Gonzague-du-Cap-Tourmente",
+            "Saint-Louis-du-Ha! Ha!",
+            "Saint-Luc-de-Bellechasse",
+            "Saint-Luc-de-Vincennes",
+            "Saint-Lucien",
+            "Saint-Ludger",
+            "Saint-Ludger-de-Milot",
+            "Saint-Magloire",
+            "Saint-Majorique-de-Grantham",
+            "Saint-Malachie",
+            "Saint-Malo",
+            "Saint-Marc-de-Figuery",
+            "Saint-Marc-des-Carrières",
+            "Saint-Marc-du-Lac-Long",
+            "Saint-Marcel",
+            "Saint-Marcel-de-Richelieu",
+            "Saint-Marcellin",
+            "Saint-Marc-sur-Richelieu",
+            "Saint-Martin",
+            "Saint-Mathias-sur-Richelieu",
+            "Saint-Mathieu",
+            "Saint-Mathieu-de-Beloeil",
+            "Saint-Mathieu-de-Rioux",
+            "Saint-Mathieu-d\'Harricana",
+            "Saint-Mathieu-du-Parc",
+            "Saint-Maurice",
+            "Saint-Maxime-du-Mont-Louis",
+            "Saint-Médard",
+            "Saint-Michel",
+            "Saint-Michel-de-Bellechasse",
+            "Saint-Michel-des-Saints",
+            "Saint-Michel-du-Squatec",
+            "Saint-Modeste",
+            "Saint-Moïse",
+            "Saint-Narcisse",
+            "Saint-Narcisse-de-Beaurivage",
+            "Saint-Narcisse-de-Rimouski",
+            "Saint-Nazaire",
+            "Saint-Nazaire-d\'Acton",
+            "Saint-Nazaire-de-Dorchester",
+            "Saint-Nérée",
+            "Saint-Noël",
+            "Saint-Norbert",
+            "Saint-Norbert-d\'Arthabaska",
+            "Saint-Octave-de-Métis",
+            "Saint-Odilon-de-Cranbourne",
+            "Saint-Omer",
+            "Saint-Onésime-d\'Ixworth",
+            "Saint-Ours",
+            "Saint-Pacôme",
+            "Saint-Pamphile",
+            "Saint-Pascal",
+            "Saint-Patrice-de-Beaurivage",
+            "Saint-Patrice-de-Sherrington",
+            "Saint-Paul",
+            "Saint-Paul-d\'Abbotsford",
+            "Saint-Paul-de-la-Croix",
+            "Saint-Paul-de-l\'Île-aux-Noix",
+            "Saint-Paul-de-Montminy",
+            "Saint-Paulin",
+            "Saint-Philémon",
+            "Saint-Philibert",
+            "Saint-Philippe",
+            "Saint-Philippe-de-Néri",
+            "Saint-Pie",
+            "Saint-Pie-de-Guire",
+            "Saint-Pierre",
+            "Saint-Pierre-Baptiste",
+            "Saint-Pierre-de-Broughton",
+            "Saint-Pierre-de-Lamy",
+            "Saint-Pierre-de-la-Rivière-du-Sud",
+            "Saint-Pierre-de-l\'Île-d\'Orléans",
+            "Saint-Pierre-de-Véronne-à-Pike-River",
+            "Saint-Pierre-les-Becquets",
+            "Saint-Placide",
+            "Saint-Polycarpe",
+            "Saint-Prime",
+            "Saint-Prosper",
+            "Saint-Prosper",
+            "Saint-Raphaël",
+            "Saint-Raymond",
+            "Saint-Rémi",
+            "Saint-Rémi-de-Tingwick",
+            "Saint-René",
+            "Saint-René-de-Matane",
+            "Saint-Robert",
+            "Saint-Robert-Bellarmin",
+            "Saint-Roch-de-l\'Achigan",
+            "Saint-Roch-de-Mékinac",
+            "Saint-Roch-de-Richelieu",
+            "Saint-Roch-des-Aulnaies",
+            "Saint-Roch-Ouest",
+            "Saint-Romain",
+            "Saint-Romuald",
+            "Saint-Rosaire",
+            "Saint-Samuel",
+            "Saints-Anges",
+            "Saint-Sauveur",
+            "Saint-Sébastien",
+            "Saint-Sébastien",
+            "Saint-Sévère",
+            "Saint-Séverin",
+            "Saint-Séverin",
+            "Saint-Siméon",
+            "Saint-Siméon",
+            "Saint-Simon",
+            "Saint-Simon",
+            "Saint-Simon-les-Mines",
+            "Saint-Sixte",
+            "Saints-Martyrs-Canadiens",
+            "Saint-Stanislas",
+            "Saint-Stanislas",
+            "Saint-Stanislas-de-Kostka",
+            "Saint-Sulpice",
+            "Saint-Sylvère",
+            "Saint-Sylvestre",
+            "Saint-Télesphore",
+            "Saint-Tharcisius",
+            "Saint-Théodore-d\'Acton",
+            "Saint-Théophile",
+            "Saint-Thomas",
+            "Saint-Thomas Didyme",
+            "Saint-Thuribe",
+            "Saint-Tite",
+            "Saint-Tite-des-Caps",
+            "Saint-Ubalde",
+            "Saint-Ulric",
+            "Saint-Urbain",
+            "Saint-Urbain-Premier",
+            "Saint-Valentin",
+            "Saint-Valère",
+            "Saint-Valérien",
+            "Saint-Valérien-de-Milton",
+            "Saint-Vallier",
+            "Saint-Venant-de-Paquette",
+            "Saint-Vianney",
+            "Saint-Victor",
+            "Saint-Wenceslas",
+            "Saint-Zacharie",
+            "Saint-Zénon",
+            "Saint-Zénon-du-Lac-Humqui",
+            "Saint-Zéphirin-de-Courval",
+            "Saint-Zotique",
+            "Salaberry-de-Valleyfield",
+            "Salluit",
+            "Sayabec",
+            "Schefferville",
+            "Scotstown",
+            "Scott",
+            "Senneterre",
+            "Senneville",
+            "Sept-Iles",
+            "Shannon",
+            "Shawinigan",
+            "Shawville",
+            "Sheenboro",
+            "Shefford",
+            "Sherbrooke",
+            "Shigawake",
+            "Shipshaw",
+            "Sorel-Tracy",
+            "Stanbridge East",
+            "Stanbridge Station",
+            "Stanstead",
+            "Stanstead-Est",
+            "Stoke",
+            "Stoneham-et-Tewkesbury",
+            "Stornoway",
+            "Stratford",
+            "Stukely-Sud",
+            "Sutton",
+            "Tadoussac",
+            "Taschereau",
+            "Tasiujaq",
+            "Témiscaming",
+            "Terrasse-Vaudreuil",
+            "Terrebonne",
+            "Thetford Mines",
+            "Thorne",
+            "Thurso",
+            "Timiskaming",
+            "Tingwick",
+            "Tourville",
+            "Trécesson",
+            "Très-Saint-Rédempteur",
+            "Très-Saint-Sacrement",
+            "Tring-Jonction",
+            "Trois-Pistoles",
+            "Trois-Rives",
+            "Trois-Rivières",
+            "Uashat",
+            "Ulverton",
+            "Umiujaq",
+            "Upton",
+            "Val-Alain",
+            "Val-Brillant",
+            "Valcourt",
+            "Val-David",
+            "Val-des-Bois",
+            "Val-des-Lacs",
+            "Val-des-Monts",
+            "Val-d\'Or",
+            "Val-Joli",
+            "Vallée-Jonction",
+            "Val-Morin",
+            "Val-Racine",
+            "Val-Saint-Gilles",
+            "Varennes",
+            "Vaudreuil-Dorion",
+            "Vaudreuil-sur-le-Lac",
+            "Venise-en-Québec",
+            "Verchères",
+            "Victoriaville",
+            "Ville Saguenay",
+            "Ville-Marie",
+            "Villeroy",
+            "Waltham",
+            "Warden",
+            "Warwick",
+            "Waskaganish",
+            "Waswanipi",
+            "Waterloo",
+            "Waterville",
+            "Weedon",
+            "Wemindji",
+            "Wemotaci",
+            "Wendake",
+            "Wentworth",
+            "Wentworth-Nord",
+            "Westbury",
+            "Westmount",
+            "Whapmagoostui",
+            "Wickham",
+            "Windsor",
+            "Wôlinak",
+            "Wotton",
+            "Yamachiche",
+            "Yamaska",
             "",
             "Abercorn",
             "Acton Vale",
@@ -7517,6 +8755,7 @@ namespace Barette.Library.UserControls.Client {
             // ClientControl
             // 
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.gbProgramMoto);
             this.Controls.Add(this.ctbTauxHorairePratique);
             this.Controls.Add(this.ctbTauxHoraireTheorique);
             this.Controls.Add(this.cmdShowSeancesMoto2015);
@@ -7572,6 +8811,8 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmailError)).EndInit();
+            this.gbProgramMoto.ResumeLayout(false);
+            this.gbProgramMoto.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7585,20 +8826,30 @@ namespace Barette.Library.UserControls.Client {
         #region Type de Seance
         private void rbManuel_CheckedChanged(object sender, System.EventArgs e) {
             this._SceanceType = SeanceType.Automobile;
+
+            UpdateProgramMotoControl();
         }
 
         private void rbCamion_CheckedChanged(object sender, System.EventArgs e) {
             this._SceanceType = SeanceType.Cyclomoteur;
+
+            UpdateProgramMotoControl();
         }
 
         private void rbAutomatique_CheckedChanged(object sender, System.EventArgs e) {
             this._SceanceType = SeanceType.Automobile;
+            
+            UpdateProgramMotoControl();
         }
 
         private void rbMoto_CheckedChanged(object sender, System.EventArgs e) {
             this._SceanceType = SeanceType.Moto;
             txtN6R.Enabled = rbVehiculMoto.Checked;
+
+            UpdateProgramMotoControl();
         }
+
+
         #endregion
 
         #region Property
@@ -7741,6 +8992,45 @@ namespace Barette.Library.UserControls.Client {
             //return DialogResult.None;
         }
 
+        private void UpdateProgramMotoControl()
+        {
+            //MakeClient();
+
+            if (this.TypeVehicule == VehiculeType.Moto)
+            {
+                gbProgramMoto.Enabled = true;
+
+                if (DateInscription.Value >= new DateTime(2015, 06, 01))
+                {
+                    cmdShowSeancesMoto2015.Visible = true;
+                    gbProgramMoto.Enabled = false;
+                    rbProgramMoto2015.Checked = true;
+                }
+                else
+                {
+                    switch (this.ProgramMoto)
+                    {
+                        case ProgramMoto.Nothing:
+                        case ProgramMoto.Program2015:
+                            rbProgramMoto2015.Checked = true;
+                            cmdShowSeancesMoto2015.Visible = true;
+                            break;
+                        case ProgramMoto.ProgramNormal:
+                            rbProgramMotoNormal.Checked = true;
+                            cmdShowSeancesMoto2015.Visible = false;
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                gbProgramMoto.Enabled = false;
+                rbProgramMotoNormal.Checked = false;
+                rbProgramMoto2015.Checked = false;
+                cmdShowSeancesMoto2015.Visible = false;
+            }
+        }
+
         /// <summary>
         /// Fabrique un client a partir du control
         /// </summary>
@@ -7836,6 +9126,12 @@ namespace Barette.Library.UserControls.Client {
                 this._Client.TypeVehicule = VehiculeType.Manuel;
             else if (rbVehiculMoto.Checked)
                 this._Client.TypeVehicule = VehiculeType.Moto;
+            
+            //ProgramMoto
+            if (rbProgramMotoNormal.Checked)
+                this._Client.ProgramMoto = ProgramMoto.ProgramNormal;
+            else if (rbProgramMoto2015.Checked)
+                this._Client.ProgramMoto = ProgramMoto.Program2015;
         }
 
         /// <summary>
@@ -7904,6 +9200,9 @@ namespace Barette.Library.UserControls.Client {
             rbVehiculMotocyclette.Checked = false;
             rbVehiculManuel.Checked = false;
             rbVehiculMoto.Checked = false;
+
+            rbProgramMoto2015.Checked = false;
+            rbProgramMotoNormal.Checked = false;
         }
 
         /// <summary>
@@ -8048,6 +9347,36 @@ namespace Barette.Library.UserControls.Client {
                     rbVehiculManuel.Checked = true;
                 else if (client.TypeVehicule == VehiculeType.Moto)
                     rbVehiculMoto.Checked = true;
+
+                //ProgramMoto
+                if (client.TypeVehicule == VehiculeType.Moto)
+                {
+                    gbProgramMoto.Enabled = true;
+
+                    if (client.DateInscription >= new DateTime(2015, 06, 01))
+                        cmdShowSeancesMoto2015.Visible = true;
+                    else
+                    {
+                        switch (client.ProgramMoto)
+                        {
+                            case ProgramMoto.Program2015:
+                                rbProgramMoto2015.Checked = true;
+                                cmdShowSeancesMoto2015.Visible = true;
+                                break;
+                            case ProgramMoto.ProgramNormal:
+                                rbProgramMotoNormal.Checked = true;
+                                cmdShowSeancesMoto2015.Visible = false;
+                                break;
+                        }
+                    }                    
+                }
+                else
+                {
+                    gbProgramMoto.Enabled = false;
+                    rbProgramMotoNormal.Checked = false;
+                    rbProgramMoto2015.Checked = false;
+                    cmdShowSeancesMoto2015.Visible = false;
+                }
             }
         }
 
@@ -8698,11 +10027,8 @@ namespace Barette.Library.UserControls.Client {
                 cmdClearbox.Enabled = true;
             }
 
-            //if ((TypeVehicule == VehiculeType.Moto || TypeVehicule == VehiculeType.Cyclomoteur) && DateInscription.Value >= new DateTime(2015,04,10))            
-            if (TypeVehicule == VehiculeType.Moto && DateInscription.Value >= new DateTime(2015, 04, 10))
-                cmdShowSeancesMoto2015.Visible = true;
-            else
-                cmdShowSeancesMoto2015.Visible = false;
+            //if ((TypeVehicule == VehiculeType.Moto || TypeVehicule == VehiculeType.Cyclomoteur) && DateInscription.Value >= new DateTime(2015,04,10))           
+            
         }
 
         private void dtpDatePermis_ValueChanged(object sender, System.EventArgs e) {
@@ -8727,6 +10053,19 @@ namespace Barette.Library.UserControls.Client {
 
                 return VehiculeType.Nothing;
             }
+        }
+
+        public ProgramMoto ProgramMoto
+        {
+            get
+            {
+                if (rbProgramMoto2015.Checked)
+                    return Library.Client.ProgramMoto.Program2015;
+                else if (rbProgramMotoNormal.Checked)
+                    return Library.Client.ProgramMoto.ProgramNormal;
+
+                return Library.Client.ProgramMoto.Nothing;
+            }            
         }
 
         public ProfileType TypeClient {
@@ -9085,6 +10424,8 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 
         private void DateInscription_ValueChanged(object sender, EventArgs e) {
             DateExpiration.Value = DateInscription.Value.AddMonths(18);
+
+            UpdateProgramMotoControl();
         }
 
         private void cmdClearbox_Click(object sender, EventArgs e) {
@@ -9182,10 +10523,6 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                 e.Graphics.DrawString("Date BVA : " + this._Client.BVADate.ToShortDateString() + " " + this._Client.BVADate.ToShortTimeString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
 
-            /////////////
-            var SeancesList = BuildSeanceForPrintSeanceMoto2015();            
-            /////////////
-
             //Ecriture des seances
             yPos += printFont.Height * 2;
             e.Graphics.DrawString("Séance de cours", printFontBold16, Brushes.Black, leftMargin, yPos, new StringFormat());
@@ -9203,7 +10540,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             var formationPrinted1 = false;
             var formationPrinted2 = false;            
 
-            foreach (Seance seance in SeancesList)
+            foreach (Seance seance in BuildSeanceForPrintSeanceMoto2015())
             {
                 if (seance.Active)
                 {
@@ -9211,7 +10548,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                     {
                         case 1:
                             yPos += printFontBold.Height * 1.5F;
-                            e.Graphics.DrawString("Formation théorique (3h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
+                            e.Graphics.DrawString("Formation théorique en circuit fermé (3h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
                             //yPos += 15;
                             break;
                         case 2:
@@ -9227,7 +10564,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                             break;
                         case 6:
                             yPos += printFontBold.Height * 1.5F;
-                            e.Graphics.DrawString("Formation théorique (3h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());                            
+                            e.Graphics.DrawString("Formation théorique sur route (3h)", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());                            
                             break;
                         case 7:
                         case 8:
@@ -9303,6 +10640,26 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             return from seance in seances.Cast<Seance>()
                    orderby seance.SceanceNumber
                    select seance;
+        }
+
+        private void cbAuto_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbTypeClientFinish_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbProgramMotoNormal_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateProgramMotoControl();
+        }
+
+        private void rbProgramMoto2015_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateProgramMotoControl();
         }
     }
 }

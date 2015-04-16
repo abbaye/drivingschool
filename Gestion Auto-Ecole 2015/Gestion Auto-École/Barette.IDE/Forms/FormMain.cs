@@ -1340,7 +1340,7 @@ namespace Barette.IDE.Forms
         private void SaveClient(string FileName, CustomerCollection CustomerList)
         {
             XDocument doc = new XDocument(new XElement("EcoleConduiteBarrette",
-                new XAttribute("Version", "2.0"),
+                new XAttribute("Version", "2.1"),
                 new XElement("BarretteClients", new XAttribute("Count", CustomerList.Count))));
 
             XElement SchoolInfoRoot = doc.Element("EcoleConduiteBarrette").Element("BarretteClients");
@@ -1418,6 +1418,7 @@ namespace Barette.IDE.Forms
                     new XAttribute("StreetName", client.StreetName),
                     new XAttribute("ProfileType", client.TypeClient),
                     new XAttribute("VehiculeType", client.TypeVehicule),
+                    new XAttribute("ProgramMoto", client.ProgramMoto),
                     new XAttribute("CashSolde", client.Solde),              //TODO : A supprimer ... Calculer automatiquement
                     new XAttribute("RecuNumber", client.LastRecuNumber), //TODO : A supprimer ... Calculer automatiquement
                     new XAttribute("Notes", client.Notes),
@@ -1465,6 +1466,8 @@ namespace Barette.IDE.Forms
             Customer client = null;
             Paiement paiment = null;
             Seance seance = null;
+
+            bool programMotoChecked = false;
 
             if (File.Exists(FileName))
             {
@@ -1593,6 +1596,23 @@ namespace Barette.IDE.Forms
                                         client.TypeClient = ProfileType.CoursTerminer;
                                         break;
                                 }
+                                break;
+                            case "ProgramMoto":
+                                //Type de program de moto
+                                switch (at.Value)
+                                {
+                                    case "ProgramNormal":
+                                        client.ProgramMoto = ProgramMoto.ProgramNormal;
+                                        break;
+                                    case "Program2015":
+                                        client.ProgramMoto = ProgramMoto.Program2015;
+                                        break;
+                                    case "Nothing":
+                                        client.ProgramMoto = ProgramMoto.Nothing;
+                                        break;
+                                }
+
+                                programMotoChecked = true;
                                 break;
                             case "StreetName":
                                 client.StreetName = at.Value;
@@ -1795,6 +1815,16 @@ namespace Barette.IDE.Forms
                                 break;
                         }
                     }
+
+                    //Update program moto
+                    if (!programMotoChecked)
+                        if (client.TypeVehicule == VehiculeType.Moto)
+                        {
+                            if (client.DateInscription <= new DateTime(2015, 05, 31))
+                                client.ProgramMoto = ProgramMoto.ProgramNormal;
+                        }
+                        else
+                            client.ProgramMoto = ProgramMoto.Nothing;
 
                     CustomerList.Add(client);
                 }

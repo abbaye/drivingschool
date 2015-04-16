@@ -91,6 +91,11 @@ namespace Barette.Library.Client {
 		/// </summary>
 		private ProfileType _ProfileType = ProfileType.Actif;
 
+        /// <summary>
+        /// Program de moto utilisé par le client
+        /// </summary>
+        private ProgramMoto _ProgramMoto = ProgramMoto.Nothing;
+
 		/// <summary>
 		/// Constructeur
 		/// </summary>
@@ -285,6 +290,16 @@ namespace Barette.Library.Client {
 			}
 			set{
 				this._Phone = value;
+			}
+		}
+
+        public ProgramMoto ProgramMoto
+        {
+			get{
+                return this._ProgramMoto;
+			}
+			set{
+                this._ProgramMoto = value;
 			}
 		}
 

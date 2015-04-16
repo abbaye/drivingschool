@@ -45,4 +45,11 @@ namespace Barette.Library.Client {
 		LocationAuto,
 		Absence
 	}
+
+    public enum ProgramMoto
+    {
+        ProgramNormal,
+        Program2015,
+        Nothing
+    }
 }
