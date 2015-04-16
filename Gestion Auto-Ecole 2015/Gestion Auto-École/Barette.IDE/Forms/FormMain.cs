@@ -1822,6 +1822,8 @@ namespace Barette.IDE.Forms
                         {
                             if (client.DateInscription <= new DateTime(2015, 05, 31))
                                 client.ProgramMoto = ProgramMoto.ProgramNormal;
+                            else
+                                client.ProgramMoto = ProgramMoto.Program2015;
                         }
                         else
                             client.ProgramMoto = ProgramMoto.Nothing;
