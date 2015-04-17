@@ -9000,14 +9000,14 @@ namespace Barette.Library.UserControls.Client {
             {
                 gbProgramMoto.Enabled = true;
 
-                if (DateInscription.Value >= new DateTime(2015, 06, 01))
-                {
-                    cmdShowSeancesMoto2015.Visible = true;
-                    gbProgramMoto.Enabled = false;
-                    rbProgramMoto2015.Checked = true;
-                }
-                else
-                {
+                //if (DateInscription.Value >= new DateTime(2015, 06, 01))
+                //{
+                //    cmdShowSeancesMoto2015.Visible = true;
+                //    gbProgramMoto.Enabled = false;
+                //    rbProgramMoto2015.Checked = true;
+                //}
+                //else
+                //{
                     switch (this.ProgramMoto)
                     {
                         case ProgramMoto.Nothing:
@@ -9020,7 +9020,7 @@ namespace Barette.Library.UserControls.Client {
                             cmdShowSeancesMoto2015.Visible = false;
                             break;
                     }
-                }
+                //}
             }
             else
             {
