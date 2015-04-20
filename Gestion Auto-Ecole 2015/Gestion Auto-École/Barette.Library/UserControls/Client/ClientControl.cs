@@ -8955,8 +8955,11 @@ namespace Barette.Library.UserControls.Client {
             switch (this._SceanceType) {
                 case SeanceType.Automobile:
                     return new FormSeanceGeneral(this._Client, this, this._EmployeList).ShowDialog();
-                case SeanceType.Moto:
-                    return new FormSeanceMoto(this._Client, this, this._EmployeList).ShowDialog();
+                case SeanceType.Moto:                    
+                    if (this._Client.ProgramMoto != Library.Client.ProgramMoto.Program2015)
+                        return new FormSeanceMoto(this._Client, this, this._EmployeList).ShowDialog();
+                    else
+                        return ShowCours2015();
                 case SeanceType.Cyclomoteur:
                     return new FormSeanceMotocyclette(this._Client, this, this._EmployeList).ShowDialog();
             }
@@ -8974,7 +8977,10 @@ namespace Barette.Library.UserControls.Client {
                 case SeanceType.Automobile:
                     return new FormSeanceTheorique(this._Client, this, this._EmployeList).ShowDialog();
                 case SeanceType.Moto:
-                    return new FormSeanceTheoriqueMoto(this._Client, this, this._EmployeList).ShowDialog();
+                    if (this._Client.ProgramMoto != Library.Client.ProgramMoto.Program2015)
+                        return new FormSeanceTheoriqueMoto(this._Client, this, this._EmployeList).ShowDialog();
+                    else
+                        return ShowCours2015();
                 case SeanceType.Cyclomoteur:
                     return new FormSeanceTheoriqueMotocyclette(this._Client, this, this._EmployeList).ShowDialog();
             }
@@ -10535,7 +10541,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 
         private void cmdClearbox_Click(object sender, EventArgs e) {
 
-            if (MessageBox.Show(this, "Voulez vous enlever votre client du group No. : " + txtNumeroGroupe.Text + " ?", "Gestion Auto École", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Voulez-vous enlever votre client du group No. : " + txtNumeroGroupe.Text + " ?", "Gestion Auto École", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 txtNumeroGroupe.Value = 0;
         }
 

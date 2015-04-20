@@ -25,7 +25,7 @@ namespace Barette.IDE.Forms.Calendar {
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHoraire));
-            Barette.Library.Client.Customer customer1 = new Barette.Library.Client.Customer();
+            Barette.Library.Client.Customer customer9 = new Barette.Library.Client.Customer();
             this.cbEmploye = new System.Windows.Forms.ComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -68,6 +68,13 @@ namespace Barette.IDE.Forms.Calendar {
             this.scheduleControl1 = new Barette.Library.UserControls.Schedule.ScheduleControl();
             this.printDocWeek = new System.Drawing.Printing.PrintDocument();
             this.clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
+            this.cmPrintChoice = new System.Windows.Forms.ContextMenu();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.tabControl1.SuspendLayout();
             this.tpDay.SuspendLayout();
             this.tpWeek.SuspendLayout();
@@ -106,8 +113,8 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // lblDate
             // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.Location = new System.Drawing.Point(219, 3);
             this.lblDate.Name = "lblDate";
@@ -137,7 +144,7 @@ namespace Barette.IDE.Forms.Calendar {
             this.tbFunction.Location = new System.Drawing.Point(12, 12);
             this.tbFunction.Name = "tbFunction";
             this.tbFunction.ShowToolTips = true;
-            this.tbFunction.Size = new System.Drawing.Size(299, 42);
+            this.tbFunction.Size = new System.Drawing.Size(299, 50);
             this.tbFunction.TabIndex = 16;
             this.tbFunction.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
             this.tbFunction.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.tbFunction_ButtonClick);
@@ -156,8 +163,10 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // tbbPrint
             // 
+            this.tbbPrint.DropDownMenu = this.cmPrintChoice;
             this.tbbPrint.ImageIndex = 0;
             this.tbbPrint.Name = "tbbPrint";
+            this.tbbPrint.Style = System.Windows.Forms.ToolBarButtonStyle.DropDownButton;
             this.tbbPrint.Tag = "PRINT";
             this.tbbPrint.ToolTipText = "Imprimer l\'horaire du jour";
             // 
@@ -233,7 +242,7 @@ namespace Barette.IDE.Forms.Calendar {
             this.vCalendar.SelectionBackColor = System.Drawing.Color.BlueViolet;
             this.vCalendar.SelectionEnd = new System.DateTime(2005, 5, 19, 0, 0, 0, 0);
             this.vCalendar.SelectionForeColor = System.Drawing.Color.White;
-            this.vCalendar.SelectionRange = new Voroshkov.Calendar.DateSelectionRange(new System.DateTime(2005, 5, 19, 0, 0, 0, 0), new System.DateTime(2005, 5, 19, 0, 0, 0, 0));
+            this.vCalendar.SelectionRange = ((Voroshkov.Calendar.DateSelectionRange)(resources.GetObject("vCalendar.SelectionRange")));
             this.vCalendar.SelectionShape = Voroshkov.Calendar.CalendarSelectionShape.shapeCircular;
             this.vCalendar.SelectionStart = new System.DateTime(2005, 5, 19, 0, 0, 0, 0);
             this.vCalendar.ShowAllWeekdayLabels = true;
@@ -277,8 +286,8 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // txtNotes
             // 
-            this.txtNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNotes.Location = new System.Drawing.Point(6, 247);
             this.txtNotes.MaxLength = 250;
             this.txtNotes.Multiline = true;
@@ -304,9 +313,9 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tpDay);
             this.tabControl1.Controls.Add(this.tpWeek);
             this.tabControl1.Location = new System.Drawing.Point(200, 91);
@@ -332,9 +341,9 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // listViewEx1
             // 
-            this.listViewEx1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewEx1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewEx1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colHeadHours,
             this.colHeadContratNumber,
@@ -417,13 +426,13 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // scheduleControl7
             // 
-            this.scheduleControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.scheduleControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.scheduleControl7.Date = new System.DateTime(2005, 6, 21, 20, 46, 48, 63);
             this.scheduleControl7.Location = new System.Drawing.Point(1693, 0);
             this.scheduleControl7.Name = "scheduleControl7";
             this.scheduleControl7.Notes = "";
-            this.scheduleControl7.Size = new System.Drawing.Size(279, 298);
+            this.scheduleControl7.Size = new System.Drawing.Size(279, 281);
             this.scheduleControl7.TabIndex = 6;
             this.scheduleControl7.NotesChanged += new System.EventHandler(this.scheduleControl7_NotesChanged);
             this.scheduleControl7.ItemSelected += new System.EventHandler(this.scheduleControl7_ItemSelected);
@@ -431,13 +440,13 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // scheduleControl6
             // 
-            this.scheduleControl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.scheduleControl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.scheduleControl6.Date = new System.DateTime(2005, 6, 21, 20, 46, 48, 83);
             this.scheduleControl6.Location = new System.Drawing.Point(1411, 0);
             this.scheduleControl6.Name = "scheduleControl6";
             this.scheduleControl6.Notes = "";
-            this.scheduleControl6.Size = new System.Drawing.Size(279, 298);
+            this.scheduleControl6.Size = new System.Drawing.Size(279, 281);
             this.scheduleControl6.TabIndex = 5;
             this.scheduleControl6.NotesChanged += new System.EventHandler(this.scheduleControl6_NotesChanged);
             this.scheduleControl6.ItemSelected += new System.EventHandler(this.scheduleControl6_ItemSelected);
@@ -445,13 +454,13 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // scheduleControl5
             // 
-            this.scheduleControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.scheduleControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.scheduleControl5.Date = new System.DateTime(2005, 6, 21, 20, 46, 48, 83);
             this.scheduleControl5.Location = new System.Drawing.Point(1130, 0);
             this.scheduleControl5.Name = "scheduleControl5";
             this.scheduleControl5.Notes = "";
-            this.scheduleControl5.Size = new System.Drawing.Size(279, 298);
+            this.scheduleControl5.Size = new System.Drawing.Size(279, 281);
             this.scheduleControl5.TabIndex = 4;
             this.scheduleControl5.NotesChanged += new System.EventHandler(this.scheduleControl5_NotesChanged);
             this.scheduleControl5.ItemSelected += new System.EventHandler(this.scheduleControl5_ItemSelected);
@@ -459,13 +468,13 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // scheduleControl4
             // 
-            this.scheduleControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.scheduleControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.scheduleControl4.Date = new System.DateTime(2005, 6, 21, 20, 46, 48, 93);
             this.scheduleControl4.Location = new System.Drawing.Point(849, 0);
             this.scheduleControl4.Name = "scheduleControl4";
             this.scheduleControl4.Notes = "";
-            this.scheduleControl4.Size = new System.Drawing.Size(279, 298);
+            this.scheduleControl4.Size = new System.Drawing.Size(279, 281);
             this.scheduleControl4.TabIndex = 3;
             this.scheduleControl4.NotesChanged += new System.EventHandler(this.scheduleControl4_NotesChanged);
             this.scheduleControl4.ItemSelected += new System.EventHandler(this.scheduleControl4_ItemSelected);
@@ -473,13 +482,13 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // scheduleControl3
             // 
-            this.scheduleControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.scheduleControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.scheduleControl3.Date = new System.DateTime(2005, 6, 21, 20, 46, 48, 103);
             this.scheduleControl3.Location = new System.Drawing.Point(568, 0);
             this.scheduleControl3.Name = "scheduleControl3";
             this.scheduleControl3.Notes = "";
-            this.scheduleControl3.Size = new System.Drawing.Size(279, 298);
+            this.scheduleControl3.Size = new System.Drawing.Size(279, 281);
             this.scheduleControl3.TabIndex = 2;
             this.scheduleControl3.NotesChanged += new System.EventHandler(this.scheduleControl3_NotesChanged);
             this.scheduleControl3.ItemSelected += new System.EventHandler(this.scheduleControl3_ItemSelected);
@@ -487,13 +496,13 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // scheduleControl2
             // 
-            this.scheduleControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.scheduleControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.scheduleControl2.Date = new System.DateTime(2005, 6, 21, 20, 46, 48, 113);
             this.scheduleControl2.Location = new System.Drawing.Point(286, 0);
             this.scheduleControl2.Name = "scheduleControl2";
             this.scheduleControl2.Notes = "";
-            this.scheduleControl2.Size = new System.Drawing.Size(279, 298);
+            this.scheduleControl2.Size = new System.Drawing.Size(279, 281);
             this.scheduleControl2.TabIndex = 1;
             this.scheduleControl2.NotesChanged += new System.EventHandler(this.scheduleControl2_NotesChanged);
             this.scheduleControl2.ItemSelected += new System.EventHandler(this.scheduleControl2_ItemSelected);
@@ -501,13 +510,13 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             // scheduleControl1
             // 
-            this.scheduleControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.scheduleControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.scheduleControl1.Date = new System.DateTime(2005, 6, 21, 20, 46, 48, 123);
             this.scheduleControl1.Location = new System.Drawing.Point(6, 0);
             this.scheduleControl1.Name = "scheduleControl1";
             this.scheduleControl1.Notes = "";
-            this.scheduleControl1.Size = new System.Drawing.Size(279, 298);
+            this.scheduleControl1.Size = new System.Drawing.Size(279, 281);
             this.scheduleControl1.TabIndex = 0;
             this.scheduleControl1.NotesChanged += new System.EventHandler(this.scheduleControl1_NotesChanged);
             this.scheduleControl1.ItemSelected += new System.EventHandler(this.scheduleControl1_ItemSelected);
@@ -522,57 +531,101 @@ namespace Barette.IDE.Forms.Calendar {
             // 
             this.clientControl1.AutoUpdate = true;
             this.clientControl1.BackColor = System.Drawing.SystemColors.Control;
-            customer1.AttestationNumber1 = "0";
-            customer1.AttestationNumber2 = "";
-            customer1.BVA = false;
-            customer1.BVADate = new System.DateTime(2005, 5, 29, 20, 41, 11, 124);
-            customer1.City = "";
-            customer1.ClientNull = false;
-            customer1.CodePostal = "   -";
-            customer1.ContratNumber = "0";
-            customer1.DateAttestation1 = new System.DateTime(2010, 7, 2, 9, 25, 16, 698);
-            customer1.DateAttestation2 = new System.DateTime(2010, 7, 2, 9, 25, 16, 698);
-            customer1.DateDebutCours = new System.DateTime(2010, 3, 11, 12, 27, 34, 946);
-            customer1.DateExpiration = new System.DateTime(2010, 3, 11, 12, 27, 34, 946);
-            customer1.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
-            customer1.DateNaissance = new System.DateTime(2010, 3, 11, 12, 27, 34, 946);
-            customer1.DateTemporaire = new System.DateTime(2005, 5, 29, 20, 41, 11, 124);
-            customer1.DisponibilityAlway = false;
-            customer1.DisponibilityAM = false;
-            customer1.DisponibilityDimanche = false;
-            customer1.DisponibilityPM = false;
-            customer1.DisponibilitySamedi = false;
-            customer1.DisponibilitySoirer = false;
-            customer1.FirstName = "";
-            customer1.HaveTemporaire = false;
-            customer1.LastRecuNumber = "";
-            customer1.LocationAutomobile = false;
-            customer1.LocationMoto = false;
-            customer1.MontantCours = "";
-            customer1.MontantLocation = "0 $";
-            customer1.Name = "";
-            customer1.No6R = "";
-            customer1.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
-                "ans Serif;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs17\\par\r\n}\r\n";
-            customer1.NumeroGroupe = 0;
-            customer1.NumeroPermis = "";
-            customer1.Phone = "(418)418-418";
-            customer1.PhoneBureau = "(418)418-418";
-            customer1.Solde = "0 $";
-            customer1.StreetApp = "";
-            customer1.StreetName = "";
-            customer1.StreetNumber = "";
-            customer1.TauxHorairePratique = "";
-            customer1.TauxHoraireTheorique = "";
-            customer1.TypeClient = Barette.Library.Client.ProfileType.Actif;
-            customer1.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
-            this.clientControl1.Client = customer1;
+            customer9.AttestationNumber1 = "0";
+            customer9.AttestationNumber2 = "";
+            customer9.BVA = false;
+            customer9.BVADate = new System.DateTime(2005, 5, 29, 20, 41, 11, 124);
+            customer9.City = "";
+            customer9.ClientNull = false;
+            customer9.CodePostal = "   -";
+            customer9.ContratNumber = "0";
+            customer9.DateAttestation1 = new System.DateTime(2010, 7, 2, 9, 25, 16, 698);
+            customer9.DateAttestation2 = new System.DateTime(2010, 7, 2, 9, 25, 16, 698);
+            customer9.DateDebutCours = new System.DateTime(2010, 3, 11, 12, 27, 34, 946);
+            customer9.DateExpiration = new System.DateTime(2010, 3, 11, 12, 27, 34, 946);
+            customer9.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
+            customer9.DateNaissance = new System.DateTime(2010, 3, 11, 12, 27, 34, 946);
+            customer9.DateTemporaire = new System.DateTime(2005, 5, 29, 20, 41, 11, 124);
+            customer9.DisponibilityAlway = false;
+            customer9.DisponibilityAM = false;
+            customer9.DisponibilityDimanche = false;
+            customer9.DisponibilityPM = false;
+            customer9.DisponibilitySamedi = false;
+            customer9.DisponibilitySoirer = false;
+            customer9.Email = "";
+            customer9.FirstName = "";
+            customer9.HaveTemporaire = false;
+            customer9.LastRecuNumber = "";
+            customer9.LocationAutomobile = false;
+            customer9.LocationMoto = false;
+            customer9.MontantCours = "";
+            customer9.MontantLocation = "0 $";
+            customer9.Name = "";
+            customer9.No6R = "";
+            customer9.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
+    "ans Serif;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs17\\par\r\n}\r\n";
+            customer9.NumeroGroupe = 0;
+            customer9.NumeroPermis = "";
+            customer9.Phone = "(418)418-418";
+            customer9.PhoneBureau = "(418)418-418";
+            customer9.ProgramMoto = Barette.Library.Client.ProgramMoto.Nothing;
+            customer9.Solde = "0 $";
+            customer9.StreetApp = "";
+            customer9.StreetName = "";
+            customer9.StreetNumber = "";
+            customer9.TauxHorairePratique = "";
+            customer9.TauxHoraireTheorique = "";
+            customer9.TypeClient = Barette.Library.Client.ProfileType.Actif;
+            customer9.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
+            this.clientControl1.Client = customer9;
             this.clientControl1.Location = new System.Drawing.Point(587, 12);
             this.clientControl1.Name = "clientControl1";
             this.clientControl1.School = null;
             this.clientControl1.Size = new System.Drawing.Size(242, 51);
             this.clientControl1.TabIndex = 19;
             this.clientControl1.Visible = false;
+            // 
+            // cmPrintChoice
+            // 
+            this.cmPrintChoice.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem1,
+            this.menuItem4,
+            this.menuItem2,
+            this.menuItem3,
+            this.menuItem5});
+            // 
+            // menuItem4
+            // 
+            this.menuItem4.Index = 1;
+            this.menuItem4.Text = "-";
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 0;
+            this.menuItem1.Text = "Impression normal";
+            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 2;
+            this.menuItem2.Text = "Impression Avant-Midi";
+            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 3;
+            this.menuItem3.Text = "Impression Après-Midi";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Index = 4;
+            this.menuItem5.Text = "Impression Soirée";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
             // 
             // FormHoraire
             // 
@@ -639,6 +692,13 @@ namespace Barette.IDE.Forms.Calendar {
 		private Barette.Library.UserControls.Schedule.ScheduleControl scheduleControl3;
 		private Barette.Library.UserControls.Schedule.ScheduleControl scheduleControl2;
 		private Barette.Library.UserControls.Schedule.ScheduleControl scheduleControl1;
-		private Barette.Library.UserControls.Client.ClientControl clientControl1; 
+        private Barette.Library.UserControls.Client.ClientControl clientControl1;
+        private System.Windows.Forms.ContextMenu cmPrintChoice;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem menuItem3;
+        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Drawing.Printing.PrintDocument printDocument2; 
 	}
 }

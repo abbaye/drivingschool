@@ -25,6 +25,7 @@ namespace Barette.IDE.Forms.Calendar {
 		FormMain _formMain = null;
 		ScheduleControl _ScheduleControlSelected = null; //Control qui est présentement sélectionné
 		ScheduleInfos _SelectedItemsInfos = null; //Information sur l'item sélectioné
+        PrintMode _printMode = PrintMode.Nothing;
 
         //Test multi thread
         //Thread _threadBolded = null;
@@ -97,16 +98,21 @@ namespace Barette.IDE.Forms.Calendar {
 					}
 					break;
 				case "PRINT":
-					if (tabControl1.SelectedTab.Tag.ToString() == "DAY")
-						PrintHoraire();
-					else
-						PrintHoraireWeek();
+                    PrintNormal();
 					break;
 				case "DELETENOTES":
 					DeleteAllNotes();
 					break;
 			}
 		}
+
+        private void PrintNormal()
+        {
+            if (tabControl1.SelectedTab.Tag.ToString() == "DAY")
+                PrintHoraire();
+            else
+                PrintHoraireWeek();
+        }
 
 		/// <summary>
 		/// Supprime tous les notes de bas de page.
@@ -813,6 +819,138 @@ namespace Barette.IDE.Forms.Calendar {
 
         private void vCalendar_DateChanged(object sender, EventArgs e) {
             CreateBoldedDateFromCustomer();
+        }
+
+        private void menuItem1_Click(object sender, EventArgs e)
+        {
+            PrintNormal();
+        }
+
+        private void PrintForm(PrintMode mode)
+        {
+            this._printMode = mode;
+
+            printDocument2.Print();
+
+            this._printMode = PrintMode.Nothing;
+        }
+
+        private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            float topMargin = 30;
+            float leftMargin = 0;
+            float RightMargin = e.MarginBounds.Right;
+            bool isBetween = false;
+            string Hours = "";
+            int indexFromList = 0;
+            Seance cours = null;
+            Customer client = null;
+            string[] notesSplited;
+
+            //Facrication de la font
+            Font printFont = new Font("Times New Roman", 8, FontStyle.Regular);
+            Font printFontBold = new Font("Times New Roman", 8, FontStyle.Bold);
+            Font printFont10 = new Font("Times New Roman", 10, FontStyle.Regular);
+            Font printFont12 = new Font("Times New Roman", 12, FontStyle.Regular);
+            Font printFontBold10 = new Font("Times New Roman", 10, FontStyle.Bold);
+            Font printFontBold12 = new Font("Times New Roman", 12, FontStyle.Bold);
+            Font printFontBold14 = new Font("Times New Roman", 14, FontStyle.Bold);
+            Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
+
+            float yPos = 0f;
+            float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
+
+            //en-tête
+            yPos = topMargin;
+
+            //Barette logo
+            Stream strm = Type.GetType("Barette.IDE.Forms.Calendar.FormHoraire").Assembly.GetManifestResourceStream("Barette.IDE.Resources.Printlogo.png");
+            Bitmap img = new Bitmap(strm);
+            e.Graphics.DrawImage(img, 0, 0, 180, 100);
+            e.Graphics.DrawString("Fiche horaire journalière", printFontBold16, Brushes.Black, 225, 30, new StringFormat());
+            yPos += printFontBold16.Height + 0;
+            e.Graphics.DrawString("Employé : " + cbEmploye.Text, printFontBold12, Brushes.Black, 225, yPos, new StringFormat());
+            yPos += printFontBold16.Height;
+            e.Graphics.DrawString("Date : " + DateTimeFunc.DayOfWeekFRLong(vCalendar.SelectionStart.Date.DayOfWeek) + ", " + vCalendar.SelectionStart.Date.ToLongDateString(), printFont12, Brushes.Black, 225, yPos, new StringFormat());
+
+            //Header du tableau
+            yPos += printFont.Height + 20;
+            e.Graphics.DrawString("Heures", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
+            e.Graphics.DrawString("# Contrat", printFontBold10, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
+            e.Graphics.DrawString("Nom du client", printFontBold10, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone 1", printFontBold10, Brushes.Black, leftMargin + 310, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone 2", printFontBold10, Brushes.Black, leftMargin + 410, yPos, new StringFormat());
+            e.Graphics.DrawString("Type", printFontBold10, Brushes.Black, leftMargin + 510, yPos, new StringFormat());
+            e.Graphics.DrawString("# Séance", printFontBold10, Brushes.Black, leftMargin + 560, yPos, new StringFormat());
+            e.Graphics.DrawString("Paiment", printFontBold10, Brushes.Black, leftMargin + 620, yPos, new StringFormat());
+            e.Graphics.DrawString("Endroit", printFontBold10, Brushes.Black, leftMargin + 690, yPos, new StringFormat());
+            e.Graphics.DrawString("Absence", printFontBold10, Brushes.Black, leftMargin + 755, yPos, new StringFormat());
+
+            //Impression du tableau d'horraire
+            yPos += printFont12.Height + 15;
+
+            //Mettre l'heure de départ à 7h00 de la date selectionné sur le calendrier
+            DateTime HeureDepart = new DateTime(vCalendar.SelectionStart.Year, vCalendar.SelectionStart.Month, vCalendar.SelectionStart.Day, 7, 0, 0);
+            DateTime HeureCourant = HeureDepart; //Heure courant dans l'iteration
+            //for (int i = 0; i < 30; i++) {
+            while (DateTimeFunc.FormatHour(HeureCourant) != "22h30")
+            { //max 22h00
+                yPos += printFont12.Height;
+
+                cours = GetCoursBetweenFromList(out isBetween, out indexFromList, HeureCourant, out client);
+                if (cours != null)
+                { //Cours à imprimer					
+                    Hours = DateTimeFunc.FormatHour(cours.DateHeure);
+                    e.Graphics.DrawString(Hours, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
+                    e.Graphics.DrawString(client.ContratNumber, printFont10, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
+                    e.Graphics.DrawString(client.Name + " " + client.FirstName, printFont10, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
+                    e.Graphics.DrawString(client.Phone, printFont10, Brushes.Black, leftMargin + 310, yPos, new StringFormat());
+                    e.Graphics.DrawString(client.PhoneBureau, printFont10, Brushes.Black, leftMargin + 410, yPos, new StringFormat());
+                    e.Graphics.DrawString(client.GetShortVehiculeType(), printFont10, Brushes.Black, leftMargin + 510, yPos, new StringFormat());
+                    e.Graphics.DrawString(cours.SceanceNumber.ToString(), printFont10, Brushes.Black, leftMargin + 560, yPos, new StringFormat());
+                    e.Graphics.DrawString(cours.Montant, printFont10, Brushes.Black, leftMargin + 620, yPos, new StringFormat());
+                    e.Graphics.DrawString(cours.Code, printFont10, Brushes.Black, leftMargin + 690, yPos, new StringFormat());
+                }
+                else
+                {
+                    Hours = DateTimeFunc.FormatHour(HeureCourant);
+                    e.Graphics.DrawString(Hours, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
+                }
+
+                cours = null;
+                //Ajoute 30 min a l'heure courante
+                HeureCourant = HeureCourant.AddMinutes(30);
+            }
+
+            //Impression des notes de la journée
+            if (txtNotes.Text != "")
+            {
+                yPos += printFontBold14.Height + 35;
+                e.Graphics.DrawString("Notes", printFontBold14, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+
+                yPos += printFont12.Height;
+                notesSplited = txtNotes.Text.Split('\n');
+                for (int i = 0; i < notesSplited.Length; i++)
+                {
+                    yPos += printFont12.Height;
+                    e.Graphics.DrawString(notesSplited[i], printFont10, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                }
+            }
+        }
+
+        private void menuItem2_Click(object sender, EventArgs e)
+        {
+            PrintForm(PrintMode.AM);
+        }
+
+        private void menuItem3_Click(object sender, EventArgs e)
+        {
+            PrintForm(PrintMode.PM);
+        }
+
+        private void menuItem5_Click(object sender, EventArgs e)
+        {
+            PrintForm(PrintMode.Evening);
         }		
 	}
 }
