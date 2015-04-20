@@ -9629,9 +9629,20 @@ namespace Barette.Library.UserControls.Client {
             yPos += 30;
 
             //Header des colone
-            e.Graphics.DrawString("Date et heure", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-            e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-            e.Graphics.DrawString("Moniteur", printFontBold, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+            if (this._Client.TypeVehicule != VehiculeType.Moto)
+            {
+                e.Graphics.DrawString("Date et heure", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                e.Graphics.DrawString("Moniteur", printFontBold, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+            }
+            else
+            {
+                e.Graphics.DrawString("Date et heure (début et fin)", printFontBold, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
+
+                var testString1 = "Signature (élève et professeur)";
+                e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 670 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
+            }
 
             Seance seance = null;
             if (this._Client.TypeVehicule != VehiculeType.Moto) {
@@ -9657,7 +9668,7 @@ namespace Barette.Library.UserControls.Client {
             }
             else {
 
-                e.Graphics.DrawString("Signature", printFontBold, Brushes.Black, leftMargin + 490, yPos, new StringFormat());
+                //e.Graphics.DrawString("Signature", printFontBold, Brushes.Black, leftMargin + 490, yPos, new StringFormat());
 
                 for (int i = 0; i < this.Client.Seances.Count; i++) {
                     seance = (Seance)this._Client.Seances[i];
@@ -9671,23 +9682,44 @@ namespace Barette.Library.UserControls.Client {
 
                             if (seance.Active) {
                                 yPos += printFont.Height;
-                                e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
-                                e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
-                                e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                                e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                                //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                                //e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                                e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                                e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
+
+                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+                                e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+
+                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                             }
+
                         }
                     }
                     else if (i < 4) {
 
                         if (seance.Active && this._PrintHorsRoute) {
                             yPos += printFont.Height;
-                            e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
-                            e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
-                            e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                            e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                            //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                            //e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                            e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                            e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
+
+                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+                            e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+
+                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                         }
                     }
                     else if (i == 4) {
@@ -9698,22 +9730,42 @@ namespace Barette.Library.UserControls.Client {
 
                             if (seance.Active) {
                                 yPos += printFont.Height;
-                                e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
-                                e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
-                                e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                                e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                                //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                                //e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                                e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                                e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
+
+                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+                                e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+
+                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                             }
                         }
                     }
                     else {
                         if (seance.Active && this._PrintRoute) {
                             yPos += printFont.Height;
-                            e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
-                            e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
-                            e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                            e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                            //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                            //e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                            e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                            e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
+
+                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+                            e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+
+                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                         }
                     }
                 }
@@ -9830,7 +9882,20 @@ namespace Barette.Library.UserControls.Client {
             yPos += 30;
 
             //Header des colone
-            e.Graphics.DrawString("Date et heure", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+
+            if (this._Client.TypeVehicule != VehiculeType.Moto)
+            {
+                e.Graphics.DrawString("Date et heure", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+            }
+            else
+            {
+
+                e.Graphics.DrawString("Date et heure (début et fin)", printFontBold, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
+
+                var testString1 = "Signature (élève et professeur)";
+                e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 670 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
+            }
 
             Seance seance = null;
             if (this._Client.TypeVehicule != VehiculeType.Moto) {
@@ -9856,7 +9921,7 @@ namespace Barette.Library.UserControls.Client {
             }
             else {
 
-                e.Graphics.DrawString("Signature", printFontBold, Brushes.Black, leftMargin + 490, yPos, new StringFormat());
+                //e.Graphics.DrawString("Signature", printFontBold, Brushes.Black, leftMargin + 490, yPos, new StringFormat());
 
                 for (int i = 0; i < this.Client.SeancesTheorique.Count; i++) {
                     seance = (Seance)this._Client.SeancesTheorique[i];
@@ -9870,11 +9935,21 @@ namespace Barette.Library.UserControls.Client {
 
                             if (seance.Active) {
                                 yPos += printFont.Height;
-                                e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
-                                e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
-                                e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                                e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                                //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                                //e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                                e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                                e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
+
+                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+                                e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+
+                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                             }
                         }
                     }
@@ -9882,11 +9957,21 @@ namespace Barette.Library.UserControls.Client {
 
                         if (seance.Active && this._PrintHorsRoute) {
                             yPos += printFont.Height;
-                            e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
-                            e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
-                            e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                            e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                            //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                            //e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                            e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                            e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
+
+                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+                            e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+
+                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                         }
                     }
                     else if (i == 4) {
@@ -9897,22 +9982,42 @@ namespace Barette.Library.UserControls.Client {
 
                             if (seance.Active) {
                                 yPos += printFont.Height;
-                                e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
-                                e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
-                                e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                                e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                                //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                                //e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                                //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                                e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                                e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
+
+                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+                                e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+                                e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+
+                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                             }
                         }
                     }
                     else {
                         if (seance.Active && this._PrintRoute) {
                             yPos += printFont.Height;
-                            e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
-                            e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
-                            e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                            e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+                            //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                            //e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
+                            //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                            e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                            e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
+
+                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+                            e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+                            e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+
+                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                         }
                     }
                 }
@@ -10528,13 +10633,12 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawString("Séance de cours", printFontBold16, Brushes.Black, leftMargin, yPos, new StringFormat());
             yPos += 30;
 
-            //Header des colone
+            //Header des colones
             e.Graphics.DrawString("Date et heure (début et fin)", printFontBold, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
+            e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
 
-
-            //Header de la colone montant
             var testString1 = "Signature (élève et professeur)";
-            e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 680 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
+            e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 670 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
             yPos += 16;
 
             var formationPrinted1 = false;
@@ -10589,12 +10693,10 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                     e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                     e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                    e.Graphics.DrawString("_________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                    e.Graphics.DrawString("_________________", printFont, Brushes.Black, leftMargin + 370 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                    e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
+                    e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                    e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
 
-                   // e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
-                    //e.Graphics.DrawString(seance.Montant, printFont, Brushes.Black, 580 - e.Graphics.MeasureString(seance.Montant, printFont).Width, yPos, new StringFormat());
-                    //e.Graphics.DrawString(seance.Employer, printFont, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
                 }                
             }
             
