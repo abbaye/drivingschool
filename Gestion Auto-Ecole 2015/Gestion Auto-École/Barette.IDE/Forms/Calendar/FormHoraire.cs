@@ -830,7 +830,20 @@ namespace Barette.IDE.Forms.Calendar {
         {
             this._printMode = mode;
 
-            printDocument2.Print();
+            //Lance l'impression
+            PrintDialog printConfig = new PrintDialog();
+
+            printConfig.PrinterSettings = printDocument2.PrinterSettings;
+
+#if DEBUG
+            PrintPreviewDialog prev = new PrintPreviewDialog();
+            prev.Document = printDocument2;
+            prev.ShowDialog(this);
+
+#else
+			if(printConfig.ShowDialog(this) == DialogResult.OK)	
+					printDocument2.Print();
+#endif	
 
             this._printMode = PrintMode.Nothing;
         }
@@ -867,7 +880,20 @@ namespace Barette.IDE.Forms.Calendar {
             Stream strm = Type.GetType("Barette.IDE.Forms.Calendar.FormHoraire").Assembly.GetManifestResourceStream("Barette.IDE.Resources.Printlogo.png");
             Bitmap img = new Bitmap(strm);
             e.Graphics.DrawImage(img, 0, 0, 180, 100);
-            e.Graphics.DrawString("Fiche horaire journalière", printFontBold16, Brushes.Black, 225, 30, new StringFormat());
+
+            switch (this._printMode)
+            {
+                case PrintMode.AM:
+                    e.Graphics.DrawString("Fiche horaire journalière : Avant-midi", printFontBold16, Brushes.Black, 225, 30, new StringFormat());
+                    break;
+                case PrintMode.PM:
+                    e.Graphics.DrawString("Fiche horaire journalière : Après-midi", printFontBold16, Brushes.Black, 225, 30, new StringFormat());
+                    break;
+                case PrintMode.Evening:
+                    e.Graphics.DrawString("Fiche horaire journalière : Soirée", printFontBold16, Brushes.Black, 225, 30, new StringFormat());
+                    break;
+            }
+
             yPos += printFontBold16.Height + 0;
             e.Graphics.DrawString("Employé : " + cbEmploye.Text, printFontBold12, Brushes.Black, 225, yPos, new StringFormat());
             yPos += printFontBold16.Height;
@@ -888,10 +914,13 @@ namespace Barette.IDE.Forms.Calendar {
 
             //Impression du tableau d'horraire
             yPos += printFont12.Height + 15;
+            
 
             //Mettre l'heure de départ à 7h00 de la date selectionné sur le calendrier
             DateTime HeureDepart = new DateTime(vCalendar.SelectionStart.Year, vCalendar.SelectionStart.Month, vCalendar.SelectionStart.Day, 7, 0, 0);
             DateTime HeureCourant = HeureDepart; //Heure courant dans l'iteration
+
+            /////////////////////////////////////////////////////////////////////////////////
             //for (int i = 0; i < 30; i++) {
             while (DateTimeFunc.FormatHour(HeureCourant) != "22h30")
             { //max 22h00
@@ -921,6 +950,7 @@ namespace Barette.IDE.Forms.Calendar {
                 //Ajoute 30 min a l'heure courante
                 HeureCourant = HeureCourant.AddMinutes(30);
             }
+            /////////////////////////////////////////////////////////////////////////////////
 
             //Impression des notes de la journée
             if (txtNotes.Text != "")
