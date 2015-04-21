@@ -15,6 +15,7 @@ using Barette.Library.UserControls.Schedule;
 using Barette.Library.Client;
 using Barette.Library.Employer;
 using Barette.Library;
+using System.Collections;
 
 namespace Barette.IDE.Forms.Calendar {
 	public partial class FormHoraire : Form {
@@ -160,7 +161,7 @@ namespace Barette.IDE.Forms.Calendar {
 			
 			//Boucle dans tous les clients
 			for (int i = 0; i < this._ClientList.Count; i++) {
-                if (this._ClientList[i].TypeClient != ProfileType.CoursTerminer )
+                //if (this._ClientList[i].TypeClient != ProfileType.CoursTerminer )
                     for (int j = 0; j < this._ClientList[i].Seances.Count; j++)
                         {
                         cours = this._ClientList[i].Seances[j];
@@ -208,6 +209,38 @@ namespace Barette.IDE.Forms.Calendar {
                         }
 			}
 		}
+
+        private Dictionary<Seance, Customer> GetListCours(DateTime date, PrintMode mode)
+        {
+            Dictionary<Seance, Customer> coursList = new Dictionary<Seance, Customer>();
+
+
+            //Boucle dans tous les clients
+            foreach (Customer client in this._ClientList)
+                foreach(Seance cours in client.Seances)
+                    if ((cours.Employer == cbEmploye.Text) && (cours.DateHeure.Date == date) && (cours.Active == true))
+                    {
+                        if (cours.DateHeure.Hour >= 1 && cours.DateHeure.Hour <= 12 && mode == PrintMode.AM)
+                        {
+                            coursList.Add(cours, client);
+                            continue;
+                        }
+
+                        if (cours.DateHeure.Hour >= 13 && cours.DateHeure.Hour <= 17 && mode == PrintMode.PM)
+                        {
+                            coursList.Add(cours, client);
+                            continue;
+                        }
+
+                        if (cours.DateHeure.Hour >= 18 && cours.DateHeure.Hour <= 23 && mode == PrintMode.Evening)
+                        {
+                            coursList.Add(cours, client);
+                            continue;
+                        }
+                    }
+
+            return coursList;            
+        }
 
 		/// <summary>
 		/// Cree la liste des boldedDate a partir de la liste de client.
@@ -853,9 +886,7 @@ namespace Barette.IDE.Forms.Calendar {
             float topMargin = 30;
             float leftMargin = 0;
             float RightMargin = e.MarginBounds.Right;
-            bool isBetween = false;
             string Hours = "";
-            int indexFromList = 0;
             Seance cours = null;
             Customer client = null;
             string[] notesSplited;
@@ -915,42 +946,41 @@ namespace Barette.IDE.Forms.Calendar {
             //Impression du tableau d'horraire
             yPos += printFont12.Height + 15;
             
-
-            //Mettre l'heure de départ à 7h00 de la date selectionné sur le calendrier
-            DateTime HeureDepart = new DateTime(vCalendar.SelectionStart.Year, vCalendar.SelectionStart.Month, vCalendar.SelectionStart.Day, 7, 0, 0);
-            DateTime HeureCourant = HeureDepart; //Heure courant dans l'iteration
-
             /////////////////////////////////////////////////////////////////////////////////
-            //for (int i = 0; i < 30; i++) {
-            while (DateTimeFunc.FormatHour(HeureCourant) != "22h30")
-            { //max 22h00
+            var ClientCourslist = GetListCours(vCalendar.SelectionStart, this._printMode);
+
+            foreach (KeyValuePair<Seance, Customer> pair in ClientCourslist)
+            {
                 yPos += printFont12.Height;
 
-                cours = GetCoursBetweenFromList(out isBetween, out indexFromList, HeureCourant, out client);
-                if (cours != null)
-                { //Cours à imprimer					
-                    Hours = DateTimeFunc.FormatHour(cours.DateHeure);
-                    e.Graphics.DrawString(Hours, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
-                    e.Graphics.DrawString(client.ContratNumber, printFont10, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
-                    e.Graphics.DrawString(client.Name + " " + client.FirstName, printFont10, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
-                    e.Graphics.DrawString(client.Phone, printFont10, Brushes.Black, leftMargin + 310, yPos, new StringFormat());
-                    e.Graphics.DrawString(client.PhoneBureau, printFont10, Brushes.Black, leftMargin + 410, yPos, new StringFormat());
-                    e.Graphics.DrawString(client.GetShortVehiculeType(), printFont10, Brushes.Black, leftMargin + 510, yPos, new StringFormat());
-                    e.Graphics.DrawString(cours.SceanceNumber.ToString(), printFont10, Brushes.Black, leftMargin + 560, yPos, new StringFormat());
-                    e.Graphics.DrawString(cours.Montant, printFont10, Brushes.Black, leftMargin + 620, yPos, new StringFormat());
-                    e.Graphics.DrawString(cours.Code, printFont10, Brushes.Black, leftMargin + 690, yPos, new StringFormat());
-                }
-                else
-                {
-                    Hours = DateTimeFunc.FormatHour(HeureCourant);
-                    e.Graphics.DrawString(Hours, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
-                }
+                cours = pair.Key;
+                client = pair.Value;
 
-                cours = null;
-                //Ajoute 30 min a l'heure courante
-                HeureCourant = HeureCourant.AddMinutes(30);
+                Hours = DateTimeFunc.FormatHour(cours.DateHeure);
+                e.Graphics.DrawString(Hours, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
+                e.Graphics.DrawString(client.ContratNumber, printFont10, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
+                e.Graphics.DrawString(client.Name + " " + client.FirstName, printFont10, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
+                e.Graphics.DrawString(client.Phone, printFont10, Brushes.Black, leftMargin + 310, yPos, new StringFormat());
+                e.Graphics.DrawString(client.PhoneBureau, printFont10, Brushes.Black, leftMargin + 410, yPos, new StringFormat());
+                e.Graphics.DrawString(client.GetShortVehiculeType(), printFont10, Brushes.Black, leftMargin + 510, yPos, new StringFormat());
+                e.Graphics.DrawString(cours.SceanceNumber.ToString(), printFont10, Brushes.Black, leftMargin + 560, yPos, new StringFormat());
+                e.Graphics.DrawString(cours.Montant, printFont10, Brushes.Black, leftMargin + 620, yPos, new StringFormat());
+                e.Graphics.DrawString(cours.Code, printFont10, Brushes.Black, leftMargin + 690, yPos, new StringFormat());
+
             }
             /////////////////////////////////////////////////////////////////////////////////
+
+
+            yPos += 50;
+            e.Graphics.DrawString("____ Cours en circuit fermé", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
+            yPos += printFont12.Height;
+            e.Graphics.DrawString("____ Cours sur route", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
+
+            yPos += printFont12.Height * 2;
+            e.Graphics.DrawString("No. Permis  ______________________________", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
+            yPos += printFont12.Height * 2;
+            e.Graphics.DrawString("Signature    ______________________________", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
+
 
             //Impression des notes de la journée
             if (txtNotes.Text != "")
