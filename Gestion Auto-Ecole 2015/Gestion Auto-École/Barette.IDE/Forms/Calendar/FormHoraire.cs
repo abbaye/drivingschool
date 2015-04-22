@@ -235,7 +235,7 @@ namespace Barette.IDE.Forms.Calendar {
                         if (cours.DateHeure.Hour >= 18 && cours.DateHeure.Hour <= 23 && mode == PrintMode.Evening)
                         {
                             coursList.Add(cours, client);
-                            continue;
+                            continue; 
                         }
                     }
 
