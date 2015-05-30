@@ -10,6 +10,7 @@ namespace Barette.IDE.Forms.Calendar
         Nothing,
         AM,
         PM,
-        Evening //Soirée
+        Evening, //Soirée
+        Day
     }
 }

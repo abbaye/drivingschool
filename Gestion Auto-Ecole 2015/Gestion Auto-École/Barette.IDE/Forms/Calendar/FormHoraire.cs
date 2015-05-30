@@ -237,6 +237,12 @@ namespace Barette.IDE.Forms.Calendar {
                             coursList.Add(cours, client);
                             continue; 
                         }
+
+                        if (mode == PrintMode.Day)
+                        {
+                            coursList.Add(cours, client);
+                            continue;
+                        }
                     }
 
             return coursList;            
@@ -923,6 +929,9 @@ namespace Barette.IDE.Forms.Calendar {
                 case PrintMode.Evening:
                     e.Graphics.DrawString("Fiche horaire journalière : Soirée", printFontBold16, Brushes.Black, 225, 30, new StringFormat());
                     break;
+                case PrintMode.Day:
+                    e.Graphics.DrawString("Fiche horaire journalière", printFontBold16, Brushes.Black, 225, 30, new StringFormat());
+                    break;
             }
 
             yPos += printFontBold16.Height + 0;
@@ -1011,6 +1020,11 @@ namespace Barette.IDE.Forms.Calendar {
         private void menuItem5_Click(object sender, EventArgs e)
         {
             PrintForm(PrintMode.Evening);
-        }		
-	}
+        }
+
+        private void menuItem6_Click(object sender, EventArgs e)
+        {
+            PrintForm(PrintMode.Day);
+        }
+    }
 }
