@@ -30,17 +30,17 @@ namespace Barette.IDE.Forms.GestionGroup {
 
         public FormExport(CustomerCollection clientlist, Config appconfig) {
             InitializeComponent();
-            
-            this._clientList = clientlist;
-            this._Appconfig = appconfig;
+
+            _clientList = clientlist;
+            _Appconfig = appconfig;
                         
 
             FindClient(false);
         }
 
         private void cmdCancel_Click(object sender, EventArgs e) {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Barette.IDE.Forms.GestionGroup {
             listFindResult.Items.Clear();
             
             //Recherche dans tous les clients
-            foreach (Customer client in this._clientList) {
+            foreach (Customer client in _clientList) {
 
                 if (AddCoursTerminer) 
                     AddClientToList(client);                
@@ -104,11 +104,11 @@ namespace Barette.IDE.Forms.GestionGroup {
             listFindResult.Items.Clear();
 
 
-            var ListClientTous = from V in this._clientList.Cast<Customer>()
+            var ListClientTous = from V in _clientList.Cast<Customer>()
                                    where V.ContratNumber.Contains(ContainContractNumber)
                                    select V;
             
-            var ListClient = from V in this._clientList.Cast<Customer>()
+            var ListClient = from V in _clientList.Cast<Customer>()
                                    where V.ContratNumber.Contains(ContainContractNumber) && V.TypeClient != ProfileType.CoursTerminer
                                    select V;            
 

@@ -24,7 +24,7 @@ namespace Barette.IDE.Forms {
         public FormStatistiques(CustomerCollection clientlist) {
             InitializeComponent();
 
-            this._clientlist = clientlist;
+            _clientlist = clientlist;
 
             //Annee en cours
             dtpStartMonth.Value = new DateTime(DateTime.Now.Year, 1, 1); 

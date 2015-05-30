@@ -15,7 +15,8 @@ namespace Barette.IDE.Forms {
     /// <summary>
     /// Description résumée de FormAjoutClient.
     /// </summary>
-    public class FormAjoutClient : System.Windows.Forms.Form {
+    public class FormAjoutClient : Form
+    {
         /// <summary>
         /// Fenetre principal
         /// </summary>
@@ -38,11 +39,11 @@ namespace Barette.IDE.Forms {
             InitializeComponent();
 
             //cree un access a la dialog principal de l'application
-            this._formClients = clientForm;
-            this._infoEcole = infoEcole;
-            this._AppConfig = AppConfig;
+            _formClients = clientForm;
+            _infoEcole = infoEcole;
+            _AppConfig = AppConfig;
 
-            this.clientControl1.Now();
+            clientControl1.Now();
 
             //Numero de contrat
             Customer client = clientControl1.Client;
@@ -52,7 +53,7 @@ namespace Barette.IDE.Forms {
             client.TauxHorairePratique = _infoEcole.TauxHorairePratique;
             client.TauxHoraireTheorique = _infoEcole.TauxHoraireTheorie;
 
-            this.clientControl1.Client = client;
+            clientControl1.Client = client;
         }
 
         /// <summary>
@@ -74,30 +75,30 @@ namespace Barette.IDE.Forms {
         /// </summary>
         private void InitializeComponent() {
             Barette.Library.Client.Customer customer1 = new Barette.Library.Client.Customer();
-            this.cmdCancel = new System.Windows.Forms.Button();
-            this.clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
-            this.cmdAddClient = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            cmdCancel = new System.Windows.Forms.Button();
+            clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
+            cmdAddClient = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // cmdCancel
             // 
-            this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.Image = global::Barette.IDE.Properties.Resources.Cancel_2_icon;
-            this.cmdCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdCancel.Location = new System.Drawing.Point(557, 546);
-            this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(88, 43);
-            this.cmdCancel.TabIndex = 1;
-            this.cmdCancel.Text = "Annuler";
-            this.cmdCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            cmdCancel.Image = global::Barette.IDE.Properties.Resources.Cancel_2_icon;
+            cmdCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdCancel.Location = new System.Drawing.Point(557, 546);
+            cmdCancel.Name = "cmdCancel";
+            cmdCancel.Size = new System.Drawing.Size(88, 43);
+            cmdCancel.TabIndex = 1;
+            cmdCancel.Text = "Annuler";
+            cmdCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            cmdCancel.Click += new System.EventHandler(cmdCancel_Click);
             // 
             // clientControl1
             // 
-            this.clientControl1.AutoScroll = true;
-            this.clientControl1.AutoUpdate = true;
-            this.clientControl1.BackColor = System.Drawing.SystemColors.Control;
+            clientControl1.AutoScroll = true;
+            clientControl1.AutoUpdate = true;
+            clientControl1.BackColor = System.Drawing.SystemColors.Control;
             customer1.AttestationNumber1 = "";
             customer1.AttestationNumber2 = "";
             customer1.BVA = false;
@@ -141,44 +142,44 @@ namespace Barette.IDE.Forms {
             customer1.TauxHoraireTheorique = "";
             customer1.TypeClient = Barette.Library.Client.ProfileType.Actif;
             customer1.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
-            this.clientControl1.Client = customer1;
-            this.clientControl1.Location = new System.Drawing.Point(8, 8);
-            this.clientControl1.Name = "clientControl1";
-            this.clientControl1.School = null;
-            this.clientControl1.Size = new System.Drawing.Size(648, 534);
-            this.clientControl1.TabIndex = 15;
+            clientControl1.Client = customer1;
+            clientControl1.Location = new System.Drawing.Point(8, 8);
+            clientControl1.Name = "clientControl1";
+            clientControl1.School = null;
+            clientControl1.Size = new System.Drawing.Size(648, 534);
+            clientControl1.TabIndex = 15;
             // 
             // cmdAddClient
             // 
-            this.cmdAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAddClient.Image = global::Barette.IDE.Properties.Resources.accept_icon;
-            this.cmdAddClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAddClient.Location = new System.Drawing.Point(467, 546);
-            this.cmdAddClient.Name = "cmdAddClient";
-            this.cmdAddClient.Size = new System.Drawing.Size(84, 43);
-            this.cmdAddClient.TabIndex = 0;
-            this.cmdAddClient.Text = "Ajouter";
-            this.cmdAddClient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdAddClient.Click += new System.EventHandler(this.cmdAddClient_Click);
+            cmdAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAddClient.Image = global::Barette.IDE.Properties.Resources.accept_icon;
+            cmdAddClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdAddClient.Location = new System.Drawing.Point(467, 546);
+            cmdAddClient.Name = "cmdAddClient";
+            cmdAddClient.Size = new System.Drawing.Size(84, 43);
+            cmdAddClient.TabIndex = 0;
+            cmdAddClient.Text = "Ajouter";
+            cmdAddClient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            cmdAddClient.Click += new System.EventHandler(cmdAddClient_Click);
             // 
             // FormAjoutClient
             // 
-            this.ClientSize = new System.Drawing.Size(657, 601);
-            this.ControlBox = false;
-            this.Controls.Add(this.clientControl1);
-            this.Controls.Add(this.cmdCancel);
-            this.Controls.Add(this.cmdAddClient);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FormAjoutClient";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Ajouter un client";
-            this.ResumeLayout(false);
+            ClientSize = new System.Drawing.Size(657, 601);
+            ControlBox = false;
+            Controls.Add(clientControl1);
+            Controls.Add(cmdCancel);
+            Controls.Add(cmdAddClient);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            Name = "FormAjoutClient";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Ajouter un client";
+            ResumeLayout(false);
 
         }
         #endregion
 
         private void cmdCancel_Click(object sender, System.EventArgs e) {
-            this.Close();
+            Close();
         }
 
         private void cmdAddClient_Click(object sender, System.EventArgs e) {
@@ -186,10 +187,10 @@ namespace Barette.IDE.Forms {
 
             if (clientControl1.ValidateClient() == true) {
 
-                this._formClients.AddClientToList(clientControl1.Client);
-                this._formClients.AddClient(clientControl1.Client);
+                _formClients.AddClientToList(clientControl1.Client);
+                _formClients.AddClient(clientControl1.Client);
 
-                this.DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
 
                 _AppConfig.LastContractNumber = Convert.ToInt32(clientControl1.Client.ContratNumber);
             }

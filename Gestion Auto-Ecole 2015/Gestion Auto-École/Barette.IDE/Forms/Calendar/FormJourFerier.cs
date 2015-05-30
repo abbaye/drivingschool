@@ -142,7 +142,7 @@ namespace Barette.IDE.Forms.Calendar {
 				_ColOffDate.Add(offDate);
 			}
 
-			this.Close();
+            Close();
 		}
 
 		private void lvDate_KeyDown(object sender, KeyEventArgs e) {

@@ -20,11 +20,11 @@ namespace Barette.IDE.Forms.InfoEcole
         {
             InitializeComponent();
 
-            this._appConfig = appconfig;
+            _appConfig = appconfig;
 
             //Assignation de l'information sur l'ecoles de conduites
-            this._InfoSchool = info;
-            LoadSchoolInfo(this._InfoSchool);
+            _InfoSchool = info;
+            LoadSchoolInfo(_InfoSchool);
 
             //Desactive le boutton cancel
             if (FirstRun == true) cmdCancel.Enabled = false;
@@ -32,14 +32,14 @@ namespace Barette.IDE.Forms.InfoEcole
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void cmdOK_Click(object sender, EventArgs e) {
 
             if (IsValide() == true) {
-                this.SaveSchoolInfo(this._InfoSchool);
-                this.Close();
+                SaveSchoolInfo(_InfoSchool);
+                Close();
             }
         }
 

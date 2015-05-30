@@ -28,15 +28,15 @@ namespace Barette.IDE.Forms.GestionGroup {
         }
 
         private void cmdCancel_Click(object sender, EventArgs e) {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
         
         private void cmdValidate_Click(object sender, EventArgs e) {
             _group.Name = txtName.Text;
             _group.GroupeNumber = ntbGroupNumber.Value;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

@@ -32,6 +32,8 @@ namespace Barette.Library.Client {
 		Nothing,
 		ArgentComptant,
 		Cheque,
+        VISA,
+        MasterCard,
 		PaimentDirect,
 		Autre	
 	}

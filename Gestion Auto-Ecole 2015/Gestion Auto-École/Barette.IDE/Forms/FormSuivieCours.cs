@@ -27,8 +27,8 @@ namespace Barette.IDE.Forms {
         public FormSuivieCours(CustomerCollection client, FormMain frmMain) {
             InitializeComponent();
 
-            this._clientlist = client;
-            this._FormMain = frmMain;
+            _clientlist = client;
+            _FormMain = frmMain;
             Find();
         }
 
@@ -47,7 +47,7 @@ namespace Barette.IDE.Forms {
                         ShowSeanceTheorique();            
                     break;
                 case "SHOWCLIENT":
-                    try { this._FormMain.CreationListClient(ListCours.SelectedItems[0].Text); }
+                    try { _FormMain.CreationListClient(ListCours.SelectedItems[0].Text); }
                     catch { };
                     break;
                 case "COURSPRATIQUE":
@@ -81,7 +81,7 @@ namespace Barette.IDE.Forms {
         /// Mise a jour de la recherche après modification
         /// </summary>
         private void UpdateFind() {
-            Customer client = this._clientlist.GetClient(ListCours.SelectedItems[0].Text);
+            Customer client = _clientlist.GetClient(ListCours.SelectedItems[0].Text);
 
             for (int i = 0; i < 15; i++) {
                 ListCours.SelectedItems[0].SubItems[i + 4].Text = " ";
@@ -196,8 +196,8 @@ namespace Barette.IDE.Forms {
             ListCours.Sorting = SortOrder.None;
 
             int i, j, k;
-            for (i = 0; i < this._clientlist.Count; i++) {
-                if ((this._clientlist[i].TypeClient != ProfileType.CoursTerminer) && IsAutomobile(this._clientlist[i])) {
+            for (i = 0; i < _clientlist.Count; i++) {
+                if ((_clientlist[i].TypeClient != ProfileType.CoursTerminer) && IsAutomobile(_clientlist[i])) {
                     item = new ListViewItem(_clientlist[i].ContratNumber);
 
                     item.SubItems.Add(_clientlist[i].FirstName + " " + _clientlist[i].Name);
@@ -266,8 +266,8 @@ namespace Barette.IDE.Forms {
             ListCours.Sorting = SortOrder.None;
 
             int i, j, k;
-            for (i = 0; i < this._clientlist.Count; i++) {
-                if ((this._clientlist[i].TypeClient != ProfileType.CoursTerminer) && IsAutomobile(this._clientlist[i])) {
+            for (i = 0; i < _clientlist.Count; i++) {
+                if ((_clientlist[i].TypeClient != ProfileType.CoursTerminer) && IsAutomobile(_clientlist[i])) {
                     item = new ListViewItem(_clientlist[i].ContratNumber);
 
                     item.SubItems.Add(_clientlist[i].FirstName + " " + _clientlist[i].Name);
@@ -365,10 +365,10 @@ namespace Barette.IDE.Forms {
 
         private void ListCoursEffectuer_SelectedIndexChanged(object sender, EventArgs e) {
             try {
-                Customer client = this._FormMain.ClientList.GetClient(ListCours.SelectedItems[0].Text);
+                Customer client = _FormMain.ClientList.GetClient(ListCours.SelectedItems[0].Text);
 
                 if (client != null)
-                    clientControl1.Client = this._FormMain.ClientList.GetClient(ListCours.SelectedItems[0].Text);
+                    clientControl1.Client = _FormMain.ClientList.GetClient(ListCours.SelectedItems[0].Text);
             }
             catch { }
         }

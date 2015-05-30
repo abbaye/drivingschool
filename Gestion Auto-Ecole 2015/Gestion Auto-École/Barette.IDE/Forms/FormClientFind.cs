@@ -28,9 +28,9 @@ namespace Barette.IDE.Forms {
         public FormClientFind(CustomerCollection ClientList, FormClients formClients, Config AppConfig) {
             InitializeComponent();
 
-            this._ClientList = ClientList;
-            this._formClients = formClients;
-            this._AppConfig = AppConfig;
+            _ClientList = ClientList;
+            _formClients = formClients;
+            _AppConfig = AppConfig;
 
             LoadList();
             FindClient(FindMode.All);
@@ -40,7 +40,7 @@ namespace Barette.IDE.Forms {
         /// Cree la liste des numeros de groupe disponible
         /// </summary>
         private void LoadList() {
-            var GroupList = from client in this._ClientList.Cast<Customer>()
+            var GroupList = from client in _ClientList.Cast<Customer>()
                             group client by client.NumeroGroupe into d 
                             orderby d.Key ascending 
                             select d;
@@ -60,17 +60,17 @@ namespace Barette.IDE.Forms {
             Cursor.Current = Cursors.WaitCursor;
             lvClient.Items.Clear();
 
-            if (this._AppConfig.ShowGestionClient_CoursFinish)
+            if (_AppConfig.ShowGestionClient_CoursFinish)
                 switch (mode) {
                     case FindMode.All:
-                        var ClientAll = from client in this._ClientList.Cast<Customer>()
+                        var ClientAll = from client in _ClientList.Cast<Customer>()
                                         select client;
 
                         foreach (Customer client in ClientAll)
                             AddClient(client);
                         break;
                     case FindMode.ContratNumber:
-                        var ClientContractNumber = from client in this._ClientList.Cast<Customer>()
+                        var ClientContractNumber = from client in _ClientList.Cast<Customer>()
                                                    where client.ContratNumber.ToLower().Contains(txtNumeroContrat.Text.ToLower())
                                                    select client;
 
@@ -78,7 +78,7 @@ namespace Barette.IDE.Forms {
                             AddClient(client);
                         break;
                     case FindMode.FullName:
-                        var ClientFullName = from client in this._ClientList.Cast<Customer>()
+                        var ClientFullName = from client in _ClientList.Cast<Customer>()
                                              where client.GetFullName(false).ToLower().Contains(txtFullName.Text.ToLower())
                                              select client;
 
@@ -86,7 +86,7 @@ namespace Barette.IDE.Forms {
                             AddClient(client);
                         break;
                     case FindMode.GroupeNumber:
-                        var ClientGroupNumber = from client in this._ClientList.Cast<Customer>()
+                        var ClientGroupNumber = from client in _ClientList.Cast<Customer>()
                                                 where client.NumeroGroupe.ToString().Contains(txtGroupNumber.Text)
                                                 select client;
 
@@ -97,7 +97,7 @@ namespace Barette.IDE.Forms {
             else
                 switch (mode) {
                     case FindMode.All:
-                        var ClientAll = from client in this._ClientList.Cast<Customer>()
+                        var ClientAll = from client in _ClientList.Cast<Customer>()
                                         where client.TypeClient == ProfileType.Actif
                                         select client;
 
@@ -105,7 +105,7 @@ namespace Barette.IDE.Forms {
                             AddClient(client);
                         break;
                     case FindMode.ContratNumber:
-                        var ClientContractNumber = from client in this._ClientList.Cast<Customer>()
+                        var ClientContractNumber = from client in _ClientList.Cast<Customer>()
                                                    where client.ContratNumber.ToLower().Contains(txtNumeroContrat.Text.ToLower()) && client.TypeClient == ProfileType.Actif
                                                    select client;
 
@@ -113,7 +113,7 @@ namespace Barette.IDE.Forms {
                             AddClient(client);
                         break;
                     case FindMode.FullName:
-                        var ClientFullName = from client in this._ClientList.Cast<Customer>()
+                        var ClientFullName = from client in _ClientList.Cast<Customer>()
                                              where client.GetFullName(false).ToLower().Contains(txtFullName.Text.ToLower()) && client.TypeClient == ProfileType.Actif
                                              select client;
 
@@ -121,7 +121,7 @@ namespace Barette.IDE.Forms {
                             AddClient(client);
                         break;
                     case FindMode.GroupeNumber:
-                        var ClientGroupNumber = from client in this._ClientList.Cast<Customer>()
+                        var ClientGroupNumber = from client in _ClientList.Cast<Customer>()
                                                 where client.NumeroGroupe.ToString().Contains(txtGroupNumber.Text) && client.TypeClient == ProfileType.Actif
                                                 select client;
 
@@ -209,7 +209,7 @@ namespace Barette.IDE.Forms {
         }
 
         private void cmdCancel_Click(object sender, EventArgs e) {
-            this.Close();
+            Close();
         }
 
         private void txtGroupNumber_TextChanged(object sender, EventArgs e) {
@@ -224,7 +224,7 @@ namespace Barette.IDE.Forms {
 
         private void lvClient_SelectedIndexChanged(object sender, EventArgs e) {
             try {
-                clientControl1.Client = this._ClientList.GetClient(lvClient.SelectedItems[0].SubItems[1].Text);
+                clientControl1.Client = _ClientList.GetClient(lvClient.SelectedItems[0].SubItems[1].Text);
                 cmdAccept.Enabled = true;
                 
             }
@@ -235,8 +235,8 @@ namespace Barette.IDE.Forms {
         }
 
         private void cmdAccept_Click(object sender, EventArgs e) {
-            this._formClients.SelectionClient(lvClient.SelectedItems[0].SubItems[1].Text);
-            this.Close();
+            _formClients.SelectionClient(lvClient.SelectedItems[0].SubItems[1].Text);
+            Close();
         }
 
         private void lvClient_DoubleClick(object sender, EventArgs e) {

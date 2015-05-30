@@ -28,18 +28,18 @@ namespace Barette.IDE.Forms.Notes {
 			get {
 				PostIt notes = new PostIt();
 
-				notes.Alerte = this.cbAlerte.Checked;
-				notes.AlerteDateTime = this.DateTimeAlerte.Value;
-				notes.Message = this.txtMessage.Text;
+				notes.Alerte = cbAlerte.Checked;
+				notes.AlerteDateTime = DateTimeAlerte.Value;
+				notes.Message = txtMessage.Text;
 				notes.Date = DatePostIt.Value;
 
 				return notes;
 			}
 			set {
-				this.cbAlerte.Checked = value.Alerte;
-				this.DateTimeAlerte.Value = value.AlerteDateTime;
-				this.txtMessage.Text = value.Message;
-				this.DatePostIt.Value = value.Date;
+                cbAlerte.Checked = value.Alerte;
+                DateTimeAlerte.Value = value.AlerteDateTime;
+                txtMessage.Text = value.Message;
+                DatePostIt.Value = value.Date;
 			}
 		}
 

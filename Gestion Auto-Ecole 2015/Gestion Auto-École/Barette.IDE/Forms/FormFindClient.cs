@@ -17,7 +17,8 @@ namespace Barette.IDE.Forms {
 	/// <summary>
 	/// Description résumée de FormFindClient.
 	/// </summary>
-	public class FormFindClient : System.Windows.Forms.Form {
+	public class FormFindClient : Form
+    {
 		/// <summary>
 		/// acces a la Fenetre principal
 		/// </summary>		
@@ -94,11 +95,11 @@ namespace Barette.IDE.Forms {
 			//
 			InitializeComponent();
 
-			this._FormMain = main;
+            _FormMain = main;
 
-			//Control client
-			this._ListEmploye = ListEmploye; 
-			this.clientControl1.ListeEmploye = ListEmploye;
+            //Control client
+            _ListEmploye = ListEmploye;
+            clientControl1.ListeEmploye = ListEmploye;
 
 			//StaticBorder.ThinBorder(listFindResult.Handle.ToInt32(), true);
 			StaticBorder.ThinBorder(tpDate.Handle.ToInt32(), true);
@@ -129,264 +130,264 @@ namespace Barette.IDE.Forms {
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFindClient));
             Barette.Library.Client.Customer customer2 = new Barette.Library.Client.Customer();
-            this.listFindResult = new System.Windows.Forms.ListView();
-            this.colheadContratNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colheadName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colheadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadTypeVehicule = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadSolde = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadDernierPaiment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ImageListSmall = new System.Windows.Forms.ImageList(this.components);
-            this.chkDisponibilityPM = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilityAM = new System.Windows.Forms.CheckBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.toolBar1 = new System.Windows.Forms.ToolBar();
-            this.tbbRefresh = new System.Windows.Forms.ToolBarButton();
-            this.toolBarButton1 = new System.Windows.Forms.ToolBarButton();
-            this.tbbShowClient = new System.Windows.Forms.ToolBarButton();
-            this.tbbShowPaiment = new System.Windows.Forms.ToolBarButton();
-            this.toolBarButton2 = new System.Windows.Forms.ToolBarButton();
-            this.tbbSeparator1 = new System.Windows.Forms.ToolBarButton();
-            this.toolBarButton5 = new System.Windows.Forms.ToolBarButton();
-            this.tbbPrintFindList = new System.Windows.Forms.ToolBarButton();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.PrintRelever = new System.Drawing.Printing.PrintDocument();
-            this.clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
-            this.lblTotalFind = new System.Windows.Forms.Label();
-            this.tpMoto = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpDateFinMoto = new System.Windows.Forms.DateTimePicker();
-            this.dtpDateDebutMoto = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tpDate = new System.Windows.Forms.TabPage();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-            this.cbChoice = new System.Windows.Forms.ComboBox();
-            this.tpClientType = new System.Windows.Forms.TabPage();
-            this.rbTypeClientActif = new System.Windows.Forms.RadioButton();
-            this.rbTypeClientFinish = new System.Windows.Forms.RadioButton();
-            this.tpDispo = new System.Windows.Forms.TabPage();
-            this.rbMatin = new System.Windows.Forms.RadioButton();
-            this.rbApresMidi = new System.Windows.Forms.RadioButton();
-            this.rbSoir = new System.Windows.Forms.RadioButton();
-            this.rbSamedi = new System.Windows.Forms.RadioButton();
-            this.rbDimanche = new System.Windows.Forms.RadioButton();
-            this.rbAlway = new System.Windows.Forms.RadioButton();
-            this.tpVehicule = new System.Windows.Forms.TabPage();
-            this.rbVehiculManuel = new System.Windows.Forms.RadioButton();
-            this.rbVehiculAutomatique = new System.Windows.Forms.RadioButton();
-            this.rbVehiculMoto = new System.Windows.Forms.RadioButton();
-            this.rbVehiculCyclomoteur = new System.Windows.Forms.RadioButton();
-            this.tpClientInfo = new System.Windows.Forms.TabPage();
-            this.rbName = new System.Windows.Forms.RadioButton();
-            this.txtClientName = new System.Windows.Forms.TextBox();
-            this.rbFirstName = new System.Windows.Forms.RadioButton();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpMoto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.tpDate.SuspendLayout();
-            this.tpClientType.SuspendLayout();
-            this.tpDispo.SuspendLayout();
-            this.tpVehicule.SuspendLayout();
-            this.tpClientInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.SuspendLayout();
+            listFindResult = new System.Windows.Forms.ListView();
+            colheadContratNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colheadName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colheadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadTypeVehicule = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadSolde = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadDernierPaiment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ImageListSmall = new System.Windows.Forms.ImageList(components);
+            chkDisponibilityPM = new System.Windows.Forms.CheckBox();
+            chkDisponibilityAM = new System.Windows.Forms.CheckBox();
+            imageList1 = new System.Windows.Forms.ImageList(components);
+            toolBar1 = new System.Windows.Forms.ToolBar();
+            tbbRefresh = new System.Windows.Forms.ToolBarButton();
+            toolBarButton1 = new System.Windows.Forms.ToolBarButton();
+            tbbShowClient = new System.Windows.Forms.ToolBarButton();
+            tbbShowPaiment = new System.Windows.Forms.ToolBarButton();
+            toolBarButton2 = new System.Windows.Forms.ToolBarButton();
+            tbbSeparator1 = new System.Windows.Forms.ToolBarButton();
+            toolBarButton5 = new System.Windows.Forms.ToolBarButton();
+            tbbPrintFindList = new System.Windows.Forms.ToolBarButton();
+            timer1 = new System.Windows.Forms.Timer(components);
+            PrintRelever = new System.Drawing.Printing.PrintDocument();
+            clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
+            lblTotalFind = new System.Windows.Forms.Label();
+            tpMoto = new System.Windows.Forms.TabPage();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            label4 = new System.Windows.Forms.Label();
+            dtpDateFinMoto = new System.Windows.Forms.DateTimePicker();
+            dtpDateDebutMoto = new System.Windows.Forms.DateTimePicker();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            tpDate = new System.Windows.Forms.TabPage();
+            monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            cbChoice = new System.Windows.Forms.ComboBox();
+            tpClientType = new System.Windows.Forms.TabPage();
+            rbTypeClientActif = new System.Windows.Forms.RadioButton();
+            rbTypeClientFinish = new System.Windows.Forms.RadioButton();
+            tpDispo = new System.Windows.Forms.TabPage();
+            rbMatin = new System.Windows.Forms.RadioButton();
+            rbApresMidi = new System.Windows.Forms.RadioButton();
+            rbSoir = new System.Windows.Forms.RadioButton();
+            rbSamedi = new System.Windows.Forms.RadioButton();
+            rbDimanche = new System.Windows.Forms.RadioButton();
+            rbAlway = new System.Windows.Forms.RadioButton();
+            tpVehicule = new System.Windows.Forms.TabPage();
+            rbVehiculManuel = new System.Windows.Forms.RadioButton();
+            rbVehiculAutomatique = new System.Windows.Forms.RadioButton();
+            rbVehiculMoto = new System.Windows.Forms.RadioButton();
+            rbVehiculCyclomoteur = new System.Windows.Forms.RadioButton();
+            tpClientInfo = new System.Windows.Forms.TabPage();
+            rbName = new System.Windows.Forms.RadioButton();
+            txtClientName = new System.Windows.Forms.TextBox();
+            rbFirstName = new System.Windows.Forms.RadioButton();
+            txtFirstName = new System.Windows.Forms.TextBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            label1 = new System.Windows.Forms.Label();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tpMoto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            tpDate.SuspendLayout();
+            tpClientType.SuspendLayout();
+            tpDispo.SuspendLayout();
+            tpVehicule.SuspendLayout();
+            tpClientInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            tabControl1.SuspendLayout();
+            SuspendLayout();
             // 
             // listFindResult
             // 
-            this.listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.listFindResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colheadContratNumber,
-            this.colheadName,
-            this.colheadDate,
-            this.colHeadPhone,
-            this.colHeadTypeVehicule,
-            this.colHeadSolde,
-            this.colHeadDernierPaiment});
-            this.listFindResult.FullRowSelect = true;
-            this.listFindResult.Location = new System.Drawing.Point(8, 306);
-            this.listFindResult.MultiSelect = false;
-            this.listFindResult.Name = "listFindResult";
-            this.listFindResult.Size = new System.Drawing.Size(852, 200);
-            this.listFindResult.SmallImageList = this.ImageListSmall;
-            this.listFindResult.TabIndex = 0;
-            this.listFindResult.UseCompatibleStateImageBehavior = false;
-            this.listFindResult.View = System.Windows.Forms.View.Details;
-            this.listFindResult.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listFindResult_ColumnClick);
-            this.listFindResult.SelectedIndexChanged += new System.EventHandler(this.listFindResult_SelectedIndexChanged);
-            this.listFindResult.Click += new System.EventHandler(this.listFindResult_Click);
+            listFindResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            colheadContratNumber,
+            colheadName,
+            colheadDate,
+            colHeadPhone,
+            colHeadTypeVehicule,
+            colHeadSolde,
+            colHeadDernierPaiment});
+            listFindResult.FullRowSelect = true;
+            listFindResult.Location = new System.Drawing.Point(8, 306);
+            listFindResult.MultiSelect = false;
+            listFindResult.Name = "listFindResult";
+            listFindResult.Size = new System.Drawing.Size(852, 200);
+            listFindResult.SmallImageList = ImageListSmall;
+            listFindResult.TabIndex = 0;
+            listFindResult.UseCompatibleStateImageBehavior = false;
+            listFindResult.View = System.Windows.Forms.View.Details;
+            listFindResult.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(listFindResult_ColumnClick);
+            listFindResult.SelectedIndexChanged += new System.EventHandler(listFindResult_SelectedIndexChanged);
+            listFindResult.Click += new System.EventHandler(listFindResult_Click);
             // 
             // colheadContratNumber
             // 
-            this.colheadContratNumber.Text = "# Contrat";
-            this.colheadContratNumber.Width = 66;
+            colheadContratNumber.Text = "# Contrat";
+            colheadContratNumber.Width = 66;
             // 
             // colheadName
             // 
-            this.colheadName.Text = "Nom du client";
-            this.colheadName.Width = 183;
+            colheadName.Text = "Nom du client";
+            colheadName.Width = 183;
             // 
             // colheadDate
             // 
-            this.colheadDate.Text = "Date d\'inscription";
-            this.colheadDate.Width = 118;
+            colheadDate.Text = "Date d\'inscription";
+            colheadDate.Width = 118;
             // 
             // colHeadPhone
             // 
-            this.colHeadPhone.Text = "Téléphone";
-            this.colHeadPhone.Width = 102;
+            colHeadPhone.Text = "Téléphone";
+            colHeadPhone.Width = 102;
             // 
             // colHeadTypeVehicule
             // 
-            this.colHeadTypeVehicule.Text = "Type de cours";
-            this.colHeadTypeVehicule.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colHeadTypeVehicule.Width = 99;
+            colHeadTypeVehicule.Text = "Type de cours";
+            colHeadTypeVehicule.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            colHeadTypeVehicule.Width = 99;
             // 
             // colHeadSolde
             // 
-            this.colHeadSolde.Text = "Solde";
-            this.colHeadSolde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.colHeadSolde.Width = 64;
+            colHeadSolde.Text = "Solde";
+            colHeadSolde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            colHeadSolde.Width = 64;
             // 
             // colHeadDernierPaiment
             // 
-            this.colHeadDernierPaiment.Text = "Dernier Paiment";
-            this.colHeadDernierPaiment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colHeadDernierPaiment.Width = 97;
+            colHeadDernierPaiment.Text = "Dernier Paiment";
+            colHeadDernierPaiment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            colHeadDernierPaiment.Width = 97;
             // 
             // ImageListSmall
             // 
-            this.ImageListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
-            this.ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
-            this.ImageListSmall.Images.SetKeyName(0, "Moto");
-            this.ImageListSmall.Images.SetKeyName(1, "Auto");
-            this.ImageListSmall.Images.SetKeyName(2, "Camion");
+            ImageListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
+            ImageListSmall.Images.SetKeyName(0, "Moto");
+            ImageListSmall.Images.SetKeyName(1, "Auto");
+            ImageListSmall.Images.SetKeyName(2, "Camion");
             // 
             // chkDisponibilityPM
             // 
-            this.chkDisponibilityPM.Location = new System.Drawing.Point(0, 0);
-            this.chkDisponibilityPM.Name = "chkDisponibilityPM";
-            this.chkDisponibilityPM.Size = new System.Drawing.Size(104, 24);
-            this.chkDisponibilityPM.TabIndex = 0;
+            chkDisponibilityPM.Location = new System.Drawing.Point(0, 0);
+            chkDisponibilityPM.Name = "chkDisponibilityPM";
+            chkDisponibilityPM.Size = new System.Drawing.Size(104, 24);
+            chkDisponibilityPM.TabIndex = 0;
             // 
             // chkDisponibilityAM
             // 
-            this.chkDisponibilityAM.Location = new System.Drawing.Point(0, 0);
-            this.chkDisponibilityAM.Name = "chkDisponibilityAM";
-            this.chkDisponibilityAM.Size = new System.Drawing.Size(104, 24);
-            this.chkDisponibilityAM.TabIndex = 0;
+            chkDisponibilityAM.Location = new System.Drawing.Point(0, 0);
+            chkDisponibilityAM.Name = "chkDisponibilityAM";
+            chkDisponibilityAM.Size = new System.Drawing.Size(104, 24);
+            chkDisponibilityAM.TabIndex = 0;
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "");
-            this.imageList1.Images.SetKeyName(1, "");
-            this.imageList1.Images.SetKeyName(2, "");
-            this.imageList1.Images.SetKeyName(3, "user-group-icon.png");
-            this.imageList1.Images.SetKeyName(4, "Recyclebin_empty");
-            this.imageList1.Images.SetKeyName(5, "coins-icon.png");
+            imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            imageList1.Images.SetKeyName(0, "");
+            imageList1.Images.SetKeyName(1, "");
+            imageList1.Images.SetKeyName(2, "");
+            imageList1.Images.SetKeyName(3, "user-group-icon.png");
+            imageList1.Images.SetKeyName(4, "Recyclebin_empty");
+            imageList1.Images.SetKeyName(5, "coins-icon.png");
             // 
             // toolBar1
             // 
-            this.toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
-            this.toolBar1.AutoSize = false;
-            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.tbbRefresh,
-            this.toolBarButton1,
-            this.tbbShowClient,
-            this.tbbShowPaiment,
-            this.toolBarButton2,
-            this.tbbSeparator1,
-            this.toolBarButton5,
-            this.tbbPrintFindList});
-            this.toolBar1.Divider = false;
-            this.toolBar1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolBar1.DropDownArrows = true;
-            this.toolBar1.ImageList = this.imageList1;
-            this.toolBar1.Location = new System.Drawing.Point(8, 12);
-            this.toolBar1.Name = "toolBar1";
-            this.toolBar1.ShowToolTips = true;
-            this.toolBar1.Size = new System.Drawing.Size(478, 42);
-            this.toolBar1.TabIndex = 13;
-            this.toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
-            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
+            toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
+            toolBar1.AutoSize = false;
+            toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            tbbRefresh,
+            toolBarButton1,
+            tbbShowClient,
+            tbbShowPaiment,
+            toolBarButton2,
+            tbbSeparator1,
+            toolBarButton5,
+            tbbPrintFindList});
+            toolBar1.Divider = false;
+            toolBar1.Dock = System.Windows.Forms.DockStyle.None;
+            toolBar1.DropDownArrows = true;
+            toolBar1.ImageList = imageList1;
+            toolBar1.Location = new System.Drawing.Point(8, 12);
+            toolBar1.Name = "toolBar1";
+            toolBar1.ShowToolTips = true;
+            toolBar1.Size = new System.Drawing.Size(478, 42);
+            toolBar1.TabIndex = 13;
+            toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
+            toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(toolBar1_ButtonClick);
             // 
             // tbbRefresh
             // 
-            this.tbbRefresh.ImageKey = "Recyclebin_empty";
-            this.tbbRefresh.Name = "tbbRefresh";
-            this.tbbRefresh.Tag = "REFRESH";
+            tbbRefresh.ImageKey = "Recyclebin_empty";
+            tbbRefresh.Name = "tbbRefresh";
+            tbbRefresh.Tag = "REFRESH";
             // 
             // toolBarButton1
             // 
-            this.toolBarButton1.Name = "toolBarButton1";
-            this.toolBarButton1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
+            toolBarButton1.Name = "toolBarButton1";
+            toolBarButton1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
             // 
             // tbbShowClient
             // 
-            this.tbbShowClient.ImageIndex = 3;
-            this.tbbShowClient.Name = "tbbShowClient";
-            this.tbbShowClient.Tag = "SHOWCLIENT";
-            this.tbbShowClient.ToolTipText = "Affiche le client";
+            tbbShowClient.ImageIndex = 3;
+            tbbShowClient.Name = "tbbShowClient";
+            tbbShowClient.Tag = "SHOWCLIENT";
+            tbbShowClient.ToolTipText = "Affiche le client";
             // 
             // tbbShowPaiment
             // 
-            this.tbbShowPaiment.ImageIndex = 5;
-            this.tbbShowPaiment.Name = "tbbShowPaiment";
-            this.tbbShowPaiment.Tag = "PAIMENT";
+            tbbShowPaiment.ImageIndex = 5;
+            tbbShowPaiment.Name = "tbbShowPaiment";
+            tbbShowPaiment.Tag = "PAIMENT";
             // 
             // toolBarButton2
             // 
-            this.toolBarButton2.ImageIndex = 1;
-            this.toolBarButton2.Name = "toolBarButton2";
-            this.toolBarButton2.Tag = "OPENSEANCE";
-            this.toolBarButton2.ToolTipText = "Affiche la boîte de séances de cours";
+            toolBarButton2.ImageIndex = 1;
+            toolBarButton2.Name = "toolBarButton2";
+            toolBarButton2.Tag = "OPENSEANCE";
+            toolBarButton2.ToolTipText = "Affiche la boîte de séances de cours";
             // 
             // tbbSeparator1
             // 
-            this.tbbSeparator1.Name = "tbbSeparator1";
-            this.tbbSeparator1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
+            tbbSeparator1.Name = "tbbSeparator1";
+            tbbSeparator1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
             // 
             // toolBarButton5
             // 
-            this.toolBarButton5.ImageIndex = 0;
-            this.toolBarButton5.Name = "toolBarButton5";
-            this.toolBarButton5.Tag = "PRINT";
-            this.toolBarButton5.Text = "Infos Client";
+            toolBarButton5.ImageIndex = 0;
+            toolBarButton5.Name = "toolBarButton5";
+            toolBarButton5.Tag = "PRINT";
+            toolBarButton5.Text = "Infos Client";
             // 
             // tbbPrintFindList
             // 
-            this.tbbPrintFindList.ImageIndex = 0;
-            this.tbbPrintFindList.Name = "tbbPrintFindList";
-            this.tbbPrintFindList.Tag = "PRINTFINDLIST";
-            this.tbbPrintFindList.Text = "Liste de recherche";
+            tbbPrintFindList.ImageIndex = 0;
+            tbbPrintFindList.Name = "tbbPrintFindList";
+            tbbPrintFindList.Tag = "PRINTFINDLIST";
+            tbbPrintFindList.Text = "Liste de recherche";
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 200;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            timer1.Enabled = true;
+            timer1.Interval = 200;
+            timer1.Tick += new System.EventHandler(timer1_Tick);
             // 
             // PrintRelever
             // 
-            this.PrintRelever.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintRelever_PrintPage);
+            PrintRelever.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(PrintRelever_PrintPage);
             // 
             // clientControl1
             // 
-            this.clientControl1.AutoUpdate = false;
-            this.clientControl1.BackColor = System.Drawing.SystemColors.Control;
+            clientControl1.AutoUpdate = false;
+            clientControl1.BackColor = System.Drawing.SystemColors.Control;
             customer2.AttestationNumber1 = "";
             customer2.AttestationNumber2 = "";
             customer2.BVA = false;
@@ -431,410 +432,410 @@ namespace Barette.IDE.Forms {
             customer2.TauxHoraireTheorique = "";
             customer2.TypeClient = Barette.Library.Client.ProfileType.Actif;
             customer2.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
-            this.clientControl1.Client = customer2;
-            this.clientControl1.Location = new System.Drawing.Point(657, 344);
-            this.clientControl1.Name = "clientControl1";
-            this.clientControl1.School = null;
-            this.clientControl1.Size = new System.Drawing.Size(160, 160);
-            this.clientControl1.TabIndex = 14;
-            this.clientControl1.Visible = false;
+            clientControl1.Client = customer2;
+            clientControl1.Location = new System.Drawing.Point(657, 344);
+            clientControl1.Name = "clientControl1";
+            clientControl1.School = null;
+            clientControl1.Size = new System.Drawing.Size(160, 160);
+            clientControl1.TabIndex = 14;
+            clientControl1.Visible = false;
             // 
             // lblTotalFind
             // 
-            this.lblTotalFind.AutoSize = true;
-            this.lblTotalFind.Location = new System.Drawing.Point(9, 285);
-            this.lblTotalFind.Name = "lblTotalFind";
-            this.lblTotalFind.Size = new System.Drawing.Size(197, 13);
-            this.lblTotalFind.TabIndex = 15;
-            this.lblTotalFind.Text = "0 Résultats trouvé dans votre recherche";
+            lblTotalFind.AutoSize = true;
+            lblTotalFind.Location = new System.Drawing.Point(9, 285);
+            lblTotalFind.Name = "lblTotalFind";
+            lblTotalFind.Size = new System.Drawing.Size(197, 13);
+            lblTotalFind.TabIndex = 15;
+            lblTotalFind.Text = "0 Résultats trouvé dans votre recherche";
             // 
             // tpMoto
             // 
-            this.tpMoto.Controls.Add(this.label6);
-            this.tpMoto.Controls.Add(this.label5);
-            this.tpMoto.Controls.Add(this.dtpDateDebutMoto);
-            this.tpMoto.Controls.Add(this.dtpDateFinMoto);
-            this.tpMoto.Controls.Add(this.label4);
-            this.tpMoto.Controls.Add(this.pictureBox3);
-            this.tpMoto.Location = new System.Drawing.Point(4, 25);
-            this.tpMoto.Name = "tpMoto";
-            this.tpMoto.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMoto.Size = new System.Drawing.Size(844, 193);
-            this.tpMoto.TabIndex = 8;
-            this.tpMoto.Tag = "MOTO";
-            this.tpMoto.Text = "Moto";
+            tpMoto.Controls.Add(label6);
+            tpMoto.Controls.Add(label5);
+            tpMoto.Controls.Add(dtpDateDebutMoto);
+            tpMoto.Controls.Add(dtpDateFinMoto);
+            tpMoto.Controls.Add(label4);
+            tpMoto.Controls.Add(pictureBox3);
+            tpMoto.Location = new System.Drawing.Point(4, 25);
+            tpMoto.Name = "tpMoto";
+            tpMoto.Padding = new System.Windows.Forms.Padding(3);
+            tpMoto.Size = new System.Drawing.Size(844, 193);
+            tpMoto.TabIndex = 8;
+            tpMoto.Tag = "MOTO";
+            tpMoto.Text = "Moto";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(548, 16);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
+            pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            pictureBox3.Location = new System.Drawing.Point(548, 16);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(32, 32);
+            pictureBox3.TabIndex = 6;
+            pictureBox3.TabStop = false;
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(587, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(248, 48);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Recherche tous les clients de moto qui ont payé leurs cours complètement. Cette r" +
+            label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            label4.BackColor = System.Drawing.Color.Transparent;
+            label4.Location = new System.Drawing.Point(587, 16);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(248, 48);
+            label4.TabIndex = 7;
+            label4.Text = "Recherche tous les clients de moto qui ont payé leurs cours complètement. Cette r" +
                 "echerche est trié par la colonne : Dernier Paiment.";
             // 
             // dtpDateFinMoto
             // 
-            this.dtpDateFinMoto.Location = new System.Drawing.Point(297, 70);
-            this.dtpDateFinMoto.Name = "dtpDateFinMoto";
-            this.dtpDateFinMoto.Size = new System.Drawing.Size(138, 20);
-            this.dtpDateFinMoto.TabIndex = 8;
+            dtpDateFinMoto.Location = new System.Drawing.Point(297, 70);
+            dtpDateFinMoto.Name = "dtpDateFinMoto";
+            dtpDateFinMoto.Size = new System.Drawing.Size(138, 20);
+            dtpDateFinMoto.TabIndex = 8;
             // 
             // dtpDateDebutMoto
             // 
-            this.dtpDateDebutMoto.Location = new System.Drawing.Point(66, 70);
-            this.dtpDateDebutMoto.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-            this.dtpDateDebutMoto.Name = "dtpDateDebutMoto";
-            this.dtpDateDebutMoto.Size = new System.Drawing.Size(138, 20);
-            this.dtpDateDebutMoto.TabIndex = 9;
+            dtpDateDebutMoto.Location = new System.Drawing.Point(66, 70);
+            dtpDateDebutMoto.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            dtpDateDebutMoto.Name = "dtpDateDebutMoto";
+            dtpDateDebutMoto.Size = new System.Drawing.Size(138, 20);
+            dtpDateDebutMoto.TabIndex = 9;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(66, 54);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Date de début";
+            label5.AutoSize = true;
+            label5.BackColor = System.Drawing.Color.Transparent;
+            label5.Location = new System.Drawing.Point(66, 54);
+            label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(75, 13);
+            label5.TabIndex = 10;
+            label5.Text = "Date de début";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(297, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Date de fin";
+            label6.AutoSize = true;
+            label6.BackColor = System.Drawing.Color.Transparent;
+            label6.Location = new System.Drawing.Point(297, 52);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(59, 13);
+            label6.TabIndex = 11;
+            label6.Text = "Date de fin";
             // 
             // tpDate
             // 
-            this.tpDate.Controls.Add(this.cbChoice);
-            this.tpDate.Controls.Add(this.monthCalendar2);
-            this.tpDate.Location = new System.Drawing.Point(4, 25);
-            this.tpDate.Name = "tpDate";
-            this.tpDate.Size = new System.Drawing.Size(844, 193);
-            this.tpDate.TabIndex = 4;
-            this.tpDate.Tag = "INSCRIPTIONDATE";
-            this.tpDate.Text = "Date Inscription";
+            tpDate.Controls.Add(cbChoice);
+            tpDate.Controls.Add(monthCalendar2);
+            tpDate.Location = new System.Drawing.Point(4, 25);
+            tpDate.Name = "tpDate";
+            tpDate.Size = new System.Drawing.Size(844, 193);
+            tpDate.TabIndex = 4;
+            tpDate.Tag = "INSCRIPTIONDATE";
+            tpDate.Text = "Date Inscription";
             // 
             // monthCalendar2
             // 
-            this.monthCalendar2.Location = new System.Drawing.Point(244, 18);
-            this.monthCalendar2.MaxSelectionCount = 1;
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.TabIndex = 1;
+            monthCalendar2.Location = new System.Drawing.Point(244, 18);
+            monthCalendar2.MaxSelectionCount = 1;
+            monthCalendar2.Name = "monthCalendar2";
+            monthCalendar2.TabIndex = 1;
             // 
             // cbChoice
             // 
-            this.cbChoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbChoice.FormattingEnabled = true;
-            this.cbChoice.Items.AddRange(new object[] {
+            cbChoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbChoice.FormattingEnabled = true;
+            cbChoice.Items.AddRange(new object[] {
             "Égal ( = )",
             "Plus grand que ( > )",
             "Plus petit que ( < )",
             "Plus grand ou égal à ( >= )",
             "Plus petit ou égal à ( <= )"});
-            this.cbChoice.Location = new System.Drawing.Point(12, 85);
-            this.cbChoice.Name = "cbChoice";
-            this.cbChoice.Size = new System.Drawing.Size(224, 21);
-            this.cbChoice.TabIndex = 2;
+            cbChoice.Location = new System.Drawing.Point(12, 85);
+            cbChoice.Name = "cbChoice";
+            cbChoice.Size = new System.Drawing.Size(224, 21);
+            cbChoice.TabIndex = 2;
             // 
             // tpClientType
             // 
-            this.tpClientType.Controls.Add(this.rbTypeClientFinish);
-            this.tpClientType.Controls.Add(this.rbTypeClientActif);
-            this.tpClientType.Location = new System.Drawing.Point(4, 25);
-            this.tpClientType.Name = "tpClientType";
-            this.tpClientType.Size = new System.Drawing.Size(844, 193);
-            this.tpClientType.TabIndex = 3;
-            this.tpClientType.Tag = "CLIENTTYPE";
-            this.tpClientType.Text = "Type de client";
+            tpClientType.Controls.Add(rbTypeClientFinish);
+            tpClientType.Controls.Add(rbTypeClientActif);
+            tpClientType.Location = new System.Drawing.Point(4, 25);
+            tpClientType.Name = "tpClientType";
+            tpClientType.Size = new System.Drawing.Size(844, 193);
+            tpClientType.TabIndex = 3;
+            tpClientType.Tag = "CLIENTTYPE";
+            tpClientType.Text = "Type de client";
             // 
             // rbTypeClientActif
             // 
-            this.rbTypeClientActif.Checked = true;
-            this.rbTypeClientActif.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbTypeClientActif.Location = new System.Drawing.Point(32, 40);
-            this.rbTypeClientActif.Name = "rbTypeClientActif";
-            this.rbTypeClientActif.Size = new System.Drawing.Size(104, 24);
-            this.rbTypeClientActif.TabIndex = 6;
-            this.rbTypeClientActif.TabStop = true;
-            this.rbTypeClientActif.Text = "Actif";
+            rbTypeClientActif.Checked = true;
+            rbTypeClientActif.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbTypeClientActif.Location = new System.Drawing.Point(32, 40);
+            rbTypeClientActif.Name = "rbTypeClientActif";
+            rbTypeClientActif.Size = new System.Drawing.Size(104, 24);
+            rbTypeClientActif.TabIndex = 6;
+            rbTypeClientActif.TabStop = true;
+            rbTypeClientActif.Text = "Actif";
             // 
             // rbTypeClientFinish
             // 
-            this.rbTypeClientFinish.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbTypeClientFinish.Location = new System.Drawing.Point(32, 82);
-            this.rbTypeClientFinish.Name = "rbTypeClientFinish";
-            this.rbTypeClientFinish.Size = new System.Drawing.Size(104, 24);
-            this.rbTypeClientFinish.TabIndex = 8;
-            this.rbTypeClientFinish.Text = "Cours terminé";
+            rbTypeClientFinish.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbTypeClientFinish.Location = new System.Drawing.Point(32, 82);
+            rbTypeClientFinish.Name = "rbTypeClientFinish";
+            rbTypeClientFinish.Size = new System.Drawing.Size(104, 24);
+            rbTypeClientFinish.TabIndex = 8;
+            rbTypeClientFinish.Text = "Cours terminé";
             // 
             // tpDispo
             // 
-            this.tpDispo.BackColor = System.Drawing.Color.Transparent;
-            this.tpDispo.Controls.Add(this.rbAlway);
-            this.tpDispo.Controls.Add(this.rbDimanche);
-            this.tpDispo.Controls.Add(this.rbSamedi);
-            this.tpDispo.Controls.Add(this.rbSoir);
-            this.tpDispo.Controls.Add(this.rbApresMidi);
-            this.tpDispo.Controls.Add(this.rbMatin);
-            this.tpDispo.Location = new System.Drawing.Point(4, 25);
-            this.tpDispo.Name = "tpDispo";
-            this.tpDispo.Size = new System.Drawing.Size(844, 193);
-            this.tpDispo.TabIndex = 2;
-            this.tpDispo.Tag = "DISPO";
-            this.tpDispo.Text = "Disponibilité";
+            tpDispo.BackColor = System.Drawing.Color.Transparent;
+            tpDispo.Controls.Add(rbAlway);
+            tpDispo.Controls.Add(rbDimanche);
+            tpDispo.Controls.Add(rbSamedi);
+            tpDispo.Controls.Add(rbSoir);
+            tpDispo.Controls.Add(rbApresMidi);
+            tpDispo.Controls.Add(rbMatin);
+            tpDispo.Location = new System.Drawing.Point(4, 25);
+            tpDispo.Name = "tpDispo";
+            tpDispo.Size = new System.Drawing.Size(844, 193);
+            tpDispo.TabIndex = 2;
+            tpDispo.Tag = "DISPO";
+            tpDispo.Text = "Disponibilité";
             // 
             // rbMatin
             // 
-            this.rbMatin.BackColor = System.Drawing.Color.Transparent;
-            this.rbMatin.Location = new System.Drawing.Point(136, 30);
-            this.rbMatin.Name = "rbMatin";
-            this.rbMatin.Size = new System.Drawing.Size(104, 24);
-            this.rbMatin.TabIndex = 11;
-            this.rbMatin.Text = "Matin";
-            this.rbMatin.UseVisualStyleBackColor = false;
+            rbMatin.BackColor = System.Drawing.Color.Transparent;
+            rbMatin.Location = new System.Drawing.Point(136, 30);
+            rbMatin.Name = "rbMatin";
+            rbMatin.Size = new System.Drawing.Size(104, 24);
+            rbMatin.TabIndex = 11;
+            rbMatin.Text = "Matin";
+            rbMatin.UseVisualStyleBackColor = false;
             // 
             // rbApresMidi
             // 
-            this.rbApresMidi.BackColor = System.Drawing.Color.Transparent;
-            this.rbApresMidi.Location = new System.Drawing.Point(136, 54);
-            this.rbApresMidi.Name = "rbApresMidi";
-            this.rbApresMidi.Size = new System.Drawing.Size(104, 24);
-            this.rbApresMidi.TabIndex = 12;
-            this.rbApresMidi.Text = "Après Midi";
-            this.rbApresMidi.UseVisualStyleBackColor = false;
+            rbApresMidi.BackColor = System.Drawing.Color.Transparent;
+            rbApresMidi.Location = new System.Drawing.Point(136, 54);
+            rbApresMidi.Name = "rbApresMidi";
+            rbApresMidi.Size = new System.Drawing.Size(104, 24);
+            rbApresMidi.TabIndex = 12;
+            rbApresMidi.Text = "Après Midi";
+            rbApresMidi.UseVisualStyleBackColor = false;
             // 
             // rbSoir
             // 
-            this.rbSoir.BackColor = System.Drawing.Color.Transparent;
-            this.rbSoir.Location = new System.Drawing.Point(136, 78);
-            this.rbSoir.Name = "rbSoir";
-            this.rbSoir.Size = new System.Drawing.Size(104, 24);
-            this.rbSoir.TabIndex = 13;
-            this.rbSoir.Text = "Soirée";
-            this.rbSoir.UseVisualStyleBackColor = false;
+            rbSoir.BackColor = System.Drawing.Color.Transparent;
+            rbSoir.Location = new System.Drawing.Point(136, 78);
+            rbSoir.Name = "rbSoir";
+            rbSoir.Size = new System.Drawing.Size(104, 24);
+            rbSoir.TabIndex = 13;
+            rbSoir.Text = "Soirée";
+            rbSoir.UseVisualStyleBackColor = false;
             // 
             // rbSamedi
             // 
-            this.rbSamedi.BackColor = System.Drawing.Color.Transparent;
-            this.rbSamedi.Location = new System.Drawing.Point(136, 102);
-            this.rbSamedi.Name = "rbSamedi";
-            this.rbSamedi.Size = new System.Drawing.Size(104, 24);
-            this.rbSamedi.TabIndex = 14;
-            this.rbSamedi.Text = "Samedi";
-            this.rbSamedi.UseVisualStyleBackColor = false;
+            rbSamedi.BackColor = System.Drawing.Color.Transparent;
+            rbSamedi.Location = new System.Drawing.Point(136, 102);
+            rbSamedi.Name = "rbSamedi";
+            rbSamedi.Size = new System.Drawing.Size(104, 24);
+            rbSamedi.TabIndex = 14;
+            rbSamedi.Text = "Samedi";
+            rbSamedi.UseVisualStyleBackColor = false;
             // 
             // rbDimanche
             // 
-            this.rbDimanche.BackColor = System.Drawing.Color.Transparent;
-            this.rbDimanche.Location = new System.Drawing.Point(136, 126);
-            this.rbDimanche.Name = "rbDimanche";
-            this.rbDimanche.Size = new System.Drawing.Size(104, 24);
-            this.rbDimanche.TabIndex = 15;
-            this.rbDimanche.Text = "Dimanche";
-            this.rbDimanche.UseVisualStyleBackColor = false;
+            rbDimanche.BackColor = System.Drawing.Color.Transparent;
+            rbDimanche.Location = new System.Drawing.Point(136, 126);
+            rbDimanche.Name = "rbDimanche";
+            rbDimanche.Size = new System.Drawing.Size(104, 24);
+            rbDimanche.TabIndex = 15;
+            rbDimanche.Text = "Dimanche";
+            rbDimanche.UseVisualStyleBackColor = false;
             // 
             // rbAlway
             // 
-            this.rbAlway.BackColor = System.Drawing.Color.Transparent;
-            this.rbAlway.Checked = true;
-            this.rbAlway.Location = new System.Drawing.Point(24, 78);
-            this.rbAlway.Name = "rbAlway";
-            this.rbAlway.Size = new System.Drawing.Size(104, 24);
-            this.rbAlway.TabIndex = 16;
-            this.rbAlway.TabStop = true;
-            this.rbAlway.Text = "Toujours";
-            this.rbAlway.UseVisualStyleBackColor = false;
+            rbAlway.BackColor = System.Drawing.Color.Transparent;
+            rbAlway.Checked = true;
+            rbAlway.Location = new System.Drawing.Point(24, 78);
+            rbAlway.Name = "rbAlway";
+            rbAlway.Size = new System.Drawing.Size(104, 24);
+            rbAlway.TabIndex = 16;
+            rbAlway.TabStop = true;
+            rbAlway.Text = "Toujours";
+            rbAlway.UseVisualStyleBackColor = false;
             // 
             // tpVehicule
             // 
-            this.tpVehicule.Controls.Add(this.rbVehiculCyclomoteur);
-            this.tpVehicule.Controls.Add(this.rbVehiculMoto);
-            this.tpVehicule.Controls.Add(this.rbVehiculAutomatique);
-            this.tpVehicule.Controls.Add(this.rbVehiculManuel);
-            this.tpVehicule.Location = new System.Drawing.Point(4, 25);
-            this.tpVehicule.Name = "tpVehicule";
-            this.tpVehicule.Size = new System.Drawing.Size(844, 193);
-            this.tpVehicule.TabIndex = 5;
-            this.tpVehicule.Tag = "VEHICULE";
-            this.tpVehicule.Text = "Type de véhicule";
+            tpVehicule.Controls.Add(rbVehiculCyclomoteur);
+            tpVehicule.Controls.Add(rbVehiculMoto);
+            tpVehicule.Controls.Add(rbVehiculAutomatique);
+            tpVehicule.Controls.Add(rbVehiculManuel);
+            tpVehicule.Location = new System.Drawing.Point(4, 25);
+            tpVehicule.Name = "tpVehicule";
+            tpVehicule.Size = new System.Drawing.Size(844, 193);
+            tpVehicule.TabIndex = 5;
+            tpVehicule.Tag = "VEHICULE";
+            tpVehicule.Text = "Type de véhicule";
             // 
             // rbVehiculManuel
             // 
-            this.rbVehiculManuel.Checked = true;
-            this.rbVehiculManuel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculManuel.Location = new System.Drawing.Point(68, 34);
-            this.rbVehiculManuel.Name = "rbVehiculManuel";
-            this.rbVehiculManuel.Size = new System.Drawing.Size(88, 24);
-            this.rbVehiculManuel.TabIndex = 22;
-            this.rbVehiculManuel.TabStop = true;
-            this.rbVehiculManuel.Tag = "General";
-            this.rbVehiculManuel.Text = "Manuel";
+            rbVehiculManuel.Checked = true;
+            rbVehiculManuel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbVehiculManuel.Location = new System.Drawing.Point(68, 34);
+            rbVehiculManuel.Name = "rbVehiculManuel";
+            rbVehiculManuel.Size = new System.Drawing.Size(88, 24);
+            rbVehiculManuel.TabIndex = 22;
+            rbVehiculManuel.TabStop = true;
+            rbVehiculManuel.Tag = "General";
+            rbVehiculManuel.Text = "Manuel";
             // 
             // rbVehiculAutomatique
             // 
-            this.rbVehiculAutomatique.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculAutomatique.Location = new System.Drawing.Point(68, 64);
-            this.rbVehiculAutomatique.Name = "rbVehiculAutomatique";
-            this.rbVehiculAutomatique.Size = new System.Drawing.Size(88, 24);
-            this.rbVehiculAutomatique.TabIndex = 24;
-            this.rbVehiculAutomatique.Tag = "General";
-            this.rbVehiculAutomatique.Text = "Automatique";
+            rbVehiculAutomatique.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbVehiculAutomatique.Location = new System.Drawing.Point(68, 64);
+            rbVehiculAutomatique.Name = "rbVehiculAutomatique";
+            rbVehiculAutomatique.Size = new System.Drawing.Size(88, 24);
+            rbVehiculAutomatique.TabIndex = 24;
+            rbVehiculAutomatique.Tag = "General";
+            rbVehiculAutomatique.Text = "Automatique";
             // 
             // rbVehiculMoto
             // 
-            this.rbVehiculMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculMoto.Location = new System.Drawing.Point(68, 124);
-            this.rbVehiculMoto.Name = "rbVehiculMoto";
-            this.rbVehiculMoto.Size = new System.Drawing.Size(120, 24);
-            this.rbVehiculMoto.TabIndex = 25;
-            this.rbVehiculMoto.Tag = "Moto";
-            this.rbVehiculMoto.Text = "Motocyclette";
+            rbVehiculMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbVehiculMoto.Location = new System.Drawing.Point(68, 124);
+            rbVehiculMoto.Name = "rbVehiculMoto";
+            rbVehiculMoto.Size = new System.Drawing.Size(120, 24);
+            rbVehiculMoto.TabIndex = 25;
+            rbVehiculMoto.Tag = "Moto";
+            rbVehiculMoto.Text = "Motocyclette";
             // 
             // rbVehiculCyclomoteur
             // 
-            this.rbVehiculCyclomoteur.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculCyclomoteur.Location = new System.Drawing.Point(68, 94);
-            this.rbVehiculCyclomoteur.Name = "rbVehiculCyclomoteur";
-            this.rbVehiculCyclomoteur.Size = new System.Drawing.Size(106, 24);
-            this.rbVehiculCyclomoteur.TabIndex = 23;
-            this.rbVehiculCyclomoteur.Tag = "General";
-            this.rbVehiculCyclomoteur.Text = "Cyclomoteur";
+            rbVehiculCyclomoteur.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbVehiculCyclomoteur.Location = new System.Drawing.Point(68, 94);
+            rbVehiculCyclomoteur.Name = "rbVehiculCyclomoteur";
+            rbVehiculCyclomoteur.Size = new System.Drawing.Size(106, 24);
+            rbVehiculCyclomoteur.TabIndex = 23;
+            rbVehiculCyclomoteur.Tag = "General";
+            rbVehiculCyclomoteur.Text = "Cyclomoteur";
             // 
             // tpClientInfo
             // 
-            this.tpClientInfo.Controls.Add(this.label1);
-            this.tpClientInfo.Controls.Add(this.pictureBox1);
-            this.tpClientInfo.Controls.Add(this.txtFirstName);
-            this.tpClientInfo.Controls.Add(this.txtClientName);
-            this.tpClientInfo.Controls.Add(this.rbFirstName);
-            this.tpClientInfo.Controls.Add(this.rbName);
-            this.tpClientInfo.Location = new System.Drawing.Point(4, 25);
-            this.tpClientInfo.Name = "tpClientInfo";
-            this.tpClientInfo.Size = new System.Drawing.Size(844, 193);
-            this.tpClientInfo.TabIndex = 0;
-            this.tpClientInfo.Tag = "CLIENTINFO";
-            this.tpClientInfo.Text = "Informations client";
+            tpClientInfo.Controls.Add(label1);
+            tpClientInfo.Controls.Add(pictureBox1);
+            tpClientInfo.Controls.Add(txtFirstName);
+            tpClientInfo.Controls.Add(txtClientName);
+            tpClientInfo.Controls.Add(rbFirstName);
+            tpClientInfo.Controls.Add(rbName);
+            tpClientInfo.Location = new System.Drawing.Point(4, 25);
+            tpClientInfo.Name = "tpClientInfo";
+            tpClientInfo.Size = new System.Drawing.Size(844, 193);
+            tpClientInfo.TabIndex = 0;
+            tpClientInfo.Tag = "CLIENTINFO";
+            tpClientInfo.Text = "Informations client";
             // 
             // rbName
             // 
-            this.rbName.BackColor = System.Drawing.Color.Transparent;
-            this.rbName.Checked = true;
-            this.rbName.Location = new System.Drawing.Point(248, 24);
-            this.rbName.Name = "rbName";
-            this.rbName.Size = new System.Drawing.Size(76, 24);
-            this.rbName.TabIndex = 0;
-            this.rbName.TabStop = true;
-            this.rbName.Text = "Prénom";
-            this.rbName.UseVisualStyleBackColor = false;
+            rbName.BackColor = System.Drawing.Color.Transparent;
+            rbName.Checked = true;
+            rbName.Location = new System.Drawing.Point(248, 24);
+            rbName.Name = "rbName";
+            rbName.Size = new System.Drawing.Size(76, 24);
+            rbName.TabIndex = 0;
+            rbName.TabStop = true;
+            rbName.Text = "Prénom";
+            rbName.UseVisualStyleBackColor = false;
             // 
             // txtClientName
             // 
-            this.txtClientName.Location = new System.Drawing.Point(88, 24);
-            this.txtClientName.Name = "txtClientName";
-            this.txtClientName.Size = new System.Drawing.Size(144, 20);
-            this.txtClientName.TabIndex = 1;
-            this.txtClientName.Enter += new System.EventHandler(this.txtClientName_Enter);
+            txtClientName.Location = new System.Drawing.Point(88, 24);
+            txtClientName.Name = "txtClientName";
+            txtClientName.Size = new System.Drawing.Size(144, 20);
+            txtClientName.TabIndex = 1;
+            txtClientName.Enter += new System.EventHandler(txtClientName_Enter);
             // 
             // rbFirstName
             // 
-            this.rbFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.rbFirstName.Location = new System.Drawing.Point(24, 24);
-            this.rbFirstName.Name = "rbFirstName";
-            this.rbFirstName.Size = new System.Drawing.Size(64, 24);
-            this.rbFirstName.TabIndex = 2;
-            this.rbFirstName.Text = "Nom";
-            this.rbFirstName.UseVisualStyleBackColor = false;
+            rbFirstName.BackColor = System.Drawing.Color.Transparent;
+            rbFirstName.Location = new System.Drawing.Point(24, 24);
+            rbFirstName.Name = "rbFirstName";
+            rbFirstName.Size = new System.Drawing.Size(64, 24);
+            rbFirstName.TabIndex = 2;
+            rbFirstName.Text = "Nom";
+            rbFirstName.UseVisualStyleBackColor = false;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(330, 24);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(144, 20);
-            this.txtFirstName.TabIndex = 3;
-            this.txtFirstName.Enter += new System.EventHandler(this.txtFirstName_Enter);
+            txtFirstName.Location = new System.Drawing.Point(330, 24);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new System.Drawing.Size(144, 20);
+            txtFirstName.TabIndex = 3;
+            txtFirstName.Enter += new System.EventHandler(txtFirstName_Enter);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(16, 72);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            pictureBox1.Location = new System.Drawing.Point(16, 72);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(32, 32);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(56, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 48);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Si vous n’inscriver rien dans aucune des boîtes de texte le programme trouvera to" +
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label1.Location = new System.Drawing.Point(56, 72);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(232, 48);
+            label1.TabIndex = 5;
+            label1.Text = "Si vous n’inscriver rien dans aucune des boîtes de texte le programme trouvera to" +
                 "us les clients.";
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tpClientInfo);
-            this.tabControl1.Controls.Add(this.tpVehicule);
-            this.tabControl1.Controls.Add(this.tpDispo);
-            this.tabControl1.Controls.Add(this.tpClientType);
-            this.tabControl1.Controls.Add(this.tpDate);
-            this.tabControl1.Controls.Add(this.tpMoto);
-            this.tabControl1.HotTrack = true;
-            this.tabControl1.ItemSize = new System.Drawing.Size(97, 21);
-            this.tabControl1.Location = new System.Drawing.Point(8, 60);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(852, 222);
-            this.tabControl1.TabIndex = 1;
+            tabControl1.Controls.Add(tpClientInfo);
+            tabControl1.Controls.Add(tpVehicule);
+            tabControl1.Controls.Add(tpDispo);
+            tabControl1.Controls.Add(tpClientType);
+            tabControl1.Controls.Add(tpDate);
+            tabControl1.Controls.Add(tpMoto);
+            tabControl1.HotTrack = true;
+            tabControl1.ItemSize = new System.Drawing.Size(97, 21);
+            tabControl1.Location = new System.Drawing.Point(8, 60);
+            tabControl1.Multiline = true;
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(852, 222);
+            tabControl1.TabIndex = 1;
             // 
             // FormFindClient
             // 
-            this.ClientSize = new System.Drawing.Size(868, 510);
-            this.Controls.Add(this.lblTotalFind);
-            this.Controls.Add(this.toolBar1);
-            this.Controls.Add(this.clientControl1);
-            this.Controls.Add(this.listFindResult);
-            this.Controls.Add(this.tabControl1);
-            this.Name = "FormFindClient";
-            this.Text = "FormFindClient";
-            this.Load += new System.EventHandler(this.FormFindClient_Load);
-            this.tpMoto.ResumeLayout(false);
-            this.tpMoto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.tpDate.ResumeLayout(false);
-            this.tpClientType.ResumeLayout(false);
-            this.tpDispo.ResumeLayout(false);
-            this.tpVehicule.ResumeLayout(false);
-            this.tpClientInfo.ResumeLayout(false);
-            this.tpClientInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            ClientSize = new System.Drawing.Size(868, 510);
+            Controls.Add(lblTotalFind);
+            Controls.Add(toolBar1);
+            Controls.Add(clientControl1);
+            Controls.Add(listFindResult);
+            Controls.Add(tabControl1);
+            Name = "FormFindClient";
+            Text = "FormFindClient";
+            Load += new System.EventHandler(FormFindClient_Load);
+            tpMoto.ResumeLayout(false);
+            tpMoto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
+            tpDate.ResumeLayout(false);
+            tpClientType.ResumeLayout(false);
+            tpDispo.ResumeLayout(false);
+            tpVehicule.ResumeLayout(false);
+            tpClientInfo.ResumeLayout(false);
+            tpClientInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            tabControl1.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
 
 		}
 		#endregion
@@ -877,7 +878,7 @@ namespace Barette.IDE.Forms {
 		/// Trie par date
 		/// </summary>
 		private void SortByDate(){
-			this.listFindResult.ListViewItemSorter = new ListViewItemComparer(2);
+            listFindResult.ListViewItemSorter = new ListViewItemComparer(2);
 			
 			listFindResult.Sort();
 		}
@@ -886,13 +887,13 @@ namespace Barette.IDE.Forms {
 		/// Trie par date
 		/// </summary>
 		private void SortByDernierPaiment() {
-			this.listFindResult.ListViewItemSorter = new ListViewItemComparer(6);
+            listFindResult.ListViewItemSorter = new ListViewItemComparer(6);
 
 			listFindResult.Sort();
 		}
 
 		private void FindMotoZeroSolde() {
-			CustomerCollection ClientList = this._FormMain.ClientList;
+			CustomerCollection ClientList = _FormMain.ClientList;
 			DateTime dernierPaiment;
 
 			//Parcourt les éléments de la liste des clients
@@ -914,27 +915,27 @@ namespace Barette.IDE.Forms {
         /// Recherche par disponibiliter
         /// </summary>
         private void FindDispo() {
-            var dispoMatin = from V in this._FormMain.ClientList.Cast<Customer>()
+            var dispoMatin = from V in _FormMain.ClientList.Cast<Customer>()
                              where V.DisponibilityAM == true
                              select V;
 
-            var dispoMidi = from V in this._FormMain.ClientList.Cast<Customer>()
+            var dispoMidi = from V in _FormMain.ClientList.Cast<Customer>()
                             where V.DisponibilityPM == true
                             select V;
 
-            var dispoSoir = from V in this._FormMain.ClientList.Cast<Customer>()
+            var dispoSoir = from V in _FormMain.ClientList.Cast<Customer>()
                             where V.DisponibilitySoirer == true
                             select V;
 
-            var dispoSamedi = from V in this._FormMain.ClientList.Cast<Customer>()
+            var dispoSamedi = from V in _FormMain.ClientList.Cast<Customer>()
                               where V.DisponibilitySamedi == true
                               select V;
 
-            var dispoDimanche = from V in this._FormMain.ClientList.Cast<Customer>()
+            var dispoDimanche = from V in _FormMain.ClientList.Cast<Customer>()
                                 where V.DisponibilityDimanche == true
                                 select V;
 
-            var dispoAlway = from V in this._FormMain.ClientList.Cast<Customer>()
+            var dispoAlway = from V in _FormMain.ClientList.Cast<Customer>()
                              where V.DisponibilityAlway == true
                              select V;
 
@@ -968,19 +969,19 @@ namespace Barette.IDE.Forms {
         /// Recherche par type de vehicule
         /// </summary>
         private void FindVehicule() {
-            var Automatique = from V in this._FormMain.ClientList.Cast<Customer>()
+            var Automatique = from V in _FormMain.ClientList.Cast<Customer>()
                               where V.TypeVehicule == VehiculeType.Automatique
                               select V;
 
-            var Manuel = from V in this._FormMain.ClientList.Cast<Customer>()
+            var Manuel = from V in _FormMain.ClientList.Cast<Customer>()
                          where V.TypeVehicule == VehiculeType.Manuel
                          select V;
 
-            var Moto = from V in this._FormMain.ClientList.Cast<Customer>()
+            var Moto = from V in _FormMain.ClientList.Cast<Customer>()
                        where V.TypeVehicule == VehiculeType.Moto
                        select V;
 
-            var Cyclomoteur = from V in this._FormMain.ClientList.Cast<Customer>()
+            var Cyclomoteur = from V in _FormMain.ClientList.Cast<Customer>()
                               where V.TypeVehicule == VehiculeType.Cyclomoteur
                               select V;
 
@@ -1008,7 +1009,7 @@ namespace Barette.IDE.Forms {
 		/// Recherche par type de client
 		/// </summary>
 		private void FindTypeClient(){
-			CustomerCollection ClientList = this._FormMain.ClientList;
+			CustomerCollection ClientList = _FormMain.ClientList;
 
 			for(int i=0; i<ClientList.Count; i++){ 
                 //if (rbTypeClientAbsence.Checked == true)
@@ -1037,7 +1038,7 @@ namespace Barette.IDE.Forms {
 		/// Recherche par date inscription
 		/// </summary>
 		private void FindDate(){
-			CustomerCollection ClientList = this._FormMain.ClientList;
+			CustomerCollection ClientList = _FormMain.ClientList;
 
 			for(int i=0; i<ClientList.Count; i++){ 
 				switch(cbChoice.SelectedIndex){
@@ -1070,7 +1071,7 @@ namespace Barette.IDE.Forms {
 		/// Recherche par des information sur les clients
 		/// </summary>
 		private void FindClientInfo(){
-			CustomerCollection ClientList = this._FormMain.ClientList;
+			CustomerCollection ClientList = _FormMain.ClientList;
 
 			//Vide la liste des resultats
 			listFindResult.Items.Clear();
@@ -1217,7 +1218,7 @@ namespace Barette.IDE.Forms {
 			while (_LinePrinted < listFindResult.Items.Count - 1) {
 				_LinePrinted++;
 
-				client = this._FormMain.ClientList.GetClient(listFindResult.Items[_LinePrinted].Text);
+				client = _FormMain.ClientList.GetClient(listFindResult.Items[_LinePrinted].Text);
 
 				if (client != null) {
 
@@ -1278,7 +1279,7 @@ namespace Barette.IDE.Forms {
 					clientControl1.ShowCours();
 					break;
 				case "SHOWCLIENT":
-					this._FormMain.CreationListClient(listFindResult.SelectedItems[0].Text);
+                    _FormMain.CreationListClient(listFindResult.SelectedItems[0].Text);
 					break;
 				case "PRINTFINDLIST":
 					PrintFindList();
@@ -1322,18 +1323,18 @@ namespace Barette.IDE.Forms {
 		}
 
 		private void listFindResult_ColumnClick(object sender, System.Windows.Forms.ColumnClickEventArgs e) {
-			
-			this.listFindResult.ListViewItemSorter = new ListViewItemComparer(e.Column);	
+
+            listFindResult.ListViewItemSorter = new ListViewItemComparer(e.Column);	
 			
 			listFindResult.Sort();
 		}
 
         private void listFindResult_SelectedIndexChanged(object sender, EventArgs e) {
             try {
-                Customer client = this._FormMain.ClientList.GetClient(listFindResult.SelectedItems[0].Text);
+                Customer client = _FormMain.ClientList.GetClient(listFindResult.SelectedItems[0].Text);
 
                 if (client != null)
-                    clientControl1.Client = this._FormMain.ClientList.GetClient(listFindResult.SelectedItems[0].Text);
+                    clientControl1.Client = _FormMain.ClientList.GetClient(listFindResult.SelectedItems[0].Text);
             }
             catch { }
         }

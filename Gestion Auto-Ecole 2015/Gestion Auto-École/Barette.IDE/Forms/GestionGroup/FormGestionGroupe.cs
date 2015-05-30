@@ -49,10 +49,10 @@ namespace Barette.IDE.Forms.GestionGroup {
             InitializeComponent();
 
             //Initialise les variables
-            this._StudentGroup = group;
-            this._ClientList = clientList;
-            this._FormMain = mainform;
-            this._EmployerList = EmployerList;
+            _StudentGroup = group;
+            _ClientList = clientList;
+            _FormMain = mainform;
+            _EmployerList = EmployerList;
 
             //remplir les listes
             RefreshGroupList();
@@ -63,7 +63,7 @@ namespace Barette.IDE.Forms.GestionGroup {
         private void tbStudentGroup_ButtonClick(object sender, ToolBarButtonClickEventArgs e) {
             switch (e.Button.Tag.ToString()){
                 case "ADDGROUP":
-                    new FormAddGroup(this._StudentGroup, this._FormMain.AppConfig).ShowDialog(this);
+                    new FormAddGroup(_StudentGroup, _FormMain.AppConfig).ShowDialog(this);
                     RefreshGroupList();                    
                     break;
                 case "DELETEGROUP":
@@ -121,20 +121,20 @@ namespace Barette.IDE.Forms.GestionGroup {
                 Cursor.Current = Cursors.WaitCursor; 
                 if (MessageBox.Show(this, "Voulez vous vraiment supprimer le groupe d'élève numéro : " + ListGroup.SelectedItems[0].Text + @" ?
 
-Cette opération ne supprimera pas les clients. Par contre tous les clients du groupe seront déplacé dans le groupe '0'", this._FormMain.AppConfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+Cette opération ne supprimera pas les clients. Par contre tous les clients du groupe seront déplacé dans le groupe '0'", _FormMain.AppConfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
 
                     int numeroGroupe = Convert.ToInt32(ListGroup.SelectedItems[0].Text);
 
                     //Déplace les éleve du groupe vers le groupe 0
-                    foreach (Customer client in this._ClientList) {
+                    foreach (Customer client in _ClientList) {
                         if (client.NumeroGroupe == numeroGroupe)
                             client.NumeroGroupe = 0; 
                     }
 
                     //Supprime le groupe sélectionné
-                    foreach (StudentGroup group in this._StudentGroup) {
+                    foreach (StudentGroup group in _StudentGroup) {
                         if (group.GroupeNumber == numeroGroupe) {
-                            this._StudentGroup.Remove(group);
+                            _StudentGroup.Remove(group);
                             RefreshAll();
                             break;                            
                         }
@@ -153,7 +153,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
             Customer client;
 
             foreach (ListViewItem item in listFindResult.SelectedItems) {
-                client = this._ClientList.GetClient(item.Text);
+                client = _ClientList.GetClient(item.Text);
 
                 if (client != null) {
                     client.NumeroGroupe = 0;
@@ -179,7 +179,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
             //Vide la liste de groupes
             listFindResult.Items.Clear();
 
-            foreach (Customer client in this._ClientList.GetClient(NumeroGroup)) {
+            foreach (Customer client in _ClientList.GetClient(NumeroGroup)) {
                 AddClientToList(client);
             }        
         }
@@ -194,7 +194,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
             //Vide la liste de groupes
             ListGroup.Items.Clear();
 
-            foreach (StudentGroup group in this._StudentGroup) {
+            foreach (StudentGroup group in _StudentGroup) {
                 itm = new ListViewItem();
 
                 itm.Text = group.GroupeNumber.ToString();
@@ -221,7 +221,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
         /// <param name="NumeroGroupe"></param>
         /// <returns></returns>
         private int GetNbEleve(int NumeroGroupe) {            
-            int total = (from v in this._ClientList.Cast<Customer>()
+            int total = (from v in _ClientList.Cast<Customer>()
                          where v.NumeroGroupe == NumeroGroupe
                          select v).Count<Customer>();
 
@@ -341,7 +341,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
                     break;
                 case "SHOWCLIENT":
                     try {
-                        this._FormMain.CreationListClient(listFindResult.SelectedItems[0].Text);
+                        _FormMain.CreationListClient(listFindResult.SelectedItems[0].Text);
                     }
                     catch { };
                     break;
@@ -352,22 +352,22 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
         /// Affiche la boite de modification de la seance theorique.
         /// </summary>
         private void ModifieSeanceTheorique() {
-            this._FormMain.CloseClient();
-            new FormGroupSeanceTheorique(GetSelectedGroup(), this._ClientList, this._EmployerList, this._FormMain.AppConfig).ShowDialog();
+            _FormMain.CloseClient();
+            new FormGroupSeanceTheorique(GetSelectedGroup(), _ClientList, _EmployerList, _FormMain.AppConfig).ShowDialog();
         }
 
         /// <summary>
         /// Affiche la boite de modification de la seance pratique.
         /// </summary>
         private void ModifieSeancePratique() {
-            this._FormMain.CloseClient();
-            new FormGroupSeancePratique(GetSelectedGroup(), this._ClientList, this._EmployerList, this._FormMain.AppConfig).ShowDialog();
+            _FormMain.CloseClient();
+            new FormGroupSeancePratique(GetSelectedGroup(), _ClientList, _EmployerList, _FormMain.AppConfig).ShowDialog();
         }
 
         private void ShowAddStudentForm() {
-            this._FormMain.CloseClient();
+            _FormMain.CloseClient();
 
-            if (new FormAddStudent(this._ClientList, GetSelectedGroup(), this._FormMain.AppConfig).ShowDialog(this) == DialogResult.OK) {
+            if (new FormAddStudent(_ClientList, GetSelectedGroup(), _FormMain.AppConfig).ShowDialog(this) == DialogResult.OK) {
                 if (ListGroup.SelectedItems.Count > 0)
                     RefreshClientList(Convert.ToInt32(ListGroup.SelectedItems[0].Text));
                 else
@@ -384,7 +384,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
             if (ListGroup.SelectedItems.Count > 0) {
                 StudentGroup Group = null;
 
-                foreach (StudentGroup group in this._StudentGroup)
+                foreach (StudentGroup group in _StudentGroup)
                     if (group.GroupeNumber == Convert.ToInt32(ListGroup.SelectedItems[0].Text))
                         Group = group;
 
@@ -392,7 +392,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
                     if (new FormModifieGroup(Group).ShowDialog(this) == DialogResult.OK)
                         RefreshAll();
             } else {
-                MessageBox.Show(this, "Sélectionnez un group dans la liste.", this._FormMain.AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "Sélectionnez un group dans la liste.", _FormMain.AppConfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -404,7 +404,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
             if (ListGroup.SelectedItems.Count > 0) {
 
                 StudentGroup group = new StudentGroup();
-                foreach (StudentGroup groupe in this._StudentGroup) {
+                foreach (StudentGroup groupe in _StudentGroup) {
                     if (groupe.GroupeNumber == Convert.ToInt32(ListGroup.SelectedItems[0].Text)) {
                         group = groupe;
                         break;
@@ -483,7 +483,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
             while (_LinePrinted < listFindResult.Items.Count - 1) {
                 _LinePrinted++;
 
-                client = this._ClientList.GetClient(listFindResult.Items[_LinePrinted].Text);
+                client = _ClientList.GetClient(listFindResult.Items[_LinePrinted].Text);
 
                 if (client != null) {
 

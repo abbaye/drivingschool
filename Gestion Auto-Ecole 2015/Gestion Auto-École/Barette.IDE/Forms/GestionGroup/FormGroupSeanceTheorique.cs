@@ -34,12 +34,12 @@ namespace Barette.IDE.Forms.GestionGroup {
         public FormGroupSeanceTheorique(StudentGroup group, CustomerCollection clientlist, EmployeCollection EmployerList, Config Appconfig) {
             InitializeComponent();
 
-            this._ClientList = clientlist;
-            this._Groupe = group;
-            this._EmployerList = EmployerList;
-            this._AppConfig = Appconfig;
+            _ClientList = clientlist;
+            _Groupe = group;
+            _EmployerList = EmployerList;
+            _AppConfig = Appconfig;
 
-            this.seancePicker1.ListEmploye = EmployerList;
+            seancePicker1.ListEmploye = EmployerList;
 
             ChangeSeanceUpdateType(group.Type);
         }
@@ -75,7 +75,7 @@ namespace Barette.IDE.Forms.GestionGroup {
         private void cmdAddClient_Click(object sender, EventArgs e) {
 
             if (MessageBox.Show(this, "Voulez-vous vraiment effectuer les changements sur tous les élèves de votre groupe ?", _AppConfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                foreach (Customer client in this._ClientList.GetClient(this._Groupe.GroupeNumber)) {
+                foreach (Customer client in _ClientList.GetClient(_Groupe.GroupeNumber)) {
                     //Supprimer la seance No. Seancepicker1.seancenumber de chaque client
                     foreach (Seance cours in client.SeancesTheorique) {
                         if (cours.SceanceNumber == seancePicker1.NumeroSeance) {

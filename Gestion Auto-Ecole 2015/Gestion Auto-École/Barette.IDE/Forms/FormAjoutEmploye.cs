@@ -16,20 +16,20 @@ namespace Barette.IDE.Forms {
 		public FormAjoutEmploye(FormMain formMain, FormEmploye formEmploye) {
 			InitializeComponent();
 
-			this._formMain = formMain;
-			this._formEmploye = formEmploye; 
+            _formMain = formMain;
+            _formEmploye = formEmploye; 
 		}
 
 		private void cmdAdd_Click(object sender, EventArgs e) {
 			Cursor.Current = Cursors.WaitCursor;
-				
-				this._formEmploye.AddEmploye(employeControl1.Employer);
 
-				this.DialogResult = DialogResult.OK;
+            _formEmploye.AddEmploye(employeControl1.Employer);
+
+            DialogResult = DialogResult.OK;
 					
 			Cursor.Current = Cursors.Default;
 
-			this.Close();
+            Close();
 		}
 	}
 }

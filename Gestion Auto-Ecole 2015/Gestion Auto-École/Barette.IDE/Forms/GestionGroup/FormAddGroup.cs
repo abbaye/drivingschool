@@ -30,11 +30,11 @@ namespace Barette.IDE.Forms.GestionGroup {
             //List de groupe
             _groupList = group;
 
-            this._appconfig = appconfig;
+            _appconfig = appconfig;
         }
 
         private void cmdCancel_Click(object sender, EventArgs e) {
-            this.Close();
+            Close();
         }
 
         private void cmdNumeroAuto_Click(object sender, EventArgs e) {
@@ -70,10 +70,10 @@ namespace Barette.IDE.Forms.GestionGroup {
             //Valide que le numero est unique
             if (IsUnique(numGroup)) {
                 //Ajoute à la liste du groupe
-                
 
-                this._groupList.Add(new StudentGroup(txtName.Text, Convert.ToInt32(ntbGroupNumber.Text), this._GroupeType));
-                this.Close();
+
+                _groupList.Add(new StudentGroup(txtName.Text, Convert.ToInt32(ntbGroupNumber.Text), _GroupeType));
+                Close();
             }
             else {
                 MessageBox.Show(this, "Ce numéro de group est déja existant.", _appconfig.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -86,7 +86,7 @@ namespace Barette.IDE.Forms.GestionGroup {
         /// </summary>
         /// <returns></returns>
         private bool IsUnique(int number) {
-            foreach (StudentGroup group in this._groupList) {
+            foreach (StudentGroup group in _groupList) {
                 if (group.GroupeNumber == number)
                     return false; 
             }

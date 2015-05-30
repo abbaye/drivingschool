@@ -25,18 +25,18 @@ namespace Barette.IDE.Forms.GestionGroup {
 
         public FormAddStudent(CustomerCollection clientlist, StudentGroup group, Config appconfig) {
             InitializeComponent();
-            
-            this._clientList = clientlist;
-            this._groupe = group;
-            this._Appconfig = appconfig;
+
+            _clientList = clientlist;
+            _groupe = group;
+            _Appconfig = appconfig;
                         
 
             FindClient(false);
         }
 
         private void cmdCancel_Click(object sender, EventArgs e) {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         /// <summary>
@@ -82,12 +82,12 @@ namespace Barette.IDE.Forms.GestionGroup {
         private void FindClient(bool AddCoursTerminer) {
             listFindResult.Items.Clear();
 
-            var clientsAll = from client in this._clientList.Cast<Customer>()
-                             where (client.GetCustomerType() == this._groupe.Type)
+            var clientsAll = from client in _clientList.Cast<Customer>()
+                             where (client.GetCustomerType() == _groupe.Type)
                              select client;
 
-            var clients = from client in this._clientList.Cast<Customer>()
-                          where (client.GetCustomerType() == this._groupe.Type) && (client.TypeClient != ProfileType.CoursTerminer)
+            var clients = from client in _clientList.Cast<Customer>()
+                          where (client.GetCustomerType() == _groupe.Type) && (client.TypeClient != ProfileType.CoursTerminer)
                           select client;
 
             switch (AddCoursTerminer) {
@@ -109,12 +109,12 @@ namespace Barette.IDE.Forms.GestionGroup {
             listFindResult.Items.Clear();
 
 
-            var ListClientTous = from V in this._clientList.Cast<Customer>()
-                                   where V.ContratNumber.Contains(ContainContractNumber) && V.GetCustomerType() == this._groupe.Type
+            var ListClientTous = from V in _clientList.Cast<Customer>()
+                                   where V.ContratNumber.Contains(ContainContractNumber) && V.GetCustomerType() == _groupe.Type
                                    select V;
             
-            var ListClient = from V in this._clientList.Cast<Customer>()
-                                   where V.ContratNumber.Contains(ContainContractNumber) && V.GetCustomerType() == this._groupe.Type && V.TypeClient != ProfileType.CoursTerminer
+            var ListClient = from V in _clientList.Cast<Customer>()
+                                   where V.ContratNumber.Contains(ContainContractNumber) && V.GetCustomerType() == _groupe.Type && V.TypeClient != ProfileType.CoursTerminer
                                    select V;
             
 
@@ -136,8 +136,8 @@ namespace Barette.IDE.Forms.GestionGroup {
             //Applique le changement de groupe
             Customer client;
             foreach (ListViewItem item in listFindResult.CheckedItems) {
-                client = this._clientList.GetClient(item.Text);
-                client.NumeroGroupe = this._groupe.GroupeNumber; 
+                client = _clientList.GetClient(item.Text);
+                client.NumeroGroupe = _groupe.GroupeNumber; 
             }
         }
 
@@ -173,7 +173,7 @@ namespace Barette.IDE.Forms.GestionGroup {
             if (ClientHaveGroupe()) {
                 if (MessageBox.Show(this, @"Un ou plusieurs client sélectionné sont déjà assigné à un groupe.  
 
-Voulez vous quand même les ajouter dans le groupe : " + this._groupe.GroupeNumber.ToString() + " ?", _Appconfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+Voulez vous quand même les ajouter dans le groupe : " + _groupe.GroupeNumber.ToString() + " ?", _Appconfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                     MakeGroup();
                 }
 
@@ -181,8 +181,8 @@ Voulez vous quand même les ajouter dans le groupe : " + this._groupe.GroupeNumb
             else
                 MakeGroup();
 
-            this.DialogResult = DialogResult.OK; 
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void txtFind_TextChanged(object sender, EventArgs e) {

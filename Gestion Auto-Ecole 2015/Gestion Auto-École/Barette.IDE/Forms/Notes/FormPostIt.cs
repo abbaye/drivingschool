@@ -20,14 +20,14 @@ namespace Barette.IDE.Forms.Notes {
 		public FormPostIt(FormMain formMain) {
 			InitializeComponent();
 
-			this._FormMain = formMain;
+            _FormMain = formMain;
 
 			LoadList();
 		}
 
 		public FormMain ParentMain {
 			get {
-				return this._FormMain;
+				return _FormMain;
 			}
 		}
 
@@ -157,8 +157,8 @@ namespace Barette.IDE.Forms.Notes {
 		public void LoadList() {
 			lvNote.Items.Clear();
 
-			for (int i = 0; i < this._FormMain.PostItList.Count; i++) {
-				AddNotes(this._FormMain.PostItList[i], false);
+			for (int i = 0; i < _FormMain.PostItList.Count; i++) {
+				AddNotes(_FormMain.PostItList[i], false);
 			}
 		}
 
@@ -178,12 +178,12 @@ namespace Barette.IDE.Forms.Notes {
 		}
 
 		private void ReloadPostItList() {
-			//Efface la liste des notes
-			this._FormMain.PostItList.Clear();
+            //Efface la liste des notes
+            _FormMain.PostItList.Clear();
 
 			//reload la liste des client
 			for (int i = 0; i < lvNote.Items.Count; i++) {
-				this._FormMain.PostItList.Add(Notes(i));
+                _FormMain.PostItList.Add(Notes(i));
 			}
 		}
 

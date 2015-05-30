@@ -34,29 +34,29 @@ namespace Barette.IDE.Forms.Calendar {
 		public FormHoraire(CustomerCollection ClientList, OffDateCollection OffDateList, EmployeCollection ListEmploye, FormMain formMain, PostItCollection PostItList) {
 			InitializeComponent();
 
-			//FormMain
-			this._formMain = formMain;
+            //FormMain
+            _formMain = formMain;
 
-			//Control client
-			this.clientControl1.ListeEmploye = ListEmploye;
+            //Control client
+            clientControl1.ListeEmploye = ListEmploye;
 
-			//Liste de client
-			this._ClientList = ClientList;
+            //Liste de client
+            _ClientList = ClientList;
 
-			//Notes
-			this._ColPostIt = PostItList;
+            //Notes
+            _ColPostIt = PostItList;
 
-			//Liste d'employe
-			this._ColEmploye = ListEmploye;
+            //Liste d'employe
+            _ColEmploye = ListEmploye;
 			LoadListEmploye();
 			if (cbEmploye.Items.Count > 0) cbEmploye.SelectedIndex = 0;
 
             //Date du jour
-            this.vCalendar.SelectionStart = DateTime.Now;
-            this.vCalendar.Date = DateTime.Now;
-					
-			//jour férié
-			this._ColJourFerier = OffDateList;
+            vCalendar.SelectionStart = DateTime.Now;
+            vCalendar.Date = DateTime.Now;
+
+            //jour férié
+            _ColJourFerier = OffDateList;
 			UpdateBoldedDate();
 
 			//Initialise l'horaire de la semaine
@@ -74,7 +74,7 @@ namespace Barette.IDE.Forms.Calendar {
 		private void tbFunction_ButtonClick(object sender, ToolBarButtonClickEventArgs e) {
 			switch (e.Button.Tag.ToString()) {
 				case "JOURFERIER":
-					new FormJourFerier(_ColJourFerier, this._formMain.AppConfig).ShowDialog(this);
+					new FormJourFerier(_ColJourFerier, _formMain.AppConfig).ShowDialog(this);
 					UpdateBoldedDate();
 					SetDate();
 					break;
@@ -83,9 +83,9 @@ namespace Barette.IDE.Forms.Calendar {
 					break;
 				case "SHOWCLIENT":
 					if (tabControl1.SelectedTab.Tag.ToString() == "DAY")
-						this._formMain.CreationListClient(listViewEx1.SelectedItems[0].SubItems[1].Text);
+                        _formMain.CreationListClient(listViewEx1.SelectedItems[0].SubItems[1].Text);
 					else {
-						this._formMain.CreationListClient(this._SelectedItemsInfos.ContratNumber);
+                        _formMain.CreationListClient(_SelectedItemsInfos.ContratNumber);
 					}
 					break;
 				case "SHOWSEANCE":
@@ -93,7 +93,7 @@ namespace Barette.IDE.Forms.Calendar {
 						if (clientControl1.ShowCours() == DialogResult.OK)
 							RefreshView();
 					} else {
-						clientControl1.Client = this._ClientList.GetClient(this._SelectedItemsInfos.ContratNumber);
+						clientControl1.Client = _ClientList.GetClient(_SelectedItemsInfos.ContratNumber);
 						if (clientControl1.ShowCours() == DialogResult.OK)
 							RefreshView();
 					}
@@ -119,8 +119,8 @@ namespace Barette.IDE.Forms.Calendar {
 		/// Supprime tous les notes de bas de page.
 		/// </summary>
 		private void DeleteAllNotes() {
-			if (MessageBox.Show(this, "Voulez vous vraiment effacer toutes les notes de bas de page de vos horaires ?", this._formMain.AppConfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
-				this._ColPostIt.Clear();
+			if (MessageBox.Show(this, "Voulez vous vraiment effacer toutes les notes de bas de page de vos horaires ?", _formMain.AppConfig.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
+                _ColPostIt.Clear();
 				txtNotes.Text = "";
 			}
 		}
@@ -160,18 +160,18 @@ namespace Barette.IDE.Forms.Calendar {
 			txtNotes.Text = GetNotes(vCalendar.SelectionStart.Date).Message;
 			
 			//Boucle dans tous les clients
-			for (int i = 0; i < this._ClientList.Count; i++) {
+			for (int i = 0; i < _ClientList.Count; i++) {
                 //if (this._ClientList[i].TypeClient != ProfileType.CoursTerminer )
-                    for (int j = 0; j < this._ClientList[i].Seances.Count; j++)
+                    for (int j = 0; j < _ClientList[i].Seances.Count; j++)
                         {
-                        cours = this._ClientList[i].Seances[j];
+                        cours = _ClientList[i].Seances[j];
 
                         //Voila nous avons trouvé une séance qui est de cette employé
                         if ((cours.Employer == cbEmploye.Text) &&
                             (cours.DateHeure.Date == vCalendar.SelectionStart.Date) &&
                             (cours.Active == true))
                             {
-                            client = this._ClientList[i];
+                            client = _ClientList[i];
                             itm = new ListViewItem();
 
                             itm.Text = DateTimeFunc.FormatHour(cours.DateHeure);
@@ -216,7 +216,7 @@ namespace Barette.IDE.Forms.Calendar {
 
 
             //Boucle dans tous les clients
-            foreach (Customer client in this._ClientList)
+            foreach (Customer client in _ClientList)
                 foreach(Seance cours in client.Seances)
                     if ((cours.Employer == cbEmploye.Text) && (cours.DateHeure.Date == date) && (cours.Active == true))
                     {
@@ -251,7 +251,7 @@ namespace Barette.IDE.Forms.Calendar {
             DateTime StartDate = new DateTime(vCalendar.Date.Year, vCalendar.Date.Month, 1); 
 
             ///////TEST
-            var BoldedDate = from seance in this._ClientList.GetAllSeancesPratique().Cast<Seance>()
+            var BoldedDate = from seance in _ClientList.GetAllSeancesPratique().Cast<Seance>()
                              where (seance.Employer == cbEmploye.Text) && 
                                     (seance.DateHeure.Date >= StartDate.Date && 
                                     (seance.DateHeure.Date <= StartDate.Date.AddDays(92).Date)) //+3 mois 
@@ -347,8 +347,8 @@ namespace Barette.IDE.Forms.Calendar {
 				else
 					tbbShowClient.Enabled = tbbShowSeances.Enabled = false;
 			} else {
-				if (this._SelectedItemsInfos != null){
-					if (this._SelectedItemsInfos != null)
+				if (_SelectedItemsInfos != null){
+					if (_SelectedItemsInfos != null)
 						tbbShowClient.Enabled = tbbShowSeances.Enabled = true;
 					else
 						tbbShowClient.Enabled = tbbShowSeances.Enabled = false;
@@ -371,8 +371,8 @@ namespace Barette.IDE.Forms.Calendar {
 			PostIt notes = null;
 
 			//Recherche si une notes est existante
-			for (int i = 0; i < this._ColPostIt.Count; i++) {
-				if (this._ColPostIt[i].Date == vCalendar.SelectionStart.Date && this._ColPostIt[i].Employe == cbEmploye.Text) {
+			for (int i = 0; i < _ColPostIt.Count; i++) {
+				if (_ColPostIt[i].Date == vCalendar.SelectionStart.Date && _ColPostIt[i].Employe == cbEmploye.Text) {
 					exist = true;
 					position = i;
 					break;
@@ -383,10 +383,10 @@ namespace Barette.IDE.Forms.Calendar {
 			if (exist)
 				//Si le texte n'est pas vide un modifie le message
 				if (txtNotes.Text != "")
-					
-					this._ColPostIt[position].Message = txtNotes.Text;
+
+                    _ColPostIt[position].Message = txtNotes.Text;
 				else //sinon on efface la notes
-					this._ColPostIt.RemoveAt(position);
+                    _ColPostIt.RemoveAt(position);
 			else {
 				//sinon on cree une nouvelle notes en cas de texte non vide
 				if (txtNotes.Text != "") {
@@ -394,7 +394,7 @@ namespace Barette.IDE.Forms.Calendar {
 					notes.Date = vCalendar.SelectionStart.Date;
 					notes.Message = txtNotes.Text;
 					notes.Employe = cbEmploye.Text;
-					this._ColPostIt.Add(notes);
+                    _ColPostIt.Add(notes);
 				}
 			}
 		}
@@ -408,8 +408,8 @@ namespace Barette.IDE.Forms.Calendar {
 			PostIt notes = null;
 
 			//Recherche si une notes est existante
-			for (int i = 0; i < this._ColPostIt.Count; i++) {
-				if (this._ColPostIt[i].Date == date.Date && this._ColPostIt[i].Employe == cbEmploye.Text) {
+			for (int i = 0; i < _ColPostIt.Count; i++) {
+				if (_ColPostIt[i].Date == date.Date && _ColPostIt[i].Employe == cbEmploye.Text) {
 					exist = true;
 					position = i;
 					break;
@@ -420,9 +420,9 @@ namespace Barette.IDE.Forms.Calendar {
 			if (exist)
 				//Si le texte n'est pas vide un modifie le message
 				if (Notes != "")
-					this._ColPostIt[position].Message = Notes;
+                    _ColPostIt[position].Message = Notes;
 				else //sinon on efface la notes
-					this._ColPostIt.RemoveAt(position);
+                    _ColPostIt.RemoveAt(position);
 			else {
 				//sinon on cree une nouvelle notes en cas de texte non existant
 				if (Notes != "") {
@@ -430,7 +430,7 @@ namespace Barette.IDE.Forms.Calendar {
 					notes.Date = vCalendar.SelectionStart.Date;
 					notes.Message = Notes;
 					notes.Employe = cbEmploye.Text;
-					this._ColPostIt.Add(notes);
+                    _ColPostIt.Add(notes);
 				}
 			}
 		}
@@ -441,7 +441,7 @@ namespace Barette.IDE.Forms.Calendar {
         /// <param name="date"></param>
         /// <returns>Un postit vide est retournee si il en a aucun de valide.</returns>
 		private PostIt GetNotes(DateTime date) {
-            foreach (PostIt postit in this._ColPostIt)
+            foreach (PostIt postit in _ColPostIt)
                 if (postit.Date == date && postit.Employe == cbEmploye.Text)
                     return postit;  
 
@@ -694,7 +694,7 @@ namespace Barette.IDE.Forms.Calendar {
 					indexFormList = i;
 
 					//Obtenir le client et le numéro de seance
-					client = this._ClientList.GetClient(listViewEx1.Items[i].SubItems[1].Text);
+					client = _ClientList.GetClient(listViewEx1.Items[i].SubItems[1].Text);
 					if (client != null)
 						return client.GetSeance(Convert.ToInt16(listViewEx1.Items[i].SubItems[3].Text));
 				}
@@ -732,7 +732,7 @@ namespace Barette.IDE.Forms.Calendar {
 		private void ShowCoursWeek() {
 			Customer client = null;
 
-			client = this._ClientList.GetClient(this._SelectedItemsInfos.ContratNumber);
+			client = _ClientList.GetClient(_SelectedItemsInfos.ContratNumber);
 
 			if (client != null) {
 				clientControl1.Client = client;
@@ -747,39 +747,39 @@ namespace Barette.IDE.Forms.Calendar {
 		/// Initialise l'horaire de la semaine 
 		/// </summary>
 		private void InitialiseWeekSchedule() {			
-			scheduleControl1.ClientList = this._ClientList;
-			scheduleControl1.EmployeList = this._ColEmploye;
-			scheduleControl1.EmployeName = this.cbEmploye.Text;
+			scheduleControl1.ClientList = _ClientList;
+			scheduleControl1.EmployeList = _ColEmploye;
+			scheduleControl1.EmployeName = cbEmploye.Text;
 			scheduleControl1.Notes = GetNotes(scheduleControl1.Date).Message;
 
-			scheduleControl2.ClientList = this._ClientList;
-			scheduleControl2.EmployeList = this._ColEmploye;			
-			scheduleControl2.EmployeName = this.cbEmploye.Text;
+			scheduleControl2.ClientList = _ClientList;
+			scheduleControl2.EmployeList = _ColEmploye;			
+			scheduleControl2.EmployeName = cbEmploye.Text;
             scheduleControl2.Notes = GetNotes(scheduleControl2.Date).Message;
 						
-			scheduleControl3.ClientList = this._ClientList;
-			scheduleControl3.EmployeList = this._ColEmploye;
-			scheduleControl3.EmployeName = this.cbEmploye.Text;
+			scheduleControl3.ClientList = _ClientList;
+			scheduleControl3.EmployeList = _ColEmploye;
+			scheduleControl3.EmployeName = cbEmploye.Text;
             scheduleControl3.Notes = GetNotes(scheduleControl3.Date).Message;
 						
-			scheduleControl4.ClientList = this._ClientList;
-			scheduleControl4.EmployeList = this._ColEmploye;
-			scheduleControl4.EmployeName = this.cbEmploye.Text;
+			scheduleControl4.ClientList = _ClientList;
+			scheduleControl4.EmployeList = _ColEmploye;
+			scheduleControl4.EmployeName = cbEmploye.Text;
             scheduleControl4.Notes = GetNotes(scheduleControl4.Date).Message;
 						
-			scheduleControl5.ClientList = this._ClientList;
-			scheduleControl5.EmployeList = this._ColEmploye;
-			scheduleControl5.EmployeName = this.cbEmploye.Text;
+			scheduleControl5.ClientList = _ClientList;
+			scheduleControl5.EmployeList = _ColEmploye;
+			scheduleControl5.EmployeName = cbEmploye.Text;
             scheduleControl5.Notes = GetNotes(scheduleControl5.Date).Message;
 						
-			scheduleControl6.ClientList = this._ClientList;
-			scheduleControl6.EmployeList = this._ColEmploye;
-			scheduleControl6.EmployeName = this.cbEmploye.Text;
+			scheduleControl6.ClientList = _ClientList;
+			scheduleControl6.EmployeList = _ColEmploye;
+			scheduleControl6.EmployeName = cbEmploye.Text;
             scheduleControl6.Notes = GetNotes(scheduleControl6.Date).Message;
 						
-			scheduleControl7.ClientList = this._ClientList;
-			scheduleControl7.EmployeList = this._ColEmploye;
-			scheduleControl7.EmployeName = this.cbEmploye.Text;
+			scheduleControl7.ClientList = _ClientList;
+			scheduleControl7.EmployeList = _ColEmploye;
+			scheduleControl7.EmployeName = cbEmploye.Text;
             scheduleControl7.Notes = GetNotes(scheduleControl7.Date).Message;
 		}
 
@@ -811,39 +811,39 @@ namespace Barette.IDE.Forms.Calendar {
 			MakeNotes(scheduleControl7.Date, scheduleControl7.Notes);
 		}
 
-		private void scheduleControl1_ItemSelected(object sender, EventArgs e) {			
-			this._ScheduleControlSelected = scheduleControl1;
-			this._SelectedItemsInfos = scheduleControl1.SelectedItemInfos;			
+		private void scheduleControl1_ItemSelected(object sender, EventArgs e) {
+            _ScheduleControlSelected = scheduleControl1;
+            _SelectedItemsInfos = scheduleControl1.SelectedItemInfos;			
 		}
 
 		private void scheduleControl2_ItemSelected(object sender, EventArgs e) {
-			this._ScheduleControlSelected = scheduleControl2;
-			this._SelectedItemsInfos = scheduleControl2.SelectedItemInfos;
+            _ScheduleControlSelected = scheduleControl2;
+            _SelectedItemsInfos = scheduleControl2.SelectedItemInfos;
 		}
 
 		private void scheduleControl3_ItemSelected(object sender, EventArgs e) {
-			this._ScheduleControlSelected = scheduleControl3;
-			this._SelectedItemsInfos = scheduleControl3.SelectedItemInfos;
+            _ScheduleControlSelected = scheduleControl3;
+            _SelectedItemsInfos = scheduleControl3.SelectedItemInfos;
 		}
 
 		private void scheduleControl4_ItemSelected(object sender, EventArgs e) {
-			this._ScheduleControlSelected = scheduleControl4;
-			this._SelectedItemsInfos = scheduleControl4.SelectedItemInfos;
+            _ScheduleControlSelected = scheduleControl4;
+            _SelectedItemsInfos = scheduleControl4.SelectedItemInfos;
 		}
 
 		private void scheduleControl5_ItemSelected(object sender, EventArgs e) {
-			this._ScheduleControlSelected = scheduleControl5;
-			this._SelectedItemsInfos = scheduleControl5.SelectedItemInfos;
+            _ScheduleControlSelected = scheduleControl5;
+            _SelectedItemsInfos = scheduleControl5.SelectedItemInfos;
 		}
 
 		private void scheduleControl6_ItemSelected(object sender, EventArgs e) {
-			this._ScheduleControlSelected = scheduleControl6;
-			this._SelectedItemsInfos = scheduleControl6.SelectedItemInfos;
+            _ScheduleControlSelected = scheduleControl6;
+            _SelectedItemsInfos = scheduleControl6.SelectedItemInfos;
 		}
 
 		private void scheduleControl7_ItemSelected(object sender, EventArgs e) {
-			this._ScheduleControlSelected = scheduleControl7;
-			this._SelectedItemsInfos = scheduleControl7.SelectedItemInfos;
+            _ScheduleControlSelected = scheduleControl7;
+            _SelectedItemsInfos = scheduleControl7.SelectedItemInfos;
 		}
 
 		private void scheduleControl_MouseItemDoubleClick(object sender, MouseEventArgs e) {
@@ -861,7 +861,7 @@ namespace Barette.IDE.Forms.Calendar {
 
         private void PrintForm(PrintMode mode)
         {
-            this._printMode = mode;
+            _printMode = mode;
 
             //Lance l'impression
             PrintDialog printConfig = new PrintDialog();
@@ -878,7 +878,7 @@ namespace Barette.IDE.Forms.Calendar {
 					printDocument2.Print();
 #endif	
 
-            this._printMode = PrintMode.Nothing;
+            _printMode = PrintMode.Nothing;
         }
 
         private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -912,7 +912,7 @@ namespace Barette.IDE.Forms.Calendar {
             Bitmap img = new Bitmap(strm);
             e.Graphics.DrawImage(img, 0, 0, 180, 100);
 
-            switch (this._printMode)
+            switch (_printMode)
             {
                 case PrintMode.AM:
                     e.Graphics.DrawString("Fiche horaire journalière : Avant-midi", printFontBold16, Brushes.Black, 225, 30, new StringFormat());
@@ -947,7 +947,7 @@ namespace Barette.IDE.Forms.Calendar {
             yPos += printFont12.Height + 15;
             
             /////////////////////////////////////////////////////////////////////////////////
-            var ClientCourslist = GetListCours(vCalendar.SelectionStart, this._printMode);
+            var ClientCourslist = GetListCours(vCalendar.SelectionStart, _printMode);
 
             foreach (KeyValuePair<Seance, Customer> pair in ClientCourslist)
             {
