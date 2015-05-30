@@ -34,9 +34,9 @@ namespace Barette.Library.UserControls {
 			// This call is required by the Windows.Forms Form Designer.
 			InitializeComponent();
 
-			// Add any initialization after the InitComponent call
-			this.autoComplete = true;
-			this.KeyPress += new KeyPressEventHandler( this.OnKeyPress );
+            // Add any initialization after the InitComponent call
+            autoComplete = true;
+            KeyPress += new KeyPressEventHandler(OnKeyPress);
 		}
 
 		/// <summary>

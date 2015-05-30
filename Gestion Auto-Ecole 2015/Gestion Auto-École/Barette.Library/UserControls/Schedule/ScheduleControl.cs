@@ -52,23 +52,23 @@ namespace Barette.Library.UserControls.Schedule {
 		/// </summary>
 		public DateTime Date {
 			get {
-				return this._Date;
+				return _Date;
 			}
 			set {
-				this._Date = value;
+                _Date = value;
 				UpdateView();
 			}
 		}
 
 		public CustomerCollection ClientList {			
 			set {
-				this._ClientList = value;
+                _ClientList = value;
 			}
 		}
 
 		public EmployeCollection EmployeList {
 			set {
-				this._EmployeList = value;
+                _EmployeList = value;
 			}
 		}
 
@@ -77,13 +77,13 @@ namespace Barette.Library.UserControls.Schedule {
 		/// </summary>
 		public DateTime[] AnnualDate {
 			set {
-				this._AnnualDates = value; 
+                _AnnualDates = value; 
 			}
 		}
 
 		public string EmployeName {
 			set {
-				this._EmployeName = value;
+                _EmployeName = value;
 				UpdateView();
 			}
 		}
@@ -99,13 +99,13 @@ namespace Barette.Library.UserControls.Schedule {
 
 		public void UpdateView() {
 			// Met a jour la date
-			lblDate.Text = DateTimeFunc.DayOfWeekFRLong(this._Date.DayOfWeek) + " " + this._Date.Date.ToLongDateString();
+			lblDate.Text = DateTimeFunc.DayOfWeekFRLong(_Date.DayOfWeek) + " " + _Date.Date.ToLongDateString();
 
 			//Load la liste de cours
 			LoadCoursList();
 
 			//Inscrit le total de cours de la journées
-			lblTotalCours.Text = this._CoursList.Count + " Cours";
+			lblTotalCours.Text = _CoursList.Count + " Cours";
 		}
 
 		//Chargement de la liste de cours
@@ -114,30 +114,30 @@ namespace Barette.Library.UserControls.Schedule {
 
 			listViewEx1.Items.Clear();
 
-			//Notes
-			//txtNotes.Text = "";
-			//txtNotes.Text = GetNotes(vCalendar.SelectionStart.Date);
+            //Notes
+            //txtNotes.Text = "";
+            //txtNotes.Text = GetNotes(vCalendar.SelectionStart.Date);
 
-			//Vide la liste de cours
-			this._CoursList = new SeanceCollection();
-			this._CoursList.Clear();
+            //Vide la liste de cours
+            _CoursList = new SeanceCollection();
+            _CoursList.Clear();
 
 			//Boucle dans tous les clients
-			if (this._ClientList != null)
-                for (int i = 0; i < this._ClientList.Count; i++)
+			if (_ClientList != null)
+                for (int i = 0; i < _ClientList.Count; i++)
                     {
-                    if (this._ClientList[i].TypeClient != ProfileType.CoursTerminer)
-                        for (int j = 0; j < this._ClientList[i].Seances.Count; j++)
+                    if (_ClientList[i].TypeClient != ProfileType.CoursTerminer)
+                        for (int j = 0; j < _ClientList[i].Seances.Count; j++)
                             {
-                            cours = this._ClientList[i].Seances[j];
+                            cours = _ClientList[i].Seances[j];
 
                             //Voila nous avons trouvé une séance qui est de cette employé
                             if (cours.Employer != "")
-                                if ((cours.Employer == this._EmployeName) &&
-                                    (cours.DateHeure.Date == this._Date.Date) &&
+                                if ((cours.Employer == _EmployeName) &&
+                                    (cours.DateHeure.Date == _Date.Date) &&
                                     (cours.Active == true))
                                     {
-                                    cours.Client = this._ClientList[i];
+                                    cours.Client = _ClientList[i];
                                     _CoursList.Add(cours);
                                     //AddCoursToList(this._ClientList[i], cours);
                                     }
@@ -186,7 +186,7 @@ namespace Barette.Library.UserControls.Schedule {
 
 		private void PlaceCours() {
 			//Mettre l'heure de départ à 7h00 de la date du ScheduleControl
-			DateTime HeureDepart = new DateTime(this._Date.Year, this._Date.Month, this._Date.Day, 7, 0, 0);
+			DateTime HeureDepart = new DateTime(_Date.Year, _Date.Month, _Date.Day, 7, 0, 0);
 			DateTime HeureCourant = HeureDepart; //Heure courant dans l'iteration
 			Seance cours = null;
 
@@ -217,14 +217,14 @@ namespace Barette.Library.UserControls.Schedule {
 			DateTime HeureHaute = HeureCourant.AddMinutes(30);
 			DateTime HeureItem = new DateTime();
 
-			for (int i = 0; i < this._CoursList.Count; i++) {
+			for (int i = 0; i < _CoursList.Count; i++) {
 				//HeureItem = DateTimeFunc.HoursFromString(DateTimeFunc.FormatHour(this._CoursList[i].DateHeure));
-				HeureItem = this._CoursList[i].DateHeure;
+				HeureItem = _CoursList[i].DateHeure;
 
 				if (DateTimeFunc.HoursIsBetween(HeureCourant, HeureItem, HeureHaute)) {
 					//Obtenir le client et le numéro de seance
-					if (this._CoursList[i].Client != null)
-						return this._CoursList[i];
+					if (_CoursList[i].Client != null)
+						return _CoursList[i];
 				}
 			}
 
@@ -250,7 +250,7 @@ namespace Barette.Library.UserControls.Schedule {
 					infos.SeanceNumber = listViewEx1.SelectedItems[0].SubItems[3].Text;
 					infos.SeanceCode = listViewEx1.SelectedItems[0].SubItems[4].Text;
 
-					client = this._ClientList.GetClient(listViewEx1.SelectedItems[0].SubItems[1].Text);
+					client = _ClientList.GetClient(listViewEx1.SelectedItems[0].SubItems[1].Text);
 					if (client != null) {
 						infos.PhoneNumber = client.Phone;
 						infos.ContratNumber = client.ContratNumber;
@@ -271,8 +271,8 @@ namespace Barette.Library.UserControls.Schedule {
 			get {
 				ScheduleInfos infos;
 				ScheduleDescription Description = new ScheduleDescription();
-				Description.Jour = this._Date;
-				Description.NomMoniteur = this._EmployeName;
+				Description.Jour = _Date;
+				Description.NomMoniteur = _EmployeName;
 				Customer client = null;
 
 				//Créé la description detaille de la journée
@@ -284,7 +284,7 @@ namespace Barette.Library.UserControls.Schedule {
 					infos.SeanceNumber = listViewEx1.Items[i].SubItems[3].Text;
 					infos.SeanceCode = listViewEx1.Items[i].SubItems[4].Text;
 										
-					client = this._ClientList.GetClient(listViewEx1.Items[i].SubItems[1].Text);
+					client = _ClientList.GetClient(listViewEx1.Items[i].SubItems[1].Text);
 					if (client != null) {
 						infos.PhoneNumber = client.Phone;
 						infos.ContratNumber = client.ContratNumber;

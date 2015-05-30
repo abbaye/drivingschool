@@ -31,57 +31,58 @@ namespace Barette.Library.UserControls {
 		/// Fabrication d'un employe à partir des données du control
 		/// </summary>
 		private void MakeEmploye() {
-			//Creation de l'objet
-			this._Employe = new Employe();
+            //Creation de l'objet
+            _Employe = new Employe();
 
-			//Information générale
-			this._Employe.NumeroEmploye = this.txtNumeroEmploye.Text;
-			this._Employe.Nom = this.txtName.Text;
-			this._Employe.Prenom = this.txtFirstName.Text;
-			this._Employe.NAS = this.mtNAS.Text;
-			this._Employe.TauxHorraire = this.ctbSalaire.Text;
-			this._Employe.Telephone = this.txtPhoneNumber.Text;
-			this._Employe.TelephoneAutre = this.txtPhoneOther.Text;
-			this._Employe.Titre = this.cbTitre.Text;
-			
-			//Debut de la création de l'employé
-			this._Employe.AdultACharge = Convert.ToInt16(this.ntbAdultACharge.Text);
-			this._Employe.EnfantACharge = Convert.ToInt16(this.ntbEnfantACharge.Text);
+            //Information générale
+            _Employe.NumeroEmploye = txtNumeroEmploye.Text;
+            _Employe.Nom = txtName.Text;
+            //this._Employe.Prenom = this.txtFirstName.Text;
+            _Employe.NomAffichageRapport = txtFirstName.Text;
+            _Employe.NAS = mtNAS.Text;
+            _Employe.TauxHorraire = ctbSalaire.Text;
+            _Employe.Telephone = txtPhoneNumber.Text;
+            _Employe.TelephoneAutre = txtPhoneOther.Text;
+            _Employe.Titre = cbTitre.Text;
 
-			//Adresse
-			this._Employe.City = this.cbCity.Text;
-			this._Employe.CodePostal = this.txtCodePostal.Text;
-			this._Employe.StreetApp = this.txtAdressApp.Text;
-			this._Employe.StreetName = this.txtAdressStreet.Text;
-			this._Employe.StreetNumber = this.txtAdressNumber.Text;
+            //Debut de la création de l'employé
+            _Employe.AdultACharge = Convert.ToInt16(ntbAdultACharge.Text);
+            _Employe.EnfantACharge = Convert.ToInt16(ntbEnfantACharge.Text);
 
-			//Date
-			this._Employe.DateDernierJourTravailler = this.dtpLastDay.Value;
-			this._Employe.DateEmbauche = this.dtpFirstDay.Value;
-			this._Employe.DateNaissance = this.dtbDateNaissance.Value;
+            //Adresse
+            _Employe.City = cbCity.Text;
+            _Employe.CodePostal = txtCodePostal.Text;
+            _Employe.StreetApp = txtAdressApp.Text;
+            _Employe.StreetName = txtAdressStreet.Text;
+            _Employe.StreetNumber = txtAdressNumber.Text;
 
-			this._Employe.NatureEmploie = this.cbNatureEmploie.Text;
-			this._Employe.Notes = this.teNotes.RTFCode;
+            //Date
+            _Employe.DateDernierJourTravailler = dtpLastDay.Value;
+            _Employe.DateEmbauche = dtpFirstDay.Value;
+            _Employe.DateNaissance = dtbDateNaissance.Value;
+
+            _Employe.NatureEmploie = cbNatureEmploie.Text;
+            _Employe.Notes = teNotes.RTFCode;
 
 			//Situation familiale
-			if (this.cbSituationFamiliale.Text == "Célibataire")
-				this._Employe.SituationFamiliale = FamilyStatus.Celibataire;
-			else if (this.cbSituationFamiliale.Text == "Divorcé(e)")
-				this._Employe.SituationFamiliale = FamilyStatus.Divorce;
-			else if (this.cbSituationFamiliale.Text == "Marié(e)")
-				this._Employe.SituationFamiliale = FamilyStatus.Marie;
-			else if (this.cbSituationFamiliale.Text == "Union Libre")
-				this._Employe.SituationFamiliale = FamilyStatus.UnionLibre;
-			else if (this.cbSituationFamiliale.Text == "Veuf(ve)")
-				this._Employe.SituationFamiliale = FamilyStatus.Veuf;
+			if (cbSituationFamiliale.Text == "Célibataire")
+                _Employe.SituationFamiliale = FamilyStatus.Celibataire;
+			else if (cbSituationFamiliale.Text == "Divorcé(e)")
+                _Employe.SituationFamiliale = FamilyStatus.Divorce;
+			else if (cbSituationFamiliale.Text == "Marié(e)")
+                _Employe.SituationFamiliale = FamilyStatus.Marie;
+			else if (cbSituationFamiliale.Text == "Union Libre")
+                _Employe.SituationFamiliale = FamilyStatus.UnionLibre;
+			else if (cbSituationFamiliale.Text == "Veuf(ve)")
+                _Employe.SituationFamiliale = FamilyStatus.Veuf;
 
 			//Type d'employe
 			if (cbTypeContractuel.Checked)
-				this._Employe.TypeEmployer = TypeEmploye.Contractuel;
+                _Employe.TypeEmployer = TypeEmploye.Contractuel;
 			else if (cbTypeDirigeant.Checked)
-				this._Employe.TypeEmployer = TypeEmploye.Dirigeant;
+                _Employe.TypeEmployer = TypeEmploye.Dirigeant;
 			else if (cbTypeTauxHorraire.Checked)
-				this._Employe.TypeEmployer = TypeEmploye.TauxHorraire;
+                _Employe.TypeEmployer = TypeEmploye.TauxHorraire;
 		}
 
 		/// <summary>
@@ -89,70 +90,70 @@ namespace Barette.Library.UserControls {
 		/// </summary>
 		private void MakeControl() {
 
-			//Information générale
-			this.txtNumeroEmploye.Text = this._Employe.NumeroEmploye;
-			this.txtName.Text = this._Employe.Nom;
-			this.txtFirstName.Text = this._Employe.Prenom;
-			this.mtNAS.Text = this._Employe.NAS;
-			this.ctbSalaire.Text = this._Employe.TauxHorraire;
-			this.txtPhoneNumber.Text = this._Employe.Telephone;
-			this.txtPhoneOther.Text = this._Employe.TelephoneAutre;
-			this.cbTitre.Text = this._Employe.Titre;
+            //Information générale
+            txtNumeroEmploye.Text = _Employe.NumeroEmploye;
+            txtName.Text = _Employe.Nom;
+            txtFirstName.Text = _Employe.NomAffichageRapport;
+            mtNAS.Text = _Employe.NAS;
+            ctbSalaire.Text = _Employe.TauxHorraire;
+            txtPhoneNumber.Text = _Employe.Telephone;
+            txtPhoneOther.Text = _Employe.TelephoneAutre;
+            cbTitre.Text = _Employe.Titre;
 
-			//Debut de la création de l'employé
-			this.ntbAdultACharge.Text = this._Employe.AdultACharge.ToString();
-			this.ntbEnfantACharge.Text = this._Employe.EnfantACharge.ToString();
+            //Debut de la création de l'employé
+            ntbAdultACharge.Text = _Employe.AdultACharge.ToString();
+            ntbEnfantACharge.Text = _Employe.EnfantACharge.ToString();
 
-			//Adresse
-			this.cbCity.Text = this._Employe.City;
-			this.txtCodePostal.Text = this._Employe.CodePostal;
-			this.txtAdressApp.Text = this._Employe.StreetApp;
-			this.txtAdressStreet.Text = this._Employe.StreetName;
-			this.txtAdressNumber.Text = this._Employe.StreetNumber;
+            //Adresse
+            cbCity.Text = _Employe.City;
+            txtCodePostal.Text = _Employe.CodePostal;
+            txtAdressApp.Text = _Employe.StreetApp;
+            txtAdressStreet.Text = _Employe.StreetName;
+            txtAdressNumber.Text = _Employe.StreetNumber;
 
 			//Date
 			try {
-				this.dtpLastDay.Value = this._Employe.DateDernierJourTravailler;
+                dtpLastDay.Value = _Employe.DateDernierJourTravailler;
 			} catch {
-				this.dtpLastDay.Value = DateTime.Now;
+                dtpLastDay.Value = DateTime.Now;
 			}
 
 			try {
-				this.dtpFirstDay.Value = this._Employe.DateEmbauche;
+                dtpFirstDay.Value = _Employe.DateEmbauche;
 			} catch {
-				this.dtpFirstDay.Value = DateTime.Now;
+                dtpFirstDay.Value = DateTime.Now;
 			}
 
 			try {
-				this.dtbDateNaissance.Value = this._Employe.DateNaissance;
+                dtbDateNaissance.Value = _Employe.DateNaissance;
 			} catch {
-				this.dtbDateNaissance.Value = DateTime.Now;
+                dtbDateNaissance.Value = DateTime.Now;
 			}
 
-			this.cbNatureEmploie.Text = this._Employe.NatureEmploie;
-			this.teNotes.RTFCode = this._Employe.Notes;
+            cbNatureEmploie.Text = _Employe.NatureEmploie;
+            teNotes.RTFCode = _Employe.Notes;
 
 			//Situation familiale
-			switch (this._Employe.SituationFamiliale) {
+			switch (_Employe.SituationFamiliale) {
 				case FamilyStatus.Celibataire:
-					this.cbSituationFamiliale.Text = "Célibataire";
+                    cbSituationFamiliale.Text = "Célibataire";
 					break;
 				case FamilyStatus.Divorce:
-					this.cbSituationFamiliale.Text = "Divorcé(e)";
+                    cbSituationFamiliale.Text = "Divorcé(e)";
 					break;
 				case FamilyStatus.Marie:
-					this.cbSituationFamiliale.Text = "Marié(e)";
+                    cbSituationFamiliale.Text = "Marié(e)";
 					break;
 				case FamilyStatus.UnionLibre:
-					this.cbSituationFamiliale.Text = "Union Libre";
+                    cbSituationFamiliale.Text = "Union Libre";
 					break;
 				case FamilyStatus.Veuf:
-					this.cbSituationFamiliale.Text = "Veuf(ve)";
+                    cbSituationFamiliale.Text = "Veuf(ve)";
 					break;
 			}
 
 			//Type d'employe
-			switch (this._Employe.TypeEmployer) {
+			switch (_Employe.TypeEmployer) {
 				case TypeEmploye.Contractuel:
 					cbTypeContractuel.Checked = true;
 					break;
@@ -169,38 +170,38 @@ namespace Barette.Library.UserControls {
 		/// Ferme l'employe, efface tous les données dans les controls
 		/// </summary>
 		public void CloseEmploye() {
-			//reset l<objet a 
-			this._Employe = new Employe();
+            //reset l<objet a 
+            _Employe = new Employe();
 
-			//Information générale
-			this.txtNumeroEmploye.Text = "";
-			this.txtName.Text = "";
-			this.txtFirstName.Text = "";
-			this.mtNAS.Text = "";
-			this.ctbSalaire.Text = "";
-			this.txtPhoneNumber.Text = "";
-			this.txtPhoneOther.Text = "";
-			this.cbTitre.Text = "";
+            //Information générale
+            txtNumeroEmploye.Text = "";
+            txtName.Text = "";
+            txtFirstName.Text = "";
+            mtNAS.Text = "";
+            ctbSalaire.Text = "";
+            txtPhoneNumber.Text = "";
+            txtPhoneOther.Text = "";
+            cbTitre.Text = "";
 
-			//Debut de la création de l'employé
-			this.ntbAdultACharge.Text = "0";
-			this.ntbEnfantACharge.Text = "0";
+            //Debut de la création de l'employé
+            ntbAdultACharge.Text = "0";
+            ntbEnfantACharge.Text = "0";
 
-			//Adresse
-			this.cbCity.Text = "";
-			this.txtCodePostal.Text = "";
-			this.txtAdressApp.Text = "";
-			this.txtAdressStreet.Text = "";
-			this.txtAdressNumber.Text = "";
+            //Adresse
+            cbCity.Text = "";
+            txtCodePostal.Text = "";
+            txtAdressApp.Text = "";
+            txtAdressStreet.Text = "";
+            txtAdressNumber.Text = "";
 
-			//Date
-			this.dtpLastDay.Value = DateTime.Now;
-			this.dtpFirstDay.Value = DateTime.Now;
-			this.dtbDateNaissance.Value = DateTime.Now;
+            //Date
+            dtpLastDay.Value = DateTime.Now;
+            dtpFirstDay.Value = DateTime.Now;
+            dtbDateNaissance.Value = DateTime.Now;
 
-			this.cbNatureEmploie.Text = "";
-			this.cbSituationFamiliale.Text = "";
-			this.teNotes.RTFCode = "";
+            cbNatureEmploie.Text = "";
+            cbSituationFamiliale.Text = "";
+            teNotes.RTFCode = "";
 
 			//Type d'employe
 			cbTypeContractuel.Checked =	
@@ -217,10 +218,10 @@ namespace Barette.Library.UserControls {
 		public Employe Employer {
 			get {
 				MakeEmploye();
-				return this._Employe; 				
+				return _Employe; 				
 			}
 			set {
-				this._Employe = value;
+                _Employe = value;
 				MakeControl();
 			}
 		}

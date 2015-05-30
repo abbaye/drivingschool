@@ -23,38 +23,38 @@ namespace Barette.Library {
 
 		public string Employe {
 			get {
-				return this._Employe;
+				return _Employe;
 			}
 			set {
-				this._Employe = value;
+                _Employe = value;
 			}
 		}
 
 
 		public string Message {
 			get {
-				return this._Message;
+				return _Message;
 			}
 			set {
-				this._Message = value;
+                _Message = value;
 			}
 		}
 
 		public bool Alerte {
 			get {
-				return this._Alerte;
+				return _Alerte;
 			}
 			set {
-				this._Alerte = value;
+                _Alerte = value;
 			}
 		}
 
 		public DateTime AlerteDateTime {
 			get {
-				return this._AlerteDateTime;
+				return _AlerteDateTime;
 			}
 			set {
-				this._AlerteDateTime = value;
+                _AlerteDateTime = value;
 			}
 		}
 
@@ -64,10 +64,10 @@ namespace Barette.Library {
 		/// <value></value>
 		public DateTime Date {
 			get {
-				return this._Date;
+				return _Date;
 			}
 			set {
-				this._Date = value;
+                _Date = value;
 			}
 		}
 	}

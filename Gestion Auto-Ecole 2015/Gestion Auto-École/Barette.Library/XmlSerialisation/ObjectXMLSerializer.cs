@@ -26,7 +26,7 @@ namespace Barette.Library.XmlSerialisation {
 		/// </example>
 		/// </summary>
 		public virtual Object Load(Object ObjectToLoad, string XMLFilePathName) {   		
-			ObjectToLoad = this.LoadFromDocumentFormat(ObjectToLoad, XMLFilePathName, null);
+			ObjectToLoad = LoadFromDocumentFormat(ObjectToLoad, XMLFilePathName, null);
 			return ObjectToLoad;
 		}
 
@@ -51,12 +51,12 @@ namespace Barette.Library.XmlSerialisation {
 		public virtual Object Load(Object ObjectToLoad, string XMLFilePathName, SerializedFormatType SerializedFormat) {   
 			switch (SerializedFormat) {
 				case SerializedFormatType.Binary :
-					ObjectToLoad = this.LoadFromBinaryFormat(ObjectToLoad, XMLFilePathName, null);
+					ObjectToLoad = LoadFromBinaryFormat(ObjectToLoad, XMLFilePathName, null);
 					break;
 
 				case SerializedFormatType.Document :
 				default :
-					ObjectToLoad = this.LoadFromDocumentFormat(ObjectToLoad, XMLFilePathName, null);
+					ObjectToLoad = LoadFromDocumentFormat(ObjectToLoad, XMLFilePathName, null);
 					break; 
 			}
 		
@@ -67,12 +67,12 @@ namespace Barette.Library.XmlSerialisation {
 			SerializedFormatType SerializedFormat, IsolatedStorageFile isolatedStorageFolder) {   
 			switch (SerializedFormat) {
 				case SerializedFormatType.Binary :
-					ObjectToLoad = this.LoadFromBinaryFormat(ObjectToLoad, XMLFilePathName, isolatedStorageFolder);
+					ObjectToLoad = LoadFromBinaryFormat(ObjectToLoad, XMLFilePathName, isolatedStorageFolder);
 					break;
 
 				case SerializedFormatType.Document :
 				default :
-					ObjectToLoad = this.LoadFromDocumentFormat(ObjectToLoad, XMLFilePathName, isolatedStorageFolder);
+					ObjectToLoad = LoadFromDocumentFormat(ObjectToLoad, XMLFilePathName, isolatedStorageFolder);
 					break; 
 			}
 		
@@ -88,7 +88,7 @@ namespace Barette.Library.XmlSerialisation {
 		/// from which to Load the XML file.</param>
 		/// <returns>Returns an Object loaded from the XML file. If the Object could not be loaded returns null.</returns>
 		public virtual Object Load(Object ObjectToLoad, string XMLFilePathName, IsolatedStorageFile isolatedStorageFolder) {
-			ObjectToLoad = this.LoadFromDocumentFormat(ObjectToLoad, XMLFilePathName, isolatedStorageFolder);
+			ObjectToLoad = LoadFromDocumentFormat(ObjectToLoad, XMLFilePathName, isolatedStorageFolder);
 			return ObjectToLoad;
 		}
 
@@ -149,7 +149,7 @@ namespace Barette.Library.XmlSerialisation {
 		/// </summary>
 		public virtual bool Save(Object ObjectToSave, string XMLFilePathName) {
 			bool success = false;
-			success = this.SaveToDocumentFormat(ObjectToSave, XMLFilePathName, null);			
+			success = SaveToDocumentFormat(ObjectToSave, XMLFilePathName, null);			
 			return success;
 		}
 
@@ -176,12 +176,12 @@ namespace Barette.Library.XmlSerialisation {
 
 			switch (SerializedFormat) {
 				case SerializedFormatType.Binary :
-					success = this.SaveToBinaryFormat(ObjectToSave, XMLFilePathName, null);
+					success = SaveToBinaryFormat(ObjectToSave, XMLFilePathName, null);
 					break;
 
 				case SerializedFormatType.Document :
 				default :
-					success = this.SaveToDocumentFormat(ObjectToSave, XMLFilePathName, null);
+					success = SaveToDocumentFormat(ObjectToSave, XMLFilePathName, null);
 					break; 
 			}
 		
@@ -194,12 +194,12 @@ namespace Barette.Library.XmlSerialisation {
 
 			switch (SerializedFormat) {
 				case SerializedFormatType.Binary :
-					success = this.SaveToBinaryFormat(ObjectToSave, XMLFilePathName, isolatedStorageFolder);
+					success = SaveToBinaryFormat(ObjectToSave, XMLFilePathName, isolatedStorageFolder);
 					break;
 
 				case SerializedFormatType.Document :
 				default :
-					success = this.SaveToDocumentFormat(ObjectToSave, XMLFilePathName, isolatedStorageFolder);
+					success = SaveToDocumentFormat(ObjectToSave, XMLFilePathName, isolatedStorageFolder);
 					break; 
 			}
 		
@@ -217,7 +217,7 @@ namespace Barette.Library.XmlSerialisation {
 		/// <returns></returns>
 		public virtual bool Save(Object ObjectToSave, string XMLFilePathName, IsolatedStorageFile isolatedStorageFolder) {
 			bool success = false;
-			success = this.SaveToDocumentFormat(ObjectToSave, XMLFilePathName, isolatedStorageFolder);
+			success = SaveToDocumentFormat(ObjectToSave, XMLFilePathName, isolatedStorageFolder);
 			return success;
 		}
 

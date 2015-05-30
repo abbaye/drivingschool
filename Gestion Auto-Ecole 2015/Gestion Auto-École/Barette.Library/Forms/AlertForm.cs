@@ -21,47 +21,47 @@ namespace Barette.Library.Forms {
 			InitializeComponent();
 			Barette.Library.Win32.StaticBorder.ThinBorder(lblText.Handle.ToInt32(), true);
 
-			this._notes = notes;
+            _notes = notes;
 			
 			cbRappelle.SelectedIndex = 0;
-			lblDate.Text = this._notes.Date.ToLongDateString();
-			lblText.Text = this._notes.Message;
+			lblDate.Text = _notes.Date.ToLongDateString();
+			lblText.Text = _notes.Message;
 			
 		}
 
 		private void cmdRappelle_Click(object sender, EventArgs e) {
 			switch (cbRappelle.Text) {
 				case "1 minute":
-					this._notes.AlerteDateTime = DateTime.Now.AddMinutes(1); 
+                    _notes.AlerteDateTime = DateTime.Now.AddMinutes(1); 
 					break;
 				case "5 minutes":
-					this._notes.AlerteDateTime = DateTime.Now.AddMinutes(5); 
+                    _notes.AlerteDateTime = DateTime.Now.AddMinutes(5); 
 					break;
 				case "10 minutes":
-					this._notes.AlerteDateTime = DateTime.Now.AddMinutes(10); 
+                    _notes.AlerteDateTime = DateTime.Now.AddMinutes(10); 
 					break;
 				case "30 minutes":
-					this._notes.AlerteDateTime = DateTime.Now.AddMinutes(30); 
+                    _notes.AlerteDateTime = DateTime.Now.AddMinutes(30); 
 					break;
 				case "1 heure":
-					this._notes.AlerteDateTime = DateTime.Now.AddHours(1);
+                    _notes.AlerteDateTime = DateTime.Now.AddHours(1);
 					break;
 				case "2 heures":
-					this._notes.AlerteDateTime = DateTime.Now.AddHours(2);
+                    _notes.AlerteDateTime = DateTime.Now.AddHours(2);
 					break;
 				case "5 heures":
-					this._notes.AlerteDateTime = DateTime.Now.AddHours(5);
+                    _notes.AlerteDateTime = DateTime.Now.AddHours(5);
 					break;
 				case "1 jour":
-					this._notes.AlerteDateTime = DateTime.Now.AddDays(1);
+                    _notes.AlerteDateTime = DateTime.Now.AddDays(1);
 					break;
 				case "2 jours":
-					this._notes.AlerteDateTime = DateTime.Now.AddDays(2);
+                    _notes.AlerteDateTime = DateTime.Now.AddDays(2);
 					break;
 			}
 
 			_notes.Alerte = true;
-			this.Close();
+            Close();
 		}
 
 		private void cmdClose_Click(object sender, EventArgs e) {

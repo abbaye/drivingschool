@@ -76,9 +76,9 @@ namespace Barette.Library.UserControls.Client {
 			//
 			InitializeComponent();
 
-			this._ClientCtrl = clientCtrl;
-			this._Client = client;
-            this._infoSchool = info;
+            _ClientCtrl = clientCtrl;
+            _Client = client;
+            _infoSchool = info;
 
 			//Ecrire la date du jour
 			DateFacture.Value = DateTime.Now;
@@ -90,7 +90,7 @@ namespace Barette.Library.UserControls.Client {
 			if (!File.Exists(@"Data\recunumber.xml"))
 				SaveNewRecuNumber(12000);
 
-			this._RecuNumberWhenOpen = GetRecuNumber();
+            _RecuNumberWhenOpen = GetRecuNumber();
 		}
 
 		/// <summary>
@@ -111,77 +111,77 @@ namespace Barette.Library.UserControls.Client {
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Livres", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Location Automobile", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Paiements Normaux", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Absense", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Credit", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPaiment));
-            this.ListViewPaiment = new System.Windows.Forms.ListView();
-            this.colHeadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadMontant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadRecuNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadRL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadTypePaiment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadTPS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadTVQ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
-            this.gbPaiment = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbAbsence = new System.Windows.Forms.RadioButton();
-            this.cbLocationAuto = new System.Windows.Forms.RadioButton();
-            this.cbRetourLivre = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtTypePaiment = new System.Windows.Forms.TextBox();
-            this.rbAutre = new System.Windows.Forms.RadioButton();
-            this.rbArgentComptant = new System.Windows.Forms.RadioButton();
-            this.rbPaimentDirect = new System.Windows.Forms.RadioButton();
-            this.rbCheque = new System.Windows.Forms.RadioButton();
-            this.NumeroRecu = new UtilityLibrary.WinControls.NumericTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.DateFacture = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmdMakePaiment = new System.Windows.Forms.Button();
-            this.cmdCancel = new System.Windows.Forms.Button();
-            this.cmdApply = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblSolde = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.cmdAddLocation = new System.Windows.Forms.Button();
-            this.toolBar1 = new System.Windows.Forms.ToolBar();
-            this.tbbAddPaiment = new System.Windows.Forms.ToolBarButton();
-            this.tbbDelete = new System.Windows.Forms.ToolBarButton();
-            this.tbbSeparator1 = new System.Windows.Forms.ToolBarButton();
-            this.tbbPrint = new System.Windows.Forms.ToolBarButton();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.timerSelection = new System.Windows.Forms.Timer(this.components);
-            this.timerAutuUpdate = new System.Timers.Timer();
-            this.MontantPaiment = new Barette.Library.UserControls.CashTextBox();
-            this.cbTotalCours = new Barette.Library.UserControls.CashTextBox();
-            this.gbPaiment.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timerAutuUpdate)).BeginInit();
-            this.SuspendLayout();
+            ListViewPaiment = new System.Windows.Forms.ListView();
+            colHeadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadMontant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadRecuNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadRL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadTypePaiment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadTPS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            colHeadTVQ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            label1 = new System.Windows.Forms.Label();
+            gbPaiment = new System.Windows.Forms.GroupBox();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            cbAbsence = new System.Windows.Forms.RadioButton();
+            cbLocationAuto = new System.Windows.Forms.RadioButton();
+            cbRetourLivre = new System.Windows.Forms.RadioButton();
+            button1 = new System.Windows.Forms.Button();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            txtTypePaiment = new System.Windows.Forms.TextBox();
+            rbAutre = new System.Windows.Forms.RadioButton();
+            rbArgentComptant = new System.Windows.Forms.RadioButton();
+            rbPaimentDirect = new System.Windows.Forms.RadioButton();
+            rbCheque = new System.Windows.Forms.RadioButton();
+            NumeroRecu = new UtilityLibrary.WinControls.NumericTextBox();
+            label3 = new System.Windows.Forms.Label();
+            DateFacture = new System.Windows.Forms.DateTimePicker();
+            label15 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            cmdMakePaiment = new System.Windows.Forms.Button();
+            cmdCancel = new System.Windows.Forms.Button();
+            cmdApply = new System.Windows.Forms.Button();
+            label4 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            lblSolde = new System.Windows.Forms.Label();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            cmdAddLocation = new System.Windows.Forms.Button();
+            toolBar1 = new System.Windows.Forms.ToolBar();
+            tbbAddPaiment = new System.Windows.Forms.ToolBarButton();
+            tbbDelete = new System.Windows.Forms.ToolBarButton();
+            tbbSeparator1 = new System.Windows.Forms.ToolBarButton();
+            tbbPrint = new System.Windows.Forms.ToolBarButton();
+            imageList1 = new System.Windows.Forms.ImageList(components);
+            timerSelection = new System.Windows.Forms.Timer(components);
+            timerAutuUpdate = new System.Timers.Timer();
+            MontantPaiment = new Barette.Library.UserControls.CashTextBox();
+            cbTotalCours = new Barette.Library.UserControls.CashTextBox();
+            gbPaiment.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(timerAutuUpdate)).BeginInit();
+            SuspendLayout();
             // 
             // ListViewPaiment
             // 
-            this.ListViewPaiment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            ListViewPaiment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.ListViewPaiment.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colHeadDate,
-            this.colHeadMontant,
-            this.colHeadTPS,
-            this.colHeadTVQ,
-            this.colHeadRecuNumber,
-            this.colHeadRL,
-            this.colHeadTypePaiment});
-            this.ListViewPaiment.FullRowSelect = true;
+            ListViewPaiment.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            colHeadDate,
+            colHeadMontant,
+            colHeadTPS,
+            colHeadTVQ,
+            colHeadRecuNumber,
+            colHeadRL,
+            colHeadTypePaiment});
+            ListViewPaiment.FullRowSelect = true;
             listViewGroup1.Header = "Livres";
             listViewGroup1.Name = "RetourLivre";
             listViewGroup2.Header = "Location Automobile";
@@ -192,476 +192,476 @@ namespace Barette.Library.UserControls.Client {
             listViewGroup4.Name = "Absense";
             listViewGroup5.Header = "Credit";
             listViewGroup5.Name = "Credit";
-            this.ListViewPaiment.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            ListViewPaiment.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
             listViewGroup2,
             listViewGroup3,
             listViewGroup4,
             listViewGroup5});
-            this.ListViewPaiment.HideSelection = false;
-            this.ListViewPaiment.LabelWrap = false;
-            this.ListViewPaiment.Location = new System.Drawing.Point(8, 48);
-            this.ListViewPaiment.MultiSelect = false;
-            this.ListViewPaiment.Name = "ListViewPaiment";
-            this.ListViewPaiment.Size = new System.Drawing.Size(555, 361);
-            this.ListViewPaiment.TabIndex = 0;
-            this.ListViewPaiment.TabStop = false;
-            this.ListViewPaiment.UseCompatibleStateImageBehavior = false;
-            this.ListViewPaiment.View = System.Windows.Forms.View.Details;
-            this.ListViewPaiment.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListViewPaiment_ColumnClick);
-            this.ListViewPaiment.SelectedIndexChanged += new System.EventHandler(this.ListViewPaiment_SelectedIndexChanged);
+            ListViewPaiment.HideSelection = false;
+            ListViewPaiment.LabelWrap = false;
+            ListViewPaiment.Location = new System.Drawing.Point(8, 48);
+            ListViewPaiment.MultiSelect = false;
+            ListViewPaiment.Name = "ListViewPaiment";
+            ListViewPaiment.Size = new System.Drawing.Size(555, 361);
+            ListViewPaiment.TabIndex = 0;
+            ListViewPaiment.TabStop = false;
+            ListViewPaiment.UseCompatibleStateImageBehavior = false;
+            ListViewPaiment.View = System.Windows.Forms.View.Details;
+            ListViewPaiment.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(ListViewPaiment_ColumnClick);
+            ListViewPaiment.SelectedIndexChanged += new System.EventHandler(ListViewPaiment_SelectedIndexChanged);
             // 
             // colHeadDate
             // 
-            this.colHeadDate.Text = "Date";
-            this.colHeadDate.Width = 84;
+            colHeadDate.Text = "Date";
+            colHeadDate.Width = 84;
             // 
             // colHeadMontant
             // 
-            this.colHeadMontant.Text = "Montant (tx inc)";
-            this.colHeadMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.colHeadMontant.Width = 90;
+            colHeadMontant.Text = "Montant (tx inc)";
+            colHeadMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            colHeadMontant.Width = 90;
             // 
             // colHeadRecuNumber
             // 
-            this.colHeadRecuNumber.Text = "Numéro de reçu";
-            this.colHeadRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colHeadRecuNumber.Width = 96;
+            colHeadRecuNumber.Text = "Numéro de reçu";
+            colHeadRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            colHeadRecuNumber.Width = 96;
             // 
             // colHeadRL
             // 
-            this.colHeadRL.Text = "Type";
-            this.colHeadRL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colHeadRL.Width = 56;
+            colHeadRL.Text = "Type";
+            colHeadRL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            colHeadRL.Width = 56;
             // 
             // colHeadTypePaiment
             // 
-            this.colHeadTypePaiment.Text = "Type Paiment";
-            this.colHeadTypePaiment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colHeadTypePaiment.Width = 79;
+            colHeadTypePaiment.Text = "Type Paiment";
+            colHeadTypePaiment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            colHeadTypePaiment.Width = 79;
             // 
             // colHeadTPS
             // 
-            this.colHeadTPS.Text = "TPS";
-            this.colHeadTPS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            colHeadTPS.Text = "TPS";
+            colHeadTPS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // colHeadTVQ
             // 
-            this.colHeadTVQ.Text = "TVQ";
-            this.colHeadTVQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            colHeadTVQ.Text = "TVQ";
+            colHeadTVQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(574, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Montant (Cours +                     )";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label1.Location = new System.Drawing.Point(574, 48);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(160, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Montant (Cours +                     )";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gbPaiment
             // 
-            this.gbPaiment.Controls.Add(this.groupBox2);
-            this.gbPaiment.Controls.Add(this.groupBox1);
-            this.gbPaiment.Controls.Add(this.NumeroRecu);
-            this.gbPaiment.Controls.Add(this.label3);
-            this.gbPaiment.Controls.Add(this.DateFacture);
-            this.gbPaiment.Controls.Add(this.label15);
-            this.gbPaiment.Controls.Add(this.MontantPaiment);
-            this.gbPaiment.Controls.Add(this.label2);
-            this.gbPaiment.Controls.Add(this.cmdMakePaiment);
-            this.gbPaiment.Enabled = false;
-            this.gbPaiment.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.gbPaiment.Location = new System.Drawing.Point(574, 75);
-            this.gbPaiment.Name = "gbPaiment";
-            this.gbPaiment.Size = new System.Drawing.Size(312, 292);
-            this.gbPaiment.TabIndex = 1;
-            this.gbPaiment.TabStop = false;
-            this.gbPaiment.Text = "Information sur le paiment";
+            gbPaiment.Controls.Add(groupBox2);
+            gbPaiment.Controls.Add(groupBox1);
+            gbPaiment.Controls.Add(NumeroRecu);
+            gbPaiment.Controls.Add(label3);
+            gbPaiment.Controls.Add(DateFacture);
+            gbPaiment.Controls.Add(label15);
+            gbPaiment.Controls.Add(MontantPaiment);
+            gbPaiment.Controls.Add(label2);
+            gbPaiment.Controls.Add(cmdMakePaiment);
+            gbPaiment.Enabled = false;
+            gbPaiment.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            gbPaiment.Location = new System.Drawing.Point(574, 75);
+            gbPaiment.Name = "gbPaiment";
+            gbPaiment.Size = new System.Drawing.Size(312, 292);
+            gbPaiment.TabIndex = 1;
+            gbPaiment.TabStop = false;
+            gbPaiment.Text = "Information sur le paiment";
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.cbAbsence);
-            this.groupBox2.Controls.Add(this.cbLocationAuto);
-            this.groupBox2.Controls.Add(this.cbRetourLivre);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(167, 115);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(133, 124);
-            this.groupBox2.TabIndex = 28;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Type";
+            groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            groupBox2.Controls.Add(cbAbsence);
+            groupBox2.Controls.Add(cbLocationAuto);
+            groupBox2.Controls.Add(cbRetourLivre);
+            groupBox2.Controls.Add(button1);
+            groupBox2.Location = new System.Drawing.Point(167, 115);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new System.Drawing.Size(133, 124);
+            groupBox2.TabIndex = 28;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Type";
             // 
             // cbAbsence
             // 
-            this.cbAbsence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbAbsence.AutoSize = true;
-            this.cbAbsence.Location = new System.Drawing.Point(7, 68);
-            this.cbAbsence.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.cbAbsence.Name = "cbAbsence";
-            this.cbAbsence.Size = new System.Drawing.Size(67, 17);
-            this.cbAbsence.TabIndex = 31;
-            this.cbAbsence.Text = "Absence";
+            cbAbsence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            cbAbsence.AutoSize = true;
+            cbAbsence.Location = new System.Drawing.Point(7, 68);
+            cbAbsence.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            cbAbsence.Name = "cbAbsence";
+            cbAbsence.Size = new System.Drawing.Size(67, 17);
+            cbAbsence.TabIndex = 31;
+            cbAbsence.Text = "Absence";
             // 
             // cbLocationAuto
             // 
-            this.cbLocationAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbLocationAuto.AutoSize = true;
-            this.cbLocationAuto.Location = new System.Drawing.Point(7, 44);
-            this.cbLocationAuto.Name = "cbLocationAuto";
-            this.cbLocationAuto.Size = new System.Drawing.Size(66, 17);
-            this.cbLocationAuto.TabIndex = 30;
-            this.cbLocationAuto.Text = "Location";
+            cbLocationAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            cbLocationAuto.AutoSize = true;
+            cbLocationAuto.Location = new System.Drawing.Point(7, 44);
+            cbLocationAuto.Name = "cbLocationAuto";
+            cbLocationAuto.Size = new System.Drawing.Size(66, 17);
+            cbLocationAuto.TabIndex = 30;
+            cbLocationAuto.Text = "Location";
             // 
             // cbRetourLivre
             // 
-            this.cbRetourLivre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbRetourLivre.AutoSize = true;
-            this.cbRetourLivre.Location = new System.Drawing.Point(7, 19);
-            this.cbRetourLivre.Name = "cbRetourLivre";
-            this.cbRetourLivre.Size = new System.Drawing.Size(53, 17);
-            this.cbRetourLivre.TabIndex = 29;
-            this.cbRetourLivre.Text = "Livres";
+            cbRetourLivre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            cbRetourLivre.AutoSize = true;
+            cbRetourLivre.Location = new System.Drawing.Point(7, 19);
+            cbRetourLivre.Name = "cbRetourLivre";
+            cbRetourLivre.Size = new System.Drawing.Size(53, 17);
+            cbRetourLivre.TabIndex = 29;
+            cbRetourLivre.Text = "Livres";
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(52, 92);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Aucun";
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            button1.Location = new System.Drawing.Point(52, 92);
+            button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(75, 23);
+            button1.TabIndex = 28;
+            button1.Text = "Aucun";
+            button1.Click += new System.EventHandler(button1_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtTypePaiment);
-            this.groupBox1.Controls.Add(this.rbAutre);
-            this.groupBox1.Controls.Add(this.rbArgentComptant);
-            this.groupBox1.Controls.Add(this.rbPaimentDirect);
-            this.groupBox1.Controls.Add(this.rbCheque);
-            this.groupBox1.Location = new System.Drawing.Point(7, 115);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(153, 124);
-            this.groupBox1.TabIndex = 26;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Type de Paiment";
+            groupBox1.Controls.Add(txtTypePaiment);
+            groupBox1.Controls.Add(rbAutre);
+            groupBox1.Controls.Add(rbArgentComptant);
+            groupBox1.Controls.Add(rbPaimentDirect);
+            groupBox1.Controls.Add(rbCheque);
+            groupBox1.Location = new System.Drawing.Point(7, 115);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(153, 124);
+            groupBox1.TabIndex = 26;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Type de Paiment";
             // 
             // txtTypePaiment
             // 
-            this.txtTypePaiment.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTypePaiment.Location = new System.Drawing.Point(73, 95);
-            this.txtTypePaiment.MaxLength = 8;
-            this.txtTypePaiment.Name = "txtTypePaiment";
-            this.txtTypePaiment.Size = new System.Drawing.Size(71, 20);
-            this.txtTypePaiment.TabIndex = 4;
+            txtTypePaiment.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txtTypePaiment.Location = new System.Drawing.Point(73, 95);
+            txtTypePaiment.MaxLength = 8;
+            txtTypePaiment.Name = "txtTypePaiment";
+            txtTypePaiment.Size = new System.Drawing.Size(71, 20);
+            txtTypePaiment.TabIndex = 4;
             // 
             // rbAutre
             // 
-            this.rbAutre.AutoSize = true;
-            this.rbAutre.Location = new System.Drawing.Point(7, 96);
-            this.rbAutre.Name = "rbAutre";
-            this.rbAutre.Size = new System.Drawing.Size(56, 17);
-            this.rbAutre.TabIndex = 3;
-            this.rbAutre.Text = "Autre :";
+            rbAutre.AutoSize = true;
+            rbAutre.Location = new System.Drawing.Point(7, 96);
+            rbAutre.Name = "rbAutre";
+            rbAutre.Size = new System.Drawing.Size(56, 17);
+            rbAutre.TabIndex = 3;
+            rbAutre.Text = "Autre :";
             // 
             // rbArgentComptant
             // 
-            this.rbArgentComptant.AutoSize = true;
-            this.rbArgentComptant.Location = new System.Drawing.Point(7, 72);
-            this.rbArgentComptant.Name = "rbArgentComptant";
-            this.rbArgentComptant.Size = new System.Drawing.Size(103, 17);
-            this.rbArgentComptant.TabIndex = 2;
-            this.rbArgentComptant.Text = "Argent comptant";
+            rbArgentComptant.AutoSize = true;
+            rbArgentComptant.Location = new System.Drawing.Point(7, 72);
+            rbArgentComptant.Name = "rbArgentComptant";
+            rbArgentComptant.Size = new System.Drawing.Size(103, 17);
+            rbArgentComptant.TabIndex = 2;
+            rbArgentComptant.Text = "Argent comptant";
             // 
             // rbPaimentDirect
             // 
-            this.rbPaimentDirect.AutoSize = true;
-            this.rbPaimentDirect.Location = new System.Drawing.Point(7, 48);
-            this.rbPaimentDirect.Name = "rbPaimentDirect";
-            this.rbPaimentDirect.Size = new System.Drawing.Size(94, 17);
-            this.rbPaimentDirect.TabIndex = 1;
-            this.rbPaimentDirect.Text = "Paiment Direct";
+            rbPaimentDirect.AutoSize = true;
+            rbPaimentDirect.Location = new System.Drawing.Point(7, 48);
+            rbPaimentDirect.Name = "rbPaimentDirect";
+            rbPaimentDirect.Size = new System.Drawing.Size(94, 17);
+            rbPaimentDirect.TabIndex = 1;
+            rbPaimentDirect.Text = "Paiment Direct";
             // 
             // rbCheque
             // 
-            this.rbCheque.AutoSize = true;
-            this.rbCheque.Location = new System.Drawing.Point(7, 24);
-            this.rbCheque.Name = "rbCheque";
-            this.rbCheque.Size = new System.Drawing.Size(62, 17);
-            this.rbCheque.TabIndex = 0;
-            this.rbCheque.Text = "Chèque";
+            rbCheque.AutoSize = true;
+            rbCheque.Location = new System.Drawing.Point(7, 24);
+            rbCheque.Name = "rbCheque";
+            rbCheque.Size = new System.Drawing.Size(62, 17);
+            rbCheque.TabIndex = 0;
+            rbCheque.Text = "Chèque";
             // 
             // NumeroRecu
             // 
-            this.NumeroRecu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            NumeroRecu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.NumeroRecu.Location = new System.Drawing.Point(144, 88);
-            this.NumeroRecu.Name = "NumeroRecu";
-            this.NumeroRecu.SetRange = new System.Drawing.Size(0, 99999999);
-            this.NumeroRecu.ShortcutsEnabled = false;
-            this.NumeroRecu.Size = new System.Drawing.Size(89, 20);
-            this.NumeroRecu.TabIndex = 25;
-            this.NumeroRecu.Text = "0";
-            this.NumeroRecu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.NumeroRecu.Value = 0;
+            NumeroRecu.Location = new System.Drawing.Point(144, 88);
+            NumeroRecu.Name = "NumeroRecu";
+            NumeroRecu.SetRange = new System.Drawing.Size(0, 99999999);
+            NumeroRecu.ShortcutsEnabled = false;
+            NumeroRecu.Size = new System.Drawing.Size(89, 20);
+            NumeroRecu.TabIndex = 25;
+            NumeroRecu.Text = "0";
+            NumeroRecu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            NumeroRecu.Value = 0;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(7, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 20);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Date :";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(7, 24);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(100, 20);
+            label3.TabIndex = 23;
+            label3.Text = "Date :";
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DateFacture
             // 
-            this.DateFacture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            DateFacture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.DateFacture.Location = new System.Drawing.Point(144, 24);
-            this.DateFacture.Name = "DateFacture";
-            this.DateFacture.Size = new System.Drawing.Size(160, 20);
-            this.DateFacture.TabIndex = 0;
+            DateFacture.Location = new System.Drawing.Point(144, 24);
+            DateFacture.Name = "DateFacture";
+            DateFacture.Size = new System.Drawing.Size(160, 20);
+            DateFacture.TabIndex = 0;
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(7, 88);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(120, 16);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "Numéro de reçu :";
+            label15.Location = new System.Drawing.Point(7, 88);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(120, 16);
+            label15.TabIndex = 20;
+            label15.Text = "Numéro de reçu :";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(7, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 20);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Montant du paiment :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(7, 56);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(120, 20);
+            label2.TabIndex = 18;
+            label2.Text = "Montant du paiment :";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdMakePaiment
             // 
-            this.cmdMakePaiment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdMakePaiment.Image = global::Barette.Library.Properties.Resources.add_icon;
-            this.cmdMakePaiment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdMakePaiment.Location = new System.Drawing.Point(155, 246);
-            this.cmdMakePaiment.Name = "cmdMakePaiment";
-            this.cmdMakePaiment.Size = new System.Drawing.Size(151, 40);
-            this.cmdMakePaiment.TabIndex = 4;
-            this.cmdMakePaiment.Text = "Effectuer un paiment";
-            this.cmdMakePaiment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdMakePaiment.Click += new System.EventHandler(this.cmdMakePaiment_Click);
+            cmdMakePaiment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            cmdMakePaiment.Image = global::Barette.Library.Properties.Resources.add_icon;
+            cmdMakePaiment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdMakePaiment.Location = new System.Drawing.Point(155, 246);
+            cmdMakePaiment.Name = "cmdMakePaiment";
+            cmdMakePaiment.Size = new System.Drawing.Size(151, 40);
+            cmdMakePaiment.TabIndex = 4;
+            cmdMakePaiment.Text = "Effectuer un paiment";
+            cmdMakePaiment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            cmdMakePaiment.Click += new System.EventHandler(cmdMakePaiment_Click);
             // 
             // cmdCancel
             // 
-            this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdCancel.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
-            this.cmdCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdCancel.Location = new System.Drawing.Point(796, 418);
-            this.cmdCancel.Name = "cmdCancel";
-            this.cmdCancel.Size = new System.Drawing.Size(89, 41);
-            this.cmdCancel.TabIndex = 5;
-            this.cmdCancel.Text = "Annuler ";
-            this.cmdCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            cmdCancel.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
+            cmdCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdCancel.Location = new System.Drawing.Point(796, 418);
+            cmdCancel.Name = "cmdCancel";
+            cmdCancel.Size = new System.Drawing.Size(89, 41);
+            cmdCancel.TabIndex = 5;
+            cmdCancel.Text = "Annuler ";
+            cmdCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            cmdCancel.Click += new System.EventHandler(cmdCancel_Click);
             // 
             // cmdApply
             // 
-            this.cmdApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdApply.Image = global::Barette.Library.Properties.Resources.accept_icon;
-            this.cmdApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdApply.Location = new System.Drawing.Point(698, 418);
-            this.cmdApply.Name = "cmdApply";
-            this.cmdApply.Size = new System.Drawing.Size(92, 41);
-            this.cmdApply.TabIndex = 4;
-            this.cmdApply.Text = "Appliquer";
-            this.cmdApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdApply.Click += new System.EventHandler(this.cmdApply_Click);
+            cmdApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdApply.Image = global::Barette.Library.Properties.Resources.accept_icon;
+            cmdApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdApply.Location = new System.Drawing.Point(698, 418);
+            cmdApply.Name = "cmdApply";
+            cmdApply.Size = new System.Drawing.Size(92, 41);
+            cmdApply.TabIndex = 4;
+            cmdApply.Text = "Appliquer";
+            cmdApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            cmdApply.Click += new System.EventHandler(cmdApply_Click);
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(809, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 16);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "(incluant taxe)";
+            label4.Location = new System.Drawing.Point(809, 50);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(76, 16);
+            label4.TabIndex = 22;
+            label4.Text = "(incluant taxe)";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(576, 379);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 16);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Solde :";
+            label6.Location = new System.Drawing.Point(576, 379);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(48, 16);
+            label6.TabIndex = 23;
+            label6.Text = "Solde :";
             // 
             // lblSolde
             // 
-            this.lblSolde.ForeColor = System.Drawing.Color.Blue;
-            this.lblSolde.Location = new System.Drawing.Point(640, 379);
-            this.lblSolde.Name = "lblSolde";
-            this.lblSolde.Size = new System.Drawing.Size(246, 16);
-            this.lblSolde.TabIndex = 24;
-            this.lblSolde.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblSolde.ForeColor = System.Drawing.Color.Blue;
+            lblSolde.Location = new System.Drawing.Point(640, 379);
+            lblSolde.Name = "lblSolde";
+            lblSolde.Size = new System.Drawing.Size(246, 16);
+            lblSolde.TabIndex = 24;
+            lblSolde.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // printDocument1
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
             // 
             // printPreviewDialog1
             // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
+            printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
             // 
             // cmdAddLocation
             // 
-            this.cmdAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdAddLocation.Location = new System.Drawing.Point(662, 45);
-            this.cmdAddLocation.Name = "cmdAddLocation";
-            this.cmdAddLocation.Size = new System.Drawing.Size(56, 23);
-            this.cmdAddLocation.TabIndex = 25;
-            this.cmdAddLocation.Text = "Location";
-            this.cmdAddLocation.Click += new System.EventHandler(this.cmdAddLocation_Click);
+            cmdAddLocation.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            cmdAddLocation.Location = new System.Drawing.Point(662, 45);
+            cmdAddLocation.Name = "cmdAddLocation";
+            cmdAddLocation.Size = new System.Drawing.Size(56, 23);
+            cmdAddLocation.TabIndex = 25;
+            cmdAddLocation.Text = "Location";
+            cmdAddLocation.Click += new System.EventHandler(cmdAddLocation_Click);
             // 
             // toolBar1
             // 
-            this.toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
-            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.tbbAddPaiment,
-            this.tbbDelete,
-            this.tbbSeparator1,
-            this.tbbPrint});
-            this.toolBar1.Divider = false;
-            this.toolBar1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolBar1.DropDownArrows = true;
-            this.toolBar1.ImageList = this.imageList1;
-            this.toolBar1.Location = new System.Drawing.Point(8, 8);
-            this.toolBar1.Name = "toolBar1";
-            this.toolBar1.ShowToolTips = true;
-            this.toolBar1.Size = new System.Drawing.Size(252, 42);
-            this.toolBar1.TabIndex = 26;
-            this.toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
-            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
+            toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
+            toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            tbbAddPaiment,
+            tbbDelete,
+            tbbSeparator1,
+            tbbPrint});
+            toolBar1.Divider = false;
+            toolBar1.Dock = System.Windows.Forms.DockStyle.None;
+            toolBar1.DropDownArrows = true;
+            toolBar1.ImageList = imageList1;
+            toolBar1.Location = new System.Drawing.Point(8, 8);
+            toolBar1.Name = "toolBar1";
+            toolBar1.ShowToolTips = true;
+            toolBar1.Size = new System.Drawing.Size(252, 42);
+            toolBar1.TabIndex = 26;
+            toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
+            toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(toolBar1_ButtonClick);
             // 
             // tbbAddPaiment
             // 
-            this.tbbAddPaiment.ImageIndex = 0;
-            this.tbbAddPaiment.Name = "tbbAddPaiment";
-            this.tbbAddPaiment.Tag = "ADD";
-            this.tbbAddPaiment.Text = "Nouveau";
-            this.tbbAddPaiment.ToolTipText = "Nouveau Paiment";
+            tbbAddPaiment.ImageIndex = 0;
+            tbbAddPaiment.Name = "tbbAddPaiment";
+            tbbAddPaiment.Tag = "ADD";
+            tbbAddPaiment.Text = "Nouveau";
+            tbbAddPaiment.ToolTipText = "Nouveau Paiment";
             // 
             // tbbDelete
             // 
-            this.tbbDelete.Enabled = false;
-            this.tbbDelete.ImageIndex = 1;
-            this.tbbDelete.Name = "tbbDelete";
-            this.tbbDelete.Tag = "DELETE";
-            this.tbbDelete.Text = "Supprimer";
-            this.tbbDelete.ToolTipText = "Effacer un Paiment";
+            tbbDelete.Enabled = false;
+            tbbDelete.ImageIndex = 1;
+            tbbDelete.Name = "tbbDelete";
+            tbbDelete.Tag = "DELETE";
+            tbbDelete.Text = "Supprimer";
+            tbbDelete.ToolTipText = "Effacer un Paiment";
             // 
             // tbbSeparator1
             // 
-            this.tbbSeparator1.Name = "tbbSeparator1";
-            this.tbbSeparator1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
+            tbbSeparator1.Name = "tbbSeparator1";
+            tbbSeparator1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
             // 
             // tbbPrint
             // 
-            this.tbbPrint.Enabled = false;
-            this.tbbPrint.ImageIndex = 3;
-            this.tbbPrint.Name = "tbbPrint";
-            this.tbbPrint.Tag = "PRINT";
-            this.tbbPrint.ToolTipText = "Imprimer";
+            tbbPrint.Enabled = false;
+            tbbPrint.ImageIndex = 3;
+            tbbPrint.Name = "tbbPrint";
+            tbbPrint.Tag = "PRINT";
+            tbbPrint.ToolTipText = "Imprimer";
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "new-page-icon.png");
-            this.imageList1.Images.SetKeyName(1, "delete-icon.png");
-            this.imageList1.Images.SetKeyName(2, "");
-            this.imageList1.Images.SetKeyName(3, "");
-            this.imageList1.Images.SetKeyName(4, "");
+            imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            imageList1.Images.SetKeyName(0, "new-page-icon.png");
+            imageList1.Images.SetKeyName(1, "delete-icon.png");
+            imageList1.Images.SetKeyName(2, "");
+            imageList1.Images.SetKeyName(3, "");
+            imageList1.Images.SetKeyName(4, "");
             // 
             // timerSelection
             // 
-            this.timerSelection.Enabled = true;
-            this.timerSelection.Tick += new System.EventHandler(this.timerSelection_Tick);
+            timerSelection.Enabled = true;
+            timerSelection.Tick += new System.EventHandler(timerSelection_Tick);
             // 
             // timerAutuUpdate
             // 
-            this.timerAutuUpdate.SynchronizingObject = this;
-            this.timerAutuUpdate.Elapsed += new System.Timers.ElapsedEventHandler(this.timerAutuUpdate_Elapsed);
+            timerAutuUpdate.SynchronizingObject = this;
+            timerAutuUpdate.Elapsed += new System.Timers.ElapsedEventHandler(timerAutuUpdate_Elapsed);
             // 
             // MontantPaiment
             // 
-            this.MontantPaiment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            MontantPaiment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.MontantPaiment.Location = new System.Drawing.Point(145, 56);
-            this.MontantPaiment.Name = "MontantPaiment";
-            this.MontantPaiment.Size = new System.Drawing.Size(88, 20);
-            this.MontantPaiment.TabIndex = 1;
-            this.MontantPaiment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            MontantPaiment.Location = new System.Drawing.Point(145, 56);
+            MontantPaiment.Name = "MontantPaiment";
+            MontantPaiment.Size = new System.Drawing.Size(88, 20);
+            MontantPaiment.TabIndex = 1;
+            MontantPaiment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cbTotalCours
             // 
-            this.cbTotalCours.Location = new System.Drawing.Point(737, 48);
-            this.cbTotalCours.Name = "cbTotalCours";
-            this.cbTotalCours.Size = new System.Drawing.Size(70, 20);
-            this.cbTotalCours.TabIndex = 0;
-            this.cbTotalCours.Text = "0 $";
-            this.cbTotalCours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.cbTotalCours.TextChanged += new System.EventHandler(this.cbTotalCours_TextChanged);
-            this.cbTotalCours.Leave += new System.EventHandler(this.cbTotalCours_Leave);
+            cbTotalCours.Location = new System.Drawing.Point(737, 48);
+            cbTotalCours.Name = "cbTotalCours";
+            cbTotalCours.Size = new System.Drawing.Size(70, 20);
+            cbTotalCours.TabIndex = 0;
+            cbTotalCours.Text = "0 $";
+            cbTotalCours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            cbTotalCours.TextChanged += new System.EventHandler(cbTotalCours_TextChanged);
+            cbTotalCours.Leave += new System.EventHandler(cbTotalCours_Leave);
             // 
             // FormPaiment
             // 
-            this.ClientSize = new System.Drawing.Size(896, 468);
-            this.Controls.Add(this.cmdAddLocation);
-            this.Controls.Add(this.ListViewPaiment);
-            this.Controls.Add(this.toolBar1);
-            this.Controls.Add(this.lblSolde);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmdCancel);
-            this.Controls.Add(this.cmdApply);
-            this.Controls.Add(this.gbPaiment);
-            this.Controls.Add(this.cbTotalCours);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FormPaiment";
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Détail de paiment";
-            this.gbPaiment.ResumeLayout(false);
-            this.gbPaiment.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timerAutuUpdate)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            ClientSize = new System.Drawing.Size(896, 468);
+            Controls.Add(cmdAddLocation);
+            Controls.Add(ListViewPaiment);
+            Controls.Add(toolBar1);
+            Controls.Add(lblSolde);
+            Controls.Add(label6);
+            Controls.Add(label4);
+            Controls.Add(cmdCancel);
+            Controls.Add(cmdApply);
+            Controls.Add(gbPaiment);
+            Controls.Add(cbTotalCours);
+            Controls.Add(label1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FormPaiment";
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Détail de paiment";
+            gbPaiment.ResumeLayout(false);
+            gbPaiment.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(timerAutuUpdate)).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
 		}
 		#endregion
 
 		private void cmdCancel_Click(object sender, System.EventArgs e) {
-			SaveNewRecuNumber(this._RecuNumberWhenOpen);
-			this.DialogResult = DialogResult.Cancel;
-			this.Close(); //Ferme la boite de dialogue
+			SaveNewRecuNumber(_RecuNumberWhenOpen);
+            DialogResult = DialogResult.Cancel;
+            Close(); //Ferme la boite de dialogue
 		}
 
 		/// <summary>
@@ -682,7 +682,7 @@ namespace Barette.Library.UserControls.Client {
 		private void cmdMakePaiment_Click(object sender, System.EventArgs e) {
 			NumeroRecu.Focus();
 
-			switch (this._Mode) {
+			switch (_Mode) {
 				case PaiementMode.Nouveau:
 					AjouterPaiement();
 					MakeNew();
@@ -899,10 +899,10 @@ namespace Barette.Library.UserControls.Client {
 			string type;
 			string typePaiment = "";
 
-			cbTotalCours.Text = this._ClientCtrl._MontantCours;
+			cbTotalCours.Text = _ClientCtrl._MontantCours;
 
-			for (int i = 0; i < this._Client.Paiment.Count; i++) {
-				paiment = this._Client.Paiment[i];
+			for (int i = 0; i < _Client.Paiment.Count; i++) {
+				paiment = _Client.Paiment[i];
 
 				switch (paiment.Type) {
 					case PaiementType.RetourLivre:
@@ -983,15 +983,15 @@ namespace Barette.Library.UserControls.Client {
 		/// Ajout de paiment dans le client en cours
 		/// </summary>
 		private void cmdApply_Click(object sender, System.EventArgs e) {
-			this._ClientCtrl.CashBox_Solde.Text = lblSolde.Text;
-			this._ClientCtrl._MontantCours = cbTotalCours.Text;
+            _ClientCtrl.CashBox_Solde.Text = lblSolde.Text;
+            _ClientCtrl._MontantCours = cbTotalCours.Text;
 
 			AddCashSymbol();
 
-			this._Client.Paiment.Clear();
+            _Client.Paiment.Clear();
 
 			if (ListViewPaiment.Items.Count > 0) { //Si au moins 1 items
-				this._ClientCtrl.dbRecuNumber.Text = ListViewPaiment.Items[ListViewPaiment.Items.Count - 1].SubItems[4].Text;
+                _ClientCtrl.dbRecuNumber.Text = ListViewPaiment.Items[ListViewPaiment.Items.Count - 1].SubItems[4].Text;
 
 				Paiement paiment = null;
 				foreach (ListViewItem item in ListViewPaiment.Items) {
@@ -1034,13 +1034,13 @@ namespace Barette.Library.UserControls.Client {
 							break;
 					}
 
-					this._Client.Paiment.Add(paiment);
+                    _Client.Paiment.Add(paiment);
 				}
 			}
 
-			//Ferme la dialogbox
-			this.DialogResult = DialogResult.OK;
-			this.Close();
+            //Ferme la dialogbox
+            DialogResult = DialogResult.OK;
+            Close();
 		}
 
 		private void cbTotalCours_TextChanged(object sender, System.EventArgs e) {
@@ -1117,13 +1117,13 @@ namespace Barette.Library.UserControls.Client {
 
             //Info Ecole et Adresse
             yPos = 5;
-            e.Graphics.DrawString(this._infoSchool.SchoolName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.SchoolName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
             yPos += printFontTime10.Height;
-            e.Graphics.DrawString(this._infoSchool.StreetNumber + " " + this._infoSchool.StreetName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.StreetNumber + " " + _infoSchool.StreetName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
             yPos += printFontTime10.Height;
-            e.Graphics.DrawString(this._infoSchool.City + ", QC, " + this._infoSchool.PostalCode, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.City + ", QC, " + _infoSchool.PostalCode, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
             yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Tel." + this._infoSchool.Phone + "   Fax." + this._infoSchool.Fax, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString("Tel." + _infoSchool.Phone + "   Fax." + _infoSchool.Fax, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
             
             yPos += printFontBold14.Height + 20;
             e.Graphics.DrawString("Liste des paiments", printFontBold24, Brushes.Black, 225, yPos, new StringFormat());
@@ -1133,9 +1133,9 @@ namespace Barette.Library.UserControls.Client {
 			e.Graphics.DrawString("Imprimé le : " + DateTime.Now.ToShortDateString(), printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 
 			yPos += printFont.Height + 16;
-            e.Graphics.DrawString("Nom du client: " + this._Client.Name + " " + this._Client.FirstName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("Nom du client: " + _Client.Name + " " + _Client.FirstName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 			yPos += printFont.Height;
-            e.Graphics.DrawString("Numéro de contrat: " + this._Client.ContratNumber, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("Numéro de contrat: " + _Client.ContratNumber, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
             #endregion 
 
             #region Header du tableau de paiment
@@ -1217,7 +1217,7 @@ namespace Barette.Library.UserControls.Client {
 			}
 
 			yPos += printFont.Height;
-            e.Graphics.DrawString("Solde : " + this.lblSolde.Text, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("Solde : " + lblSolde.Text, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 
 			yPos += (printFont.Height * 2);
             e.Graphics.DrawString("TPS : " + _infoSchool.TPS, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
@@ -1234,7 +1234,7 @@ namespace Barette.Library.UserControls.Client {
 
 		private void ListViewPaiment_SelectedIndexChanged(object sender, System.EventArgs e) {
 			try {
-				this._Mode = PaiementMode.Modifier;
+                _Mode = PaiementMode.Modifier;
 				cmdMakePaiment.Text = "Modifier";
                 cmdMakePaiment.Image = global::Barette.Library.Properties.Resources.accept_icon;
 
@@ -1290,7 +1290,7 @@ namespace Barette.Library.UserControls.Client {
 		/// Créé un nouveau paiment vierge
 		/// </summary>
 		private void MakeNew() {
-			this._Mode = PaiementMode.Nouveau;
+            _Mode = PaiementMode.Nouveau;
             MontantPaiment.Text = "";
             NumeroRecu.Text = GetRecuNumber().ToString();
             DateFacture.Value = DateTime.Now;
@@ -1342,13 +1342,13 @@ namespace Barette.Library.UserControls.Client {
 		#endregion
 
 		private void cmdAddLocation_Click(object sender, System.EventArgs e) {
-			if (MessageBox.Show(this, "Voulez vous vraiment ajouter le montant de " + this._ClientCtrl.Client.MontantLocation.ToString() + " à votre montant global ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-				cbTotalCours.Add(Convert.ToDouble(this._ClientCtrl.Client.MontantLocation.Replace(" $", "")));
+			if (MessageBox.Show(this, "Voulez vous vraiment ajouter le montant de " + _ClientCtrl.Client.MontantLocation.ToString() + " à votre montant global ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+				cbTotalCours.Add(Convert.ToDouble(_ClientCtrl.Client.MontantLocation.Replace(" $", "")));
 			}
 		}
 
 		private void ListViewPaiment_ColumnClick(object sender, System.Windows.Forms.ColumnClickEventArgs e) {
-			this.ListViewPaiment.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            ListViewPaiment.ListViewItemSorter = new ListViewItemComparer(e.Column);
 
 			ListViewPaiment.Sort();
 		}
@@ -1381,7 +1381,7 @@ namespace Barette.Library.UserControls.Client {
 		}
 
 		private void timerAutuUpdate_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
-			if (this._Mode == PaiementMode.Modifier)
+			if (_Mode == PaiementMode.Modifier)
 				ModifierPaiment();
 		}
 

@@ -62,7 +62,7 @@ namespace Barette.Library.Collections {
 		/// <returns></returns>
 		public bool LoadFromXML(string filename){
 			if (File.Exists(filename)){
-				this.Clear();
+                Clear();
 
 				//Creation du reader
 				XmlDocument doc = new XmlDocument();

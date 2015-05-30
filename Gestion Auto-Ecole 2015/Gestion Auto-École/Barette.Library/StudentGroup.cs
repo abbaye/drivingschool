@@ -23,9 +23,9 @@ namespace Barette.Library {
         }
 
         public StudentGroup(string name, int Number, GroupType type) {
-            this.GroupeNumber = Number;
-            this.Name = name;
-            this.Type = type; 
+            GroupeNumber = Number;
+            Name = name;
+            Type = type; 
         }
 
         public int GroupeNumber {

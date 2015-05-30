@@ -34,10 +34,10 @@ namespace Barette.Library
         /// </summary>
         public string SchoolName {
             get {
-                return this._SchoolName;
+                return _SchoolName;
             }
             set {
-                this._SchoolName = value;
+                _SchoolName = value;
             }
         }
 
@@ -46,10 +46,10 @@ namespace Barette.Library
         /// </summary>
         public string StreetName {
             get {
-                return this._StreetName;
+                return _StreetName;
             }
             set {
-                this._StreetName = value;
+                _StreetName = value;
             }
         }
 
@@ -58,10 +58,10 @@ namespace Barette.Library
         /// </summary>
         public int StreetNumber {
             get {
-                return this._StreetNumber ;
+                return _StreetNumber;
             }
             set {
-                this._StreetNumber = value;
+                _StreetNumber = value;
             }
         }
 
@@ -70,10 +70,10 @@ namespace Barette.Library
         /// </summary>
         public string City {
             get {
-                return this._City;
+                return _City;
             }
             set {
-                this._City = value;
+                _City = value;
             }
         }
 
@@ -82,10 +82,10 @@ namespace Barette.Library
         /// </summary>
         public string Phone {
             get {
-                return this._Phone;
+                return _Phone;
             }
             set {
-                this._Phone = value;
+                _Phone = value;
             }
         }
 
@@ -94,10 +94,10 @@ namespace Barette.Library
         /// </summary>
         public string Fax {
             get {
-                return this._Fax;
+                return _Fax;
             }
             set {
-                this._Fax = value;
+                _Fax = value;
             }
         }
 
@@ -106,10 +106,10 @@ namespace Barette.Library
         /// </summary>
         public string PostalCode {
             get {
-                return this._CodePostal;
+                return _CodePostal;
             }
             set {
-                this._CodePostal = value;
+                _CodePostal = value;
             }
         }
 
@@ -118,10 +118,10 @@ namespace Barette.Library
         /// </summary>
         public string TPS {
             get {
-                return this._TPS;
+                return _TPS;
             }
             set {
-                this._TPS = value;
+                _TPS = value;
             }
         }
 
@@ -130,10 +130,10 @@ namespace Barette.Library
         /// </summary>
         public string TVQ {
             get {
-                return this._TVQ;
+                return _TVQ;
             }
             set {
-                this._TVQ = value;
+                _TVQ = value;
             }
         }
 
@@ -142,10 +142,10 @@ namespace Barette.Library
         /// </summary>
         public string RegistrationAuto {
             get {
-                return this._RegistreAuto;
+                return _RegistreAuto;
             }
             set {
-                this._RegistreAuto = value;
+                _RegistreAuto = value;
             }
         }
 
@@ -154,10 +154,10 @@ namespace Barette.Library
         /// </summary>
         public string RegistrationMoto {
             get {
-                return this._RegistreMoto; 
+                return _RegistreMoto; 
             }
             set {
-                this._RegistreMoto = value;
+                _RegistreMoto = value;
             }
         }
 
@@ -166,10 +166,10 @@ namespace Barette.Library
         /// </summary>
         public string TauxHoraireTheorie {
             get {
-                return this._TauxHoraireTheorie;
+                return _TauxHoraireTheorie;
             }
             set {
-                this._TauxHoraireTheorie = value;
+                _TauxHoraireTheorie = value;
             }
         }
 
@@ -178,10 +178,10 @@ namespace Barette.Library
         /// </summary>
         public string TauxHorairePratique {
             get {
-                return this._TauxHorairePratique;
+                return _TauxHorairePratique;
             }
             set {
-                this._TauxHorairePratique = value;
+                _TauxHorairePratique = value;
             }
         }
         #endregion

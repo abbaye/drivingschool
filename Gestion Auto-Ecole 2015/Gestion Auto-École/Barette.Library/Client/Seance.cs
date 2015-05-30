@@ -27,82 +27,82 @@ namespace Barette.Library.Client {
 
 		public DateTime DateHeure{
 			get{
-				return this._DateHeure;
+				return _DateHeure;
 			}
 			set{
-				this._DateHeure = value;
+                _DateHeure = value;
 			}
 		}
 
 		public DateTime DateModified{
 			get{
-				return this._DateModified;
+				return _DateModified;
 			}
 			set{
-				this._DateModified = value;
+                _DateModified = value;
 			}
 		}
 
 		public bool Active{
 			get{
-				return this._Active;
+				return _Active;
 			}
 			set{
-				this._Active = value;
+                _Active = value;
 			}
 		}
 
 		public bool Absence {
 			get{
-				return this._Absence;
+				return _Absence;
 			}
 			set{
-				this._Absence = value;
+                _Absence = value;
 			}
 		}
 
 		public bool DateModifiedChecked {
 			get{
-				return this._DateModifiedChecked;
+				return _DateModifiedChecked;
 			}
 			set{
-				this._DateModifiedChecked = value;
+                _DateModifiedChecked = value;
 			}
 		}
 
 		public int SceanceNumber{
 			get{
-				return this._SceanceNumber;
+				return _SceanceNumber;
 			}
 			set{
-				this._SceanceNumber = value;
+                _SceanceNumber = value;
 			}
 		}
 
 		public string Code{
 			get{
-				return this._code;
+				return _code;
 			}
 			set{
-				this._code = value;
+                _code = value;
 			}
 		}
 
 		public string Employer{
 			get{
-				return this._Employer;
+				return _Employer;
 			}
 			set{
-				this._Employer = value;
+                _Employer = value;
 			}
 		}
 
 		public string Montant{
 			get{
-				return this._Montant;
+				return _Montant;
 			}
 			set{
-				this._Montant = value;
+                _Montant = value;
 			}
 		}
 	}

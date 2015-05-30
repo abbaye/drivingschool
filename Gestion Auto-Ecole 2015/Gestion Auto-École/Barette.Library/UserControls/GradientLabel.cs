@@ -22,27 +22,27 @@ namespace Barette.Library.UserControls {
 			g.FillRectangle(new SolidBrush(SystemColors.Control), pe.ClipRectangle);
 		
 			g.FillRectangle(new LinearGradientBrush(new Point(0, 0), new Point(Width, Height),
-				this._ColorLeft, this._ColorRight),
+                _ColorLeft, _ColorRight),
 				new Rectangle(0, 0, Width, Height));
 		}
 
 		[Category("Couleur")]
 		public Color CouleurGauche{
 			get{
-				return this._ColorLeft;
+				return _ColorLeft;
 			}
 			set{
-				this._ColorLeft = value;
+                _ColorLeft = value;
 			}
 		}
 
 		[Category("Couleur")]
 		public Color CouleurDroite{
 			get{
-				return this._ColorRight;
+				return _ColorRight;
 			}
 			set{
-				this._ColorRight = value;				
+                _ColorRight = value;				
 			}
 		}
 	}

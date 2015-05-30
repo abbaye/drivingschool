@@ -69,8 +69,8 @@ namespace Barette.Library {
         /// Cree un objet de type TaxeExtractor selon les parametres
         /// </summary>
         public TaxeExtractor(decimal montant, Years years) {
-            this._montant = montant;
-            this._years = years;
+            _montant = montant;
+            _years = years;
         }
 
         /// <summary>
@@ -86,9 +86,10 @@ namespace Barette.Library {
         private Taxe Extract() {
             Taxe tax = new Taxe();
                                     
-            switch (this._years){
+            switch (_years)
+            {
                 case Years.Y2008_to_2010:
-                    tax.NoTaxe = decimal.Round((this._montant / 112.875M) * 100, 2);
+                    tax.NoTaxe = decimal.Round((_montant / 112.875M) * 100, 2);
 
                     tax.TPS = decimal.Round(tax.NoTaxe * 0.05M, 2);
                     tax.TVQ = decimal.Round((tax.NoTaxe + tax.TPS) * 0.075M, 2);
@@ -96,7 +97,7 @@ namespace Barette.Library {
                     tax.TauxTVQ = 0.075M;
                     break;
                 case Years.Y2011:
-                    tax.NoTaxe = decimal.Round((this._montant / 113.925M) * 100, 2);
+                    tax.NoTaxe = decimal.Round((_montant / 113.925M) * 100, 2);
 
                     tax.TPS = decimal.Round(tax.NoTaxe * 0.05M, 2);
                     tax.TVQ = decimal.Round((tax.NoTaxe + tax.TPS) * 0.085M, 2);
@@ -104,7 +105,7 @@ namespace Barette.Library {
                     tax.TauxTVQ = 0.085M;
                     break;
                 case Years.Y2012:
-                    tax.NoTaxe = decimal.Round((this._montant / 114.975M) * 100, 2);
+                    tax.NoTaxe = decimal.Round((_montant / 114.975M) * 100, 2);
 
                     tax.TPS = decimal.Round(tax.NoTaxe * 0.05M, 2);
                     tax.TVQ = decimal.Round((tax.NoTaxe + tax.TPS) * 0.095M, 2);
@@ -121,10 +122,10 @@ namespace Barette.Library {
         /// </summary>
         public Years years {
             get {
-                return this._years;
+                return _years;
             }
             set {
-                this._years = value;
+                _years = value;
             }
         }
 
@@ -133,10 +134,10 @@ namespace Barette.Library {
         /// </summary>
         public decimal Montant {
             get {
-                return this._montant;
+                return _montant;
             }
             set {
-                this._montant = value;
+                _montant = value;
             }
         }
         

@@ -15,19 +15,19 @@ namespace Barette.Library.UserControls.Schedule {
 
 		public CustomerCollection ClientList {
 			set {
-				this._Clientlist = value;
+                _Clientlist = value;
 			}
 			get {
-				return this._Clientlist;
+				return _Clientlist;
 			}
 		}
 
 		public string Employer {
 			set {
-				this._Employe = value;
+                _Employe = value;
 			}
 			get {
-				return this._Employe;
+				return _Employe;
 			}
 		}
 
@@ -53,9 +53,9 @@ namespace Barette.Library.UserControls.Schedule {
 
 
 			//Parcour la liste de client
-			for (int i = 0; i < this._Clientlist.Count; i++) {
+			for (int i = 0; i < _Clientlist.Count; i++) {
 				//Parcour chaque seance de cours pour le client en cours
-				client = this._Clientlist[i];
+				client = _Clientlist[i];
 				for (int j = 0; j < client.Seances.Count; j++) {
 					//Verifie qu'il n'y a pas deja un cours a la date et l'heure pour l'employer
 					cours = client.Seances[j];

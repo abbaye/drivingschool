@@ -9,8 +9,8 @@ namespace Barette.Library.Forms {
 		public string definition;
 
 		public CodeSeance(string Code, string Définition) {
-			this.code = Code;
-			this.definition = Définition; 
+            code = Code;
+            definition = Définition; 
 		}
 	}
 }

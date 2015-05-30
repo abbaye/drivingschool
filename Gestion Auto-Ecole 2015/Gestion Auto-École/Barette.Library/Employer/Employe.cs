@@ -13,11 +13,12 @@ namespace Barette.Library.Employer {
 
 		public string Nom;
 		public string Prenom;
+        public string NomAffichageRapport;
 
-		/// <summary>
-		/// Titre dans l'entreprise
-		/// </summary>
-		public string Titre;
+        /// <summary>
+        /// Titre dans l'entreprise
+        /// </summary>
+        public string Titre;
 
 		/// <summary>
 		/// Nature de l'emploie

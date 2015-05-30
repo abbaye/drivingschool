@@ -43,9 +43,9 @@ namespace Barette.Library.UserControls.Client {
 			//
 			InitializeComponent();
 
-			this._client = client;
-			this._ctrlClient = ctrl;
-			this._ListEmploye = ListEmploye; 
+            _client = client;
+            _ctrlClient = ctrl;
+            _ListEmploye = ListEmploye; 
 
 			InitializeSeance();
 
@@ -75,74 +75,74 @@ namespace Barette.Library.UserControls.Client {
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeanceMotocyclette));
             Barette.Library.Client.Seance seance1 = new Barette.Library.Client.Seance();
             Barette.Library.Client.Seance seance2 = new Barette.Library.Client.Seance();
             Barette.Library.Client.Seance seance3 = new Barette.Library.Client.Seance();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmdPrint = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.seancePicker3 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker2 = new Barette.Library.UserControls.SeancePicker();
-            this.seancePicker1 = new Barette.Library.UserControls.SeancePicker();
-            this.cmdAnnuler = new System.Windows.Forms.Button();
-            this.cmdOK = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            cmdPrint = new System.Windows.Forms.Button();
+            imageList1 = new System.Windows.Forms.ImageList(components);
+            seancePicker3 = new Barette.Library.UserControls.SeancePicker();
+            seancePicker2 = new Barette.Library.UserControls.SeancePicker();
+            seancePicker1 = new Barette.Library.UserControls.SeancePicker();
+            cmdAnnuler = new System.Windows.Forms.Button();
+            cmdOK = new System.Windows.Forms.Button();
+            label5 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cmdPrint);
-            this.groupBox1.Controls.Add(this.seancePicker3);
-            this.groupBox1.Controls.Add(this.seancePicker2);
-            this.groupBox1.Controls.Add(this.seancePicker1);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox1.Location = new System.Drawing.Point(10, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(875, 132);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Hors route";
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(cmdPrint);
+            groupBox1.Controls.Add(seancePicker3);
+            groupBox1.Controls.Add(seancePicker2);
+            groupBox1.Controls.Add(seancePicker1);
+            groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            groupBox1.Location = new System.Drawing.Point(10, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(875, 132);
+            groupBox1.TabIndex = 28;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Hors route";
             // 
             // cmdPrint
             // 
-            this.cmdPrint.ImageIndex = 0;
-            this.cmdPrint.ImageList = this.imageList1;
-            this.cmdPrint.Location = new System.Drawing.Point(815, 19);
-            this.cmdPrint.Name = "cmdPrint";
-            this.cmdPrint.Size = new System.Drawing.Size(51, 46);
-            this.cmdPrint.TabIndex = 40;
-            this.cmdPrint.Click += new System.EventHandler(this.cmdPrintHorsRoute_Click);
+            cmdPrint.ImageIndex = 0;
+            cmdPrint.ImageList = imageList1;
+            cmdPrint.Location = new System.Drawing.Point(815, 19);
+            cmdPrint.Name = "cmdPrint";
+            cmdPrint.Size = new System.Drawing.Size(51, 46);
+            cmdPrint.TabIndex = 40;
+            cmdPrint.Click += new System.EventHandler(cmdPrintHorsRoute_Click);
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "");
+            imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            imageList1.Images.SetKeyName(0, "");
             // 
             // seancePicker3
             // 
-            this.seancePicker3.Absence = false;
-            this.seancePicker3.Checked = false;
-            this.seancePicker3.Code = "";
-            this.seancePicker3.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 551);
-            this.seancePicker3.DateModifiedChecked = false;
-            this.seancePicker3.Employer = "";
-            this.seancePicker3.Location = new System.Drawing.Point(19, 96);
-            this.seancePicker3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
-            this.seancePicker3.Name = "seancePicker3";
-            this.seancePicker3.NumeroSeance = 3;
+            seancePicker3.Absence = false;
+            seancePicker3.Checked = false;
+            seancePicker3.Code = "";
+            seancePicker3.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 551);
+            seancePicker3.DateModifiedChecked = false;
+            seancePicker3.Employer = "";
+            seancePicker3.Location = new System.Drawing.Point(19, 96);
+            seancePicker3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            seancePicker3.Name = "seancePicker3";
+            seancePicker3.NumeroSeance = 3;
             seance1.Absence = false;
             seance1.Active = false;
             seance1.Code = "";
@@ -152,22 +152,22 @@ namespace Barette.Library.UserControls.Client {
             seance1.Employer = "";
             seance1.Montant = "";
             seance1.SceanceNumber = 3;
-            this.seancePicker3.Seance = seance1;
-            this.seancePicker3.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            this.seancePicker3.Size = new System.Drawing.Size(786, 25);
-            this.seancePicker3.TabIndex = 30;
+            seancePicker3.Seance = seance1;
+            seancePicker3.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seancePicker3.Size = new System.Drawing.Size(786, 25);
+            seancePicker3.TabIndex = 30;
             // 
             // seancePicker2
             // 
-            this.seancePicker2.Absence = false;
-            this.seancePicker2.Checked = false;
-            this.seancePicker2.Code = "";
-            this.seancePicker2.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 571);
-            this.seancePicker2.DateModifiedChecked = false;
-            this.seancePicker2.Employer = "";
-            this.seancePicker2.Location = new System.Drawing.Point(19, 68);
-            this.seancePicker2.Name = "seancePicker2";
-            this.seancePicker2.NumeroSeance = 2;
+            seancePicker2.Absence = false;
+            seancePicker2.Checked = false;
+            seancePicker2.Code = "";
+            seancePicker2.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 571);
+            seancePicker2.DateModifiedChecked = false;
+            seancePicker2.Employer = "";
+            seancePicker2.Location = new System.Drawing.Point(19, 68);
+            seancePicker2.Name = "seancePicker2";
+            seancePicker2.NumeroSeance = 2;
             seance2.Absence = false;
             seance2.Active = false;
             seance2.Code = "";
@@ -177,22 +177,22 @@ namespace Barette.Library.UserControls.Client {
             seance2.Employer = "";
             seance2.Montant = "";
             seance2.SceanceNumber = 2;
-            this.seancePicker2.Seance = seance2;
-            this.seancePicker2.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            this.seancePicker2.Size = new System.Drawing.Size(786, 25);
-            this.seancePicker2.TabIndex = 29;
+            seancePicker2.Seance = seance2;
+            seancePicker2.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seancePicker2.Size = new System.Drawing.Size(786, 25);
+            seancePicker2.TabIndex = 29;
             // 
             // seancePicker1
             // 
-            this.seancePicker1.Absence = false;
-            this.seancePicker1.Checked = false;
-            this.seancePicker1.Code = "";
-            this.seancePicker1.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
-            this.seancePicker1.DateModifiedChecked = false;
-            this.seancePicker1.Employer = "";
-            this.seancePicker1.Location = new System.Drawing.Point(19, 40);
-            this.seancePicker1.Name = "seancePicker1";
-            this.seancePicker1.NumeroSeance = 1;
+            seancePicker1.Absence = false;
+            seancePicker1.Checked = false;
+            seancePicker1.Code = "";
+            seancePicker1.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
+            seancePicker1.DateModifiedChecked = false;
+            seancePicker1.Employer = "";
+            seancePicker1.Location = new System.Drawing.Point(19, 40);
+            seancePicker1.Name = "seancePicker1";
+            seancePicker1.NumeroSeance = 1;
             seance3.Absence = false;
             seance3.Active = false;
             seance3.Code = "";
@@ -202,142 +202,142 @@ namespace Barette.Library.UserControls.Client {
             seance3.Employer = "";
             seance3.Montant = "";
             seance3.SceanceNumber = 1;
-            this.seancePicker1.Seance = seance3;
-            this.seancePicker1.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            this.seancePicker1.Size = new System.Drawing.Size(786, 25);
-            this.seancePicker1.TabIndex = 27;
+            seancePicker1.Seance = seance3;
+            seancePicker1.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seancePicker1.Size = new System.Drawing.Size(786, 25);
+            seancePicker1.TabIndex = 27;
             // 
             // cmdAnnuler
             // 
-            this.cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdAnnuler.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
-            this.cmdAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdAnnuler.Location = new System.Drawing.Point(800, 154);
-            this.cmdAnnuler.Name = "cmdAnnuler";
-            this.cmdAnnuler.Size = new System.Drawing.Size(85, 45);
-            this.cmdAnnuler.TabIndex = 30;
-            this.cmdAnnuler.Text = "Annuler";
-            this.cmdAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdAnnuler.Click += new System.EventHandler(this.cmdCancel_Click);
+            cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            cmdAnnuler.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
+            cmdAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdAnnuler.Location = new System.Drawing.Point(800, 154);
+            cmdAnnuler.Name = "cmdAnnuler";
+            cmdAnnuler.Size = new System.Drawing.Size(85, 45);
+            cmdAnnuler.TabIndex = 30;
+            cmdAnnuler.Text = "Annuler";
+            cmdAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            cmdAnnuler.Click += new System.EventHandler(cmdCancel_Click);
             // 
             // cmdOK
             // 
-            this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cmdOK.Image = global::Barette.Library.Properties.Resources.accept_icon;
-            this.cmdOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdOK.Location = new System.Drawing.Point(699, 154);
-            this.cmdOK.Name = "cmdOK";
-            this.cmdOK.Size = new System.Drawing.Size(95, 45);
-            this.cmdOK.TabIndex = 29;
-            this.cmdOK.Text = "Appliquer";
-            this.cmdOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
+            cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            cmdOK.Image = global::Barette.Library.Properties.Resources.accept_icon;
+            cmdOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdOK.Location = new System.Drawing.Point(699, 154);
+            cmdOK.Name = "cmdOK";
+            cmdOK.Size = new System.Drawing.Size(95, 45);
+            cmdOK.TabIndex = 29;
+            cmdOK.Text = "Appliquer";
+            cmdOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            cmdOK.Click += new System.EventHandler(cmdOK_Click);
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(606, 15);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 23);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "Montant";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(606, 15);
+            label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(59, 23);
+            label5.TabIndex = 45;
+            label5.Text = "Montant";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(289, 14);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 23);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "Heures (fin)";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(289, 14);
+            label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(128, 23);
+            label4.TabIndex = 44;
+            label4.Text = "Heures (fin)";
+            label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(496, 14);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 23);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Employé";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(496, 14);
+            label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(97, 23);
+            label3.TabIndex = 43;
+            label3.Text = "Employé";
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(423, 14);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 23);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Code";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(423, 14);
+            label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(57, 23);
+            label2.TabIndex = 42;
+            label2.Text = "Code";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(102, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 23);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Date et heure (début)";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(102, 14);
+            label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(200, 23);
+            label1.TabIndex = 41;
+            label1.Text = "Date et heure (début)";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormSeanceMotocyclette
             // 
-            this.ClientSize = new System.Drawing.Size(893, 209);
-            this.ControlBox = false;
-            this.Controls.Add(this.cmdAnnuler);
-            this.Controls.Add(this.cmdOK);
-            this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "FormSeanceMotocyclette";
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Séance de cours pratique : Cyclomoteur";
-            this.groupBox1.ResumeLayout(false);
-            this.ResumeLayout(false);
+            ClientSize = new System.Drawing.Size(893, 209);
+            ControlBox = false;
+            Controls.Add(cmdAnnuler);
+            Controls.Add(cmdOK);
+            Controls.Add(groupBox1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Name = "FormSeanceMotocyclette";
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Séance de cours pratique : Cyclomoteur";
+            groupBox1.ResumeLayout(false);
+            ResumeLayout(false);
 
 		}
 		#endregion
 
 		private void cmdCancel_Click(object sender, System.EventArgs e) {
-			this.Close();
+            Close();
 		}
 
 		private void cmdOK_Click(object sender, System.EventArgs e) {
-			//Suppression des seance en cours
-			this._client.Seances.Clear();
+            //Suppression des seance en cours
+            _client.Seances.Clear();
 
-            if (seancePicker1.Checked == true) this._client.Seances.Add(seancePicker1.Seance);
-            if (seancePicker2.Checked == true) this._client.Seances.Add(seancePicker2.Seance);
-            if (seancePicker3.Checked == true) this._client.Seances.Add(seancePicker3.Seance);
+            if (seancePicker1.Checked == true) _client.Seances.Add(seancePicker1.Seance);
+            if (seancePicker2.Checked == true) _client.Seances.Add(seancePicker2.Seance);
+            if (seancePicker3.Checked == true) _client.Seances.Add(seancePicker3.Seance);
 
-			//Fermer la boite
-			this.Close();
+            //Fermer la boite
+            Close();
 		}
 
 		private void InitializeSeance() {
 			seancePicker1.ListEmploye = seancePicker2.ListEmploye =
-				seancePicker3.ListEmploye = this._ListEmploye;
+				seancePicker3.ListEmploye = _ListEmploye;
 
-            for (int i = 0; i < this._client.Seances.Count; i++) {
-                switch (this._client.Seances[i].SceanceNumber) {
+            for (int i = 0; i < _client.Seances.Count; i++) {
+                switch (_client.Seances[i].SceanceNumber) {
                     case 1:
-                        seancePicker1.Seance = this._client.Seances[i];
+                        seancePicker1.Seance = _client.Seances[i];
                         break;
                     case 2:
-                        seancePicker2.Seance = this._client.Seances[i];
+                        seancePicker2.Seance = _client.Seances[i];
                         break;
                     case 3:
-                        seancePicker3.Seance = this._client.Seances[i];
+                        seancePicker3.Seance = _client.Seances[i];
                         break;
                 }
             }
@@ -345,17 +345,17 @@ namespace Barette.Library.UserControls.Client {
 
 		private void cmdPrintHorsRoute_Click(object sender, EventArgs e) {
 			AddSeanceTemp();
-			
-			this._ctrlClient.Client = this._client;
-			this._ctrlClient.PrintDoc(true, true, false, PrintDocumentType.InfoClient); 
+
+            _ctrlClient.Client = _client;
+            _ctrlClient.PrintDoc(true, true, false, PrintDocumentType.InfoClient); 
 		}
 
 		private void AddSeanceTemp() {
-			this._ctrlClient.Client.Seances.Clear();
+            _ctrlClient.Client.Seances.Clear();
 
-			this._ctrlClient.Client.Seances.Add(seancePicker1.Seance);
-			this._ctrlClient.Client.Seances.Add(seancePicker2.Seance);
-			this._ctrlClient.Client.Seances.Add(seancePicker3.Seance);
+            _ctrlClient.Client.Seances.Add(seancePicker1.Seance);
+            _ctrlClient.Client.Seances.Add(seancePicker2.Seance);
+            _ctrlClient.Client.Seances.Add(seancePicker3.Seance);
 		}
 
 		private void cmdPrintRoute_Click(object sender, EventArgs e) {

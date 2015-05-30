@@ -24,8 +24,8 @@ namespace Barette.Library.UserControls.TextEdit {
 		[CategoryAttribute("Text attributes"),
 		DescriptionAttribute("Text rtf source.")]
 		public string RTFCode {
-			set { this.richTextBox1.Rtf = value; }
-			get { return this.richTextBox1.Rtf; }
+			set { richTextBox1.Rtf = value; }
+			get { return richTextBox1.Rtf; }
 		}
 
 		/// <summary>
@@ -35,8 +35,8 @@ namespace Barette.Library.UserControls.TextEdit {
 		[CategoryAttribute("Text attributes"),
 		DescriptionAttribute("Text rtf source.")]
 		public string PlainText {
-			set { this.richTextBox1.Text = value; }
-			get { return this.richTextBox1.Text; }
+			set { richTextBox1.Text = value; }
+			get { return richTextBox1.Text; }
 		}
 
 		private bool m_RTFTextChanged = false;
@@ -94,9 +94,9 @@ namespace Barette.Library.UserControls.TextEdit {
 			InstalledFontCollection ifc = new InstalledFontCollection();
 			FontFamily[] ffs = ifc.Families;
 			richTextBox1.Clear();
-			this.fontToolStripComboBox.Text = "";
+            fontToolStripComboBox.Text = "";
 			foreach (FontFamily ff in ffs) {
-				this.fontToolStripComboBox.Items.Add(ff.Name);
+                fontToolStripComboBox.Items.Add(ff.Name);
 			}
 
 			//this.toolStripFormat.Location = new Point(this.toolStripEdit.Width, 0);
@@ -110,7 +110,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="sender">Voir la documentation MSDN.</param>
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void ColorToolStripButton_Click(object sender, EventArgs e) {
-			this.richTextBox1.SelectionColor = Color.FromName(sender.ToString());
+            richTextBox1.SelectionColor = Color.FromName(sender.ToString());
 		}
 
 		/// <summary>
@@ -127,7 +127,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="sender">Voir la documentation MSDN.</param>
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void cutToolStripButton_Click(object sender, EventArgs e) {
-			this.richTextBox1.Cut();
+            richTextBox1.Cut();
 		}
 
 		/// <summary>
@@ -136,7 +136,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="sender">Voir la documentation MSDN.</param>
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void copyToolStripButton_Click(object sender, EventArgs e) {
-			this.richTextBox1.Copy();
+            richTextBox1.Copy();
 		}
 
 		/// <summary>
@@ -145,7 +145,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="sender">Voir la documentation MSDN.</param>
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void pasteToolStripButton_Click(object sender, EventArgs e) {
-			this.richTextBox1.Paste();
+            richTextBox1.Paste();
 		}
 
 		/// <summary>
@@ -154,18 +154,18 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="sender">Voir la documentation MSDN.</param>
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void richTextBox1_SelectionChanged(object sender, EventArgs e) {
-			if (this.richTextBox1.SelectionFont == null) return;
-			this.boldToolStripButton.Checked = this.richTextBox1.SelectionFont.Bold;
-			this.italicToolStripButton.Checked = this.richTextBox1.SelectionFont.Italic;
-			this.underlineToolStripButton.Checked = this.richTextBox1.SelectionFont.Underline;
-			this.StrikeouttoolStripButton.Checked = this.richTextBox1.SelectionFont.Strikeout;
-			this.fontToolStripComboBox.Text = this.richTextBox1.SelectionFont.Name;
-			this.fontSizeToolStripButton.Text = this.richTextBox1.SelectionFont.Size.ToString();
-			leftToolStripButton.Checked = (this.richTextBox1.SelectionAlignment == HorizontalAlignment.Left);
-			centerToolStripButton.Checked = (this.richTextBox1.SelectionAlignment == HorizontalAlignment.Center);
-			rightToolStripButton.Checked = (this.richTextBox1.SelectionAlignment == HorizontalAlignment.Right);
-			bulletToolStripButton.Checked = this.richTextBox1.SelectionBullet;
-            this.toolStripColorPicker1.Color = this.richTextBox1.SelectionColor;
+			if (richTextBox1.SelectionFont == null) return;
+            boldToolStripButton.Checked = richTextBox1.SelectionFont.Bold;
+            italicToolStripButton.Checked = richTextBox1.SelectionFont.Italic;
+            underlineToolStripButton.Checked = richTextBox1.SelectionFont.Underline;
+            StrikeouttoolStripButton.Checked = richTextBox1.SelectionFont.Strikeout;
+            fontToolStripComboBox.Text = richTextBox1.SelectionFont.Name;
+            fontSizeToolStripButton.Text = richTextBox1.SelectionFont.Size.ToString();
+			leftToolStripButton.Checked = (richTextBox1.SelectionAlignment == HorizontalAlignment.Left);
+			centerToolStripButton.Checked = (richTextBox1.SelectionAlignment == HorizontalAlignment.Center);
+			rightToolStripButton.Checked = (richTextBox1.SelectionAlignment == HorizontalAlignment.Right);
+			bulletToolStripButton.Checked = richTextBox1.SelectionBullet;
+            toolStripColorPicker1.Color = richTextBox1.SelectionColor;
 		}
 
 		/// <summary>
@@ -174,7 +174,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="sender">Voir la documentation MSDN.</param>
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void UpdateFontStyle(object sender, EventArgs e) {
-			int style = (int)this.richTextBox1.SelectionFont.Style;
+			int style = (int)richTextBox1.SelectionFont.Style;
 			if (sender == boldToolStripButton && boldToolStripButton.Checked) style += (int)FontStyle.Bold;
 			if (sender == boldToolStripButton && !boldToolStripButton.Checked) style -= (int)FontStyle.Bold;
 			if (sender == italicToolStripButton && italicToolStripButton.Checked) style += (int)FontStyle.Italic;
@@ -184,7 +184,7 @@ namespace Barette.Library.UserControls.TextEdit {
 			if (sender == StrikeouttoolStripButton && StrikeouttoolStripButton.Checked) style += (int)FontStyle.Strikeout;
 			if (sender == StrikeouttoolStripButton && !StrikeouttoolStripButton.Checked) style -= (int)FontStyle.Strikeout;
 
-			this.richTextBox1.SelectionFont = new Font(this.richTextBox1.SelectionFont, (FontStyle)style);
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, (FontStyle)style);
 		}
 
 		/// <summary>
@@ -193,7 +193,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="sender">Voir la documentation MSDN.</param>
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void fontToolStripComboBox_SelectedIndexChanged(object sender, EventArgs e) {
-			this.richTextBox1.SelectionFont = new Font(this.fontToolStripComboBox.Text, this.richTextBox1.SelectionFont.Size, this.richTextBox1.SelectionFont.Style);
+            richTextBox1.SelectionFont = new Font(fontToolStripComboBox.Text, richTextBox1.SelectionFont.Size, richTextBox1.SelectionFont.Style);
 		}
 
 		/// <summary>
@@ -204,12 +204,12 @@ namespace Barette.Library.UserControls.TextEdit {
 		private void fontSizeToolStripButton_SelectedIndexChanged(object sender, EventArgs e) {
 			try {
 				int i = System.Convert.ToInt16(fontSizeToolStripButton.Text);
-				this.richTextBox1.SelectionFont = new Font(this.richTextBox1.SelectionFont.Name, i, this.richTextBox1.SelectionFont.Style);
+                richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.Name, i, richTextBox1.SelectionFont.Style);
 			} catch {
 				//TODO: MessageBox.Show("La valeur doit être un entier !");
 				return;
 			}
-			this.fontSizeToolStripButton.Text = this.richTextBox1.SelectionFont.Size.ToString();
+            fontSizeToolStripButton.Text = richTextBox1.SelectionFont.Size.ToString();
 		}
 
 		/// <summary>
@@ -221,12 +221,12 @@ namespace Barette.Library.UserControls.TextEdit {
 			if (e.KeyCode != Keys.Enter) return;
 			try {
 				int i = System.Convert.ToInt16(fontSizeToolStripButton.Text);
-				this.richTextBox1.SelectionFont = new Font(this.richTextBox1.SelectionFont.Name, i, this.richTextBox1.SelectionFont.Style);
+                richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.Name, i, richTextBox1.SelectionFont.Style);
 			} catch {
 				//TODO: MessageBox.Show("La valeur doit être un entier !");
 				return;
 			}
-			this.fontSizeToolStripButton.Text = this.richTextBox1.SelectionFont.Size.ToString();
+            fontSizeToolStripButton.Text = richTextBox1.SelectionFont.Size.ToString();
 		}
 
 		/// <summary>
@@ -271,7 +271,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="sender">Voir la documentation MSDN.</param>
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void bulletToolStripButton_Click(object sender, EventArgs e) {
-			this.richTextBox1.SelectionBullet = bulletToolStripButton.Checked;
+            richTextBox1.SelectionBullet = bulletToolStripButton.Checked;
 		}
 
 		/// <summary>
@@ -285,11 +285,11 @@ namespace Barette.Library.UserControls.TextEdit {
 		}
 
 		private void UndoToolStripButton_Click(object sender, EventArgs e) {
-			this.richTextBox1.Undo();
+            richTextBox1.Undo();
 		}
 
 		private void RedoToolStripButton_Click(object sender, EventArgs e) {
-			this.richTextBox1.Redo();
+            richTextBox1.Redo();
 		}
 
 		private void DateToolStripButton_Click(object sender, EventArgs e) {
@@ -297,8 +297,8 @@ namespace Barette.Library.UserControls.TextEdit {
 
 
 			if (frmDateTime.ShowDialog(this) == DialogResult.OK) {
-				this.richTextBox1.InsertTextAsRtf(frmDateTime.lstDateTime.Text, richTextBox1.SelectionFont);
-				this.richTextBox1.Focus();
+                richTextBox1.InsertTextAsRtf(frmDateTime.lstDateTime.Text, richTextBox1.SelectionFont);
+                richTextBox1.Focus();
 			}
 		}
 

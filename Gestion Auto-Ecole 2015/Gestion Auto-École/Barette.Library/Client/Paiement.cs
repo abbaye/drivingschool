@@ -14,12 +14,12 @@ namespace Barette.Library.Client {
 		private PaiementType	_Type; //retour de livre
 
 		public Paiement() {
-            this.Montant = "0,00 $";
-            this._date = DateTime.Now;
-            this._numeroRecu = 0;
-            this._PaimentAutre = "";
-            this._Type = PaiementType.Nothing;
-            this._typePaiment = Client.TypePaiment.Nothing;
+            Montant = "0,00 $";
+            _date = DateTime.Now;
+            _numeroRecu = 0;
+            _PaimentAutre = "";
+            _Type = PaiementType.Nothing;
+            _typePaiment = Client.TypePaiment.Nothing;
 		}
 
 		/// <summary>
@@ -31,9 +31,9 @@ namespace Barette.Library.Client {
 				try {
 					string temp = "";
 					//Corrige une bug lors de la rentrer d<une virgule
-					temp = this._montant.Replace(".", ",");
+					temp = _montant.Replace(".", ",");
 					
-					return Convert.ToDouble(this._montant.Replace(" $", ""));
+					return Convert.ToDouble(_montant.Replace(" $", ""));
 				} catch {
 					return 0;
 				}
@@ -47,12 +47,12 @@ namespace Barette.Library.Client {
             get {
                 TaxeExtractor taxe = new TaxeExtractor();
 
-                if (this._date.Year == 2011)
-                    taxe = new TaxeExtractor(Convert.ToDecimal(this.Value), TaxeExtractor.Years.Y2011);
-                else if (this._date.Year < 2011)
-                    taxe = new TaxeExtractor(Convert.ToDecimal(this.Value), TaxeExtractor.Years.Y2008_to_2010);
-                else if (this._date.Year >= 2012)
-                    taxe = new TaxeExtractor(Convert.ToDecimal(this.Value), TaxeExtractor.Years.Y2012); 
+                if (_date.Year == 2011)
+                    taxe = new TaxeExtractor(Convert.ToDecimal(Value), TaxeExtractor.Years.Y2011);
+                else if (_date.Year < 2011)
+                    taxe = new TaxeExtractor(Convert.ToDecimal(Value), TaxeExtractor.Years.Y2008_to_2010);
+                else if (_date.Year >= 2012)
+                    taxe = new TaxeExtractor(Convert.ToDecimal(Value), TaxeExtractor.Years.Y2012); 
 
                 return taxe;
             }
@@ -60,55 +60,55 @@ namespace Barette.Library.Client {
 
 		public DateTime DatePaiment{
 			get{
-				return this._date;
+				return _date;
 			}
 			set{
-				this._date = value;
+                _date = value;
 			}
 		}
 
 		public TypePaiment TypePaiment {
 			get{
-				return this._typePaiment;
+				return _typePaiment;
 			}
 			set{
-				this._typePaiment = value;
+                _typePaiment = value;
 			}
 		}
 		
 		public string Montant{
 			get{
-				return this._montant;
+				return _montant;
 			}
 			set{
-				this._montant = value;
+                _montant = value;
 			}
 		}
 
 		public string PaimentAutre{
 			get{
-				return this._PaimentAutre;
+				return _PaimentAutre;
 			}
 			set{
-				this._PaimentAutre = value;
+                _PaimentAutre = value;
 			}
 		}
 
 		public int NumeroRecu{
 			get{
-				return this._numeroRecu;
+				return _numeroRecu;
 			}
 			set{
-				this._numeroRecu = value;
+                _numeroRecu = value;
 			}
 		}
 
 		public PaiementType Type{
 			get{
-				return this._Type;
+				return _Type;
 			}
 			set{
-				this._Type = value;
+                _Type = value;
 			}
 		}
 	}

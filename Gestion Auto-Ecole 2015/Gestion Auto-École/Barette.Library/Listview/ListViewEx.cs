@@ -17,15 +17,15 @@ namespace Barette.Library.Listview {
 		}
 
 		private void ListViewEx_ColumnClick(object sender, ColumnClickEventArgs e) {
-			this.ListViewItemSorter = new ListViewItemComparer(e.Column);
+            ListViewItemSorter = new ListViewItemComparer(e.Column);
 
-			this.Sort();
+            Sort();
 		}
 
 		public void SortColumn(int col) {
-			this.ListViewItemSorter = new ListViewItemComparer(col);
+            ListViewItemSorter = new ListViewItemComparer(col);
 
-			this.Sort();
+            Sort();
 		}
 	}
 }

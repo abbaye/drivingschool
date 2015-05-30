@@ -15,10 +15,10 @@ namespace Barette.Library.UserControls.Schedule {
 		/// </summary>
 		public DateTime Jour {
 			get {
-				return this._Day;
+				return _Day;
 			}
 			set {
-				this._Day = value;
+                _Day = value;
 			}
 		}
 
@@ -27,10 +27,10 @@ namespace Barette.Library.UserControls.Schedule {
 		/// </summary>
 		public string NomMoniteur {
 			get {
-				return this._MonitorName;
+				return _MonitorName;
 			}
 			set {
-				this._MonitorName = value;
+                _MonitorName = value;
 			}
 		}
 
@@ -40,10 +40,10 @@ namespace Barette.Library.UserControls.Schedule {
 		/// </summary>
 		public ScheduleInfosCollection HoraireJour {
 			get {
-				return this._Schedule;
+				return _Schedule;
 			}
 			set {
-				this._Schedule = value;
+                _Schedule = value;
 			}
 		}
 	}

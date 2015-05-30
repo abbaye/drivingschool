@@ -159,7 +159,7 @@ namespace Barette.Library.UserControls.Client {
             // Cet appel est requis par le Concepteur de formulaires Windows.Forms.
             InitializeComponent();
 
-            this._infoSchool = info;
+            _infoSchool = info;
         }
 
         public ClientControl() {
@@ -185,1199 +185,1199 @@ namespace Barette.Library.UserControls.Client {
         /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientControl));
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.cmdAlwayDispo = new System.Windows.Forms.Button();
-            this.chkDisponibilityDimanche = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilitySamedi = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilitySoir = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilityPM = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilityAM = new System.Windows.Forms.CheckBox();
-            this.txtNumeroPermis = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.gbCoursType = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtN6R = new System.Windows.Forms.TextBox();
-            this.rbVehiculMotocyclette = new System.Windows.Forms.RadioButton();
-            this.rbVehiculMoto = new System.Windows.Forms.RadioButton();
-            this.rbVehiculManuel = new System.Windows.Forms.RadioButton();
-            this.rbVehiculAutomatique = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.DateNaissance = new System.Windows.Forms.DateTimePicker();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtPhoneNumber = new System.Windows.Forms.MaskedTextBox();
-            this.txtCodePostal = new System.Windows.Forms.MaskedTextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtAdressApp = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAdressStreet = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtPhoneBureau = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.rbTypeClientFinish = new System.Windows.Forms.RadioButton();
-            this.rbTypeClientActif = new System.Windows.Forms.RadioButton();
-            this.DateInscription = new System.Windows.Forms.DateTimePicker();
-            this.label13 = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ImageListToolBar = new System.Windows.Forms.ImageList(this.components);
-            this.toolTipText = new System.Windows.Forms.ToolTip(this.components);
-            this.cbBVA = new System.Windows.Forms.CheckBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cbNullContrat = new System.Windows.Forms.CheckBox();
-            this.cmdShowSeanceT = new System.Windows.Forms.Button();
-            this.cmdShowSeanceTheorique = new System.Windows.Forms.Button();
-            this.cmdAutoDateExpiration = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.cmdClearbox = new System.Windows.Forms.Button();
-            this.cmdShowSeancesMoto2015 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtpBVA = new System.Windows.Forms.DateTimePicker();
-            this.cbMoto = new System.Windows.Forms.CheckBox();
-            this.cbAuto = new System.Windows.Forms.CheckBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.timerCheckClientValid = new System.Windows.Forms.Timer(this.components);
-            this.dtpDatePermis = new System.Windows.Forms.DateTimePicker();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.cbPermisObtenue = new System.Windows.Forms.CheckBox();
-            this.dtpDatePermisPlus8 = new System.Windows.Forms.DateTimePicker();
-            this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.DateExpiration = new System.Windows.Forms.DateTimePicker();
-            this.label23 = new System.Windows.Forms.Label();
-            this.DateDebutCours = new System.Windows.Forms.DateTimePicker();
-            this.printDocContract = new System.Drawing.Printing.PrintDocument();
-            this.dtpAttestation2 = new System.Windows.Forms.DateTimePicker();
-            this.dtpAttestation1 = new System.Windows.Forms.DateTimePicker();
-            this.printDocTheorique = new System.Drawing.Printing.PrintDocument();
-            this.label25 = new System.Windows.Forms.Label();
-            this.EmailError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.printDocMoto2015 = new System.Drawing.Printing.PrintDocument();
-            this.gbProgramMoto = new System.Windows.Forms.GroupBox();
-            this.rbProgramMoto2015 = new System.Windows.Forms.RadioButton();
-            this.rbProgramMotoNormal = new System.Windows.Forms.RadioButton();
-            this.txtNumeroGroupe = new UtilityLibrary.WinControls.NumericTextBox();
-            this.txtNumeroAttestation2 = new UtilityLibrary.WinControls.NumericTextBox();
-            this.txtNumeroContrat = new UtilityLibrary.WinControls.NumericTextBox();
-            this.txtNumeroAttestation = new UtilityLibrary.WinControls.NumericTextBox();
-            this.dbRecuNumber = new UtilityLibrary.WinControls.NumericTextBox();
-            this.txtAdressNumber = new UtilityLibrary.WinControls.NumericTextBox();
-            this.ctbTauxHorairePratique = new Barette.Library.UserControls.CashTextBox();
-            this.ctbTauxHoraireTheorique = new Barette.Library.UserControls.CashTextBox();
-            this.ctbLocationMontant = new Barette.Library.UserControls.CashTextBox();
-            this.CashBox_Solde = new Barette.Library.UserControls.CashTextBox();
-            this.txtNotes = new Barette.Library.UserControls.TextEdit.TextEditor();
-            this.cbCity = new Barette.Library.UserControls.ComboCityPicker();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.gbCoursType.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmailError)).BeginInit();
-            this.gbProgramMoto.SuspendLayout();
-            this.SuspendLayout();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            cmdAlwayDispo = new System.Windows.Forms.Button();
+            chkDisponibilityDimanche = new System.Windows.Forms.CheckBox();
+            chkDisponibilitySamedi = new System.Windows.Forms.CheckBox();
+            chkDisponibilitySoir = new System.Windows.Forms.CheckBox();
+            chkDisponibilityPM = new System.Windows.Forms.CheckBox();
+            chkDisponibilityAM = new System.Windows.Forms.CheckBox();
+            txtNumeroPermis = new System.Windows.Forms.TextBox();
+            label11 = new System.Windows.Forms.Label();
+            gbCoursType = new System.Windows.Forms.GroupBox();
+            label19 = new System.Windows.Forms.Label();
+            txtN6R = new System.Windows.Forms.TextBox();
+            rbVehiculMotocyclette = new System.Windows.Forms.RadioButton();
+            rbVehiculMoto = new System.Windows.Forms.RadioButton();
+            rbVehiculManuel = new System.Windows.Forms.RadioButton();
+            rbVehiculAutomatique = new System.Windows.Forms.RadioButton();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            txtEmail = new System.Windows.Forms.TextBox();
+            label26 = new System.Windows.Forms.Label();
+            DateNaissance = new System.Windows.Forms.DateTimePicker();
+            label21 = new System.Windows.Forms.Label();
+            txtPhoneNumber = new System.Windows.Forms.MaskedTextBox();
+            txtCodePostal = new System.Windows.Forms.MaskedTextBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            txtAdressApp = new System.Windows.Forms.TextBox();
+            label9 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            txtAdressStreet = new System.Windows.Forms.TextBox();
+            txtFirstName = new System.Windows.Forms.TextBox();
+            txtName = new System.Windows.Forms.TextBox();
+            label12 = new System.Windows.Forms.Label();
+            txtPhoneBureau = new System.Windows.Forms.MaskedTextBox();
+            label10 = new System.Windows.Forms.Label();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            rbTypeClientFinish = new System.Windows.Forms.RadioButton();
+            rbTypeClientActif = new System.Windows.Forms.RadioButton();
+            DateInscription = new System.Windows.Forms.DateTimePicker();
+            label13 = new System.Windows.Forms.Label();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            groupBox7 = new System.Windows.Forms.GroupBox();
+            button1 = new System.Windows.Forms.Button();
+            label15 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            groupBox8 = new System.Windows.Forms.GroupBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            ImageListToolBar = new System.Windows.Forms.ImageList(components);
+            toolTipText = new System.Windows.Forms.ToolTip(components);
+            cbBVA = new System.Windows.Forms.CheckBox();
+            label20 = new System.Windows.Forms.Label();
+            cbNullContrat = new System.Windows.Forms.CheckBox();
+            cmdShowSeanceT = new System.Windows.Forms.Button();
+            cmdShowSeanceTheorique = new System.Windows.Forms.Button();
+            cmdAutoDateExpiration = new System.Windows.Forms.Button();
+            label24 = new System.Windows.Forms.Label();
+            cmdClearbox = new System.Windows.Forms.Button();
+            cmdShowSeancesMoto2015 = new System.Windows.Forms.Button();
+            groupBox3 = new System.Windows.Forms.GroupBox();
+            dtpBVA = new System.Windows.Forms.DateTimePicker();
+            cbMoto = new System.Windows.Forms.CheckBox();
+            cbAuto = new System.Windows.Forms.CheckBox();
+            label16 = new System.Windows.Forms.Label();
+            timerCheckClientValid = new System.Windows.Forms.Timer(components);
+            dtpDatePermis = new System.Windows.Forms.DateTimePicker();
+            groupBox6 = new System.Windows.Forms.GroupBox();
+            cbPermisObtenue = new System.Windows.Forms.CheckBox();
+            dtpDatePermisPlus8 = new System.Windows.Forms.DateTimePicker();
+            label17 = new System.Windows.Forms.Label();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            label18 = new System.Windows.Forms.Label();
+            label22 = new System.Windows.Forms.Label();
+            DateExpiration = new System.Windows.Forms.DateTimePicker();
+            label23 = new System.Windows.Forms.Label();
+            DateDebutCours = new System.Windows.Forms.DateTimePicker();
+            printDocContract = new System.Drawing.Printing.PrintDocument();
+            dtpAttestation2 = new System.Windows.Forms.DateTimePicker();
+            dtpAttestation1 = new System.Windows.Forms.DateTimePicker();
+            printDocTheorique = new System.Drawing.Printing.PrintDocument();
+            label25 = new System.Windows.Forms.Label();
+            EmailError = new System.Windows.Forms.ErrorProvider(components);
+            printDocMoto2015 = new System.Drawing.Printing.PrintDocument();
+            gbProgramMoto = new System.Windows.Forms.GroupBox();
+            rbProgramMoto2015 = new System.Windows.Forms.RadioButton();
+            rbProgramMotoNormal = new System.Windows.Forms.RadioButton();
+            txtNumeroGroupe = new UtilityLibrary.WinControls.NumericTextBox();
+            txtNumeroAttestation2 = new UtilityLibrary.WinControls.NumericTextBox();
+            txtNumeroContrat = new UtilityLibrary.WinControls.NumericTextBox();
+            txtNumeroAttestation = new UtilityLibrary.WinControls.NumericTextBox();
+            dbRecuNumber = new UtilityLibrary.WinControls.NumericTextBox();
+            txtAdressNumber = new UtilityLibrary.WinControls.NumericTextBox();
+            ctbTauxHorairePratique = new Barette.Library.UserControls.CashTextBox();
+            ctbTauxHoraireTheorique = new Barette.Library.UserControls.CashTextBox();
+            ctbLocationMontant = new Barette.Library.UserControls.CashTextBox();
+            CashBox_Solde = new Barette.Library.UserControls.CashTextBox();
+            txtNotes = new Barette.Library.UserControls.TextEdit.TextEditor();
+            cbCity = new Barette.Library.UserControls.ComboCityPicker();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
+            gbCoursType.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
+            groupBox5.SuspendLayout();
+            groupBox7.SuspendLayout();
+            groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            groupBox3.SuspendLayout();
+            groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(EmailError)).BeginInit();
+            gbProgramMoto.SuspendLayout();
+            SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pictureBox4);
-            this.groupBox2.Controls.Add(this.cmdAlwayDispo);
-            this.groupBox2.Controls.Add(this.chkDisponibilityDimanche);
-            this.groupBox2.Controls.Add(this.chkDisponibilitySamedi);
-            this.groupBox2.Controls.Add(this.chkDisponibilitySoir);
-            this.groupBox2.Controls.Add(this.chkDisponibilityPM);
-            this.groupBox2.Controls.Add(this.chkDisponibilityAM);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox2.Location = new System.Drawing.Point(0, 355);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(220, 80);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Disponibilité";
+            groupBox2.Controls.Add(pictureBox4);
+            groupBox2.Controls.Add(cmdAlwayDispo);
+            groupBox2.Controls.Add(chkDisponibilityDimanche);
+            groupBox2.Controls.Add(chkDisponibilitySamedi);
+            groupBox2.Controls.Add(chkDisponibilitySoir);
+            groupBox2.Controls.Add(chkDisponibilityPM);
+            groupBox2.Controls.Add(chkDisponibilityAM);
+            groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            groupBox2.Location = new System.Drawing.Point(0, 355);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new System.Drawing.Size(220, 80);
+            groupBox2.TabIndex = 8;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Disponibilité";
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Barette.Library.Properties.Resources.stylish8;
-            this.pictureBox4.Location = new System.Drawing.Point(7, 20);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.TabIndex = 20;
-            this.pictureBox4.TabStop = false;
+            pictureBox4.Image = global::Barette.Library.Properties.Resources.stylish8;
+            pictureBox4.Location = new System.Drawing.Point(7, 20);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(32, 32);
+            pictureBox4.TabIndex = 20;
+            pictureBox4.TabStop = false;
             // 
             // cmdAlwayDispo
             // 
-            this.cmdAlwayDispo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdAlwayDispo.Location = new System.Drawing.Point(132, 14);
-            this.cmdAlwayDispo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.cmdAlwayDispo.Name = "cmdAlwayDispo";
-            this.cmdAlwayDispo.Size = new System.Drawing.Size(75, 23);
-            this.cmdAlwayDispo.TabIndex = 6;
-            this.cmdAlwayDispo.Text = "Toujours";
-            this.cmdAlwayDispo.Click += new System.EventHandler(this.cmdAlwayDispo_Click);
+            cmdAlwayDispo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            cmdAlwayDispo.Location = new System.Drawing.Point(132, 14);
+            cmdAlwayDispo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            cmdAlwayDispo.Name = "cmdAlwayDispo";
+            cmdAlwayDispo.Size = new System.Drawing.Size(75, 23);
+            cmdAlwayDispo.TabIndex = 6;
+            cmdAlwayDispo.Text = "Toujours";
+            cmdAlwayDispo.Click += new System.EventHandler(cmdAlwayDispo_Click);
             // 
             // chkDisponibilityDimanche
             // 
-            this.chkDisponibilityDimanche.AutoSize = true;
-            this.chkDisponibilityDimanche.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilityDimanche.Location = new System.Drawing.Point(132, 54);
-            this.chkDisponibilityDimanche.Name = "chkDisponibilityDimanche";
-            this.chkDisponibilityDimanche.Size = new System.Drawing.Size(80, 18);
-            this.chkDisponibilityDimanche.TabIndex = 5;
-            this.chkDisponibilityDimanche.Text = "Dimanche";
+            chkDisponibilityDimanche.AutoSize = true;
+            chkDisponibilityDimanche.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            chkDisponibilityDimanche.Location = new System.Drawing.Point(132, 54);
+            chkDisponibilityDimanche.Name = "chkDisponibilityDimanche";
+            chkDisponibilityDimanche.Size = new System.Drawing.Size(80, 18);
+            chkDisponibilityDimanche.TabIndex = 5;
+            chkDisponibilityDimanche.Text = "Dimanche";
             // 
             // chkDisponibilitySamedi
             // 
-            this.chkDisponibilitySamedi.AutoSize = true;
-            this.chkDisponibilitySamedi.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilitySamedi.Location = new System.Drawing.Point(132, 38);
-            this.chkDisponibilitySamedi.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-            this.chkDisponibilitySamedi.Name = "chkDisponibilitySamedi";
-            this.chkDisponibilitySamedi.Size = new System.Drawing.Size(67, 18);
-            this.chkDisponibilitySamedi.TabIndex = 4;
-            this.chkDisponibilitySamedi.Text = "Samedi";
+            chkDisponibilitySamedi.AutoSize = true;
+            chkDisponibilitySamedi.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            chkDisponibilitySamedi.Location = new System.Drawing.Point(132, 38);
+            chkDisponibilitySamedi.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            chkDisponibilitySamedi.Name = "chkDisponibilitySamedi";
+            chkDisponibilitySamedi.Size = new System.Drawing.Size(67, 18);
+            chkDisponibilitySamedi.TabIndex = 4;
+            chkDisponibilitySamedi.Text = "Samedi";
             // 
             // chkDisponibilitySoir
             // 
-            this.chkDisponibilitySoir.AutoSize = true;
-            this.chkDisponibilitySoir.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilitySoir.Location = new System.Drawing.Point(44, 54);
-            this.chkDisponibilitySoir.Name = "chkDisponibilitySoir";
-            this.chkDisponibilitySoir.Size = new System.Drawing.Size(62, 18);
-            this.chkDisponibilitySoir.TabIndex = 3;
-            this.chkDisponibilitySoir.Text = "Soirée";
+            chkDisponibilitySoir.AutoSize = true;
+            chkDisponibilitySoir.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            chkDisponibilitySoir.Location = new System.Drawing.Point(44, 54);
+            chkDisponibilitySoir.Name = "chkDisponibilitySoir";
+            chkDisponibilitySoir.Size = new System.Drawing.Size(62, 18);
+            chkDisponibilitySoir.TabIndex = 3;
+            chkDisponibilitySoir.Text = "Soirée";
             // 
             // chkDisponibilityPM
             // 
-            this.chkDisponibilityPM.AutoSize = true;
-            this.chkDisponibilityPM.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilityPM.Location = new System.Drawing.Point(44, 38);
-            this.chkDisponibilityPM.Name = "chkDisponibilityPM";
-            this.chkDisponibilityPM.Size = new System.Drawing.Size(81, 18);
-            this.chkDisponibilityPM.TabIndex = 2;
-            this.chkDisponibilityPM.Text = "Après Midi";
+            chkDisponibilityPM.AutoSize = true;
+            chkDisponibilityPM.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            chkDisponibilityPM.Location = new System.Drawing.Point(44, 38);
+            chkDisponibilityPM.Name = "chkDisponibilityPM";
+            chkDisponibilityPM.Size = new System.Drawing.Size(81, 18);
+            chkDisponibilityPM.TabIndex = 2;
+            chkDisponibilityPM.Text = "Après Midi";
             // 
             // chkDisponibilityAM
             // 
-            this.chkDisponibilityAM.AutoSize = true;
-            this.chkDisponibilityAM.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilityAM.Location = new System.Drawing.Point(44, 22);
-            this.chkDisponibilityAM.Name = "chkDisponibilityAM";
-            this.chkDisponibilityAM.Size = new System.Drawing.Size(58, 18);
-            this.chkDisponibilityAM.TabIndex = 1;
-            this.chkDisponibilityAM.Text = "Matin";
+            chkDisponibilityAM.AutoSize = true;
+            chkDisponibilityAM.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            chkDisponibilityAM.Location = new System.Drawing.Point(44, 22);
+            chkDisponibilityAM.Name = "chkDisponibilityAM";
+            chkDisponibilityAM.Size = new System.Drawing.Size(58, 18);
+            chkDisponibilityAM.TabIndex = 1;
+            chkDisponibilityAM.Text = "Matin";
             // 
             // txtNumeroPermis
             // 
-            this.txtNumeroPermis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumeroPermis.Location = new System.Drawing.Point(128, 31);
-            this.txtNumeroPermis.MaxLength = 20;
-            this.txtNumeroPermis.Name = "txtNumeroPermis";
-            this.txtNumeroPermis.Size = new System.Drawing.Size(144, 20);
-            this.txtNumeroPermis.TabIndex = 1;
+            txtNumeroPermis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txtNumeroPermis.Location = new System.Drawing.Point(128, 31);
+            txtNumeroPermis.MaxLength = 20;
+            txtNumeroPermis.Name = "txtNumeroPermis";
+            txtNumeroPermis.Size = new System.Drawing.Size(144, 20);
+            txtNumeroPermis.TabIndex = 1;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(48, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 13);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "No. de permis";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(48, 31);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(72, 13);
+            label11.TabIndex = 13;
+            label11.Text = "No. de permis";
+            label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gbCoursType
             // 
-            this.gbCoursType.Controls.Add(this.label19);
-            this.gbCoursType.Controls.Add(this.txtN6R);
-            this.gbCoursType.Controls.Add(this.rbVehiculMotocyclette);
-            this.gbCoursType.Controls.Add(this.rbVehiculMoto);
-            this.gbCoursType.Controls.Add(this.rbVehiculManuel);
-            this.gbCoursType.Controls.Add(this.rbVehiculAutomatique);
-            this.gbCoursType.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.gbCoursType.Location = new System.Drawing.Point(0, 442);
-            this.gbCoursType.Name = "gbCoursType";
-            this.gbCoursType.Size = new System.Drawing.Size(183, 88);
-            this.gbCoursType.TabIndex = 12;
-            this.gbCoursType.TabStop = false;
-            this.gbCoursType.Text = "Type de véhicule";
+            gbCoursType.Controls.Add(label19);
+            gbCoursType.Controls.Add(txtN6R);
+            gbCoursType.Controls.Add(rbVehiculMotocyclette);
+            gbCoursType.Controls.Add(rbVehiculMoto);
+            gbCoursType.Controls.Add(rbVehiculManuel);
+            gbCoursType.Controls.Add(rbVehiculAutomatique);
+            gbCoursType.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            gbCoursType.Location = new System.Drawing.Point(0, 442);
+            gbCoursType.Name = "gbCoursType";
+            gbCoursType.Size = new System.Drawing.Size(183, 88);
+            gbCoursType.TabIndex = 12;
+            gbCoursType.TabStop = false;
+            gbCoursType.Text = "Type de véhicule";
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(8, 66);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(36, 13);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Nº6R:";
+            label19.AutoSize = true;
+            label19.Location = new System.Drawing.Point(8, 66);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(36, 13);
+            label19.TabIndex = 23;
+            label19.Text = "Nº6R:";
             // 
             // txtN6R
             // 
-            this.txtN6R.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtN6R.Enabled = false;
-            this.txtN6R.Location = new System.Drawing.Point(48, 64);
-            this.txtN6R.Name = "txtN6R";
-            this.txtN6R.Size = new System.Drawing.Size(122, 20);
-            this.txtN6R.TabIndex = 5;
+            txtN6R.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txtN6R.Enabled = false;
+            txtN6R.Location = new System.Drawing.Point(48, 64);
+            txtN6R.Name = "txtN6R";
+            txtN6R.Size = new System.Drawing.Size(122, 20);
+            txtN6R.TabIndex = 5;
             // 
             // rbVehiculMotocyclette
             // 
-            this.rbVehiculMotocyclette.AutoSize = true;
-            this.rbVehiculMotocyclette.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculMotocyclette.Location = new System.Drawing.Point(95, 39);
-            this.rbVehiculMotocyclette.Name = "rbVehiculMotocyclette";
-            this.rbVehiculMotocyclette.Size = new System.Drawing.Size(89, 18);
-            this.rbVehiculMotocyclette.TabIndex = 4;
-            this.rbVehiculMotocyclette.Tag = "General";
-            this.rbVehiculMotocyclette.Text = "Cyclomoteur";
-            this.rbVehiculMotocyclette.CheckedChanged += new System.EventHandler(this.rbCamion_CheckedChanged);
+            rbVehiculMotocyclette.AutoSize = true;
+            rbVehiculMotocyclette.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbVehiculMotocyclette.Location = new System.Drawing.Point(95, 39);
+            rbVehiculMotocyclette.Name = "rbVehiculMotocyclette";
+            rbVehiculMotocyclette.Size = new System.Drawing.Size(89, 18);
+            rbVehiculMotocyclette.TabIndex = 4;
+            rbVehiculMotocyclette.Tag = "General";
+            rbVehiculMotocyclette.Text = "Cyclomoteur";
+            rbVehiculMotocyclette.CheckedChanged += new System.EventHandler(rbCamion_CheckedChanged);
             // 
             // rbVehiculMoto
             // 
-            this.rbVehiculMoto.AutoSize = true;
-            this.rbVehiculMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculMoto.Location = new System.Drawing.Point(8, 39);
-            this.rbVehiculMoto.Name = "rbVehiculMoto";
-            this.rbVehiculMoto.Size = new System.Drawing.Size(55, 18);
-            this.rbVehiculMoto.TabIndex = 2;
-            this.rbVehiculMoto.Tag = "Moto";
-            this.rbVehiculMoto.Text = "Moto";
-            this.rbVehiculMoto.CheckedChanged += new System.EventHandler(this.rbMoto_CheckedChanged);
+            rbVehiculMoto.AutoSize = true;
+            rbVehiculMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbVehiculMoto.Location = new System.Drawing.Point(8, 39);
+            rbVehiculMoto.Name = "rbVehiculMoto";
+            rbVehiculMoto.Size = new System.Drawing.Size(55, 18);
+            rbVehiculMoto.TabIndex = 2;
+            rbVehiculMoto.Tag = "Moto";
+            rbVehiculMoto.Text = "Moto";
+            rbVehiculMoto.CheckedChanged += new System.EventHandler(rbMoto_CheckedChanged);
             // 
             // rbVehiculManuel
             // 
-            this.rbVehiculManuel.AutoSize = true;
-            this.rbVehiculManuel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculManuel.Location = new System.Drawing.Point(95, 16);
-            this.rbVehiculManuel.Name = "rbVehiculManuel";
-            this.rbVehiculManuel.Size = new System.Drawing.Size(66, 18);
-            this.rbVehiculManuel.TabIndex = 3;
-            this.rbVehiculManuel.Tag = "General";
-            this.rbVehiculManuel.Text = "Manuel";
-            this.rbVehiculManuel.CheckedChanged += new System.EventHandler(this.rbManuel_CheckedChanged);
+            rbVehiculManuel.AutoSize = true;
+            rbVehiculManuel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbVehiculManuel.Location = new System.Drawing.Point(95, 16);
+            rbVehiculManuel.Name = "rbVehiculManuel";
+            rbVehiculManuel.Size = new System.Drawing.Size(66, 18);
+            rbVehiculManuel.TabIndex = 3;
+            rbVehiculManuel.Tag = "General";
+            rbVehiculManuel.Text = "Manuel";
+            rbVehiculManuel.CheckedChanged += new System.EventHandler(rbManuel_CheckedChanged);
             // 
             // rbVehiculAutomatique
             // 
-            this.rbVehiculAutomatique.AutoSize = true;
-            this.rbVehiculAutomatique.Checked = true;
-            this.rbVehiculAutomatique.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculAutomatique.Location = new System.Drawing.Point(8, 16);
-            this.rbVehiculAutomatique.Name = "rbVehiculAutomatique";
-            this.rbVehiculAutomatique.Size = new System.Drawing.Size(90, 18);
-            this.rbVehiculAutomatique.TabIndex = 1;
-            this.rbVehiculAutomatique.TabStop = true;
-            this.rbVehiculAutomatique.Tag = "General";
-            this.rbVehiculAutomatique.Text = "Automatique";
-            this.rbVehiculAutomatique.CheckedChanged += new System.EventHandler(this.rbAutomatique_CheckedChanged);
+            rbVehiculAutomatique.AutoSize = true;
+            rbVehiculAutomatique.Checked = true;
+            rbVehiculAutomatique.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbVehiculAutomatique.Location = new System.Drawing.Point(8, 16);
+            rbVehiculAutomatique.Name = "rbVehiculAutomatique";
+            rbVehiculAutomatique.Size = new System.Drawing.Size(90, 18);
+            rbVehiculAutomatique.TabIndex = 1;
+            rbVehiculAutomatique.TabStop = true;
+            rbVehiculAutomatique.Tag = "General";
+            rbVehiculAutomatique.Text = "Automatique";
+            rbVehiculAutomatique.CheckedChanged += new System.EventHandler(rbAutomatique_CheckedChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbCity);
-            this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.DateNaissance);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.txtPhoneNumber);
-            this.groupBox1.Controls.Add(this.txtCodePostal);
-            this.groupBox1.Controls.Add(this.txtAdressNumber);
-            this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.txtAdressApp);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtAdressStreet);
-            this.groupBox1.Controls.Add(this.txtFirstName);
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtPhoneBureau);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox1.Location = new System.Drawing.Point(0, 112);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(640, 158);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informations sur le client";
+            groupBox1.Controls.Add(cbCity);
+            groupBox1.Controls.Add(txtEmail);
+            groupBox1.Controls.Add(label26);
+            groupBox1.Controls.Add(DateNaissance);
+            groupBox1.Controls.Add(label21);
+            groupBox1.Controls.Add(txtPhoneNumber);
+            groupBox1.Controls.Add(txtCodePostal);
+            groupBox1.Controls.Add(txtAdressNumber);
+            groupBox1.Controls.Add(pictureBox2);
+            groupBox1.Controls.Add(txtAdressApp);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(txtAdressStreet);
+            groupBox1.Controls.Add(txtFirstName);
+            groupBox1.Controls.Add(txtName);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(txtPhoneBureau);
+            groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            groupBox1.Location = new System.Drawing.Point(0, 112);
+            groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(640, 158);
+            groupBox1.TabIndex = 6;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Informations sur le client";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(456, 132);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(176, 20);
-            this.txtEmail.TabIndex = 28;
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
+            txtEmail.Location = new System.Drawing.Point(456, 132);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new System.Drawing.Size(176, 20);
+            txtEmail.TabIndex = 28;
+            txtEmail.Leave += new System.EventHandler(txtEmail_Leave);
+            txtEmail.Validating += new System.ComponentModel.CancelEventHandler(txtEmail_Validating);
             // 
             // label26
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(352, 135);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(48, 13);
-            this.label26.TabIndex = 27;
-            this.label26.Text = "Courriel :";
+            label26.AutoSize = true;
+            label26.Location = new System.Drawing.Point(352, 135);
+            label26.Name = "label26";
+            label26.Size = new System.Drawing.Size(48, 13);
+            label26.TabIndex = 27;
+            label26.Text = "Courriel :";
             // 
             // DateNaissance
             // 
-            this.DateNaissance.Location = new System.Drawing.Point(456, 106);
-            this.DateNaissance.Name = "DateNaissance";
-            this.DateNaissance.Size = new System.Drawing.Size(123, 20);
-            this.DateNaissance.TabIndex = 10;
+            DateNaissance.Location = new System.Drawing.Point(456, 106);
+            DateNaissance.Name = "DateNaissance";
+            DateNaissance.Size = new System.Drawing.Size(123, 20);
+            DateNaissance.TabIndex = 10;
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(352, 109);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 13);
-            this.label21.TabIndex = 26;
-            this.label21.Text = "Date naissance :";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label21.AutoSize = true;
+            label21.Location = new System.Drawing.Point(352, 109);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(87, 13);
+            label21.TabIndex = 26;
+            label21.Text = "Date naissance :";
+            label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(162, 107);
-            this.txtPhoneNumber.Mask = "(999)000-0000";
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(100, 20);
-            this.txtPhoneNumber.TabIndex = 8;
-            this.txtPhoneNumber.Enter += new System.EventHandler(this.txtPhoneNumber_Enter);
+            txtPhoneNumber.Location = new System.Drawing.Point(162, 107);
+            txtPhoneNumber.Mask = "(999)000-0000";
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.Size = new System.Drawing.Size(100, 20);
+            txtPhoneNumber.TabIndex = 8;
+            txtPhoneNumber.Enter += new System.EventHandler(txtPhoneNumber_Enter);
             // 
             // txtCodePostal
             // 
-            this.txtCodePostal.Location = new System.Drawing.Point(456, 78);
-            this.txtCodePostal.Mask = "L0L-0L0";
-            this.txtCodePostal.Name = "txtCodePostal";
-            this.txtCodePostal.Size = new System.Drawing.Size(56, 20);
-            this.txtCodePostal.TabIndex = 7;
-            this.txtCodePostal.Enter += new System.EventHandler(this.txtCodePostal_Enter);
-            this.txtCodePostal.Leave += new System.EventHandler(this.txtCodePostal_Leave);
+            txtCodePostal.Location = new System.Drawing.Point(456, 78);
+            txtCodePostal.Mask = "L0L-0L0";
+            txtCodePostal.Name = "txtCodePostal";
+            txtCodePostal.Size = new System.Drawing.Size(56, 20);
+            txtCodePostal.TabIndex = 7;
+            txtCodePostal.Enter += new System.EventHandler(txtCodePostal_Enter);
+            txtCodePostal.Leave += new System.EventHandler(txtCodePostal_Leave);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(8, 24);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            pictureBox2.Location = new System.Drawing.Point(8, 24);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(32, 32);
+            pictureBox2.TabIndex = 24;
+            pictureBox2.TabStop = false;
             // 
             // txtAdressApp
             // 
-            this.txtAdressApp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAdressApp.Location = new System.Drawing.Point(584, 51);
-            this.txtAdressApp.Name = "txtAdressApp";
-            this.txtAdressApp.Size = new System.Drawing.Size(48, 20);
-            this.txtAdressApp.TabIndex = 5;
+            txtAdressApp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txtAdressApp.Location = new System.Drawing.Point(584, 51);
+            txtAdressApp.Name = "txtAdressApp";
+            txtAdressApp.Size = new System.Drawing.Size(48, 20);
+            txtAdressApp.TabIndex = 5;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(352, 79);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 13);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Code Postale :";
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(352, 79);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(76, 13);
+            label9.TabIndex = 22;
+            label9.Text = "Code Postale :";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(48, 109);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Téléphone :";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(48, 109);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(64, 13);
+            label8.TabIndex = 19;
+            label8.Text = "Téléphone :";
+            label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(329, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Prénom :";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(329, 27);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(49, 13);
+            label7.TabIndex = 16;
+            label7.Text = "Prénom :";
+            label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 54);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Adresse:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(48, 54);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(48, 13);
+            label6.TabIndex = 15;
+            label6.Text = "Adresse:";
+            label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(122, 55);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "No :";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(122, 55);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(27, 13);
+            label5.TabIndex = 14;
+            label5.Text = "No :";
+            label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(215, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Rue :";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(215, 55);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(33, 13);
+            label4.TabIndex = 13;
+            label4.Text = "Rue :";
+            label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(550, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 20);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "App.";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.Location = new System.Drawing.Point(550, 50);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(32, 20);
+            label3.TabIndex = 12;
+            label3.Text = "App.";
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Ville :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(48, 81);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(32, 13);
+            label2.TabIndex = 11;
+            label2.Text = "Ville :";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Nom :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(48, 27);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(35, 13);
+            label1.TabIndex = 10;
+            label1.Text = "Nom :";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtAdressStreet
             // 
-            this.txtAdressStreet.Location = new System.Drawing.Point(254, 51);
-            this.txtAdressStreet.Name = "txtAdressStreet";
-            this.txtAdressStreet.Size = new System.Drawing.Size(290, 20);
-            this.txtAdressStreet.TabIndex = 4;
+            txtAdressStreet.Location = new System.Drawing.Point(254, 51);
+            txtAdressStreet.Name = "txtAdressStreet";
+            txtAdressStreet.Size = new System.Drawing.Size(290, 20);
+            txtAdressStreet.TabIndex = 4;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(384, 24);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(248, 20);
-            this.txtFirstName.TabIndex = 2;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            txtFirstName.Location = new System.Drawing.Point(384, 24);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new System.Drawing.Size(248, 20);
+            txtFirstName.TabIndex = 2;
+            txtFirstName.TextChanged += new System.EventHandler(txtFirstName_TextChanged);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(120, 24);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(192, 20);
-            this.txtName.TabIndex = 1;
+            txtName.Location = new System.Drawing.Point(120, 24);
+            txtName.Name = "txtName";
+            txtName.Size = new System.Drawing.Size(192, 20);
+            txtName.TabIndex = 1;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(48, 134);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 13);
-            this.label12.TabIndex = 21;
-            this.label12.Text = "Téléphone (Autre):";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(48, 134);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(95, 13);
+            label12.TabIndex = 21;
+            label12.Text = "Téléphone (Autre):";
+            label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtPhoneBureau
             // 
-            this.txtPhoneBureau.Location = new System.Drawing.Point(162, 132);
-            this.txtPhoneBureau.Mask = "(999)000-0000";
-            this.txtPhoneBureau.Name = "txtPhoneBureau";
-            this.txtPhoneBureau.Size = new System.Drawing.Size(100, 20);
-            this.txtPhoneBureau.TabIndex = 9;
-            this.txtPhoneBureau.Enter += new System.EventHandler(this.txtPhoneBureau_Enter);
+            txtPhoneBureau.Location = new System.Drawing.Point(162, 132);
+            txtPhoneBureau.Mask = "(999)000-0000";
+            txtPhoneBureau.Name = "txtPhoneBureau";
+            txtPhoneBureau.Size = new System.Drawing.Size(100, 20);
+            txtPhoneBureau.TabIndex = 9;
+            txtPhoneBureau.Enter += new System.EventHandler(txtPhoneBureau_Enter);
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 12);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 13);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "Nº contrat:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(5, 12);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(58, 13);
+            label10.TabIndex = 27;
+            label10.Text = "Nº contrat:";
+            label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.rbTypeClientFinish);
-            this.groupBox5.Controls.Add(this.rbTypeClientActif);
-            this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox5.Location = new System.Drawing.Point(190, 442);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(93, 88);
-            this.groupBox5.TabIndex = 13;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "États du client";
+            groupBox5.Controls.Add(rbTypeClientFinish);
+            groupBox5.Controls.Add(rbTypeClientActif);
+            groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            groupBox5.Location = new System.Drawing.Point(190, 442);
+            groupBox5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new System.Drawing.Size(93, 88);
+            groupBox5.TabIndex = 13;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "États du client";
             // 
             // rbTypeClientFinish
             // 
-            this.rbTypeClientFinish.AutoSize = true;
-            this.rbTypeClientFinish.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbTypeClientFinish.Location = new System.Drawing.Point(6, 54);
-            this.rbTypeClientFinish.Name = "rbTypeClientFinish";
-            this.rbTypeClientFinish.Size = new System.Drawing.Size(95, 18);
-            this.rbTypeClientFinish.TabIndex = 2;
-            this.rbTypeClientFinish.Text = "Cours terminé";
-            this.rbTypeClientFinish.CheckedChanged += new System.EventHandler(this.rbTypeClientFinish_CheckedChanged);
+            rbTypeClientFinish.AutoSize = true;
+            rbTypeClientFinish.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbTypeClientFinish.Location = new System.Drawing.Point(6, 54);
+            rbTypeClientFinish.Name = "rbTypeClientFinish";
+            rbTypeClientFinish.Size = new System.Drawing.Size(95, 18);
+            rbTypeClientFinish.TabIndex = 2;
+            rbTypeClientFinish.Text = "Cours terminé";
+            rbTypeClientFinish.CheckedChanged += new System.EventHandler(rbTypeClientFinish_CheckedChanged);
             // 
             // rbTypeClientActif
             // 
-            this.rbTypeClientActif.Checked = true;
-            this.rbTypeClientActif.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbTypeClientActif.Location = new System.Drawing.Point(6, 27);
-            this.rbTypeClientActif.Name = "rbTypeClientActif";
-            this.rbTypeClientActif.Size = new System.Drawing.Size(88, 16);
-            this.rbTypeClientActif.TabIndex = 1;
-            this.rbTypeClientActif.TabStop = true;
-            this.rbTypeClientActif.Text = "Actif";
+            rbTypeClientActif.Checked = true;
+            rbTypeClientActif.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbTypeClientActif.Location = new System.Drawing.Point(6, 27);
+            rbTypeClientActif.Name = "rbTypeClientActif";
+            rbTypeClientActif.Size = new System.Drawing.Size(88, 16);
+            rbTypeClientActif.TabIndex = 1;
+            rbTypeClientActif.TabStop = true;
+            rbTypeClientActif.Text = "Actif";
             // 
             // DateInscription
             // 
-            this.DateInscription.Location = new System.Drawing.Point(487, 9);
-            this.DateInscription.Name = "DateInscription";
-            this.DateInscription.Size = new System.Drawing.Size(128, 20);
-            this.DateInscription.TabIndex = 3;
-            this.DateInscription.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
-            this.DateInscription.ValueChanged += new System.EventHandler(this.DateInscription_ValueChanged);
+            DateInscription.Location = new System.Drawing.Point(487, 9);
+            DateInscription.Name = "DateInscription";
+            DateInscription.Size = new System.Drawing.Size(128, 20);
+            DateInscription.TabIndex = 3;
+            DateInscription.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            DateInscription.ValueChanged += new System.EventHandler(DateInscription_ValueChanged);
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(378, 11);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 13);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "Inscription :";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(378, 11);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(61, 13);
+            label13.TabIndex = 33;
+            label13.Text = "Inscription :";
+            label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // printDocument1
             // 
-            this.printDocument1.DocumentName = "Fichier Client";
-            this.printDocument1.OriginAtMargins = true;
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            printDocument1.DocumentName = "Fichier Client";
+            printDocument1.OriginAtMargins = true;
+            printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.dbRecuNumber);
-            this.groupBox7.Controls.Add(this.button1);
-            this.groupBox7.Controls.Add(this.label15);
-            this.groupBox7.Controls.Add(this.CashBox_Solde);
-            this.groupBox7.Controls.Add(this.label14);
-            this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox7.Location = new System.Drawing.Point(227, 355);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(301, 80);
-            this.groupBox7.TabIndex = 9;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Information sur le solde";
+            groupBox7.Controls.Add(dbRecuNumber);
+            groupBox7.Controls.Add(button1);
+            groupBox7.Controls.Add(label15);
+            groupBox7.Controls.Add(CashBox_Solde);
+            groupBox7.Controls.Add(label14);
+            groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            groupBox7.Location = new System.Drawing.Point(227, 355);
+            groupBox7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new System.Drawing.Size(301, 80);
+            groupBox7.TabIndex = 9;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "Information sur le solde";
             // 
             // button1
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(224, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 48);
-            this.button1.TabIndex = 3;
-            this.toolTipText.SetToolTip(this.button1, "Paiement et reçu");
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            button1.Location = new System.Drawing.Point(224, 20);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(64, 48);
+            button1.TabIndex = 3;
+            toolTipText.SetToolTip(button1, "Paiement et reçu");
+            button1.Click += new System.EventHandler(button1_Click);
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 50);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(118, 13);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "Dernier numéro de reçu";
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(9, 50);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(118, 13);
+            label15.TabIndex = 7;
+            label15.Text = "Dernier numéro de reçu";
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 28);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(34, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Solde";
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(9, 28);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(34, 13);
+            label14.TabIndex = 1;
+            label14.Text = "Solde";
             // 
             // groupBox8
             // 
-            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox8.Controls.Add(this.txtNotes);
-            this.groupBox8.Controls.Add(this.pictureBox1);
-            this.groupBox8.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox8.Location = new System.Drawing.Point(0, 538);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(640, 177);
-            this.groupBox8.TabIndex = 31;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Notes";
+            groupBox8.Controls.Add(txtNotes);
+            groupBox8.Controls.Add(pictureBox1);
+            groupBox8.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            groupBox8.Location = new System.Drawing.Point(0, 538);
+            groupBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            groupBox8.Name = "groupBox8";
+            groupBox8.Size = new System.Drawing.Size(640, 177);
+            groupBox8.TabIndex = 31;
+            groupBox8.TabStop = false;
+            groupBox8.Text = "Notes";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(8, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            pictureBox1.Location = new System.Drawing.Point(8, 16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(32, 32);
+            pictureBox1.TabIndex = 30;
+            pictureBox1.TabStop = false;
             // 
             // ImageListToolBar
             // 
-            this.ImageListToolBar.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ImageListToolBar.ImageSize = new System.Drawing.Size(16, 16);
-            this.ImageListToolBar.TransparentColor = System.Drawing.Color.Transparent;
+            ImageListToolBar.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            ImageListToolBar.ImageSize = new System.Drawing.Size(16, 16);
+            ImageListToolBar.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // cbBVA
             // 
-            this.cbBVA.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbBVA.Location = new System.Drawing.Point(8, 23);
-            this.cbBVA.Name = "cbBVA";
-            this.cbBVA.Size = new System.Drawing.Size(48, 24);
-            this.cbBVA.TabIndex = 1;
-            this.cbBVA.Text = "BVA";
-            this.toolTipText.SetToolTip(this.cbBVA, "Date pour le Bureau des Véhicules Automobile.");
-            this.cbBVA.CheckedChanged += new System.EventHandler(this.cbBVA_CheckedChanged);
+            cbBVA.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            cbBVA.Location = new System.Drawing.Point(8, 23);
+            cbBVA.Name = "cbBVA";
+            cbBVA.Size = new System.Drawing.Size(48, 24);
+            cbBVA.TabIndex = 1;
+            cbBVA.Text = "BVA";
+            toolTipText.SetToolTip(cbBVA, "Date pour le Bureau des Véhicules Automobile.");
+            cbBVA.CheckedChanged += new System.EventHandler(cbBVA_CheckedChanged);
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(5, 37);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(84, 13);
-            this.label20.TabIndex = 39;
-            this.label20.Text = "Nº Attestation 1:";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTipText.SetToolTip(this.label20, "Nº Attestation de la Ligue de Sécurité");
+            label20.AutoSize = true;
+            label20.Location = new System.Drawing.Point(5, 37);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(84, 13);
+            label20.TabIndex = 39;
+            label20.Text = "Nº Attestation 1:";
+            label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            toolTipText.SetToolTip(label20, "Nº Attestation de la Ligue de Sécurité");
             // 
             // cbNullContrat
             // 
-            this.cbNullContrat.AutoSize = true;
-            this.cbNullContrat.Location = new System.Drawing.Point(187, 11);
-            this.cbNullContrat.Name = "cbNullContrat";
-            this.cbNullContrat.Size = new System.Drawing.Size(15, 14);
-            this.cbNullContrat.TabIndex = 41;
-            this.toolTipText.SetToolTip(this.cbNullContrat, "Cocher cette case permet de ne pas afficher ce contrat dans le rapport : ligue de" +
+            cbNullContrat.AutoSize = true;
+            cbNullContrat.Location = new System.Drawing.Point(187, 11);
+            cbNullContrat.Name = "cbNullContrat";
+            cbNullContrat.Size = new System.Drawing.Size(15, 14);
+            cbNullContrat.TabIndex = 41;
+            toolTipText.SetToolTip(cbNullContrat, "Cocher cette case permet de ne pas afficher ce contrat dans le rapport : ligue de" +
         " sécurité.");
             // 
             // cmdShowSeanceT
             // 
-            this.cmdShowSeanceT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.cmdShowSeanceT.Image = ((System.Drawing.Image)(resources.GetObject("cmdShowSeanceT.Image")));
-            this.cmdShowSeanceT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdShowSeanceT.Location = new System.Drawing.Point(534, 398);
-            this.cmdShowSeanceT.Name = "cmdShowSeanceT";
-            this.cmdShowSeanceT.Size = new System.Drawing.Size(104, 43);
-            this.cmdShowSeanceT.TabIndex = 11;
-            this.cmdShowSeanceT.TabStop = false;
-            this.cmdShowSeanceT.Text = "Pratique";
-            this.cmdShowSeanceT.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.toolTipText.SetToolTip(this.cmdShowSeanceT, "Afficher les séances");
-            this.cmdShowSeanceT.Click += new System.EventHandler(this.cmdShowSeance_Click);
+            cmdShowSeanceT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            cmdShowSeanceT.Image = ((System.Drawing.Image)(resources.GetObject("cmdShowSeanceT.Image")));
+            cmdShowSeanceT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdShowSeanceT.Location = new System.Drawing.Point(534, 398);
+            cmdShowSeanceT.Name = "cmdShowSeanceT";
+            cmdShowSeanceT.Size = new System.Drawing.Size(104, 43);
+            cmdShowSeanceT.TabIndex = 11;
+            cmdShowSeanceT.TabStop = false;
+            cmdShowSeanceT.Text = "Pratique";
+            cmdShowSeanceT.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            toolTipText.SetToolTip(cmdShowSeanceT, "Afficher les séances");
+            cmdShowSeanceT.Click += new System.EventHandler(cmdShowSeance_Click);
             // 
             // cmdShowSeanceTheorique
             // 
-            this.cmdShowSeanceTheorique.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.cmdShowSeanceTheorique.Image = global::Barette.Library.Properties.Resources.book_icon;
-            this.cmdShowSeanceTheorique.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdShowSeanceTheorique.Location = new System.Drawing.Point(534, 353);
-            this.cmdShowSeanceTheorique.Name = "cmdShowSeanceTheorique";
-            this.cmdShowSeanceTheorique.Size = new System.Drawing.Size(104, 43);
-            this.cmdShowSeanceTheorique.TabIndex = 10;
-            this.cmdShowSeanceTheorique.TabStop = false;
-            this.cmdShowSeanceTheorique.Text = "Théorique";
-            this.cmdShowSeanceTheorique.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.toolTipText.SetToolTip(this.cmdShowSeanceTheorique, "Afficher les séances");
-            this.cmdShowSeanceTheorique.Click += new System.EventHandler(this.cmdShowSeanceTheorique_Click);
+            cmdShowSeanceTheorique.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            cmdShowSeanceTheorique.Image = global::Barette.Library.Properties.Resources.book_icon;
+            cmdShowSeanceTheorique.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdShowSeanceTheorique.Location = new System.Drawing.Point(534, 353);
+            cmdShowSeanceTheorique.Name = "cmdShowSeanceTheorique";
+            cmdShowSeanceTheorique.Size = new System.Drawing.Size(104, 43);
+            cmdShowSeanceTheorique.TabIndex = 10;
+            cmdShowSeanceTheorique.TabStop = false;
+            cmdShowSeanceTheorique.Text = "Théorique";
+            cmdShowSeanceTheorique.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            toolTipText.SetToolTip(cmdShowSeanceTheorique, "Afficher les séances");
+            cmdShowSeanceTheorique.Click += new System.EventHandler(cmdShowSeanceTheorique_Click);
             // 
             // cmdAutoDateExpiration
             // 
-            this.cmdAutoDateExpiration.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdAutoDateExpiration.Location = new System.Drawing.Point(615, 33);
-            this.cmdAutoDateExpiration.Name = "cmdAutoDateExpiration";
-            this.cmdAutoDateExpiration.Size = new System.Drawing.Size(20, 20);
-            this.cmdAutoDateExpiration.TabIndex = 47;
-            this.toolTipText.SetToolTip(this.cmdAutoDateExpiration, "Ajoute 365 jour à la date d\'inscription");
-            this.cmdAutoDateExpiration.Click += new System.EventHandler(this.cmdAutoDateExpiration_Click);
+            cmdAutoDateExpiration.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            cmdAutoDateExpiration.Location = new System.Drawing.Point(615, 33);
+            cmdAutoDateExpiration.Name = "cmdAutoDateExpiration";
+            cmdAutoDateExpiration.Size = new System.Drawing.Size(20, 20);
+            cmdAutoDateExpiration.TabIndex = 47;
+            toolTipText.SetToolTip(cmdAutoDateExpiration, "Ajoute 365 jour à la date d\'inscription");
+            cmdAutoDateExpiration.Click += new System.EventHandler(cmdAutoDateExpiration_Click);
             // 
             // label24
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(5, 61);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(84, 13);
-            this.label24.TabIndex = 51;
-            this.label24.Text = "Nº Attestation 2:";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTipText.SetToolTip(this.label24, "Nº Attestation de la Ligue de Sécurité");
+            label24.AutoSize = true;
+            label24.Location = new System.Drawing.Point(5, 61);
+            label24.Name = "label24";
+            label24.Size = new System.Drawing.Size(84, 13);
+            label24.TabIndex = 51;
+            label24.Text = "Nº Attestation 2:";
+            label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            toolTipText.SetToolTip(label24, "Nº Attestation de la Ligue de Sécurité");
             // 
             // cmdClearbox
             // 
-            this.cmdClearbox.Enabled = false;
-            this.cmdClearbox.Location = new System.Drawing.Point(189, 81);
-            this.cmdClearbox.Name = "cmdClearbox";
-            this.cmdClearbox.Size = new System.Drawing.Size(22, 20);
-            this.cmdClearbox.TabIndex = 56;
-            this.cmdClearbox.Text = "X";
-            this.toolTipText.SetToolTip(this.cmdClearbox, "Supprimer du group");
-            this.cmdClearbox.UseVisualStyleBackColor = true;
-            this.cmdClearbox.Click += new System.EventHandler(this.cmdClearbox_Click);
+            cmdClearbox.Enabled = false;
+            cmdClearbox.Location = new System.Drawing.Point(189, 81);
+            cmdClearbox.Name = "cmdClearbox";
+            cmdClearbox.Size = new System.Drawing.Size(22, 20);
+            cmdClearbox.TabIndex = 56;
+            cmdClearbox.Text = "X";
+            toolTipText.SetToolTip(cmdClearbox, "Supprimer du group");
+            cmdClearbox.UseVisualStyleBackColor = true;
+            cmdClearbox.Click += new System.EventHandler(cmdClearbox_Click);
             // 
             // cmdShowSeancesMoto2015
             // 
-            this.cmdShowSeancesMoto2015.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.cmdShowSeancesMoto2015.Image = global::Barette.Library.Properties.Resources.book_icon;
-            this.cmdShowSeancesMoto2015.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdShowSeancesMoto2015.Location = new System.Drawing.Point(534, 353);
-            this.cmdShowSeancesMoto2015.Name = "cmdShowSeancesMoto2015";
-            this.cmdShowSeancesMoto2015.Size = new System.Drawing.Size(104, 88);
-            this.cmdShowSeancesMoto2015.TabIndex = 57;
-            this.cmdShowSeancesMoto2015.TabStop = false;
-            this.cmdShowSeancesMoto2015.Text = "Séances ";
-            this.cmdShowSeancesMoto2015.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTipText.SetToolTip(this.cmdShowSeancesMoto2015, "Afficher les séances");
-            this.cmdShowSeancesMoto2015.Click += new System.EventHandler(this.cmdShowSeancesMoto2015_Click);
+            cmdShowSeancesMoto2015.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            cmdShowSeancesMoto2015.Image = global::Barette.Library.Properties.Resources.book_icon;
+            cmdShowSeancesMoto2015.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            cmdShowSeancesMoto2015.Location = new System.Drawing.Point(534, 353);
+            cmdShowSeancesMoto2015.Name = "cmdShowSeancesMoto2015";
+            cmdShowSeancesMoto2015.Size = new System.Drawing.Size(104, 88);
+            cmdShowSeancesMoto2015.TabIndex = 57;
+            cmdShowSeancesMoto2015.TabStop = false;
+            cmdShowSeancesMoto2015.Text = "Séances ";
+            cmdShowSeancesMoto2015.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            toolTipText.SetToolTip(cmdShowSeancesMoto2015, "Afficher les séances");
+            cmdShowSeancesMoto2015.Click += new System.EventHandler(cmdShowSeancesMoto2015_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dtpBVA);
-            this.groupBox3.Controls.Add(this.cbBVA);
-            this.groupBox3.Controls.Add(this.cbMoto);
-            this.groupBox3.Controls.Add(this.cbAuto);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.ctbLocationMontant);
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox3.Location = new System.Drawing.Point(289, 444);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(265, 88);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Location";
+            groupBox3.Controls.Add(dtpBVA);
+            groupBox3.Controls.Add(cbBVA);
+            groupBox3.Controls.Add(cbMoto);
+            groupBox3.Controls.Add(cbAuto);
+            groupBox3.Controls.Add(label16);
+            groupBox3.Controls.Add(ctbLocationMontant);
+            groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            groupBox3.Location = new System.Drawing.Point(289, 444);
+            groupBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new System.Drawing.Size(265, 88);
+            groupBox3.TabIndex = 15;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Location";
             // 
             // dtpBVA
             // 
-            this.dtpBVA.CustomFormat = "ddd yyyy/MM/dd \'  Heure:\' HH:mm";
-            this.dtpBVA.Enabled = false;
-            this.dtpBVA.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBVA.Location = new System.Drawing.Point(56, 23);
-            this.dtpBVA.Name = "dtpBVA";
-            this.dtpBVA.Size = new System.Drawing.Size(199, 20);
-            this.dtpBVA.TabIndex = 2;
+            dtpBVA.CustomFormat = "ddd yyyy/MM/dd \'  Heure:\' HH:mm";
+            dtpBVA.Enabled = false;
+            dtpBVA.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dtpBVA.Location = new System.Drawing.Point(56, 23);
+            dtpBVA.Name = "dtpBVA";
+            dtpBVA.Size = new System.Drawing.Size(199, 20);
+            dtpBVA.TabIndex = 2;
             // 
             // cbMoto
             // 
-            this.cbMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbMoto.Location = new System.Drawing.Point(209, 52);
-            this.cbMoto.Name = "cbMoto";
-            this.cbMoto.Size = new System.Drawing.Size(48, 24);
-            this.cbMoto.TabIndex = 5;
-            this.cbMoto.Text = "Moto";
+            cbMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            cbMoto.Location = new System.Drawing.Point(209, 52);
+            cbMoto.Name = "cbMoto";
+            cbMoto.Size = new System.Drawing.Size(48, 24);
+            cbMoto.TabIndex = 5;
+            cbMoto.Text = "Moto";
             // 
             // cbAuto
             // 
-            this.cbAuto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbAuto.Location = new System.Drawing.Point(130, 52);
-            this.cbAuto.Name = "cbAuto";
-            this.cbAuto.Size = new System.Drawing.Size(80, 24);
-            this.cbAuto.TabIndex = 4;
-            this.cbAuto.Text = "Automobile";
-            this.cbAuto.CheckedChanged += new System.EventHandler(this.cbAuto_CheckedChanged);
+            cbAuto.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            cbAuto.Location = new System.Drawing.Point(130, 52);
+            cbAuto.Name = "cbAuto";
+            cbAuto.Size = new System.Drawing.Size(80, 24);
+            cbAuto.TabIndex = 4;
+            cbAuto.Text = "Automobile";
+            cbAuto.CheckedChanged += new System.EventHandler(cbAuto_CheckedChanged);
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 58);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(46, 13);
-            this.label16.TabIndex = 18;
-            this.label16.Text = "Montant";
+            label16.AutoSize = true;
+            label16.Location = new System.Drawing.Point(8, 58);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(46, 13);
+            label16.TabIndex = 18;
+            label16.Text = "Montant";
             // 
             // timerCheckClientValid
             // 
-            this.timerCheckClientValid.Enabled = true;
-            this.timerCheckClientValid.Tick += new System.EventHandler(this.timerCheckClientValid_Tick);
+            timerCheckClientValid.Enabled = true;
+            timerCheckClientValid.Tick += new System.EventHandler(timerCheckClientValid_Tick);
             // 
             // dtpDatePermis
             // 
-            this.dtpDatePermis.CustomFormat = "dd MMMM yyyy";
-            this.dtpDatePermis.Enabled = false;
-            this.dtpDatePermis.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDatePermis.Location = new System.Drawing.Point(480, 16);
-            this.dtpDatePermis.Name = "dtpDatePermis";
-            this.dtpDatePermis.Size = new System.Drawing.Size(152, 20);
-            this.dtpDatePermis.TabIndex = 3;
-            this.dtpDatePermis.ValueChanged += new System.EventHandler(this.dtpDatePermis_ValueChanged);
+            dtpDatePermis.CustomFormat = "dd MMMM yyyy";
+            dtpDatePermis.Enabled = false;
+            dtpDatePermis.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dtpDatePermis.Location = new System.Drawing.Point(480, 16);
+            dtpDatePermis.Name = "dtpDatePermis";
+            dtpDatePermis.Size = new System.Drawing.Size(152, 20);
+            dtpDatePermis.TabIndex = 3;
+            dtpDatePermis.ValueChanged += new System.EventHandler(dtpDatePermis_ValueChanged);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.cbPermisObtenue);
-            this.groupBox6.Controls.Add(this.dtpDatePermisPlus8);
-            this.groupBox6.Controls.Add(this.label17);
-            this.groupBox6.Controls.Add(this.pictureBox3);
-            this.groupBox6.Controls.Add(this.txtNumeroPermis);
-            this.groupBox6.Controls.Add(this.dtpDatePermis);
-            this.groupBox6.Controls.Add(this.label11);
-            this.groupBox6.Controls.Add(this.label18);
-            this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox6.Location = new System.Drawing.Point(0, 274);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(640, 72);
-            this.groupBox6.TabIndex = 7;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Permis de conduire";
+            groupBox6.Controls.Add(cbPermisObtenue);
+            groupBox6.Controls.Add(dtpDatePermisPlus8);
+            groupBox6.Controls.Add(label17);
+            groupBox6.Controls.Add(pictureBox3);
+            groupBox6.Controls.Add(txtNumeroPermis);
+            groupBox6.Controls.Add(dtpDatePermis);
+            groupBox6.Controls.Add(label11);
+            groupBox6.Controls.Add(label18);
+            groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            groupBox6.Location = new System.Drawing.Point(0, 274);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new System.Drawing.Size(640, 72);
+            groupBox6.TabIndex = 7;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Permis de conduire";
             // 
             // cbPermisObtenue
             // 
-            this.cbPermisObtenue.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbPermisObtenue.Location = new System.Drawing.Point(462, 27);
-            this.cbPermisObtenue.Name = "cbPermisObtenue";
-            this.cbPermisObtenue.Size = new System.Drawing.Size(16, 24);
-            this.cbPermisObtenue.TabIndex = 2;
-            this.cbPermisObtenue.CheckedChanged += new System.EventHandler(this.cbPermisObtenue_CheckedChanged);
+            cbPermisObtenue.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            cbPermisObtenue.Location = new System.Drawing.Point(462, 27);
+            cbPermisObtenue.Name = "cbPermisObtenue";
+            cbPermisObtenue.Size = new System.Drawing.Size(16, 24);
+            cbPermisObtenue.TabIndex = 2;
+            cbPermisObtenue.CheckedChanged += new System.EventHandler(cbPermisObtenue_CheckedChanged);
             // 
             // dtpDatePermisPlus8
             // 
-            this.dtpDatePermisPlus8.CustomFormat = "dd MMMM yyyy";
-            this.dtpDatePermisPlus8.Enabled = false;
-            this.dtpDatePermisPlus8.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDatePermisPlus8.Location = new System.Drawing.Point(480, 40);
-            this.dtpDatePermisPlus8.Name = "dtpDatePermisPlus8";
-            this.dtpDatePermisPlus8.Size = new System.Drawing.Size(152, 20);
-            this.dtpDatePermisPlus8.TabIndex = 4;
+            dtpDatePermisPlus8.CustomFormat = "dd MMMM yyyy";
+            dtpDatePermisPlus8.Enabled = false;
+            dtpDatePermisPlus8.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dtpDatePermisPlus8.Location = new System.Drawing.Point(480, 40);
+            dtpDatePermisPlus8.Name = "dtpDatePermisPlus8";
+            dtpDatePermisPlus8.Size = new System.Drawing.Size(152, 20);
+            dtpDatePermisPlus8.TabIndex = 4;
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(288, 18);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 16);
-            this.label17.TabIndex = 29;
-            this.label17.Text = "Date d\'obtention:";
+            label17.Location = new System.Drawing.Point(288, 18);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(100, 16);
+            label17.TabIndex = 29;
+            label17.Text = "Date d\'obtention:";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(8, 25);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.TabIndex = 28;
-            this.pictureBox3.TabStop = false;
+            pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            pictureBox3.Location = new System.Drawing.Point(8, 25);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(32, 32);
+            pictureBox3.TabIndex = 28;
+            pictureBox3.TabStop = false;
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(288, 42);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(159, 13);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Date min. de l’examen pratique :";
+            label18.AutoSize = true;
+            label18.Location = new System.Drawing.Point(288, 42);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(159, 13);
+            label18.TabIndex = 30;
+            label18.Text = "Date min. de l’examen pratique :";
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(378, 37);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(98, 13);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "Expiration (contrat):";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label22.AutoSize = true;
+            label22.Location = new System.Drawing.Point(378, 37);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(98, 13);
+            label22.TabIndex = 43;
+            label22.Text = "Expiration (contrat):";
+            label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DateExpiration
             // 
-            this.DateExpiration.Location = new System.Drawing.Point(488, 34);
-            this.DateExpiration.Name = "DateExpiration";
-            this.DateExpiration.Size = new System.Drawing.Size(128, 20);
-            this.DateExpiration.TabIndex = 4;
-            this.DateExpiration.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            DateExpiration.Location = new System.Drawing.Point(488, 34);
+            DateExpiration.Name = "DateExpiration";
+            DateExpiration.Size = new System.Drawing.Size(128, 20);
+            DateExpiration.TabIndex = 4;
+            DateExpiration.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
             // 
             // label23
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(378, 62);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(91, 13);
-            this.label23.TabIndex = 45;
-            this.label23.Text = "Début des cours :";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label23.AutoSize = true;
+            label23.Location = new System.Drawing.Point(378, 62);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(91, 13);
+            label23.TabIndex = 45;
+            label23.Text = "Début des cours :";
+            label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DateDebutCours
             // 
-            this.DateDebutCours.Location = new System.Drawing.Point(488, 60);
-            this.DateDebutCours.Name = "DateDebutCours";
-            this.DateDebutCours.Size = new System.Drawing.Size(128, 20);
-            this.DateDebutCours.TabIndex = 5;
-            this.DateDebutCours.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            DateDebutCours.Location = new System.Drawing.Point(488, 60);
+            DateDebutCours.Name = "DateDebutCours";
+            DateDebutCours.Size = new System.Drawing.Size(128, 20);
+            DateDebutCours.TabIndex = 5;
+            DateDebutCours.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
             // 
             // printDocContract
             // 
-            this.printDocContract.DocumentName = "Contrat du client";
-            this.printDocContract.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocContract_PrintPage);
+            printDocContract.DocumentName = "Contrat du client";
+            printDocContract.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocContract_PrintPage);
             // 
             // dtpAttestation2
             // 
-            this.dtpAttestation2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAttestation2.Location = new System.Drawing.Point(187, 58);
-            this.dtpAttestation2.Name = "dtpAttestation2";
-            this.dtpAttestation2.Size = new System.Drawing.Size(95, 20);
-            this.dtpAttestation2.TabIndex = 52;
-            this.dtpAttestation2.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            dtpAttestation2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dtpAttestation2.Location = new System.Drawing.Point(187, 58);
+            dtpAttestation2.Name = "dtpAttestation2";
+            dtpAttestation2.Size = new System.Drawing.Size(95, 20);
+            dtpAttestation2.TabIndex = 52;
+            dtpAttestation2.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
             // 
             // dtpAttestation1
             // 
-            this.dtpAttestation1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAttestation1.Location = new System.Drawing.Point(187, 34);
-            this.dtpAttestation1.Name = "dtpAttestation1";
-            this.dtpAttestation1.Size = new System.Drawing.Size(95, 20);
-            this.dtpAttestation1.TabIndex = 53;
-            this.dtpAttestation1.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            dtpAttestation1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dtpAttestation1.Location = new System.Drawing.Point(187, 34);
+            dtpAttestation1.Name = "dtpAttestation1";
+            dtpAttestation1.Size = new System.Drawing.Size(95, 20);
+            dtpAttestation1.TabIndex = 53;
+            dtpAttestation1.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
             // 
             // printDocTheorique
             // 
-            this.printDocTheorique.DocumentName = "Fichier du client";
-            this.printDocTheorique.OriginAtMargins = true;
-            this.printDocTheorique.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocTheorique_PrintPage);
+            printDocTheorique.DocumentName = "Fichier du client";
+            printDocTheorique.OriginAtMargins = true;
+            printDocTheorique.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocTheorique_PrintPage);
             // 
             // label25
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 85);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(63, 13);
-            this.label25.TabIndex = 55;
-            this.label25.Text = "Nº Groupe :";
+            label25.AutoSize = true;
+            label25.Location = new System.Drawing.Point(5, 85);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(63, 13);
+            label25.TabIndex = 55;
+            label25.Text = "Nº Groupe :";
             // 
             // EmailError
             // 
-            this.EmailError.ContainerControl = this;
+            EmailError.ContainerControl = this;
             // 
             // printDocMoto2015
             // 
-            this.printDocMoto2015.DocumentName = "Fichier du client";
-            this.printDocMoto2015.OriginAtMargins = true;
-            this.printDocMoto2015.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocMoto2015_PrintPage);
+            printDocMoto2015.DocumentName = "Fichier du client";
+            printDocMoto2015.OriginAtMargins = true;
+            printDocMoto2015.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocMoto2015_PrintPage);
             // 
             // gbProgramMoto
             // 
-            this.gbProgramMoto.Controls.Add(this.rbProgramMoto2015);
-            this.gbProgramMoto.Controls.Add(this.rbProgramMotoNormal);
-            this.gbProgramMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.gbProgramMoto.Location = new System.Drawing.Point(560, 445);
-            this.gbProgramMoto.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-            this.gbProgramMoto.Name = "gbProgramMoto";
-            this.gbProgramMoto.Size = new System.Drawing.Size(80, 88);
-            this.gbProgramMoto.TabIndex = 58;
-            this.gbProgramMoto.TabStop = false;
-            this.gbProgramMoto.Text = "Moto Program";
+            gbProgramMoto.Controls.Add(rbProgramMoto2015);
+            gbProgramMoto.Controls.Add(rbProgramMotoNormal);
+            gbProgramMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            gbProgramMoto.Location = new System.Drawing.Point(560, 445);
+            gbProgramMoto.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            gbProgramMoto.Name = "gbProgramMoto";
+            gbProgramMoto.Size = new System.Drawing.Size(80, 88);
+            gbProgramMoto.TabIndex = 58;
+            gbProgramMoto.TabStop = false;
+            gbProgramMoto.Text = "Moto Program";
             // 
             // rbProgramMoto2015
             // 
-            this.rbProgramMoto2015.AutoSize = true;
-            this.rbProgramMoto2015.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbProgramMoto2015.Location = new System.Drawing.Point(6, 54);
-            this.rbProgramMoto2015.Name = "rbProgramMoto2015";
-            this.rbProgramMoto2015.Size = new System.Drawing.Size(75, 18);
-            this.rbProgramMoto2015.TabIndex = 2;
-            this.rbProgramMoto2015.Text = "Nouveau";
-            this.rbProgramMoto2015.CheckedChanged += new System.EventHandler(this.rbProgramMoto2015_CheckedChanged);
+            rbProgramMoto2015.AutoSize = true;
+            rbProgramMoto2015.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbProgramMoto2015.Location = new System.Drawing.Point(6, 54);
+            rbProgramMoto2015.Name = "rbProgramMoto2015";
+            rbProgramMoto2015.Size = new System.Drawing.Size(75, 18);
+            rbProgramMoto2015.TabIndex = 2;
+            rbProgramMoto2015.Text = "Nouveau";
+            rbProgramMoto2015.CheckedChanged += new System.EventHandler(rbProgramMoto2015_CheckedChanged);
             // 
             // rbProgramMotoNormal
             // 
-            this.rbProgramMotoNormal.Checked = true;
-            this.rbProgramMotoNormal.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbProgramMotoNormal.Location = new System.Drawing.Point(6, 27);
-            this.rbProgramMotoNormal.Name = "rbProgramMotoNormal";
-            this.rbProgramMotoNormal.Size = new System.Drawing.Size(69, 21);
-            this.rbProgramMotoNormal.TabIndex = 1;
-            this.rbProgramMotoNormal.TabStop = true;
-            this.rbProgramMotoNormal.Text = "Ancien";
-            this.rbProgramMotoNormal.CheckedChanged += new System.EventHandler(this.rbProgramMotoNormal_CheckedChanged);
+            rbProgramMotoNormal.Checked = true;
+            rbProgramMotoNormal.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            rbProgramMotoNormal.Location = new System.Drawing.Point(6, 27);
+            rbProgramMotoNormal.Name = "rbProgramMotoNormal";
+            rbProgramMotoNormal.Size = new System.Drawing.Size(69, 21);
+            rbProgramMotoNormal.TabIndex = 1;
+            rbProgramMotoNormal.TabStop = true;
+            rbProgramMotoNormal.Text = "Ancien";
+            rbProgramMotoNormal.CheckedChanged += new System.EventHandler(rbProgramMotoNormal_CheckedChanged);
             // 
             // txtNumeroGroupe
             // 
-            this.txtNumeroGroupe.Enabled = false;
-            this.txtNumeroGroupe.Location = new System.Drawing.Point(103, 82);
-            this.txtNumeroGroupe.Name = "txtNumeroGroupe";
-            this.txtNumeroGroupe.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtNumeroGroupe.ShortcutsEnabled = false;
-            this.txtNumeroGroupe.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroGroupe.TabIndex = 54;
-            this.txtNumeroGroupe.Text = "0";
-            this.txtNumeroGroupe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNumeroGroupe.Value = 0;
+            txtNumeroGroupe.Enabled = false;
+            txtNumeroGroupe.Location = new System.Drawing.Point(103, 82);
+            txtNumeroGroupe.Name = "txtNumeroGroupe";
+            txtNumeroGroupe.SetRange = new System.Drawing.Size(0, 9999999);
+            txtNumeroGroupe.ShortcutsEnabled = false;
+            txtNumeroGroupe.Size = new System.Drawing.Size(80, 20);
+            txtNumeroGroupe.TabIndex = 54;
+            txtNumeroGroupe.Text = "0";
+            txtNumeroGroupe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            txtNumeroGroupe.Value = 0;
             // 
             // txtNumeroAttestation2
             // 
-            this.txtNumeroAttestation2.Location = new System.Drawing.Point(103, 58);
-            this.txtNumeroAttestation2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.txtNumeroAttestation2.Name = "txtNumeroAttestation2";
-            this.txtNumeroAttestation2.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtNumeroAttestation2.ShortcutsEnabled = false;
-            this.txtNumeroAttestation2.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroAttestation2.TabIndex = 50;
-            this.txtNumeroAttestation2.Text = "0";
-            this.txtNumeroAttestation2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNumeroAttestation2.Value = 0;
+            txtNumeroAttestation2.Location = new System.Drawing.Point(103, 58);
+            txtNumeroAttestation2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            txtNumeroAttestation2.Name = "txtNumeroAttestation2";
+            txtNumeroAttestation2.SetRange = new System.Drawing.Size(0, 9999999);
+            txtNumeroAttestation2.ShortcutsEnabled = false;
+            txtNumeroAttestation2.Size = new System.Drawing.Size(80, 20);
+            txtNumeroAttestation2.TabIndex = 50;
+            txtNumeroAttestation2.Text = "0";
+            txtNumeroAttestation2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            txtNumeroAttestation2.Value = 0;
             // 
             // txtNumeroContrat
             // 
-            this.txtNumeroContrat.Location = new System.Drawing.Point(103, 9);
-            this.txtNumeroContrat.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.txtNumeroContrat.Name = "txtNumeroContrat";
-            this.txtNumeroContrat.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtNumeroContrat.ShortcutsEnabled = false;
-            this.txtNumeroContrat.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroContrat.TabIndex = 1;
-            this.txtNumeroContrat.Text = "0";
-            this.txtNumeroContrat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNumeroContrat.Value = 0;
+            txtNumeroContrat.Location = new System.Drawing.Point(103, 9);
+            txtNumeroContrat.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            txtNumeroContrat.Name = "txtNumeroContrat";
+            txtNumeroContrat.SetRange = new System.Drawing.Size(0, 9999999);
+            txtNumeroContrat.ShortcutsEnabled = false;
+            txtNumeroContrat.Size = new System.Drawing.Size(80, 20);
+            txtNumeroContrat.TabIndex = 1;
+            txtNumeroContrat.Text = "0";
+            txtNumeroContrat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            txtNumeroContrat.Value = 0;
             // 
             // txtNumeroAttestation
             // 
-            this.txtNumeroAttestation.Location = new System.Drawing.Point(103, 34);
-            this.txtNumeroAttestation.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-            this.txtNumeroAttestation.Name = "txtNumeroAttestation";
-            this.txtNumeroAttestation.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtNumeroAttestation.ShortcutsEnabled = false;
-            this.txtNumeroAttestation.Size = new System.Drawing.Size(80, 20);
-            this.txtNumeroAttestation.TabIndex = 2;
-            this.txtNumeroAttestation.Text = "0";
-            this.txtNumeroAttestation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNumeroAttestation.Value = 0;
+            txtNumeroAttestation.Location = new System.Drawing.Point(103, 34);
+            txtNumeroAttestation.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            txtNumeroAttestation.Name = "txtNumeroAttestation";
+            txtNumeroAttestation.SetRange = new System.Drawing.Size(0, 9999999);
+            txtNumeroAttestation.ShortcutsEnabled = false;
+            txtNumeroAttestation.Size = new System.Drawing.Size(80, 20);
+            txtNumeroAttestation.TabIndex = 2;
+            txtNumeroAttestation.Text = "0";
+            txtNumeroAttestation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            txtNumeroAttestation.Value = 0;
             // 
             // dbRecuNumber
             // 
-            this.dbRecuNumber.Location = new System.Drawing.Point(154, 47);
-            this.dbRecuNumber.Name = "dbRecuNumber";
-            this.dbRecuNumber.SetRange = new System.Drawing.Size(0, 9999999);
-            this.dbRecuNumber.ShortcutsEnabled = false;
-            this.dbRecuNumber.Size = new System.Drawing.Size(64, 20);
-            this.dbRecuNumber.TabIndex = 2;
-            this.dbRecuNumber.Text = "0";
-            this.dbRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.dbRecuNumber.Value = 0;
+            dbRecuNumber.Location = new System.Drawing.Point(154, 47);
+            dbRecuNumber.Name = "dbRecuNumber";
+            dbRecuNumber.SetRange = new System.Drawing.Size(0, 9999999);
+            dbRecuNumber.ShortcutsEnabled = false;
+            dbRecuNumber.Size = new System.Drawing.Size(64, 20);
+            dbRecuNumber.TabIndex = 2;
+            dbRecuNumber.Text = "0";
+            dbRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            dbRecuNumber.Value = 0;
             // 
             // txtAdressNumber
             // 
-            this.txtAdressNumber.Location = new System.Drawing.Point(155, 51);
-            this.txtAdressNumber.Name = "txtAdressNumber";
-            this.txtAdressNumber.SetRange = new System.Drawing.Size(0, 9999999);
-            this.txtAdressNumber.ShortcutsEnabled = false;
-            this.txtAdressNumber.Size = new System.Drawing.Size(54, 20);
-            this.txtAdressNumber.TabIndex = 3;
-            this.txtAdressNumber.Text = "0";
-            this.txtAdressNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtAdressNumber.Value = 0;
+            txtAdressNumber.Location = new System.Drawing.Point(155, 51);
+            txtAdressNumber.Name = "txtAdressNumber";
+            txtAdressNumber.SetRange = new System.Drawing.Size(0, 9999999);
+            txtAdressNumber.ShortcutsEnabled = false;
+            txtAdressNumber.Size = new System.Drawing.Size(54, 20);
+            txtAdressNumber.TabIndex = 3;
+            txtAdressNumber.Text = "0";
+            txtAdressNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            txtAdressNumber.Value = 0;
             // 
             // ctbTauxHorairePratique
             // 
-            this.ctbTauxHorairePratique.BackColor = System.Drawing.SystemColors.Window;
-            this.ctbTauxHorairePratique.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.ctbTauxHorairePratique.Location = new System.Drawing.Point(584, 415);
-            this.ctbTauxHorairePratique.Name = "ctbTauxHorairePratique";
-            this.ctbTauxHorairePratique.Size = new System.Drawing.Size(48, 18);
-            this.ctbTauxHorairePratique.TabIndex = 49;
-            this.ctbTauxHorairePratique.Text = "0 $";
-            this.ctbTauxHorairePratique.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTipText.SetToolTip(this.ctbTauxHorairePratique, "Taux horaire pour les cours pratique");
+            ctbTauxHorairePratique.BackColor = System.Drawing.SystemColors.Window;
+            ctbTauxHorairePratique.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            ctbTauxHorairePratique.Location = new System.Drawing.Point(584, 415);
+            ctbTauxHorairePratique.Name = "ctbTauxHorairePratique";
+            ctbTauxHorairePratique.Size = new System.Drawing.Size(48, 18);
+            ctbTauxHorairePratique.TabIndex = 49;
+            ctbTauxHorairePratique.Text = "0 $";
+            ctbTauxHorairePratique.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            toolTipText.SetToolTip(ctbTauxHorairePratique, "Taux horaire pour les cours pratique");
             // 
             // ctbTauxHoraireTheorique
             // 
-            this.ctbTauxHoraireTheorique.BackColor = System.Drawing.SystemColors.Window;
-            this.ctbTauxHoraireTheorique.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctbTauxHoraireTheorique.Location = new System.Drawing.Point(584, 371);
-            this.ctbTauxHoraireTheorique.Name = "ctbTauxHoraireTheorique";
-            this.ctbTauxHoraireTheorique.Size = new System.Drawing.Size(48, 18);
-            this.ctbTauxHoraireTheorique.TabIndex = 48;
-            this.ctbTauxHoraireTheorique.Text = "0 $";
-            this.ctbTauxHoraireTheorique.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTipText.SetToolTip(this.ctbTauxHoraireTheorique, "Taux horaire pour les cours théorique");
+            ctbTauxHoraireTheorique.BackColor = System.Drawing.SystemColors.Window;
+            ctbTauxHoraireTheorique.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            ctbTauxHoraireTheorique.Location = new System.Drawing.Point(584, 371);
+            ctbTauxHoraireTheorique.Name = "ctbTauxHoraireTheorique";
+            ctbTauxHoraireTheorique.Size = new System.Drawing.Size(48, 18);
+            ctbTauxHoraireTheorique.TabIndex = 48;
+            ctbTauxHoraireTheorique.Text = "0 $";
+            ctbTauxHoraireTheorique.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            toolTipText.SetToolTip(ctbTauxHoraireTheorique, "Taux horaire pour les cours théorique");
             // 
             // ctbLocationMontant
             // 
-            this.ctbLocationMontant.BackColor = System.Drawing.SystemColors.Window;
-            this.ctbLocationMontant.Location = new System.Drawing.Point(56, 56);
-            this.ctbLocationMontant.Name = "ctbLocationMontant";
-            this.ctbLocationMontant.Size = new System.Drawing.Size(54, 20);
-            this.ctbLocationMontant.TabIndex = 3;
-            this.ctbLocationMontant.Text = "0 $";
-            this.ctbLocationMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ctbLocationMontant.Leave += new System.EventHandler(this.ctbLocationMontant_Leave);
+            ctbLocationMontant.BackColor = System.Drawing.SystemColors.Window;
+            ctbLocationMontant.Location = new System.Drawing.Point(56, 56);
+            ctbLocationMontant.Name = "ctbLocationMontant";
+            ctbLocationMontant.Size = new System.Drawing.Size(54, 20);
+            ctbLocationMontant.TabIndex = 3;
+            ctbLocationMontant.Text = "0 $";
+            ctbLocationMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            ctbLocationMontant.Leave += new System.EventHandler(ctbLocationMontant_Leave);
             // 
             // CashBox_Solde
             // 
-            this.CashBox_Solde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.CashBox_Solde.Location = new System.Drawing.Point(154, 23);
-            this.CashBox_Solde.Name = "CashBox_Solde";
-            this.CashBox_Solde.ReadOnly = true;
-            this.CashBox_Solde.Size = new System.Drawing.Size(64, 20);
-            this.CashBox_Solde.TabIndex = 1;
-            this.CashBox_Solde.Text = "0 $";
-            this.CashBox_Solde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            CashBox_Solde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            CashBox_Solde.Location = new System.Drawing.Point(154, 23);
+            CashBox_Solde.Name = "CashBox_Solde";
+            CashBox_Solde.ReadOnly = true;
+            CashBox_Solde.Size = new System.Drawing.Size(64, 20);
+            CashBox_Solde.TabIndex = 1;
+            CashBox_Solde.Text = "0 $";
+            CashBox_Solde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtNotes
             // 
-            this.txtNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            txtNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtNotes.Location = new System.Drawing.Point(46, 16);
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.PlainText = "";
-            this.txtNotes.RTFCode = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
+            txtNotes.Location = new System.Drawing.Point(46, 16);
+            txtNotes.Name = "txtNotes";
+            txtNotes.PlainText = "";
+            txtNotes.RTFCode = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
     "ans Serif;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs17\\par\r\n}\r\n";
-            this.txtNotes.RTFTextChanged = true;
-            this.txtNotes.Size = new System.Drawing.Size(591, 155);
-            this.txtNotes.TabIndex = 15;
+            txtNotes.RTFTextChanged = true;
+            txtNotes.Size = new System.Drawing.Size(591, 155);
+            txtNotes.TabIndex = 15;
             // 
             // cbCity
             // 
-            this.cbCity.AutoCompleteCustomSource.AddRange(new string[] {
+            cbCity.AutoCompleteCustomSource.AddRange(new string[] {
             "",
             "Abercorn",
             "Acton Vale",
@@ -8745,76 +8745,76 @@ namespace Barette.Library.UserControls.Client {
             "Sept-Iles",
             "Tadoussac",
             "Ville Saguenay"});
-            this.cbCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbCity.Location = new System.Drawing.Point(120, 78);
-            this.cbCity.Name = "cbCity";
-            this.cbCity.Size = new System.Drawing.Size(213, 20);
-            this.cbCity.TabIndex = 29;
+            cbCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            cbCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            cbCity.Location = new System.Drawing.Point(120, 78);
+            cbCity.Name = "cbCity";
+            cbCity.Size = new System.Drawing.Size(213, 20);
+            cbCity.TabIndex = 29;
             // 
             // ClientControl
             // 
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.gbProgramMoto);
-            this.Controls.Add(this.ctbTauxHorairePratique);
-            this.Controls.Add(this.ctbTauxHoraireTheorique);
-            this.Controls.Add(this.cmdShowSeancesMoto2015);
-            this.Controls.Add(this.cmdClearbox);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.txtNumeroGroupe);
-            this.Controls.Add(this.dtpAttestation1);
-            this.Controls.Add(this.dtpAttestation2);
-            this.Controls.Add(this.txtNumeroAttestation2);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.txtNumeroContrat);
-            this.Controls.Add(this.cmdAutoDateExpiration);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.DateDebutCours);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.DateExpiration);
-            this.Controls.Add(this.cbNullContrat);
-            this.Controls.Add(this.txtNumeroAttestation);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.DateInscription);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.gbCoursType);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.cmdShowSeanceT);
-            this.Controls.Add(this.cmdShowSeanceTheorique);
-            this.DoubleBuffered = true;
-            this.Name = "ClientControl";
-            this.Size = new System.Drawing.Size(640, 718);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.gbCoursType.ResumeLayout(false);
-            this.gbCoursType.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmailError)).EndInit();
-            this.gbProgramMoto.ResumeLayout(false);
-            this.gbProgramMoto.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            BackColor = System.Drawing.SystemColors.Control;
+            Controls.Add(gbProgramMoto);
+            Controls.Add(ctbTauxHorairePratique);
+            Controls.Add(ctbTauxHoraireTheorique);
+            Controls.Add(cmdShowSeancesMoto2015);
+            Controls.Add(cmdClearbox);
+            Controls.Add(label25);
+            Controls.Add(txtNumeroGroupe);
+            Controls.Add(dtpAttestation1);
+            Controls.Add(dtpAttestation2);
+            Controls.Add(txtNumeroAttestation2);
+            Controls.Add(label24);
+            Controls.Add(txtNumeroContrat);
+            Controls.Add(cmdAutoDateExpiration);
+            Controls.Add(label23);
+            Controls.Add(DateDebutCours);
+            Controls.Add(label22);
+            Controls.Add(DateExpiration);
+            Controls.Add(cbNullContrat);
+            Controls.Add(txtNumeroAttestation);
+            Controls.Add(label20);
+            Controls.Add(groupBox6);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox7);
+            Controls.Add(groupBox8);
+            Controls.Add(label13);
+            Controls.Add(DateInscription);
+            Controls.Add(groupBox5);
+            Controls.Add(groupBox2);
+            Controls.Add(gbCoursType);
+            Controls.Add(groupBox1);
+            Controls.Add(label10);
+            Controls.Add(cmdShowSeanceT);
+            Controls.Add(cmdShowSeanceTheorique);
+            DoubleBuffered = true;
+            Name = "ClientControl";
+            Size = new System.Drawing.Size(640, 718);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
+            gbCoursType.ResumeLayout(false);
+            gbCoursType.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
+            groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(EmailError)).EndInit();
+            gbProgramMoto.ResumeLayout(false);
+            gbProgramMoto.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
         #endregion
@@ -8825,25 +8825,25 @@ namespace Barette.Library.UserControls.Client {
 
         #region Type de Seance
         private void rbManuel_CheckedChanged(object sender, System.EventArgs e) {
-            this._SceanceType = SeanceType.Automobile;
+            _SceanceType = SeanceType.Automobile;
 
             UpdateProgramMotoControl();
         }
 
         private void rbCamion_CheckedChanged(object sender, System.EventArgs e) {
-            this._SceanceType = SeanceType.Cyclomoteur;
+            _SceanceType = SeanceType.Cyclomoteur;
 
             UpdateProgramMotoControl();
         }
 
         private void rbAutomatique_CheckedChanged(object sender, System.EventArgs e) {
-            this._SceanceType = SeanceType.Automobile;
+            _SceanceType = SeanceType.Automobile;
             
             UpdateProgramMotoControl();
         }
 
         private void rbMoto_CheckedChanged(object sender, System.EventArgs e) {
-            this._SceanceType = SeanceType.Moto;
+            _SceanceType = SeanceType.Moto;
             txtN6R.Enabled = rbVehiculMoto.Checked;
 
             UpdateProgramMotoControl();
@@ -8856,11 +8856,11 @@ namespace Barette.Library.UserControls.Client {
         public Customer Client {
             get {
                 MakeClient();
-                return this._Client;
+                return _Client;
             }
             set {
                 MakeControl(value);
-                this._Client = value;
+                _Client = value;
             }
         }
 
@@ -8869,10 +8869,10 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         public EmployeCollection ListeEmploye {
             get {
-                return this._EmployeList;
+                return _EmployeList;
             }
             set {
-                this._EmployeList = value;
+                _EmployeList = value;
             }
         }
 
@@ -8881,10 +8881,10 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         public SchoolInfo School {
             get {
-                return this._infoSchool;
+                return _infoSchool;
             }
             set {
-                this._infoSchool = value;
+                _infoSchool = value;
             }
         }
 
@@ -8893,10 +8893,10 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         public bool AutoUpdate {
             get {
-                return this._AutoUpdate;
+                return _AutoUpdate;
             }
             set {
-                this._AutoUpdate = value;
+                _AutoUpdate = value;
             }
         }
 
@@ -8905,7 +8905,7 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         public string NomComplet {
             get {
-                return this.txtFirstName.Text + " " + this.txtName.Text;
+                return txtFirstName.Text + " " + txtName.Text;
             }
         }
 
@@ -8914,7 +8914,7 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         public string NomCompletReverse {
             get {
-                return this.txtName.Text + " " + this.txtFirstName.Text;
+                return txtName.Text + " " + txtFirstName.Text;
             }
         }
 
@@ -8924,7 +8924,7 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         public string NomPrenom {
             get {
-                return this.txtName.Text + " " + this.txtFirstName.Text;
+                return txtName.Text + " " + txtFirstName.Text;
             }
         }
 
@@ -8933,7 +8933,7 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         public string ContratNumber {
             get {
-                return this.txtNumeroContrat.Text;
+                return txtNumeroContrat.Text;
             }
         }
         #endregion
@@ -8952,16 +8952,16 @@ namespace Barette.Library.UserControls.Client {
         public DialogResult ShowCours() {
             MakeClient();
 
-            switch (this._SceanceType) {
+            switch (_SceanceType) {
                 case SeanceType.Automobile:
-                    return new FormSeanceGeneral(this._Client, this, this._EmployeList).ShowDialog();
+                    return new FormSeanceGeneral(_Client, this, _EmployeList).ShowDialog();
                 case SeanceType.Moto:                    
-                    if (this._Client.ProgramMoto != Library.Client.ProgramMoto.Program2015)
-                        return new FormSeanceMoto(this._Client, this, this._EmployeList).ShowDialog();
+                    if (_Client.ProgramMoto != Library.Client.ProgramMoto.Program2015)
+                        return new FormSeanceMoto(_Client, this, _EmployeList).ShowDialog();
                     else
                         return ShowCours2015();
                 case SeanceType.Cyclomoteur:
-                    return new FormSeanceMotocyclette(this._Client, this, this._EmployeList).ShowDialog();
+                    return new FormSeanceMotocyclette(_Client, this, _EmployeList).ShowDialog();
             }
 
             return DialogResult.None;
@@ -8973,16 +8973,16 @@ namespace Barette.Library.UserControls.Client {
         public DialogResult ShowCoursTheorique() {
             MakeClient();
 
-            switch (this._SceanceType) {
+            switch (_SceanceType) {
                 case SeanceType.Automobile:
-                    return new FormSeanceTheorique(this._Client, this, this._EmployeList).ShowDialog();
+                    return new FormSeanceTheorique(_Client, this, _EmployeList).ShowDialog();
                 case SeanceType.Moto:
-                    if (this._Client.ProgramMoto != Library.Client.ProgramMoto.Program2015)
-                        return new FormSeanceTheoriqueMoto(this._Client, this, this._EmployeList).ShowDialog();
+                    if (_Client.ProgramMoto != Library.Client.ProgramMoto.Program2015)
+                        return new FormSeanceTheoriqueMoto(_Client, this, _EmployeList).ShowDialog();
                     else
                         return ShowCours2015();
                 case SeanceType.Cyclomoteur:
-                    return new FormSeanceTheoriqueMotocyclette(this._Client, this, this._EmployeList).ShowDialog();
+                    return new FormSeanceTheoriqueMotocyclette(_Client, this, _EmployeList).ShowDialog();
             }
 
             return DialogResult.None;
@@ -8993,7 +8993,7 @@ namespace Barette.Library.UserControls.Client {
         {
             MakeClient();
 
-            return new FormSeanceMoto2015(this._Client, this, this._EmployeList).ShowDialog();
+            return new FormSeanceMoto2015(_Client, this, _EmployeList).ShowDialog();
 
             //return DialogResult.None;
         }
@@ -9002,7 +9002,7 @@ namespace Barette.Library.UserControls.Client {
         {
             //MakeClient();
 
-            if (this.TypeVehicule == VehiculeType.Moto)
+            if (TypeVehicule == VehiculeType.Moto)
             {
                 gbProgramMoto.Enabled = true;
 
@@ -9014,7 +9014,7 @@ namespace Barette.Library.UserControls.Client {
                 }
                 else
                 {
-                    switch (this.ProgramMoto)
+                    switch (ProgramMoto)
                     {
                         case ProgramMoto.Nothing:
                         case ProgramMoto.Program2015:
@@ -9046,98 +9046,98 @@ namespace Barette.Library.UserControls.Client {
             SeanceCollection seancesTheorique = new SeanceCollection();
             PaimentCollection paiment = new PaimentCollection();
 
-            if (this._Client != null) {
-                seances = this._Client.Seances;
-                seancesTheorique = this._Client.SeancesTheorique;
-                paiment = this._Client.Paiment;
+            if (_Client != null) {
+                seances = _Client.Seances;
+                seancesTheorique = _Client.SeancesTheorique;
+                paiment = _Client.Paiment;
             }
 
             //Creation d'un nouveau client
-            this._Client = new Customer();
+            _Client = new Customer();
 
             //Replace les seances
-            this._Client.Seances = seances;
+            _Client.Seances = seances;
 
             //Replace les paiments
-            this._Client.Paiment = paiment;
+            _Client.Paiment = paiment;
 
             //Replace les seance de cours theorique
-            this._Client.SeancesTheorique = seancesTheorique;
+            _Client.SeancesTheorique = seancesTheorique;
 
             //Information
-            this._Client.City = cbCity.Text;
-            this._Client.ContratNumber = txtNumeroContrat.Text;
-            this._Client.ClientNull = cbNullContrat.Checked;
-            this._Client.AttestationNumber1 = txtNumeroAttestation.Text;
-            this._Client.AttestationNumber2 = txtNumeroAttestation2.Text;
-            this._Client.DateInscription = DateInscription.Value;
-            this._Client.FirstName = txtFirstName.Text;
-            this._Client.Name = txtName.Text;
-            this._Client.No6R = txtN6R.Text;
-            this._Client.Phone = txtPhoneNumber.Text;
-            this._Client.PhoneBureau = txtPhoneBureau.Text;
-            this._Client.StreetApp = txtAdressApp.Text;
-            this._Client.StreetName = txtAdressStreet.Text;
-            this._Client.StreetNumber = txtAdressNumber.Text;
-            this._Client.CodePostal = txtCodePostal.Text;
-            this._Client.Notes = txtNotes.RTFCode;
-            this._Client.DateNaissance = DateNaissance.Value;
-            this._Client.DateExpiration = DateExpiration.Value;
-            this._Client.DateDebutCours = DateDebutCours.Value;
-            this._Client.DateAttestation1 = dtpAttestation1.Value;
-            this._Client.DateAttestation2 = dtpAttestation2.Value;
-            this._Client.NumeroGroupe = Convert.ToInt32(txtNumeroGroupe.Text);
-            this._Client.Email = txtEmail.Text;
+            _Client.City = cbCity.Text;
+            _Client.ContratNumber = txtNumeroContrat.Text;
+            _Client.ClientNull = cbNullContrat.Checked;
+            _Client.AttestationNumber1 = txtNumeroAttestation.Text;
+            _Client.AttestationNumber2 = txtNumeroAttestation2.Text;
+            _Client.DateInscription = DateInscription.Value;
+            _Client.FirstName = txtFirstName.Text;
+            _Client.Name = txtName.Text;
+            _Client.No6R = txtN6R.Text;
+            _Client.Phone = txtPhoneNumber.Text;
+            _Client.PhoneBureau = txtPhoneBureau.Text;
+            _Client.StreetApp = txtAdressApp.Text;
+            _Client.StreetName = txtAdressStreet.Text;
+            _Client.StreetNumber = txtAdressNumber.Text;
+            _Client.CodePostal = txtCodePostal.Text;
+            _Client.Notes = txtNotes.RTFCode;
+            _Client.DateNaissance = DateNaissance.Value;
+            _Client.DateExpiration = DateExpiration.Value;
+            _Client.DateDebutCours = DateDebutCours.Value;
+            _Client.DateAttestation1 = dtpAttestation1.Value;
+            _Client.DateAttestation2 = dtpAttestation2.Value;
+            _Client.NumeroGroupe = Convert.ToInt32(txtNumeroGroupe.Text);
+            _Client.Email = txtEmail.Text;
 
             //Taux horaire
-            this._Client.TauxHorairePratique = ctbTauxHorairePratique.Text;
-            this._Client.TauxHoraireTheorique = ctbTauxHoraireTheorique.Text;
+            _Client.TauxHorairePratique = ctbTauxHorairePratique.Text;
+            _Client.TauxHoraireTheorique = ctbTauxHoraireTheorique.Text;
 
             //Permis de conduire
-            this._Client.NumeroPermis = txtNumeroPermis.Text;
-            this._Client.DateTemporaire = dtpDatePermis.Value;
-            this._Client.HaveTemporaire = cbPermisObtenue.Checked;
+            _Client.NumeroPermis = txtNumeroPermis.Text;
+            _Client.DateTemporaire = dtpDatePermis.Value;
+            _Client.HaveTemporaire = cbPermisObtenue.Checked;
 
             //Location de vehicule
-            this._Client.LocationAutomobile = cbAuto.Checked;
-            this._Client.LocationMoto = cbMoto.Checked;
-            this._Client.MontantLocation = ctbLocationMontant.Text;
-            this._Client.BVA = cbBVA.Checked;
-            this._Client.BVADate = dtpBVA.Value;
+            _Client.LocationAutomobile = cbAuto.Checked;
+            _Client.LocationMoto = cbMoto.Checked;
+            _Client.MontantLocation = ctbLocationMontant.Text;
+            _Client.BVA = cbBVA.Checked;
+            _Client.BVADate = dtpBVA.Value;
 
             //Information sur le solde du client
-            this._Client.Solde = CashBox_Solde.Text;
-            this._Client.LastRecuNumber = dbRecuNumber.Text;
-            this._Client.MontantCours = _MontantCours;
+            _Client.Solde = CashBox_Solde.Text;
+            _Client.LastRecuNumber = dbRecuNumber.Text;
+            _Client.MontantCours = _MontantCours;
 
             //Disponibiliter
-            this._Client.DisponibilityAM = chkDisponibilityAM.Checked;
-            this._Client.DisponibilityPM = chkDisponibilityPM.Checked;
-            this._Client.DisponibilitySoirer = chkDisponibilitySoir.Checked;
-            this._Client.DisponibilitySamedi = chkDisponibilitySamedi.Checked;
-            this._Client.DisponibilityDimanche = chkDisponibilityDimanche.Checked;
+            _Client.DisponibilityAM = chkDisponibilityAM.Checked;
+            _Client.DisponibilityPM = chkDisponibilityPM.Checked;
+            _Client.DisponibilitySoirer = chkDisponibilitySoir.Checked;
+            _Client.DisponibilitySamedi = chkDisponibilitySamedi.Checked;
+            _Client.DisponibilityDimanche = chkDisponibilityDimanche.Checked;
 
             //Type de client
             if (rbTypeClientActif.Checked)
-                this._Client.TypeClient = ProfileType.Actif;
+                _Client.TypeClient = ProfileType.Actif;
             else if (rbTypeClientFinish.Checked)
-                this._Client.TypeClient = ProfileType.CoursTerminer;
+                _Client.TypeClient = ProfileType.CoursTerminer;
 
             //Type de vehicule
             if (rbVehiculAutomatique.Checked)
-                this._Client.TypeVehicule = VehiculeType.Automatique;
+                _Client.TypeVehicule = VehiculeType.Automatique;
             else if (rbVehiculMotocyclette.Checked)
-                this._Client.TypeVehicule = VehiculeType.Cyclomoteur;
+                _Client.TypeVehicule = VehiculeType.Cyclomoteur;
             else if (rbVehiculManuel.Checked)
-                this._Client.TypeVehicule = VehiculeType.Manuel;
+                _Client.TypeVehicule = VehiculeType.Manuel;
             else if (rbVehiculMoto.Checked)
-                this._Client.TypeVehicule = VehiculeType.Moto;
+                _Client.TypeVehicule = VehiculeType.Moto;
             
             //ProgramMoto
             if (rbProgramMotoNormal.Checked)
-                this._Client.ProgramMoto = ProgramMoto.ProgramNormal;
+                _Client.ProgramMoto = ProgramMoto.ProgramNormal;
             else if (rbProgramMoto2015.Checked)
-                this._Client.ProgramMoto = ProgramMoto.Program2015;
+                _Client.ProgramMoto = ProgramMoto.Program2015;
         }
 
         /// <summary>
@@ -9176,7 +9176,7 @@ namespace Barette.Library.UserControls.Client {
             txtEmail.Text = "";
 
             txtNotes.RTFCode = "";
-            this._MontantCours = "";
+            _MontantCours = "";
 
             //Location de vehicule
             cbAuto.Checked = false;
@@ -9332,7 +9332,7 @@ namespace Barette.Library.UserControls.Client {
                 //Information sur le solde du client
                 CashBox_Solde.Text = client.Solde;
                 dbRecuNumber.Text = client.LastRecuNumber;
-                this._MontantCours = client.MontantCours;
+                _MontantCours = client.MontantCours;
 
                 //Taux horaire
                 ctbTauxHorairePratique.Text = client.TauxHorairePratique;
@@ -9408,7 +9408,7 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         /// <returns></returns>
         public bool ValidateClient() {
-            this._AutoUpdate = false;
+            _AutoUpdate = false;
 
             if (txtName.Text == "") {
                 MessageBox.Show(this, "Un client doit avoir un nom", "Gestion Auto-École", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -9446,7 +9446,7 @@ namespace Barette.Library.UserControls.Client {
                 return false;
             }
 
-            this._AutoUpdate = true;
+            _AutoUpdate = true;
             return true;
         }
         #endregion
@@ -9496,7 +9496,7 @@ namespace Barette.Library.UserControls.Client {
                     prev.Document = printDocMoto2015;
                     break;
                 case PrintDocumentType.PaimentList:
-                    FormPaiment frmPaiment = new FormPaiment(this, this._Client, this._infoSchool);
+                    FormPaiment frmPaiment = new FormPaiment(this, _Client, _infoSchool);
                     frmPaiment.PrintListPaiment();
                     frmPaiment.Close();
                     frmPaiment = null;
@@ -9582,7 +9582,7 @@ namespace Barette.Library.UserControls.Client {
             float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
 
             //Fabrication du client avant impression	
-            this.MakeClient();
+            MakeClient();
 
             //Rectangle de contour
             //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, topMargin, e.MarginBounds.Size.Width, 5 * printFont.Height + 10);
@@ -9593,40 +9593,40 @@ namespace Barette.Library.UserControls.Client {
             e.Graphics.DrawString("Imprimé le : " + DateTime.Now.ToShortDateString(), printFontTime, Brushes.Black, leftMargin + 450, yPos, new StringFormat());
             yPos += printFont.Height + 16;
 
-            e.Graphics.DrawString("Nom : " + this._Client.Name + " " + this.Client.FirstName, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Nom : " + _Client.Name + " " + Client.FirstName, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Nº contrat : " + this._Client.ContratNumber, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Nº contrat : " + _Client.ContratNumber, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Date d'inscription : " + this._Client.DateInscription.ToShortDateString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Date d'inscription : " + _Client.DateInscription.ToShortDateString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Adresse : " + this._Client.StreetNumber + " " + this.Client.StreetName + " App. " + this.Client.StreetApp, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Adresse : " + _Client.StreetNumber + " " + Client.StreetName + " App. " + Client.StreetApp, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Code Postale : " + this._Client.CodePostal, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Code Postale : " + _Client.CodePostal, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Ville : " + this._Client.City, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Ville : " + _Client.City, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Numéro de permis : " + this._Client.NumeroPermis, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Numéro de permis : " + _Client.NumeroPermis, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
-            if (this._Client.TypeVehicule == VehiculeType.Moto) {
+            if (_Client.TypeVehicule == VehiculeType.Moto) {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Type de cours : Moto           Numéro 6R :" + this.Client.No6R, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Type de cours : Moto           Numéro 6R :" + Client.No6R, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
             else {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Type de cours : " + this.Client.TypeVehicule, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Type de cours : " + Client.TypeVehicule, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
 
             yPos += printFont.Height;
-            e.Graphics.DrawString("Téléphone : " + this._Client.Phone, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone : " + _Client.Phone, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Téléphone (Autre) : " + this._Client.PhoneBureau, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone (Autre) : " + _Client.PhoneBureau, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
             yPos += printFont.Height;
-            e.Graphics.DrawString("État du client : " + this._Client.TypeClient, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("État du client : " + _Client.TypeClient, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
-            if (this._Client.BVA == true) {
+            if (_Client.BVA == true) {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Date BVA : " + this._Client.BVADate.ToShortDateString() + " " + this._Client.BVADate.ToShortTimeString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Date BVA : " + _Client.BVADate.ToShortDateString() + " " + _Client.BVADate.ToShortTimeString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
 
             //Ecriture des seances
@@ -9635,7 +9635,7 @@ namespace Barette.Library.UserControls.Client {
             yPos += 30;
 
             //Header des colone
-            if (this._Client.TypeVehicule != VehiculeType.Moto)
+            if (_Client.TypeVehicule != VehiculeType.Moto)
             {
                 e.Graphics.DrawString("Date et heure", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
                 e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 420, yPos, new StringFormat());
@@ -9651,14 +9651,14 @@ namespace Barette.Library.UserControls.Client {
             }
 
             Seance seance = null;
-            if (this._Client.TypeVehicule != VehiculeType.Moto) {
+            if (_Client.TypeVehicule != VehiculeType.Moto) {
 
                 //Header de la colone montant
                 e.Graphics.DrawString("Montant", printFontBold, Brushes.Black, 580 - e.Graphics.MeasureString("Montant", printFont).Width, yPos, new StringFormat());
                 yPos += 16;
 
-                for (int i = 0; i < this.Client.Seances.Count; i++) {
-                    seance = (Seance)this._Client.Seances[i];
+                for (int i = 0; i < Client.Seances.Count; i++) {
+                    seance = (Seance)_Client.Seances[i];
 
                     //Seulement les automobiles
                     if (seance.Active) {
@@ -9676,12 +9676,12 @@ namespace Barette.Library.UserControls.Client {
 
                 //e.Graphics.DrawString("Signature", printFontBold, Brushes.Black, leftMargin + 490, yPos, new StringFormat());
 
-                for (int i = 0; i < this.Client.Seances.Count; i++) {
-                    seance = (Seance)this._Client.Seances[i];
+                for (int i = 0; i < Client.Seances.Count; i++) {
+                    seance = (Seance)_Client.Seances[i];
 
                     //fabrique les donnees pour le type moto
                     if (i == 0) {
-                        if (this._PrintHorsRoute) {
+                        if (_PrintHorsRoute) {
                             yPos += printFont.Height * 2;
                             e.Graphics.DrawString("Hors Route", printFontBoldItalic16, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
                             yPos += 16;
@@ -9709,7 +9709,7 @@ namespace Barette.Library.UserControls.Client {
                     }
                     else if (i < 4) {
 
-                        if (seance.Active && this._PrintHorsRoute) {
+                        if (seance.Active && _PrintHorsRoute) {
                             yPos += printFont.Height;
                             //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
                             //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
@@ -9729,7 +9729,7 @@ namespace Barette.Library.UserControls.Client {
                         }
                     }
                     else if (i == 4) {
-                        if (this._PrintRoute) {
+                        if (_PrintRoute) {
                             yPos += printFont.Height * 2;
                             e.Graphics.DrawString("Route", printFontBoldItalic16, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
                             yPos += 16;
@@ -9755,7 +9755,7 @@ namespace Barette.Library.UserControls.Client {
                         }
                     }
                     else {
-                        if (seance.Active && this._PrintRoute) {
+                        if (seance.Active && _PrintRoute) {
                             yPos += printFont.Height;
                             //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
                             //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
@@ -9779,7 +9779,7 @@ namespace Barette.Library.UserControls.Client {
 
 
             //Impression de l'équipement
-            if (this._Client.TypeVehicule == VehiculeType.Moto) {
+            if (_Client.TypeVehicule == VehiculeType.Moto) {
                 yPos += (printFontBold.Height * 2);
                 e.Graphics.DrawString("Équipements Nécessaires", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
                 yPos += printFontTime.Height;
@@ -9798,7 +9798,7 @@ namespace Barette.Library.UserControls.Client {
             e.Graphics.DrawString("ATTENTION", myFont, Brushes.Black, leftMargin, yPos, new StringFormat());
 
             SizeF strLength = e.Graphics.MeasureString("ATTENTION", myFont); //Largeur de la chaine
-            if (this._Client.TypeVehicule == VehiculeType.Automatique) {
+            if (_Client.TypeVehicule == VehiculeType.Automatique) {
                 e.Graphics.DrawString("Un pré-avis de 24 heures est requis tel que convenue sur le contrat de service;", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
             }
             else
@@ -9835,7 +9835,7 @@ namespace Barette.Library.UserControls.Client {
             float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
 
             //Fabrication du client avant impression	
-            this.MakeClient();
+            MakeClient();
 
             //Rectangle de contour
             //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, topMargin, e.MarginBounds.Size.Width, 5 * printFont.Height + 10);
@@ -9846,40 +9846,40 @@ namespace Barette.Library.UserControls.Client {
             e.Graphics.DrawString("Imprimé le : " + DateTime.Now.ToShortDateString(), printFontTime, Brushes.Black, leftMargin + 450, yPos, new StringFormat());
             yPos += printFont.Height + 16;
 
-            e.Graphics.DrawString("Nom : " + this._Client.Name + " " + this.Client.FirstName, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Nom : " + _Client.Name + " " + Client.FirstName, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Nº contrat : " + this._Client.ContratNumber, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Nº contrat : " + _Client.ContratNumber, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Date d'inscription : " + this._Client.DateInscription.ToShortDateString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Date d'inscription : " + _Client.DateInscription.ToShortDateString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Adresse : " + this._Client.StreetNumber + " " + this.Client.StreetName + " App. " + this.Client.StreetApp, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Adresse : " + _Client.StreetNumber + " " + Client.StreetName + " App. " + Client.StreetApp, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Code Postale : " + this._Client.CodePostal, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Code Postale : " + _Client.CodePostal, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Ville : " + this._Client.City, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Ville : " + _Client.City, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Numéro de permis : " + this._Client.NumeroPermis, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Numéro de permis : " + _Client.NumeroPermis, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
-            if (this._Client.TypeVehicule == VehiculeType.Moto) {
+            if (_Client.TypeVehicule == VehiculeType.Moto) {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Type de cours : Moto           Numéro 6R :" + this.Client.No6R, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Type de cours : Moto           Numéro 6R :" + Client.No6R, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
             else {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Type de cours : " + this.Client.TypeVehicule, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Type de cours : " + Client.TypeVehicule, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
 
             yPos += printFont.Height;
-            e.Graphics.DrawString("Téléphone : " + this._Client.Phone, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone : " + _Client.Phone, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Téléphone (Autre) : " + this._Client.PhoneBureau, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone (Autre) : " + _Client.PhoneBureau, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
             yPos += printFont.Height;
-            e.Graphics.DrawString("État du client : " + this._Client.TypeClient, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("État du client : " + _Client.TypeClient, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
-            if (this._Client.BVA == true) {
+            if (_Client.BVA == true) {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Date BVA : " + this._Client.BVADate.ToShortDateString() + " " + this._Client.BVADate.ToShortTimeString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Date BVA : " + _Client.BVADate.ToShortDateString() + " " + _Client.BVADate.ToShortTimeString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
 
             //Ecriture des seances
@@ -9889,7 +9889,7 @@ namespace Barette.Library.UserControls.Client {
 
             //Header des colone
 
-            if (this._Client.TypeVehicule != VehiculeType.Moto)
+            if (_Client.TypeVehicule != VehiculeType.Moto)
             {
                 e.Graphics.DrawString("Date et heure", printFontBold, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
             }
@@ -9904,14 +9904,14 @@ namespace Barette.Library.UserControls.Client {
             }
 
             Seance seance = null;
-            if (this._Client.TypeVehicule != VehiculeType.Moto) {
+            if (_Client.TypeVehicule != VehiculeType.Moto) {
 
                 //Header de la colone montant
                 e.Graphics.DrawString("Montant", printFontBold, Brushes.Black, 580 - e.Graphics.MeasureString("Montant", printFont).Width, yPos, new StringFormat());
                 yPos += 16;
 
-                for (int i = 0; i < this.Client.SeancesTheorique.Count; i++) {
-                    seance = (Seance)this._Client.SeancesTheorique[i];
+                for (int i = 0; i < Client.SeancesTheorique.Count; i++) {
+                    seance = (Seance)_Client.SeancesTheorique[i];
 
                     //Seulement les automobiles
                     if (seance.Active) {
@@ -9929,12 +9929,12 @@ namespace Barette.Library.UserControls.Client {
 
                 //e.Graphics.DrawString("Signature", printFontBold, Brushes.Black, leftMargin + 490, yPos, new StringFormat());
 
-                for (int i = 0; i < this.Client.SeancesTheorique.Count; i++) {
-                    seance = (Seance)this._Client.SeancesTheorique[i];
+                for (int i = 0; i < Client.SeancesTheorique.Count; i++) {
+                    seance = (Seance)_Client.SeancesTheorique[i];
 
                     //fabrique les donnees pour le type moto
                     if (i == 0) {
-                        if (this._PrintHorsRoute) {
+                        if (_PrintHorsRoute) {
                             yPos += printFont.Height * 2;
                             e.Graphics.DrawString("Hors Route", printFontBoldItalic16, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
                             yPos += 16;
@@ -9961,7 +9961,7 @@ namespace Barette.Library.UserControls.Client {
                     }
                     else if (i < 4) {
 
-                        if (seance.Active && this._PrintHorsRoute) {
+                        if (seance.Active && _PrintHorsRoute) {
                             yPos += printFont.Height;
                             //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
                             //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
@@ -9981,7 +9981,7 @@ namespace Barette.Library.UserControls.Client {
                         }
                     }
                     else if (i == 4) {
-                        if (this._PrintRoute) {
+                        if (_PrintRoute) {
                             yPos += printFont.Height * 2;
                             e.Graphics.DrawString("Route", printFontBoldItalic16, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
                             yPos += 16;
@@ -10007,7 +10007,7 @@ namespace Barette.Library.UserControls.Client {
                         }
                     }
                     else {
-                        if (seance.Active && this._PrintRoute) {
+                        if (seance.Active && _PrintRoute) {
                             yPos += printFont.Height;
                             //e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
                             //e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToLongDateString(), printFont, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
@@ -10031,7 +10031,7 @@ namespace Barette.Library.UserControls.Client {
 
 
             //Impression de l'équipement
-            if (this._Client.TypeVehicule == VehiculeType.Moto) {
+            if (_Client.TypeVehicule == VehiculeType.Moto) {
                 yPos += (printFontBold.Height * 2);
                 e.Graphics.DrawString("Équipements Nécessaires", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
                 yPos += printFontTime.Height;
@@ -10050,7 +10050,7 @@ namespace Barette.Library.UserControls.Client {
             e.Graphics.DrawString("ATTENTION", myFont, Brushes.Black, leftMargin, yPos, new StringFormat());
 
             SizeF strLength = e.Graphics.MeasureString("ATTENTION", myFont); //Largeur de la chaine
-            if (this._Client.TypeVehicule == VehiculeType.Automatique) {
+            if (_Client.TypeVehicule == VehiculeType.Automatique) {
                 e.Graphics.DrawString("Un pré-avis de 24 heures est requis tel que convenue sur le contrat de service;", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
             }
             else
@@ -10067,7 +10067,7 @@ namespace Barette.Library.UserControls.Client {
         /// Affiche la liste de paiment
         /// </summary>
         public DialogResult ShowPaiement(int Number) {
-            FormPaiment frmPaiment = new FormPaiment(this, this._Client, this._infoSchool);
+            FormPaiment frmPaiment = new FormPaiment(this, _Client, _infoSchool);
 
             frmPaiment.SelectPaiment(Number);
             frmPaiment.ShowDialog();
@@ -10078,7 +10078,7 @@ namespace Barette.Library.UserControls.Client {
         /// Affiche la liste de paiment
         /// </summary>
         public DialogResult ShowPaiement() {
-            FormPaiment frmPaiment = new FormPaiment(this, this._Client, this._infoSchool);
+            FormPaiment frmPaiment = new FormPaiment(this, _Client, _infoSchool);
 
             frmPaiment.ShowDialog();
             return frmPaiment.DialogResult;
@@ -10127,9 +10127,9 @@ namespace Barette.Library.UserControls.Client {
         }
 
         private void timerCheckClientValid_Tick(object sender, System.EventArgs e) {
-            if (ValidNoText()) this._AutoUpdate = true;
+            if (ValidNoText()) _AutoUpdate = true;
 
-            if (this.txtNumeroGroupe.Value == 0) {
+            if (txtNumeroGroupe.Value == 0) {
                 gbCoursType.Enabled = true;
                 cmdClearbox.Enabled = false;
             }
@@ -10241,7 +10241,7 @@ namespace Barette.Library.UserControls.Client {
             float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
 
             //Fabrication du client avant impression	
-            this.MakeClient();
+            MakeClient();
 
             #region Header
             //Ecriture du header (image et texte)
@@ -10251,13 +10251,13 @@ namespace Barette.Library.UserControls.Client {
 
             //Info Ecole et Adresse
             yPos = 5;
-            e.Graphics.DrawString(this._infoSchool.SchoolName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.SchoolName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
             yPos += printFontTime10.Height;
-            e.Graphics.DrawString(this._infoSchool.StreetNumber + " " + this._infoSchool.StreetName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.StreetNumber + " " + _infoSchool.StreetName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
             yPos += printFontTime10.Height;
-            e.Graphics.DrawString(this._infoSchool.City + ", QC, " + this._infoSchool.PostalCode, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.City + ", QC, " + _infoSchool.PostalCode, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
             yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Tel." + this._infoSchool.Phone + "   Fax." + this._infoSchool.Fax, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString("Tel." + _infoSchool.Phone + "   Fax." + _infoSchool.Fax, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
 
             yPos += printFontBold14.Height;
             e.Graphics.DrawString("Contrat de service", printFontBold24, Brushes.Black, 225, yPos, new StringFormat());
@@ -10271,36 +10271,36 @@ namespace Barette.Library.UserControls.Client {
             yPos = 130;
             e.Graphics.DrawString("Informations sur l'école", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
             yPos += printFontBold14.Height;
-            e.Graphics.DrawString(this._infoSchool.SchoolName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.SchoolName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
             yPos += printFontTime10.Height;
-            e.Graphics.DrawString(this._infoSchool.StreetNumber + " " + this._infoSchool.StreetName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.StreetNumber + " " + _infoSchool.StreetName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
             yPos += printFontTime10.Height;
-            e.Graphics.DrawString(this._infoSchool.City + ", QC, " + this._infoSchool.PostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.City + ", QC, " + _infoSchool.PostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 
             //Numero de permis
             yPos = 130 + printFontBold14.Height;
             e.Graphics.DrawString("Permis : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
-            switch (this._Client.TypeVehicule) {
+            switch (_Client.TypeVehicule) {
                 case VehiculeType.Moto:
-                    e.Graphics.DrawString(this._infoSchool.RegistrationMoto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+                    e.Graphics.DrawString(_infoSchool.RegistrationMoto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
                     break;
                 default:
-                    e.Graphics.DrawString(this._infoSchool.RegistrationAuto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+                    e.Graphics.DrawString(_infoSchool.RegistrationAuto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
                     break;
             }
 
             //Contrat
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Contrat : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
-            e.Graphics.DrawString(this._Client.ContratNumber, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+            e.Graphics.DrawString(_Client.ContratNumber, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
 
             //TPS et TVQ
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("TPS : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
-            e.Graphics.DrawString(this._infoSchool.TPS, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.TPS, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("TVQ : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
-            e.Graphics.DrawString(this._infoSchool.TVQ, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+            e.Graphics.DrawString(_infoSchool.TVQ, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
             #endregion
 
             #region Eleves
@@ -10313,42 +10313,42 @@ namespace Barette.Library.UserControls.Client {
             yPos += printFontBold14.Height;
             hauteurEleve = yPos;
             e.Graphics.DrawString("Nom :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(this._Client.Name, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+            e.Graphics.DrawString(_Client.Name, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
 
             //Prénom
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Prénom :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(this._Client.FirstName, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+            e.Graphics.DrawString(_Client.FirstName, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
 
             //Adresse
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Adresse :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 
-            if (this._Client.StreetApp != "")
-                e.Graphics.DrawString(this._Client.StreetNumber + " " + this._Client.StreetName + "    App # " + this._Client.StreetApp, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+            if (_Client.StreetApp != "")
+                e.Graphics.DrawString(_Client.StreetNumber + " " + _Client.StreetName + "    App # " + _Client.StreetApp, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
             else
-                e.Graphics.DrawString(this._Client.StreetNumber + " " + this._Client.StreetName, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.StreetNumber + " " + _Client.StreetName, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
 
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Ville :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(this._Client.City + ", QC", printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+            e.Graphics.DrawString(_Client.City + ", QC", printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Code Postal :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(this._Client.CodePostal, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+            e.Graphics.DrawString(_Client.CodePostal, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
 
             //Date de naissance            
             e.Graphics.DrawString("Date de naissance : ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
-            e.Graphics.DrawString(this._Client.DateNaissance.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
+            e.Graphics.DrawString(_Client.DateNaissance.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
 
             // Telephone
             hauteurEleve += printFontTime10.Height;
             e.Graphics.DrawString("Téléphone (domicile): ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
-            e.Graphics.DrawString(this._Client.Phone, printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
+            e.Graphics.DrawString(_Client.Phone, printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
 
             // Telephone (autre)
             hauteurEleve += printFontTime10.Height;
             e.Graphics.DrawString("Téléphone (autre): ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
-            e.Graphics.DrawString(this._Client.PhoneBureau, printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
+            e.Graphics.DrawString(_Client.PhoneBureau, printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
             #endregion
 
             #region Détail du cours
@@ -10361,7 +10361,7 @@ namespace Barette.Library.UserControls.Client {
             yPos += printFontBold14.Height;
             hauteurDescription = yPos;
             e.Graphics.DrawString("Type de cours :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            switch (this._Client.TypeVehicule) {
+            switch (_Client.TypeVehicule) {
                 case VehiculeType.Moto:
                     e.Graphics.DrawString("Motocyclette", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
                     break;
@@ -10376,27 +10376,27 @@ namespace Barette.Library.UserControls.Client {
             //Date inscription
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Date d'inscription :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(this._Client.DateInscription.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+            e.Graphics.DrawString(_Client.DateInscription.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
 
             //Date expiration
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Date d'expiration :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(this._Client.DateExpiration.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+            e.Graphics.DrawString(_Client.DateExpiration.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
 
             //Date debut cours
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Date début du cours :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(this._Client.DateDebutCours.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+            e.Graphics.DrawString(_Client.DateDebutCours.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
 
             //Prix du cours
             TaxeExtractor taxe = new TaxeExtractor();
 
-            if (this._Client.DateInscription.Year == 2011)
-                taxe = new TaxeExtractor(Convert.ToDecimal(this._Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2011);
-            else if (this._Client.DateInscription.Year < 2011)
-                taxe = new TaxeExtractor(Convert.ToDecimal(this._Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2008_to_2010);
-            else if (this._Client.DateInscription.Year >= 2012)
-                taxe = new TaxeExtractor(Convert.ToDecimal(this._Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2012);
+            if (_Client.DateInscription.Year == 2011)
+                taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2011);
+            else if (_Client.DateInscription.Year < 2011)
+                taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2008_to_2010);
+            else if (_Client.DateInscription.Year >= 2012)
+                taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2012);
 
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Prix du cours :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
@@ -10413,41 +10413,41 @@ namespace Barette.Library.UserControls.Client {
 
 
             //Théorie et pratique 
-            switch (this._Client.TypeVehicule) {
+            switch (_Client.TypeVehicule) {
                 case VehiculeType.Moto:
                     //Theorie
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Théorie : 9 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(this._Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString(_Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Pratique: 22 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(this._Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString(_Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
                 case VehiculeType.Cyclomoteur:
                     //theorie
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Théorie : 3 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(this._Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString(_Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Pratique: 3 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(this._Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString(_Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
                 default:
                     //theorie
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Théorie : 24 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(this._Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString(_Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Pratique: 15 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(this._Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString(_Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
             }
@@ -10456,15 +10456,15 @@ namespace Barette.Library.UserControls.Client {
 
             #region Lieu de formation en circuit fermé pour moto et cylclo
             //Ajouter le lieu de formation de moto en cas de client moto ou cylclomoteur
-            if ((this._Client.TypeVehicule == VehiculeType.Moto) || (this._Client.TypeVehicule == VehiculeType.Cyclomoteur)) {
+            if ((_Client.TypeVehicule == VehiculeType.Moto) || (_Client.TypeVehicule == VehiculeType.Cyclomoteur)) {
                 yPos += printFontBold24.Height;
                 e.Graphics.DrawString("Lieu de formation en circuit fermé", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
                 yPos += printFontBold14.Height;
-                e.Graphics.DrawString(this._infoSchool.CourseBatisseName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_infoSchool.CourseBatisseName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
                 yPos += printFontTime10.Height;
-                e.Graphics.DrawString(this._infoSchool.CourseStreetNumber + " " + this._infoSchool.CourseStreetName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_infoSchool.CourseStreetNumber + " " + _infoSchool.CourseStreetName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
                 yPos += printFontTime10.Height;
-                e.Graphics.DrawString(this._infoSchool.CourseCity + ", QC, " + this._infoSchool.CoursePostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_infoSchool.CourseCity + ", QC, " + _infoSchool.CoursePostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
             }
             #endregion
 
@@ -10513,7 +10513,7 @@ Date : __________________  Signature du résiliataire : ____________________";
             e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos, 810, 4 * printFont.Height + 10);
 
             yPos += printFontTime10.Height * 6;
-            e.Graphics.DrawString("Fait et signé à " + this._infoSchool.City + " le " + DateTime.Now.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+            e.Graphics.DrawString("Fait et signé à " + _infoSchool.City + " le " + DateTime.Now.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
             yPos += printFontTime10.Height * 2;
             e.Graphics.DrawString(@"J’autorise l’école de conduite ci-haut mentionnée à transmettre mes coordonnées à l’organisme accréditeur et à la  Société de l’assurance
 automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessation d’activités : ______ Initiales de l’élève", printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
@@ -10572,6 +10572,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawImage(img, 0, 0, 192, 104);
             float topMargin = 124;//img.Height + 20;
             float leftMargin = 0;//e.MarginBounds.Left;
+            int TraficatedSeanceNumberForGerald = 0;
 
             //Facrication des fonts
             Font printFont = new System.Drawing.Font("Courier New", 11);
@@ -10584,7 +10585,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
 
             //Fabrication du client avant impression	
-            this.MakeClient();
+            MakeClient();
 
             //Rectangle de contour
             //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, topMargin, e.MarginBounds.Size.Width, 5 * printFont.Height + 10);
@@ -10595,43 +10596,43 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawString("Imprimé le : " + DateTime.Now.ToShortDateString(), printFontTime, Brushes.Black, leftMargin + 450, yPos, new StringFormat());
             yPos += printFont.Height + 16;
 
-            e.Graphics.DrawString("Nom : " + this._Client.Name + " " + this.Client.FirstName, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Nom : " + _Client.Name + " " + Client.FirstName, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Nº contrat : " + this._Client.ContratNumber, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Nº contrat : " + _Client.ContratNumber, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Date d'inscription : " + this._Client.DateInscription.ToShortDateString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Date d'inscription : " + _Client.DateInscription.ToShortDateString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Adresse : " + this._Client.StreetNumber + " " + this.Client.StreetName + " App. " + this.Client.StreetApp, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Adresse : " + _Client.StreetNumber + " " + Client.StreetName + " App. " + Client.StreetApp, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Code Postale : " + this._Client.CodePostal, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Code Postale : " + _Client.CodePostal, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Ville : " + this._Client.City, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Ville : " + _Client.City, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Numéro de permis : " + this._Client.NumeroPermis, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Numéro de permis : " + _Client.NumeroPermis, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
-            if (this._Client.TypeVehicule == VehiculeType.Moto)
+            if (_Client.TypeVehicule == VehiculeType.Moto)
             {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Type de cours : Moto           Numéro 6R :" + this.Client.No6R, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Type de cours : Moto           Numéro 6R :" + Client.No6R, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
             else
             {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Type de cours : " + this.Client.TypeVehicule, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Type de cours : " + Client.TypeVehicule, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
 
             yPos += printFont.Height;
-            e.Graphics.DrawString("Téléphone : " + this._Client.Phone, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone : " + _Client.Phone, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Téléphone (Autre) : " + this._Client.PhoneBureau, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone (Autre) : " + _Client.PhoneBureau, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
             yPos += printFont.Height;
-            e.Graphics.DrawString("État du client : " + this._Client.TypeClient, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            e.Graphics.DrawString("État du client : " + _Client.TypeClient, printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
 
-            if (this._Client.BVA == true)
+            if (_Client.BVA == true)
             {
                 yPos += printFont.Height;
-                e.Graphics.DrawString("Date BVA : " + this._Client.BVADate.ToShortDateString() + " " + this._Client.BVADate.ToShortTimeString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+                e.Graphics.DrawString("Date BVA : " + _Client.BVADate.ToShortDateString() + " " + _Client.BVADate.ToShortTimeString(), printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
             }
 
             //Ecriture des seances
@@ -10692,7 +10693,45 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                     }
 
                     yPos += printFont.Height +2;
-                    e.Graphics.DrawString(seance.SceanceNumber + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+
+                    switch (seance.SceanceNumber)
+                    {
+                        case 1:
+                            TraficatedSeanceNumberForGerald = 1;
+                            break;
+                        case 2:
+                            TraficatedSeanceNumberForGerald = 1;
+                            break;
+                        case 3:
+                            TraficatedSeanceNumberForGerald = 2;
+                            break;
+                        case 4:
+                            TraficatedSeanceNumberForGerald = 3;
+                            break;
+                        case 5:
+                            TraficatedSeanceNumberForGerald = 4;
+                            break;
+                        case 6:
+                            TraficatedSeanceNumberForGerald = 2;
+                            break;
+                        case 7:
+                            TraficatedSeanceNumberForGerald = 5;
+                            break;
+                        case 8:
+                            TraficatedSeanceNumberForGerald = 6;
+                            break;
+                        case 9:
+                            TraficatedSeanceNumberForGerald = 7;
+                            break;
+                        case 10:
+                            TraficatedSeanceNumberForGerald = 8;
+                            break;
+                        case 11:
+                            TraficatedSeanceNumberForGerald = 9;
+                            break;                            
+                    }
+                    e.Graphics.DrawString(TraficatedSeanceNumberForGerald + ".", printFont, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+
                     e.Graphics.DrawString(DateTimeFunc.DayOfWeekFRShort(seance.DateHeure.DayOfWeek) + " " + seance.DateHeure.ToShortDateString(), printFont, Brushes.Black, leftMargin + 60, yPos, new StringFormat());
                     
                     e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateHeure), printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
@@ -10724,7 +10763,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawString("ATTENTION", myFont, Brushes.Black, leftMargin, yPos, new StringFormat());
 
             SizeF strLength = e.Graphics.MeasureString("ATTENTION", myFont); //Largeur de la chaine
-            if (this._Client.TypeVehicule == VehiculeType.Automatique)
+            if (_Client.TypeVehicule == VehiculeType.Automatique)
             {
                 e.Graphics.DrawString("Un pré-avis de 24 heures est requis tel que convenue sur le contrat de service;", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
             }
@@ -10740,9 +10779,9 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
         private IEnumerable BuildSeanceForPrintSeanceMoto2015()
         {
             SeanceCollection seances = new SeanceCollection();
-            foreach (Seance seance in this._Client.Seances)
+            foreach (Seance seance in _Client.Seances)
                 seances.Add(seance);
-            foreach (Seance seance in this._Client.SeancesTheorique)
+            foreach (Seance seance in _Client.SeancesTheorique)
                 seances.Add(seance);
 
             return from seance in seances.Cast<Seance>()

@@ -24,20 +24,20 @@ namespace Barette.Library.UserControls {
 		public Seance Seance {
 			get {
 				Seance tmp = new Seance();
-				tmp.Active = this.Checked;
-				tmp.Code = this.Code;
+				tmp.Active = Checked;
+				tmp.Code = Code;
 				tmp.DateHeure = DateSceance.Value;
 				tmp.DateModified = DateModifiedPicker.Value;
-				tmp.Employer = this.Employer;
-				tmp.SceanceNumber = this.NumeroSeance;
-				tmp.DateModifiedChecked = this.DateModifiedChecked;
-				tmp.Absence = this.cbAbsence.Checked;
-				tmp.Montant = this.ctbMontantCours.Text;
+				tmp.Employer = Employer;
+				tmp.SceanceNumber = NumeroSeance;
+				tmp.DateModifiedChecked = DateModifiedChecked;
+				tmp.Absence = cbAbsence.Checked;
+				tmp.Montant = ctbMontantCours.Text;
 				return tmp;
 			}
 			set {
-				this.Checked = value.Active;
-				this.Code = value.Code;
+                Checked = value.Active;
+                Code = value.Code;
 				
 				try {
 					DateSceance.Value = value.DateHeure;
@@ -51,11 +51,11 @@ namespace Barette.Library.UserControls {
 					DateModifiedPicker.Value = DateTime.Now;
 				}
 
-				this.Employer = value.Employer;
-				this.NumeroSeance = value.SceanceNumber;
-				this.DateModifiedChecked = value.DateModifiedChecked;
-				this.cbAbsence.Checked = value.Absence;
-				this.ctbMontantCours.Text = value.Montant;
+                Employer = value.Employer;
+                NumeroSeance = value.SceanceNumber;
+                DateModifiedChecked = value.DateModifiedChecked;
+                cbAbsence.Checked = value.Absence;
+                ctbMontantCours.Text = value.Montant;
 			}
 		}
 
@@ -151,7 +151,7 @@ namespace Barette.Library.UserControls {
 		}
 
 		private void SeancePicker_Resize(object sender, System.EventArgs e) {
-			this.Height = 25;
+            Height = 25;
 		}
 
 		private void lblSceanceNumber_CheckedChanged(object sender, System.EventArgs e) {
@@ -222,7 +222,7 @@ namespace Barette.Library.UserControls {
 		public void DessinerCadrage(Pen pen) {
 			Graphics gfx = CreateGraphics();
 
-			Rectangle rec = new Rectangle(0,0, this.Width - 1, this.Height - 1);
+			Rectangle rec = new Rectangle(0,0, Width - 1, Height - 1);
 			gfx.DrawRectangle(pen , rec);
 		}
 

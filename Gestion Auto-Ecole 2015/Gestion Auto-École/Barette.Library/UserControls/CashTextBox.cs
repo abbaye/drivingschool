@@ -39,13 +39,13 @@ namespace Barette.Library.UserControls {
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-			// 
-			// CashTextBox
-			// 
-			this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CashTextBox_KeyPress);
-			this.TextChanged += new System.EventHandler(this.CashTextBox_TextChanged);
-			this.Leave += new System.EventHandler(this.CashTextBox_Leave);
-			this.Enter += new System.EventHandler(this.CashTextBox_Enter);
+            // 
+            // CashTextBox
+            // 
+            KeyPress += new System.Windows.Forms.KeyPressEventHandler(CashTextBox_KeyPress);
+            TextChanged += new System.EventHandler(CashTextBox_TextChanged);
+            Leave += new System.EventHandler(CashTextBox_Leave);
+            Enter += new System.EventHandler(CashTextBox_Enter);
 
 		}
 		#endregion
@@ -67,7 +67,7 @@ namespace Barette.Library.UserControls {
 				int Position = -1;
 				if (HaveMinus(out Position) == true) {
 					e.Handled = true;
-				} else if (this.SelectionStart == 0) {
+				} else if (SelectionStart == 0) {
 					e.Handled = false;
 				} else
 					e.Handled = true;
@@ -80,33 +80,33 @@ namespace Barette.Library.UserControls {
 		/// se produit lorsque le focus survien
 		/// </summary>
 		private void CashTextBox_Enter(object sender, System.EventArgs e) {
-			this.Text =  this.Text.Replace(" $", "");
+            Text = Text.Replace(" $", "");
 
-			if (this.Text.EndsWith(",00"))
-				this.Text =  this.Text.Replace(",00", "");
+			if (Text.EndsWith(",00"))
+                Text = Text.Replace(",00", "");
 		}
 
 		/// <summary>
 		/// se produit lorsque le focus quite le controle
 		/// </summary>
 		private void CashTextBox_Leave(object sender, System.EventArgs e) {
-			if (this.Text.Length > 0){			
+			if (Text.Length > 0){			
 
 				//Ajoute un 0 avant le virgule
-				if (this.Text[0] == ',')
-					this.Text = "0" + this.Text;
+				if (Text[0] == ',')
+                    Text = "0" + Text;
 
 				//si il na aucune virgule ajoute ,00
 				if (!HaveComma())
-					if (this.Text[this.Text.Length -1] != ',')
-						this.Text += ",00";
+					if (Text[Text.Length -1] != ',')
+                        Text += ",00";
 
 				//Ajoute les 00 apres la virgule si il ny a rien
-				if (this.Text[this.Text.Length -1] == ',')
-					this.Text += "00";			
-			
-				//Ajoute le signe de $ apres le montant
-				this.Text = this.Text + " $";
+				if (Text[Text.Length -1] == ',')
+                    Text += "00";
+
+                //Ajoute le signe de $ apres le montant
+                Text = Text + " $";
 			}
 		}
 
@@ -115,9 +115,9 @@ namespace Barette.Library.UserControls {
 		/// </summary>
 		/// <returns></returns>
 		private bool HaveComma(){
-			if (this.Text.Length > 0){
-				for (int i=0; i < this.Text.Length; i++){
-					if (this.Text[i] == ',')
+			if (Text.Length > 0){
+				for (int i=0; i < Text.Length; i++){
+					if (Text[i] == ',')
 						return true;
 				}
 			}
@@ -134,9 +134,9 @@ namespace Barette.Library.UserControls {
 		private bool HaveMinus(out int Position) {
 			Position = -1;
 
-			if (this.Text.Length > 0) {
-				for (int i = 0; i < this.Text.Length; i++) {
-					if (this.Text[i] == '-') {
+			if (Text.Length > 0) {
+				for (int i = 0; i < Text.Length; i++) {
+					if (Text[i] == '-') {
 						Position = i;
 						return true;
 					}
@@ -150,7 +150,7 @@ namespace Barette.Library.UserControls {
 
 		private void CashTextBox_TextChanged(object sender, System.EventArgs e) {
 			//ligne bidon servant a corriger un bug.. vive le patchage
-			double temp = this.Value; 
+			double temp = Value; 
 		}
 
 		/// <summary>
@@ -160,11 +160,11 @@ namespace Barette.Library.UserControls {
 			get{
 				//if (this.Text == "") this.Text = "0 $";
 				try{
-					//Corrige une bug lors de la rentrer d<une virgule
-					this.Text =  this.Text.Replace(".", ",");
-					this.SelectionStart = this.Text.Length;
+                    //Corrige une bug lors de la rentrer d<une virgule
+                    Text = Text.Replace(".", ",");
+                    SelectionStart = Text.Length;
 
-					return Convert.ToDouble(this.Text.Replace(" $", ""));
+					return Convert.ToDouble(Text.Replace(" $", ""));
 				}
 				catch{
 					return 0;
@@ -177,10 +177,10 @@ namespace Barette.Library.UserControls {
 		/// </summary>
 		/// <param name="Amount">Montant à ajouter</param>
 		public void Add(double Amount){
-			double current = this.Value;
+			double current = Value;
 			current += Amount;
 
-			this.Text = current.ToString() + " $"; 
+            Text = current.ToString() + " $"; 
 		}
 
 		/// <summary>
@@ -188,10 +188,10 @@ namespace Barette.Library.UserControls {
 		/// </summary>
 		/// <param name="Amount">Montant à soustraire</param>
 		public void Soustract(double Amount){
-			double current = this.Value;
+			double current = Value;
 			current -= Amount;
 
-			this.Text = current.ToString() + " $"; 
+            Text = current.ToString() + " $"; 
 		}
 	}
 }

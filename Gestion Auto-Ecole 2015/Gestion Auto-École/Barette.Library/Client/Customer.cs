@@ -100,288 +100,288 @@ namespace Barette.Library.Client {
 		/// Constructeur
 		/// </summary>
 		public Customer() {
-			this._Seance = new SeanceCollection();
-			this._Paiment = new PaimentCollection();
-            this._SeanceTheorique = new SeanceCollection();
+            _Seance = new SeanceCollection();
+            _Paiment = new PaimentCollection();
+            _SeanceTheorique = new SeanceCollection();
 
-            this.Email = "";
-            this._AttestationNumber1 = "";
-            this._AttestationNumber2 = "";
-            this._BVA = false;
-            this._BVADate = DateTime.Now;
-            this._City = "";
-            this._ClientNull = false;
-            this._CodePostal = "";
-            this._ContratNumber = "";
-            this._DateAttestation1 = DateTime.Now;
-            this._DateAttestation2 = DateTime.Now;
-            this._dateDebutCours = DateTime.Now;
-            this._dateExpiration = DateTime.Now;
-            this._dateNaissance = DateTime.Now;
-            this._DateTemporaire = DateTime.Now;
-            this._DisponibilityAM = false;
-            this._DisponibilityPM = false;
-            this._DisponibilityDimanche = false;
-            this._DisponibilitySamedi = false;
-            this._DisponibilitySoirer = false;
-            this._FirstName = "";
-            this._HaveTemporaire = false;
-            this._InscriptionDate = DateTime.Now;
-            this._LastRecuNumber = "";
-            this._LocationAutomobile = false;
-            this._LocationMoto = false;
-            this._MontantCours = "";
-            this._Name = "";
-            this._No6r = "";
-            this._NoPermis = "";
-            this._Notes = "";
-            this._NumeroGroupe = 0;
-            this._Phone = "";
-            this._PhoneBureau = "";
-            this._ProfileType = ProfileType.Nothing;
-            this._Solde = "";
-            this._StreetApp = "";
-            this._StreetName = "";
-            this._StreetNumber = "";
-            this._TauxhorairePratique = "";
-            this._TauxHoraireTheorique = "";
-            this._VehiculeType =  VehiculeType.Nothing;
+            Email = "";
+            _AttestationNumber1 = "";
+            _AttestationNumber2 = "";
+            _BVA = false;
+            _BVADate = DateTime.Now;
+            _City = "";
+            _ClientNull = false;
+            _CodePostal = "";
+            _ContratNumber = "";
+            _DateAttestation1 = DateTime.Now;
+            _DateAttestation2 = DateTime.Now;
+            _dateDebutCours = DateTime.Now;
+            _dateExpiration = DateTime.Now;
+            _dateNaissance = DateTime.Now;
+            _DateTemporaire = DateTime.Now;
+            _DisponibilityAM = false;
+            _DisponibilityPM = false;
+            _DisponibilityDimanche = false;
+            _DisponibilitySamedi = false;
+            _DisponibilitySoirer = false;
+            _FirstName = "";
+            _HaveTemporaire = false;
+            _InscriptionDate = DateTime.Now;
+            _LastRecuNumber = "";
+            _LocationAutomobile = false;
+            _LocationMoto = false;
+            _MontantCours = "";
+            _Name = "";
+            _No6r = "";
+            _NoPermis = "";
+            _Notes = "";
+            _NumeroGroupe = 0;
+            _Phone = "";
+            _PhoneBureau = "";
+            _ProfileType = ProfileType.Nothing;
+            _Solde = "";
+            _StreetApp = "";
+            _StreetName = "";
+            _StreetNumber = "";
+            _TauxhorairePratique = "";
+            _TauxHoraireTheorique = "";
+            _VehiculeType =  VehiculeType.Nothing;
 		}
 
 		#region Property
 		public PaimentCollection Paiment{
 			get{
-				return this._Paiment;
+				return _Paiment;
 			}
 			set{
-				this._Paiment = value;
+                _Paiment = value;
 			}
 		}
 
 		public SeanceCollection Seances{
 			get{
-				return this._Seance;
+				return _Seance;
 			}
 			set{
-				this._Seance = value;
+                _Seance = value;
 			}
 		}
 
         public SeanceCollection SeancesTheorique {
             get {
-                return this._SeanceTheorique;
+                return _SeanceTheorique;
             }
             set {
-                this._SeanceTheorique = value;
+                _SeanceTheorique = value;
             }
         }
 
 		public string Name{
 			get{
-                return this._Name;
+                return _Name;
 			}
 			set{
-				this._Name = value;
+                _Name = value;
 			}
 		}
 
         public int NumeroGroupe {
             get {
-                return this._NumeroGroupe;
+                return _NumeroGroupe;
             }
             set {
-                this._NumeroGroupe = value;
+                _NumeroGroupe = value;
             }
         }
 
 		public string TauxHorairePratique{
 			get{
-                return this._TauxhorairePratique;
+                return _TauxhorairePratique;
 			}
 			set{
-				this._TauxhorairePratique = value;
+                _TauxhorairePratique = value;
 			}
 		}
 
 		public string TauxHoraireTheorique{
 			get{
-                return this._TauxHoraireTheorique;
+                return _TauxHoraireTheorique;
 			}
 			set{
-				this._TauxHoraireTheorique = value;
+                _TauxHoraireTheorique = value;
 			}
 		}
 
 		public string MontantCours{
 			get{
-                return this._MontantCours;
+                return _MontantCours;
 			}
 			set{
-				this._MontantCours = value;
+                _MontantCours = value;
 			}
 		}
 
 		public string FirstName{
 			get{
-				return this._FirstName;
+				return _FirstName;
 			}
 			set{
-				this._FirstName = value;
+                _FirstName = value;
 			}
 		}
 
 		public string StreetName{
 			get{
-				return this._StreetName;
+				return _StreetName;
 			}
 			set{
-				this._StreetName = value;
+                _StreetName = value;
 			}
 		}
 
 		public string Notes{
 			get{
-				return this._Notes;
+				return _Notes;
 			}
 			set{
-				this._Notes = value;
+                _Notes = value;
 			}
 		}
 
 		public string StreetApp{
 			get{
-				return this._StreetApp;
+				return _StreetApp;
 			}
 			set{
-				this._StreetApp = value;
+                _StreetApp = value;
 			}
 		}
 
         public string Email {
             get {
-                return this._email;
+                return _email;
             }
             set {
-                this._email = value;
+                _email = value;
             }
         }
 
 		public string StreetNumber{
 			get{
-				return this._StreetNumber;
+				return _StreetNumber;
 			}
 			set{
-				this._StreetNumber = value;
+                _StreetNumber = value;
 			}
 		}
 
 		public string City{
 			get{
-				return this._City;
+				return _City;
 			}
 			set{
-				this._City = value;
+                _City = value;
 			}
 		}
 
 		public string Phone{
 			get{
-				return this._Phone;
+				return _Phone;
 			}
 			set{
-				this._Phone = value;
+                _Phone = value;
 			}
 		}
 
         public ProgramMoto ProgramMoto
         {
 			get{
-                return this._ProgramMoto;
+                return _ProgramMoto;
 			}
 			set{
-                this._ProgramMoto = value;
+                _ProgramMoto = value;
 			}
 		}
 
 		public string CodePostal{
 			get{
-				return this._CodePostal;
+				return _CodePostal;
 			}
 			set{
-				this._CodePostal = value;
+                _CodePostal = value;
 			}
 		}
 
 		public string PhoneBureau{
 			get{
-				return this._PhoneBureau;
+				return _PhoneBureau;
 			}
 			set{
-				this._PhoneBureau = value;
+                _PhoneBureau = value;
 			}
 		}
 
 		public string NumeroPermis{
 			get{
-				return this._NoPermis;
+				return _NoPermis;
 			}
 			set{
-				this._NoPermis = value;
+                _NoPermis = value;
 			}
 		}
 
 		public bool ClientNull {
 			get {
-				return this._ClientNull;
+				return _ClientNull;
 			}
 			set {
-				this._ClientNull = value;
+                _ClientNull = value;
 			}
 		}
 
 
 		public bool HaveTemporaire{
 			get{
-				return this._HaveTemporaire;
+				return _HaveTemporaire;
 			}
 			set{
-				this._HaveTemporaire = value;
+                _HaveTemporaire = value;
 			}
 		}
 
 		public DateTime DateTemporaire{
 			get{
-				return this._DateTemporaire;
+				return _DateTemporaire;
 			}
 			set{
-				this._DateTemporaire = value;
+                _DateTemporaire = value;
 			}
 		}
 
         public DateTime DateExpiration {
             get {
-                return this._dateExpiration;
+                return _dateExpiration;
             }
             set {
-                this._dateExpiration = value;
+                _dateExpiration = value;
             }
         }
 
         public DateTime DateAttestation1 {
             get {
-                return this._DateAttestation1;
+                return _DateAttestation1;
             }
             set {
-                this._DateAttestation1 = value;
+                _DateAttestation1 = value;
             }
         }
 
         public DateTime DateAttestation2 {
             get {
-                return this._DateAttestation2;
+                return _DateAttestation2;
             }
             set {
-                this._DateAttestation2 = value;
+                _DateAttestation2 = value;
             }
         }
 
@@ -389,47 +389,47 @@ namespace Barette.Library.Client {
         {
             get
             {
-                return this._dateDebutCours;
+                return _dateDebutCours;
             }
             set
             {
-                this._dateDebutCours = value;
+                _dateDebutCours = value;
             }
         }
 		
 		public VehiculeType TypeVehicule{
 			get{
-				return this._VehiculeType;
+				return _VehiculeType;
 			}
 			set{
-				this._VehiculeType = value;
+                _VehiculeType = value;
 			}
 		}
 
 		public string No6R{
 			get{
-				return this._No6r;
+				return _No6r;
 			}
 			set{
-				this._No6r = value;
+                _No6r = value;
 			}
 		}
 
 		public string ContratNumber{
 			get{
-				return this._ContratNumber;
+				return _ContratNumber;
 			}
 			set{
-				this._ContratNumber = value;
+                _ContratNumber = value;
 			}
 		}
 
 		public string AttestationNumber1 {
 			get{
-				return this._AttestationNumber1;
+				return _AttestationNumber1;
 			}
 			set{
-				this._AttestationNumber1 = value;
+                _AttestationNumber1 = value;
 			}
 		}
 
@@ -437,29 +437,29 @@ namespace Barette.Library.Client {
         {
             get
             {
-                return this._AttestationNumber2;
+                return _AttestationNumber2;
             }
             set
             {
-                this._AttestationNumber2 = value;
+                _AttestationNumber2 = value;
             }
         }
 
 		public DateTime DateInscription{
 			get{
-				return this._InscriptionDate;
+				return _InscriptionDate;
 			}
 			set{
-				this._InscriptionDate = value;
+                _InscriptionDate = value;
 			}
 		}
 
 		public DateTime BVADate{
 			get{
-				return this._BVADate;
+				return _BVADate;
 			}
 			set{
-				this._BVADate = value;
+                _BVADate = value;
 			}
 		}
 
@@ -467,56 +467,56 @@ namespace Barette.Library.Client {
         {
             get
             {
-                return this._dateNaissance;
+                return _dateNaissance;
             }
             set
             {
-                this._dateNaissance = value;
+                _dateNaissance = value;
             }
         }
 
 		public bool BVA{
 			get{
-				return this._BVA;
+				return _BVA;
 			}
 			set{
-				this._BVA = value;
+                _BVA = value;
 			}
 		}
 
 		public bool DisponibilityAM{
 			get{
-				return this._DisponibilityAM;
+				return _DisponibilityAM;
 			}
 			set{
-				this._DisponibilityAM = value;
+                _DisponibilityAM = value;
 			}
 		}
 
 		public bool DisponibilityPM{
 			get{
-				return this._DisponibilityPM;
+				return _DisponibilityPM;
 			}
 			set{
-				this._DisponibilityPM = value;
+                _DisponibilityPM = value;
 			}
 		}
 
 		public bool DisponibilitySoirer{
 			get{
-				return this._DisponibilitySoirer;
+				return _DisponibilitySoirer;
 			}
 			set{
-				this._DisponibilitySoirer = value;
+                _DisponibilitySoirer = value;
 			}
 		}
 
 		public bool DisponibilityDimanche{
 			get{
-				return this._DisponibilityDimanche;
+				return _DisponibilityDimanche;
 			}
 			set{
-				this._DisponibilityDimanche = value;
+                _DisponibilityDimanche = value;
 			}
 		}
 
@@ -538,65 +538,65 @@ namespace Barette.Library.Client {
 
 		public bool DisponibilitySamedi{
 			get{
-				return this._DisponibilitySamedi;
+				return _DisponibilitySamedi;
 			}
 			set{
-				this._DisponibilitySamedi = value;
+                _DisponibilitySamedi = value;
 			}
 		}
 
 		public ProfileType TypeClient{
 			get{
-				return this._ProfileType;
+				return _ProfileType;
 			}
 			set{
-				this._ProfileType = value;
+                _ProfileType = value;
 			}
 		}
 
 		public string Solde{
 			get{
-				return this._Solde;
+				return _Solde;
 			}
 			set{
-				this._Solde = value;
+                _Solde = value;
 			}
 		}
 
 		public string LastRecuNumber{
 			get{
-				return this._LastRecuNumber;
+				return _LastRecuNumber;
 			}
 			set{
-				this._LastRecuNumber = value;
+                _LastRecuNumber = value;
 			}
 		}
 
 		
 		public string MontantLocation{
 			get{
-				return this._MontantLocation;
+				return _MontantLocation;
 			}
 			set{
-				this._MontantLocation = value;
+                _MontantLocation = value;
 			}
 		}
 
 		public bool LocationMoto{
 			get{
-				return this._LocationMoto;
+				return _LocationMoto;
 			}
 			set{
-				this._LocationMoto = value;
+                _LocationMoto = value;
 			}
 		}
 
 		public bool LocationAutomobile{
 			get{
-				return this._LocationAutomobile;
+				return _LocationAutomobile;
 			}
 			set{
-				this._LocationAutomobile = value;
+                _LocationAutomobile = value;
 			}
 		}
 
@@ -609,9 +609,9 @@ namespace Barette.Library.Client {
 		/// <param name="SeanceNumber">Numéro de seance</param>
 		/// <returns>Retourne la seance demandé. Si la valeur est null, c'est qu'il n'a pas trouvé de seance correspondante</returns>
 		public Seance GetSeance(int SeanceNumber) {
-			for (int i = 0; i < this.Seances.Count; i++) {
-				if (this.Seances[i].SceanceNumber == SeanceNumber) {
-					return this.Seances[i];
+			for (int i = 0; i < Seances.Count; i++) {
+				if (Seances[i].SceanceNumber == SeanceNumber) {
+					return Seances[i];
 				}
 			}
 
@@ -626,7 +626,7 @@ namespace Barette.Library.Client {
 		/// <returns></returns>
 		public double GetSolde() {
 			try {
-				return Convert.ToDouble(this.Solde.Replace(" $", ""));
+				return Convert.ToDouble(Solde.Replace(" $", ""));
 			} catch {
 				return -1;
 			}
@@ -642,13 +642,13 @@ namespace Barette.Library.Client {
 				double solde = 0L; //solde a 0
 
 				//Caculer le solde a la date demandé
-				for (int i = 0; i < this.Paiment.Count; i++) {
-					if (this.Paiment[i].DatePaiment.Date <= DateSoldeMax.Date) {
-						solde += this.Paiment[i].Value;
+				for (int i = 0; i < Paiment.Count; i++) {
+					if (Paiment[i].DatePaiment.Date <= DateSoldeMax.Date) {
+						solde += Paiment[i].Value;
 					}
 				}
 
-				return Convert.ToDecimal((Convert.ToDouble(this.MontantCours.Replace(" $", "")) - solde)); 
+				return Convert.ToDecimal((Convert.ToDouble(MontantCours.Replace(" $", "")) - solde)); 
 			} catch {
 				return -1;
 			}
@@ -656,7 +656,7 @@ namespace Barette.Library.Client {
 
 
 		public string GetShortVehiculeType() {
-			switch (this.TypeVehicule) {
+			switch (TypeVehicule) {
 				case VehiculeType.Automatique:
 					return "Auto.";
 				case VehiculeType.Cyclomoteur:
@@ -679,9 +679,9 @@ namespace Barette.Library.Client {
         /// <returns></returns>
         public String GetFullName(bool reverse) {
             if (reverse)
-                return this.FirstName + " " + this.Name;
+                return FirstName + " " + Name;
             else
-                return this.Name + " " + this.FirstName;
+                return Name + " " + FirstName;
         }
 
 
@@ -689,7 +689,7 @@ namespace Barette.Library.Client {
         /// Donne le type de client
         /// </summary>
         public StudentGroup.GroupType GetCustomerType() {
-            switch (this.TypeVehicule) {
+            switch (TypeVehicule) {
                 case VehiculeType.Automatique:
                     return StudentGroup.GroupType.Automobile;
                 case VehiculeType.Automobile:
@@ -710,7 +710,7 @@ namespace Barette.Library.Client {
         public int CompareTo(object obj) {
             Customer otherCustomer = obj as Customer;
             if (otherCustomer != null)
-                return this.ContratNumber.CompareTo(otherCustomer.ContratNumber);
+                return ContratNumber.CompareTo(otherCustomer.ContratNumber);
             else
                 throw new ArgumentException("Object is not a Temperature");
         }
