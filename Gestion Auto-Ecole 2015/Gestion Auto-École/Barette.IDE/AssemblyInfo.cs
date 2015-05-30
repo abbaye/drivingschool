@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 // l'ensemble d'attributs suivant. Pour modifier les informations
 // associées à un assembly, changez les valeurs de ces attributs.
 //
-[assembly: AssemblyTitle("Gestion Auto École 2010")]
+[assembly: AssemblyTitle("Gestion Auto École 2015")]
 [assembly: AssemblyDescription("Gestion d'une École de conduite")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Derek Tremblay")]

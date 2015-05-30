@@ -187,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.ico" />
+    <None Include="VerticalCalendar\readme.txt" />
+    <None Include="VerticalCalendar\VerticalCalendar.dll" />
+    <None Include="VerticalCalendar\VerticalCalendar.xml" />
     <None Include="app.config" />
     <None Include="Barette.IDE_CléTemporaire.pfx" />
     <None Include="Ouverture du programme.dgml">
@@ -458,6 +461,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <AppDesigner Include="Properties\" />
+    <None Include="VerticalCalendar\VerticalCalendar.chm" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
