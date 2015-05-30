@@ -10395,8 +10395,10 @@ namespace Barette.Library.UserControls.Client {
                 taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2011);
             else if (_Client.DateInscription.Year < 2011)
                 taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2008_to_2010);
-            else if (_Client.DateInscription.Year >= 2012)
+            else if (_Client.DateInscription.Year >= 2012 && _Client.DateInscription.Year < 2014)
                 taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2012);
+            else if (_Client.DateInscription.Year >= 2014)
+                taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2014);
 
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Prix du cours :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());

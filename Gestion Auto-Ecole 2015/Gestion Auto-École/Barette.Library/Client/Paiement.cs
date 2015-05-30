@@ -51,8 +51,10 @@ namespace Barette.Library.Client {
                     taxe = new TaxeExtractor(Convert.ToDecimal(Value), TaxeExtractor.Years.Y2011);
                 else if (_date.Year < 2011)
                     taxe = new TaxeExtractor(Convert.ToDecimal(Value), TaxeExtractor.Years.Y2008_to_2010);
-                else if (_date.Year >= 2012)
-                    taxe = new TaxeExtractor(Convert.ToDecimal(Value), TaxeExtractor.Years.Y2012); 
+                else if (_date.Year >= 2012 && _date.Year < 2014)
+                    taxe = new TaxeExtractor(Convert.ToDecimal(Value), TaxeExtractor.Years.Y2012);
+                else if (_date.Year >= 2014)
+                    taxe = new TaxeExtractor(Convert.ToDecimal(Value), TaxeExtractor.Years.Y2014);
 
                 return taxe;
             }

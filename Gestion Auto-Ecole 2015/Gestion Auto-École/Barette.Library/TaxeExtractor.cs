@@ -59,7 +59,8 @@ namespace Barette.Library {
         public enum Years {
             Y2008_to_2010,
             Y2011,
-            Y2012
+            Y2012,
+            Y2014
         }
 
         private decimal _montant;
@@ -111,6 +112,14 @@ namespace Barette.Library {
                     tax.TVQ = decimal.Round((tax.NoTaxe + tax.TPS) * 0.095M, 2);
                     tax.TauxTPS = 0.05M;
                     tax.TauxTVQ = 0.095M;
+                    break;
+                case Years.Y2014:
+                    tax.NoTaxe = decimal.Round((_montant / 114.975M) * 100, 2);
+
+                    tax.TPS = decimal.Round(tax.NoTaxe * 0.05M, 2);
+                    tax.TVQ = decimal.Round(tax.NoTaxe * 0.0975M, 2);
+                    tax.TauxTPS = 0.05M;
+                    tax.TauxTVQ = 0.0975M;
                     break;
             }
 

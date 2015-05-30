@@ -1783,6 +1783,12 @@ namespace Barette.IDE.Forms
                                                     case "ArgentComptant":
                                                         paiment.TypePaiment = TypePaiment.ArgentComptant;
                                                         break;
+                                                    case "VISA":
+                                                        paiment.TypePaiment = TypePaiment.VISA;
+                                                        break;
+                                                    case "MasterCard":
+                                                        paiment.TypePaiment = TypePaiment.MasterCard;
+                                                        break;
                                                     case "Autre":
                                                         paiment.TypePaiment = TypePaiment.Autre;
                                                         break;
@@ -2324,12 +2330,17 @@ namespace Barette.IDE.Forms
                     //Information generale
                     emp.NumeroEmploye = node.Attributes["NumeroEmploye"].Value;
                     emp.Nom = node.Attributes["Nom"].Value;
-                    emp.Prenom = node.Attributes["Prenom"].Value;
-                    emp.NomAffichageRapport = node.Attributes["NomAffichageRapport"].Value;
+                    emp.Prenom = node.Attributes["Prenom"].Value;                    
                     emp.NAS = node.Attributes["NAS"].Value;
                     emp.Titre = node.Attributes["Titre"].Value;
                     emp.Telephone = node.Attributes["Telephone"].Value;
                     emp.TelephoneAutre = node.Attributes["TelephoneAutre"].Value;
+
+                    try
+                    {
+                        emp.NomAffichageRapport = node.Attributes["NomAffichageRapport"].Value;
+                    }
+                    catch { }
 
                     //Adresse
                     emp.City = node.Attributes["City"].Value;
