@@ -86,6 +86,5 @@ namespace Barette.Library.Employer {
 
 		}
 
-
 	}
 }

@@ -154,7 +154,6 @@ namespace Barette.IDE.Forms {
             employeControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            employeControl1.Employer = employe1;
             employeControl1.Location = new System.Drawing.Point(255, 6);
             employeControl1.Name = "employeControl1";
             employeControl1.Size = new System.Drawing.Size(634, 524);

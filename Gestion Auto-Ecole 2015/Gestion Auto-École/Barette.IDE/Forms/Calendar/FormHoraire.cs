@@ -893,6 +893,7 @@ namespace Barette.IDE.Forms.Calendar {
             float leftMargin = 0;
             float RightMargin = e.MarginBounds.Right;
             string Hours = "";
+            string HoursEnd = "";
             Seance cours = null;
             Customer client = null;
             string[] notesSplited;
@@ -942,15 +943,15 @@ namespace Barette.IDE.Forms.Calendar {
             //Header du tableau
             yPos += printFont.Height + 20;
             e.Graphics.DrawString("Heures", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
-            e.Graphics.DrawString("# Contrat", printFontBold10, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
-            e.Graphics.DrawString("Nom du client", printFontBold10, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
-            e.Graphics.DrawString("Téléphone 1", printFontBold10, Brushes.Black, leftMargin + 310, yPos, new StringFormat());
-            e.Graphics.DrawString("Téléphone 2", printFontBold10, Brushes.Black, leftMargin + 410, yPos, new StringFormat());
-            e.Graphics.DrawString("Type", printFontBold10, Brushes.Black, leftMargin + 510, yPos, new StringFormat());
-            e.Graphics.DrawString("# Séance", printFontBold10, Brushes.Black, leftMargin + 560, yPos, new StringFormat());
-            e.Graphics.DrawString("Paiment", printFontBold10, Brushes.Black, leftMargin + 620, yPos, new StringFormat());
-            e.Graphics.DrawString("Endroit", printFontBold10, Brushes.Black, leftMargin + 690, yPos, new StringFormat());
-            e.Graphics.DrawString("Absence", printFontBold10, Brushes.Black, leftMargin + 755, yPos, new StringFormat());
+            e.Graphics.DrawString("# Contrat", printFontBold10, Brushes.Black, leftMargin + 95, yPos, new StringFormat());
+            e.Graphics.DrawString("Nom du client", printFontBold10, Brushes.Black, leftMargin + 160, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone 1", printFontBold10, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone 2", printFontBold10, Brushes.Black, leftMargin + 440, yPos, new StringFormat());
+            e.Graphics.DrawString("Type", printFontBold10, Brushes.Black, leftMargin + 540, yPos, new StringFormat());
+            e.Graphics.DrawString("# Séance", printFontBold10, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+            e.Graphics.DrawString("Paiment", printFontBold10, Brushes.Black, leftMargin + 650, yPos, new StringFormat());
+            e.Graphics.DrawString("Endroit", printFontBold10, Brushes.Black, leftMargin + 720, yPos, new StringFormat());
+            //e.Graphics.DrawString("Absence", printFontBold10, Brushes.Black, leftMargin + 755, yPos, new StringFormat());
 
             //Impression du tableau d'horraire
             yPos += printFont12.Height + 15;
@@ -966,15 +967,21 @@ namespace Barette.IDE.Forms.Calendar {
                 client = pair.Value;
 
                 Hours = DateTimeFunc.FormatHour(cours.DateHeure);
-                e.Graphics.DrawString(Hours, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
-                e.Graphics.DrawString(client.ContratNumber, printFont10, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
-                e.Graphics.DrawString(client.Name + " " + client.FirstName, printFont10, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
-                e.Graphics.DrawString(client.Phone, printFont10, Brushes.Black, leftMargin + 310, yPos, new StringFormat());
-                e.Graphics.DrawString(client.PhoneBureau, printFont10, Brushes.Black, leftMargin + 410, yPos, new StringFormat());
-                e.Graphics.DrawString(client.GetShortVehiculeType(), printFont10, Brushes.Black, leftMargin + 510, yPos, new StringFormat());
-                e.Graphics.DrawString(cours.SceanceNumber.ToString(), printFont10, Brushes.Black, leftMargin + 560, yPos, new StringFormat());
-                e.Graphics.DrawString(cours.Montant, printFont10, Brushes.Black, leftMargin + 620, yPos, new StringFormat());
-                e.Graphics.DrawString(cours.Code, printFont10, Brushes.Black, leftMargin + 690, yPos, new StringFormat());
+                HoursEnd = DateTimeFunc.FormatHour(cours.DateModified);
+
+                if (client.TypeVehicule == VehiculeType.Moto)
+                    e.Graphics.DrawString(Hours + " à " + HoursEnd, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
+                else
+                    e.Graphics.DrawString(Hours, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
+
+                e.Graphics.DrawString(client.ContratNumber, printFont10, Brushes.Black, leftMargin + 95, yPos, new StringFormat());
+                e.Graphics.DrawString(client.Name + " " + client.FirstName, printFont10, Brushes.Black, leftMargin + 160, yPos, new StringFormat());
+                e.Graphics.DrawString(client.Phone, printFont10, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
+                e.Graphics.DrawString(client.PhoneBureau, printFont10, Brushes.Black, leftMargin + 440, yPos, new StringFormat());
+                e.Graphics.DrawString(client.GetShortVehiculeType(), printFont10, Brushes.Black, leftMargin + 540, yPos, new StringFormat());
+                e.Graphics.DrawString(cours.SceanceNumber.ToString(), printFont10, Brushes.Black, leftMargin + 590, yPos, new StringFormat());
+                e.Graphics.DrawString(cours.Montant, printFont10, Brushes.Black, leftMargin + 650, yPos, new StringFormat());
+                e.Graphics.DrawString(cours.Code, printFont10, Brushes.Black, leftMargin + 720, yPos, new StringFormat());
 
             }
             /////////////////////////////////////////////////////////////////////////////////

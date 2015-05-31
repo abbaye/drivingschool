@@ -2997,6 +2997,6 @@ namespace Barette.IDE.Forms
                 _formClients.RefreshClientList(_AppConfig);
                 _formClients.RefreshFindList();
             }
-        }
+        } 
     }
 }

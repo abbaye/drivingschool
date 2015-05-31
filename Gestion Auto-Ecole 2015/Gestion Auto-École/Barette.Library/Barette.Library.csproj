@@ -203,7 +203,6 @@
     </Compile>
     <Compile Include="Config.cs" />
     <Compile Include="DateTimeFunc.cs" />
-    <Compile Include="Employer\Employee.cs" />
     <Compile Include="Employer\enum.cs" />
     <Compile Include="Employer\Employe.cs">
       <SubType>Code</SubType>
