@@ -14,6 +14,7 @@ namespace Barette.Library.Employer {
 		public string Nom;
 		public string Prenom;
         public string NomAffichageRapport;
+        public string NumeroPermis;
 
         /// <summary>
         /// Titre dans l'entreprise
@@ -50,7 +51,6 @@ namespace Barette.Library.Employer {
 		/// </summary>
 		public TypeEmploye TypeEmployer;
 
-
 		public DateTime DateEmbauche;
 		public DateTime DateDernierJourTravailler;
 
@@ -85,6 +85,5 @@ namespace Barette.Library.Employer {
 		public Employe() {
 
 		}
-
 	}
 }

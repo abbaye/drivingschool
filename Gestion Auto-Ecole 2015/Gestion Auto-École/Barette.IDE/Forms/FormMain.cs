@@ -2102,6 +2102,7 @@ namespace Barette.IDE.Forms
                         myWriter.WriteAttributeString("Titre", emp.Titre);
                         myWriter.WriteAttributeString("Telephone", emp.Telephone);
                         myWriter.WriteAttributeString("TelephoneAutre", emp.TelephoneAutre);
+                        myWriter.WriteAttributeString("NumeroPermis", emp.NumeroPermis);
 
                         //Adresse
                         myWriter.WriteAttributeString("City", emp.City);
@@ -2339,6 +2340,12 @@ namespace Barette.IDE.Forms
                     try
                     {
                         emp.NomAffichageRapport = node.Attributes["NomAffichageRapport"].Value;
+                    }
+                    catch { }
+
+                    try
+                    {
+                        emp.NumeroPermis = node.Attributes["NumeroPermis"].Value;
                     }
                     catch { }
 

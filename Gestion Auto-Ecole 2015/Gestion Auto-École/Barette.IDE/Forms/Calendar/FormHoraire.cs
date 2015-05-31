@@ -896,6 +896,9 @@ namespace Barette.IDE.Forms.Calendar {
             string HoursEnd = "";
             Seance cours = null;
             Customer client = null;
+
+            Employe employe = _formMain.EmployeList.GetFromName(cbEmploye.Text);
+
             string[] notesSplited;
 
             //Facrication de la font
@@ -936,7 +939,7 @@ namespace Barette.IDE.Forms.Calendar {
             }
 
             yPos += printFontBold16.Height + 0;
-            e.Graphics.DrawString("Employé : " + cbEmploye.Text, printFontBold12, Brushes.Black, 225, yPos, new StringFormat());
+            e.Graphics.DrawString("Employé : " + employe.Nom + " (" + employe.NomAffichageRapport + ")", printFontBold12, Brushes.Black, 225, yPos, new StringFormat());
             yPos += printFontBold16.Height;
             e.Graphics.DrawString("Date : " + DateTimeFunc.DayOfWeekFRLong(vCalendar.SelectionStart.Date.DayOfWeek) + ", " + vCalendar.SelectionStart.Date.ToLongDateString(), printFont12, Brushes.Black, 225, yPos, new StringFormat());
 
@@ -973,7 +976,7 @@ namespace Barette.IDE.Forms.Calendar {
                     e.Graphics.DrawString(Hours + " à " + HoursEnd, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
                 else
                     e.Graphics.DrawString(Hours, printFont10, Brushes.Black, 45 - e.Graphics.MeasureString(Hours, printFont10).Width, yPos, new StringFormat());
-
+                
                 e.Graphics.DrawString(client.ContratNumber, printFont10, Brushes.Black, leftMargin + 95, yPos, new StringFormat());
                 e.Graphics.DrawString(client.Name + " " + client.FirstName, printFont10, Brushes.Black, leftMargin + 160, yPos, new StringFormat());
                 e.Graphics.DrawString(client.Phone, printFont10, Brushes.Black, leftMargin + 340, yPos, new StringFormat());
@@ -993,7 +996,7 @@ namespace Barette.IDE.Forms.Calendar {
             e.Graphics.DrawString("____ Cours sur route", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
 
             yPos += printFont12.Height * 2;
-            e.Graphics.DrawString("No. Permis  ______________________________", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
+            e.Graphics.DrawString("No. Permis  : " + employe.NumeroPermis, printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
             yPos += printFont12.Height * 2;
             e.Graphics.DrawString("Signature    ______________________________", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
 

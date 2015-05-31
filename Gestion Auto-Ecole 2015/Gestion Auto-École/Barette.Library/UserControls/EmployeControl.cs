@@ -44,6 +44,7 @@ namespace Barette.Library.UserControls {
             _Employe.Telephone = txtPhoneNumber.Text;
             _Employe.TelephoneAutre = txtPhoneOther.Text;
             _Employe.Titre = cbTitre.Text;
+            _Employe.NumeroPermis = txtPermis.Text;
 
             //Debut de la création de l'employé
             _Employe.AdultACharge = Convert.ToInt16(ntbAdultACharge.Text);
@@ -99,6 +100,7 @@ namespace Barette.Library.UserControls {
             txtPhoneNumber.Text = _Employe.Telephone;
             txtPhoneOther.Text = _Employe.TelephoneAutre;
             cbTitre.Text = _Employe.Titre;
+            txtPermis.Text = _Employe.NumeroPermis;
 
             //Debut de la création de l'employé
             ntbAdultACharge.Text = _Employe.AdultACharge.ToString();
@@ -182,6 +184,7 @@ namespace Barette.Library.UserControls {
             txtPhoneNumber.Text = "";
             txtPhoneOther.Text = "";
             cbTitre.Text = "";
+            txtPermis.Text = "";
 
             //Debut de la création de l'employé
             ntbAdultACharge.Text = "0";
