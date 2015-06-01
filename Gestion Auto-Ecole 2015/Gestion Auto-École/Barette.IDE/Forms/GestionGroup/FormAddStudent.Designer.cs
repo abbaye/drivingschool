@@ -51,9 +51,9 @@
             // 
             // listFindResult
             // 
-            this.listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listFindResult.CheckBoxes = true;
             this.listFindResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colheadContratNumber,
@@ -222,8 +222,10 @@
             this.txtFind.Location = new System.Drawing.Point(42, 76);
             this.txtFind.Name = "txtFind";
             this.txtFind.SetRange = new System.Drawing.Size(0, 99999999);
+            this.txtFind.ShortcutsEnabled = false;
             this.txtFind.Size = new System.Drawing.Size(116, 20);
             this.txtFind.TabIndex = 15;
+            this.txtFind.Value = -1;
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // FormAddStudent

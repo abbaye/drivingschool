@@ -127,6 +127,29 @@ namespace Barette.IDE.Forms.GestionGroup {
                     AddClientToList(client);            
         }
 
+        //private void FindClient(bool AddCoursTerminer, string CoursNumbers)
+        //{
+        //    listFindResult.Items.Clear();
+
+
+        //    var ListClientTous = from V in _clientList.Cast<Customer>()
+        //                         where V.ContratNumber.Contains(ContainContractNumber) && V.GetCustomerType() == _groupe.Type
+        //                         select V;
+
+        //    var ListClient = from V in _clientList.Cast<Customer>()
+        //                     where V.ContratNumber.Contains(ContainContractNumber) && V.GetCustomerType() == _groupe.Type && V.TypeClient != ProfileType.CoursTerminer
+        //                     select V;
+
+
+        //    //Recherche dans tous les clients
+        //    if (AddCoursTerminer)
+        //        foreach (Customer client in ListClientTous)
+        //            AddClientToList(client);
+        //    else
+        //        foreach (Customer client in ListClient)
+        //            AddClientToList(client);
+        //}
+
         /// <summary>
         /// Transfere toute client selectionner vers le groupe cible this._groupnumber
         /// </summary>
@@ -195,5 +218,9 @@ Voulez vous quand même les ajouter dans le groupe : " + _groupe.GroupeNumber.To
             txtFind.Text = "";
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

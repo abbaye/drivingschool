@@ -10577,9 +10577,9 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             int TraficatedSeanceNumberForGerald = 0;
 
             //Facrication des fonts
-            Font printFont = new System.Drawing.Font("Courier New", 11);
-            Font printFontTime = new Font("Times New Roman", 12, FontStyle.Regular);
-            Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
+            Font printFont = new System.Drawing.Font("Courier New", 10);
+            Font printFontTime = new Font("Times New Roman", 11, FontStyle.Regular);
+            Font printFontBold = new Font("Times New Roman", 11, FontStyle.Bold);
             Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);            
             Font printFontBoldItalic16 = new Font("Times New Roman", 16, FontStyle.Bold & FontStyle.Italic);
 
@@ -10776,6 +10776,9 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawString("pour l'annulation de séances pratiques", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
             yPos += (myFont.Height * 2);
             e.Graphics.DrawString("Les locations Auto/Moto sont non remboursables.", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
+
+            //yPos += (myFont.Height * 2);
+            //e.Graphics.DrawString("Les locations Auto/Moto sont non remboursables.", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
         }
 
         private IEnumerable BuildSeanceForPrintSeanceMoto2015()
