@@ -48,6 +48,11 @@ namespace Barette.IDE.Forms
         private FormSuivieCours _formSuivieCours = null;
 
         /// <summary>
+        /// instance de la fenetre Suivie des cours de Moto
+        /// </summary>
+        private FormSuivieCoursMoto2015 _formSuivieCoursMoto = null;
+
+        /// <summary>
         /// instance de la fenetre de finance
         /// </summary>
         private FormFinance _formFinance = null;
@@ -198,9 +203,9 @@ namespace Barette.IDE.Forms
             MakeStaticBorder();
             InitializeBandGestion();
 
-            OpenAll();
-
             Directory.CreateDirectory("Data");
+
+            OpenAll();            
 
             //Check si les information de l'école existe
             if (File.Exists(@"Data\SchoolInfo.xml") == false)
@@ -922,6 +927,7 @@ namespace Barette.IDE.Forms
             OutlookBarItem outBarFindClient = new OutlookBarItem("Recherche", 1);
             OutlookBarItem outBarSave = new OutlookBarItem("Enregistrer", 2);
             OutlookBarItem outBarSuivie = new OutlookBarItem("Suivie de cours Automobile", 9);
+            OutlookBarItem outBarSuivieMoto = new OutlookBarItem("Suivie de cours Moto", 9);
             OutlookBarItem outBarHoraire = new OutlookBarItem("Horaires", 4);
             OutlookBarItem outBarFinance = new OutlookBarItem("Finances", 5);
             OutlookBarItem outBarEmploye = new OutlookBarItem("Gestion des employés", 6);
@@ -935,6 +941,7 @@ namespace Barette.IDE.Forms
             outBarFindClient.Tag = "FINDCLIENT";
             outBarSave.Tag = "SAVE";
             outBarSuivie.Tag = "SUIVIE";
+            outBarSuivieMoto.Tag = "SUIVIEMOTO";
             outBarHoraire.Tag = "HORAIRE";
             outBarFinance.Tag = "FINANCE";
             outBarEmploye.Tag = "EMPLOYE";
@@ -947,14 +954,15 @@ namespace Barette.IDE.Forms
             outBandGestion.Background = Color.LightGray;
             outBandGestion.TextColor = Color.Black;
             outBandGestion.Items.Add(outBarClient);
-            outBandGestion.Items.Add(outBarGestionGroupe);
-            outBandGestion.Items.Add(outBarEmploye);
+            outBandGestion.Items.Add(outBarGestionGroupe);            
             outBandGestion.Items.Add(outBarFinance);
             outBandGestion.Items.Add(outBarHoraire);
             outBandGestion.Items.Add(outBarLigueSecur);
             outBandGestion.Items.Add(outBarSuivie);
+            outBandGestion.Items.Add(outBarSuivieMoto);
             outBandGestion.Items.Add(outBarStats);
             outBandGestion.Items.Add(outBarPostIt);
+            outBandGestion.Items.Add(outBarEmploye);
             outBandGestion.Items.Add(outBarFindClient);
             outBandGestion.Items.Add(outBarSave);
         }
@@ -991,6 +999,9 @@ namespace Barette.IDE.Forms
                     break;
                 case "SUIVIE":
                     CreationSuivie();
+                    break;
+                case "SUIVIEMOTO":
+                    CreationSuivieMoto();
                     break;
                 case "FINDCLIENT":
                     CreationFindClient();
@@ -1045,6 +1056,41 @@ namespace Barette.IDE.Forms
                     new Crownwood.Magic.Controls.TabPage("Suivie des cours Automobile", _formSuivieCours);
 
                 tp1.Tag = "SUIVIE";
+                tp1.ImageList = OutlookBarImageList;
+                tp1.ImageIndex = 9;
+                tp1.Selected = true;
+
+                // ajouter la page au groupe
+                tgl.TabPages.Add(tp1);
+            }
+        }
+
+        private void CreationSuivieMoto()
+        {
+            // Créé un access a la premiere page page du group
+            TabGroupLeaf tgl = tabGroup.RootSequence[0] as TabGroupLeaf;
+            bool exist = false;
+
+            //Verifie que l'extracteur n'est pas deja ouvert
+            foreach (Crownwood.Magic.Controls.TabPage page in tgl.TabPages)
+            {
+                if (page.Tag.ToString() == "SUIVIEMOTO")
+                {
+                    exist = true;
+                    page.Selected = true;
+                }
+            }
+
+            //Creation de la fenetre client si il n'existe pas
+            if (!exist)
+            {
+                _formSuivieCoursMoto = new FormSuivieCoursMoto2015(ClientList, this);
+
+                // Cree la page
+                Crownwood.Magic.Controls.TabPage tp1 =
+                    new Crownwood.Magic.Controls.TabPage("Suivie des cours Moto", _formSuivieCoursMoto);
+
+                tp1.Tag = "SUIVIEMOTO";
                 tp1.ImageList = OutlookBarImageList;
                 tp1.ImageIndex = 9;
                 tp1.Selected = true;

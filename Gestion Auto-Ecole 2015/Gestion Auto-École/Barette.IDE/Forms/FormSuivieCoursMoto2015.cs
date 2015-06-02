@@ -11,7 +11,7 @@ using Barette.Library.Client;
 using Barette.Library.Collections;
 
 namespace Barette.IDE.Forms {
-    public partial class FormSuivieCours : Form {
+    public partial class FormSuivieCoursMoto2015 : Form {
 
         /// <summary>
         /// Represente une collection de client
@@ -24,7 +24,7 @@ namespace Barette.IDE.Forms {
         FormMain _FormMain = null;
 
 
-        public FormSuivieCours(CustomerCollection client, FormMain frmMain) {
+        public FormSuivieCoursMoto2015(CustomerCollection client, FormMain frmMain) {
             InitializeComponent();
 
             _clientlist = client;
@@ -197,7 +197,7 @@ namespace Barette.IDE.Forms {
 
             int i, j, k;
             for (i = 0; i < _clientlist.Count; i++) {
-                if ((_clientlist[i].TypeClient != ProfileType.CoursTerminer) && IsAutomobile(_clientlist[i])) {
+                if ((_clientlist[i].TypeClient != ProfileType.CoursTerminer) && IsMoto(_clientlist[i])) {
                     item = new ListViewItem(_clientlist[i].ContratNumber);
 
                     item.SubItems.Add(_clientlist[i].FirstName + " " + _clientlist[i].Name);
@@ -267,7 +267,7 @@ namespace Barette.IDE.Forms {
 
             int i, j, k;
             for (i = 0; i < _clientlist.Count; i++) {
-                if ((_clientlist[i].TypeClient != ProfileType.CoursTerminer) && IsAutomobile(_clientlist[i])) {
+                if ((_clientlist[i].TypeClient != ProfileType.CoursTerminer) && IsMoto(_clientlist[i])) {
                     item = new ListViewItem(_clientlist[i].ContratNumber);
 
                     item.SubItems.Add(_clientlist[i].FirstName + " " + _clientlist[i].Name);
@@ -280,51 +280,33 @@ namespace Barette.IDE.Forms {
                     }
 
                     for (j = 0; j < _clientlist[i].Seances.Count; j++) {
-                        switch (_clientlist[i].Seances[j].SceanceNumber) {
-                            case 1:
+                        switch (_clientlist[i].Seances[j].SceanceNumber) {                            
+                            case 2:
                                 item.SubItems[4].Text = "X";
                                 break;
-                            case 2:
+                            case 3:
                                 item.SubItems[5].Text = "X";
                                 break;
-                            case 3:
+                            case 4:
                                 item.SubItems[6].Text = "X";
                                 break;
-                            case 4:
-                                item.SubItems[7].Text = "X";
-                                break;
                             case 5:
+                                item.SubItems[7].Text = "X";
+                                break;                            
+                            case 7:
                                 item.SubItems[8].Text = "X";
                                 break;
-                            case 6:
+                            case 8:
                                 item.SubItems[9].Text = "X";
                                 break;
-                            case 7:
+                            case 9:
                                 item.SubItems[10].Text = "X";
                                 break;
-                            case 8:
+                            case 10:
                                 item.SubItems[11].Text = "X";
                                 break;
-                            case 9:
-                                item.SubItems[12].Text = "X";
-                                break;
-                            case 10:
-                                item.SubItems[13].Text = "X";
-                                break;
                             case 11:
-                                item.SubItems[14].Text = "X";
-                                break;
-                            case 12:
-                                item.SubItems[15].Text = "X";
-                                break;
-                            case 13:
-                                item.SubItems[16].Text = "X";
-                                break;
-                            case 14:
-                                item.SubItems[17].Text = "X";
-                                break;
-                            case 15:
-                                item.SubItems[18].Text = "X";
+                                item.SubItems[12].Text = "X";
                                 break;
                         }
                     }
@@ -338,19 +320,15 @@ namespace Barette.IDE.Forms {
 
             if (tbbActivateModePratique.Pushed == true) {
                 colHead2.Width = colHead3.Width = colHead4.Width = colHead5.Width = colHead6.Width = colHead7.Width =
-                    colHead8.Width = colHead9.Width = colHead10.Width = colHead11.Width =
-                    colHead12.Width = colHead1.Width = colHead13.Width = colHead14.Width = colHead15.Width = 41;
+                    colHead8.Width = colHead9.Width = 41;
 
                 //ListCours.SmallImageList = null;
                 tbbShowSeanceTheorique.ImageKey = "Drive.ico";
             }
             else {
                 colHead2.Width = colHead3.Width = colHead4.Width = colHead5.Width = colHead6.Width = colHead7.Width =
-                    colHead8.Width = colHead9.Width = colHead10.Width = colHead11.Width =
-                    colHead12.Width = colHead1.Width = 41;
-
-                colHead13.Width = colHead14.Width = colHead15.Width = 0;
-
+                    colHead8.Width = colHead9.Width = colHead1.Width = 41;
+                
                 tbbShowSeanceTheorique.ImageKey = "book-icon";
 
                 //ListCours.SmallImageList = imgListChiffre;
@@ -388,14 +366,12 @@ namespace Barette.IDE.Forms {
         /// Verifie que cest un cours automobile
         /// </summary>
         /// <param name="client"></param>
-        private bool IsAutomobile(Customer client) {
+        private bool IsMoto(Customer client) {
             switch (client.TypeVehicule) {
                 case VehiculeType.Moto:
-                    return false;
-                case VehiculeType.Cyclomoteur:
-                    return false;
-                default:
                     return true;
+                default:
+                    return false;
             }
         }
 
