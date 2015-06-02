@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuivieCoursMoto2015));
-            Barette.Library.Client.Customer customer3 = new Barette.Library.Client.Customer();
+            Barette.Library.Client.Customer customer1 = new Barette.Library.Client.Customer();
             this.tbMain = new System.Windows.Forms.ToolBar();
             this.tbbShowClient = new System.Windows.Forms.ToolBarButton();
             this.tbbShowSeanceTheorique = new System.Windows.Forms.ToolBarButton();
@@ -59,6 +59,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.colHeadProgram = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,53 +149,53 @@
             // 
             this.clientControl1.AutoUpdate = false;
             this.clientControl1.BackColor = System.Drawing.SystemColors.Control;
-            customer3.AttestationNumber1 = "";
-            customer3.AttestationNumber2 = "";
-            customer3.BVA = false;
-            customer3.BVADate = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
-            customer3.City = "";
-            customer3.ClientNull = false;
-            customer3.CodePostal = "   -";
-            customer3.ContratNumber = "0";
-            customer3.DateAttestation1 = new System.DateTime(2010, 6, 29, 19, 44, 39, 949);
-            customer3.DateAttestation2 = new System.DateTime(2010, 6, 29, 19, 44, 39, 949);
-            customer3.DateDebutCours = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer3.DateExpiration = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer3.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
-            customer3.DateNaissance = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer3.DateTemporaire = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
-            customer3.DisponibilityAlway = false;
-            customer3.DisponibilityAM = false;
-            customer3.DisponibilityDimanche = false;
-            customer3.DisponibilityPM = false;
-            customer3.DisponibilitySamedi = false;
-            customer3.DisponibilitySoirer = false;
-            customer3.Email = "";
-            customer3.FirstName = "";
-            customer3.HaveTemporaire = false;
-            customer3.LastRecuNumber = "";
-            customer3.LocationAutomobile = false;
-            customer3.LocationMoto = false;
-            customer3.MontantCours = "";
-            customer3.MontantLocation = "0 $";
-            customer3.Name = "";
-            customer3.No6R = "";
-            customer3.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
+            customer1.AttestationNumber1 = "";
+            customer1.AttestationNumber2 = "";
+            customer1.BVA = false;
+            customer1.BVADate = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
+            customer1.City = "";
+            customer1.ClientNull = false;
+            customer1.CodePostal = "   -";
+            customer1.ContratNumber = "0";
+            customer1.DateAttestation1 = new System.DateTime(2010, 6, 29, 19, 44, 39, 949);
+            customer1.DateAttestation2 = new System.DateTime(2010, 6, 29, 19, 44, 39, 949);
+            customer1.DateDebutCours = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer1.DateExpiration = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer1.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
+            customer1.DateNaissance = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer1.DateTemporaire = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
+            customer1.DisponibilityAlway = false;
+            customer1.DisponibilityAM = false;
+            customer1.DisponibilityDimanche = false;
+            customer1.DisponibilityPM = false;
+            customer1.DisponibilitySamedi = false;
+            customer1.DisponibilitySoirer = false;
+            customer1.Email = "";
+            customer1.FirstName = "";
+            customer1.HaveTemporaire = false;
+            customer1.LastRecuNumber = "";
+            customer1.LocationAutomobile = false;
+            customer1.LocationMoto = false;
+            customer1.MontantCours = "";
+            customer1.MontantLocation = "0 $";
+            customer1.Name = "";
+            customer1.No6R = "";
+            customer1.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
     "ans Serif;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs17\\par\r\n}\r\n";
-            customer3.NumeroGroupe = 0;
-            customer3.NumeroPermis = "";
-            customer3.Phone = "(   )   -";
-            customer3.PhoneBureau = "(   )   -";
-            customer3.ProgramMoto = Barette.Library.Client.ProgramMoto.Nothing;
-            customer3.Solde = "0 $";
-            customer3.StreetApp = "";
-            customer3.StreetName = "";
-            customer3.StreetNumber = "";
-            customer3.TauxHorairePratique = "";
-            customer3.TauxHoraireTheorique = "";
-            customer3.TypeClient = Barette.Library.Client.ProfileType.Actif;
-            customer3.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
-            this.clientControl1.Client = customer3;
+            customer1.NumeroGroupe = 0;
+            customer1.NumeroPermis = "";
+            customer1.Phone = "(   )   -";
+            customer1.PhoneBureau = "(   )   -";
+            customer1.ProgramMoto = Barette.Library.Client.ProgramMoto.Nothing;
+            customer1.Solde = "0 $";
+            customer1.StreetApp = "";
+            customer1.StreetName = "";
+            customer1.StreetNumber = "";
+            customer1.TauxHorairePratique = "";
+            customer1.TauxHoraireTheorique = "";
+            customer1.TypeClient = Barette.Library.Client.ProfileType.Actif;
+            customer1.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
+            this.clientControl1.Client = customer1;
             this.clientControl1.Location = new System.Drawing.Point(529, 179);
             this.clientControl1.Name = "clientControl1";
             this.clientControl1.School = null;
@@ -219,7 +220,8 @@
             this.colHead6,
             this.colHead7,
             this.colHead8,
-            this.colHead9});
+            this.colHead9,
+            this.colHeadProgram});
             this.ListCours.FullRowSelect = true;
             this.ListCours.Location = new System.Drawing.Point(12, 49);
             this.ListCours.MultiSelect = false;
@@ -253,54 +255,63 @@
             // 
             // colHead1
             // 
+            this.colHead1.DisplayIndex = 5;
             this.colHead1.Text = "1";
             this.colHead1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead1.Width = 40;
             // 
             // colHead2
             // 
+            this.colHead2.DisplayIndex = 6;
             this.colHead2.Text = "2";
             this.colHead2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead2.Width = 41;
             // 
             // colHead3
             // 
+            this.colHead3.DisplayIndex = 7;
             this.colHead3.Text = "3";
             this.colHead3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead3.Width = 41;
             // 
             // colHead4
             // 
+            this.colHead4.DisplayIndex = 8;
             this.colHead4.Text = "4";
             this.colHead4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead4.Width = 41;
             // 
             // colHead5
             // 
+            this.colHead5.DisplayIndex = 9;
             this.colHead5.Text = "5";
             this.colHead5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead5.Width = 41;
             // 
             // colHead6
             // 
+            this.colHead6.DisplayIndex = 10;
             this.colHead6.Text = "6";
             this.colHead6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead6.Width = 41;
             // 
             // colHead7
             // 
+            this.colHead7.DisplayIndex = 11;
             this.colHead7.Text = "7";
             this.colHead7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead7.Width = 41;
             // 
             // colHead8
             // 
+            this.colHead8.DisplayIndex = 12;
             this.colHead8.Text = "8";
             this.colHead8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead8.Width = 41;
             // 
             // colHead9
             // 
+            this.colHead9.DisplayIndex = 13;
             this.colHead9.Text = "9";
             this.colHead9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead9.Width = 41;
@@ -342,6 +353,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 61;
             this.pictureBox1.TabStop = false;
+            // 
+            // colHeadProgram
+            // 
+            this.colHeadProgram.DisplayIndex = 4;
+            this.colHeadProgram.Text = "Program";
             // 
             // FormSuivieCoursMoto2015
             // 
@@ -391,5 +407,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ColumnHeader colHeadProgram;
     }
 }

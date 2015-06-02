@@ -87,6 +87,16 @@ namespace Barette.IDE.Forms {
                 ListCours.SelectedItems[0].SubItems[i + 4].Text = " ";
             }
 
+            switch (client.ProgramMoto)
+            {
+                case ProgramMoto.Program2015:
+                    ListCours.SelectedItems[0].SubItems[13].Text = "Nouveau";
+                    break;
+                case ProgramMoto.ProgramNormal:
+                    ListCours.SelectedItems[0].SubItems[13].Text = "Ancien";
+                    break;
+            }
+
             switch (tbbActivateModePratique.Pushed) {
                 case false:
                     for (int j = 0; j < client.SeancesTheorique.Count; j++) {
@@ -203,50 +213,46 @@ namespace Barette.IDE.Forms {
                     item.SubItems.Add(_clientlist[i].FirstName + " " + _clientlist[i].Name);
                     item.SubItems.Add(_clientlist[i].Phone);
                     item.SubItems.Add(_clientlist[i].PhoneBureau);
-
+                                        
                     for (k = 0; k < 15; k++) {
                         item.SubItems.Add(" ");
                     }
 
-                    for (j = 0; j < _clientlist[i].SeancesTheorique.Count; j++) {
-                        switch (_clientlist[i].SeancesTheorique[j].SceanceNumber) {
-                            case 1:
-                                item.SubItems[4].Text = "X";
-                                break;
-                            case 2:
-                                item.SubItems[5].Text = "X";
-                                break;
-                            case 3:
-                                item.SubItems[6].Text = "X";
-                                break;
-                            case 4:
-                                item.SubItems[7].Text = "X";
-                                break;
-                            case 5:
-                                item.SubItems[8].Text = "X";
-                                break;
-                            case 6:
-                                item.SubItems[9].Text = "X";
-                                break;
-                            case 7:
-                                item.SubItems[10].Text = "X";
-                                break;
-                            case 8:
-                                item.SubItems[11].Text = "X";
-                                break;
-                            case 9:
-                                item.SubItems[12].Text = "X";
-                                break;
-                            case 10:
-                                item.SubItems[13].Text = "X";
-                                break;
-                            case 11:
-                                item.SubItems[14].Text = "X";
-                                break;
-                            case 12:
-                                item.SubItems[15].Text = "X";
-                                break;
-                        }
+                    switch (_clientlist[i].ProgramMoto)
+                    {
+                        case ProgramMoto.Program2015:
+                            item.SubItems[13].Text = "Nouveau";
+                            break;
+                        case ProgramMoto.ProgramNormal:
+                            item.SubItems[13].Text = "Ancien";
+                            break;
+                    }                   
+
+                    for (j = 0; j < _clientlist[i].SeancesTheorique.Count; j++)
+                    {
+                        if (_clientlist[i].ProgramMoto == ProgramMoto.Program2015)
+                            switch (_clientlist[i].SeancesTheorique[j].SceanceNumber)
+                            {
+                                case 1:
+                                    item.SubItems[4].Text = "X";
+                                    break;
+                                case 6:
+                                    item.SubItems[5].Text = "X";
+                                    break;
+                            }
+                        else
+                            switch (_clientlist[i].SeancesTheorique[j].SceanceNumber)
+                            {
+                                case 1:
+                                    item.SubItems[4].Text = "X";
+                                    break;
+                                case 2:
+                                    item.SubItems[5].Text = "X";
+                                    break;
+                                case 3:
+                                    item.SubItems[6].Text = "X";
+                                    break;
+                            }
                     }
 
                     ListCours.Items.Add(item);
@@ -279,36 +285,80 @@ namespace Barette.IDE.Forms {
                         item.SubItems.Add(" ");
                     }
 
-                    for (j = 0; j < _clientlist[i].Seances.Count; j++) {
-                        switch (_clientlist[i].Seances[j].SceanceNumber) {                            
-                            case 2:
-                                item.SubItems[4].Text = "X";
-                                break;
-                            case 3:
-                                item.SubItems[5].Text = "X";
-                                break;
-                            case 4:
-                                item.SubItems[6].Text = "X";
-                                break;
-                            case 5:
-                                item.SubItems[7].Text = "X";
-                                break;                            
-                            case 7:
-                                item.SubItems[8].Text = "X";
-                                break;
-                            case 8:
-                                item.SubItems[9].Text = "X";
-                                break;
-                            case 9:
-                                item.SubItems[10].Text = "X";
-                                break;
-                            case 10:
-                                item.SubItems[11].Text = "X";
-                                break;
-                            case 11:
-                                item.SubItems[12].Text = "X";
-                                break;
-                        }
+                    switch (_clientlist[i].ProgramMoto)
+                    {
+                        case ProgramMoto.Program2015:
+                            item.SubItems[13].Text = "Nouveau";
+                            break;
+                        case ProgramMoto.ProgramNormal:
+                            item.SubItems[13].Text = "Ancien";
+                            break;
+                    }
+
+                    for (j = 0; j < _clientlist[i].Seances.Count; j++)
+                    {
+                        if (_clientlist[i].ProgramMoto == ProgramMoto.Program2015)
+                            switch (_clientlist[i].Seances[j].SceanceNumber)
+                            {
+                                case 2:
+                                    item.SubItems[4].Text = "X";
+                                    break;
+                                case 3:
+                                    item.SubItems[5].Text = "X";
+                                    break;
+                                case 4:
+                                    item.SubItems[6].Text = "X";
+                                    break;
+                                case 5:
+                                    item.SubItems[7].Text = "X";
+                                    break;
+                                case 7:
+                                    item.SubItems[8].Text = "X";
+                                    break;
+                                case 8:
+                                    item.SubItems[9].Text = "X";
+                                    break;
+                                case 9:
+                                    item.SubItems[10].Text = "X";
+                                    break;
+                                case 10:
+                                    item.SubItems[11].Text = "X";
+                                    break;
+                                case 11:
+                                    item.SubItems[12].Text = "X";
+                                    break;
+                            }
+                        else
+                            switch (_clientlist[i].Seances[j].SceanceNumber)
+                            {
+                                case 1:
+                                    item.SubItems[4].Text = "X";
+                                    break;
+                                case 2:
+                                    item.SubItems[5].Text = "X";
+                                    break;
+                                case 3:
+                                    item.SubItems[6].Text = "X";
+                                    break;
+                                case 4:
+                                    item.SubItems[7].Text = "X";
+                                    break;
+                                case 5:
+                                    item.SubItems[8].Text = "X";
+                                    break;
+                                case 6:
+                                    item.SubItems[9].Text = "X";
+                                    break;
+                                case 7:
+                                    item.SubItems[10].Text = "X";
+                                    break;
+                                case 8:
+                                    item.SubItems[11].Text = "X";
+                                    break;
+                                case 9:
+                                    item.SubItems[12].Text = "X";
+                                    break;
+                            }
                     }
 
                     ListCours.Items.Add(item);
