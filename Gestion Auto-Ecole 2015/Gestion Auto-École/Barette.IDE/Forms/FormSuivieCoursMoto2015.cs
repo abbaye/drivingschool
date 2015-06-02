@@ -99,96 +99,98 @@ namespace Barette.IDE.Forms {
 
             switch (tbbActivateModePratique.Pushed) {
                 case false:
-                    for (int j = 0; j < client.SeancesTheorique.Count; j++) {
-                        switch (client.SeancesTheorique[j].SceanceNumber) {
-                            case 1:
-                                ListCours.SelectedItems[0].SubItems[4].Text = "X";
-                                break;
-                            case 2:
-                                ListCours.SelectedItems[0].SubItems[5].Text = "X";
-                                break;
-                            case 3:
-                                ListCours.SelectedItems[0].SubItems[6].Text = "X";
-                                break;
-                            case 4:
-                                ListCours.SelectedItems[0].SubItems[7].Text = "X";
-                                break;
-                            case 5:
-                                ListCours.SelectedItems[0].SubItems[8].Text = "X";
-                                break;
-                            case 6:
-                                ListCours.SelectedItems[0].SubItems[9].Text = "X";
-                                break;
-                            case 7:
-                                ListCours.SelectedItems[0].SubItems[10].Text = "X";
-                                break;
-                            case 8:
-                                ListCours.SelectedItems[0].SubItems[11].Text = "X";
-                                break;
-                            case 9:
-                                ListCours.SelectedItems[0].SubItems[12].Text = "X";
-                                break;
-                            case 10:
-                                ListCours.SelectedItems[0].SubItems[13].Text = "X";
-                                break;
-                            case 11:
-                                ListCours.SelectedItems[0].SubItems[14].Text = "X";
-                                break;
-                            case 12:
-                                ListCours.SelectedItems[0].SubItems[15].Text = "X";
-                                break;
-                        }
+                    for (int j = 0; j < client.SeancesTheorique.Count; j++)
+                    {
+                        if (client.ProgramMoto == ProgramMoto.Program2015)
+                            switch (client.SeancesTheorique[j].SceanceNumber)
+                            {
+                                case 1:
+                                    ListCours.SelectedItems[0].SubItems[4].Text = "X";
+                                    break;
+                                case 6:
+                                    ListCours.SelectedItems[0].SubItems[5].Text = "X";
+                                    break;
+                            }
+                        else
+                            switch (client.SeancesTheorique[j].SceanceNumber)
+                            {
+                                case 1:
+                                    ListCours.SelectedItems[0].SubItems[4].Text = "X";
+                                    break;
+                                case 2:
+                                    ListCours.SelectedItems[0].SubItems[5].Text = "X";
+                                    break;
+                                case 3:
+                                    ListCours.SelectedItems[0].SubItems[6].Text = "X";
+                                    break;
+                            }
                     }
                     break;
                 case true:
-                    for (int j = 0; j < client.Seances.Count; j++) {
-                        switch (client.Seances[j].SceanceNumber) {
-                            case 1:
-                                ListCours.SelectedItems[0].SubItems[4].Text = "X";
-                                break;
-                            case 2:
-                                ListCours.SelectedItems[0].SubItems[5].Text = "X";
-                                break;
-                            case 3:
-                                ListCours.SelectedItems[0].SubItems[6].Text = "X";
-                                break;
-                            case 4:
-                                ListCours.SelectedItems[0].SubItems[7].Text = "X";
-                                break;
-                            case 5:
-                                ListCours.SelectedItems[0].SubItems[8].Text = "X";
-                                break;
-                            case 6:
-                                ListCours.SelectedItems[0].SubItems[9].Text = "X";
-                                break;
-                            case 7:
-                                ListCours.SelectedItems[0].SubItems[10].Text = "X";
-                                break;
-                            case 8:
-                                ListCours.SelectedItems[0].SubItems[11].Text = "X";
-                                break;
-                            case 9:
-                                ListCours.SelectedItems[0].SubItems[12].Text = "X";
-                                break;
-                            case 10:
-                                ListCours.SelectedItems[0].SubItems[13].Text = "X";
-                                break;
-                            case 11:
-                                ListCours.SelectedItems[0].SubItems[14].Text = "X";
-                                break;
-                            case 12:
-                                ListCours.SelectedItems[0].SubItems[15].Text = "X";
-                                break;
-                            case 13:
-                                ListCours.SelectedItems[0].SubItems[16].Text = "X";
-                                break;
-                            case 14:
-                                ListCours.SelectedItems[0].SubItems[17].Text = "X";
-                                break;
-                            case 15:
-                                ListCours.SelectedItems[0].SubItems[18].Text = "X";
-                                break;
-                        }
+                    for (int j = 0; j < client.Seances.Count; j++)
+                    {
+                        if (client.ProgramMoto == ProgramMoto.Program2015)
+                            switch (client.Seances[j].SceanceNumber)
+                            {
+                                case 2:
+                                    ListCours.SelectedItems[0].SubItems[4].Text = "X";
+                                    break;
+                                case 3:
+                                    ListCours.SelectedItems[0].SubItems[5].Text = "X";
+                                    break;
+                                case 4:
+                                    ListCours.SelectedItems[0].SubItems[6].Text = "X";
+                                    break;
+                                case 5:
+                                    ListCours.SelectedItems[0].SubItems[7].Text = "X";
+                                    break;
+                                case 7:
+                                    ListCours.SelectedItems[0].SubItems[8].Text = "X";
+                                    break;
+                                case 8:
+                                    ListCours.SelectedItems[0].SubItems[9].Text = "X";
+                                    break;
+                                case 9:
+                                    ListCours.SelectedItems[0].SubItems[10].Text = "X";
+                                    break;
+                                case 10:
+                                    ListCours.SelectedItems[0].SubItems[11].Text = "X";
+                                    break;
+                                case 11:
+                                    ListCours.SelectedItems[0].SubItems[12].Text = "X";
+                                    break;
+                            }
+                        else
+                            switch (client.Seances[j].SceanceNumber)
+                            {
+                                case 1:
+                                    ListCours.SelectedItems[0].SubItems[4].Text = "X";
+                                    break;
+                                case 2:
+                                    ListCours.SelectedItems[0].SubItems[5].Text = "X";
+                                    break;
+                                case 3:
+                                    ListCours.SelectedItems[0].SubItems[6].Text = "X";
+                                    break;
+                                case 4:
+                                    ListCours.SelectedItems[0].SubItems[7].Text = "X";
+                                    break;
+                                case 5:
+                                    ListCours.SelectedItems[0].SubItems[8].Text = "X";
+                                    break;
+                                case 6:
+                                    ListCours.SelectedItems[0].SubItems[9].Text = "X";
+                                    break;
+                                case 7:
+                                    ListCours.SelectedItems[0].SubItems[10].Text = "X";
+                                    break;
+                                case 8:
+                                    ListCours.SelectedItems[0].SubItems[11].Text = "X";
+                                    break;
+                                case 9:
+                                    ListCours.SelectedItems[0].SubItems[12].Text = "X";
+                                    break;
+                            }
                     }
                     break;
             }
@@ -369,22 +371,22 @@ namespace Barette.IDE.Forms {
         private void timerResize_Tick(object sender, EventArgs e) {
 
             if (tbbActivateModePratique.Pushed == true) {
-                colHead2.Width = colHead3.Width = colHead4.Width = colHead5.Width = colHead6.Width = colHead7.Width =
+                colHead1.Width = colHead2.Width = colHead3.Width = colHead4.Width = colHead5.Width = colHead6.Width = colHead7.Width =
                     colHead8.Width = colHead9.Width = 41;
 
                 //ListCours.SmallImageList = null;
                 tbbShowSeanceTheorique.ImageKey = "Drive.ico";
             }
             else {
-                colHead2.Width = colHead3.Width = colHead4.Width = colHead5.Width = colHead6.Width = colHead7.Width =
-                    colHead8.Width = colHead9.Width = colHead1.Width = 41;
+                colHead4.Width = colHead5.Width = colHead6.Width = colHead7.Width =
+                    colHead8.Width = colHead9.Width = 0;
                 
                 tbbShowSeanceTheorique.ImageKey = "book-icon";
 
                 //ListCours.SmallImageList = imgListChiffre;
             }
 
-            colHeadClientName.Width = 114;
+            colHeadClientName.Width = 130;
             colHeadContractNumber.Width = 68;
             colHeadTelephone.Width = 90;
             colHeadTelephoneAutre.Width = 90;
