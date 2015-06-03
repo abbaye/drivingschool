@@ -29,6 +29,9 @@ namespace Barette.IDE.Forms {
 
             _clientlist = client;
             _FormMain = frmMain;
+
+            //cbFindCours.SelectedIndex = 0;
+
             Find();
         }
 
@@ -394,13 +397,7 @@ namespace Barette.IDE.Forms {
         }
 
         private void ListCoursEffectuer_SelectedIndexChanged(object sender, EventArgs e) {
-            try {
-                Customer client = _FormMain.ClientList.GetClient(ListCours.SelectedItems[0].Text);
 
-                if (client != null)
-                    clientControl1.Client = _FormMain.ClientList.GetClient(ListCours.SelectedItems[0].Text);
-            }
-            catch { }
         }
 
         private void timerEnabled_Tick(object sender, EventArgs e) {
@@ -435,6 +432,23 @@ namespace Barette.IDE.Forms {
                     ShowSeanceTheorique();    
             }
             catch { }
+        }
+
+        private void cbFindCours_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    int findCoursNumber = -1;
+
+            //    if (cbFindCours.SelectedIndex != 0)
+            //        findCoursNumber = Convert.ToInt32(cbFindCours.SelectedItem.ToString());
+
+            //    if (tbbActivateModePratique.Pushed == true)
+            //        FindPratique();
+            //    else
+            //        Find();
+            //}
+            //catch { }
         }
     }
 }
