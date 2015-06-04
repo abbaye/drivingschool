@@ -718,7 +718,7 @@ namespace Barette.Library.Client {
                 throw new ArgumentException("Object is not a Temperature");
         }
 
-        public Seance GetLastMotoSeance()
+        public Seance GetLastMoto2015Seance()
         {
             if (_VehiculeType == VehiculeType.Moto)
             {
@@ -742,7 +742,57 @@ namespace Barette.Library.Client {
             return null;
         }
 
+        public Seance GetLastSeanceTheorique()
+        {
+            List<Seance> seanceList = new List<Seance>();
 
-		#endregion
-	}
+            foreach (Seance seance in this.SeancesTheorique)
+                if (seance.Active)
+                    seanceList.Add(seance);
+
+            try
+            {
+                return seanceList.OrderBy(s => s.SceanceNumber).Last();
+            }
+            catch { return null; }
+        }
+
+        public enum MotoSeanceType
+        {
+            Route,
+            HorsRoute,
+            All
+        }
+
+        public Seance GetLastSeancePratique(MotoSeanceType type = MotoSeanceType.All)
+        {
+            List<Seance> seanceList = new List<Seance>();
+
+            switch(type){
+                case MotoSeanceType.All:
+                    foreach (Seance seance in this.Seances)
+                        if (seance.Active)
+                            seanceList.Add(seance);
+                    break;
+                case MotoSeanceType.HorsRoute:
+                    foreach (Seance seance in this.Seances)
+                        if (seance.Active && seance.SceanceNumber >= 1 && seance.SceanceNumber <= 4)
+                            seanceList.Add(seance);
+                    break;
+                case MotoSeanceType.Route:
+                    foreach (Seance seance in this.Seances)
+                        if (seance.Active && seance.SceanceNumber >= 5 && seance.SceanceNumber <= 9)
+                            seanceList.Add(seance);
+                    break;
+            }           
+
+            try
+            {
+                return seanceList.OrderBy(s => s.SceanceNumber).Last();
+            }
+            catch { return null; }
+        }
+
+        #endregion
+    }
 }

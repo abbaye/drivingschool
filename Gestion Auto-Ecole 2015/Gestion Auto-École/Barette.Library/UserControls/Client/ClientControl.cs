@@ -9778,6 +9778,28 @@ namespace Barette.Library.UserControls.Client {
                 }
             }
 
+            ////////Print prof info avec la derniere seance ///////////
+            Seance last = Client.GetLastSeancePratique(Customer.MotoSeanceType.All);
+
+            if (Client.TypeVehicule == VehiculeType.Moto)
+            {
+                if (_PrintRoute)
+                    last = Client.GetLastSeancePratique(Customer.MotoSeanceType.Route);
+
+                if (_PrintHorsRoute)
+                    last = Client.GetLastSeancePratique(Customer.MotoSeanceType.HorsRoute);
+            }
+
+            Employe employe = null;
+
+            if (last != null)
+                employe = ListeEmploye.GetFromNameOrDefault(last.Employer);
+            else
+                employe = ListeEmploye.GetFromNameOrDefault("");
+
+            yPos += (printFont.Height * 4);
+            e.Graphics.DrawString("Nom du professeur : " + employe.NomAffichageRapport + "           No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            ///////////////////////////////////////////////////////////
 
             //Impression de l'équipement
             if (_Client.TypeVehicule == VehiculeType.Moto) {
@@ -10029,6 +10051,21 @@ namespace Barette.Library.UserControls.Client {
                     }
                 }
             }
+
+            ////////Print prof info avec la derniere seance ///////////
+            Seance last = null;                        
+            last = Client.GetLastSeanceTheorique();
+
+            Employe employe = null;
+
+            if (last != null)
+                employe = ListeEmploye.GetFromNameOrDefault(last.Employer);
+            else
+                employe = ListeEmploye.GetFromNameOrDefault("");
+
+            yPos += (printFont.Height * 4);
+            e.Graphics.DrawString("Nom du professeur : " + employe.NomAffichageRapport + "           No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            ///////////////////////////////////////////////////////////
 
 
             //Impression de l'équipement
@@ -10752,7 +10789,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             }
 
             ////////Print prof info avec la derniere seance ///////////
-            Seance last = Client.GetLastMotoSeance();
+            Seance last = Client.GetLastMoto2015Seance();
             Employe employe = null;
 
             if (last != null)
