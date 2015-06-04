@@ -66,43 +66,54 @@ namespace Barette.Library.Collections {
             return null;
         }
 
-		///// <summary>
-		///// Remplir avec un fichier xml (TODO: gestion d'erreur)
-		///// </summary>
-		///// <param name="filename"></param>
-		///// <returns></returns>
-		//public bool LoadFromXML(string filename){
-		//	if (File.Exists(filename)){
+        public Employe GetFromNameOrDefault(string Name)
+        {
+            foreach (Employe emp in this)
+            {
+                if (emp.Nom.Trim() == Name.Trim())
+                    return emp;
+            }
+
+            return new Employe();
+        }
+
+        ///// <summary>
+        ///// Remplir avec un fichier xml (TODO: gestion d'erreur)
+        ///// </summary>
+        ///// <param name="filename"></param>
+        ///// <returns></returns>
+        //public bool LoadFromXML(string filename){
+        //	if (File.Exists(filename)){
         //      Clear();
 
-		//		//Creation du reader
-		//		XmlDocument doc = new XmlDocument();
-		//		XmlTextReader reader = new XmlTextReader(filename);
-			
-		//		//Lecture du document
-		//		doc.Load(reader);
+        //		//Creation du reader
+        //		XmlDocument doc = new XmlDocument();
+        //		XmlTextReader reader = new XmlTextReader(filename);
 
-		//		//Lecture des includes : TextFile
-		//		XmlNodeList CodeNodes = doc.ChildNodes.Item(0).ChildNodes;
-		//		XmlNodeList AllCode = doc.ChildNodes.Item(0).ChildNodes.Item(0).ChildNodes;
-					
-		//		//Chargement de la liste de client
-		//		XmlNode node = null;
-		//		for (int i=0; i<AllCode.Count; i++){
-		//			//client
-		//			node = AllCode[i];
+        //		//Lecture du document
+        //		doc.Load(reader);
 
-		//			//Employe emp = new Employe(node.Attributes["Nom"].Value, 
-		//			//	node.Attributes["Phone"].Value);
-					
-		//			//Ajout du code
-		//			//this.Add(emp); 
-		//		}
+        //		//Lecture des includes : TextFile
+        //		XmlNodeList CodeNodes = doc.ChildNodes.Item(0).ChildNodes;
+        //		XmlNodeList AllCode = doc.ChildNodes.Item(0).ChildNodes.Item(0).ChildNodes;
 
-		//		return true;
-		//	}
-		//	else
-		//		return false;
-		//}
-	}
+        //		//Chargement de la liste de client
+        //		XmlNode node = null;
+        //		for (int i=0; i<AllCode.Count; i++){
+        //			//client
+        //			node = AllCode[i];
+
+        //			//Employe emp = new Employe(node.Attributes["Nom"].Value, 
+        //			//	node.Attributes["Phone"].Value);
+
+        //			//Ajout du code
+        //			//this.Add(emp); 
+        //		}
+
+        //		return true;
+        //	}
+        //	else
+        //		return false;
+        //}
+    }
 }

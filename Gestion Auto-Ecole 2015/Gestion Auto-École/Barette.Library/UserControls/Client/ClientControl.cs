@@ -16,6 +16,7 @@ using Barette.Library.Collections;
 using Barette.Library.UserControls.Client;
 using Barette.Library.UserControls.TextEdit;
 using Barette.Library.Web;
+using Barette.Library.Employer;
 
 namespace Barette.Library.UserControls.Client {
     /// <summary>
@@ -10230,6 +10231,7 @@ namespace Barette.Library.UserControls.Client {
             Font printFontTime10 = new Font("Times New Roman", 10, FontStyle.Regular);
             Font printFontTime12 = new Font("Times New Roman", 12, FontStyle.Regular);
             Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
+            Font printFontBold8 = new Font("Times New Roman", 8, FontStyle.Bold);
             Font printFontBold10 = new Font("Times New Roman", 10, FontStyle.Bold);
             Font printFontBold14 = new Font("Times New Roman", 14, FontStyle.Bold);
             Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
@@ -10579,7 +10581,9 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             //Facrication des fonts
             Font printFont = new System.Drawing.Font("Courier New", 10);
             Font printFontTime = new Font("Times New Roman", 11, FontStyle.Regular);
+            Font printFontTime8 = new Font("Times New Roman", 8, FontStyle.Regular);
             Font printFontBold = new Font("Times New Roman", 11, FontStyle.Bold);
+            Font printFontBold10 = new Font("Times New Roman", 10, FontStyle.Bold);
             Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);            
             Font printFontBoldItalic16 = new Font("Times New Roman", 16, FontStyle.Bold & FontStyle.Italic);
 
@@ -10746,19 +10750,31 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 
                 }                
             }
-            
-            yPos += (printFontBold.Height * 2);
-            e.Graphics.DrawString("Équipements Nécessaires", printFontBold, Brushes.Black, leftMargin, yPos, new StringFormat());
-            yPos += printFontTime.Height;
-            e.Graphics.DrawString("1. Casque avec visière", printFontTime, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
-            yPos += printFontTime.Height;
-            e.Graphics.DrawString("2. Bottes sécuritaires (couvrant la cheville)", printFontTime, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
-            yPos += printFontTime.Height;
-            e.Graphics.DrawString("3. Gants de cuir (couvrant le poignet de préférence)", printFontTime, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
-            yPos += printFontTime.Height;
-            e.Graphics.DrawString("4. Habit de pluie 2 parties séparées (haut et bas)", printFontTime, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
-            
 
+            ////////Print prof info avec la derniere seance ///////////
+            Seance last = Client.GetLastMotoSeance();
+            Employe employe = null;
+
+            if (last != null)
+                employe = ListeEmploye.GetFromNameOrDefault(last.Employer);
+            else
+                employe = ListeEmploye.GetFromNameOrDefault("");
+            
+            yPos += (printFontTime8.Height * 4);
+            e.Graphics.DrawString("Nom du professeur : " + employe.NomAffichageRapport + "           No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            ///////////////////////////////////////////////////////////
+
+            yPos += (printFontBold.Height * 2);
+            e.Graphics.DrawString("Équipements Nécessaires", printFontBold10, Brushes.Black, leftMargin, yPos, new StringFormat());
+            yPos += printFontBold10.Height;
+            e.Graphics.DrawString("1. Casque avec visière", printFontTime8, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            yPos += printFontTime8.Height;
+            e.Graphics.DrawString("2. Bottes sécuritaires (couvrant la cheville)", printFontTime8, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            yPos += printFontTime8.Height;
+            e.Graphics.DrawString("3. Gants de cuir (couvrant le poignet de préférence)", printFontTime8, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            yPos += printFontTime8.Height;
+            e.Graphics.DrawString("4. Habit de pluie 2 parties séparées (haut et bas)", printFontTime8, Brushes.Black, leftMargin + 20, yPos, new StringFormat());
+            
             //Imprime les messages d'attention
             yPos += 50;
             Font myFont = new Font("Times New Roman", 12, FontStyle.Bold);
@@ -10767,16 +10783,17 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             SizeF strLength = e.Graphics.MeasureString("ATTENTION", myFont); //Largeur de la chaine
             if (_Client.TypeVehicule == VehiculeType.Automatique)
             {
-                e.Graphics.DrawString("Un pré-avis de 24 heures est requis tel que convenue sur le contrat de service;", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
+                e.Graphics.DrawString("Un pré-avis de 24 heures est requis tel que convenue sur le contrat de service;", printFontTime8, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
             }
             else
-                e.Graphics.DrawString("Un pré-avis de 48 heures est requis tel que convenue sur le contrat de service;", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
+                e.Graphics.DrawString("Un pré-avis de 48 heures est requis tel que convenue sur le contrat de service;", printFontTime8, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
 
             yPos += myFont.Height;
-            e.Graphics.DrawString("pour l'annulation de séances pratiques", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
+            e.Graphics.DrawString("pour l'annulation de séances pratiques", printFontTime8, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
             yPos += (myFont.Height * 2);
-            e.Graphics.DrawString("Les locations Auto/Moto sont non remboursables.", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
+            e.Graphics.DrawString("Les locations Auto/Moto sont non remboursables.", printFontTime8, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
 
+            
             //yPos += (myFont.Height * 2);
             //e.Graphics.DrawString("Les locations Auto/Moto sont non remboursables.", printFontTime, Brushes.Black, leftMargin + strLength.Width, yPos, new StringFormat());
         }

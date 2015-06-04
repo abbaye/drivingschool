@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Linq.Expressions;
 
 using Barette.Library.Client;
 using Barette.Library.UserControls.Client;

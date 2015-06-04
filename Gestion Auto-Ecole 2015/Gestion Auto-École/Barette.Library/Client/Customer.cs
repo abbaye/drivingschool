@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
+using System.Linq;
+using System.Linq.Expressions;
 
 using Barette.Library.Collections;
+using System.Collections.Generic;
 
 namespace Barette.Library.Client {
 	/// <summary>
@@ -166,7 +169,7 @@ namespace Barette.Library.Client {
                 _Seance = value;
 			}
 		}
-
+        
         public SeanceCollection SeancesTheorique {
             get {
                 return _SeanceTheorique;
@@ -713,6 +716,30 @@ namespace Barette.Library.Client {
                 return ContratNumber.CompareTo(otherCustomer.ContratNumber);
             else
                 throw new ArgumentException("Object is not a Temperature");
+        }
+
+        public Seance GetLastMotoSeance()
+        {
+            if (_VehiculeType == VehiculeType.Moto)
+            {
+                List<Seance> seanceList = new List<Seance>();
+
+                foreach (Seance seance in this.Seances)
+                    if (seance.Active)
+                        seanceList.Add(seance);
+
+                foreach (Seance seance in this.SeancesTheorique)
+                    if (seance.Active)
+                        seanceList.Add(seance);
+
+                try
+                {
+                    return seanceList.OrderBy(s => s.SceanceNumber).Last();
+                }
+                catch { return null; }
+            }
+
+            return null;
         }
 
 
