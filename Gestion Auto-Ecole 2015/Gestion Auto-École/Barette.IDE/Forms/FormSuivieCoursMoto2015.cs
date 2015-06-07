@@ -38,26 +38,25 @@ namespace Barette.IDE.Forms {
         private void tbMain_ButtonClick(object sender, ToolBarButtonClickEventArgs e) {
             switch (e.Button.Tag.ToString()) {
                 case "REFRESH":
-                    if (tbbActivateModePratique.Pushed == true)
-                        FindPratique();
-                    else
-                        Find();
+                    cbFindCours.SelectedIndex = 0;
                     break;
                 case "SHOWSEANCE":
                     if (tbbActivateModePratique.Pushed == true)
                         ShowSeance();
                     else
-                        ShowSeanceTheorique();            
+                        ShowSeanceTheorique();                    
                     break;
                 case "SHOWCLIENT":
                     try { _FormMain.CreationListClient(ListCours.SelectedItems[0].Text); }
                     catch { };
                     break;
                 case "COURSPRATIQUE":
+                    cbFindCours.SelectedIndex = 0;
+
                     if (tbbActivateModePratique.Pushed == true)
                         FindPratique();
                     else
-                        Find();
+                        Find();                    
                     break;
             }
         }
@@ -397,7 +396,14 @@ namespace Barette.IDE.Forms {
         }
 
         private void ListCoursEffectuer_SelectedIndexChanged(object sender, EventArgs e) {
+            try
+            {
+                Customer client = _FormMain.ClientList.GetClient(ListCours.SelectedItems[0].Text);
 
+                if (client != null)
+                    clientControl1.Client = _FormMain.ClientList.GetClient(ListCours.SelectedItems[0].Text);
+            }
+            catch { }
         }
 
         private void timerEnabled_Tick(object sender, EventArgs e) {
@@ -436,19 +442,138 @@ namespace Barette.IDE.Forms {
 
         private void cbFindCours_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    int findCoursNumber = -1;
 
-            //    if (cbFindCours.SelectedIndex != 0)
-            //        findCoursNumber = Convert.ToInt32(cbFindCours.SelectedItem.ToString());
+            int coursToFind = -1;
 
-            //    if (tbbActivateModePratique.Pushed == true)
-            //        FindPratique();
-            //    else
-            //        Find();
-            //}
-            //catch { }
+            if (tbbActivateModePratique.Pushed == true)
+                FindPratique();
+            else
+                Find();
+
+            try
+            {
+                coursToFind = Convert.ToInt32(cbFindCours.SelectedItem.ToString());
+
+                switch (coursToFind)
+                {
+                    case 1:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X")                            
+                                item.Remove();
+                        }
+                        break;
+                    case 2:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X")
+                            {
+                                if (item.SubItems[5].Text == "X")
+                                    item.Remove();
+                            }
+                            else
+                                item.Remove();
+                        }
+                        break;
+                    case 3:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X" && item.SubItems[5].Text == "X")
+                            {
+                                if (item.SubItems[6].Text == "X")
+                                    item.Remove();
+                            }
+                            else
+                                item.Remove();
+                        }
+                        break;
+                    case 4:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X" && item.SubItems[5].Text == "X" && 
+                                item.SubItems[6].Text == "X")
+                            {
+                                if (item.SubItems[7].Text == "X")
+                                    item.Remove();
+                            }
+                            else
+                                item.Remove();
+                        }
+                        break;
+                    case 5:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X" && item.SubItems[5].Text == "X" &&
+                                item.SubItems[6].Text == "X" && item.SubItems[7].Text == "X")
+                            {
+                                if (item.SubItems[8].Text == "X")
+                                    item.Remove();
+                            }
+                            else
+                                item.Remove();
+                        }
+                        break;
+                    case 6:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X" && item.SubItems[5].Text == "X" &&
+                                item.SubItems[6].Text == "X" && item.SubItems[7].Text == "X" &&
+                                item.SubItems[8].Text == "X")
+                            {
+                                if (item.SubItems[9].Text == "X")
+                                    item.Remove();
+                            }
+                            else
+                                item.Remove();
+                        }
+                        break;
+                    case 7:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X" && item.SubItems[5].Text == "X" &&
+                                item.SubItems[6].Text == "X" && item.SubItems[7].Text == "X" &&
+                                item.SubItems[8].Text == "X" && item.SubItems[9].Text == "X")
+                            {
+                                if (item.SubItems[10].Text == "X")
+                                    item.Remove();
+                            }
+                            else
+                                item.Remove();
+                        }
+                        break;
+                    case 8:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X" && item.SubItems[5].Text == "X" &&
+                                item.SubItems[6].Text == "X" && item.SubItems[7].Text == "X" &&
+                                item.SubItems[8].Text == "X" && item.SubItems[9].Text == "X" && 
+                                item.SubItems[10].Text == "X")
+                            {
+                                if (item.SubItems[11].Text == "X")
+                                    item.Remove();
+                            }
+                            else
+                                item.Remove();
+                        }
+                        break;
+                    case 9:
+                        foreach (ListViewItem item in ListCours.Items)
+                        {
+                            if (item.SubItems[4].Text == "X" && item.SubItems[5].Text == "X" &&
+                                item.SubItems[6].Text == "X" && item.SubItems[7].Text == "X" &&
+                                item.SubItems[8].Text == "X" && item.SubItems[9].Text == "X" &&
+                                item.SubItems[10].Text == "X" && item.SubItems[11].Text == "X")
+                            {
+                                if (item.SubItems[12].Text == "X")
+                                    item.Remove();
+                            }
+                            else
+                                item.Remove();
+                        }
+                        break;
+                }
+            }
+            catch { }
         }
     }
 }

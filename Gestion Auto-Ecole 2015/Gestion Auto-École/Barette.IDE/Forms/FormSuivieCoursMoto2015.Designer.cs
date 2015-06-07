@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuivieCoursMoto2015));
-            Barette.Library.Client.Customer customer4 = new Barette.Library.Client.Customer();
+            Barette.Library.Client.Customer customer1 = new Barette.Library.Client.Customer();
             this.tbMain = new System.Windows.Forms.ToolBar();
             this.tbbShowClient = new System.Windows.Forms.ToolBarButton();
             this.tbbShowSeanceTheorique = new System.Windows.Forms.ToolBarButton();
@@ -56,10 +56,10 @@
             this.colHead7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHead8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHead9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadProgram = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbFindCours = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.colHeadProgram = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,53 +149,53 @@
             // 
             this.clientControl1.AutoUpdate = false;
             this.clientControl1.BackColor = System.Drawing.SystemColors.Control;
-            customer4.AttestationNumber1 = "";
-            customer4.AttestationNumber2 = "";
-            customer4.BVA = false;
-            customer4.BVADate = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
-            customer4.City = "";
-            customer4.ClientNull = false;
-            customer4.CodePostal = "   -";
-            customer4.ContratNumber = "0";
-            customer4.DateAttestation1 = new System.DateTime(2010, 6, 29, 19, 44, 39, 949);
-            customer4.DateAttestation2 = new System.DateTime(2010, 6, 29, 19, 44, 39, 949);
-            customer4.DateDebutCours = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer4.DateExpiration = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer4.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
-            customer4.DateNaissance = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer4.DateTemporaire = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
-            customer4.DisponibilityAlway = false;
-            customer4.DisponibilityAM = false;
-            customer4.DisponibilityDimanche = false;
-            customer4.DisponibilityPM = false;
-            customer4.DisponibilitySamedi = false;
-            customer4.DisponibilitySoirer = false;
-            customer4.Email = "";
-            customer4.FirstName = "";
-            customer4.HaveTemporaire = false;
-            customer4.LastRecuNumber = "";
-            customer4.LocationAutomobile = false;
-            customer4.LocationMoto = false;
-            customer4.MontantCours = "";
-            customer4.MontantLocation = "0 $";
-            customer4.Name = "";
-            customer4.No6R = "";
-            customer4.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
+            customer1.AttestationNumber1 = "";
+            customer1.AttestationNumber2 = "";
+            customer1.BVA = false;
+            customer1.BVADate = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
+            customer1.City = "";
+            customer1.ClientNull = false;
+            customer1.CodePostal = "   -";
+            customer1.ContratNumber = "0";
+            customer1.DateAttestation1 = new System.DateTime(2010, 6, 29, 19, 44, 39, 949);
+            customer1.DateAttestation2 = new System.DateTime(2010, 6, 29, 19, 44, 39, 949);
+            customer1.DateDebutCours = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer1.DateExpiration = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer1.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
+            customer1.DateNaissance = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer1.DateTemporaire = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
+            customer1.DisponibilityAlway = false;
+            customer1.DisponibilityAM = false;
+            customer1.DisponibilityDimanche = false;
+            customer1.DisponibilityPM = false;
+            customer1.DisponibilitySamedi = false;
+            customer1.DisponibilitySoirer = false;
+            customer1.Email = "";
+            customer1.FirstName = "";
+            customer1.HaveTemporaire = false;
+            customer1.LastRecuNumber = "";
+            customer1.LocationAutomobile = false;
+            customer1.LocationMoto = false;
+            customer1.MontantCours = "";
+            customer1.MontantLocation = "0 $";
+            customer1.Name = "";
+            customer1.No6R = "";
+            customer1.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
     "ans Serif;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs17\\par\r\n}\r\n";
-            customer4.NumeroGroupe = 0;
-            customer4.NumeroPermis = "";
-            customer4.Phone = "(   )   -";
-            customer4.PhoneBureau = "(   )   -";
-            customer4.ProgramMoto = Barette.Library.Client.ProgramMoto.Nothing;
-            customer4.Solde = "0 $";
-            customer4.StreetApp = "";
-            customer4.StreetName = "";
-            customer4.StreetNumber = "";
-            customer4.TauxHorairePratique = "";
-            customer4.TauxHoraireTheorique = "";
-            customer4.TypeClient = Barette.Library.Client.ProfileType.Actif;
-            customer4.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
-            this.clientControl1.Client = customer4;
+            customer1.NumeroGroupe = 0;
+            customer1.NumeroPermis = "";
+            customer1.Phone = "(   )   -";
+            customer1.PhoneBureau = "(   )   -";
+            customer1.ProgramMoto = Barette.Library.Client.ProgramMoto.Nothing;
+            customer1.Solde = "0 $";
+            customer1.StreetApp = "";
+            customer1.StreetName = "";
+            customer1.StreetNumber = "";
+            customer1.TauxHorairePratique = "";
+            customer1.TauxHoraireTheorique = "";
+            customer1.TypeClient = Barette.Library.Client.ProfileType.Actif;
+            customer1.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
+            this.clientControl1.Client = customer1;
             this.clientControl1.Location = new System.Drawing.Point(529, 179);
             this.clientControl1.Name = "clientControl1";
             this.clientControl1.School = null;
@@ -316,6 +316,11 @@
             this.colHead9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colHead9.Width = 41;
             // 
+            // colHeadProgram
+            // 
+            this.colHeadProgram.DisplayIndex = 4;
+            this.colHeadProgram.Text = "Program";
+            // 
             // cbFindCours
             // 
             this.cbFindCours.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -335,7 +340,6 @@
             this.cbFindCours.Name = "cbFindCours";
             this.cbFindCours.Size = new System.Drawing.Size(89, 21);
             this.cbFindCours.TabIndex = 59;
-            this.cbFindCours.Visible = false;
             this.cbFindCours.SelectedIndexChanged += new System.EventHandler(this.cbFindCours_SelectedIndexChanged);
             // 
             // label1
@@ -346,7 +350,6 @@
             this.label1.Size = new System.Drawing.Size(163, 13);
             this.label1.TabIndex = 60;
             this.label1.Text = "Rechercher par numéro de cours";
-            this.label1.Visible = false;
             // 
             // pictureBox1
             // 
@@ -357,12 +360,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 61;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
-            // colHeadProgram
-            // 
-            this.colHeadProgram.DisplayIndex = 4;
-            this.colHeadProgram.Text = "Program";
             // 
             // FormSuivieCoursMoto2015
             // 
