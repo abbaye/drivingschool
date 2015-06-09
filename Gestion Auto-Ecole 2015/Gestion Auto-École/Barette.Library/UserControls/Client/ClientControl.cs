@@ -9647,8 +9647,8 @@ namespace Barette.Library.UserControls.Client {
                 e.Graphics.DrawString("Date et heure (début et fin)", printFontBold, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
                 e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
 
-                var testString1 = "Signature (élève et professeur)";
-                e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 670 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
+                var testString1 = "Signature de l'élève";
+                e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 610 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
             }
 
             Seance seance = null;
@@ -9701,8 +9701,7 @@ namespace Barette.Library.UserControls.Client {
                                 e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                                 e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                                
                                 e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                             }
 
@@ -9724,8 +9723,7 @@ namespace Barette.Library.UserControls.Client {
                             e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                             e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                            
                             e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                         }
                     }
@@ -9749,8 +9747,7 @@ namespace Barette.Library.UserControls.Client {
                                 e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                                 e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                                
                                 e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                             }
                         }
@@ -9770,8 +9767,7 @@ namespace Barette.Library.UserControls.Client {
                             e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                             e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                            
                             e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                         }
                     }
@@ -9797,8 +9793,12 @@ namespace Barette.Library.UserControls.Client {
             else
                 employe = ListeEmploye.GetFromNameOrDefault("");
 
-            yPos += (printFont.Height * 4);
-            e.Graphics.DrawString("Nom du professeur : " + employe.NomAffichageRapport + "           No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            yPos += (printFont.Height * 3);
+            e.Graphics.DrawString("Signature du professeur : ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("___________________", printFont, Brushes.Black, leftMargin + 230, yPos, new StringFormat());
+            yPos += printFont.Height;
+            e.Graphics.DrawString("Nom du professeur       : " + employe.NomAffichageRapport, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin + 475, yPos, new StringFormat());
             ///////////////////////////////////////////////////////////
 
             //Impression de l'équipement
@@ -9922,8 +9922,8 @@ namespace Barette.Library.UserControls.Client {
                 e.Graphics.DrawString("Date et heure (début et fin)", printFontBold, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
                 e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
 
-                var testString1 = "Signature (élève et professeur)";
-                e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 670 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
+                var testString1 = "Signature de l'élève";
+                e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 610 - e.Graphics.MeasureString(testString1, printFontBold).Width, yPos, new StringFormat());
             }
 
             Seance seance = null;
@@ -9976,8 +9976,7 @@ namespace Barette.Library.UserControls.Client {
                                 e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                                 e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                                
                                 e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                             }
                         }
@@ -9998,8 +9997,7 @@ namespace Barette.Library.UserControls.Client {
                             e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                             e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                            
                             e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                         }
                     }
@@ -10023,8 +10021,7 @@ namespace Barette.Library.UserControls.Client {
                                 e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                                 e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                                e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                                e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                                
                                 e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                             }
                         }
@@ -10044,8 +10041,7 @@ namespace Barette.Library.UserControls.Client {
                             e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                             e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                            e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                            e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                            
                             e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
                         }
                     }
@@ -10053,8 +10049,16 @@ namespace Barette.Library.UserControls.Client {
             }
 
             ////////Print prof info avec la derniere seance ///////////
-            Seance last = null;                        
-            last = Client.GetLastSeanceTheorique();
+            Seance last = Client.GetLastSeancePratique(Customer.MotoSeanceType.All);
+
+            if (Client.TypeVehicule == VehiculeType.Moto)
+            {
+                if (_PrintRoute)
+                    last = Client.GetLastSeancePratique(Customer.MotoSeanceType.Route);
+
+                if (_PrintHorsRoute)
+                    last = Client.GetLastSeancePratique(Customer.MotoSeanceType.HorsRoute);
+            }
 
             Employe employe = null;
 
@@ -10063,8 +10067,12 @@ namespace Barette.Library.UserControls.Client {
             else
                 employe = ListeEmploye.GetFromNameOrDefault("");
 
-            yPos += (printFont.Height * 4);
-            e.Graphics.DrawString("Nom du professeur : " + employe.NomAffichageRapport + "           No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            yPos += (printFont.Height * 3);
+            e.Graphics.DrawString("Signature du professeur : ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("___________________", printFont, Brushes.Black, leftMargin + 230, yPos, new StringFormat());
+            yPos += printFont.Height;
+            e.Graphics.DrawString("Nom du professeur       : " + employe.NomAffichageRapport, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin + 475, yPos, new StringFormat());
             ///////////////////////////////////////////////////////////
 
 
@@ -10687,8 +10695,8 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawString("Date et heure (début et fin)", printFontBold, Brushes.Black, leftMargin + 40, yPos, new StringFormat());
             e.Graphics.DrawString("Endroit", printFontBold, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
 
-            var testString1 = "Signature (élève et professeur)";
-            e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 670 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
+            var testString1 = "Signature de l'élève";
+            e.Graphics.DrawString(testString1, printFontBold, Brushes.Black, 610 - e.Graphics.MeasureString(testString1, printFont).Width, yPos, new StringFormat());
             yPos += 16;
 
             var formationPrinted1 = false;
@@ -10781,24 +10789,37 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                     e.Graphics.DrawString("à", printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
                     e.Graphics.DrawString(DateTimeFunc.FormatHour(seance.DateModified), printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 
-                    e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());
-                    e.Graphics.DrawString("_______________", printFont, Brushes.Black, leftMargin + 350 + e.Graphics.MeasureString("_________________", printFont).Width, yPos + 1, new StringFormat());
+                    e.Graphics.DrawString("______________________________", printFont, Brushes.Black, leftMargin + 360, yPos + 1, new StringFormat());                    
                     e.Graphics.DrawString(seance.Code, printFont, Brushes.Black, leftMargin + 670, yPos, new StringFormat());
 
                 }                
             }
-
             ////////Print prof info avec la derniere seance ///////////
-            Seance last = Client.GetLastMoto2015Seance();
+            Seance last = Client.GetLastSeancePratique(Customer.MotoSeanceType.All);
+
+            if (Client.TypeVehicule == VehiculeType.Moto)
+            {
+                if (_PrintRoute)
+                    last = Client.GetLastSeancePratique(Customer.MotoSeanceType.Route);
+
+                if (_PrintHorsRoute)
+                    last = Client.GetLastSeancePratique(Customer.MotoSeanceType.HorsRoute);
+            }
+
             Employe employe = null;
 
             if (last != null)
                 employe = ListeEmploye.GetFromNameOrDefault(last.Employer);
             else
                 employe = ListeEmploye.GetFromNameOrDefault("");
-            
-            yPos += (printFontTime8.Height * 4);
-            e.Graphics.DrawString("Nom du professeur : " + employe.NomAffichageRapport + "           No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+            yPos += (printFont.Height * 3);
+            e.Graphics.DrawString("Signature du professeur : ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("___________________", printFont, Brushes.Black, leftMargin + 230, yPos, new StringFormat());
+            yPos += printFont.Height;
+            e.Graphics.DrawString("Nom du professeur       : " + employe.NomAffichageRapport, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            e.Graphics.DrawString("No. Permis : " + employe.NumeroPermis, printFont, Brushes.Black, leftMargin + 475, yPos, new StringFormat());
+
             ///////////////////////////////////////////////////////////
 
             yPos += (printFontBold.Height * 2);

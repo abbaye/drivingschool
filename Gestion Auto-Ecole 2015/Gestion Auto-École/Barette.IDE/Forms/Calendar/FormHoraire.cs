@@ -897,7 +897,7 @@ namespace Barette.IDE.Forms.Calendar {
             Seance cours = null;
             Customer client = null;
 
-            Employe employe = _formMain.EmployeList.GetFromName(cbEmploye.Text);
+            Employe employe = _formMain.EmployeList.GetFromNameOrDefault(cbEmploye.Text);
 
             string[] notesSplited;
 
@@ -999,6 +999,8 @@ namespace Barette.IDE.Forms.Calendar {
             e.Graphics.DrawString("No. Permis  : " + employe.NumeroPermis, printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
             yPos += printFont12.Height * 2;
             e.Graphics.DrawString("Signature    ______________________________", printFontBold10, Brushes.Black, leftMargin + 0, yPos, new StringFormat());
+            yPos += printFont12.Height;
+            e.Graphics.DrawString(employe.NomAffichageRapport, printFont10, Brushes.Black, leftMargin + 70, yPos, new StringFormat());
 
 
             //Impression des notes de la journée
