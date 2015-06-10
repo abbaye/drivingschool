@@ -2250,6 +2250,7 @@ namespace Barette.IDE.Forms
             SchoolInfoRoot.Add(new XElement("InfoSchool",
                 new XAttribute("City", _InfoSchool.City),
                 new XAttribute("Fax", _InfoSchool.Fax),
+                new XAttribute("Email", _InfoSchool.Email),
                 new XAttribute("Phone", _InfoSchool.Phone),
                 new XAttribute("PostalCode", _InfoSchool.PostalCode),
                 new XAttribute("RegistrationAuto", _InfoSchool.RegistrationAuto),
@@ -2581,6 +2582,9 @@ namespace Barette.IDE.Forms
                         {
                             case "City":
                                 infoSchool.City = at.Value;
+                                break;
+                            case "Email":
+                                infoSchool.Email = at.Value;
                                 break;
                             case "Fax":
                                 infoSchool.Fax = at.Value;

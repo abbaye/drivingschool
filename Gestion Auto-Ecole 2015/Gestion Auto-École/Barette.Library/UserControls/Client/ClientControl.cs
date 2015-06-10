@@ -13392,6 +13392,29 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             }
 
             //BLOC IDENTIFICATION DE L'ÉCOLE
+            e.Graphics.DrawString(school.SchoolName,
+                printFont, Brushes.Black,
+                leftMargin + 15,
+                topMargin + 295,
+                new StringFormat());
+
+            e.Graphics.DrawString(school.StreetNumber + " " + school.StreetName,
+                printFont, Brushes.Black,
+                leftMargin + 15,
+                topMargin + 330,
+                new StringFormat());
+
+            e.Graphics.DrawString(school.City,
+                printFont, Brushes.Black,
+                leftMargin + 15,
+                topMargin + 360,
+                new StringFormat());
+
+            e.Graphics.DrawString(school.Email,
+                printFont, Brushes.Black,
+                leftMargin + 15,
+                topMargin + 395,
+                new StringFormat());
         }
     }
 }

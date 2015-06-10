@@ -17,7 +17,8 @@ namespace Barette.Library
         private string _Phone = "";
         private string _Fax = "";
         private string _CodePostal = "";
-        
+        private string _Email = "";
+
         //Autre Info
         private string _TPS = "";
         private string _TVQ = "";
@@ -225,6 +226,19 @@ namespace Barette.Library
         public string CoursePostalCode {
             get;
             set;
+        }
+
+        public string Email
+        {
+            get
+            {
+                return _Email;
+            }
+
+            set
+            {
+                _Email = value;
+            }
         }
         #endregion
 
