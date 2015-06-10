@@ -13300,12 +13300,12 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             //Ecriture du header (image)
             Stream strm = Type.GetType("Barette.Library.UserControls.Client.ClientControl").Assembly.GetManifestResourceStream("Barette.Library.res.AttestationMoto2015.png");
             Bitmap img = new Bitmap(strm);
-            e.Graphics.DrawImage(img, 0, 0, 850, 1100);
+            e.Graphics.DrawImage(img, 0, 0, 800, 1060);
 #endif
 
 
-            float topMargin = 0;
-            float leftMargin = 0;
+            float topMargin = -10;
+            float leftMargin = -8;
 
             //Facrication des fonts
             Font printFont = new System.Drawing.Font("Courier New", 10);
@@ -13329,8 +13329,8 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                     i++;
                     e.Graphics.DrawString(numero.ToString(),
                         printFont, Brushes.Black,
-                        leftMargin + 410 + (i * 17),
-                        topMargin + 75,
+                        leftMargin + 390 + (i * 17),
+                        topMargin + 80,
                         new StringFormat());
                 }
             }
@@ -13356,13 +13356,13 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 
             e.Graphics.DrawString("QC",
                 printFont, Brushes.Black,
-                leftMargin + 385,
+                leftMargin + 375,
                 topMargin + 195,
                 new StringFormat());
 
             e.Graphics.DrawString(client.CodePostal,
                 printFont, Brushes.Black,
-                leftMargin + 540,
+                leftMargin + 530,
                 topMargin + 195,
                 new StringFormat());
 
@@ -13386,7 +13386,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                 j++;
                 e.Graphics.DrawString(numero.ToString(),
                     printFont, Brushes.Black,
-                    leftMargin - 7 + (j * 17),
+                    leftMargin - 3 + (j * 17),
                     topMargin + 227,
                     new StringFormat());                
             }
@@ -13401,25 +13401,25 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawString(school.StreetNumber + " " + school.StreetName,
                 printFont, Brushes.Black,
                 leftMargin + 15,
-                topMargin + 330,
+                topMargin + 327,
                 new StringFormat());
 
             e.Graphics.DrawString(school.City,
                 printFont, Brushes.Black,
                 leftMargin + 15,
-                topMargin + 360,
+                topMargin + 358,
                 new StringFormat());
 
             e.Graphics.DrawString("QC",
                 printFont, Brushes.Black,
-                leftMargin + 540,
-                topMargin + 360,
+                leftMargin + 520,
+                topMargin + 358,
                 new StringFormat());
 
             e.Graphics.DrawString(school.PostalCode,
                 printFont, Brushes.Black,
-                leftMargin + 730,
-                topMargin + 360,
+                leftMargin + 715,
+                topMargin + 358,
                 new StringFormat());
 
 
@@ -13432,7 +13432,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawString(school.Email,
                 printFont, Brushes.Black,
                 leftMargin + 15,
-                topMargin + 395,
+                topMargin + 392,
                 new StringFormat());
             
             //BLOC COURS
