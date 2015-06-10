@@ -133,6 +133,8 @@ namespace Barette.IDE.Forms {
             this.mnuClientPaimentList = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.mnuClientContrat = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.mnuClientAttestation = new System.Windows.Forms.MenuItem();
             this.tbbSeparator = new System.Windows.Forms.ToolBarButton();
             this.tbbRefresh = new System.Windows.Forms.ToolBarButton();
             this.tbbSeparator2 = new System.Windows.Forms.ToolBarButton();
@@ -158,8 +160,6 @@ namespace Barette.IDE.Forms {
             this.contratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.supprimerLeClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuClientAttestation = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -268,6 +268,17 @@ namespace Barette.IDE.Forms {
             this.mnuClientContrat.Index = 3;
             this.mnuClientContrat.Text = "Contrat du client";
             this.mnuClientContrat.Click += new System.EventHandler(this.mnuClientContrat_Click);
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Index = 4;
+            this.menuItem2.Text = "-";
+            // 
+            // mnuClientAttestation
+            // 
+            this.mnuClientAttestation.Index = 5;
+            this.mnuClientAttestation.Text = "Attestation (Moto et Cyclomoteur)";
+            this.mnuClientAttestation.Click += new System.EventHandler(this.mnuClientAttestation_Click);
             // 
             // tbbSeparator
             // 
@@ -543,17 +554,6 @@ namespace Barette.IDE.Forms {
             this.supprimerLeClientToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.supprimerLeClientToolStripMenuItem.Text = "Supprimer le client";
             this.supprimerLeClientToolStripMenuItem.Click += new System.EventHandler(this.menuDeleteClient_Click);
-            // 
-            // mnuClientAttestation
-            // 
-            this.mnuClientAttestation.Index = 5;
-            this.mnuClientAttestation.Text = "Attestation (Moto nouveau program)";
-            this.mnuClientAttestation.Click += new System.EventHandler(this.mnuClientAttestation_Click);
-            // 
-            // menuItem2
-            // 
-            this.menuItem2.Index = 4;
-            this.menuItem2.Text = "-";
             // 
             // FormClients
             // 

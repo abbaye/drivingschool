@@ -13304,7 +13304,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 #endif
 
 
-            float topMargin = 125;
+            float topMargin = 0;
             float leftMargin = 0;
 
             //Facrication des fonts
@@ -13315,16 +13315,83 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             Font printFontBold10 = new Font("Times New Roman", 10, FontStyle.Bold);
             Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
             Font printFontBoldItalic16 = new Font("Times New Roman", 16, FontStyle.Bold & FontStyle.Italic);
-
-            float yPos = 0f;
-            float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
-                                    
+                
             Customer client = Client;
             SchoolInfo school = School;
 
             //Démarage de l'impression
+            //BLOC : NUMERO DE PERMIS
+            int i = 0;
+            foreach(char numero in client.NumeroPermis)
+            {
+                if (numero.ToString() != "-")
+                {
+                    i++;
+                    e.Graphics.DrawString(numero.ToString(),
+                        printFont, Brushes.Black,
+                        leftMargin + 410 + (i * 17),
+                        topMargin + 75,
+                        new StringFormat());
+                }
+            }
+            
             //BLOC : IDENTIFICATION DE L'ÉLÈVE
+            e.Graphics.DrawString(client.Name + " " + client.FirstName,
+                printFont, Brushes.Black,
+                leftMargin + 15,
+                topMargin + 130,
+                new StringFormat());
 
+            e.Graphics.DrawString(client.StreetNumber + " " + client.StreetName + (client.StreetApp != "" ? " app. " + client.StreetApp : ""),
+                printFont, Brushes.Black,
+                leftMargin + 15,
+                topMargin + 165,
+                new StringFormat());
+
+            e.Graphics.DrawString(client.City,
+                printFont, Brushes.Black,
+                leftMargin + 15,
+                topMargin + 195,
+                new StringFormat());
+
+            e.Graphics.DrawString("QC",
+                printFont, Brushes.Black,
+                leftMargin + 385,
+                topMargin + 195,
+                new StringFormat());
+
+            e.Graphics.DrawString(client.CodePostal,
+                printFont, Brushes.Black,
+                leftMargin + 540,
+                topMargin + 195,
+                new StringFormat());
+
+            e.Graphics.DrawString(client.Phone,
+                printFont, Brushes.Black,
+                leftMargin + 200,
+                topMargin + 227,
+                new StringFormat());
+
+            if (client.PhoneBureau != "(   )   -")
+                e.Graphics.DrawString(client.PhoneBureau,
+                    printFont, Brushes.Black,
+                    leftMargin + 370,
+                    topMargin + 227,
+                    new StringFormat());
+
+            //BLOC : ELEVE NUMERO DE CONTRAT
+            int j = 0;
+            foreach (char numero in client.ContratNumber)
+            {
+                j++;
+                e.Graphics.DrawString(numero.ToString(),
+                    printFont, Brushes.Black,
+                    leftMargin - 7 + (j * 17),
+                    topMargin + 227,
+                    new StringFormat());                
+            }
+
+            //BLOC IDENTIFICATION DE L'ÉCOLE
         }
     }
 }
