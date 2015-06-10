@@ -13535,6 +13535,19 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                         new StringFormat());
                     break;
             }
+
+            //BLOC : Attestation personne responsable
+            e.Graphics.DrawString(school.Responsable,
+                printFont, Brushes.Black,
+                leftMargin + 230,
+                topMargin + 873,
+                new StringFormat());
+
+            e.Graphics.DrawString(DateTime.Now.ToShortDateString(),
+                printFont, Brushes.Black,
+                leftMargin + 500,
+                topMargin + 900,
+                new StringFormat());
         }
     }
 }
