@@ -13410,6 +13410,18 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                 topMargin + 360,
                 new StringFormat());
 
+            e.Graphics.DrawString("QC",
+                printFont, Brushes.Black,
+                leftMargin + 540,
+                topMargin + 360,
+                new StringFormat());
+
+            e.Graphics.DrawString(school.PostalCode,
+                printFont, Brushes.Black,
+                leftMargin + 730,
+                topMargin + 360,
+                new StringFormat());
+
             e.Graphics.DrawString(school.Email,
                 printFont, Brushes.Black,
                 leftMargin + 15,
