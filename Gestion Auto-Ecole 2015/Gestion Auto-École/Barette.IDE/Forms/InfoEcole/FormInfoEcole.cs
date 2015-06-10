@@ -86,6 +86,7 @@ namespace Barette.IDE.Forms.InfoEcole
             txtStreetNumber.Text = info.StreetNumber.ToString();
             ctbTauxPratique.Text = info.TauxHorairePratique;
             ctbTauxTheorie.Text = info.TauxHoraireTheorie;
+            txtEmail.Text = info.Email;
 
             //Info Lieu du cours
             txtCourseBatisseName.Text = info.CourseBatisseName;
@@ -110,6 +111,7 @@ namespace Barette.IDE.Forms.InfoEcole
             info.SchoolName = txtSchoolName.Text;
             info.StreetName = txtStreetName.Text;
             info.StreetNumber = txtStreetNumber.Value;
+            info.Email = txtEmail.Text;
 
             //Info Lieu du cours
             info.CourseBatisseName = txtCourseBatisseName.Text;
