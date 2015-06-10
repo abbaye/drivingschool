@@ -13518,7 +13518,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                 case VehiculeType.Cyclomoteur:
                     e.Graphics.DrawString("X",
                         printFontBold16, Brushes.Black,
-                        leftMargin + 615,
+                        leftMargin + 610,
                         topMargin + 475,
                         new StringFormat());
 
@@ -13545,7 +13545,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 
             e.Graphics.DrawString(DateTime.Now.ToShortDateString(),
                 printFont, Brushes.Black,
-                leftMargin + 500,
+                leftMargin + 450,
                 topMargin + 900,
                 new StringFormat());
         }
