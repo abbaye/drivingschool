@@ -87,6 +87,7 @@ namespace Barette.IDE.Forms.InfoEcole
             ctbTauxPratique.Text = info.TauxHorairePratique;
             ctbTauxTheorie.Text = info.TauxHoraireTheorie;
             txtEmail.Text = info.Email;
+            txtResponsable.Text = info.Responsable;
 
             //Info Lieu du cours
             txtCourseBatisseName.Text = info.CourseBatisseName;
@@ -112,6 +113,7 @@ namespace Barette.IDE.Forms.InfoEcole
             info.StreetName = txtStreetName.Text;
             info.StreetNumber = txtStreetNumber.Value;
             info.Email = txtEmail.Text;
+            info.Responsable = txtResponsable.Text;
 
             //Info Lieu du cours
             info.CourseBatisseName = txtCourseBatisseName.Text;
@@ -139,6 +141,16 @@ namespace Barette.IDE.Forms.InfoEcole
             catch {
 
             }
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
