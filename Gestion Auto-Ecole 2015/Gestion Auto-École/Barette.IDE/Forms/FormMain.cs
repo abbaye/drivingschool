@@ -2251,6 +2251,7 @@ namespace Barette.IDE.Forms
                 new XAttribute("City", _InfoSchool.City),
                 new XAttribute("Fax", _InfoSchool.Fax),
                 new XAttribute("Email", _InfoSchool.Email),
+                new XAttribute("Responsable", _InfoSchool.Responsable),
                 new XAttribute("Phone", _InfoSchool.Phone),
                 new XAttribute("PostalCode", _InfoSchool.PostalCode),
                 new XAttribute("RegistrationAuto", _InfoSchool.RegistrationAuto),
@@ -2585,6 +2586,9 @@ namespace Barette.IDE.Forms
                                 break;
                             case "Email":
                                 infoSchool.Email = at.Value;
+                                break;
+                            case "Responsable":
+                                infoSchool.Responsable = at.Value;
                                 break;
                             case "Fax":
                                 infoSchool.Fax = at.Value;

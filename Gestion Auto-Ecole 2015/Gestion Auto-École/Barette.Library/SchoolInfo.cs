@@ -18,6 +18,7 @@ namespace Barette.Library
         private string _Fax = "";
         private string _CodePostal = "";
         private string _Email = "";
+        private string _Responsable = "";
 
         //Autre Info
         private string _TPS = "";
@@ -238,6 +239,19 @@ namespace Barette.Library
             set
             {
                 _Email = value;
+            }
+        }
+
+        public string Responsable
+        {
+            get
+            {
+                return _Responsable;
+            }
+
+            set
+            {
+                _Responsable = value;
             }
         }
         #endregion
