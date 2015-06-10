@@ -469,6 +469,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="imgs\surligne.PNG" />
+    <EmbeddedResource Include="res\AttestationMoto2015.png" />
     <None Include="Resources\info-icon.png" />
     <None Include="Resources\delete-icon.png" />
     <None Include="Resources\Cancel-2-icon.png" />
