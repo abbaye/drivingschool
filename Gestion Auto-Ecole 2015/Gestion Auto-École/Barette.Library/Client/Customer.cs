@@ -622,12 +622,61 @@ namespace Barette.Library.Client {
 			return null;
 		}
 
-		/// <summary>
-		/// Obtient le solde du client
-		/// Dans la prochaine version de cette fonction : Le calcule sera fait a partir de la liste de paiment.
-		/// </summary>
-		/// <returns></returns>
-		public double GetSolde() {
+        /// <summary>
+        /// Obtien la seance demandé par le parametre seance number
+        /// </summary>
+        /// <param name="SeanceNumber">Numéro de seance</param>
+        /// <returns>Retourne la seance demandé. Si la valeur est null, c'est qu'il n'a pas trouvé de seance correspondante</returns>
+        public Seance GetSeanceTheorique(int SeanceNumber)
+        {
+            for (int i = 0; i < SeancesTheorique.Count; i++)
+            {
+                if (SeancesTheorique[i].SceanceNumber == SeanceNumber)
+                {
+                    return SeancesTheorique[i];
+                }
+            }
+
+            //Rien trouvé alors on retourne un null;
+            return null;
+        }
+
+        /// <summary>
+        /// Obtien la seance demandé par le parametre seance number
+        /// </summary>
+        /// <param name="SeanceNumber">Numéro de seance</param>
+        /// <returns>Retourne la seance demandé. Si la valeur est null, c'est qu'il n'a pas trouvé de seance correspondante</returns>
+        public Seance GetSeanceOrDefault(int SeanceNumber)
+        {
+            Seance seance = GetSeance(SeanceNumber);
+
+            if (seance != null)
+                return seance;
+            else
+                return new Seance();
+        }
+
+        /// <summary>
+        /// Obtien la seance demandé par le parametre seance number
+        /// </summary>
+        /// <param name="SeanceNumber">Numéro de seance</param>
+        /// <returns>Retourne la seance demandé. Si la valeur est null, c'est qu'il n'a pas trouvé de seance correspondante</returns>
+        public Seance GetSeanceTheoriqueOrDefault(int SeanceNumber)
+        {
+            Seance seance = GetSeanceTheorique(SeanceNumber);
+
+            if (seance != null)
+                return seance;
+            else
+                return new Seance();
+        }
+
+        /// <summary>
+        /// Obtient le solde du client
+        /// Dans la prochaine version de cette fonction : Le calcule sera fait a partir de la liste de paiment.
+        /// </summary>
+        /// <returns></returns>
+        public double GetSolde() {
 			try {
 				return Convert.ToDouble(Solde.Replace(" $", ""));
 			} catch {
