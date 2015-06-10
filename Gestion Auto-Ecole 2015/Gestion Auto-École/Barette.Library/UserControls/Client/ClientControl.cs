@@ -13434,102 +13434,104 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                 leftMargin + 15,
                 topMargin + 392,
                 new StringFormat());
-            
+
             //BLOC COURS
+            int topAjustement = -10;
+            int leftAjustement = -10;
             switch (client.TypeVehicule)
             {
                 case VehiculeType.Moto:
                     e.Graphics.DrawString("X",
                         printFontBold16, Brushes.Black,
-                        leftMargin + 190,
-                        topMargin + 483,
+                        leftMargin + 188,
+                        topMargin + 475,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(1).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 125,
-                        topMargin + 558,
+                        leftMargin + 125 + leftAjustement,
+                        topMargin + 558 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(2).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 125,
-                        topMargin + 578,
+                        leftMargin + 125 + leftAjustement,
+                        topMargin + 578 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(3).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 125,
-                        topMargin + 596,
+                        leftMargin + 125 + leftAjustement,
+                        topMargin + 596 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(4).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 125,
-                        topMargin + 616,
+                        leftMargin + 125 + leftAjustement,
+                        topMargin + 613 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(5).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 125,
-                        topMargin + 633,
+                        leftMargin + 125 + leftAjustement,
+                        topMargin + 630 + topAjustement,
                         new StringFormat());
 
                     /// pratique route
                     e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(6).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 365,
-                        topMargin + 558,
+                        leftMargin + 365 + leftAjustement,
+                        topMargin + 558 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(7).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 365,
-                        topMargin + 578,
+                        leftMargin + 365 + leftAjustement,
+                        topMargin + 578 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(8).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 365,
-                        topMargin + 596,
+                        leftMargin + 365 + leftAjustement,
+                        topMargin + 596 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(9).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 365,
-                        topMargin + 616,
+                        leftMargin + 365 + leftAjustement,
+                        topMargin + 613 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(10).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 365,
-                        topMargin + 633,
+                        leftMargin + 365 + leftAjustement,
+                        topMargin + 630 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(11).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 365,
-                        topMargin + 651,
+                        leftMargin + 365 + leftAjustement,
+                        topMargin + 648 + topAjustement,
                         new StringFormat());
 
                     break;
                 case VehiculeType.Cyclomoteur:
                     e.Graphics.DrawString("X",
                         printFontBold16, Brushes.Black,
-                        leftMargin + 640,
-                        topMargin + 483,
+                        leftMargin + 615,
+                        topMargin + 475,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(1).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 730,
-                        topMargin + 540,
+                        leftMargin + 690 + leftAjustement,
+                        topMargin + 540 + topAjustement,
                         new StringFormat());
 
                     e.Graphics.DrawString(client.GetSeanceOrDefault(1).DateHeure.ToShortDateString(),
                         printFont, Brushes.Black,
-                        leftMargin + 730,
-                        topMargin + 560,
+                        leftMargin + 690 + leftAjustement,
+                        topMargin + 560 + topAjustement,
                         new StringFormat());
                     break;
             }
