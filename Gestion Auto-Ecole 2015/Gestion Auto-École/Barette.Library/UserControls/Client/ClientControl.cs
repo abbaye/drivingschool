@@ -13422,6 +13422,13 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                 topMargin + 360,
                 new StringFormat());
 
+
+            e.Graphics.DrawString(school.RegistrationMoto,
+                printFont, Brushes.Black,
+                leftMargin + 730,
+                topMargin + 227,
+                new StringFormat());
+
             e.Graphics.DrawString(school.Email,
                 printFont, Brushes.Black,
                 leftMargin + 15,
