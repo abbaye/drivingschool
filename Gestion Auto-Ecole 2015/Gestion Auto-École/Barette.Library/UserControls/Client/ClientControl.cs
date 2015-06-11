@@ -13304,8 +13304,8 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 #endif
 
 
-            float topMargin = -6;
-            float leftMargin = -8;
+            float topMargin = -4;
+            float leftMargin = 0;
 
             //Facrication des fonts
             Font printFont = new System.Drawing.Font("Courier New", 10);
@@ -13357,13 +13357,13 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             e.Graphics.DrawString("QC",
                 printFont, Brushes.Black,
                 leftMargin + 375,
-                topMargin + 195,
+                topMargin + 197,
                 new StringFormat());
 
             e.Graphics.DrawString(client.CodePostal,
                 printFont, Brushes.Black,
-                leftMargin + 530,
-                topMargin + 195,
+                leftMargin + 515,
+                topMargin + 197,
                 new StringFormat());
 
             e.Graphics.DrawString(client.Phone,
@@ -13418,7 +13418,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 
             e.Graphics.DrawString(school.PostalCode,
                 printFont, Brushes.Black,
-                leftMargin + 715,
+                leftMargin + 690,
                 topMargin + 360,
                 new StringFormat());
 
@@ -13436,103 +13436,116 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                 new StringFormat());
 
             //BLOC COURS
-            int topAjustement = -8;
+            int topAjustement = -9;
             int leftAjustement = -10;
             switch (client.TypeVehicule)
             {
                 case VehiculeType.Moto:
                     e.Graphics.DrawString("X",
                         printFontBold16, Brushes.Black,
-                        leftMargin + 188,
-                        topMargin + 475,
+                        leftMargin + 182,
+                        topMargin + 479,
                         new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(1).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 125 + leftAjustement,
-                        topMargin + 558 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeanceTheorique(1) != null)
+                        e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(1).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 125 + leftAjustement,
+                            topMargin + 559 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(2).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 125 + leftAjustement,
-                        topMargin + 578 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(2) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(2).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 125 + leftAjustement,
+                            topMargin + 578 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(3).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 125 + leftAjustement,
-                        topMargin + 596 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(3) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(3).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 125 + leftAjustement,
+                            topMargin + 596 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(4).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 125 + leftAjustement,
-                        topMargin + 613 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(4) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(4).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 125 + leftAjustement,
+                            topMargin + 613 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(5).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 125 + leftAjustement,
-                        topMargin + 630 + topAjustement,
-                        new StringFormat());
 
-                    /// pratique route
-                    e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(6).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 365 + leftAjustement,
-                        topMargin + 558 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(5) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(5).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 125 + leftAjustement,
+                            topMargin + 630 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(7).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 365 + leftAjustement,
-                        topMargin + 578 + topAjustement,
-                        new StringFormat());
+                    // pratique route
+                    if (client.GetSeanceTheorique(6) != null)
+                        e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(6).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 365 + leftAjustement,
+                            topMargin + 559 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(8).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 365 + leftAjustement,
-                        topMargin + 596 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(7) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(7).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 365 + leftAjustement,
+                            topMargin + 578 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(9).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 365 + leftAjustement,
-                        topMargin + 613 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(8) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(8).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 365 + leftAjustement,
+                            topMargin + 596 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(10).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 365 + leftAjustement,
-                        topMargin + 630 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(9) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(9).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 365 + leftAjustement,
+                            topMargin + 613 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(11).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 365 + leftAjustement,
-                        topMargin + 648 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(10) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(10).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 365 + leftAjustement,
+                            topMargin + 630 + topAjustement,
+                            new StringFormat());
 
+                    if (client.GetSeance(11) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(11).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 365 + leftAjustement,
+                            topMargin + 648 + topAjustement,
+                            new StringFormat());
                     break;
                 case VehiculeType.Cyclomoteur:
                     e.Graphics.DrawString("X",
                         printFontBold16, Brushes.Black,
-                        leftMargin + 610,
-                        topMargin + 475,
+                        leftMargin + 608,
+                        topMargin + 479,
                         new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(1).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 690 + leftAjustement,
-                        topMargin + 540 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeanceTheorique(1) != null)
+                        e.Graphics.DrawString(client.GetSeanceTheoriqueOrDefault(1).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 690 + leftAjustement,
+                            topMargin + 540 + topAjustement,
+                            new StringFormat());
 
-                    e.Graphics.DrawString(client.GetSeanceOrDefault(1).DateHeure.ToShortDateString(),
-                        printFont, Brushes.Black,
-                        leftMargin + 690 + leftAjustement,
-                        topMargin + 560 + topAjustement,
-                        new StringFormat());
+                    if (client.GetSeance(1) != null)
+                        e.Graphics.DrawString(client.GetSeanceOrDefault(1).DateHeure.ToShortDateString(),
+                            printFont, Brushes.Black,
+                            leftMargin + 690 + leftAjustement,
+                            topMargin + 560 + topAjustement,
+                            new StringFormat());
                     break;
             }
 
