@@ -117,7 +117,7 @@ namespace Barette.Library {
                     tax.NoTaxe = decimal.Round((_montant / 114.975M) * 100, 2);
 
                     tax.TPS = decimal.Round(tax.NoTaxe * 0.05M, 2);
-                    tax.TVQ = decimal.Round(tax.NoTaxe * 0.0975M, 2);
+                    tax.TVQ = decimal.Round(tax.NoTaxe * 0.09975M, 2);
                     tax.TauxTPS = 0.05M;
                     tax.TauxTVQ = 0.0975M;
                     break;
