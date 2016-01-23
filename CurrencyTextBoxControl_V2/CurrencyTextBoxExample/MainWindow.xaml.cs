@@ -6,7 +6,7 @@ namespace CurrencyTextBoxExample
 {
     public partial class MainWindow : Window, IDataErrorInfo
     {
-        private decimal _number = 1.2300M;
+        private decimal _number = 12345.6756M;
         public decimal Number
         {
             get
