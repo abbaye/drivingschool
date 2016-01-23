@@ -30,7 +30,7 @@ namespace CurrencyTextBoxControl
             "StringFormat",
             typeof(string),
             typeof(CurrencyTextBox),
-            new FrameworkPropertyMetadata("C4", StringFormatPropertyChanged));
+            new FrameworkPropertyMetadata("C2", StringFormatPropertyChanged));
         public string StringFormat
         {
             get
@@ -95,7 +95,7 @@ namespace CurrencyTextBoxControl
         {
             var tb = sender as TextBox;
 
-            if (Number < 0 && tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat == "C4")
+            if (Number < 0 && tb.Text.EndsWith(")"))
             {
                 // If a negative number and a StringFormat of "C" is used, then
                 // place the caret before the closing paren.

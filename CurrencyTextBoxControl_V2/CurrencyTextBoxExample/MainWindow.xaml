@@ -27,7 +27,7 @@
                                   FontSize="24"
                                   Number="{Binding Number,
                                                    UpdateSourceTrigger=PropertyChanged,
-                                                   ValidatesOnDataErrors=True}" StringFormat="C5">
+                                                   ValidatesOnDataErrors=True}" StringFormat="C2">
             <currency:CurrencyTextBox.Style>
                 <Style TargetType="currency:CurrencyTextBox">
                     <Style.Triggers>
