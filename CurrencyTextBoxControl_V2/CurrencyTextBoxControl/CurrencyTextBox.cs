@@ -146,8 +146,9 @@ namespace CurrencyTextBoxControl
 
                 // Remove the right-most digit
                 //Number = (Number - (Number % 0.1M)) / 10M;
-                string numberstring = (Number).ToString();
-
+                string numberstring = (Number).ToString().Replace(",", "");
+                numberstring = numberstring.Insert(numberstring.Length - GetSubstract(tb), ",");
+                
                 try
                 {
                     Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
@@ -178,7 +179,7 @@ namespace CurrencyTextBoxControl
                 e.Handled = true;
             }
         }
-        
+
         private void PastingEventHandler(object sender, DataObjectEventArgs e)
         {
             // Prevent copy/paste
@@ -235,6 +236,29 @@ namespace CurrencyTextBoxControl
 
             return 1M;
         }
+
+
+        private int GetSubstract(TextBox tb)
+        {
+            switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+            {
+                case "C":
+                    return 2;
+                case "C2":
+                    return 3;
+                case "C3":
+                    return 4;
+                case "C4":
+                    return 5;
+                case "C5":
+                    return 6;
+                case "C6":
+                    return 7;
+            }
+
+            return 1;
+        }
+
 
         private bool IsNumericKey(Key key)
         {
