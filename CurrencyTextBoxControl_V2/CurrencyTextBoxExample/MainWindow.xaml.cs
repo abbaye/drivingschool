@@ -16,6 +16,10 @@ namespace CurrencyTextBoxExample
             set
             {
                 _number = value;
+
+                listBox.Items.Add(value);
+                listBox.SelectedIndex = listBox.Items.Count - 1;
+                
             }
         }
 
@@ -64,5 +68,7 @@ namespace CurrencyTextBoxExample
                 }
             }
         }
+
+        
     }
 }
