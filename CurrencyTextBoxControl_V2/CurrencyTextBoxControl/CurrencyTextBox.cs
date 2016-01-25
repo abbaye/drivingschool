@@ -130,6 +130,10 @@ namespace CurrencyTextBoxControl
             {
                 e.Handled = true;
 
+                //Max length fix
+                if (tb.MaxLength != 0 && Number.ToString().Length > tb.MaxLength)
+                    return;
+                
                 // Push the new number from the right
                 if (Number < 0)
                 {
