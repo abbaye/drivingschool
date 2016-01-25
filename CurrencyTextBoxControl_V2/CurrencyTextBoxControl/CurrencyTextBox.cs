@@ -156,7 +156,6 @@ namespace CurrencyTextBoxControl
                 e.Handled = true;
 
                 // Remove the right-most digit
-                //Number = (Number - (Number % 0.1M)) / 10M;
                 
                 try
                 {
