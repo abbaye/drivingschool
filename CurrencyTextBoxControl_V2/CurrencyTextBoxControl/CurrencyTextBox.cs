@@ -24,6 +24,11 @@ namespace CurrencyTextBoxControl
             set
             {
                 SetValue(NumberProperty, value);
+
+                if (value < 0)
+                    this.Foreground = Brushes.Red;
+                else
+                    this.Foreground = Brushes.Black;
             }
         }
 
@@ -87,6 +92,7 @@ namespace CurrencyTextBoxControl
             this.PreviewMouseDown += TextBox_PreviewMouseDown;
             this.PreviewMouseUp += TextBox_PreviewMouseUp;
             this.TextChanged += TextBox_TextChanged;
+            
             this.ContextMenu = null;
         }
         #endregion
@@ -101,13 +107,11 @@ namespace CurrencyTextBoxControl
                 // If a negative number and a StringFormat of "C" is used, then
                 // place the caret before the closing paren.
                 tb.CaretIndex = tb.Text.Length - 1;
-                tb.Foreground = Brushes.Red;
             }
             else
             {
                 // Keep the caret at the end
                 tb.CaretIndex = tb.Text.Length;
-                tb.Foreground = Brushes.Black;
             }
         }
 
@@ -153,11 +157,12 @@ namespace CurrencyTextBoxControl
 
                 // Remove the right-most digit
                 //Number = (Number - (Number % 0.1M)) / 10M;
-                string numberstring = (Number).ToString().Replace(",", "");
-                numberstring = numberstring.Insert(numberstring.Length - GetSubstract(tb), ",");
                 
                 try
                 {
+                    string numberstring = (Number).ToString().Replace(",", "");
+                    numberstring = numberstring.Insert(numberstring.Length - GetSubstract(tb), ",");
+
                     Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
                 }
                 catch

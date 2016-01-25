@@ -46,6 +46,8 @@ namespace CurrencyTextBoxExample
             InitializeComponent();
 
             this.DataContext = this;
+
+            currencyTextBox.Number = -1M;
         }
 
         public string Error
