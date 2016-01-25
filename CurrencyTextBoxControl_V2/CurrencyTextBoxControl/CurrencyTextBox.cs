@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace CurrencyTextBoxControl
 {
@@ -100,11 +101,13 @@ namespace CurrencyTextBoxControl
                 // If a negative number and a StringFormat of "C" is used, then
                 // place the caret before the closing paren.
                 tb.CaretIndex = tb.Text.Length - 1;
+                tb.Foreground = Brushes.Red;
             }
             else
             {
                 // Keep the caret at the end
                 tb.CaretIndex = tb.Text.Length;
+                tb.Foreground = Brushes.Black;
             }
         }
 
