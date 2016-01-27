@@ -73,7 +73,7 @@ namespace CurrencyTextBoxControl
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-
+            
             // Bind Text to Number with the specified StringFormat
             var textBinding = new Binding();
             textBinding.Path = new PropertyPath("Number");
@@ -231,7 +231,11 @@ namespace CurrencyTextBoxControl
         {
             switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
+                case "C0":
+                    return 1M;
                 case "C":
+                    return 100M;
+                case "C1":
                     return 10M;
                 case "C2":
                     return 100M;
@@ -253,7 +257,11 @@ namespace CurrencyTextBoxControl
         {
             switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
+                case "C0":
+                    return 1;
                 case "C":
+                    return 3;
+                case "C1":
                     return 2;
                 case "C2":
                     return 3;
