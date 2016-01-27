@@ -102,17 +102,14 @@ namespace CurrencyTextBoxControl
         {
             var tb = sender as TextBox;
 
-            if (Number < 0 && tb.Text.EndsWith(")"))
-            {
+            if (Number < 0 && tb.Text.EndsWith(")"))            
                 // If a negative number and a StringFormat of "C" is used, then
                 // place the caret before the closing paren.
-                tb.CaretIndex = tb.Text.Length - 1;
-            }
-            else
-            {
+                tb.CaretIndex = tb.Text.Length - 1;           
+            else            
                 // Keep the caret at the end
                 tb.CaretIndex = tb.Text.Length;
-            }
+            
         }
 
         private void TextBox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -132,7 +129,7 @@ namespace CurrencyTextBoxControl
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             var tb = sender as TextBox;
-           
+
             if (IsNumericKey(e.Key))
             {
                 e.Handled = true;
@@ -140,26 +137,23 @@ namespace CurrencyTextBoxControl
                 //Max length fix
                 if (tb.MaxLength != 0 && Number.ToString().Length > tb.MaxLength)
                     return;
-                
+
                 // Push the new number from the right
                 if (Number < 0)
-                {
                     Number = (Number * 10M) - (GetDigitFromKey(e.Key) / GetDivider(tb));
-                }
                 else
-                {
                     Number = (Number * 10M) + (GetDigitFromKey(e.Key) / GetDivider(tb));
-                }
+
             }
-            else if (e.Key == Key.Back)
+            else if (IsBackspaceKey(e.Key))
             {
                 e.Handled = true;
 
                 // Remove the right-most digit
-                
+
                 try
                 {
-                    string numberstring = (Number).ToString().Replace(",", "");
+                    string numberstring = Number.ToString().Replace(",", "");
                     numberstring = numberstring.Insert(numberstring.Length - GetSubstract(tb), ",");
 
                     Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
@@ -169,13 +163,13 @@ namespace CurrencyTextBoxControl
                     Number = 0;
                 }
             }
-            else if (e.Key == Key.Delete)
+            else if (IsDeleteKey(e.Key))
             {
                 e.Handled = true;
 
                 Number = 0M;
             }
-            else if (e.Key == Key.Subtract || e.Key == Key.OemMinus)
+            else if (IsSubstractKey(e.Key))
             {
                 e.Handled = true;
 
@@ -306,6 +300,17 @@ namespace CurrencyTextBoxControl
         private bool IsBackspaceKey(Key key)
         {
             return key == Key.Back;
+        }
+
+        private bool IsSubstractKey(Key key)
+        {
+            return key == Key.Subtract || 
+                key == Key.OemMinus;
+        }
+
+        private bool IsDeleteKey(Key key)
+        {
+            return key == Key.Delete;
         }
 
         private bool IsIgnoredKey(Key key)
