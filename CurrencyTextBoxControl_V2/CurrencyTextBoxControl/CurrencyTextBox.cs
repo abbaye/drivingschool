@@ -151,17 +151,7 @@ namespace CurrencyTextBoxControl
 
                 // Remove the right-most digit
 
-                try
-                {
-                    string numberstring = Number.ToString().Replace(",", "");
-                    numberstring = numberstring.Insert(numberstring.Length - GetSubstract(tb), ",");
-
-                    Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
-                }
-                catch
-                {
-                    Number = 0;
-                }
+                RemoveRightMostDigit(tb);
             }
             else if (IsDeleteKey(e.Key))
             {
@@ -272,7 +262,6 @@ namespace CurrencyTextBoxControl
             return 1;
         }
 
-
         private bool IsNumericKey(Key key)
         {
             return key == Key.D0 ||
@@ -319,6 +308,28 @@ namespace CurrencyTextBoxControl
                 key == Key.Down ||
                 key == Key.Tab ||
                 key == Key.Enter;
+        }
+
+        private void RemoveRightMostDigit(TextBox tb)
+        {
+            try
+            {
+                if (Number.ToString().LastIndexOf(",") == -1)
+                {
+                    Number = Convert.ToDecimal(Number.ToString().Remove(Number.ToString().Length - 1));
+                }
+                else
+                {
+                    string numberstring = Number.ToString().Replace(",", "");
+                    numberstring = numberstring.Insert(numberstring.Length - GetSubstract(tb), ",");
+
+                    Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
+                }
+            }
+            catch
+            {
+                Number = 0;
+            }
         }
         #endregion
     }
