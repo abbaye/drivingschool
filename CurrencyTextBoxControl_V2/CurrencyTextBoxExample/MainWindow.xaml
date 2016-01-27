@@ -72,6 +72,6 @@
             </currency:CurrencyTextBox.Style>
         </currency:CurrencyTextBox>
         <ListBox x:Name="listBox"/>
-        <currency:CurrencyTextBox x:Name="currencyTextBox" Grid.Column="1" MaxLength="8" HorizontalAlignment="Left" Margin="20,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="29" Foreground="#FF2398BB" StringFormat="C1"/>
+        <currency:CurrencyTextBox x:Name="currencyTextBox" Grid.Column="1" MaxLength="8" HorizontalAlignment="Left" Margin="20,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="29" StringFormat="C4" Number="23463"/>
     </Grid>
 </Window>
