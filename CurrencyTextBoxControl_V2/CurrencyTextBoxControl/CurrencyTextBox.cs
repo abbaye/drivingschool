@@ -15,6 +15,7 @@ namespace CurrencyTextBoxControl
             typeof(decimal),
             typeof(CurrencyTextBox),
             new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
         public decimal Number
         {
             get
