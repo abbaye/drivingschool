@@ -12870,12 +12870,22 @@ namespace Barette.Library.UserControls.Client {
                 case VehiculeType.Moto:
                     //Theorie
                     hauteurDescription += printFontTime10.Height;
-                    e.Graphics.DrawString("Théorie : 9 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+
+                    if (_Client.ProgramMoto == ProgramMoto.Program2015)
+                        e.Graphics.DrawString("Théorie : 6 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                    else
+                        e.Graphics.DrawString("Théorie : 9 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+
                     e.Graphics.DrawString(_Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
-                    e.Graphics.DrawString("Pratique: 22 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+
+                    if (_Client.ProgramMoto == ProgramMoto.Program2015)
+                        e.Graphics.DrawString("Pratique: 26 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                    else
+                        e.Graphics.DrawString("Pratique: 22 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                    
                     e.Graphics.DrawString(_Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
