@@ -26,7 +26,7 @@
                                   FontSize="24"
                                   Number="{Binding Number,
                                                    UpdateSourceTrigger=PropertyChanged,
-                                                   ValidatesOnDataErrors=True}" StringFormat="C4">
+                                                   ValidatesOnDataErrors=True}" StringFormat="C4" MaximumValue="22">
             <currency:CurrencyTextBox.Style>
                 <Style TargetType="currency:CurrencyTextBox">
                     <Style.Triggers>
@@ -73,5 +73,7 @@
         </currency:CurrencyTextBox>
         <ListBox x:Name="listBox"/>
         <currency:CurrencyTextBox x:Name="currencyTextBox" Grid.Column="1" MaxLength="8" HorizontalAlignment="Left" Margin="20,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="29" StringFormat="C4" Number="23463"/>
+        <Button x:Name="button" Content="SET MAX VALUE" Grid.Column="1" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button1" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
     </Grid>
 </Window>

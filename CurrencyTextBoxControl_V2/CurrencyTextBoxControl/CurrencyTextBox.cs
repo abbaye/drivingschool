@@ -14,7 +14,31 @@ namespace CurrencyTextBoxControl
             "Number",
             typeof(decimal),
             typeof(CurrencyTextBox),
-            new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+            new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, new PropertyChangedCallback(NumberChangedCallBack), new CoerceValueCallback(NumberCoerceValueCallBack)));
+
+        private static object NumberCoerceValueCallBack(DependencyObject d, object baseValue)
+        {
+
+            CurrencyTextBox ctb = d as CurrencyTextBox;
+            decimal value = (decimal)baseValue;
+
+            if (value > ctb.MaximumValue && ctb.MaximumValue > 0)
+                return ctb.MaximumValue;
+            else
+                return value;           
+        }
+
+        private static void NumberChangedCallBack(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            CurrencyTextBox ctb = d as CurrencyTextBox;
+
+            //Color update
+            if (ctb.Number < 0)
+                ctb.Foreground = Brushes.Red;
+            else
+                ctb.Foreground = Brushes.Black;
+
+        }
 
         public decimal Number
         {
@@ -25,11 +49,34 @@ namespace CurrencyTextBoxControl
             set
             {
                 SetValue(NumberProperty, value);
+            }
+        }
 
-                if (value < 0)
-                    this.Foreground = Brushes.Red;
-                else
-                    this.Foreground = Brushes.Black;
+
+        public static readonly DependencyProperty MaximumValueProperty =
+            DependencyProperty.Register(
+                "MaximumValue", 
+                typeof(decimal), 
+                typeof(CurrencyTextBox), 
+                new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, new PropertyChangedCallback(MaximumValueChangedCallback)));
+
+        private static void MaximumValueChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            CurrencyTextBox ctb = d as CurrencyTextBox;
+
+            if (ctb.Number > (decimal)e.NewValue)
+                ctb.Number = (decimal)e.NewValue;
+        }
+
+        public decimal MaximumValue
+        {
+            get
+            {
+                return (decimal)GetValue(MaximumValueProperty);
+            }
+            set
+            {
+                SetValue(MaximumValueProperty, value);
             }
         }
 
@@ -95,6 +142,7 @@ namespace CurrencyTextBoxControl
             this.TextChanged += TextBox_TextChanged;
             
             this.ContextMenu = null;
+            
         }
         #endregion
 
@@ -103,14 +151,10 @@ namespace CurrencyTextBoxControl
         {
             var tb = sender as TextBox;
 
-            if (Number < 0 && tb.Text.EndsWith(")"))            
-                // If a negative number and a StringFormat of "C" is used, then
-                // place the caret before the closing paren.
-                tb.CaretIndex = tb.Text.Length - 1;           
-            else            
-                // Keep the caret at the end
+            if (Number < 0 && tb.Text.EndsWith(")"))
+                tb.CaretIndex = tb.Text.Length - 1;
+            else
                 tb.CaretIndex = tb.Text.Length;
-            
         }
 
         private void TextBox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
