@@ -14,21 +14,26 @@ namespace CurrencyTextBoxControl
             "Number",
             typeof(decimal),
             typeof(CurrencyTextBox),
-            new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, new PropertyChangedCallback(NumberChangedCallBack), new CoerceValueCallback(NumberCoerceValueCallBack)));
+            new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, new PropertyChangedCallback(NumberPropertyChanged), new CoerceValueCallback(NumberPropertyCoerceValue)));
 
-        private static object NumberCoerceValueCallBack(DependencyObject d, object baseValue)
+        private static object NumberPropertyCoerceValue(DependencyObject d, object baseValue)
         {
 
             CurrencyTextBox ctb = d as CurrencyTextBox;
             decimal value = (decimal)baseValue;
 
+            //Check maximum value
             if (value > ctb.MaximumValue && ctb.MaximumValue > 0)
                 return ctb.MaximumValue;
             else
-                return value;           
+            //Check minimum value
+            if (value < ctb.MinimumValue && ctb.MinimumValue < 0)
+                return ctb.MinimumValue;
+            else
+                return value;
         }
 
-        private static void NumberChangedCallBack(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void NumberPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             CurrencyTextBox ctb = d as CurrencyTextBox;
 
@@ -42,14 +47,8 @@ namespace CurrencyTextBoxControl
 
         public decimal Number
         {
-            get
-            {
-                return (decimal)GetValue(NumberProperty);
-            }
-            set
-            {
-                SetValue(NumberProperty, value);
-            }
+            get { return (decimal)GetValue(NumberProperty); }
+            set { SetValue(NumberProperty, value); }
         }
 
 
@@ -58,9 +57,10 @@ namespace CurrencyTextBoxControl
                 "MaximumValue", 
                 typeof(decimal), 
                 typeof(CurrencyTextBox), 
-                new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, new PropertyChangedCallback(MaximumValueChangedCallback)));
+                new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, 
+                    new PropertyChangedCallback(MaximumValuePropertyChanged)));
 
-        private static void MaximumValueChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void MaximumValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             CurrencyTextBox ctb = d as CurrencyTextBox;
 
@@ -70,14 +70,30 @@ namespace CurrencyTextBoxControl
 
         public decimal MaximumValue
         {
-            get
-            {
-                return (decimal)GetValue(MaximumValueProperty);
-            }
-            set
-            {
-                SetValue(MaximumValueProperty, value);
-            }
+            get { return (decimal)GetValue(MaximumValueProperty); }
+            set { SetValue(MaximumValueProperty, value); }
+        }
+
+        
+        public decimal MinimumValue
+        {
+            get { return (decimal)GetValue(MinimumValueProperty); }
+            set { SetValue(MinimumValueProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MinimumValue.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MinimumValueProperty =
+            DependencyProperty.Register("MinimumValue", typeof(decimal), typeof(CurrencyTextBox), 
+                new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                    new PropertyChangedCallback(MinimumValuePropertyChanged)));
+
+        
+        private static void MinimumValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            CurrencyTextBox ctb = d as CurrencyTextBox;
+
+            if (ctb.Number < (decimal)e.NewValue)
+                ctb.Number = (decimal)e.NewValue;
         }
 
         public static readonly DependencyProperty StringFormatProperty = DependencyProperty.Register(
