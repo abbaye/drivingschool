@@ -22,24 +22,7 @@ namespace CurrencyTextBoxExample
                 
             }
         }
-
-        private List<string> _stringFormats;
-        public List<string> StringFormats
-        {
-            get
-            {
-                if (_stringFormats == null)
-                {
-                    _stringFormats = new List<string>() { "C", "E", "F", "G", "N", "P", "{0:C1}", "{0:C0}", "{0:C4}" };
-                }
-
-                return _stringFormats;
-            }
-            set
-            {
-                _stringFormats = value;
-            }
-        }
+        
 
         public MainWindow()
         {

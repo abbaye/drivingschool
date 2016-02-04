@@ -40,21 +40,6 @@
                 </Style>
             </currency:CurrencyTextBox.Style>
         </currency:CurrencyTextBox>
-
-        <TextBlock Grid.Row="1"
-                   Grid.Column="0"
-                   Margin="72,7,5,7"
-                   VerticalAlignment="Center"
-                   TextAlignment="Right" ><Run Text="StringFormat:"/></TextBlock>
-        <ComboBox Grid.Row="1"
-                  Grid.Column="1"
-                  Margin="5"
-                  HorizontalContentAlignment="Right"
-                  FontFamily="Consolas"
-                  ItemsSource="{Binding StringFormats}"
-                  SelectedItem="{Binding StringFormat,
-                                         ElementName=myCurrencyTextBox,
-                                         Mode=TwoWay}" />
         <currency:CurrencyTextBox x:Name="myCurrencyTextBox_Copy"
         	Grid.Row="0"
         	Grid.Column="1"
