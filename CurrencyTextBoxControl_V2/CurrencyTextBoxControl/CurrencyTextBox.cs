@@ -42,7 +42,6 @@ namespace CurrencyTextBoxControl
                 ctb.Foreground = Brushes.Red;
             else
                 ctb.Foreground = Brushes.Black;
-
         }
 
         public decimal Number
@@ -214,6 +213,18 @@ namespace CurrencyTextBoxControl
 
                 RemoveRightMostDigit(tb);
             }
+            else if (IsUpKey(e.Key))
+            {
+                e.Handled = true;
+
+                AddOneDigit(tb);
+            }
+            else if (IsDownKey(e.Key))
+            {
+                e.Handled = true;
+
+                SubstractOneDigit(tb);
+            }
             else if (IsDeleteKey(e.Key))
             {
                 e.Handled = true;
@@ -233,6 +244,70 @@ namespace CurrencyTextBoxControl
             else
             {
                 e.Handled = true;
+            }
+        }
+
+        private void AddOneDigit(TextBox tb)
+        {
+         
+            switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+            {
+                case "C0":
+                    Number = decimal.Add(Number, 1M);
+                    break;
+                case "C":
+                    Number = decimal.Add(Number, 0.01M);
+                    break;
+                case "C1":
+                    Number = decimal.Add(Number, 0.1M);
+                    break;
+                case "C2":
+                    Number = decimal.Add(Number, 0.01M);
+                    break;
+                case "C3":
+                    Number = decimal.Add(Number, 0.001M);
+                    break;
+                case "C4":
+                    Number = decimal.Add(Number, 0.0001M);
+                    break;
+                case "C5":
+                    Number = decimal.Add(Number, 0.00001M);
+                    break;
+                case "C6":
+                    Number = decimal.Add(Number, 0.000001M);
+                    break;
+            }
+        }
+
+        private void SubstractOneDigit(TextBox tb)
+        {
+
+            switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+            {
+                case "C0":
+                    Number = decimal.Subtract(Number, 1M);
+                    break;
+                case "C":
+                    Number = decimal.Subtract(Number, 0.01M);
+                    break;
+                case "C1":
+                    Number = decimal.Subtract(Number, 0.1M);
+                    break;
+                case "C2":
+                    Number = decimal.Subtract(Number, 0.01M);
+                    break;
+                case "C3":
+                    Number = decimal.Subtract(Number, 0.001M);
+                    break;
+                case "C4":
+                    Number = decimal.Subtract(Number, 0.0001M);
+                    break;
+                case "C5":
+                    Number = decimal.Subtract(Number, 0.00001M);
+                    break;
+                case "C6":
+                    Number = decimal.Subtract(Number, 0.000001M);
+                    break;
             }
         }
 
@@ -365,10 +440,24 @@ namespace CurrencyTextBoxControl
 
         private bool IsIgnoredKey(Key key)
         {
-            return key == Key.Up ||
-                key == Key.Down ||
-                key == Key.Tab ||
-                key == Key.Enter;
+
+            //return key == Key.Up ||
+            //    key == Key.Down ||
+            //    key == Key.Tab ||
+            //    key == Key.Enter;
+
+            return key == Key.Tab || key == Key.Enter;
+            
+        }
+
+        private bool IsUpKey(Key key)
+        {
+            return key == Key.Up;
+        }
+
+        private bool IsDownKey (Key key)
+        {
+            return key == Key.Down;
         }
 
         private void RemoveRightMostDigit(TextBox tb)
