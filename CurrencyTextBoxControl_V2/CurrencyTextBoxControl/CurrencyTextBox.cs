@@ -14,7 +14,14 @@ namespace CurrencyTextBoxControl
             "Number",
             typeof(decimal),
             typeof(CurrencyTextBox),
-            new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, new PropertyChangedCallback(NumberPropertyChanged), new CoerceValueCallback(NumberPropertyCoerceValue)));
+            new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, 
+                new PropertyChangedCallback(NumberPropertyChanged), 
+                new CoerceValueCallback(NumberPropertyCoerceValue)), new ValidateValueCallback(NumberPropertyValidated));
+
+        private static bool NumberPropertyValidated(object value)
+        {
+            return value is decimal;
+        }
 
         private static object NumberPropertyCoerceValue(DependencyObject d, object baseValue)
         {
@@ -82,7 +89,9 @@ namespace CurrencyTextBoxControl
 
         // Using a DependencyProperty as the backing store for MinimumValue.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MinimumValueProperty =
-            DependencyProperty.Register("MinimumValue", typeof(decimal), typeof(CurrencyTextBox), 
+            DependencyProperty.Register("MinimumValue", 
+                typeof(decimal), 
+                typeof(CurrencyTextBox), 
                 new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                     new PropertyChangedCallback(MinimumValuePropertyChanged)));
 
