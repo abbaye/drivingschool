@@ -156,8 +156,8 @@ namespace CurrencyTextBoxControl
             BindingOperations.SetBinding(this, TextBox.TextProperty, textBinding);
 
             // Disable copy/paste
-            DataObject.AddCopyingHandler(this, PastingEventHandler);
-            DataObject.AddPastingHandler(this, PastingEventHandler);
+            DataObject.AddCopyingHandler(this, CopyPastEventHandler);
+            DataObject.AddPastingHandler(this, CopyPastEventHandler);
 
             this.CaretIndex = this.Text.Length;
             this.PreviewKeyDown += TextBox_PreviewKeyDown;
@@ -250,12 +250,49 @@ namespace CurrencyTextBoxControl
             {
                 e.Handled = false;
             }
+            else if (IsCtrlCKey(e.Key))
+            {
+                e.Handled = false;
+
+                CopyToClipBoard();
+            }
+            else if (IsCtrlVKey(e.Key))
+            {
+                e.Handled = false;
+
+                PasteFromClipBoard();
+            }
             else
             {
                 e.Handled = true;
             }
         }
 
+        /// <summary>
+        /// Paste if is a number
+        /// </summary>
+        private void PasteFromClipBoard()
+        {
+            try
+            {
+                Number = decimal.Parse(Clipboard.GetText());
+            }
+            catch { }
+        }
+
+        /// <summary>
+        /// Copy the property Number to Control
+        /// </summary>
+        private void CopyToClipBoard()
+        {
+            Clipboard.Clear();
+            Clipboard.SetText(Number.ToString());
+        }
+
+        /// <summary>
+        /// Add one digit to the property number
+        /// </summary>
+        /// <param name="tb"></param>
         private void AddOneDigit(TextBox tb)
         {
          
@@ -320,11 +357,12 @@ namespace CurrencyTextBoxControl
             }
         }
 
-        private void PastingEventHandler(object sender, DataObjectEventArgs e)
+        private void CopyPastEventHandler(object sender, DataObjectEventArgs e)
         {
-            // Prevent copy/paste
+            // cancel copy and paste
             e.CancelCommand();
         }
+        
         #endregion
 
         #region Private Methods
@@ -438,8 +476,7 @@ namespace CurrencyTextBoxControl
 
         private bool IsSubstractKey(Key key)
         {
-            return key == Key.Subtract || 
-                key == Key.OemMinus;
+            return key == Key.Subtract || key == Key.OemMinus;
         }
 
         private bool IsDeleteKey(Key key)
@@ -449,14 +486,7 @@ namespace CurrencyTextBoxControl
 
         private bool IsIgnoredKey(Key key)
         {
-
-            //return key == Key.Up ||
-            //    key == Key.Down ||
-            //    key == Key.Tab ||
-            //    key == Key.Enter;
-
-            return key == Key.Tab || key == Key.Enter;
-            
+            return key == Key.Tab || key == Key.Enter;            
         }
 
         private bool IsUpKey(Key key)
@@ -469,6 +499,20 @@ namespace CurrencyTextBoxControl
             return key == Key.Down;
         }
 
+        private static bool IsCtrlCKey(Key key)
+        {
+            return key == Key.C && Keyboard.Modifiers == ModifierKeys.Control;
+        }
+
+        private static bool IsCtrlVKey(Key key)
+        {
+            return key == Key.V && Keyboard.Modifiers == ModifierKeys.Control;
+        }
+
+        /// <summary>
+        /// Delete the right digit of number property
+        /// </summary>
+        /// <param name="tb"></param>
         private void RemoveRightMostDigit(TextBox tb)
         {
             try

@@ -48,16 +48,8 @@
         	VerticalContentAlignment="Center"
         	FontFamily="Consolas"
         	FontSize="24"
-        	Number="{Binding Number, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
-            <currency:CurrencyTextBox.Style>
-                <Style TargetType="{x:Type currency:CurrencyTextBox}">
-                    <Style.Triggers>
-                        <Trigger Property="Validation.HasError" Value="True">
-                            <Setter Property="ToolTip" Value="{Binding (Validation.Errors).CurrentItem.ErrorContent, RelativeSource={RelativeSource self}}" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </currency:CurrencyTextBox.Style>
+        	Number="{Binding Number, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False">
+            
         </currency:CurrencyTextBox>
         <ListBox x:Name="listBox"/>
         <currency:CurrencyTextBox x:Name="currencyTextBox" Grid.Column="1" MaxLength="8" HorizontalAlignment="Left" Margin="20,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="29" StringFormat="C4" Number="23463"/>
