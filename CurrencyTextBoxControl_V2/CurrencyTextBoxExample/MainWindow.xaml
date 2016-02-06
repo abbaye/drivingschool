@@ -48,7 +48,7 @@
         	VerticalContentAlignment="Center"
         	FontFamily="Consolas"
         	FontSize="24"
-        	Number="{Binding Number, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False">
+        	Number="{Binding Number, UpdateSourceTrigger=PropertyChanged}" >
             
         </currency:CurrencyTextBox>
         <ListBox x:Name="listBox"/>

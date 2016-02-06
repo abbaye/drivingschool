@@ -169,8 +169,8 @@ namespace CurrencyTextBoxControl
             BindingOperations.SetBinding(this, TextBox.TextProperty, textBinding);
 
             // Disable copy/paste
-            DataObject.AddCopyingHandler(this, CopyPastEventHandler);
-            DataObject.AddPastingHandler(this, CopyPastEventHandler);
+            DataObject.AddCopyingHandler(this, CopyPasteEventHandler);
+            DataObject.AddPastingHandler(this, CopyPasteEventHandler);
 
             this.CaretIndex = this.Text.Length;
             this.PreviewKeyDown += TextBox_PreviewKeyDown;
@@ -228,14 +228,18 @@ namespace CurrencyTextBoxControl
             else if (IsUpKey(e.Key))
             {
                 e.Handled = true;
-
+                
                 AddOneDigit(tb);
+
+                if (e.IsRepeat) { AddOneDigit(tb, 10); }
             }
             else if (IsDownKey(e.Key))
             {
                 e.Handled = true;
 
                 SubstractOneDigit(tb);
+
+                if (e.IsRepeat) { SubstractOneDigit(tb, 10); }
             }
             else if (IsDeleteKey(e.Key))
             {
@@ -286,7 +290,7 @@ namespace CurrencyTextBoxControl
         }
 
         /// <summary>
-        /// Paste if is a number
+        /// Paste if is a number on clipboard
         /// </summary>
         private void PasteFromClipBoard()
         {
@@ -310,71 +314,71 @@ namespace CurrencyTextBoxControl
         /// Add one digit to the property number
         /// </summary>
         /// <param name="tb"></param>
-        private void AddOneDigit(TextBox tb)
+        private void AddOneDigit(TextBox tb, int repeat = 1)
         {
-         
-            switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
-            {
-                case "C0":
-                    Number = decimal.Add(Number, 1M);
-                    break;
-                case "C":
-                    Number = decimal.Add(Number, 0.01M);
-                    break;
-                case "C1":
-                    Number = decimal.Add(Number, 0.1M);
-                    break;
-                case "C2":
-                    Number = decimal.Add(Number, 0.01M);
-                    break;
-                case "C3":
-                    Number = decimal.Add(Number, 0.001M);
-                    break;
-                case "C4":
-                    Number = decimal.Add(Number, 0.0001M);
-                    break;
-                case "C5":
-                    Number = decimal.Add(Number, 0.00001M);
-                    break;
-                case "C6":
-                    Number = decimal.Add(Number, 0.000001M);
-                    break;
-            }
+            for (int i = 0; i< repeat; i++)
+                switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+                {
+                    case "C0":
+                        Number = decimal.Add(Number, 1M);
+                        break;
+                    case "C":
+                        Number = decimal.Add(Number, 0.01M);
+                        break;
+                    case "C1":
+                        Number = decimal.Add(Number, 0.1M);
+                        break;
+                    case "C2":
+                        Number = decimal.Add(Number, 0.01M);
+                        break;
+                    case "C3":
+                        Number = decimal.Add(Number, 0.001M);
+                        break;
+                    case "C4":
+                        Number = decimal.Add(Number, 0.0001M);
+                        break;
+                    case "C5":
+                        Number = decimal.Add(Number, 0.00001M);
+                        break;
+                    case "C6":
+                        Number = decimal.Add(Number, 0.000001M);
+                        break;
+                }
         }
 
-        private void SubstractOneDigit(TextBox tb)
+        private void SubstractOneDigit(TextBox tb, int repeat = 1)
         {
-
-            switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
-            {
-                case "C0":
-                    Number = decimal.Subtract(Number, 1M);
-                    break;
-                case "C":
-                    Number = decimal.Subtract(Number, 0.01M);
-                    break;
-                case "C1":
-                    Number = decimal.Subtract(Number, 0.1M);
-                    break;
-                case "C2":
-                    Number = decimal.Subtract(Number, 0.01M);
-                    break;
-                case "C3":
-                    Number = decimal.Subtract(Number, 0.001M);
-                    break;
-                case "C4":
-                    Number = decimal.Subtract(Number, 0.0001M);
-                    break;
-                case "C5":
-                    Number = decimal.Subtract(Number, 0.00001M);
-                    break;
-                case "C6":
-                    Number = decimal.Subtract(Number, 0.000001M);
-                    break;
-            }
+            for (int i = 0; i < repeat; i++)
+                switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+                {
+                    case "C0":
+                        Number = decimal.Subtract(Number, 1M);
+                        break;
+                    case "C":
+                        Number = decimal.Subtract(Number, 0.01M);
+                        break;
+                    case "C1":
+                        Number = decimal.Subtract(Number, 0.1M);
+                        break;
+                    case "C2":
+                        Number = decimal.Subtract(Number, 0.01M);
+                        break;
+                    case "C3":
+                        Number = decimal.Subtract(Number, 0.001M);
+                        break;
+                    case "C4":
+                        Number = decimal.Subtract(Number, 0.0001M);
+                        break;
+                    case "C5":
+                        Number = decimal.Subtract(Number, 0.00001M);
+                        break;
+                    case "C6":
+                        Number = decimal.Subtract(Number, 0.000001M);
+                        break;
+                }
         }
 
-        private void CopyPastEventHandler(object sender, DataObjectEventArgs e)
+        private void CopyPasteEventHandler(object sender, DataObjectEventArgs e)
         {
             // cancel copy and paste
             e.CancelCommand();
