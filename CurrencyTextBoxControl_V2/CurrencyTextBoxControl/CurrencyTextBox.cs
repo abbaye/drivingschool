@@ -203,22 +203,12 @@ namespace CurrencyTextBoxControl
             {
                 e.Handled = true;
 
-                //Max length fix
-                if (tb.MaxLength != 0 && Number.ToString().Length > tb.MaxLength)
-                    return;
-
-                // Push the new number from the right
-                if (Number < 0)
-                    Number = (Number * 10M) - (GetDigitFromKey(e.Key) / GetDivider(tb));
-                else
-                    Number = (Number * 10M) + (GetDigitFromKey(e.Key) / GetDivider(tb));
+                InsertKey(e.Key, tb);
 
             }
             else if (IsBackspaceKey(e.Key))
             {
                 e.Handled = true;
-
-                // Remove the right-most digit
 
                 RemoveRightMostDigit(tb);
             }
@@ -266,6 +256,20 @@ namespace CurrencyTextBoxControl
             {
                 e.Handled = true;
             }
+        }
+        
+        private void InsertKey(Key key, TextBox tb)
+        {
+
+            //Max length fix
+            if (tb.MaxLength != 0 && Number.ToString().Length > tb.MaxLength)
+                return;
+
+            // Push the new number from the right
+            if (Number < 0)
+                Number = (Number * 10M) - (GetDigitFromKey(key) / GetDivider(tb));
+            else
+                Number = (Number * 10M) + (GetDigitFromKey(key) / GetDivider(tb));
         }
 
         /// <summary>
