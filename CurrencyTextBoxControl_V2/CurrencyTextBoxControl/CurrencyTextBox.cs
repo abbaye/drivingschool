@@ -64,8 +64,18 @@ namespace CurrencyTextBoxControl
                 typeof(decimal), 
                 typeof(CurrencyTextBox), 
                 new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, 
-                    new PropertyChangedCallback(MaximumValuePropertyChanged)));
+                    new PropertyChangedCallback(MaximumValuePropertyChanged), new CoerceValueCallback(MaximumCoerceValue)));
 
+        private static object MaximumCoerceValue(DependencyObject d, object baseValue)
+        {
+            CurrencyTextBox ctb = d as CurrencyTextBox;
+
+            if (ctb.MaximumValue > decimal.MaxValue / 2)
+              return decimal.MaxValue / 2;
+
+            return baseValue;
+        }
+        
         private static void MaximumValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             CurrencyTextBox ctb = d as CurrencyTextBox;
@@ -93,9 +103,18 @@ namespace CurrencyTextBoxControl
                 typeof(decimal), 
                 typeof(CurrencyTextBox), 
                 new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
-                    new PropertyChangedCallback(MinimumValuePropertyChanged)));
+                    new PropertyChangedCallback(MinimumValuePropertyChanged), new CoerceValueCallback(MinimumCoerceValue)));
 
-        
+        private static object MinimumCoerceValue(DependencyObject d, object baseValue)
+        {
+            CurrencyTextBox ctb = d as CurrencyTextBox;
+
+            if (ctb.MinimumValue < decimal.MinValue / 2)
+                return decimal.MinValue / 2;
+
+            return baseValue;
+        }
+
         private static void MinimumValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             CurrencyTextBox ctb = d as CurrencyTextBox;
