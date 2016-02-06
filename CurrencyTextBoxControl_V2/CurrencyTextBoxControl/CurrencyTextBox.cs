@@ -89,7 +89,6 @@ namespace CurrencyTextBoxControl
             get { return (decimal)GetValue(MaximumValueProperty); }
             set { SetValue(MaximumValueProperty, value); }
         }
-
         
         public decimal MinimumValue
         {
@@ -128,16 +127,11 @@ namespace CurrencyTextBoxControl
             typeof(string),
             typeof(CurrencyTextBox),
             new FrameworkPropertyMetadata("C2", StringFormatPropertyChanged));
+
         public string StringFormat
         {
-            get
-            {
-                return (string)GetValue(StringFormatProperty);
-            }
-            set
-            {
-                SetValue(StringFormatProperty, value);
-            }
+            get { return (string)GetValue(StringFormatProperty); }
+            set { SetValue(StringFormatProperty, value); }
         }
 
         private static void StringFormatPropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
