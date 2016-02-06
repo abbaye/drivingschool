@@ -277,7 +277,6 @@ namespace CurrencyTextBoxControl
         
         private void InsertKey(Key key, TextBox tb)
         {
-
             //Max length fix
             if (tb.MaxLength != 0 && Number.ToString().Length > tb.MaxLength)
                 return;
