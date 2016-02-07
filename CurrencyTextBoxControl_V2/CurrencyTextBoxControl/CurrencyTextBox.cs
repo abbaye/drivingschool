@@ -199,7 +199,7 @@ namespace CurrencyTextBoxControl
             (sender as TextBox).Focus();
         }
 
-        void TextBox_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        private void TextBox_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             // Prevent changing the caret index
             e.Handled = true;
