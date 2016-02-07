@@ -480,7 +480,9 @@ namespace CurrencyTextBoxControl
             return 1M;
         }
 
-
+        /// <summary>
+        /// Get substract number for adjust comma in RemoveRightMostDigit
+        /// </summary>
         private int GetSubstract()
         {
             switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
@@ -586,7 +588,6 @@ namespace CurrencyTextBoxControl
                 string numberstring = Number.ToString().Replace(",", "");
                 numberstring = numberstring.Insert(numberstring.Length - GetSubstract(), ",");
                 Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
-
             }
             catch
             {
