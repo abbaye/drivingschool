@@ -6,19 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 
 namespace CurrencyTextBoxControl
-{
-
-    public enum StringFormat
-    {
-        C,
-        C1,
-        C2,
-        C3,
-        C4,
-        C5,
-        C6
-    }
-
+{    
     public class CurrencyTextBox : TextBox
     {
         #region Dependency Properties
