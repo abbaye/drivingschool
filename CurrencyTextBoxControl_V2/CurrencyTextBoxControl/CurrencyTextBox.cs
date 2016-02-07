@@ -8,7 +8,16 @@ using System.Windows.Media;
 namespace CurrencyTextBoxControl
 {
 
-
+    public enum StringFormat
+    {
+        C,
+        C1,
+        C2,
+        C3,
+        C4,
+        C5,
+        C6
+    }
 
     public class CurrencyTextBox : TextBox
     {
@@ -275,17 +284,21 @@ namespace CurrencyTextBoxControl
             }
         }
         
+        /// <summary>
+        /// Insert number from key
+        /// </summary>
         private void InsertKey(Key key)
         {
             //Max length fix
             if (this.MaxLength != 0 && Number.ToString().Length > this.MaxLength)
                 return;
 
-            // Push the new number from the right
-            if (Number < 0)
-                Number = (Number * 10M) - (GetDigitFromKey(key) / GetDivider());
-            else
-                Number = (Number * 10M) + (GetDigitFromKey(key) / GetDivider());
+            if (IsNumericKey(key))             
+                // Push the new number from the right
+                if (Number < 0)
+                    Number = (Number * 10M) - (GetDigitFromKey(key) / GetDivider());
+                else
+                    Number = (Number * 10M) + (GetDigitFromKey(key) / GetDivider());            
         }
 
         /// <summary>
@@ -344,6 +357,7 @@ namespace CurrencyTextBoxControl
         /// <summary>
         /// Add one digit to the property number
         /// </summary>
+        /// <param name="repeat">Repeat add</param>
         public void AddOneDigit(int repeat = 1)
         {
             for (int i = 0; i< repeat; i++)
@@ -376,6 +390,10 @@ namespace CurrencyTextBoxControl
                 }
         }
 
+        /// <summary>
+        /// Substract one digit to the property number
+        /// </summary>
+        /// <param name="repeat">Repeat substract</param>
         public void SubstractOneDigit(int repeat = 1)
         {
             for (int i = 0; i < repeat; i++)
@@ -445,6 +463,10 @@ namespace CurrencyTextBoxControl
             }
         }
 
+        /// <summary>
+        /// Get a decimal for adjust digit when a key was inserted
+        /// </summary>
+        /// <returns></returns>
         private decimal GetDivider()
         {
             switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
@@ -582,7 +604,7 @@ namespace CurrencyTextBoxControl
             }
             catch
             {
-                Number = 0;
+                Clear();
             }
         }
         #endregion

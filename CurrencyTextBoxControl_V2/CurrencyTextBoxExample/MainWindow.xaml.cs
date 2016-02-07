@@ -59,7 +59,9 @@ namespace CurrencyTextBoxExample
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            myCurrencyTextBox.SetPositive();
+            CurrencyTextBoxControl.StringFormat test = CurrencyTextBoxControl.StringFormat.C6;
+
+            MessageBox.Show(test.ToString());
         }
     }
 }

@@ -29,7 +29,7 @@
                                                    ValidatesOnDataErrors=True}"
                                   StringFormat="C4"
                                   MaximumValue="220"
-                                  MinimumValue="-10">
+                                  MinimumValue="-1000">
             <currency:CurrencyTextBox.Style>
                 <Style TargetType="currency:CurrencyTextBox">
                     <Style.Triggers>
