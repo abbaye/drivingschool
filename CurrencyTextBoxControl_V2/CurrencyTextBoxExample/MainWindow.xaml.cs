@@ -55,12 +55,11 @@ namespace CurrencyTextBoxExample
         private void button_Click(object sender, RoutedEventArgs e)
         {
             myCurrencyTextBox.MaximumValue = 20;
-
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(myCurrencyTextBox.Number.ToString());
+            myCurrencyTextBox.SetPositive();
         }
     }
 }

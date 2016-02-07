@@ -229,6 +229,7 @@ namespace CurrencyTextBoxControl
                 
                 AddOneDigit();
 
+                //if the key is repeated add more digit
                 if (e.IsRepeat) AddOneDigit(10);
             }
             else if (IsDownKey(e.Key))
@@ -237,19 +238,20 @@ namespace CurrencyTextBoxControl
 
                 SubstractOneDigit();
 
+                //if the key is repeated substract more digit
                 if (e.IsRepeat) SubstractOneDigit(10); 
             }
             else if (IsDeleteKey(e.Key))
             {
                 e.Handled = true;
 
-                Number = 0M;
+                Clear();
             }
             else if (IsSubstractKey(e.Key))
             {
                 e.Handled = true;
 
-                Number *= -1;
+                InvertValue();
             }
             else if (IsIgnoredKey(e.Key))
             {
@@ -305,6 +307,38 @@ namespace CurrencyTextBoxControl
         {
             Clipboard.Clear();
             Clipboard.SetText(Number.ToString());
+        }
+
+        /// <summary>
+        /// Reset the number to zero.
+        /// </summary>
+        public new void Clear()
+        {
+            Number = 0M;
+        }
+
+        /// <summary>
+        /// Set number to positive
+        /// </summary>
+        public void SetPositive()
+        {
+            if (Number < 0) Number *= -1;
+        }
+
+        /// <summary>
+        /// Set number to negative
+        /// </summary>
+        public void SetNegative()
+        {
+            if (Number > 0) Number *= -1;
+        }
+
+        /// <summary>
+        /// Alternate value to Negative-Positive and Positive-Negative
+        /// </summary>
+        public void InvertValue()
+        {
+            Number *= -1;
         }
 
         /// <summary>
