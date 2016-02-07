@@ -578,17 +578,15 @@ namespace CurrencyTextBoxControl
         {
             try
             {
+                //Fix the number then dont have a comma
                 if (Number.ToString().LastIndexOf(",") == -1)
-                {
-                    Number = Convert.ToDecimal(Number.ToString().Remove(Number.ToString().Length - 1));
-                }
-                else
-                {
-                    string numberstring = Number.ToString().Replace(",", "");
-                    numberstring = numberstring.Insert(numberstring.Length - GetSubstract(), ",");
+                    Number = Convert.ToDecimal(Number.ToString() + ",0000");
+                
+                //Remove the right most digit after is fixed
+                string numberstring = Number.ToString().Replace(",", "");
+                numberstring = numberstring.Insert(numberstring.Length - GetSubstract(), ",");
+                Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
 
-                    Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
-                }
             }
             catch
             {
