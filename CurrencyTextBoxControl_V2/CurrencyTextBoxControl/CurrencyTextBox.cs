@@ -7,6 +7,9 @@ using System.Windows.Media;
 
 namespace CurrencyTextBoxControl
 {
+
+
+
     public class CurrencyTextBox : TextBox
     {
         #region Dependency Properties
@@ -25,7 +28,6 @@ namespace CurrencyTextBoxControl
 
         private static object NumberPropertyCoerceValue(DependencyObject d, object baseValue)
         {
-
             CurrencyTextBox ctb = d as CurrencyTextBox;
             decimal value = (decimal)baseValue;
 
@@ -96,7 +98,6 @@ namespace CurrencyTextBoxControl
             set { SetValue(MinimumValueProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for MinimumValue.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MinimumValueProperty =
             DependencyProperty.Register("MinimumValue", 
                 typeof(decimal), 
@@ -210,36 +211,33 @@ namespace CurrencyTextBoxControl
 
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            var tb = sender as TextBox;
-
             if (IsNumericKey(e.Key))
             {
                 e.Handled = true;
 
-                InsertKey(e.Key, tb);
-
+                InsertKey(e.Key);
             }
             else if (IsBackspaceKey(e.Key))
             {
                 e.Handled = true;
 
-                RemoveRightMostDigit(tb);
+                RemoveRightMostDigit();
             }
             else if (IsUpKey(e.Key))
             {
                 e.Handled = true;
                 
-                AddOneDigit(tb);
+                AddOneDigit();
 
-                if (e.IsRepeat) { AddOneDigit(tb, 10); }
+                if (e.IsRepeat) AddOneDigit(10);
             }
             else if (IsDownKey(e.Key))
             {
                 e.Handled = true;
 
-                SubstractOneDigit(tb);
+                SubstractOneDigit();
 
-                if (e.IsRepeat) { SubstractOneDigit(tb, 10); }
+                if (e.IsRepeat) SubstractOneDigit(10); 
             }
             else if (IsDeleteKey(e.Key))
             {
@@ -275,17 +273,17 @@ namespace CurrencyTextBoxControl
             }
         }
         
-        private void InsertKey(Key key, TextBox tb)
+        private void InsertKey(Key key)
         {
             //Max length fix
-            if (tb.MaxLength != 0 && Number.ToString().Length > tb.MaxLength)
+            if (this.MaxLength != 0 && Number.ToString().Length > this.MaxLength)
                 return;
 
             // Push the new number from the right
             if (Number < 0)
-                Number = (Number * 10M) - (GetDigitFromKey(key) / GetDivider(tb));
+                Number = (Number * 10M) - (GetDigitFromKey(key) / GetDivider());
             else
-                Number = (Number * 10M) + (GetDigitFromKey(key) / GetDivider(tb));
+                Number = (Number * 10M) + (GetDigitFromKey(key) / GetDivider());
         }
 
         /// <summary>
@@ -312,11 +310,10 @@ namespace CurrencyTextBoxControl
         /// <summary>
         /// Add one digit to the property number
         /// </summary>
-        /// <param name="tb"></param>
-        private void AddOneDigit(TextBox tb, int repeat = 1)
+        public void AddOneDigit(int repeat = 1)
         {
             for (int i = 0; i< repeat; i++)
-                switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+                switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
                 {
                     case "C0":
                         Number = decimal.Add(Number, 1M);
@@ -345,10 +342,10 @@ namespace CurrencyTextBoxControl
                 }
         }
 
-        private void SubstractOneDigit(TextBox tb, int repeat = 1)
+        public void SubstractOneDigit(int repeat = 1)
         {
             for (int i = 0; i < repeat; i++)
-                switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+                switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
                 {
                     case "C0":
                         Number = decimal.Subtract(Number, 1M);
@@ -414,9 +411,9 @@ namespace CurrencyTextBoxControl
             }
         }
 
-        private decimal GetDivider(TextBox tb)
+        private decimal GetDivider()
         {
-            switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+            switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
                 case "C0":
                     return 1M;
@@ -440,9 +437,9 @@ namespace CurrencyTextBoxControl
         }
 
 
-        private int GetSubstract(TextBox tb)
+        private int GetSubstract()
         {
-            switch (tb.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+            switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
                 case "C0":
                     return 1;
@@ -533,7 +530,7 @@ namespace CurrencyTextBoxControl
         /// Delete the right digit of number property
         /// </summary>
         /// <param name="tb"></param>
-        private void RemoveRightMostDigit(TextBox tb)
+        private void RemoveRightMostDigit()
         {
             try
             {
@@ -544,7 +541,7 @@ namespace CurrencyTextBoxControl
                 else
                 {
                     string numberstring = Number.ToString().Replace(",", "");
-                    numberstring = numberstring.Insert(numberstring.Length - GetSubstract(tb), ",");
+                    numberstring = numberstring.Insert(numberstring.Length - GetSubstract(), ",");
 
                     Number = Convert.ToDecimal(numberstring.Remove(numberstring.Length - 1));
                 }
