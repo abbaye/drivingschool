@@ -593,8 +593,8 @@ namespace CurrencyTextBoxControl
             {
                 //Fix the number then dont have a comma
                 if (Number.ToString().LastIndexOf(",") == -1)
-                    Number = Convert.ToDecimal(Number.ToString() + ",0000");
-                
+                    Number = Convert.ToDecimal(Number.ToString() + GetNumberAdjuster());
+
                 //Remove the right most digit after is fixed
                 string numberstring = Number.ToString().Replace(",", "");
                 numberstring = numberstring.Insert(numberstring.Length - GetSubstract(), ",");
@@ -604,6 +604,35 @@ namespace CurrencyTextBoxControl
             {
                 Clear();
             }
+        }
+
+        /// <summary>
+        /// Get number adjuster to fix when you delete right most digit
+        /// </summary>
+        /// <returns></returns>
+        private string GetNumberAdjuster()
+        {
+            switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+            {
+                case "C0":
+                    return "";
+                case "C":
+                    return ",00";
+                case "C1":
+                    return ",0";
+                case "C2":
+                    return ",00";
+                case "C3":
+                    return ",000";
+                case "C4":
+                    return ",0000";
+                case "C5":
+                    return ",00000";
+                case "C6":
+                    return ",000000";
+            }
+
+            return "";
         }
         #endregion
     }

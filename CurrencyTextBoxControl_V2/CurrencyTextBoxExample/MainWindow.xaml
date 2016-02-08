@@ -27,7 +27,7 @@
                                   Number="{Binding Number,
                                                    UpdateSourceTrigger=PropertyChanged,
                                                    ValidatesOnDataErrors=True}"
-                                  StringFormat="C4"
+                                  StringFormat="C2"
                                   MaximumValue="220"
                                   MinimumValue="-1000">
             <currency:CurrencyTextBox.Style>
@@ -48,6 +48,7 @@
         	VerticalContentAlignment="Center"
         	FontFamily="Consolas"
         	FontSize="24"
+            StringFormat="C4"
         	Number="{Binding Number, UpdateSourceTrigger=PropertyChanged}" >
             
         </currency:CurrencyTextBox>
