@@ -5,6 +5,13 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 
+/// <summary>
+/// Original version by Boeren 
+/// https://wpfcurrencytextbox.codeplex.com/
+/// 
+/// Modified 2016 by Derek Tremblay (Abbaye) 
+/// derektremblay666@gmail.com
+/// </summary>
 namespace CurrencyTextBoxControl
 {    
     public class CurrencyTextBox : TextBox
