@@ -162,7 +162,7 @@ namespace CurrencyTextBoxControl
             textBinding.Path = new PropertyPath("Number");
             textBinding.RelativeSource = new RelativeSource(RelativeSourceMode.Self);
             textBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-            textBinding.StringFormat = this.StringFormat;
+            textBinding.StringFormat = StringFormat;
 
             BindingOperations.SetBinding(this, TextBox.TextProperty, textBinding);
 
@@ -170,13 +170,13 @@ namespace CurrencyTextBoxControl
             DataObject.AddCopyingHandler(this, CopyPasteEventHandler);
             DataObject.AddPastingHandler(this, CopyPasteEventHandler);
 
-            this.CaretIndex = this.Text.Length;
-            this.PreviewKeyDown += TextBox_PreviewKeyDown;
-            this.PreviewMouseDown += TextBox_PreviewMouseDown;
-            this.PreviewMouseUp += TextBox_PreviewMouseUp;
-            this.TextChanged += TextBox_TextChanged;
-            
-            this.ContextMenu = null;
+            CaretIndex = Text.Length;
+            PreviewKeyDown += TextBox_PreviewKeyDown;
+            PreviewMouseDown += TextBox_PreviewMouseDown;
+            PreviewMouseUp += TextBox_PreviewMouseUp;
+            TextChanged += TextBox_TextChanged;
+
+            ContextMenu = null;
             
         }
         #endregion
@@ -271,22 +271,33 @@ namespace CurrencyTextBoxControl
                 e.Handled = true;
             }
         }
-        
+
         /// <summary>
         /// Insert number from key
         /// </summary>
         private void InsertKey(Key key)
         {
             //Max length fix
-            if (this.MaxLength != 0 && Number.ToString().Length > this.MaxLength)
+            if (MaxLength != 0 && Number.ToString().Length > MaxLength)
                 return;
 
-            if (IsNumericKey(key))             
-                // Push the new number from the right
+            try
+            {
+                if (IsNumericKey(key))
+                    // Push the new number from the right
+                    if (Number < 0)
+                        Number = (Number * 10M) - (GetDigitFromKey(key) / GetDivider());
+                    else
+                        Number = (Number * 10M) + (GetDigitFromKey(key) / GetDivider());
+            }
+            catch (OverflowException ex)
+            {
                 if (Number < 0)
-                    Number = (Number * 10M) - (GetDigitFromKey(key) / GetDivider());
+                    Number = (decimal.MinValue);
                 else
-                    Number = (Number * 10M) + (GetDigitFromKey(key) / GetDivider());            
+                    Number = (decimal.MaxValue);
+            }
+
         }
 
         /// <summary>
@@ -349,7 +360,7 @@ namespace CurrencyTextBoxControl
         public void AddOneDigit(int repeat = 1)
         {
             for (int i = 0; i< repeat; i++)
-                switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+                switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
                 {
                     case "C0":
                         Number = decimal.Add(Number, 1M);
@@ -385,7 +396,7 @@ namespace CurrencyTextBoxControl
         public void SubstractOneDigit(int repeat = 1)
         {
             for (int i = 0; i < repeat; i++)
-                switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+                switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
                 {
                     case "C0":
                         Number = decimal.Subtract(Number, 1M);
@@ -457,7 +468,7 @@ namespace CurrencyTextBoxControl
         /// <returns></returns>
         private decimal GetDivider()
         {
-            switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+            switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
                 case "C0":
                     return 1M;
@@ -485,7 +496,7 @@ namespace CurrencyTextBoxControl
         /// </summary>
         private int GetSubstract()
         {
-            switch (this.GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
+            switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
                 case "C0":
                     return 1;
