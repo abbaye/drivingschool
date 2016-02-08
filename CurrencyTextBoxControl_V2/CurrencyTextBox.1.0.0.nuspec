@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>CurrencyTextBox</id>
+        <version>1.0.0</version>
+        <title>WPF CurrencyTextBox 2016</title>
+        <authors>Derek Tremblay</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A WPF TextBox for entering a currency value, similar to how a cash register works.
+Numbers typed are pushed in from the right. If we start with the default value 0.00, and start typing the numbers 123, the value updates as such: 0.00 =&gt; 0.01 =&gt; 0.12 =&gt; 1.23
+If we press the backspace key, the numbers are shifted right: 1.23 =&gt; 0.12 =&gt; 0.01 =&gt; 0.00
+If we press the delete key, the value is reset to 0.00.
+If we press the minus key, the value becomes negative.
+Copy and paste are disabled (both via context menu and keyboard shortcuts)
+This control's template can be customized to change the appearance.
+Supports data validation.</description>
+        <summary>enhanced version of WPF currencytextbox
+
+https://wpfcurrencytextbox.codeplex.com/</summary>
+        <copyright>2016</copyright>
+        <language>en-US</language>
+        <tags>WPF, currencytextbox, textbox, money, decimal</tags>
+    </metadata>
+    <files>
+        <file src="build\_._" target="build\_._" />
+        <file src="lib\net\CurrencyTextBoxControl.dll" target="lib\net\CurrencyTextBoxControl.dll" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\AssemblyInfo.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\AssemblyInfo.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\Resources.Designer.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\Resources.Designer.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\Resources.resx" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\Resources.resx" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\Settings.Designer.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\Settings.Designer.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\Settings.settings" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Properties\Settings.settings" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Themes\Generic.xaml" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Themes\Generic.xaml" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Themes\GenericEnchanced.xaml" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\Themes\GenericEnchanced.xaml" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyEnchancedTextBox.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyEnchancedTextBox.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyTextBox.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyTextBox.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj.user" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj.user" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj.vspscc" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl\CurrencyTextBoxControl.csproj.vspscc" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\AssemblyInfo.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\AssemblyInfo.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\Resources.Designer.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\Resources.Designer.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\Resources.resx" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\Resources.resx" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\Settings.Designer.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\Settings.Designer.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\Settings.settings" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\Properties\Settings.settings" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\app.config" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\app.config" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\App.xaml" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\App.xaml" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\App.xaml.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\App.xaml.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\CurrencyTextBoxExample.csproj" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\CurrencyTextBoxExample.csproj" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\CurrencyTextBoxExample.csproj.user" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\CurrencyTextBoxExample.csproj.user" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\CurrencyTextBoxExample.csproj.vspscc" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\CurrencyTextBoxExample.csproj.vspscc" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\MainWindow.xaml" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\MainWindow.xaml" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxExample\MainWindow.xaml.cs" target="src\CurrencyTextBoxControl\CurrencyTextBoxExample\MainWindow.xaml.cs" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl.sln" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl.sln" />
+        <file src="src\CurrencyTextBoxControl\CurrencyTextBoxControl.vssscc" target="src\CurrencyTextBoxControl\CurrencyTextBoxControl.vssscc" />
+    </files>
+</package>
