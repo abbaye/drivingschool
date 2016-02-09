@@ -20,6 +20,7 @@ namespace CurrencyTextBoxControl
         #region Global variable
 
         private List<decimal> _undoList = new List<decimal>();
+        private List<decimal> _redoList = new List<decimal>();
         private bool _isUndoEnabled = true;
 
         #endregion
@@ -270,6 +271,12 @@ namespace CurrencyTextBoxControl
                 e.Handled = true;
 
                 Undo();
+            }
+            else if (IsCtrlYKey(e.Key))
+            {
+                e.Handled = true;
+
+                Redo();
             }
             else if (IsDeleteKey(e.Key))
             {
@@ -619,6 +626,11 @@ namespace CurrencyTextBoxControl
             return key == Key.Z && Keyboard.Modifiers == ModifierKeys.Control;
         }
 
+        private static bool IsCtrlYKey(Key key)
+        {
+            return key == Key.Y && Keyboard.Modifiers == ModifierKeys.Control;
+        }
+
         private static bool IsCtrlVKey(Key key)
         {
             return key == Key.V && Keyboard.Modifiers == ModifierKeys.Control;
@@ -683,10 +695,12 @@ namespace CurrencyTextBoxControl
         /// Add undo to the list
         /// </summary>
         /// <param name="number"></param>
-        private void AddUndoInList(decimal number)
+        private void AddUndoInList(decimal number, bool clearRedo = true)
         {
             _undoList.Add(number);
-            
+
+            if (clearRedo)
+                _redoList.Clear();            
         }
 
         /// <summary>
@@ -698,7 +712,22 @@ namespace CurrencyTextBoxControl
             {
                 Number = _undoList[_undoList.Count - 1];
 
+                _redoList.Add(_undoList[_undoList.Count - 1]);
                 _undoList.RemoveAt(_undoList.Count - 1);
+            }
+        }
+
+
+        /// <summary>
+        /// Redo to the value previously undone. The list is clear when key is handled
+        /// </summary>
+        public new void Redo()
+        {
+            if (_redoList.Count > 0)
+            {
+                AddUndoInList(Number, false);
+                Number = _redoList[_redoList.Count - 1];
+                _redoList.RemoveAt(_redoList.Count - 1);
             }
         }
 
