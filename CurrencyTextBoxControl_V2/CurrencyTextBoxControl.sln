@@ -9,8 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyTextBoxExample", "C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Package", "Nuget Package", "{38691D0B-4E4A-4EF4-B1BC-5C6C29C3BCB6}"
 	ProjectSection(SolutionItems) = preProject
-		CurrencyTextBox.1.0.0.nuspec = CurrencyTextBox.1.0.0.nuspec
-		CurrencyTextBox.1.0.4.nupkg = CurrencyTextBox.1.0.4.nupkg
+		CurrencyTextBox.1.1.0.nupkg = CurrencyTextBox.1.1.0.nupkg
 	EndProjectSection
 EndProject
 Global

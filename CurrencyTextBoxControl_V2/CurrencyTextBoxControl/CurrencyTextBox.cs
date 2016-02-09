@@ -764,8 +764,6 @@ namespace CurrencyTextBoxControl
         {
             throw new NotImplementedException();
         }
-
-
         #endregion
     }
 }
