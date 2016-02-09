@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,6 +17,13 @@ namespace CurrencyTextBoxControl
 {    
     public class CurrencyTextBox : TextBox
     {
+        #region Global variable
+
+        private List<decimal> _undoList = new List<decimal>();
+        private bool _isUndoEnabled = true;
+
+        #endregion
+
         #region Dependency Properties
         public static readonly DependencyProperty NumberProperty = DependencyProperty.Register(
             "Number",
@@ -219,42 +227,62 @@ namespace CurrencyTextBoxControl
             {
                 e.Handled = true;
 
+                AddUndoInList(Number);
                 InsertKey(e.Key);
             }
             else if (IsBackspaceKey(e.Key))
             {
                 e.Handled = true;
 
+                AddUndoInList(Number);
                 RemoveRightMostDigit();
             }
             else if (IsUpKey(e.Key))
             {
                 e.Handled = true;
-                
+
+                AddUndoInList(Number);
                 AddOneDigit();
 
                 //if the key is repeated add more digit
-                if (e.IsRepeat) AddOneDigit(10);
+                if (e.IsRepeat)
+                {
+                    AddUndoInList(Number);
+                    AddOneDigit(10);
+                }
             }
             else if (IsDownKey(e.Key))
             {
                 e.Handled = true;
 
+                AddUndoInList(Number);
                 SubstractOneDigit();
 
                 //if the key is repeated substract more digit
-                if (e.IsRepeat) SubstractOneDigit(10); 
+                if (e.IsRepeat)
+                {
+                    AddUndoInList(Number);
+                    SubstractOneDigit(10);
+                }
+            }
+            else if (IsCtrlZKey(e.Key))
+            {
+                e.Handled = true;
+
+                Undo();
             }
             else if (IsDeleteKey(e.Key))
             {
                 e.Handled = true;
 
+                AddUndoInList(Number);
                 Clear();
             }
             else if (IsSubstractKey(e.Key))
             {
                 e.Handled = true;
 
+                AddUndoInList(Number);
                 InvertValue();
             }
             else if (IsIgnoredKey(e.Key))
@@ -263,14 +291,15 @@ namespace CurrencyTextBoxControl
             }
             else if (IsCtrlCKey(e.Key))
             {
-                e.Handled = false;
+                e.Handled = true;
 
                 CopyToClipBoard();
             }
             else if (IsCtrlVKey(e.Key))
             {
-                e.Handled = false;
+                e.Handled = true;
 
+                AddUndoInList(Number);
                 PasteFromClipBoard();
             }
             else
@@ -278,7 +307,7 @@ namespace CurrencyTextBoxControl
                 e.Handled = true;
             }
         }
-
+        
         /// <summary>
         /// Insert number from key
         /// </summary>
@@ -585,6 +614,11 @@ namespace CurrencyTextBoxControl
             return key == Key.C && Keyboard.Modifiers == ModifierKeys.Control;
         }
 
+        private static bool IsCtrlZKey(Key key)
+        {
+            return key == Key.Z && Keyboard.Modifiers == ModifierKeys.Control;
+        }
+
         private static bool IsCtrlVKey(Key key)
         {
             return key == Key.V && Keyboard.Modifiers == ModifierKeys.Control;
@@ -641,6 +675,68 @@ namespace CurrencyTextBoxControl
 
             return "";
         }
+        #endregion
+
+        #region Undo/Redo 
+
+        /// <summary>
+        /// Add undo to the list
+        /// </summary>
+        /// <param name="number"></param>
+        private void AddUndoInList(decimal number)
+        {
+            _undoList.Add(number);
+            
+        }
+
+        /// <summary>
+        /// Undo the to the previous value
+        /// </summary>
+        public new void Undo()
+        {
+            if (CanUndo())
+            {
+                Number = _undoList[_undoList.Count - 1];
+
+                _undoList.RemoveAt(_undoList.Count - 1);
+            }
+        }
+
+        /// <summary>
+        /// Get or set for indicate if control CanUndo
+        /// </summary>
+        public new bool IsUndoEnabled
+        {
+            get { return _isUndoEnabled; }
+            set { this._isUndoEnabled = value; }
+        }
+
+        /// <summary>
+        /// Clear the undo list
+        /// </summary>
+        public void ClearUndoList()
+        {
+            _undoList.Clear();
+        }
+
+        /// <summary>
+        /// Check if the control can undone to a previous value
+        /// </summary>
+        /// <returns></returns>
+        public new bool CanUndo()
+        {
+            if (IsUndoEnabled)
+                return _undoList.Count > 0;
+            else
+                return false;
+        }
+
+        public new void LockCurrentUndoUnit()
+        {
+            throw new NotImplementedException();
+        }
+
+
         #endregion
     }
 }
