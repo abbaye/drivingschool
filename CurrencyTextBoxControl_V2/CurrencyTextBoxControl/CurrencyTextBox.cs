@@ -80,7 +80,12 @@ namespace CurrencyTextBoxControl
                 typeof(CurrencyTextBox),
                 new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                     new PropertyChangedCallback(MaximumValuePropertyChanged), 
-                    new CoerceValueCallback(MaximumCoerceValue)));
+                    new CoerceValueCallback(MaximumCoerceValue)), new ValidateValueCallback(MaximumValidateValue));
+
+        private static bool MaximumValidateValue(object value)
+        {
+            return (decimal)value <= decimal.MaxValue; //&& (decimal)value >= 0;
+        }
 
         private static object MaximumCoerceValue(DependencyObject d, object baseValue)
         {
@@ -118,7 +123,13 @@ namespace CurrencyTextBoxControl
                 typeof(CurrencyTextBox),
                 new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                     new PropertyChangedCallback(MinimumValuePropertyChanged), 
-                    new CoerceValueCallback(MinimumCoerceValue)));
+                    new CoerceValueCallback(MinimumCoerceValue)),
+                new ValidateValueCallback(MinimumValidateValue));
+
+        private static bool MinimumValidateValue(object value)
+        {
+            return (decimal)value >= decimal.MinValue; //&& (decimal)value <= 0;
+        }
 
         private static object MinimumCoerceValue(DependencyObject d, object baseValue)
         {
@@ -142,7 +153,25 @@ namespace CurrencyTextBoxControl
             "StringFormat",
             typeof(string),
             typeof(CurrencyTextBox),
-            new FrameworkPropertyMetadata("C2", StringFormatPropertyChanged));
+            new FrameworkPropertyMetadata("C2", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, StringFormatPropertyChanged), 
+            new ValidateValueCallback(StringFormatValidateValue));
+
+        /// <summary>
+        /// Validate the StringFormat
+        /// </summary>
+        private static bool StringFormatValidateValue(object value)
+        {
+            var val = value.ToString().ToUpper();
+
+            return val == "C0" ||
+                val == "C" ||
+                val == "C1" ||
+                val == "C2" ||
+                val == "C3" ||
+                val == "C4" ||
+                val == "C5" ||
+                val == "C6";
+        }
 
         public string StringFormat
         {
