@@ -14,25 +14,26 @@ using System.Windows.Media;
 /// derektremblay666@gmail.com
 /// </summary>
 namespace CurrencyTextBoxControl
-{    
+{
     public class CurrencyTextBox : TextBox
     {
-        #region Global variable
+        #region Global variables
 
         private List<decimal> _undoList = new List<decimal>();
         private List<decimal> _redoList = new List<decimal>();
         private bool _isUndoEnabled = true;
 
-        #endregion
+        #endregion Global variables
 
         #region Dependency Properties
         public static readonly DependencyProperty NumberProperty = DependencyProperty.Register(
             "Number",
             typeof(decimal),
             typeof(CurrencyTextBox),
-            new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, 
-                new PropertyChangedCallback(NumberPropertyChanged), 
-                new CoerceValueCallback(NumberPropertyCoerceValue)), new ValidateValueCallback(NumberPropertyValidated));
+            new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                new PropertyChangedCallback(NumberPropertyChanged),
+                new CoerceValueCallback(NumberPropertyCoerceValue)),
+            new ValidateValueCallback(NumberPropertyValidated));
 
         private static bool NumberPropertyValidated(object value)
         {
@@ -71,26 +72,26 @@ namespace CurrencyTextBoxControl
             get { return (decimal)GetValue(NumberProperty); }
             set { SetValue(NumberProperty, value); }
         }
-
-
+        
         public static readonly DependencyProperty MaximumValueProperty =
             DependencyProperty.Register(
-                "MaximumValue", 
-                typeof(decimal), 
-                typeof(CurrencyTextBox), 
-                new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, 
-                    new PropertyChangedCallback(MaximumValuePropertyChanged), new CoerceValueCallback(MaximumCoerceValue)));
+                "MaximumValue",
+                typeof(decimal),
+                typeof(CurrencyTextBox),
+                new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                    new PropertyChangedCallback(MaximumValuePropertyChanged), 
+                    new CoerceValueCallback(MaximumCoerceValue)));
 
         private static object MaximumCoerceValue(DependencyObject d, object baseValue)
         {
             CurrencyTextBox ctb = d as CurrencyTextBox;
 
             if (ctb.MaximumValue > decimal.MaxValue / 2)
-              return decimal.MaxValue / 2;
+                return decimal.MaxValue / 2;
 
             return baseValue;
         }
-        
+
         private static void MaximumValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             CurrencyTextBox ctb = d as CurrencyTextBox;
@@ -104,7 +105,7 @@ namespace CurrencyTextBoxControl
             get { return (decimal)GetValue(MaximumValueProperty); }
             set { SetValue(MaximumValueProperty, value); }
         }
-        
+
         public decimal MinimumValue
         {
             get { return (decimal)GetValue(MinimumValueProperty); }
@@ -112,11 +113,12 @@ namespace CurrencyTextBoxControl
         }
 
         public static readonly DependencyProperty MinimumValueProperty =
-            DependencyProperty.Register("MinimumValue", 
-                typeof(decimal), 
-                typeof(CurrencyTextBox), 
+            DependencyProperty.Register("MinimumValue",
+                typeof(decimal),
+                typeof(CurrencyTextBox),
                 new FrameworkPropertyMetadata(0M, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
-                    new PropertyChangedCallback(MinimumValuePropertyChanged), new CoerceValueCallback(MinimumCoerceValue)));
+                    new PropertyChangedCallback(MinimumValuePropertyChanged), 
+                    new CoerceValueCallback(MinimumCoerceValue)));
 
         private static object MinimumCoerceValue(DependencyObject d, object baseValue)
         {
@@ -159,7 +161,7 @@ namespace CurrencyTextBoxControl
 
             BindingOperations.SetBinding(obj, TextBox.TextProperty, textBinding);
         }
-        #endregion
+        #endregion Dependency Properties
 
         #region Constructor
         static CurrencyTextBox()
@@ -172,7 +174,7 @@ namespace CurrencyTextBoxControl
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            
+
             // Bind Text to Number with the specified StringFormat
             var textBinding = new Binding();
             textBinding.Path = new PropertyPath("Number");
@@ -186,16 +188,18 @@ namespace CurrencyTextBoxControl
             DataObject.AddCopyingHandler(this, CopyPasteEventHandler);
             DataObject.AddPastingHandler(this, CopyPasteEventHandler);
 
+            //Events
             CaretIndex = Text.Length;
             PreviewKeyDown += TextBox_PreviewKeyDown;
             PreviewMouseDown += TextBox_PreviewMouseDown;
             PreviewMouseUp += TextBox_PreviewMouseUp;
             TextChanged += TextBox_TextChanged;
 
+            //Disable contextmenu
             ContextMenu = null;
-            
+
         }
-        #endregion
+        #endregion Constructor
 
         #region Events
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -222,6 +226,9 @@ namespace CurrencyTextBoxControl
             (sender as TextBox).Focus();
         }
 
+        /// <summary>
+        /// Action when is key pressed
+        /// </summary>
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (IsNumericKey(e.Key))
@@ -314,7 +321,7 @@ namespace CurrencyTextBoxControl
                 e.Handled = true;
             }
         }
-        
+
         /// <summary>
         /// Insert number from key
         /// </summary>
@@ -367,34 +374,22 @@ namespace CurrencyTextBoxControl
         /// <summary>
         /// Reset the number to zero.
         /// </summary>
-        public new void Clear()
-        {
-            Number = 0M;
-        }
+        public new void Clear() { Number = 0M; }
 
         /// <summary>
         /// Set number to positive
         /// </summary>
-        public void SetPositive()
-        {
-            if (Number < 0) Number *= -1;
-        }
+        public void SetPositive() { if (Number < 0) Number *= -1; }
 
         /// <summary>
         /// Set number to negative
         /// </summary>
-        public void SetNegative()
-        {
-            if (Number > 0) Number *= -1;
-        }
+        public void SetNegative() { if (Number > 0) Number *= -1; }
 
         /// <summary>
         /// Alternate value to Negative-Positive and Positive-Negative
         /// </summary>
-        public void InvertValue()
-        {
-            Number *= -1;
-        }
+        public void InvertValue() { Number *= -1; }
 
         /// <summary>
         /// Add one digit to the property number
@@ -402,7 +397,7 @@ namespace CurrencyTextBoxControl
         /// <param name="repeat">Repeat add</param>
         public void AddOneDigit(int repeat = 1)
         {
-            for (int i = 0; i< repeat; i++)
+            for (int i = 0; i < repeat; i++)
                 switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
                 {
                     case "C0":
@@ -473,7 +468,7 @@ namespace CurrencyTextBoxControl
             // cancel copy and paste
             e.CancelCommand();
         }
-        
+
         #endregion
 
         #region Private Methods
@@ -513,22 +508,14 @@ namespace CurrencyTextBoxControl
         {
             switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
-                case "C0":
-                    return 1M;
-                case "C":
-                    return 100M;
-                case "C1":
-                    return 10M;
-                case "C2":
-                    return 100M;
-                case "C3":
-                    return 1000M;
-                case "C4":
-                    return 10000M;
-                case "C5":
-                    return 100000M;
-                case "C6":
-                    return 1000000M;
+                case "C0": return 1M;
+                case "C": return 100M;
+                case "C1": return 10M;
+                case "C2": return 100M;
+                case "C3": return 1000M;
+                case "C4": return 10000M;
+                case "C5": return 100000M;
+                case "C6": return 1000000M;
             }
 
             return 1M;
@@ -541,27 +528,22 @@ namespace CurrencyTextBoxControl
         {
             switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
-                case "C0":
-                    return 1;
-                case "C":
-                    return 3;
-                case "C1":
-                    return 2;
-                case "C2":
-                    return 3;
-                case "C3":
-                    return 4;
-                case "C4":
-                    return 5;
-                case "C5":
-                    return 6;
-                case "C6":
-                    return 7;
+                case "C0": return 1;
+                case "C": return 3;
+                case "C1": return 2;
+                case "C2": return 3;
+                case "C3": return 4;
+                case "C4": return 5;
+                case "C5": return 6;
+                case "C6": return 7;
             }
 
             return 1;
         }
 
+        /// <summary>
+        /// Check if is a numeric key as pressed
+        /// </summary>
         private bool IsNumericKey(Key key)
         {
             return key == Key.D0 ||
@@ -586,55 +568,25 @@ namespace CurrencyTextBoxControl
                 key == Key.NumPad9;
         }
 
-        private bool IsBackspaceKey(Key key)
-        {
-            return key == Key.Back;
-        }
+        private bool IsBackspaceKey(Key key) { return key == Key.Back; }
 
-        private bool IsSubstractKey(Key key)
-        {
-            return key == Key.Subtract || key == Key.OemMinus;
-        }
+        private bool IsSubstractKey(Key key) { return key == Key.Subtract || key == Key.OemMinus; }
 
-        private bool IsDeleteKey(Key key)
-        {
-            return key == Key.Delete;
-        }
+        private bool IsDeleteKey(Key key) { return key == Key.Delete; }
 
-        private bool IsIgnoredKey(Key key)
-        {
-            return key == Key.Tab || key == Key.Enter;            
-        }
+        private bool IsIgnoredKey(Key key) { return key == Key.Tab || key == Key.Enter; }
 
-        private bool IsUpKey(Key key)
-        {
-            return key == Key.Up;
-        }
+        private bool IsUpKey(Key key) { return key == Key.Up; }
 
-        private bool IsDownKey (Key key)
-        {
-            return key == Key.Down;
-        }
+        private bool IsDownKey(Key key) { return key == Key.Down; }
 
-        private static bool IsCtrlCKey(Key key)
-        {
-            return key == Key.C && Keyboard.Modifiers == ModifierKeys.Control;
-        }
+        private static bool IsCtrlCKey(Key key) { return key == Key.C && Keyboard.Modifiers == ModifierKeys.Control; }
 
-        private static bool IsCtrlZKey(Key key)
-        {
-            return key == Key.Z && Keyboard.Modifiers == ModifierKeys.Control;
-        }
+        private static bool IsCtrlZKey(Key key) { return key == Key.Z && Keyboard.Modifiers == ModifierKeys.Control; }
 
-        private static bool IsCtrlYKey(Key key)
-        {
-            return key == Key.Y && Keyboard.Modifiers == ModifierKeys.Control;
-        }
+        private static bool IsCtrlYKey(Key key) { return key == Key.Y && Keyboard.Modifiers == ModifierKeys.Control; }
 
-        private static bool IsCtrlVKey(Key key)
-        {
-            return key == Key.V && Keyboard.Modifiers == ModifierKeys.Control;
-        }
+        private static bool IsCtrlVKey(Key key) { return key == Key.V && Keyboard.Modifiers == ModifierKeys.Control; }
 
         /// <summary>
         /// Delete the right digit of number property
@@ -687,7 +639,7 @@ namespace CurrencyTextBoxControl
 
             return "";
         }
-        #endregion
+        #endregion Privates methodes
 
         #region Undo/Redo 
 
@@ -700,7 +652,7 @@ namespace CurrencyTextBoxControl
             _undoList.Add(number);
 
             if (clearRedo)
-                _redoList.Clear();            
+                _redoList.Clear();
         }
 
         /// <summary>
@@ -716,7 +668,6 @@ namespace CurrencyTextBoxControl
                 _undoList.RemoveAt(_undoList.Count - 1);
             }
         }
-
 
         /// <summary>
         /// Redo to the value previously undone. The list is clear when key is handled
@@ -754,16 +705,34 @@ namespace CurrencyTextBoxControl
         /// <returns></returns>
         public new bool CanUndo()
         {
+
             if (IsUndoEnabled)
                 return _undoList.Count > 0;
             else
                 return false;
         }
 
+        /// <summary>
+        /// Not implemented actually
+        /// </summary>
         public new void LockCurrentUndoUnit()
+        {
+            //this.AppendText
+            throw new NotImplementedException();
+        }
+        #endregion Undo/Redo
+
+
+        #region Others function
+
+        /// <summary>
+        /// Not implemented actually
+        /// </summary>
+        public void AppendText()
         {
             throw new NotImplementedException();
         }
-        #endregion
+
+        #endregion Other function
     }
 }
