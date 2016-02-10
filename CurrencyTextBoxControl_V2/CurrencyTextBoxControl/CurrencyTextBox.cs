@@ -84,7 +84,7 @@ namespace CurrencyTextBoxControl
 
         private static bool MaximumValidateValue(object value)
         {
-            return (decimal)value <= decimal.MaxValue; //&& (decimal)value >= 0;
+            return (decimal)value <= decimal.MaxValue / 2; //&& (decimal)value >= 0;
         }
 
         private static object MaximumCoerceValue(DependencyObject d, object baseValue)
@@ -128,7 +128,7 @@ namespace CurrencyTextBoxControl
 
         private static bool MinimumValidateValue(object value)
         {
-            return (decimal)value >= decimal.MinValue; //&& (decimal)value <= 0;
+            return (decimal)value >= decimal.MinValue / 2; //&& (decimal)value <= 0;
         }
 
         private static object MinimumCoerceValue(DependencyObject d, object baseValue)
