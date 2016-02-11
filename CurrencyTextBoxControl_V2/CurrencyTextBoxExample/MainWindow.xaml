@@ -53,7 +53,7 @@
 
         </currency:CurrencyTextBox>
         <ListBox x:Name="listBox"/>
-        <currency:CurrencyTextBox x:Name="currencyTextBox" Grid.Column="1" Margin="10,118,5,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" StringFormat="n6" Number="23463"/>
+        <currency:CurrencyTextBox x:Name="currencyTextBox" Grid.Column="1" Margin="10,118,5,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" StringFormat="P" Number="23463"/>
         <Button x:Name="button" Content="SET MAX VALUE" Grid.Column="1" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="button1" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
     </Grid>
