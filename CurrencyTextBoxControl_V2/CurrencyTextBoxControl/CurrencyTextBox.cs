@@ -7,7 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 
 /// <summary>
-/// Original version by Boeren 
+/// Based on src by Boeren 
 /// https://wpfcurrencytextbox.codeplex.com/
 /// 
 /// Modified 2016 by Derek Tremblay (Abbaye) 
@@ -153,8 +153,13 @@ namespace CurrencyTextBoxControl
             "StringFormat",
             typeof(string),
             typeof(CurrencyTextBox),
-            new FrameworkPropertyMetadata("C2", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, StringFormatPropertyChanged), 
+            new FrameworkPropertyMetadata("C2", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, StringFormatPropertyChanged, new CoerceValueCallback(StringFormatCoerceValue)), 
             new ValidateValueCallback(StringFormatValidateValue));
+
+        private static object StringFormatCoerceValue(DependencyObject d, object baseValue)
+        {
+            return ((string)baseValue).ToUpper();
+        }
 
         /// <summary>
         /// Validate the StringFormat
@@ -163,14 +168,8 @@ namespace CurrencyTextBoxControl
         {
             var val = value.ToString().ToUpper();
 
-            return val == "C0" ||
-                val == "C" ||
-                val == "C1" ||
-                val == "C2" ||
-                val == "C3" ||
-                val == "C4" ||
-                val == "C5" ||
-                val == "C6";
+            return val == "C0" || val == "C" || val == "C1" || val == "C2" || val == "C3" || val == "C4" || val == "C5" || val == "C6" ||
+                val == "N0" || val == "N" || val == "N1" || val == "N2" || val == "N3" || val == "N4" || val == "N5" || val == "N6";
         }
 
         public string StringFormat
@@ -379,26 +378,6 @@ namespace CurrencyTextBoxControl
 
         }
 
-        /// <summary>
-        /// Paste if is a number on clipboard
-        /// </summary>
-        private void PasteFromClipBoard()
-        {
-            try
-            {
-                Number = decimal.Parse(Clipboard.GetText());
-            }
-            catch { }
-        }
-
-        /// <summary>
-        /// Copy the property Number to Control
-        /// </summary>
-        private void CopyToClipBoard()
-        {
-            Clipboard.Clear();
-            Clipboard.SetText(Number.ToString());
-        }
 
         /// <summary>
         /// Reset the number to zero.
@@ -429,27 +408,35 @@ namespace CurrencyTextBoxControl
             for (int i = 0; i < repeat; i++)
                 switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
                 {
+                    case "N0":
                     case "C0":
                         Number = decimal.Add(Number, 1M);
                         break;
+                    case "N":
                     case "C":
                         Number = decimal.Add(Number, 0.01M);
                         break;
+                    case "N1":
                     case "C1":
                         Number = decimal.Add(Number, 0.1M);
                         break;
+                    case "N2":
                     case "C2":
                         Number = decimal.Add(Number, 0.01M);
                         break;
+                    case "N3":
                     case "C3":
                         Number = decimal.Add(Number, 0.001M);
                         break;
+                    case "N4":
                     case "C4":
                         Number = decimal.Add(Number, 0.0001M);
                         break;
+                    case "N5":
                     case "C5":
                         Number = decimal.Add(Number, 0.00001M);
                         break;
+                    case "N6":
                     case "C6":
                         Number = decimal.Add(Number, 0.000001M);
                         break;
@@ -465,27 +452,35 @@ namespace CurrencyTextBoxControl
             for (int i = 0; i < repeat; i++)
                 switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
                 {
+                    case "N0":
                     case "C0":
                         Number = decimal.Subtract(Number, 1M);
                         break;
+                    case "N":
                     case "C":
                         Number = decimal.Subtract(Number, 0.01M);
                         break;
+                    case "N1":
                     case "C1":
                         Number = decimal.Subtract(Number, 0.1M);
                         break;
+                    case "N2":
                     case "C2":
                         Number = decimal.Subtract(Number, 0.01M);
                         break;
+                    case "N3":
                     case "C3":
                         Number = decimal.Subtract(Number, 0.001M);
                         break;
+                    case "N4":
                     case "C4":
                         Number = decimal.Subtract(Number, 0.0001M);
                         break;
+                    case "N5":
                     case "C5":
                         Number = decimal.Subtract(Number, 0.00001M);
                         break;
+                    case "N6":
                     case "C6":
                         Number = decimal.Subtract(Number, 0.000001M);
                         break;
@@ -537,13 +532,21 @@ namespace CurrencyTextBoxControl
         {
             switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
+                case "N0":
                 case "C0": return 1M;
+                case "N":
                 case "C": return 100M;
+                case "N1":
                 case "C1": return 10M;
+                case "N2":
                 case "C2": return 100M;
+                case "N3":
                 case "C3": return 1000M;
+                case "N4":
                 case "C4": return 10000M;
+                case "N5":
                 case "C5": return 100000M;
+                case "N6":
                 case "C6": return 1000000M;
             }
 
@@ -557,13 +560,21 @@ namespace CurrencyTextBoxControl
         {
             switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
+                case "N0":
                 case "C0": return 1;
+                case "N":
                 case "C": return 3;
+                case "N1":
                 case "C1": return 2;
+                case "N2":
                 case "C2": return 3;
+                case "N3":
                 case "C3": return 4;
+                case "N4":
                 case "C4": return 5;
+                case "N5":
                 case "C5": return 6;
+                case "N6":
                 case "C6": return 7;
             }
 
@@ -575,26 +586,8 @@ namespace CurrencyTextBoxControl
         /// </summary>
         private bool IsNumericKey(Key key)
         {
-            return key == Key.D0 ||
-                key == Key.D1 ||
-                key == Key.D2 ||
-                key == Key.D3 ||
-                key == Key.D4 ||
-                key == Key.D5 ||
-                key == Key.D6 ||
-                key == Key.D7 ||
-                key == Key.D8 ||
-                key == Key.D9 ||
-                key == Key.NumPad0 ||
-                key == Key.NumPad1 ||
-                key == Key.NumPad2 ||
-                key == Key.NumPad3 ||
-                key == Key.NumPad4 ||
-                key == Key.NumPad5 ||
-                key == Key.NumPad6 ||
-                key == Key.NumPad7 ||
-                key == Key.NumPad8 ||
-                key == Key.NumPad9;
+            return key == Key.D0 || key == Key.D1 || key == Key.D2 || key == Key.D3 || key == Key.D4 || key == Key.D5 || key == Key.D6 || key == Key.D7 || key == Key.D8 || key == Key.D9 ||
+                key == Key.NumPad0 || key == Key.NumPad1 || key == Key.NumPad2 || key == Key.NumPad3 || key == Key.NumPad4 || key == Key.NumPad5 || key == Key.NumPad6 || key == Key.NumPad7 || key == Key.NumPad8 || key == Key.NumPad9;
         }
 
         private bool IsBackspaceKey(Key key) { return key == Key.Back; }
@@ -648,22 +641,22 @@ namespace CurrencyTextBoxControl
         {
             switch (GetBindingExpression(TextBox.TextProperty).ParentBinding.StringFormat)
             {
-                case "C0":
-                    return "";
-                case "C":
-                    return ",00";
-                case "C1":
-                    return ",0";
-                case "C2":
-                    return ",00";
-                case "C3":
-                    return ",000";
-                case "C4":
-                    return ",0000";
-                case "C5":
-                    return ",00000";
-                case "C6":
-                    return ",000000";
+                case "N0":
+                case "C0": return "";
+                case "N":
+                case "C": return ",00";
+                case "N1":
+                case "C1": return ",0";
+                case "N2":
+                case "C2": return ",00";
+                case "N3":
+                case "C3": return ",000";
+                case "N4":
+                case "C4": return ",0000";
+                case "N5":
+                case "C5": return ",00000";
+                case "N6":
+                case "C6": return ",000000";
             }
 
             return "";
@@ -763,5 +756,28 @@ namespace CurrencyTextBoxControl
         }
 
         #endregion Other function
+
+        #region Clipboard
+        /// <summary>
+        /// Paste if is a number on clipboard
+        /// </summary>
+        private void PasteFromClipBoard()
+        {
+            try
+            {
+                Number = decimal.Parse(Clipboard.GetText());
+            }
+            catch { }
+        }
+
+        /// <summary>
+        /// Copy the property Number to Control
+        /// </summary>
+        private void CopyToClipBoard()
+        {
+            Clipboard.Clear();
+            Clipboard.SetText(Number.ToString());
+        }
+        #endregion Clipboard
     }
 }

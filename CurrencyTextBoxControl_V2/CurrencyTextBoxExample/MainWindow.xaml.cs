@@ -59,8 +59,7 @@ namespace CurrencyTextBoxExample
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBox.Show(myCurrencyTextBox.Text);
+            currencyTextBox.StringFormat = "n4";
         }
     }
 }
