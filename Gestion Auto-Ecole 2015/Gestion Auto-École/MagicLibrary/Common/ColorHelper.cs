@@ -9,12 +9,7 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using Crownwood.Magic.Win32;
 
 namespace Crownwood.Magic.Common
 {

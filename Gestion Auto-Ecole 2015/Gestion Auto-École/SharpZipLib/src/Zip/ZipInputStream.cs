@@ -240,13 +240,15 @@ namespace ICSharpCode.SharpZipLib.Zip
 			inputBuffer.ReadRawBuffer(buffer);
 			
 			string name = ZipConstants.ConvertToStringExt(flags, buffer);
-			
-			entry = new ZipEntry(name, versionRequiredToExtract);
-			entry.Flags = flags;
-			
-			entry.CompressionMethod = (CompressionMethod)method;
-			
-			if ((flags & 8) == 0) {
+
+            entry = new ZipEntry(name, versionRequiredToExtract)
+            {
+                Flags = flags,
+
+                CompressionMethod = (CompressionMethod)method
+            };
+
+            if ((flags & 8) == 0) {
 				entry.Crc  = crc2 & 0xFFFFFFFFL;
 				entry.Size = size & 0xFFFFFFFFL;
 				entry.CompressedSize = csize & 0xFFFFFFFFL;

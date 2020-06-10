@@ -71,9 +71,9 @@ namespace ICSharpCode.SharpZipLib.Core
 			get { return continueRunning_; }
 			set { continueRunning_ = value; }
 		}
-		
-		#region Instance Fields
-		string name_;
+
+        #region Instance Fields
+        readonly string name_;
 		bool continueRunning_ = true;
 		#endregion
 	}
@@ -152,11 +152,11 @@ namespace ICSharpCode.SharpZipLib.Core
 		{
 			get { return target_; }
 		}
-		
-		#region Instance Fields
-		string name_;
-		long processed_;
-		long target_;
+
+        #region Instance Fields
+        readonly string name_;
+        readonly long processed_;
+        readonly long target_;
 		bool continueRunning_ = true;
 		#endregion
 	}
@@ -186,9 +186,9 @@ namespace ICSharpCode.SharpZipLib.Core
 		{
 			get { return hasMatchingFiles_; }
 		}
-		
-		#region Instance Fields
-		bool hasMatchingFiles_;
+
+        #region Instance Fields
+        readonly bool hasMatchingFiles_;
 		#endregion
 	}
 	
@@ -235,10 +235,10 @@ namespace ICSharpCode.SharpZipLib.Core
 			get { return continueRunning_; }
 			set { continueRunning_ = value; }
 		}
-		
-		#region Instance Fields
-		string name_;
-		Exception exception_;
+
+        #region Instance Fields
+        readonly string name_;
+        readonly Exception exception_;
 		bool continueRunning_;
 		#endregion
 	}
@@ -514,16 +514,17 @@ namespace ICSharpCode.SharpZipLib.Core
 				}
 			}
 		}
-		
-		#region Instance Fields
-		/// <summary>
-		/// The file filter currently in use.
-		/// </summary>
-		IScanFilter fileFilter_;
-		/// <summary>
-		/// The directory filter currently in use.
-		/// </summary>
-		IScanFilter directoryFilter_;
+
+        #region Instance Fields
+        /// <summary>
+        /// The file filter currently in use.
+        /// </summary>
+        readonly IScanFilter fileFilter_;
+
+        /// <summary>
+        /// The directory filter currently in use.
+        /// </summary>
+        readonly IScanFilter directoryFilter_;
 		/// <summary>
 		/// Flag indicating if scanning should continue running.
 		/// </summary>

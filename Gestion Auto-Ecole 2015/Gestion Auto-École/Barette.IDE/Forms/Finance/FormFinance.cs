@@ -1,12 +1,6 @@
 using System;
 using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
-using System.IO; 
-using System.Diagnostics;
-
-using Barette.Library.Win32;
 using Barette.Library.Client;
 using Barette.Library.Collections;
 using Barette.Library.Listview;
@@ -14,11 +8,12 @@ using Barette.Library.UserControls;
 using Barette.Library.UserControls.Client;
 
 
-namespace Barette.IDE.Forms.Finance {
-	/// <summary>
-	/// Description résumée de FormFindClient.
-	/// </summary>
-	public class FormFinance : Form
+namespace Barette.IDE.Forms.Finance
+{
+    /// <summary>
+    /// Description résumée de FormFindClient.
+    /// </summary>
+    public class FormFinance : Form
     {
 		/// <summary>
 		/// acces a la Fenetre principal
@@ -30,40 +25,40 @@ namespace Barette.IDE.Forms.Finance {
 		/// </summary>
 		private TypeRelever _ReleverMode = TypeRelever.Taxe; //taxe par défaut
  
-		private System.Windows.Forms.CheckBox chkDisponibilityPM;
-		private System.Windows.Forms.CheckBox chkDisponibilityAM;
-		private System.Windows.Forms.ImageList imageList1;
-		private System.Windows.Forms.ToolBar toolBar1;
-		private System.Windows.Forms.Timer timer1;
-		private System.Windows.Forms.ToolBarButton tbbShowClient;
-		private System.Windows.Forms.ToolBarButton tbbSeparator1;
-		private System.Windows.Forms.MonthCalendar mcRecu1;
-		private System.Windows.Forms.MonthCalendar mcRecu2;
-		private System.Windows.Forms.DateTimePicker dtpFixeDate;
-		private System.Windows.Forms.Button cmdEqual;
-		private System.Windows.Forms.RadioButton rbBetween;
-		private System.Windows.Forms.RadioButton rbOr;
-		private System.Windows.Forms.ToolBarButton tbbTPSTVQ;
+		private CheckBox chkDisponibilityPM;
+		private CheckBox chkDisponibilityAM;
+		private ImageList imageList1;
+		private ToolBar toolBar1;
+		private Timer timer1;
+		private ToolBarButton tbbShowClient;
+		private ToolBarButton tbbSeparator1;
+		private MonthCalendar mcRecu1;
+		private MonthCalendar mcRecu2;
+		private DateTimePicker dtpFixeDate;
+		private Button cmdEqual;
+		private RadioButton rbBetween;
+		private RadioButton rbOr;
+		private ToolBarButton tbbTPSTVQ;
 		private System.Drawing.Printing.PrintDocument PrintRelever;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.ToolBarButton ttbRefresh;
-		private System.Windows.Forms.ToolBarButton tbbSeparator;
-		private System.Windows.Forms.ToolBarButton tbbShowSeance;
-		private System.Windows.Forms.ToolBarButton tbbPrintClientInfo;
-		private System.Windows.Forms.CheckBox cbAutoFind;
+		private GroupBox groupBox1;
+		private ToolBarButton ttbRefresh;
+		private ToolBarButton tbbSeparator;
+		private ToolBarButton tbbShowSeance;
+		private ToolBarButton tbbPrintClientInfo;
+		private CheckBox cbAutoFind;
 		private Label lblMontantIncluTaxe;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
+		private Label label1;
+		private Label label2;
 		private Label lblMontantExcluTaxe;
-		private System.Windows.Forms.Label label3;
+		private Label label3;
 		private Label lblTVQ;
-		private System.Windows.Forms.Label label4;
+		private Label label4;
 		private Label lblTPS;
-		private System.Windows.Forms.Label label5;		
+		private Label label5;		
 		private System.ComponentModel.IContainer components;
-		private System.Windows.Forms.Label label6;
+		private Label label6;
 		//private System.Windows.Forms.ToolBarButton tbbHoraireInfo;
-		private System.Windows.Forms.ToolBarButton tbbSeparator2;
+		private ToolBarButton tbbSeparator2;
 		private Label lblMontantPD;
 		private Label lblMontantCheque;
 		private Label lblMontantAutre;
@@ -90,7 +85,7 @@ namespace Barette.IDE.Forms.Finance {
 		private ColumnHeader colHeadTypePaiment;
 		private System.Drawing.Printing.PrintDocument PrintCompteARecevoir;
         private ToolBarButton tbbHorraireInfo;
-		private System.Windows.Forms.GroupBox groupBox2; 
+		private GroupBox groupBox2; 
 
 		public FormFinance(FormMain main) {
 			//
@@ -126,66 +121,66 @@ namespace Barette.IDE.Forms.Finance {
 		private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFinance));
-            Barette.Library.Client.Customer customer1 = new Barette.Library.Client.Customer();
-            cmdEqual = new System.Windows.Forms.Button();
-            rbOr = new System.Windows.Forms.RadioButton();
-            rbBetween = new System.Windows.Forms.RadioButton();
-            dtpFixeDate = new System.Windows.Forms.DateTimePicker();
-            mcRecu2 = new System.Windows.Forms.MonthCalendar();
-            mcRecu1 = new System.Windows.Forms.MonthCalendar();
-            chkDisponibilityPM = new System.Windows.Forms.CheckBox();
-            chkDisponibilityAM = new System.Windows.Forms.CheckBox();
-            imageList1 = new System.Windows.Forms.ImageList(components);
-            toolBar1 = new System.Windows.Forms.ToolBar();
-            ttbRefresh = new System.Windows.Forms.ToolBarButton();
-            tbbSeparator = new System.Windows.Forms.ToolBarButton();
-            tbbHorraireInfo = new System.Windows.Forms.ToolBarButton();
-            tbbSeparator2 = new System.Windows.Forms.ToolBarButton();
-            tbbShowClient = new System.Windows.Forms.ToolBarButton();
-            tbbShowSeance = new System.Windows.Forms.ToolBarButton();
-            tbbSeparator1 = new System.Windows.Forms.ToolBarButton();
-            tbbPrintClientInfo = new System.Windows.Forms.ToolBarButton();
-            tbbTPSTVQ = new System.Windows.Forms.ToolBarButton();
-            timer1 = new System.Windows.Forms.Timer(components);
+            Customer customer1 = new Customer();
+            cmdEqual = new Button();
+            rbOr = new RadioButton();
+            rbBetween = new RadioButton();
+            dtpFixeDate = new DateTimePicker();
+            mcRecu2 = new MonthCalendar();
+            mcRecu1 = new MonthCalendar();
+            chkDisponibilityPM = new CheckBox();
+            chkDisponibilityAM = new CheckBox();
+            imageList1 = new ImageList(components);
+            toolBar1 = new ToolBar();
+            ttbRefresh = new ToolBarButton();
+            tbbSeparator = new ToolBarButton();
+            tbbHorraireInfo = new ToolBarButton();
+            tbbSeparator2 = new ToolBarButton();
+            tbbShowClient = new ToolBarButton();
+            tbbShowSeance = new ToolBarButton();
+            tbbSeparator1 = new ToolBarButton();
+            tbbPrintClientInfo = new ToolBarButton();
+            tbbTPSTVQ = new ToolBarButton();
+            timer1 = new Timer(components);
             PrintRelever = new System.Drawing.Printing.PrintDocument();
-            groupBox1 = new System.Windows.Forms.GroupBox();
-            label4 = new System.Windows.Forms.Label();
-            lblTPS = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            lblTVQ = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            lblMontantExcluTaxe = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            lblMontantIncluTaxe = new System.Windows.Forms.Label();
-            lblMontantPD = new System.Windows.Forms.Label();
-            lblMontantCheque = new System.Windows.Forms.Label();
-            cbAutoFind = new System.Windows.Forms.CheckBox();
-            label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            groupBox2 = new System.Windows.Forms.GroupBox();
-            txtTPS = new Barette.Library.UserControls.PourCentTextBox();
-            txtTVQ = new Barette.Library.UserControls.PourCentTextBox();
-            ImageListSmall = new System.Windows.Forms.ImageList(components);
-            lblMontantAutre = new System.Windows.Forms.Label();
-            tcRapportType = new System.Windows.Forms.TabControl();
-            tpRapportTaxe = new System.Windows.Forms.TabPage();
-            tpCompteARecevoir = new System.Windows.Forms.TabPage();
-            mcCompteARecevoir = new System.Windows.Forms.MonthCalendar();
-            lblMontantAC = new System.Windows.Forms.Label();
+            groupBox1 = new GroupBox();
+            label4 = new Label();
+            lblTPS = new Label();
+            label3 = new Label();
+            lblTVQ = new Label();
+            label2 = new Label();
+            lblMontantExcluTaxe = new Label();
+            label1 = new Label();
+            lblMontantIncluTaxe = new Label();
+            lblMontantPD = new Label();
+            lblMontantCheque = new Label();
+            cbAutoFind = new CheckBox();
+            label5 = new Label();
+            label6 = new Label();
+            groupBox2 = new GroupBox();
+            txtTPS = new PourCentTextBox();
+            txtTVQ = new PourCentTextBox();
+            ImageListSmall = new ImageList(components);
+            lblMontantAutre = new Label();
+            tcRapportType = new TabControl();
+            tpRapportTaxe = new TabPage();
+            tpCompteARecevoir = new TabPage();
+            mcCompteARecevoir = new MonthCalendar();
+            lblMontantAC = new Label();
             PrintCompteARecevoir = new System.Drawing.Printing.PrintDocument();
-            clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
-            listFindResult = new Barette.Library.Listview.ListViewEx();
-            colheadContratNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colheadName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colheadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadTypeVehicule = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadSolde = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadLastRecuNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadMontant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadDateRecu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadRL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadTypePaiment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            clientControl1 = new ClientControl();
+            listFindResult = new ListViewEx();
+            colheadContratNumber = ((ColumnHeader)(new ColumnHeader()));
+            colheadName = ((ColumnHeader)(new ColumnHeader()));
+            colheadDate = ((ColumnHeader)(new ColumnHeader()));
+            colHeadPhone = ((ColumnHeader)(new ColumnHeader()));
+            colHeadTypeVehicule = ((ColumnHeader)(new ColumnHeader()));
+            colHeadSolde = ((ColumnHeader)(new ColumnHeader()));
+            colHeadLastRecuNumber = ((ColumnHeader)(new ColumnHeader()));
+            colHeadMontant = ((ColumnHeader)(new ColumnHeader()));
+            colHeadDateRecu = ((ColumnHeader)(new ColumnHeader()));
+            colHeadRL = ((ColumnHeader)(new ColumnHeader()));
+            colHeadTypePaiment = ((ColumnHeader)(new ColumnHeader()));
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             tcRapportType.SuspendLayout();
@@ -196,20 +191,20 @@ namespace Barette.IDE.Forms.Finance {
             // cmdEqual
             // 
             cmdEqual.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            cmdEqual.Location = new System.Drawing.Point(248, 58);
-            cmdEqual.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            cmdEqual.Location = new Point(248, 58);
+            cmdEqual.Margin = new Padding(3, 3, 3, 1);
             cmdEqual.Name = "cmdEqual";
-            cmdEqual.Size = new System.Drawing.Size(48, 23);
+            cmdEqual.Size = new Size(48, 23);
             cmdEqual.TabIndex = 9;
             cmdEqual.Text = "=";
-            cmdEqual.Click += new System.EventHandler(cmdEqual_Click);
+            cmdEqual.Click += new EventHandler(cmdEqual_Click);
             // 
             // rbOr
             // 
             rbOr.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbOr.Location = new System.Drawing.Point(240, 180);
+            rbOr.Location = new Point(240, 180);
             rbOr.Name = "rbOr";
-            rbOr.Size = new System.Drawing.Size(72, 24);
+            rbOr.Size = new Size(72, 24);
             rbOr.TabIndex = 8;
             rbOr.Text = "Date fixe";
             // 
@@ -217,56 +212,56 @@ namespace Barette.IDE.Forms.Finance {
             // 
             rbBetween.Checked = true;
             rbBetween.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbBetween.Location = new System.Drawing.Point(240, 82);
-            rbBetween.Margin = new System.Windows.Forms.Padding(3, 0, 4, 3);
+            rbBetween.Location = new Point(240, 82);
+            rbBetween.Margin = new Padding(3, 0, 4, 3);
             rbBetween.Name = "rbBetween";
-            rbBetween.Size = new System.Drawing.Size(64, 24);
+            rbBetween.Size = new Size(64, 24);
             rbBetween.TabIndex = 7;
             rbBetween.TabStop = true;
             rbBetween.Text = "Intervale";
             // 
             // dtpFixeDate
             // 
-            dtpFixeDate.Location = new System.Drawing.Point(312, 180);
+            dtpFixeDate.Location = new Point(312, 180);
             dtpFixeDate.Name = "dtpFixeDate";
-            dtpFixeDate.Size = new System.Drawing.Size(128, 20);
+            dtpFixeDate.Size = new Size(128, 20);
             dtpFixeDate.TabIndex = 6;
-            dtpFixeDate.ValueChanged += new System.EventHandler(dtpFixeDate_ValueChanged);
+            dtpFixeDate.ValueChanged += new EventHandler(dtpFixeDate_ValueChanged);
             // 
             // mcRecu2
             // 
-            mcRecu2.Location = new System.Drawing.Point(312, 12);
-            mcRecu2.Margin = new System.Windows.Forms.Padding(4, 9, 9, 9);
+            mcRecu2.Location = new Point(312, 12);
+            mcRecu2.Margin = new Padding(4, 9, 9, 9);
             mcRecu2.MaxSelectionCount = 1;
             mcRecu2.Name = "mcRecu2";
             mcRecu2.TabIndex = 4;
-            mcRecu2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(mcRecu2_DateChanged);
+            mcRecu2.DateChanged += new DateRangeEventHandler(mcRecu2_DateChanged);
             // 
             // mcRecu1
             // 
-            mcRecu1.Location = new System.Drawing.Point(9, 12);
+            mcRecu1.Location = new Point(9, 12);
             mcRecu1.MaxSelectionCount = 1;
             mcRecu1.Name = "mcRecu1";
             mcRecu1.TabIndex = 3;
-            mcRecu1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(mcRecu1_DateChanged);
+            mcRecu1.DateChanged += new DateRangeEventHandler(mcRecu1_DateChanged);
             // 
             // chkDisponibilityPM
             // 
-            chkDisponibilityPM.Location = new System.Drawing.Point(0, 0);
+            chkDisponibilityPM.Location = new Point(0, 0);
             chkDisponibilityPM.Name = "chkDisponibilityPM";
-            chkDisponibilityPM.Size = new System.Drawing.Size(104, 24);
+            chkDisponibilityPM.Size = new Size(104, 24);
             chkDisponibilityPM.TabIndex = 0;
             // 
             // chkDisponibilityAM
             // 
-            chkDisponibilityAM.Location = new System.Drawing.Point(0, 0);
+            chkDisponibilityAM.Location = new Point(0, 0);
             chkDisponibilityAM.Name = "chkDisponibilityAM";
-            chkDisponibilityAM.Size = new System.Drawing.Size(104, 24);
+            chkDisponibilityAM.Size = new Size(104, 24);
             chkDisponibilityAM.TabIndex = 0;
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             imageList1.Images.SetKeyName(1, "");
@@ -278,7 +273,7 @@ namespace Barette.IDE.Forms.Finance {
             // toolBar1
             // 
             toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
-            toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            toolBar1.Buttons.AddRange(new ToolBarButton[] {
             ttbRefresh,
             tbbSeparator,
             tbbHorraireInfo,
@@ -292,13 +287,13 @@ namespace Barette.IDE.Forms.Finance {
             toolBar1.Dock = System.Windows.Forms.DockStyle.None;
             toolBar1.DropDownArrows = true;
             toolBar1.ImageList = imageList1;
-            toolBar1.Location = new System.Drawing.Point(8, 8);
+            toolBar1.Location = new Point(8, 8);
             toolBar1.Name = "toolBar1";
             toolBar1.ShowToolTips = true;
-            toolBar1.Size = new System.Drawing.Size(376, 42);
+            toolBar1.Size = new Size(376, 42);
             toolBar1.TabIndex = 13;
             toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
-            toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(toolBar1_ButtonClick);
+            toolBar1.ButtonClick += new ToolBarButtonClickEventHandler(toolBar1_ButtonClick);
             // 
             // ttbRefresh
             // 
@@ -361,7 +356,7 @@ namespace Barette.IDE.Forms.Finance {
             // 
             timer1.Enabled = true;
             timer1.Interval = 200;
-            timer1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Tick += new EventHandler(timer1_Tick);
             // 
             // PrintRelever
             // 
@@ -377,18 +372,18 @@ namespace Barette.IDE.Forms.Finance {
             groupBox1.Controls.Add(lblMontantExcluTaxe);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(lblMontantIncluTaxe);
-            groupBox1.Location = new System.Drawing.Point(8, 56);
+            groupBox1.Location = new Point(8, 56);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(245, 112);
+            groupBox1.Size = new Size(245, 112);
             groupBox1.TabIndex = 16;
             groupBox1.TabStop = false;
             groupBox1.Text = "Information sur la période";
             // 
             // label4
             // 
-            label4.Location = new System.Drawing.Point(10, 40);
+            label4.Location = new Point(10, 40);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(78, 16);
+            label4.Size = new Size(78, 16);
             label4.TabIndex = 7;
             label4.Text = "TPS :";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -396,20 +391,20 @@ namespace Barette.IDE.Forms.Finance {
             // lblTPS
             // 
             lblTPS.ForeColor = System.Drawing.Color.Blue;
-            lblTPS.Location = new System.Drawing.Point(135, 40);
-            lblTPS.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            lblTPS.Location = new Point(135, 40);
+            lblTPS.Margin = new Padding(3, 1, 3, 3);
             lblTPS.Name = "lblTPS";
-            lblTPS.Size = new System.Drawing.Size(97, 16);
+            lblTPS.Size = new Size(97, 16);
             lblTPS.TabIndex = 6;
             lblTPS.Text = "-";
             lblTPS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
-            label3.Location = new System.Drawing.Point(10, 64);
-            label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            label3.Location = new Point(10, 64);
+            label3.Margin = new Padding(3, 3, 3, 1);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(78, 16);
+            label3.Size = new Size(78, 16);
             label3.TabIndex = 5;
             label3.Text = "TVQ :";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -417,18 +412,18 @@ namespace Barette.IDE.Forms.Finance {
             // lblTVQ
             // 
             lblTVQ.ForeColor = System.Drawing.Color.Blue;
-            lblTVQ.Location = new System.Drawing.Point(135, 64);
+            lblTVQ.Location = new Point(135, 64);
             lblTVQ.Name = "lblTVQ";
-            lblTVQ.Size = new System.Drawing.Size(97, 16);
+            lblTVQ.Size = new Size(97, 16);
             lblTVQ.TabIndex = 4;
             lblTVQ.Text = "-";
             lblTVQ.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            label2.Location = new System.Drawing.Point(10, 16);
+            label2.Location = new Point(10, 16);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(78, 16);
+            label2.Size = new Size(78, 16);
             label2.TabIndex = 3;
             label2.Text = "Total partiel :";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -436,19 +431,19 @@ namespace Barette.IDE.Forms.Finance {
             // lblMontantExcluTaxe
             // 
             lblMontantExcluTaxe.ForeColor = System.Drawing.Color.Blue;
-            lblMontantExcluTaxe.Location = new System.Drawing.Point(135, 16);
-            lblMontantExcluTaxe.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            lblMontantExcluTaxe.Location = new Point(135, 16);
+            lblMontantExcluTaxe.Margin = new Padding(3, 3, 3, 2);
             lblMontantExcluTaxe.Name = "lblMontantExcluTaxe";
-            lblMontantExcluTaxe.Size = new System.Drawing.Size(97, 16);
+            lblMontantExcluTaxe.Size = new Size(97, 16);
             lblMontantExcluTaxe.TabIndex = 2;
             lblMontantExcluTaxe.Text = "-";
             lblMontantExcluTaxe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            label1.Location = new System.Drawing.Point(10, 88);
+            label1.Location = new Point(10, 88);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(54, 16);
+            label1.Size = new Size(54, 16);
             label1.TabIndex = 1;
             label1.Text = "Total  :";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -456,10 +451,10 @@ namespace Barette.IDE.Forms.Finance {
             // lblMontantIncluTaxe
             // 
             lblMontantIncluTaxe.ForeColor = System.Drawing.Color.Blue;
-            lblMontantIncluTaxe.Location = new System.Drawing.Point(135, 88);
-            lblMontantIncluTaxe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            lblMontantIncluTaxe.Location = new Point(135, 88);
+            lblMontantIncluTaxe.Margin = new Padding(3, 2, 3, 3);
             lblMontantIncluTaxe.Name = "lblMontantIncluTaxe";
-            lblMontantIncluTaxe.Size = new System.Drawing.Size(97, 16);
+            lblMontantIncluTaxe.Size = new Size(97, 16);
             lblMontantIncluTaxe.TabIndex = 0;
             lblMontantIncluTaxe.Text = "-";
             lblMontantIncluTaxe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -468,9 +463,9 @@ namespace Barette.IDE.Forms.Finance {
             // 
             lblMontantPD.AutoSize = true;
             lblMontantPD.ForeColor = System.Drawing.Color.Blue;
-            lblMontantPD.Location = new System.Drawing.Point(601, 18);
+            lblMontantPD.Location = new Point(601, 18);
             lblMontantPD.Name = "lblMontantPD";
-            lblMontantPD.Size = new System.Drawing.Size(10, 13);
+            lblMontantPD.Size = new Size(10, 13);
             lblMontantPD.TabIndex = 12;
             lblMontantPD.Text = "-";
             lblMontantPD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -480,9 +475,9 @@ namespace Barette.IDE.Forms.Finance {
             // 
             lblMontantCheque.AutoSize = true;
             lblMontantCheque.ForeColor = System.Drawing.Color.Blue;
-            lblMontantCheque.Location = new System.Drawing.Point(615, 18);
+            lblMontantCheque.Location = new Point(615, 18);
             lblMontantCheque.Name = "lblMontantCheque";
-            lblMontantCheque.Size = new System.Drawing.Size(10, 13);
+            lblMontantCheque.Size = new Size(10, 13);
             lblMontantCheque.TabIndex = 10;
             lblMontantCheque.Text = "-";
             lblMontantCheque.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -493,27 +488,27 @@ namespace Barette.IDE.Forms.Finance {
             cbAutoFind.Checked = true;
             cbAutoFind.CheckState = System.Windows.Forms.CheckState.Checked;
             cbAutoFind.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            cbAutoFind.Location = new System.Drawing.Point(8, 255);
+            cbAutoFind.Location = new Point(8, 255);
             cbAutoFind.Name = "cbAutoFind";
-            cbAutoFind.Size = new System.Drawing.Size(232, 24);
+            cbAutoFind.Size = new Size(232, 24);
             cbAutoFind.TabIndex = 17;
             cbAutoFind.Text = "Recherche automatique lors d\'un clique";
             cbAutoFind.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            cbAutoFind.CheckedChanged += new System.EventHandler(cbAutoFind_CheckedChanged);
+            cbAutoFind.CheckedChanged += new EventHandler(cbAutoFind_CheckedChanged);
             // 
             // label5
             // 
-            label5.Location = new System.Drawing.Point(9, 39);
+            label5.Location = new Point(9, 39);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(32, 16);
+            label5.Size = new Size(32, 16);
             label5.TabIndex = 18;
             label5.Text = "TPS :";
             // 
             // label6
             // 
-            label6.Location = new System.Drawing.Point(9, 71);
+            label6.Location = new Point(9, 71);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(43, 16);
+            label6.Size = new Size(43, 16);
             label6.TabIndex = 20;
             label6.Text = "TVQ :";
             // 
@@ -524,34 +519,34 @@ namespace Barette.IDE.Forms.Finance {
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label6);
             groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            groupBox2.Location = new System.Drawing.Point(264, 56);
+            groupBox2.Location = new Point(264, 56);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new System.Drawing.Size(120, 112);
+            groupBox2.Size = new Size(120, 112);
             groupBox2.TabIndex = 22;
             groupBox2.TabStop = false;
             groupBox2.Text = "Taxes";
             // 
             // txtTPS
             // 
-            txtTPS.Location = new System.Drawing.Point(49, 37);
+            txtTPS.Location = new Point(49, 37);
             txtTPS.Name = "txtTPS";
-            txtTPS.Size = new System.Drawing.Size(65, 20);
+            txtTPS.Size = new Size(65, 20);
             txtTPS.TabIndex = 19;
             txtTPS.Text = "5 %";
             txtTPS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtTVQ
             // 
-            txtTVQ.Location = new System.Drawing.Point(49, 69);
+            txtTVQ.Location = new Point(49, 69);
             txtTVQ.Name = "txtTVQ";
-            txtTVQ.Size = new System.Drawing.Size(65, 20);
+            txtTVQ.Size = new Size(65, 20);
             txtTVQ.TabIndex = 21;
             txtTVQ.Text = "8,5 %";
             txtTVQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ImageListSmall
             // 
-            ImageListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            ImageListSmall.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
             ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             ImageListSmall.Images.SetKeyName(0, "Moto");
             ImageListSmall.Images.SetKeyName(1, "Auto");
@@ -560,25 +555,25 @@ namespace Barette.IDE.Forms.Finance {
             // lblMontantAutre
             // 
             lblMontantAutre.AutoSize = true;
-            lblMontantAutre.Location = new System.Drawing.Point(576, 17);
+            lblMontantAutre.Location = new Point(576, 17);
             lblMontantAutre.Name = "lblMontantAutre";
-            lblMontantAutre.Size = new System.Drawing.Size(10, 13);
+            lblMontantAutre.Size = new Size(10, 13);
             lblMontantAutre.TabIndex = 23;
             lblMontantAutre.Text = "-";
             lblMontantAutre.Visible = false;
             // 
             // tcRapportType
             // 
-            tcRapportType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            tcRapportType.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             tcRapportType.Controls.Add(tpRapportTaxe);
             tcRapportType.Controls.Add(tpCompteARecevoir);
-            tcRapportType.Location = new System.Drawing.Point(390, 47);
+            tcRapportType.Location = new Point(390, 47);
             tcRapportType.Name = "tcRapportType";
             tcRapportType.SelectedIndex = 0;
-            tcRapportType.Size = new System.Drawing.Size(633, 236);
+            tcRapportType.Size = new Size(633, 236);
             tcRapportType.TabIndex = 24;
-            tcRapportType.Selected += new System.Windows.Forms.TabControlEventHandler(tcRapportType_Selected);
+            tcRapportType.Selected += new TabControlEventHandler(tcRapportType_Selected);
             // 
             // tpRapportTaxe
             // 
@@ -588,10 +583,10 @@ namespace Barette.IDE.Forms.Finance {
             tpRapportTaxe.Controls.Add(rbOr);
             tpRapportTaxe.Controls.Add(cmdEqual);
             tpRapportTaxe.Controls.Add(rbBetween);
-            tpRapportTaxe.Location = new System.Drawing.Point(4, 22);
+            tpRapportTaxe.Location = new Point(4, 22);
             tpRapportTaxe.Name = "tpRapportTaxe";
-            tpRapportTaxe.Padding = new System.Windows.Forms.Padding(3);
-            tpRapportTaxe.Size = new System.Drawing.Size(625, 210);
+            tpRapportTaxe.Padding = new Padding(3);
+            tpRapportTaxe.Size = new Size(625, 210);
             tpRapportTaxe.TabIndex = 0;
             tpRapportTaxe.Tag = "TAXE";
             tpRapportTaxe.Text = "Relevé de paiment";
@@ -599,29 +594,29 @@ namespace Barette.IDE.Forms.Finance {
             // tpCompteARecevoir
             // 
             tpCompteARecevoir.Controls.Add(mcCompteARecevoir);
-            tpCompteARecevoir.Location = new System.Drawing.Point(4, 22);
+            tpCompteARecevoir.Location = new Point(4, 22);
             tpCompteARecevoir.Name = "tpCompteARecevoir";
-            tpCompteARecevoir.Padding = new System.Windows.Forms.Padding(3);
-            tpCompteARecevoir.Size = new System.Drawing.Size(567, 210);
+            tpCompteARecevoir.Padding = new Padding(3);
+            tpCompteARecevoir.Size = new Size(567, 210);
             tpCompteARecevoir.TabIndex = 1;
             tpCompteARecevoir.Tag = "COMPTEARECEVOIR";
             tpCompteARecevoir.Text = "Compte à recevoir";
             // 
             // mcCompteARecevoir
             // 
-            mcCompteARecevoir.Location = new System.Drawing.Point(34, 27);
+            mcCompteARecevoir.Location = new Point(34, 27);
             mcCompteARecevoir.MaxSelectionCount = 1;
             mcCompteARecevoir.Name = "mcCompteARecevoir";
             mcCompteARecevoir.TabIndex = 4;
-            mcCompteARecevoir.DateChanged += new System.Windows.Forms.DateRangeEventHandler(mcCompteARecevoir_DateChanged);
+            mcCompteARecevoir.DateChanged += new DateRangeEventHandler(mcCompteARecevoir_DateChanged);
             // 
             // lblMontantAC
             // 
             lblMontantAC.AutoSize = true;
             lblMontantAC.ForeColor = System.Drawing.Color.Blue;
-            lblMontantAC.Location = new System.Drawing.Point(588, 18);
+            lblMontantAC.Location = new Point(588, 18);
             lblMontantAC.Name = "lblMontantAC";
-            lblMontantAC.Size = new System.Drawing.Size(10, 13);
+            lblMontantAC.Size = new Size(10, 13);
             lblMontantAC.TabIndex = 14;
             lblMontantAC.Text = "-";
             lblMontantAC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -638,18 +633,18 @@ namespace Barette.IDE.Forms.Finance {
             customer1.AttestationNumber1 = "";
             customer1.AttestationNumber2 = "";
             customer1.BVA = false;
-            customer1.BVADate = new System.DateTime(2005, 2, 20, 21, 27, 11, 328);
+            customer1.BVADate = new DateTime(2005, 2, 20, 21, 27, 11, 328);
             customer1.City = "";
             customer1.ClientNull = false;
             customer1.CodePostal = "   -";
             customer1.ContratNumber = "0";
-            customer1.DateAttestation1 = new System.DateTime(2011, 3, 31, 21, 12, 18, 576);
-            customer1.DateAttestation2 = new System.DateTime(2011, 3, 31, 21, 12, 18, 576);
-            customer1.DateDebutCours = new System.DateTime(2010, 3, 12, 6, 47, 55, 192);
-            customer1.DateExpiration = new System.DateTime(2010, 3, 12, 6, 47, 55, 192);
-            customer1.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
-            customer1.DateNaissance = new System.DateTime(2010, 3, 12, 6, 47, 55, 192);
-            customer1.DateTemporaire = new System.DateTime(2005, 2, 20, 21, 27, 11, 328);
+            customer1.DateAttestation1 = new DateTime(2011, 3, 31, 21, 12, 18, 576);
+            customer1.DateAttestation2 = new DateTime(2011, 3, 31, 21, 12, 18, 576);
+            customer1.DateDebutCours = new DateTime(2010, 3, 12, 6, 47, 55, 192);
+            customer1.DateExpiration = new DateTime(2010, 3, 12, 6, 47, 55, 192);
+            customer1.DateInscription = new DateTime(2003, 8, 26, 0, 0, 0, 0);
+            customer1.DateNaissance = new DateTime(2010, 3, 12, 6, 47, 55, 192);
+            customer1.DateTemporaire = new DateTime(2005, 2, 20, 21, 27, 11, 328);
             customer1.DisponibilityAlway = false;
             customer1.DisponibilityAM = false;
             customer1.DisponibilityDimanche = false;
@@ -681,19 +676,19 @@ namespace Barette.IDE.Forms.Finance {
             customer1.TypeClient = Barette.Library.Client.ProfileType.Actif;
             customer1.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
             clientControl1.Client = customer1;
-            clientControl1.Location = new System.Drawing.Point(434, 300);
+            clientControl1.Location = new Point(434, 300);
             clientControl1.Name = "clientControl1";
             clientControl1.School = null;
-            clientControl1.Size = new System.Drawing.Size(149, 152);
+            clientControl1.Size = new Size(149, 152);
             clientControl1.TabIndex = 15;
             clientControl1.Visible = false;
             // 
             // listFindResult
             // 
-            listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            listFindResult.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            listFindResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            listFindResult.Columns.AddRange(new ColumnHeader[] {
             colheadContratNumber,
             colheadName,
             colheadDate,
@@ -707,15 +702,15 @@ namespace Barette.IDE.Forms.Finance {
             colHeadTypePaiment});
             listFindResult.FullRowSelect = true;
             listFindResult.HideSelection = false;
-            listFindResult.Location = new System.Drawing.Point(8, 286);
+            listFindResult.Location = new Point(8, 286);
             listFindResult.MultiSelect = false;
             listFindResult.Name = "listFindResult";
-            listFindResult.Size = new System.Drawing.Size(1011, 226);
+            listFindResult.Size = new Size(1011, 226);
             listFindResult.SmallImageList = ImageListSmall;
             listFindResult.TabIndex = 0;
             listFindResult.UseCompatibleStateImageBehavior = false;
             listFindResult.View = System.Windows.Forms.View.Details;
-            listFindResult.Click += new System.EventHandler(listFindResult_Click);
+            listFindResult.Click += new EventHandler(listFindResult_Click);
             // 
             // colheadContratNumber
             // 
@@ -779,7 +774,7 @@ namespace Barette.IDE.Forms.Finance {
             // 
             // FormFinance
             // 
-            ClientSize = new System.Drawing.Size(1027, 518);
+            ClientSize = new Size(1027, 518);
             Controls.Add(tcRapportType);
             Controls.Add(toolBar1);
             Controls.Add(lblMontantAutre);
@@ -793,7 +788,7 @@ namespace Barette.IDE.Forms.Finance {
             Controls.Add(groupBox1);
             Name = "FormFinance";
             Text = "FormFinance";
-            Load += new System.EventHandler(FormFindClient_Load);
+            Load += new EventHandler(FormFindClient_Load);
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -1049,10 +1044,11 @@ namespace Barette.IDE.Forms.Finance {
 		/// </summary>
 		/// <param name="client"></param>
 		private void AddClientToList(Customer client, decimal solde) {
-			ListViewItem itm = new ListViewItem();
-
-			itm.Text = client.ContratNumber;
-			itm.SubItems.Add(client.FirstName + " " + client.Name);
+            ListViewItem itm = new ListViewItem
+            {
+                Text = client.ContratNumber
+            };
+            itm.SubItems.Add(client.FirstName + " " + client.Name);
 			itm.SubItems.Add("");
 			itm.SubItems.Add(client.Phone);
 			itm.SubItems.Add(client.TypeVehicule.ToString());
@@ -1148,12 +1144,14 @@ namespace Barette.IDE.Forms.Finance {
 			float leftMargin = 0;//e.MarginBounds.Left;
 			float rightMargin = e.MarginBounds.Right;
 
-			//Defini le style de l'alignement
-			StringFormat style = new StringFormat();
-			style.Alignment = StringAlignment.Near;
+            //Defini le style de l'alignement
+            StringFormat style = new StringFormat
+            {
+                Alignment = StringAlignment.Near
+            };
 
-			//Facrication de la font
-			Font printFont = new Font("Times New Roman", 12, FontStyle.Regular);
+            //Facrication de la font
+            Font printFont = new Font("Times New Roman", 12, FontStyle.Regular);
 			Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
 			Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
 
@@ -1164,8 +1162,8 @@ namespace Barette.IDE.Forms.Finance {
 				//Initialisation des variables dans le bloc header pour q'il ne le
 				//face qu'a la premiere page
 				_TotalLine = listFindResult.Items.Count;
-				_LinesPerPage = Convert.ToInt16((e.MarginBounds.Height - 40) / printFont.GetHeight(e.Graphics)); 				
-				_TotalPage = Convert.ToInt16(Decimal.Round(Convert.ToDecimal(_TotalLine) / Convert.ToDecimal(_LinesPerPage), 0));
+				_LinesPerPage = Convert.ToInt32((e.MarginBounds.Height - 40) / printFont.GetHeight(e.Graphics)); 				
+				_TotalPage = Convert.ToInt32(Decimal.Round(Convert.ToDecimal(_TotalLine) / Convert.ToDecimal(_LinesPerPage), 0));
 				if (_TotalPage == 0) _TotalPage =1;
 				
 				//Date(s) de relever : Choisi le bon type de Header a écrire
@@ -1288,12 +1286,14 @@ namespace Barette.IDE.Forms.Finance {
 			float leftMargin = 0;//e.MarginBounds.Left;
 			float rightMargin = e.MarginBounds.Right;
 
-			//Defini le style de l'alignement
-			StringFormat style = new StringFormat();
-			style.Alignment = StringAlignment.Near;
+            //Defini le style de l'alignement
+            StringFormat style = new StringFormat
+            {
+                Alignment = StringAlignment.Near
+            };
 
-			//Facrication de la font
-			Font printFont = new Font("Times New Roman", 12, FontStyle.Regular);
+            //Facrication de la font
+            Font printFont = new Font("Times New Roman", 12, FontStyle.Regular);
 			Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
 			Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
 
@@ -1304,8 +1304,8 @@ namespace Barette.IDE.Forms.Finance {
 				//Initialisation des variables dans le bloc header pour q'il ne le
 				//face qu'a la premiere page
 				_TotalLine = listFindResult.Items.Count;
-				_LinesPerPage = Convert.ToInt16((e.MarginBounds.Height - 40) / printFont.GetHeight(e.Graphics));
-				_TotalPage = Convert.ToInt16(Decimal.Round(Convert.ToDecimal(_TotalLine) / Convert.ToDecimal(_LinesPerPage), 0));
+				_LinesPerPage = Convert.ToInt32((e.MarginBounds.Height - 40) / printFont.GetHeight(e.Graphics));
+				_TotalPage = Convert.ToInt32(Decimal.Round(Convert.ToDecimal(_TotalLine) / Convert.ToDecimal(_LinesPerPage), 0));
 				if (_TotalPage == 0) _TotalPage = 1;
 
 				//Date(s) de relever : Choisi le bon type de Header a écrire
@@ -1415,11 +1415,11 @@ namespace Barette.IDE.Forms.Finance {
 		}
 		#endregion
 
-		private void FormFindClient_Load(object sender, System.EventArgs e) {
+		private void FormFindClient_Load(object sender, EventArgs e) {
 			
 		}
 
-		private void toolBar1_ButtonClick(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e) {
+		private void toolBar1_ButtonClick(object sender, ToolBarButtonClickEventArgs e) {
 			switch(e.Button.Tag.ToString()){
 				case "PRINT":
                     clientControl1.PrintDoc(Barette.Library.UserControls.Client.PrintDocumentType.InfoClient);
@@ -1453,7 +1453,7 @@ namespace Barette.IDE.Forms.Finance {
 			}
 		}
 
-		private void listFindResult_Click(object sender, System.EventArgs e) {
+		private void listFindResult_Click(object sender, EventArgs e) {
 			try{
 				Customer client = GetClient(listFindResult.SelectedItems[0].Text);
 
@@ -1463,7 +1463,7 @@ namespace Barette.IDE.Forms.Finance {
 			catch{}
 		}
 
-		private void timer1_Tick(object sender, System.EventArgs e) {
+		private void timer1_Tick(object sender, EventArgs e) {
 			if (listFindResult.SelectedItems.Count == 0){
 				tbbShowClient.Enabled = 
 					tbbShowSeance.Enabled = 
@@ -1481,29 +1481,29 @@ namespace Barette.IDE.Forms.Finance {
 				tbbTPSTVQ.Enabled = false;
 		}
 
-		private void cmdEqual_Click(object sender, System.EventArgs e) {
+		private void cmdEqual_Click(object sender, EventArgs e) {
 			mcRecu2.SelectionStart = mcRecu1.SelectionStart;
 		}
 
-		private void mcRecu1_DateChanged(object sender, System.Windows.Forms.DateRangeEventArgs e) {
+		private void mcRecu1_DateChanged(object sender, DateRangeEventArgs e) {
 			rbBetween.Checked = true;
 			if (cbAutoFind.Checked == true)
 				Find();
 		}
 
-		private void mcRecu2_DateChanged(object sender, System.Windows.Forms.DateRangeEventArgs e) {
+		private void mcRecu2_DateChanged(object sender, DateRangeEventArgs e) {
 			rbBetween.Checked = true;
 			if (cbAutoFind.Checked == true)
 				Find();
 		}
 
-		private void dtpFixeDate_ValueChanged(object sender, System.EventArgs e) {
+		private void dtpFixeDate_ValueChanged(object sender, EventArgs e) {
 			rbOr.Checked = true;
 			if (cbAutoFind.Checked == true)
 				Find();
 		}
 
-		private void cbAutoFind_CheckedChanged(object sender, System.EventArgs e) {
+		private void cbAutoFind_CheckedChanged(object sender, EventArgs e) {
 			if (cbAutoFind.Checked == true)
 				Find();			
 		}

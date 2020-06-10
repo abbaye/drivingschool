@@ -1,53 +1,51 @@
 using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 using Barette.Library.Collections;
 using Barette.Library.Client;
 
-namespace Barette.IDE.Forms.Finance {
-	/// <summary>
-	/// Description résumée de FormFinanceEtatsGlobal.
-	/// </summary>
-	public class FormFinanceEtatsGlobal : Form
+namespace Barette.IDE.Forms.Finance
+{
+    /// <summary>
+    /// Description résumée de FormFinanceEtatsGlobal.
+    /// </summary>
+    public class FormFinanceEtatsGlobal : Form
     {
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label lblTPS;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label lblTVQ;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label lblMontantExcluTaxe;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label lblMontantIncluTaxe;
-		private System.Windows.Forms.Button cmdOK;
+		private Label label4;
+		private Label lblTPS;
+		private Label label3;
+		private Label lblTVQ;
+		private Label label2;
+		private Label lblMontantExcluTaxe;
+		private Label label1;
+		private Label lblMontantIncluTaxe;
+		private Button cmdOK;
 		/// <summary>
 		/// Variable nécessaire au concepteur.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
-		private System.Windows.Forms.GroupBox gbEtatsGlobal;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label lblTotalPaiement;
-		private System.Windows.Forms.ComboBox cbYear;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Label label10;
-		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Label label16;
-		private System.Windows.Forms.Label label18;
-		private System.Windows.Forms.ComboBox cbYearMois;
-		private System.Windows.Forms.ComboBox cbMonth;
-		private System.Windows.Forms.Label lblTotalPaiementMonth;
-		private System.Windows.Forms.Label lblTPSMonth;
-		private System.Windows.Forms.Label lblTVQMonth;
-		private System.Windows.Forms.Label lblMontantExcluTaxeMonth;
-		private System.Windows.Forms.Label lblMontantIncluTaxeMonth;
+		private readonly System.ComponentModel.Container components = null;
+		private GroupBox gbEtatsGlobal;
+		private Label label5;
+		private Label lblTotalPaiement;
+		private ComboBox cbYear;
+		private Label label6;
+		private GroupBox groupBox1;
+		private Label label7;
+		private Label label8;
+		private Label label10;
+		private Label label12;
+		private Label label14;
+		private Label label16;
+		private Label label18;
+		private ComboBox cbYearMois;
+		private ComboBox cbMonth;
+		private Label lblTotalPaiementMonth;
+		private Label lblTPSMonth;
+		private Label lblTVQMonth;
+		private Label lblMontantExcluTaxeMonth;
+		private Label lblMontantIncluTaxeMonth;
 
-		private FormFinance _formFinance;
+		private readonly FormFinance _formFinance;
 
 		public FormFinanceEtatsGlobal(FormFinance finance) {
 			InitializeComponent();
@@ -76,35 +74,35 @@ namespace Barette.IDE.Forms.Finance {
 		/// </summary>
 		private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFinanceEtatsGlobal));
-            gbEtatsGlobal = new System.Windows.Forms.GroupBox();
-            label6 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
-            lblTotalPaiement = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            lblTPS = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            lblTVQ = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            lblMontantExcluTaxe = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            lblMontantIncluTaxe = new System.Windows.Forms.Label();
-            cbYear = new System.Windows.Forms.ComboBox();
-            cmdOK = new System.Windows.Forms.Button();
-            groupBox1 = new System.Windows.Forms.GroupBox();
-            label18 = new System.Windows.Forms.Label();
-            cbMonth = new System.Windows.Forms.ComboBox();
-            label7 = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            lblTotalPaiementMonth = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
-            lblTPSMonth = new System.Windows.Forms.Label();
-            label12 = new System.Windows.Forms.Label();
-            lblTVQMonth = new System.Windows.Forms.Label();
-            label14 = new System.Windows.Forms.Label();
-            lblMontantExcluTaxeMonth = new System.Windows.Forms.Label();
-            label16 = new System.Windows.Forms.Label();
-            lblMontantIncluTaxeMonth = new System.Windows.Forms.Label();
-            cbYearMois = new System.Windows.Forms.ComboBox();
+            gbEtatsGlobal = new GroupBox();
+            label6 = new Label();
+            label5 = new Label();
+            lblTotalPaiement = new Label();
+            label4 = new Label();
+            lblTPS = new Label();
+            label3 = new Label();
+            lblTVQ = new Label();
+            label2 = new Label();
+            lblMontantExcluTaxe = new Label();
+            label1 = new Label();
+            lblMontantIncluTaxe = new Label();
+            cbYear = new ComboBox();
+            cmdOK = new Button();
+            groupBox1 = new GroupBox();
+            label18 = new Label();
+            cbMonth = new ComboBox();
+            label7 = new Label();
+            label8 = new Label();
+            lblTotalPaiementMonth = new Label();
+            label10 = new Label();
+            lblTPSMonth = new Label();
+            label12 = new Label();
+            lblTVQMonth = new Label();
+            label14 = new Label();
+            lblMontantExcluTaxeMonth = new Label();
+            label16 = new Label();
+            lblMontantIncluTaxeMonth = new Label();
+            cbYearMois = new ComboBox();
             gbEtatsGlobal.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -265,18 +263,18 @@ namespace Barette.IDE.Forms.Finance {
             cbYear.Size = new System.Drawing.Size(97, 21);
             cbYear.Sorted = true;
             cbYear.TabIndex = 19;
-            cbYear.SelectedIndexChanged += new System.EventHandler(cbYear_SelectedIndexChanged);
+            cbYear.SelectedIndexChanged += new EventHandler(cbYear_SelectedIndexChanged);
             // 
             // cmdOK
             // 
-            cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdOK.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             cmdOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
             cmdOK.Location = new System.Drawing.Point(421, 216);
             cmdOK.Name = "cmdOK";
             cmdOK.Size = new System.Drawing.Size(75, 23);
             cmdOK.TabIndex = 18;
             cmdOK.Text = "OK";
-            cmdOK.Click += new System.EventHandler(cmdOK_Click);
+            cmdOK.Click += new EventHandler(cmdOK_Click);
             // 
             // groupBox1
             // 
@@ -331,7 +329,7 @@ namespace Barette.IDE.Forms.Finance {
             cbMonth.Name = "cbMonth";
             cbMonth.Size = new System.Drawing.Size(106, 21);
             cbMonth.TabIndex = 21;
-            cbMonth.SelectedIndexChanged += new System.EventHandler(cbYearMois_SelectedIndexChanged);
+            cbMonth.SelectedIndexChanged += new EventHandler(cbYearMois_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -468,7 +466,7 @@ namespace Barette.IDE.Forms.Finance {
             cbYearMois.Size = new System.Drawing.Size(106, 21);
             cbYearMois.Sorted = true;
             cbYearMois.TabIndex = 19;
-            cbYearMois.SelectedIndexChanged += new System.EventHandler(cbYearMois_SelectedIndexChanged);
+            cbYearMois.SelectedIndexChanged += new EventHandler(cbYearMois_SelectedIndexChanged);
             // 
             // FormFinanceEtatsGlobal
             // 
@@ -490,7 +488,7 @@ namespace Barette.IDE.Forms.Finance {
 		}
 		#endregion
 
-		private void cmdOK_Click(object sender, System.EventArgs e) {
+		private void cmdOK_Click(object sender, EventArgs e) {
             Close();
 		}
 
@@ -579,11 +577,11 @@ namespace Barette.IDE.Forms.Finance {
 			lblTotalPaiementMonth.Text = compteur.ToString();
 		}
 
-		private void cbYear_SelectedIndexChanged(object sender, System.EventArgs e) {
+		private void cbYear_SelectedIndexChanged(object sender, EventArgs e) {
 			CalculeInfos();
 		}
 
-		private void cbYearMois_SelectedIndexChanged(object sender, System.EventArgs e) {
+		private void cbYearMois_SelectedIndexChanged(object sender, EventArgs e) {
 			CalculeInfosMonth();
 		}
 	}

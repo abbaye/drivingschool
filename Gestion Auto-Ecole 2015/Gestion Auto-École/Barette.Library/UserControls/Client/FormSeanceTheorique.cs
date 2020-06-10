@@ -1,22 +1,20 @@
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
-
-using Barette.Library.UserControls;
 using Barette.Library.Client;
 using Barette.Library.Collections;
 
-namespace Barette.Library.UserControls.Client {
-	/// <summary>
-	/// Description résumée de FormSeanceGeneral.
-	/// </summary>
-	public class FormSeanceTheorique : System.Windows.Forms.Form {		
+namespace Barette.Library.UserControls.Client
+{
+    /// <summary>
+    /// Description résumée de FormSeanceGeneral.
+    /// </summary>
+    public class FormSeanceTheorique : Form
+    {		
 		/// <summary>
 		/// client referer
 		/// </summary>
-        private Customer _client;
+        private readonly Customer _client;
         private IContainer components;
 		private SeancePicker seancePicker12;
 		private SeancePicker seancePicker11;
@@ -47,8 +45,8 @@ namespace Barette.Library.UserControls.Client {
         private ImageList imageList1;
         private Button cmdPrint;
 
-		private EmployeCollection _ListEmploye;
-        private ClientControl _ctrlClient;
+		private readonly EmployeCollection _ListEmploye;
+        private readonly ClientControl _ctrlClient;
 
         public FormSeanceTheorique(Customer client, ClientControl ctrl, EmployeCollection ListEmploye) {
 			//
@@ -87,60 +85,60 @@ namespace Barette.Library.UserControls.Client {
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeanceTheorique));
-            Barette.Library.Client.Seance seance1 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance2 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance3 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance4 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance5 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance6 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance7 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance8 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance9 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance10 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance11 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance12 = new Barette.Library.Client.Seance();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            pictureBox2 = new System.Windows.Forms.PictureBox();
-            pictureBox3 = new System.Windows.Forms.PictureBox();
-            pictureBox4 = new System.Windows.Forms.PictureBox();
-            pictureBox5 = new System.Windows.Forms.PictureBox();
-            pictureBox6 = new System.Windows.Forms.PictureBox();
-            pictureBox7 = new System.Windows.Forms.PictureBox();
-            pictureBox8 = new System.Windows.Forms.PictureBox();
-            pictureBox9 = new System.Windows.Forms.PictureBox();
-            pictureBox10 = new System.Windows.Forms.PictureBox();
-            pictureBox11 = new System.Windows.Forms.PictureBox();
-            pictureBox12 = new System.Windows.Forms.PictureBox();
-            cmdAnnuler = new System.Windows.Forms.Button();
-            cmdOK = new System.Windows.Forms.Button();
-            seancePicker12 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker11 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker10 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker9 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker8 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker7 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker6 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker5 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker4 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker3 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker2 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker1 = new Barette.Library.UserControls.SeancePicker();
-            imageList1 = new System.Windows.Forms.ImageList(components);
-            cmdPrint = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox12)).BeginInit();
+            components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(FormSeanceTheorique));
+            Seance seance1 = new Seance();
+            Seance seance2 = new Seance();
+            Seance seance3 = new Seance();
+            Seance seance4 = new Seance();
+            Seance seance5 = new Seance();
+            Seance seance6 = new Seance();
+            Seance seance7 = new Seance();
+            Seance seance8 = new Seance();
+            Seance seance9 = new Seance();
+            Seance seance10 = new Seance();
+            Seance seance11 = new Seance();
+            Seance seance12 = new Seance();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            pictureBox7 = new PictureBox();
+            pictureBox8 = new PictureBox();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            pictureBox11 = new PictureBox();
+            pictureBox12 = new PictureBox();
+            cmdAnnuler = new Button();
+            cmdOK = new Button();
+            seancePicker12 = new SeancePicker();
+            seancePicker11 = new SeancePicker();
+            seancePicker10 = new SeancePicker();
+            seancePicker9 = new SeancePicker();
+            seancePicker8 = new SeancePicker();
+            seancePicker7 = new SeancePicker();
+            seancePicker6 = new SeancePicker();
+            seancePicker5 = new SeancePicker();
+            seancePicker4 = new SeancePicker();
+            seancePicker3 = new SeancePicker();
+            seancePicker2 = new SeancePicker();
+            seancePicker1 = new SeancePicker();
+            imageList1 = new ImageList(components);
+            cmdPrint = new Button();
+            ((ISupportInitialize)(pictureBox1)).BeginInit();
+            ((ISupportInitialize)(pictureBox2)).BeginInit();
+            ((ISupportInitialize)(pictureBox3)).BeginInit();
+            ((ISupportInitialize)(pictureBox4)).BeginInit();
+            ((ISupportInitialize)(pictureBox5)).BeginInit();
+            ((ISupportInitialize)(pictureBox6)).BeginInit();
+            ((ISupportInitialize)(pictureBox7)).BeginInit();
+            ((ISupportInitialize)(pictureBox8)).BeginInit();
+            ((ISupportInitialize)(pictureBox9)).BeginInit();
+            ((ISupportInitialize)(pictureBox10)).BeginInit();
+            ((ISupportInitialize)(pictureBox11)).BeginInit();
+            ((ISupportInitialize)(pictureBox12)).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -253,7 +251,7 @@ namespace Barette.Library.UserControls.Client {
             // 
             // cmdAnnuler
             // 
-            cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAnnuler.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             cmdAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             cmdAnnuler.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
             cmdAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -263,11 +261,11 @@ namespace Barette.Library.UserControls.Client {
             cmdAnnuler.TabIndex = 44;
             cmdAnnuler.Text = "Annuler";
             cmdAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            cmdAnnuler.Click += new System.EventHandler(button2_Click);
+            cmdAnnuler.Click += new EventHandler(button2_Click);
             // 
             // cmdOK
             // 
-            cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdOK.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             cmdOK.Image = global::Barette.Library.Properties.Resources.accept_icon;
             cmdOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -277,31 +275,31 @@ namespace Barette.Library.UserControls.Client {
             cmdOK.TabIndex = 43;
             cmdOK.Text = "Appliquer";
             cmdOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            cmdOK.Click += new System.EventHandler(cmdOK_Click);
+            cmdOK.Click += new EventHandler(cmdOK_Click);
             // 
             // seancePicker12
             // 
             seancePicker12.Absence = false;
             seancePicker12.Checked = false;
             seancePicker12.Code = "";
-            seancePicker12.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 666);
+            seancePicker12.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 666);
             seancePicker12.DateModifiedChecked = false;
             seancePicker12.Employer = "";
             seancePicker12.Location = new System.Drawing.Point(53, 468);
-            seancePicker12.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            seancePicker12.Margin = new Padding(3, 1, 3, 3);
             seancePicker12.Name = "seancePicker12";
             seancePicker12.NumeroSeance = 12;
             seance1.Absence = false;
             seance1.Active = false;
             seance1.Code = "";
-            seance1.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 697);
-            seance1.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 666);
+            seance1.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 697);
+            seance1.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 666);
             seance1.DateModifiedChecked = false;
             seance1.Employer = "";
             seance1.Montant = "";
             seance1.SceanceNumber = 12;
             seancePicker12.Seance = seance1;
-            seancePicker12.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 697);
+            seancePicker12.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 697);
             seancePicker12.Size = new System.Drawing.Size(269, 25);
             seancePicker12.TabIndex = 29;
             // 
@@ -310,24 +308,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker11.Absence = false;
             seancePicker11.Checked = false;
             seancePicker11.Code = "";
-            seancePicker11.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 666);
+            seancePicker11.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 666);
             seancePicker11.DateModifiedChecked = false;
             seancePicker11.Employer = "";
             seancePicker11.Location = new System.Drawing.Point(53, 427);
-            seancePicker11.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            seancePicker11.Margin = new Padding(3, 1, 3, 3);
             seancePicker11.Name = "seancePicker11";
             seancePicker11.NumeroSeance = 11;
             seance2.Absence = false;
             seance2.Active = false;
             seance2.Code = "";
-            seance2.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 697);
-            seance2.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 666);
+            seance2.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 697);
+            seance2.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 666);
             seance2.DateModifiedChecked = false;
             seance2.Employer = "";
             seance2.Montant = "";
             seance2.SceanceNumber = 11;
             seancePicker11.Seance = seance2;
-            seancePicker11.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 697);
+            seancePicker11.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 697);
             seancePicker11.Size = new System.Drawing.Size(269, 25);
             seancePicker11.TabIndex = 28;
             // 
@@ -336,24 +334,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker10.Absence = false;
             seancePicker10.Checked = false;
             seancePicker10.Code = "";
-            seancePicker10.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker10.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker10.DateModifiedChecked = false;
             seancePicker10.Employer = "";
             seancePicker10.Location = new System.Drawing.Point(53, 386);
-            seancePicker10.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            seancePicker10.Margin = new Padding(3, 1, 3, 3);
             seancePicker10.Name = "seancePicker10";
             seancePicker10.NumeroSeance = 10;
             seance3.Absence = false;
             seance3.Active = false;
             seance3.Code = "";
-            seance3.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 713);
-            seance3.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance3.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 713);
+            seance3.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance3.DateModifiedChecked = false;
             seance3.Employer = "";
             seance3.Montant = "";
             seance3.SceanceNumber = 10;
             seancePicker10.Seance = seance3;
-            seancePicker10.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 713);
+            seancePicker10.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 713);
             seancePicker10.Size = new System.Drawing.Size(269, 25);
             seancePicker10.TabIndex = 27;
             // 
@@ -362,24 +360,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker9.Absence = false;
             seancePicker9.Checked = false;
             seancePicker9.Code = "";
-            seancePicker9.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker9.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker9.DateModifiedChecked = false;
             seancePicker9.Employer = "";
             seancePicker9.Location = new System.Drawing.Point(53, 345);
-            seancePicker9.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
+            seancePicker9.Margin = new Padding(3, 1, 3, 2);
             seancePicker9.Name = "seancePicker9";
             seancePicker9.NumeroSeance = 9;
             seance4.Absence = false;
             seance4.Active = false;
             seance4.Code = "";
-            seance4.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 713);
-            seance4.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance4.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 713);
+            seance4.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance4.DateModifiedChecked = false;
             seance4.Employer = "";
             seance4.Montant = "";
             seance4.SceanceNumber = 9;
             seancePicker9.Seance = seance4;
-            seancePicker9.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 713);
+            seancePicker9.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 713);
             seancePicker9.Size = new System.Drawing.Size(269, 25);
             seancePicker9.TabIndex = 26;
             // 
@@ -388,24 +386,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker8.Absence = false;
             seancePicker8.Checked = false;
             seancePicker8.Code = "";
-            seancePicker8.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker8.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker8.DateModifiedChecked = false;
             seancePicker8.Employer = "";
             seancePicker8.Location = new System.Drawing.Point(53, 304);
-            seancePicker8.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
+            seancePicker8.Margin = new Padding(3, 1, 3, 2);
             seancePicker8.Name = "seancePicker8";
             seancePicker8.NumeroSeance = 8;
             seance5.Absence = false;
             seance5.Active = false;
             seance5.Code = "";
-            seance5.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 713);
-            seance5.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance5.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 713);
+            seance5.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance5.DateModifiedChecked = false;
             seance5.Employer = "";
             seance5.Montant = "";
             seance5.SceanceNumber = 8;
             seancePicker8.Seance = seance5;
-            seancePicker8.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 713);
+            seancePicker8.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 713);
             seancePicker8.Size = new System.Drawing.Size(269, 25);
             seancePicker8.TabIndex = 25;
             // 
@@ -414,24 +412,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker7.Absence = false;
             seancePicker7.Checked = false;
             seancePicker7.Code = "";
-            seancePicker7.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker7.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker7.DateModifiedChecked = false;
             seancePicker7.Employer = "";
             seancePicker7.Location = new System.Drawing.Point(53, 263);
-            seancePicker7.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
+            seancePicker7.Margin = new Padding(3, 1, 3, 2);
             seancePicker7.Name = "seancePicker7";
             seancePicker7.NumeroSeance = 7;
             seance6.Absence = false;
             seance6.Active = false;
             seance6.Code = "";
-            seance6.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 713);
-            seance6.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance6.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 713);
+            seance6.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance6.DateModifiedChecked = false;
             seance6.Employer = "";
             seance6.Montant = "";
             seance6.SceanceNumber = 7;
             seancePicker7.Seance = seance6;
-            seancePicker7.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 713);
+            seancePicker7.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 713);
             seancePicker7.Size = new System.Drawing.Size(269, 25);
             seancePicker7.TabIndex = 24;
             // 
@@ -440,24 +438,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker6.Absence = false;
             seancePicker6.Checked = false;
             seancePicker6.Code = "";
-            seancePicker6.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker6.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker6.DateModifiedChecked = false;
             seancePicker6.Employer = "";
             seancePicker6.Location = new System.Drawing.Point(53, 222);
-            seancePicker6.Margin = new System.Windows.Forms.Padding(3, 1, 3, 2);
+            seancePicker6.Margin = new Padding(3, 1, 3, 2);
             seancePicker6.Name = "seancePicker6";
             seancePicker6.NumeroSeance = 6;
             seance7.Absence = false;
             seance7.Active = false;
             seance7.Code = "";
-            seance7.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 728);
-            seance7.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance7.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 728);
+            seance7.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance7.DateModifiedChecked = false;
             seance7.Employer = "";
             seance7.Montant = "";
             seance7.SceanceNumber = 6;
             seancePicker6.Seance = seance7;
-            seancePicker6.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 728);
+            seancePicker6.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 728);
             seancePicker6.Size = new System.Drawing.Size(269, 25);
             seancePicker6.TabIndex = 23;
             // 
@@ -466,24 +464,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker5.Absence = false;
             seancePicker5.Checked = false;
             seancePicker5.Code = "";
-            seancePicker5.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker5.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker5.DateModifiedChecked = false;
             seancePicker5.Employer = "";
             seancePicker5.Location = new System.Drawing.Point(53, 181);
-            seancePicker5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            seancePicker5.Margin = new Padding(3, 3, 3, 2);
             seancePicker5.Name = "seancePicker5";
             seancePicker5.NumeroSeance = 5;
             seance8.Absence = false;
             seance8.Active = false;
             seance8.Code = "";
-            seance8.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 728);
-            seance8.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance8.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 728);
+            seance8.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance8.DateModifiedChecked = false;
             seance8.Employer = "";
             seance8.Montant = "";
             seance8.SceanceNumber = 5;
             seancePicker5.Seance = seance8;
-            seancePicker5.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 728);
+            seancePicker5.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 728);
             seancePicker5.Size = new System.Drawing.Size(269, 25);
             seancePicker5.TabIndex = 22;
             // 
@@ -492,24 +490,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker4.Absence = false;
             seancePicker4.Checked = false;
             seancePicker4.Code = "";
-            seancePicker4.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker4.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker4.DateModifiedChecked = false;
             seancePicker4.Employer = "";
             seancePicker4.Location = new System.Drawing.Point(53, 140);
-            seancePicker4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            seancePicker4.Margin = new Padding(3, 3, 3, 2);
             seancePicker4.Name = "seancePicker4";
             seancePicker4.NumeroSeance = 4;
             seance9.Absence = false;
             seance9.Active = false;
             seance9.Code = "";
-            seance9.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 728);
-            seance9.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance9.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 728);
+            seance9.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance9.DateModifiedChecked = false;
             seance9.Employer = "";
             seance9.Montant = "";
             seance9.SceanceNumber = 4;
             seancePicker4.Seance = seance9;
-            seancePicker4.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 728);
+            seancePicker4.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 728);
             seancePicker4.Size = new System.Drawing.Size(269, 25);
             seancePicker4.TabIndex = 21;
             // 
@@ -518,24 +516,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker3.Absence = false;
             seancePicker3.Checked = false;
             seancePicker3.Code = "";
-            seancePicker3.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker3.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker3.DateModifiedChecked = false;
             seancePicker3.Employer = "";
             seancePicker3.Location = new System.Drawing.Point(53, 99);
-            seancePicker3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            seancePicker3.Margin = new Padding(3, 3, 3, 2);
             seancePicker3.Name = "seancePicker3";
             seancePicker3.NumeroSeance = 3;
             seance10.Absence = false;
             seance10.Active = false;
             seance10.Code = "";
-            seance10.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 728);
-            seance10.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance10.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 728);
+            seance10.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance10.DateModifiedChecked = false;
             seance10.Employer = "";
             seance10.Montant = "";
             seance10.SceanceNumber = 3;
             seancePicker3.Seance = seance10;
-            seancePicker3.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 728);
+            seancePicker3.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 728);
             seancePicker3.Size = new System.Drawing.Size(269, 25);
             seancePicker3.TabIndex = 20;
             // 
@@ -544,7 +542,7 @@ namespace Barette.Library.UserControls.Client {
             seancePicker2.Absence = false;
             seancePicker2.Checked = false;
             seancePicker2.Code = "";
-            seancePicker2.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker2.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker2.DateModifiedChecked = false;
             seancePicker2.Employer = "";
             seancePicker2.Location = new System.Drawing.Point(53, 58);
@@ -553,14 +551,14 @@ namespace Barette.Library.UserControls.Client {
             seance11.Absence = false;
             seance11.Active = false;
             seance11.Code = "";
-            seance11.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 744);
-            seance11.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance11.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 744);
+            seance11.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance11.DateModifiedChecked = false;
             seance11.Employer = "";
             seance11.Montant = "";
             seance11.SceanceNumber = 2;
             seancePicker2.Seance = seance11;
-            seancePicker2.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 744);
+            seancePicker2.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 744);
             seancePicker2.Size = new System.Drawing.Size(269, 25);
             seancePicker2.TabIndex = 19;
             // 
@@ -569,7 +567,7 @@ namespace Barette.Library.UserControls.Client {
             seancePicker1.Absence = false;
             seancePicker1.Checked = false;
             seancePicker1.Code = "";
-            seancePicker1.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seancePicker1.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seancePicker1.DateModifiedChecked = false;
             seancePicker1.Employer = "";
             seancePicker1.Location = new System.Drawing.Point(53, 17);
@@ -578,20 +576,20 @@ namespace Barette.Library.UserControls.Client {
             seance12.Absence = false;
             seance12.Active = false;
             seance12.Code = "";
-            seance12.DateHeure = new System.DateTime(2010, 3, 13, 8, 39, 43, 744);
-            seance12.DateModified = new System.DateTime(2010, 3, 13, 8, 39, 43, 681);
+            seance12.DateHeure = new DateTime(2010, 3, 13, 8, 39, 43, 744);
+            seance12.DateModified = new DateTime(2010, 3, 13, 8, 39, 43, 681);
             seance12.DateModifiedChecked = false;
             seance12.Employer = "";
             seance12.Montant = "";
             seance12.SceanceNumber = 1;
             seancePicker1.Seance = seance12;
-            seancePicker1.SeanceDateTime = new System.DateTime(2010, 3, 13, 8, 39, 43, 744);
+            seancePicker1.SeanceDateTime = new DateTime(2010, 3, 13, 8, 39, 43, 744);
             seancePicker1.Size = new System.Drawing.Size(269, 25);
             seancePicker1.TabIndex = 17;
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             // 
@@ -603,7 +601,7 @@ namespace Barette.Library.UserControls.Client {
             cmdPrint.Name = "cmdPrint";
             cmdPrint.Size = new System.Drawing.Size(51, 46);
             cmdPrint.TabIndex = 45;
-            cmdPrint.Click += new System.EventHandler(cmdPrint_Click);
+            cmdPrint.Click += new EventHandler(cmdPrint_Click);
             // 
             // FormSeanceTheorique
             // 
@@ -643,24 +641,24 @@ namespace Barette.Library.UserControls.Client {
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Séance de cours théorique : Automobile";
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox12)).EndInit();
+            ((ISupportInitialize)(pictureBox1)).EndInit();
+            ((ISupportInitialize)(pictureBox2)).EndInit();
+            ((ISupportInitialize)(pictureBox3)).EndInit();
+            ((ISupportInitialize)(pictureBox4)).EndInit();
+            ((ISupportInitialize)(pictureBox5)).EndInit();
+            ((ISupportInitialize)(pictureBox6)).EndInit();
+            ((ISupportInitialize)(pictureBox7)).EndInit();
+            ((ISupportInitialize)(pictureBox8)).EndInit();
+            ((ISupportInitialize)(pictureBox9)).EndInit();
+            ((ISupportInitialize)(pictureBox10)).EndInit();
+            ((ISupportInitialize)(pictureBox11)).EndInit();
+            ((ISupportInitialize)(pictureBox12)).EndInit();
             ResumeLayout(false);
 
 		}
 		#endregion
 
-		private void button2_Click(object sender, System.EventArgs e) {
+		private void button2_Click(object sender, EventArgs e) {
             Close();
 		}
 
@@ -669,7 +667,7 @@ namespace Barette.Library.UserControls.Client {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void cmdOK_Click(object sender, System.EventArgs e) 
+		private void cmdOK_Click(object sender, EventArgs e) 
 		{
             //Suppression des seance en cours
             _client.SeancesTheorique.Clear();

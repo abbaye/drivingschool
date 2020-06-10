@@ -16,11 +16,9 @@ using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.Xml.Serialization;
 using Microsoft.Win32;
 using Crownwood.Magic.Menus;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Docking;
 using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Docking
@@ -78,7 +76,7 @@ namespace Crownwood.Magic.Docking
         public delegate void ContentHandler(Content c, EventArgs cea);
         public delegate void ContentHidingHandler(Content c, CancelEventArgs cea);
         public delegate void ContextMenuHandler(PopupMenu pm, CancelEventArgs cea);
-		public delegate void TabControlCreatedHandler(Magic.Controls.TabControl tabControl);
+		public delegate void TabControlCreatedHandler(Controls.TabControl tabControl);
 		public delegate void SaveCustomConfigHandler(XmlTextWriter xmlOut);
         public delegate void LoadCustomConfigHandler(XmlTextReader xmlIn);
 
@@ -638,12 +636,14 @@ namespace Crownwood.Magic.Docking
             ValuesFromState(zoneState, out ds, out direction);
 
             // Create a new ZoneSequence which can host Content
-            ZoneSequence zs = new ZoneSequence(this, zoneState, _visualStyle, direction, _zoneMinMax);
+            ZoneSequence zs = new ZoneSequence(this, zoneState, _visualStyle, direction, _zoneMinMax)
+            {
 
-            // Set the appropriate docking style
-            zs.Dock = ds;
+                // Set the appropriate docking style
+                Dock = ds
+            };
 
-			if (destination != null)
+            if (destination != null)
 			{
 				// Add this Zone to the display
 				destination.Controls.Add(zs);
@@ -694,17 +694,19 @@ namespace Crownwood.Magic.Docking
 			{
 			    // Content is not in the docked state
 			    c.Docked = false;
-			
-				// destination a new floating form
-				destination = new FloatingForm(this, z, new ContextHandler(OnShowContextMenu));
 
-				// Define its location
-				destination.Location = c.DisplayLocation;
-				
-				// ...and its size, add the height of the caption bar to the requested content size
-				destination.Size = new Size(c.FloatingSize.Width, 
-				                            c.FloatingSize.Height + SystemInformation.ToolWindowCaptionHeight);
-			}
+                // destination a new floating form
+                destination = new FloatingForm(this, z, new ContextHandler(OnShowContextMenu))
+                {
+
+                    // Define its location
+                    Location = c.DisplayLocation,
+
+                    // ...and its size, add the height of the caption bar to the requested content size
+                    Size = new Size(c.FloatingSize.Width,
+                                            c.FloatingSize.Height + SystemInformation.ToolWindowCaptionHeight)
+                };
+            }
 			
             // Add the Window to the Zone
             z.Windows.Add(w);
@@ -1096,13 +1098,15 @@ namespace Crownwood.Magic.Docking
 
 		public void SaveConfigToStream(Stream stream, Encoding encoding)
 		{
-			XmlTextWriter xmlOut = new XmlTextWriter(stream, encoding); 
+            XmlTextWriter xmlOut = new XmlTextWriter(stream, encoding)
+            {
 
-			// Use indenting for readability
-			xmlOut.Formatting = Formatting.Indented;
-			
-			// Always begin file with identification and warning
-			xmlOut.WriteStartDocument();
+                // Use indenting for readability
+                Formatting = Formatting.Indented
+            };
+
+            // Always begin file with identification and warning
+            xmlOut.WriteStartDocument();
 			xmlOut.WriteComment(" Magic, The User Interface library for .NET (www.dotnetmagic.com) ");
 			xmlOut.WriteComment(" Modifying this generated file will probably render it invalid ");
 
@@ -1196,13 +1200,15 @@ namespace Crownwood.Magic.Docking
 
 		public void LoadConfigFromStream(Stream stream)
 		{
-			XmlTextReader xmlIn = new XmlTextReader(stream); 
+            XmlTextReader xmlIn = new XmlTextReader(stream)
+            {
 
-			// Ignore whitespace, not interested
-			xmlIn.WhitespaceHandling = WhitespaceHandling.None;
+                // Ignore whitespace, not interested
+                WhitespaceHandling = WhitespaceHandling.None
+            };
 
-			// Moves the reader to the root element.
-			xmlIn.MoveToContent();
+            // Moves the reader to the root element.
+            xmlIn.MoveToContent();
 
 			// Double check this has the correct element name
 			if (xmlIn.Name != "DockingConfig")
@@ -1380,7 +1386,7 @@ namespace Crownwood.Magic.Docking
             }
         }
 
-		public virtual void OnTabControlCreated(Magic.Controls.TabControl tabControl)
+		public virtual void OnTabControlCreated(Controls.TabControl tabControl)
 		{ 
 			// Notify interested parties about creation of a new TabControl instance
 			if (TabControlCreated != null)
@@ -1939,11 +1945,13 @@ namespace Crownwood.Magic.Docking
 			// Create a context menu entry per Content
 			foreach(Content t in temp)
 			{
-				MenuCommand mc = new MenuCommand(t.Title, new EventHandler(OnToggleContentVisibility));
-				mc.Checked = t.Visible;
-				mc.Tag = t;
+                MenuCommand mc = new MenuCommand(t.Title, new EventHandler(OnToggleContentVisibility))
+                {
+                    Checked = t.Visible,
+                    Tag = t
+                };
 
-				context.MenuCommands.Add(mc);
+                context.MenuCommands.Add(mc);
 			}
 
 			// Add a separator 

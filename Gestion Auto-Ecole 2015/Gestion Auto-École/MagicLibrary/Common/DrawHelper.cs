@@ -366,7 +366,7 @@ namespace Crownwood.Magic.Common
                 // Define the area we are allowed to draw into
                 Gdi32.SelectClipRgn(hDC, newRegion);
 
-                Win32.RECT rectBox = new Win32.RECT();
+                RECT rectBox = new RECT();
 				 
                 // Get the smallest rectangle that encloses region
                 Gdi32.GetClipBox(hDC, ref rectBox);
@@ -400,11 +400,13 @@ namespace Crownwood.Magic.Common
 
         protected static IntPtr CreateRectangleRegion(Rectangle rect, int indent)
         {
-            Win32.RECT newWinRect = new Win32.RECT();
-            newWinRect.left = rect.Left;
-            newWinRect.top = rect.Top;
-            newWinRect.right = rect.Right;
-            newWinRect.bottom = rect.Bottom;
+            RECT newWinRect = new RECT
+            {
+                left = rect.Left,
+                top = rect.Top,
+                right = rect.Right,
+                bottom = rect.Bottom
+            };
 
             // Create region for whole of the new rectangle
             IntPtr newOuter = Gdi32.CreateRectRgnIndirect(ref newWinRect);
@@ -421,11 +423,13 @@ namespace Crownwood.Magic.Common
             // Create region for the unwanted inside of the new rectangle
             IntPtr newInner = Gdi32.CreateRectRgnIndirect(ref newWinRect);
 
-            Win32.RECT emptyWinRect = new Win32.RECT();
-            emptyWinRect.left = 0;
-            emptyWinRect.top = 0;
-            emptyWinRect.right = 0;
-            emptyWinRect.bottom = 0;
+            RECT emptyWinRect = new RECT
+            {
+                left = 0,
+                top = 0,
+                right = 0,
+                bottom = 0
+            };
 
             // Create a destination region
             IntPtr newRegion = Gdi32.CreateRectRgnIndirect(ref emptyWinRect);
@@ -459,10 +463,11 @@ namespace Crownwood.Magic.Common
 
                 IntPtr hBitmap = bitmap.GetHbitmap();
 
-                Win32.LOGBRUSH brush = new Win32.LOGBRUSH();
-
-                brush.lbStyle = (uint)Win32.BrushStyles.BS_PATTERN;
-                brush.lbHatch = (uint)hBitmap;
+                LOGBRUSH brush = new LOGBRUSH
+                {
+                    lbStyle = (uint)Win32.BrushStyles.BS_PATTERN,
+                    lbHatch = (uint)hBitmap
+                };
 
                 _halfToneBrush = Gdi32.CreateBrushIndirect(ref brush);
             }

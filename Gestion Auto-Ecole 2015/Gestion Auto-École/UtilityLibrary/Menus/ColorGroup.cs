@@ -1,14 +1,13 @@
-using System;
 using System.Drawing;
 using UtilityLibrary.General;
 
 namespace UtilityLibrary.Menus
 {
-	/// <summary>
-	/// Summary description for ColorGroup.
-	/// Helper class to get VSNet IDE colors
-	/// </summary>
-	public class ColorGroup 
+    /// <summary>
+    /// Summary description for ColorGroup.
+    /// Helper class to get VSNet IDE colors
+    /// </summary>
+    public class ColorGroup 
 	{
 		public ColorGroup(Color bgcolor, Color stripecolor, Color selectioncolor, 
 					Color bordercolor, Color darkselectioncolor)
@@ -20,11 +19,11 @@ namespace UtilityLibrary.Menus
 			this.darkselectioncolor = darkselectioncolor;
 		}
 
-		Color bgcolor;
-		Color stripecolor;
-		Color selectioncolor;
-		Color bordercolor;
-		Color darkselectioncolor;
+        readonly Color bgcolor;
+        readonly Color stripecolor;
+        readonly Color selectioncolor;
+        readonly Color bordercolor;
+        readonly Color darkselectioncolor;
 
 		public Color bgColor
 		{

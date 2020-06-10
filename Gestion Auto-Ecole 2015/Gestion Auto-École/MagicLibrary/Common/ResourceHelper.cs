@@ -107,10 +107,12 @@ namespace Crownwood.Magic.Common
                                                    Point transparentPixel)
         {
             // Create storage for bitmap strip
-            ImageList images = new ImageList();
+            ImageList images = new ImageList
+            {
 
-            // Define the size of images we supply
-            images.ImageSize = imageSize;
+                // Define the size of images we supply
+                ImageSize = imageSize
+            };
 
             // Get the assembly that contains the bitmap resource
             Assembly myAssembly = Assembly.GetAssembly(assemblyType);

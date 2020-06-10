@@ -1,11 +1,10 @@
-using System;
 using System.Drawing;
 using System.Windows.Forms;
 using UtilityLibrary.Menus;
 
 namespace UtilityLibrary.Collections
 {
-	public class MenuCommandCollection : CollectionWithEvents
+    public class MenuCommandCollection : CollectionWithEvents
 	{
 		// Instance fields
 		protected string _extraText;

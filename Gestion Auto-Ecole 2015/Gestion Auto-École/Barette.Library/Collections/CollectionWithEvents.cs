@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
-using System.Xml.Serialization;
 
 namespace Barette.Library.Collections
 {
-	public class CollectionWithEvents : CollectionBase
+    public class CollectionWithEvents : CollectionBase
 	{
 		// Declare the event signatures
 		public delegate void CollectionClear();

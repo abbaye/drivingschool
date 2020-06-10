@@ -1,39 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.IO; 
+using System.IO;
 using System.Windows.Forms;
 
 using Barette.Library;
 using Barette.Library.Client;
 using Barette.Library.Collections;
 
-namespace Barette.IDE.Forms.GestionGroup {
+namespace Barette.IDE.Forms.GestionGroup
+{
     public partial class FormGestionGroupe : Form {
 
         /// <summary>
         /// List de groupe d'élèves
         /// </summary>
-        private List<StudentGroup> _StudentGroup;
+        private readonly List<StudentGroup> _StudentGroup;
 
         /// <summary>
         /// List des clients
         /// </summary>
-        private CustomerCollection _ClientList;
+        private readonly CustomerCollection _ClientList;
 
         /// <summary>
         /// Acces vers la form principale.
         /// </summary>
-        private FormMain _FormMain;
+        private readonly FormMain _FormMain;
 
         /// <summary>
         /// Liste d'employer
         /// </summary>
-        private EmployeCollection _EmployerList;
+        private readonly EmployeCollection _EmployerList;
 
         //Variable global privé pour l'impression sur plusieurs pages
         //c<est variable doivent etre obligatoirement global ou dans une classe statique...
@@ -98,8 +96,10 @@ namespace Barette.IDE.Forms.GestionGroup {
             PrintRelever.DefaultPageSettings.Landscape = true;
 
 #if DEBUG
-            PrintPreviewDialog prev = new PrintPreviewDialog();
-            prev.Document = PrintRelever;
+            PrintPreviewDialog prev = new PrintPreviewDialog
+            {
+                Document = PrintRelever
+            };
             prev.ShowDialog();
 
 #else
@@ -195,9 +195,10 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
             ListGroup.Items.Clear();
 
             foreach (StudentGroup group in _StudentGroup) {
-                itm = new ListViewItem();
-
-                itm.Text = group.GroupeNumber.ToString();
+                itm = new ListViewItem
+                {
+                    Text = group.GroupeNumber.ToString()
+                };
                 itm.SubItems.Add(group.Name);
                 itm.SubItems.Add(GetNbEleve(group.GroupeNumber).ToString());
                 itm.SubItems.Add(group.Type.ToString());
@@ -223,7 +224,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
         private int GetNbEleve(int NumeroGroupe) {            
             int total = (from v in _ClientList.Cast<Customer>()
                          where v.NumeroGroupe == NumeroGroupe
-                         select v).Count<Customer>();
+                         select v).Count();
 
             return total;
         }
@@ -234,9 +235,10 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
         /// </summary>
         /// <param name="client"></param>
         private void AddClientToList(Customer client) {
-            ListViewItem itm = new ListViewItem();
-
-            itm.Text = client.ContratNumber;
+            ListViewItem itm = new ListViewItem
+            {
+                Text = client.ContratNumber
+            };
             itm.SubItems.Add(client.DateInscription.ToShortDateString());
 
             itm.SubItems.Add(client.FirstName + " " + client.Name);
@@ -421,8 +423,10 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
             float leftMargin = 0;//e.MarginBounds.Left;
 
             //Defini le style de l'alignement
-            StringFormat style = new StringFormat();
-            style.Alignment = StringAlignment.Near;
+            StringFormat style = new StringFormat
+            {
+                Alignment = StringAlignment.Near
+            };
 
             //Facrication de la font
             Font printFont = new Font("Times New Roman", 8, FontStyle.Regular);
@@ -441,8 +445,8 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
 
                 //Initialisation des variables dans le bloc header pour q'il ne le face qu'a la premiere page
                 _TotalLine = listFindResult.Items.Count;
-                _LinesPerPage = Convert.ToInt16((e.MarginBounds.Height - 30) / printFont.GetHeight(e.Graphics));
-                _TotalPage = Convert.ToInt16(Decimal.Round(Convert.ToDecimal(_TotalLine) / Convert.ToDecimal(_LinesPerPage), 0));
+                _LinesPerPage = Convert.ToInt32((e.MarginBounds.Height - 30) / printFont.GetHeight(e.Graphics));
+                _TotalPage = Convert.ToInt32(Decimal.Round(Convert.ToDecimal(_TotalLine) / Convert.ToDecimal(_LinesPerPage), 0));
 
                 if (_TotalLine > 41) _TotalPage += 1;
 

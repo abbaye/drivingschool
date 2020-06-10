@@ -71,14 +71,14 @@ namespace ICSharpCode.SharpZipLib.Core
 			exclusions_ = new ArrayList();
 			Compile();
 		}
-		#endregion
+        #endregion
 
-		/// <summary>
-		/// Test a string to see if it is a valid regular expression.
-		/// </summary>
-		/// <param name="expression">The expression to test.</param>
-		/// <returns>True if expression is a valid <see cref="System.Text.RegularExpressions.Regex"/> false otherwise.</returns>
-		public static bool IsValidExpression(string expression)
+        /// <summary>
+        /// Test a string to see if it is a valid regular expression.
+        /// </summary>
+        /// <param name="expression">The expression to test.</param>
+        /// <returns>True if expression is a valid <see cref="Regex"/> false otherwise.</returns>
+        public static bool IsValidExpression(string expression)
 		{
 			bool result = true;
 			try {
@@ -281,10 +281,10 @@ namespace ICSharpCode.SharpZipLib.Core
 			}
 		}
 
-		#region Instance Fields
-		string filter_;
-		ArrayList inclusions_;
-		ArrayList exclusions_;
+        #region Instance Fields
+        readonly string filter_;
+        readonly ArrayList inclusions_;
+        readonly ArrayList exclusions_;
 		#endregion
 	}
 }

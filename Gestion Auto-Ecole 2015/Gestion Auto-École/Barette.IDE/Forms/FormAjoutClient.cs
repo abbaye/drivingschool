@@ -1,17 +1,11 @@
 using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
-
-using System.Xml;
-using System.IO;
-using System.Text;
 
 using Barette.Library.Client;
 using Barette.Library;
 
-namespace Barette.IDE.Forms {
+namespace Barette.IDE.Forms
+{
     /// <summary>
     /// Description résumée de FormAjoutClient.
     /// </summary>
@@ -20,17 +14,17 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Fenetre principal
         /// </summary>
-        private FormClients _formClients = null;
-        private SchoolInfo _infoEcole = null;
-        private Config _AppConfig = null;
+        private readonly FormClients _formClients = null;
+        private readonly SchoolInfo _infoEcole = null;
+        private readonly Config _AppConfig = null;
 
-        private System.Windows.Forms.Button cmdCancel;
-        private System.Windows.Forms.Button cmdAddClient;
-        public Barette.Library.UserControls.Client.ClientControl clientControl1;
+        private Button cmdCancel;
+        private Button cmdAddClient;
+        public Library.UserControls.Client.ClientControl clientControl1;
         /// <summary>
         /// Variable nécessaire au concepteur.
         /// </summary>
-        private System.ComponentModel.Container components = null;
+        private readonly System.ComponentModel.Container components = null;
 
         public FormAjoutClient(FormClients clientForm, SchoolInfo infoEcole, Config AppConfig) {
             //
@@ -74,15 +68,15 @@ namespace Barette.IDE.Forms {
         /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
         private void InitializeComponent() {
-            Barette.Library.Client.Customer customer1 = new Barette.Library.Client.Customer();
-            cmdCancel = new System.Windows.Forms.Button();
-            clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
-            cmdAddClient = new System.Windows.Forms.Button();
+            Customer customer1 = new Customer();
+            cmdCancel = new Button();
+            clientControl1 = new Library.UserControls.Client.ClientControl();
+            cmdAddClient = new Button();
             SuspendLayout();
             // 
             // cmdCancel
             // 
-            cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdCancel.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             cmdCancel.Image = global::Barette.IDE.Properties.Resources.Cancel_2_icon;
             cmdCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -92,7 +86,7 @@ namespace Barette.IDE.Forms {
             cmdCancel.TabIndex = 1;
             cmdCancel.Text = "Annuler";
             cmdCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            cmdCancel.Click += new System.EventHandler(cmdCancel_Click);
+            cmdCancel.Click += new EventHandler(cmdCancel_Click);
             // 
             // clientControl1
             // 
@@ -102,18 +96,18 @@ namespace Barette.IDE.Forms {
             customer1.AttestationNumber1 = "";
             customer1.AttestationNumber2 = "";
             customer1.BVA = false;
-            customer1.BVADate = new System.DateTime(2010, 3, 14, 19, 59, 19, 434);
+            customer1.BVADate = new DateTime(2010, 3, 14, 19, 59, 19, 434);
             customer1.City = "";
             customer1.ClientNull = false;
             customer1.CodePostal = "   -";
             customer1.ContratNumber = "0";
-            customer1.DateAttestation1 = new System.DateTime(2010, 6, 25, 10, 29, 12, 53);
-            customer1.DateAttestation2 = new System.DateTime(2010, 6, 25, 10, 29, 12, 53);
-            customer1.DateDebutCours = new System.DateTime(2010, 3, 14, 19, 59, 19, 434);
-            customer1.DateExpiration = new System.DateTime(2010, 3, 14, 19, 59, 19, 434);
-            customer1.DateInscription = new System.DateTime(2010, 3, 14, 19, 59, 19, 434);
-            customer1.DateNaissance = new System.DateTime(2010, 3, 14, 19, 59, 19, 434);
-            customer1.DateTemporaire = new System.DateTime(2010, 3, 14, 19, 59, 19, 434);
+            customer1.DateAttestation1 = new DateTime(2010, 6, 25, 10, 29, 12, 53);
+            customer1.DateAttestation2 = new DateTime(2010, 6, 25, 10, 29, 12, 53);
+            customer1.DateDebutCours = new DateTime(2010, 3, 14, 19, 59, 19, 434);
+            customer1.DateExpiration = new DateTime(2010, 3, 14, 19, 59, 19, 434);
+            customer1.DateInscription = new DateTime(2010, 3, 14, 19, 59, 19, 434);
+            customer1.DateNaissance = new DateTime(2010, 3, 14, 19, 59, 19, 434);
+            customer1.DateTemporaire = new DateTime(2010, 3, 14, 19, 59, 19, 434);
             customer1.DisponibilityAM = false;
             customer1.DisponibilityDimanche = false;
             customer1.DisponibilityPM = false;
@@ -151,7 +145,7 @@ namespace Barette.IDE.Forms {
             // 
             // cmdAddClient
             // 
-            cmdAddClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAddClient.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             cmdAddClient.Image = global::Barette.IDE.Properties.Resources.accept_icon;
             cmdAddClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdAddClient.Location = new System.Drawing.Point(467, 546);
@@ -160,7 +154,7 @@ namespace Barette.IDE.Forms {
             cmdAddClient.TabIndex = 0;
             cmdAddClient.Text = "Ajouter";
             cmdAddClient.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            cmdAddClient.Click += new System.EventHandler(cmdAddClient_Click);
+            cmdAddClient.Click += new EventHandler(cmdAddClient_Click);
             // 
             // FormAjoutClient
             // 
@@ -178,11 +172,11 @@ namespace Barette.IDE.Forms {
         }
         #endregion
 
-        private void cmdCancel_Click(object sender, System.EventArgs e) {
+        private void cmdCancel_Click(object sender, EventArgs e) {
             Close();
         }
 
-        private void cmdAddClient_Click(object sender, System.EventArgs e) {
+        private void cmdAddClient_Click(object sender, EventArgs e) {
             Cursor.Current = Cursors.WaitCursor;
 
             if (clientControl1.ValidateClient() == true) {

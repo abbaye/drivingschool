@@ -1,24 +1,20 @@
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.Diagnostics;
 using UtilityLibrary.Win32;
 using UtilityLibrary.General;
 
 namespace UtilityLibrary.WinControls
 {
-	
-	// I put the delegate and the event handler
-	// outside the class so that the user does not have
-	// to prefix the progressbar class name to use this properties or delegate
-	// Putting them inside the class just make them hard to use
-	
-	// Enumeration of property change events
-	public enum ProgressBarProperty
+
+    // I put the delegate and the event handler
+    // outside the class so that the user does not have
+    // to prefix the progressbar class name to use this properties or delegate
+    // Putting them inside the class just make them hard to use
+
+    // Enumeration of property change events
+    public enum ProgressBarProperty
 	{
 		BackgroundColor,
 		ForegroundColor,
@@ -47,8 +43,8 @@ namespace UtilityLibrary.WinControls
 	/// <summary>
 	/// Summary description for FlatProgressBar.
 	/// </summary>
-	public class ProgressBarEx : System.Windows.Forms.Control
-	{
+	public class ProgressBarEx : Control
+    {
 		
 		// We need to know how we are going to draw the progress bar
 		// this won't come from the user setting a flag but how the
@@ -431,9 +427,9 @@ namespace UtilityLibrary.WinControls
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			base.OnPaint(e);
-			
-			// Get window area
-			Win32.RECT rc = new Win32.RECT();
+
+            // Get window area
+            RECT rc = new RECT();
 			WindowsAPI.GetWindowRect(Handle, ref rc);
 
 			// Convert to a client size rectangle

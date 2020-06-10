@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library;
 using Barette.Library.Collections;
-using Barette.Library.Client; 
+using Barette.Library.Client;
 
-namespace Barette.IDE.Forms {
+namespace Barette.IDE.Forms
+{
     public partial class FormClientFind : Form {
 
         private enum FindMode {
@@ -21,9 +17,9 @@ namespace Barette.IDE.Forms {
             All
         }
 
-        CustomerCollection _ClientList;
-        FormClients _formClients;
-        Config _AppConfig;
+        readonly CustomerCollection _ClientList;
+        readonly FormClients _formClients;
+        readonly Config _AppConfig;
         
         public FormClientFind(CustomerCollection ClientList, FormClients formClients, Config AppConfig) {
             InitializeComponent();

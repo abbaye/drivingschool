@@ -1,10 +1,9 @@
-using System;
-
-namespace Barette.Library.Forms {
-	/// <summary>
-	/// Description résumée de CodeSeance.
-	/// </summary>
-	public class CodeSeance {
+namespace Barette.Library.Forms
+{
+    /// <summary>
+    /// Description résumée de CodeSeance.
+    /// </summary>
+    public class CodeSeance {
 		public string code;
 		public string definition;
 

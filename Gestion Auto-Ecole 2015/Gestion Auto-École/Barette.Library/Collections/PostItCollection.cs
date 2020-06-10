@@ -1,14 +1,10 @@
-using System;
-using System.Collections;
-
-using Barette.Library;
-
-namespace Barette.Library.Collections {
-	/// <summary>
-	/// Collection de Client.
-	/// Des fonctions seront ajouté plus tard en rapport avec la collectionB
-	/// </summary>
-	public class PostItCollection : CollectionWithEvents {
+namespace Barette.Library.Collections
+{
+    /// <summary>
+    /// Collection de Client.
+    /// Des fonctions seront ajouté plus tard en rapport avec la collectionB
+    /// </summary>
+    public class PostItCollection : CollectionWithEvents {
 		public PostIt Add(PostIt value) {
 			base.List.Add(value as object);
 

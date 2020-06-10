@@ -1,16 +1,15 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 #endregion
 
-namespace Barette.Library {
-	/// <summary>
-	/// Classe PostIt, Cette classe est utilisé pour le module de notes
-	/// </summary>
-	public class PostIt {
+namespace Barette.Library
+{
+    /// <summary>
+    /// Classe PostIt, Cette classe est utilisé pour le module de notes
+    /// </summary>
+    public class PostIt {
 		private string _Message = "";
 		private bool _Alerte = false;
 		private DateTime _AlerteDateTime;

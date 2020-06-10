@@ -11,7 +11,6 @@
 
 using System;
 using System.Xml;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Collections
 {

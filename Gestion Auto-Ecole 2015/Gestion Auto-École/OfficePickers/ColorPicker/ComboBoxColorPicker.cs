@@ -1,8 +1,5 @@
 using System;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using OfficePickers.Util;
@@ -50,7 +47,7 @@ namespace OfficePickers.ColorPicker
         /// <summary>
         /// The OfficeColorPicker control that the combobox should hold
         /// </summary>
-        OfficeColorPicker _colorPicker = new OfficeColorPicker();
+        readonly OfficeColorPicker _colorPicker = new OfficeColorPicker();
         
         #endregion
 
@@ -149,8 +146,10 @@ namespace OfficePickers.ColorPicker
                         e.Graphics.DrawRectangle(borderPen, rec);
                     }
                     // Draw the dashed focus rectangle
-                    Pen focusPen = new Pen(CustomColors.FocusDashedBorder, 1);
-                    focusPen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+                    Pen focusPen = new Pen(CustomColors.FocusDashedBorder, 1)
+                    {
+                        DashStyle = System.Drawing.Drawing2D.DashStyle.DashDot
+                    };
                     e.Graphics.DrawRectangle(focusPen, rec);
                     focusPen.Dispose();
                 }

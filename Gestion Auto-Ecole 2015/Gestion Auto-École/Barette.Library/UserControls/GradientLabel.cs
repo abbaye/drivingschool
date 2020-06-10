@@ -1,14 +1,14 @@
-using System;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace Barette.Library.UserControls {
-	/// <summary>
-	/// Label avec un degrader
-	/// </summary>
-	[ToolboxItem(true)]
+namespace Barette.Library.UserControls
+{
+    /// <summary>
+    /// Label avec un degrader
+    /// </summary>
+    [ToolboxItem(true)]
 	public class GradientLabel : Label {
 		private Color _ColorLeft  = SystemColors.ControlLightLight;
 		private Color _ColorRight = SystemColors.Control;

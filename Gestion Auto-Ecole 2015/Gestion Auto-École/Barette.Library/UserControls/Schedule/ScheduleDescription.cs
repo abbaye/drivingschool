@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 using Barette.Library.Collections;
 
-namespace Barette.Library.UserControls.Schedule {
-	public class ScheduleDescription {
+namespace Barette.Library.UserControls.Schedule
+{
+    public class ScheduleDescription {
 		private ScheduleInfosCollection _Schedule = new ScheduleInfosCollection();
 		private DateTime _Day;
 		private string _MonitorName;

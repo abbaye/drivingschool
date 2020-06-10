@@ -10,18 +10,14 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Drawing;
-using System.Reflection;
 using System.Collections;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using Microsoft.Win32;
 using Crownwood.Magic.Win32;
-using Crownwood.Magic.Menus;
 using Crownwood.Magic.Common;
 using Crownwood.Magic.Controls;
 using Crownwood.Magic.Collections;
@@ -31,7 +27,7 @@ namespace Crownwood.Magic.Menus
     [ToolboxBitmap(typeof(MenuControl))]
     [DefaultProperty("MenuCommands")]
     [DefaultEvent("PopupSelected")]
-    [Designer(typeof(Crownwood.Magic.Menus.MenuControlDesigner))]
+    [Designer(typeof(MenuControlDesigner))]
     public class MenuControl : ContainerControl, IMessageFilter
     {
         internal class MdiClientSubclass : NativeWindow
@@ -903,7 +899,7 @@ namespace Crownwood.Magic.Menus
             Invalidate();
         }
 
-        internal void OnWM_MOUSEDOWN(Win32.POINT screenPos)
+        internal void OnWM_MOUSEDOWN(POINT screenPos)
         {
             // Convert the mouse position to screen coordinates
             User32.ScreenToClient(this.Handle, ref screenPos);
@@ -999,7 +995,7 @@ namespace Crownwood.Magic.Menus
             base.OnMouseUp(e);
         }
 
-        internal void OnWM_MOUSEMOVE(Win32.POINT screenPos)
+        internal void OnWM_MOUSEMOVE(POINT screenPos)
         {
             // Convert the mouse position to screen coordinates
             User32.ScreenToClient(this.Handle, ref screenPos);
@@ -1029,13 +1025,15 @@ namespace Crownwood.Magic.Menus
                 if (!_mouseOver)
                 {
                     // Create the structure needed for User32 call
-                    Win32.TRACKMOUSEEVENTS tme = new Win32.TRACKMOUSEEVENTS();
+                    TRACKMOUSEEVENTS tme = new TRACKMOUSEEVENTS
+                    {
 
-                    // Fill in the structure
-                    tme.cbSize = 16;									
-                    tme.dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE;
-                    tme.hWnd = this.Handle;								
-                    tme.dwHoverTime = 0;								
+                        // Fill in the structure
+                        cbSize = 16,
+                        dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE,
+                        hWnd = this.Handle,
+                        dwHoverTime = 0
+                    };
 
                     // Request that a message gets sent when mouse leaves this window
                     User32.TrackMouseEvent(ref tme);
@@ -1750,16 +1748,18 @@ namespace Crownwood.Magic.Menus
                     g.DrawImage(_menuImages.Images[_chevronIndex], xPos, yPos);
                 }
                 else
-                {	
+                {
                     // Left align the text drawing on a single line centered vertically
                     // and process the & character to be shown as an underscore on next character
-                    StringFormat format = new StringFormat();
-                    format.FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap;
-                    format.Alignment = StringAlignment.Center;
-                    format.LineAlignment = StringAlignment.Center;
-                    format.HotkeyPrefix = HotkeyPrefix.Show;
+                    StringFormat format = new StringFormat
+                    {
+                        FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap,
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center,
+                        HotkeyPrefix = HotkeyPrefix.Show
+                    };
 
-					if (_direction == DirectionUL.Vertical)
+                    if (_direction == DirectionUL.Vertical)
 						format.FormatFlags |= StringFormatFlags.DirectionVertical;
 
                     if (dc.Enabled && this.Enabled)
@@ -1933,12 +1933,14 @@ namespace Crownwood.Magic.Menus
 			if (_direction == DirectionUL.Horizontal)
 				borderGap = dc.DrawRect.Width - _subMenuBorderAdjust;
             else
-                borderGap = dc.DrawRect.Height - _subMenuBorderAdjust;		
-	
-            _popupMenu = new PopupMenu();
+                borderGap = dc.DrawRect.Height - _subMenuBorderAdjust;
 
-            // Define the correct visual style based on ours
-            _popupMenu.Style = this.Style;
+            _popupMenu = new PopupMenu
+            {
+
+                // Define the correct visual style based on ours
+                Style = this.Style
+            };
 
             // Key direction when keys cause dismissal
             int returnDir = 0;
@@ -2166,8 +2168,8 @@ namespace Crownwood.Magic.Menus
 				// Must hide caret so user thinks focus has changed
 				bool hideCaret = User32.HideCaret(IntPtr.Zero);
 
-				// Create an object for storing windows message information
-				Win32.MSG msg = new Win32.MSG();
+                // Create an object for storing windows message information
+                MSG msg = new MSG();
 
 				_exitLoop = false;
 
@@ -2620,7 +2622,7 @@ namespace Crownwood.Magic.Menus
             return false;
         }
 
-		protected bool ProcessInterceptedMessage(ref Win32.MSG msg)
+		protected bool ProcessInterceptedMessage(ref MSG msg)
 		{
 			bool eat = false;
         

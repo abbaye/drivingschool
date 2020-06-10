@@ -10,17 +10,14 @@
 // *****************************************************************************
 
 using System;
-using System.Windows.Forms;
 using System.Windows.Forms.Design;
 using System.ComponentModel;
-using Crownwood.Magic.Common;
-using Crownwood.Magic.Controls;
 
 namespace Crownwood.Magic.Controls
 {
     [Designer(typeof(ParentControlDesigner))]
-    public class WizardPage : Crownwood.Magic.Controls.TabPage
-	{
+    public class WizardPage : TabPage
+    {
 	    // Instance fields
 	    protected bool _fullPage;
         protected string _subTitle;

@@ -1,20 +1,17 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
-using System.Data;
 using System.Windows.Forms;
-using System.Diagnostics;
 using UtilityLibrary.General;
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for ImageComboBox.
-	/// </summary>
-	[ToolboxItem(true)]
-	[ToolboxBitmap(typeof(UtilityLibrary.WinControls.ImageComboBox), 
+    /// <summary>
+    /// Summary description for ImageComboBox.
+    /// </summary>
+    [ToolboxItem(true)]
+	[ToolboxBitmap(typeof(ImageComboBox), 
 	 "UtilityLibrary.WinControls.ImageComboBox.bmp")]
 	public class ImageComboBox : ComboBoxBase
 	{
@@ -164,7 +161,7 @@ namespace UtilityLibrary.WinControls
 		}
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-		public new ComboBox.ObjectCollection Items
+		public new ObjectCollection Items
 		{
 			get { return base.Items; }
 		}

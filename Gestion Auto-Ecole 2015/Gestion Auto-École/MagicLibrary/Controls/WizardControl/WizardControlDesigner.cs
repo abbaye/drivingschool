@@ -9,16 +9,10 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
 using System.Collections;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
-using Crownwood.Magic.Win32;
-using Crownwood.Magic.Controls;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Controls
 {
@@ -30,8 +24,8 @@ namespace Crownwood.Magic.Controls
         {
             get 
             {
-                if (base.Control is Crownwood.Magic.Controls.WizardControl)
-                    return ((Crownwood.Magic.Controls.WizardControl)base.Control).WizardPages;
+                if (base.Control is WizardControl)
+                    return ((WizardControl)base.Control).WizardPages;
                 else
                     return base.AssociatedComponents;
             }
@@ -62,12 +56,12 @@ namespace Crownwood.Magic.Controls
             // Test for the left mouse down windows message
             if (msg.Msg == (int)Win32.Msgs.WM_LBUTTONDOWN)
             {
-                Crownwood.Magic.Controls.WizardControl wizardControl = this.SelectionService.PrimarySelection as Crownwood.Magic.Controls.WizardControl;
+                WizardControl wizardControl = this.SelectionService.PrimarySelection as WizardControl;
 
                 // Check we have a valid object reference
                 if (wizardControl != null)
                 {
-                    Crownwood.Magic.Controls.TabControl tabControl = wizardControl.TabControl;
+                    TabControl tabControl = wizardControl.TabControl;
 
                     // Check we have a valid object reference
                     if (tabControl != null)
@@ -88,12 +82,12 @@ namespace Crownwood.Magic.Controls
             {
                 if (msg.Msg == (int)Win32.Msgs.WM_LBUTTONDBLCLK)
                 {
-                    Crownwood.Magic.Controls.WizardControl wizardControl = this.SelectionService.PrimarySelection as Crownwood.Magic.Controls.WizardControl;
+                    WizardControl wizardControl = this.SelectionService.PrimarySelection as WizardControl;
                     
                     // Check we have a valid object reference
                     if (wizardControl != null)
                     {
-                        Crownwood.Magic.Controls.TabControl tabControl = wizardControl.TabControl;
+                        TabControl tabControl = wizardControl.TabControl;
 
                         // Check we have a valid object reference
                         if (tabControl != null)

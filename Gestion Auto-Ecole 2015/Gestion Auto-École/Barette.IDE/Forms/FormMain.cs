@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -101,12 +100,12 @@ namespace Barette.IDE.Forms
         /// <summary>
         /// Liste de jour férié
         /// </summary>
-        private OffDateCollection OffDateList = new OffDateCollection();
+        private readonly OffDateCollection OffDateList = new OffDateCollection();
 
         /// <summary>
         /// Liste de groupe d'élèves
         /// </summary>
-        private List<StudentGroup> StudentGroupList = new List<StudentGroup>();
+        private readonly List<StudentGroup> StudentGroupList = new List<StudentGroup>();
 
         /// <summary>
         /// Liste d'employe
@@ -116,7 +115,7 @@ namespace Barette.IDE.Forms
         /// <summary>
         /// Liste de postit qui serviront a prendre des notes pour les horaires.
         /// </summary>
-        private PostItCollection NotesHoraire = new PostItCollection();
+        private readonly PostItCollection NotesHoraire = new PostItCollection();
 
         /// <summary>
         /// Information sur l'ecole de conduite
@@ -128,7 +127,7 @@ namespace Barette.IDE.Forms
         /// </summary>
         private Config _AppConfig = new Config();
 
-        private System.Windows.Forms.ImageList OutlookBarImageList;
+        private ImageList OutlookBarImageList;
         private Timer PostItAlertTimer;
         private OutlookBarBand outBandGestion;
         private FolderBrowserDialog folderDialogBackup;
@@ -257,70 +256,70 @@ namespace Barette.IDE.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.OutlookBarImageList = new System.Windows.Forms.ImageList(this.components);
-            this.PostItAlertTimer = new System.Windows.Forms.Timer(this.components);
-            this.folderDialogBackup = new System.Windows.Forms.FolderBrowserDialog();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuAddCustomer = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuAddEmployer = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuEnregistrer = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuEnregistrerSous = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuImportExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuExport = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuImport = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuImportBackup = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuViewModuleClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuViewTypeCours = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuViewModuleBar = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.listeDesClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.automobileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.motoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cyclomoteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuModule = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuModuleClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuModuleEmployer = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuModuleFinance = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuModuleHoraire = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuModuleGroupe = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuModuleSuivie = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuModuleStatistiques = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuModuleNotes = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuModuleFind = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuTools = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuToolCodes = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuOffDate = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuSchoolInfo = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuAutoCompletedCustomer = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuBackup = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmnuToolsDialog = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmnuAboutDialog = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.tabGroup = new Crownwood.Magic.Controls.TabbedGroups();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.outLookBar = new UtilityLibrary.WinControls.OutlookBar();
-            this.outBandGestion = new UtilityLibrary.WinControls.OutlookBarBand();
-            this.openFileDialogImport = new System.Windows.Forms.OpenFileDialog();
-            this.tsmnuViewCoursFinish = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.OutlookBarImageList = new ImageList(this.components);
+            this.PostItAlertTimer = new Timer(this.components);
+            this.folderDialogBackup = new FolderBrowserDialog();
+            this.menuStrip1 = new MenuStrip();
+            this.toolStripMenuItem1 = new ToolStripMenuItem();
+            this.tsmnuAdd = new ToolStripMenuItem();
+            this.tsmnuAddCustomer = new ToolStripMenuItem();
+            this.tsmnuAddEmployer = new ToolStripMenuItem();
+            this.toolStripSeparator9 = new ToolStripSeparator();
+            this.tsmnuOpen = new ToolStripMenuItem();
+            this.tsmnuEnregistrer = new ToolStripMenuItem();
+            this.tsmnuEnregistrerSous = new ToolStripMenuItem();
+            this.toolStripSeparator1 = new ToolStripSeparator();
+            this.tsmnuImportExport = new ToolStripMenuItem();
+            this.tsmnuExport = new ToolStripMenuItem();
+            this.tsmnuImport = new ToolStripMenuItem();
+            this.toolStripSeparator10 = new ToolStripSeparator();
+            this.tsmnuImportBackup = new ToolStripMenuItem();
+            this.toolStripSeparator8 = new ToolStripSeparator();
+            this.tsmnuItem = new ToolStripMenuItem();
+            this.tsmnuView = new ToolStripMenuItem();
+            this.tsmnuViewModuleClient = new ToolStripMenuItem();
+            this.tsmnuViewTypeCours = new ToolStripMenuItem();
+            this.toolStripSeparator6 = new ToolStripSeparator();
+            this.tsmnuViewModuleBar = new ToolStripMenuItem();
+            this.toolStripSeparator12 = new ToolStripSeparator();
+            this.listeDesClientsToolStripMenuItem = new ToolStripMenuItem();
+            this.automobileToolStripMenuItem = new ToolStripMenuItem();
+            this.motoToolStripMenuItem = new ToolStripMenuItem();
+            this.cyclomoteurToolStripMenuItem = new ToolStripMenuItem();
+            this.tsmnuModule = new ToolStripMenuItem();
+            this.tsmnuModuleClient = new ToolStripMenuItem();
+            this.tsmnuModuleEmployer = new ToolStripMenuItem();
+            this.tsmnuModuleFinance = new ToolStripMenuItem();
+            this.tsmnuModuleHoraire = new ToolStripMenuItem();
+            this.tsmnuModuleGroupe = new ToolStripMenuItem();
+            this.toolStripSeparator2 = new ToolStripSeparator();
+            this.toolStripMenuItem12 = new ToolStripMenuItem();
+            this.toolStripSeparator4 = new ToolStripSeparator();
+            this.tsmnuModuleSuivie = new ToolStripMenuItem();
+            this.tsmnuModuleStatistiques = new ToolStripMenuItem();
+            this.tsmnuModuleNotes = new ToolStripMenuItem();
+            this.toolStripSeparator3 = new ToolStripSeparator();
+            this.tsmnuModuleFind = new ToolStripMenuItem();
+            this.tsmnuTools = new ToolStripMenuItem();
+            this.tsmnuToolCodes = new ToolStripMenuItem();
+            this.tsmnuOffDate = new ToolStripMenuItem();
+            this.tsmnuSchoolInfo = new ToolStripMenuItem();
+            this.toolStripSeparator11 = new ToolStripSeparator();
+            this.tsmnuAutoCompletedCustomer = new ToolStripMenuItem();
+            this.toolStripSeparator5 = new ToolStripSeparator();
+            this.tsmnuBackup = new ToolStripMenuItem();
+            this.toolStripSeparator7 = new ToolStripSeparator();
+            this.tsmnuToolsDialog = new ToolStripMenuItem();
+            this.toolStripMenuItem13 = new ToolStripMenuItem();
+            this.tsmnuAboutDialog = new ToolStripMenuItem();
+            this.toolStripContainer1 = new ToolStripContainer();
+            this.tabGroup = new TabbedGroups();
+            this.splitter1 = new Splitter();
+            this.outLookBar = new OutlookBar();
+            this.outBandGestion = new OutlookBarBand();
+            this.openFileDialogImport = new OpenFileDialog();
+            this.tsmnuViewCoursFinish = new ToolStripMenuItem();
+            this.toolStripSeparator13 = new ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -329,7 +328,7 @@ namespace Barette.IDE.Forms
             // 
             // OutlookBarImageList
             // 
-            this.OutlookBarImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("OutlookBarImageList.ImageStream")));
+            this.OutlookBarImageList.ImageStream = ((ImageListStreamer)(resources.GetObject("OutlookBarImageList.ImageStream")));
             this.OutlookBarImageList.TransparentColor = System.Drawing.Color.Transparent;
             this.OutlookBarImageList.Images.SetKeyName(0, "user-group-icon.png");
             this.OutlookBarImageList.Images.SetKeyName(1, "search-icon.png");
@@ -348,7 +347,7 @@ namespace Barette.IDE.Forms
             // 
             this.PostItAlertTimer.Enabled = true;
             this.PostItAlertTimer.Interval = 800;
-            this.PostItAlertTimer.Tick += new System.EventHandler(this.PostItAlertTimer_Tick);
+            this.PostItAlertTimer.Tick += new EventHandler(this.PostItAlertTimer_Tick);
             // 
             // folderDialogBackup
             // 
@@ -357,21 +356,21 @@ namespace Barette.IDE.Forms
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip1.Items.AddRange(new ToolStripItem[] {
             this.toolStripMenuItem1,
             this.tsmnuView,
             this.tsmnuModule,
             this.tsmnuTools,
             this.toolStripMenuItem13});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1016, 24);
+            this.menuStrip1.Size = new Size(1016, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuAdd,
             this.toolStripSeparator9,
             this.tsmnuOpen,
@@ -382,74 +381,74 @@ namespace Barette.IDE.Forms
             this.toolStripSeparator8,
             this.tsmnuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(54, 20);
+            this.toolStripMenuItem1.Size = new Size(54, 20);
             this.toolStripMenuItem1.Text = "Fichier";
             // 
             // tsmnuAdd
             // 
-            this.tsmnuAdd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmnuAdd.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuAddCustomer,
             this.tsmnuAddEmployer});
             this.tsmnuAdd.Name = "tsmnuAdd";
-            this.tsmnuAdd.Size = new System.Drawing.Size(186, 22);
+            this.tsmnuAdd.Size = new Size(186, 22);
             this.tsmnuAdd.Text = "Ajouter";
             // 
             // tsmnuAddCustomer
             // 
             this.tsmnuAddCustomer.Name = "tsmnuAddCustomer";
-            this.tsmnuAddCustomer.Size = new System.Drawing.Size(133, 22);
+            this.tsmnuAddCustomer.Size = new Size(133, 22);
             this.tsmnuAddCustomer.Text = "Client...";
-            this.tsmnuAddCustomer.Click += new System.EventHandler(this.tsmnuAddCustomer_Click);
+            this.tsmnuAddCustomer.Click += new EventHandler(this.tsmnuAddCustomer_Click);
             // 
             // tsmnuAddEmployer
             // 
             this.tsmnuAddEmployer.Enabled = false;
             this.tsmnuAddEmployer.Name = "tsmnuAddEmployer";
-            this.tsmnuAddEmployer.Size = new System.Drawing.Size(133, 22);
+            this.tsmnuAddEmployer.Size = new Size(133, 22);
             this.tsmnuAddEmployer.Text = "Employer...";
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(183, 6);
+            this.toolStripSeparator9.Size = new Size(183, 6);
             // 
             // tsmnuOpen
             // 
             this.tsmnuOpen.Name = "tsmnuOpen";
-            this.tsmnuOpen.Size = new System.Drawing.Size(186, 22);
+            this.tsmnuOpen.Size = new Size(186, 22);
             this.tsmnuOpen.Text = "Ouvrir";
-            this.tsmnuOpen.Click += new System.EventHandler(this.tsmnuOpen_Click);
+            this.tsmnuOpen.Click += new EventHandler(this.tsmnuOpen_Click);
             // 
             // tsmnuEnregistrer
             // 
             this.tsmnuEnregistrer.Image = global::Barette.IDE.Properties.Resources.Save_icon;
             this.tsmnuEnregistrer.Name = "tsmnuEnregistrer";
-            this.tsmnuEnregistrer.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.tsmnuEnregistrer.Size = new System.Drawing.Size(186, 22);
+            this.tsmnuEnregistrer.ShortcutKeys = ((Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.tsmnuEnregistrer.Size = new Size(186, 22);
             this.tsmnuEnregistrer.Text = "Enregistrer";
-            this.tsmnuEnregistrer.Click += new System.EventHandler(this.tsmnuEnregistrer_Click);
+            this.tsmnuEnregistrer.Click += new EventHandler(this.tsmnuEnregistrer_Click);
             // 
             // tsmnuEnregistrerSous
             // 
             this.tsmnuEnregistrerSous.Enabled = false;
             this.tsmnuEnregistrerSous.Name = "tsmnuEnregistrerSous";
-            this.tsmnuEnregistrerSous.Size = new System.Drawing.Size(186, 22);
+            this.tsmnuEnregistrerSous.Size = new Size(186, 22);
             this.tsmnuEnregistrerSous.Text = "Enregistrer sous...";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(183, 6);
+            this.toolStripSeparator1.Size = new Size(183, 6);
             // 
             // tsmnuImportExport
             // 
-            this.tsmnuImportExport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmnuImportExport.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuExport,
             this.tsmnuImport,
             this.toolStripSeparator10,
             this.tsmnuImportBackup});
             this.tsmnuImportExport.Name = "tsmnuImportExport";
-            this.tsmnuImportExport.Size = new System.Drawing.Size(186, 22);
+            this.tsmnuImportExport.Size = new Size(186, 22);
             this.tsmnuImportExport.Text = "Importer / Exporter ...";
             // 
             // tsmnuExport
@@ -457,101 +456,101 @@ namespace Barette.IDE.Forms
             this.tsmnuExport.Enabled = false;
             this.tsmnuExport.Image = global::Barette.IDE.Properties.Resources.export_icon;
             this.tsmnuExport.Name = "tsmnuExport";
-            this.tsmnuExport.Size = new System.Drawing.Size(290, 22);
+            this.tsmnuExport.Size = new Size(290, 22);
             this.tsmnuExport.Text = "Exporter des clients vers un fichier...";
-            this.tsmnuExport.Click += new System.EventHandler(this.tsmnuExport_Click);
+            this.tsmnuExport.Click += new EventHandler(this.tsmnuExport_Click);
             // 
             // tsmnuImport
             // 
             this.tsmnuImport.Enabled = false;
             this.tsmnuImport.Image = global::Barette.IDE.Properties.Resources.import_icon;
             this.tsmnuImport.Name = "tsmnuImport";
-            this.tsmnuImport.Size = new System.Drawing.Size(290, 22);
+            this.tsmnuImport.Size = new Size(290, 22);
             this.tsmnuImport.Text = "Importer des clients à partir d\'un fichier...";
-            this.tsmnuImport.Click += new System.EventHandler(this.tsmnuImport_Click);
+            this.tsmnuImport.Click += new EventHandler(this.tsmnuImport_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(287, 6);
+            this.toolStripSeparator10.Size = new Size(287, 6);
             // 
             // tsmnuImportBackup
             // 
             this.tsmnuImportBackup.Image = global::Barette.IDE.Properties.Resources.import_icon;
             this.tsmnuImportBackup.Name = "tsmnuImportBackup";
-            this.tsmnuImportBackup.Size = new System.Drawing.Size(290, 22);
+            this.tsmnuImportBackup.Size = new Size(290, 22);
             this.tsmnuImportBackup.Text = "Importer un fichier de sauvegarde...";
-            this.tsmnuImportBackup.Click += new System.EventHandler(this.tsmnuImportBackup_Click);
+            this.tsmnuImportBackup.Click += new EventHandler(this.tsmnuImportBackup_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(183, 6);
+            this.toolStripSeparator8.Size = new Size(183, 6);
             // 
             // tsmnuItem
             // 
             this.tsmnuItem.Image = global::Barette.IDE.Properties.Resources.Log_Out_icon;
             this.tsmnuItem.Name = "tsmnuItem";
-            this.tsmnuItem.Size = new System.Drawing.Size(186, 22);
+            this.tsmnuItem.Size = new Size(186, 22);
             this.tsmnuItem.Text = "Quitter";
-            this.tsmnuItem.Click += new System.EventHandler(this.tsmnuItem_Click);
+            this.tsmnuItem.Click += new EventHandler(this.tsmnuItem_Click);
             // 
             // tsmnuView
             // 
-            this.tsmnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmnuView.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuViewModuleClient,
             this.toolStripSeparator6,
             this.tsmnuViewModuleBar,
             this.toolStripSeparator12,
             this.listeDesClientsToolStripMenuItem});
             this.tsmnuView.Name = "tsmnuView";
-            this.tsmnuView.Size = new System.Drawing.Size(70, 20);
+            this.tsmnuView.Size = new Size(70, 20);
             this.tsmnuView.Text = "Affichage";
             // 
             // tsmnuViewModuleClient
             // 
-            this.tsmnuViewModuleClient.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmnuViewModuleClient.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuViewTypeCours});
             this.tsmnuViewModuleClient.Name = "tsmnuViewModuleClient";
-            this.tsmnuViewModuleClient.Size = new System.Drawing.Size(228, 22);
+            this.tsmnuViewModuleClient.Size = new Size(228, 22);
             this.tsmnuViewModuleClient.Text = "Gestion des clients";
             // 
             // tsmnuViewTypeCours
             // 
             this.tsmnuViewTypeCours.Name = "tsmnuViewTypeCours";
-            this.tsmnuViewTypeCours.Size = new System.Drawing.Size(210, 22);
+            this.tsmnuViewTypeCours.Size = new Size(210, 22);
             this.tsmnuViewTypeCours.Text = "Afficher par type de cours";
-            this.tsmnuViewTypeCours.Click += new System.EventHandler(this.tsmnuViewTypeCours_Click);
+            this.tsmnuViewTypeCours.Click += new EventHandler(this.tsmnuViewTypeCours_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(225, 6);
+            this.toolStripSeparator6.Size = new Size(225, 6);
             // 
             // tsmnuViewModuleBar
             // 
             this.tsmnuViewModuleBar.Checked = true;
             this.tsmnuViewModuleBar.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tsmnuViewModuleBar.Name = "tsmnuViewModuleBar";
-            this.tsmnuViewModuleBar.Size = new System.Drawing.Size(228, 22);
+            this.tsmnuViewModuleBar.Size = new Size(228, 22);
             this.tsmnuViewModuleBar.Text = "Afficher la barre des modules";
-            this.tsmnuViewModuleBar.Click += new System.EventHandler(this.tsmnuViewModuleBar_Click);
+            this.tsmnuViewModuleBar.Click += new EventHandler(this.tsmnuViewModuleBar_Click);
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(225, 6);
+            this.toolStripSeparator12.Size = new Size(225, 6);
             // 
             // listeDesClientsToolStripMenuItem
             // 
-            this.listeDesClientsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listeDesClientsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuViewCoursFinish,
             this.toolStripSeparator13,
             this.automobileToolStripMenuItem,
             this.motoToolStripMenuItem,
             this.cyclomoteurToolStripMenuItem});
             this.listeDesClientsToolStripMenuItem.Name = "listeDesClientsToolStripMenuItem";
-            this.listeDesClientsToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.listeDesClientsToolStripMenuItem.Size = new Size(228, 22);
             this.listeDesClientsToolStripMenuItem.Text = "Liste des clients";
             // 
             // automobileToolStripMenuItem
@@ -559,31 +558,31 @@ namespace Barette.IDE.Forms
             this.automobileToolStripMenuItem.Checked = true;
             this.automobileToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.automobileToolStripMenuItem.Name = "automobileToolStripMenuItem";
-            this.automobileToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.automobileToolStripMenuItem.Size = new Size(315, 22);
             this.automobileToolStripMenuItem.Text = "Automobile";
-            this.automobileToolStripMenuItem.Click += new System.EventHandler(this.automobileToolStripMenuItem_Click);
+            this.automobileToolStripMenuItem.Click += new EventHandler(this.automobileToolStripMenuItem_Click);
             // 
             // motoToolStripMenuItem
             // 
             this.motoToolStripMenuItem.Checked = true;
             this.motoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.motoToolStripMenuItem.Name = "motoToolStripMenuItem";
-            this.motoToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.motoToolStripMenuItem.Size = new Size(315, 22);
             this.motoToolStripMenuItem.Text = "Moto";
-            this.motoToolStripMenuItem.Click += new System.EventHandler(this.motoToolStripMenuItem_Click);
+            this.motoToolStripMenuItem.Click += new EventHandler(this.motoToolStripMenuItem_Click);
             // 
             // cyclomoteurToolStripMenuItem
             // 
             this.cyclomoteurToolStripMenuItem.Checked = true;
             this.cyclomoteurToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cyclomoteurToolStripMenuItem.Name = "cyclomoteurToolStripMenuItem";
-            this.cyclomoteurToolStripMenuItem.Size = new System.Drawing.Size(315, 22);
+            this.cyclomoteurToolStripMenuItem.Size = new Size(315, 22);
             this.cyclomoteurToolStripMenuItem.Text = "Cyclomoteur";
-            this.cyclomoteurToolStripMenuItem.Click += new System.EventHandler(this.cyclomoteurToolStripMenuItem_Click);
+            this.cyclomoteurToolStripMenuItem.Click += new EventHandler(this.cyclomoteurToolStripMenuItem_Click);
             // 
             // tsmnuModule
             // 
-            this.tsmnuModule.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmnuModule.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuModuleClient,
             this.tsmnuModuleEmployer,
             this.tsmnuModuleFinance,
@@ -598,106 +597,106 @@ namespace Barette.IDE.Forms
             this.toolStripSeparator3,
             this.tsmnuModuleFind});
             this.tsmnuModule.Name = "tsmnuModule";
-            this.tsmnuModule.Size = new System.Drawing.Size(65, 20);
+            this.tsmnuModule.Size = new Size(65, 20);
             this.tsmnuModule.Text = "Modules";
             // 
             // tsmnuModuleClient
             // 
             this.tsmnuModuleClient.Image = global::Barette.IDE.Properties.Resources.user_group_icon;
             this.tsmnuModuleClient.Name = "tsmnuModuleClient";
-            this.tsmnuModuleClient.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleClient.Size = new Size(227, 22);
             this.tsmnuModuleClient.Text = "Gestion des clients";
-            this.tsmnuModuleClient.Click += new System.EventHandler(this.tsmnuModuleClient_Click);
+            this.tsmnuModuleClient.Click += new EventHandler(this.tsmnuModuleClient_Click);
             // 
             // tsmnuModuleEmployer
             // 
             this.tsmnuModuleEmployer.Image = global::Barette.IDE.Properties.Resources.Client_icon;
             this.tsmnuModuleEmployer.Name = "tsmnuModuleEmployer";
-            this.tsmnuModuleEmployer.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleEmployer.Size = new Size(227, 22);
             this.tsmnuModuleEmployer.Text = "Gestion des employés";
-            this.tsmnuModuleEmployer.Click += new System.EventHandler(this.tsmnuModuleEmployer_Click);
+            this.tsmnuModuleEmployer.Click += new EventHandler(this.tsmnuModuleEmployer_Click);
             // 
             // tsmnuModuleFinance
             // 
             this.tsmnuModuleFinance.Image = global::Barette.IDE.Properties.Resources.coins_icon;
             this.tsmnuModuleFinance.Name = "tsmnuModuleFinance";
-            this.tsmnuModuleFinance.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleFinance.Size = new Size(227, 22);
             this.tsmnuModuleFinance.Text = "Gestion des finances";
-            this.tsmnuModuleFinance.Click += new System.EventHandler(this.tsmnuModuleFinance_Click);
+            this.tsmnuModuleFinance.Click += new EventHandler(this.tsmnuModuleFinance_Click);
             // 
             // tsmnuModuleHoraire
             // 
             this.tsmnuModuleHoraire.Image = global::Barette.IDE.Properties.Resources.calendar_date_icon;
             this.tsmnuModuleHoraire.Name = "tsmnuModuleHoraire";
-            this.tsmnuModuleHoraire.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleHoraire.Size = new Size(227, 22);
             this.tsmnuModuleHoraire.Text = "Gestion des horaires";
-            this.tsmnuModuleHoraire.Click += new System.EventHandler(this.tsmnuModuleHoraire_Click);
+            this.tsmnuModuleHoraire.Click += new EventHandler(this.tsmnuModuleHoraire_Click);
             // 
             // tsmnuModuleGroupe
             // 
             this.tsmnuModuleGroupe.Image = global::Barette.IDE.Properties.Resources.Group_Folder_icon;
             this.tsmnuModuleGroupe.Name = "tsmnuModuleGroupe";
-            this.tsmnuModuleGroupe.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleGroupe.Size = new Size(227, 22);
             this.tsmnuModuleGroupe.Text = "Gestion des groupes d\'élèves";
-            this.tsmnuModuleGroupe.Click += new System.EventHandler(this.tsmnuModuleGroupe_Click);
+            this.tsmnuModuleGroupe.Click += new EventHandler(this.tsmnuModuleGroupe_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator2.Size = new Size(224, 6);
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Image = global::Barette.IDE.Properties.Resources.app_attention_icon;
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(227, 22);
+            this.toolStripMenuItem12.Size = new Size(227, 22);
             this.toolStripMenuItem12.Text = "Ligue de sécurité du Québec";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator4.Size = new Size(224, 6);
             // 
             // tsmnuModuleSuivie
             // 
             this.tsmnuModuleSuivie.Image = global::Barette.IDE.Properties.Resources.book_icon;
             this.tsmnuModuleSuivie.Name = "tsmnuModuleSuivie";
-            this.tsmnuModuleSuivie.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleSuivie.Size = new Size(227, 22);
             this.tsmnuModuleSuivie.Text = "Suivie des cours automobiles";
-            this.tsmnuModuleSuivie.Click += new System.EventHandler(this.tsmnuModuleSuivie_Click);
+            this.tsmnuModuleSuivie.Click += new EventHandler(this.tsmnuModuleSuivie_Click);
             // 
             // tsmnuModuleStatistiques
             // 
             this.tsmnuModuleStatistiques.Image = global::Barette.IDE.Properties.Resources.statistics_icon;
             this.tsmnuModuleStatistiques.Name = "tsmnuModuleStatistiques";
-            this.tsmnuModuleStatistiques.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleStatistiques.Size = new Size(227, 22);
             this.tsmnuModuleStatistiques.Text = "Statistiques";
-            this.tsmnuModuleStatistiques.Click += new System.EventHandler(this.tsmnuModuleStatistiques_Click);
+            this.tsmnuModuleStatistiques.Click += new EventHandler(this.tsmnuModuleStatistiques_Click);
             // 
             // tsmnuModuleNotes
             // 
             this.tsmnuModuleNotes.Image = global::Barette.IDE.Properties.Resources.FauxS_32_32;
             this.tsmnuModuleNotes.Name = "tsmnuModuleNotes";
-            this.tsmnuModuleNotes.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleNotes.Size = new Size(227, 22);
             this.tsmnuModuleNotes.Text = "Notes";
-            this.tsmnuModuleNotes.Click += new System.EventHandler(this.tsmnuModuleNotes_Click);
+            this.tsmnuModuleNotes.Click += new EventHandler(this.tsmnuModuleNotes_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator3.Size = new Size(224, 6);
             // 
             // tsmnuModuleFind
             // 
             this.tsmnuModuleFind.Image = global::Barette.IDE.Properties.Resources.search_icon;
             this.tsmnuModuleFind.Name = "tsmnuModuleFind";
-            this.tsmnuModuleFind.Size = new System.Drawing.Size(227, 22);
+            this.tsmnuModuleFind.Size = new Size(227, 22);
             this.tsmnuModuleFind.Text = "Recherche";
-            this.tsmnuModuleFind.Click += new System.EventHandler(this.tsmnuModuleFind_Click);
+            this.tsmnuModuleFind.Click += new EventHandler(this.tsmnuModuleFind_Click);
             // 
             // tsmnuTools
             // 
-            this.tsmnuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmnuTools.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuToolCodes,
             this.tsmnuOffDate,
             this.tsmnuSchoolInfo,
@@ -708,80 +707,80 @@ namespace Barette.IDE.Forms
             this.toolStripSeparator7,
             this.tsmnuToolsDialog});
             this.tsmnuTools.Name = "tsmnuTools";
-            this.tsmnuTools.Size = new System.Drawing.Size(50, 20);
+            this.tsmnuTools.Size = new Size(50, 20);
             this.tsmnuTools.Text = "Outils";
             // 
             // tsmnuToolCodes
             // 
             this.tsmnuToolCodes.Name = "tsmnuToolCodes";
-            this.tsmnuToolCodes.Size = new System.Drawing.Size(273, 22);
+            this.tsmnuToolCodes.Size = new Size(273, 22);
             this.tsmnuToolCodes.Text = "Liste de codes de séances...";
-            this.tsmnuToolCodes.Click += new System.EventHandler(this.tsmnuToolCodes_Click);
+            this.tsmnuToolCodes.Click += new EventHandler(this.tsmnuToolCodes_Click);
             // 
             // tsmnuOffDate
             // 
             this.tsmnuOffDate.Name = "tsmnuOffDate";
-            this.tsmnuOffDate.Size = new System.Drawing.Size(273, 22);
+            this.tsmnuOffDate.Size = new Size(273, 22);
             this.tsmnuOffDate.Text = "Jour fériés...";
-            this.tsmnuOffDate.Click += new System.EventHandler(this.tsmnuOffDate_Click);
+            this.tsmnuOffDate.Click += new EventHandler(this.tsmnuOffDate_Click);
             // 
             // tsmnuSchoolInfo
             // 
             this.tsmnuSchoolInfo.Name = "tsmnuSchoolInfo";
-            this.tsmnuSchoolInfo.Size = new System.Drawing.Size(273, 22);
+            this.tsmnuSchoolInfo.Size = new Size(273, 22);
             this.tsmnuSchoolInfo.Text = "Informations sur l\'école de conduite...";
-            this.tsmnuSchoolInfo.Click += new System.EventHandler(this.tsmnuSchoolInfo_Click);
+            this.tsmnuSchoolInfo.Click += new EventHandler(this.tsmnuSchoolInfo_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(270, 6);
+            this.toolStripSeparator11.Size = new Size(270, 6);
             // 
             // tsmnuAutoCompletedCustomer
             // 
             this.tsmnuAutoCompletedCustomer.Name = "tsmnuAutoCompletedCustomer";
-            this.tsmnuAutoCompletedCustomer.Size = new System.Drawing.Size(273, 22);
+            this.tsmnuAutoCompletedCustomer.Size = new Size(273, 22);
             this.tsmnuAutoCompletedCustomer.Text = "Terminé tous les cours expiré";
-            this.tsmnuAutoCompletedCustomer.Click += new System.EventHandler(this.tsmnuAutoCompletedCustomer_Click);
+            this.tsmnuAutoCompletedCustomer.Click += new EventHandler(this.tsmnuAutoCompletedCustomer_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(270, 6);
+            this.toolStripSeparator5.Size = new Size(270, 6);
             // 
             // tsmnuBackup
             // 
             this.tsmnuBackup.Image = global::Barette.IDE.Properties.Resources.Archive_icon;
             this.tsmnuBackup.Name = "tsmnuBackup";
-            this.tsmnuBackup.Size = new System.Drawing.Size(273, 22);
+            this.tsmnuBackup.Size = new Size(273, 22);
             this.tsmnuBackup.Text = "Faire une copie de sauvegarde...";
-            this.tsmnuBackup.Click += new System.EventHandler(this.tsmnuBackup_Click);
+            this.tsmnuBackup.Click += new EventHandler(this.tsmnuBackup_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(270, 6);
+            this.toolStripSeparator7.Size = new Size(270, 6);
             // 
             // tsmnuToolsDialog
             // 
             this.tsmnuToolsDialog.Enabled = false;
             this.tsmnuToolsDialog.Name = "tsmnuToolsDialog";
-            this.tsmnuToolsDialog.Size = new System.Drawing.Size(273, 22);
+            this.tsmnuToolsDialog.Size = new Size(273, 22);
             this.tsmnuToolsDialog.Text = "Options ...";
             // 
             // toolStripMenuItem13
             // 
-            this.toolStripMenuItem13.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem13.DropDownItems.AddRange(new ToolStripItem[] {
             this.tsmnuAboutDialog});
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(24, 20);
+            this.toolStripMenuItem13.Size = new Size(24, 20);
             this.toolStripMenuItem13.Text = "&?";
             // 
             // tsmnuAboutDialog
             // 
             this.tsmnuAboutDialog.Enabled = false;
             this.tsmnuAboutDialog.Name = "tsmnuAboutDialog";
-            this.tsmnuAboutDialog.Size = new System.Drawing.Size(150, 22);
+            this.tsmnuAboutDialog.Size = new Size(150, 22);
             this.tsmnuAboutDialog.Text = "A propos de ...";
             // 
             // toolStripContainer1
@@ -792,11 +791,11 @@ namespace Barette.IDE.Forms
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tabGroup);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitter1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.outLookBar);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1016, 622);
+            this.toolStripContainer1.ContentPanel.Size = new Size(1016, 622);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 24);
+            this.toolStripContainer1.Location = new Point(0, 24);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1016, 647);
+            this.toolStripContainer1.Size = new Size(1016, 647);
             this.toolStripContainer1.TabIndex = 7;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -807,21 +806,21 @@ namespace Barette.IDE.Forms
             this.tabGroup.CloseMenuText = "&Fermé";
             this.tabGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabGroup.LayoutLock = true;
-            this.tabGroup.Location = new System.Drawing.Point(178, 0);
+            this.tabGroup.Location = new Point(178, 0);
             this.tabGroup.Name = "tabGroup";
             this.tabGroup.ProminentLeaf = null;
             this.tabGroup.ResizeBarColor = System.Drawing.SystemColors.Control;
-            this.tabGroup.Size = new System.Drawing.Size(838, 622);
+            this.tabGroup.Size = new Size(838, 622);
             this.tabGroup.TabIndex = 7;
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(175, 0);
+            this.splitter1.Location = new Point(175, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 622);
+            this.splitter1.Size = new Size(3, 622);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
-            this.splitter1.DoubleClick += new System.EventHandler(this.splitter1_DoubleClick);
+            this.splitter1.DoubleClick += new EventHandler(this.splitter1_DoubleClick);
             // 
             // outLookBar
             // 
@@ -831,23 +830,23 @@ namespace Barette.IDE.Forms
             this.outLookBar.BorderType = UtilityLibrary.WinControls.BorderType.None;
             this.outLookBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.outLookBar.FlatArrowButtons = false;
-            this.outLookBar.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
+            this.outLookBar.Font = new Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World);
             this.outLookBar.LeftTopColor = System.Drawing.Color.Empty;
-            this.outLookBar.Location = new System.Drawing.Point(0, 0);
+            this.outLookBar.Location = new Point(0, 0);
             this.outLookBar.Name = "outLookBar";
             this.outLookBar.RightBottomColor = System.Drawing.Color.Empty;
-            this.outLookBar.Size = new System.Drawing.Size(175, 622);
+            this.outLookBar.Size = new Size(175, 622);
             this.outLookBar.TabIndex = 5;
-            this.outLookBar.ItemClicked += new UtilityLibrary.WinControls.OutlookBarItemClickedHandler(this.outLookBar_ItemClicked);
+            this.outLookBar.ItemClicked += new OutlookBarItemClickedHandler(this.outLookBar_ItemClicked);
             // 
             // outBandGestion
             // 
             this.outBandGestion.Background = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(233)))));
             this.outBandGestion.IconView = UtilityLibrary.WinControls.IconView.Large;
             this.outBandGestion.LargeImageList = this.OutlookBarImageList;
-            this.outBandGestion.Location = new System.Drawing.Point(0, 0);
+            this.outBandGestion.Location = new Point(0, 0);
             this.outBandGestion.Name = "outBandGestion";
-            this.outBandGestion.Size = new System.Drawing.Size(0, 0);
+            this.outBandGestion.Size = new Size(0, 0);
             this.outBandGestion.SmallImageList = null;
             this.outBandGestion.TabIndex = 0;
             this.outBandGestion.Text = "Modules";
@@ -861,30 +860,30 @@ namespace Barette.IDE.Forms
             // tsmnuViewCoursFinish
             // 
             this.tsmnuViewCoursFinish.Name = "tsmnuViewCoursFinish";
-            this.tsmnuViewCoursFinish.Size = new System.Drawing.Size(315, 22);
+            this.tsmnuViewCoursFinish.Size = new Size(315, 22);
             this.tsmnuViewCoursFinish.Text = "Afficher les clients qui ont terminé leurs cours";
             this.tsmnuViewCoursFinish.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.tsmnuViewCoursFinish.Click += new System.EventHandler(this.tsmnuViewCoursFinish_Click);
+            this.tsmnuViewCoursFinish.Click += new EventHandler(this.tsmnuViewCoursFinish_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(312, 6);
+            this.toolStripSeparator13.Size = new Size(312, 6);
             // 
             // FormMain
             // 
-            this.ClientSize = new System.Drawing.Size(1016, 671);
+            this.ClientSize = new Size(1016, 671);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Auto École 2010";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Closing += new System.ComponentModel.CancelEventHandler(this.FormMain_Closing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
-            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.FormClosed += new FormClosedEventHandler(this.FormMain_FormClosed);
+            this.Load += new EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
@@ -990,7 +989,7 @@ namespace Barette.IDE.Forms
             }
         }
 
-        private void outLookBar_ItemClicked(UtilityLibrary.WinControls.OutlookBarBand band, UtilityLibrary.WinControls.OutlookBarItem item)
+        private void outLookBar_ItemClicked(OutlookBarBand band, OutlookBarItem item)
         {
             Cursor.Current = Cursors.WaitCursor;
 
@@ -1061,12 +1060,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Suivie des cours Automobile", _formSuivieCours);
-
-                tp1.Tag = "SUIVIE";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 9;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Suivie des cours Automobile", _formSuivieCours)
+                    {
+                        Tag = "SUIVIE",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 9,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -1096,12 +1096,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Suivie des cours Moto", _formSuivieCoursMoto);
-
-                tp1.Tag = "SUIVIEMOTO";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 9;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Suivie des cours Moto", _formSuivieCoursMoto)
+                    {
+                        Tag = "SUIVIEMOTO",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 9,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -1134,12 +1135,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Gestion des Clients", _formClients);
-
-                tp1.Tag = "CLIENT_LIST";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 0;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Gestion des Clients", _formClients)
+                    {
+                        Tag = "CLIENT_LIST",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 0,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -1172,12 +1174,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Ligue de Securité", _formLigueSecuriter);
-
-                tp1.Tag = "RAPPORTSECUR";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 8;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Ligue de Securité", _formLigueSecuriter)
+                    {
+                        Tag = "RAPPORTSECUR",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 8,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -1220,12 +1223,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Recherche de client", _formFindClient);
-
-                tp1.Tag = "FIND_CLIENT";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 1;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Recherche de client", _formFindClient)
+                    {
+                        Tag = "FIND_CLIENT",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 1,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -1258,12 +1262,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Finances", _formFinance);
-
-                tp1.Tag = "FINANCE";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 5;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Finances", _formFinance)
+                    {
+                        Tag = "FINANCE",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 5,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -1296,12 +1301,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Gestion des Employés", _formEmploye);
-
-                tp1.Tag = "EMPLOYE";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 6;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Gestion des Employés", _formEmploye)
+                    {
+                        Tag = "EMPLOYE",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 6,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -1334,12 +1340,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Statistiques", _formStatistique);
-
-                tp1.Tag = "STATS";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 11;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Statistiques", _formStatistique)
+                    {
+                        Tag = "STATS",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 11,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -1372,12 +1379,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Notes", _formPostIt);
-
-                tp1.Tag = "POSTIT";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 7;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Notes", _formPostIt)
+                    {
+                        Tag = "POSTIT",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 7,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -2130,8 +2138,10 @@ namespace Barette.IDE.Forms
         {
             try
             {
-                XmlTextWriter myWriter = new XmlTextWriter(@"Data\employe.xml", Encoding.Unicode);
-                myWriter.Formatting = Formatting.Indented;
+                XmlTextWriter myWriter = new XmlTextWriter(@"Data\employe.xml", Encoding.Unicode)
+                {
+                    Formatting = Formatting.Indented
+                };
 
                 //Header avec la version
                 myWriter.WriteStartElement("GAEEmploye");
@@ -2203,8 +2213,10 @@ namespace Barette.IDE.Forms
         {
             try
             {
-                XmlTextWriter myWriter = new XmlTextWriter(@"Data\StudentGroup.xml", Encoding.Unicode);
-                myWriter.Formatting = Formatting.Indented;
+                XmlTextWriter myWriter = new XmlTextWriter(@"Data\StudentGroup.xml", Encoding.Unicode)
+                {
+                    Formatting = Formatting.Indented
+                };
 
                 //Header avec la version
                 myWriter.WriteStartElement("GAEStudentGroup");
@@ -2420,8 +2432,8 @@ namespace Barette.IDE.Forms
                     emp.NatureEmploie = node.Attributes["NatureEmploie"].Value;
                     emp.Notes = node.Attributes["Notes"].Value;
 
-                    emp.AdultACharge = Convert.ToInt16(node.Attributes["AdultACharge"].Value);
-                    emp.EnfantACharge = Convert.ToInt16(node.Attributes["EnfantACharge"].Value);
+                    emp.AdultACharge = Convert.ToInt32(node.Attributes["AdultACharge"].Value);
+                    emp.EnfantACharge = Convert.ToInt32(node.Attributes["EnfantACharge"].Value);
 
                     emp.TauxHorraire = node.Attributes["TauxHorraire"].Value;
 
@@ -2524,10 +2536,11 @@ namespace Barette.IDE.Forms
                 //Chargement de la liste de client
                 foreach (XmlNode node in AllCode)
                 {
-                    group = new StudentGroup();
-
-                    group.GroupeNumber = Convert.ToInt32(node.Attributes["GroupeNumber"].Value);
-                    group.Name = node.Attributes["Name"].Value;
+                    group = new StudentGroup
+                    {
+                        GroupeNumber = Convert.ToInt32(node.Attributes["GroupeNumber"].Value),
+                        Name = node.Attributes["Name"].Value
+                    };
 
                     switch (node.Attributes["Type"].Value)
                     {
@@ -2701,12 +2714,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Horaire", _formHoraire);
-
-                tp1.Tag = "HORAIRE";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 4;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Horaire", _formHoraire)
+                    {
+                        Tag = "HORAIRE",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 4,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -2739,12 +2753,13 @@ namespace Barette.IDE.Forms
 
                 // Cree la page
                 Crownwood.Magic.Controls.TabPage tp1 =
-                    new Crownwood.Magic.Controls.TabPage("Gestion des groupes d'élèves", _formGestionGroupe);
-
-                tp1.Tag = "GROUPEELEVE";
-                tp1.ImageList = OutlookBarImageList;
-                tp1.ImageIndex = 10;
-                tp1.Selected = true;
+                    new Crownwood.Magic.Controls.TabPage("Gestion des groupes d'élèves", _formGestionGroupe)
+                    {
+                        Tag = "GROUPEELEVE",
+                        ImageList = OutlookBarImageList,
+                        ImageIndex = 10,
+                        Selected = true
+                    };
 
                 // ajouter la page au groupe
                 tgl.TabPages.Add(tp1);
@@ -2773,18 +2788,18 @@ namespace Barette.IDE.Forms
             //this._formHorraire.UpdateClientList(ClientList);
         }
 
-        private void FormMain_Load(object sender, System.EventArgs e)
+        private void FormMain_Load(object sender, EventArgs e)
         {
             CreationListClient();
         }
 
 
-        private void menuItem7_Click(object sender, System.EventArgs e)
+        private void menuItem7_Click(object sender, EventArgs e)
         {
             CreationFindClient();
         }
 
-        private void splitter1_DoubleClick(object sender, System.EventArgs e)
+        private void splitter1_DoubleClick(object sender, EventArgs e)
         {
             outLookBar.Width = 112;
             splitter1.Left = 112;
@@ -2793,7 +2808,7 @@ namespace Barette.IDE.Forms
         /// <summary>
         /// Demande l'enregistrement de l'horraire avant sa fermeture
         /// </summary>		
-        private void tabGroup_PageCloseRequest(Crownwood.Magic.Controls.TabbedGroups tg, Crownwood.Magic.Controls.TGCloseRequestEventArgs e)
+        private void tabGroup_PageCloseRequest(TabbedGroups tg, TGCloseRequestEventArgs e)
         {
             /*if (e.TabPage.Tag.ToString() == "HORRAIRE"){
                 DialogResult result = MessageBox.Show(this, "Voulez vous enregistrer votre horraire ?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -2910,7 +2925,7 @@ namespace Barette.IDE.Forms
 
         private void tsmnuToolCodes_Click(object sender, EventArgs e)
         {
-            new Barette.Library.Forms.FormSeanceCode(AppConfig).ShowDialog(this);
+            new FormSeanceCode(AppConfig).ShowDialog(this);
         }
 
         private void tsmnuOffDate_Click(object sender, EventArgs e)

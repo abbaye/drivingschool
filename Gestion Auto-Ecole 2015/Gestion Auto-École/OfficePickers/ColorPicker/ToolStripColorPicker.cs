@@ -1,11 +1,7 @@
 using System;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Drawing.Imaging;
 
 namespace OfficePickers.ColorPicker
 {
@@ -156,7 +152,7 @@ namespace OfficePickers.ColorPicker
         /// <summary>
         /// The color picker control that opens when clicking on the button
         /// </summary>
-        private OfficeColorPicker _colorPicker = new OfficeColorPicker();
+        private readonly OfficeColorPicker _colorPicker = new OfficeColorPicker();
         /// <summary>
         /// Default color rectangle (under line)
         /// </summary>
@@ -170,7 +166,7 @@ namespace OfficePickers.ColorPicker
         private bool _showUnderLineImage = true;
         private bool _showUnderLineText = false;
 
-        private System.ComponentModel.IContainer components = null;
+        private readonly IContainer components = null;
 
 
         #endregion

@@ -2,28 +2,24 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-
-using Barette.Library;
-using Barette.Library.Forms;
 using Barette.Library.Client;
 using Barette.Library.Collections;
-using Barette.Library.UserControls.Client;
 using Barette.Library.UserControls.TextEdit;
 using Barette.Library.Web;
 using Barette.Library.Employer;
 
-namespace Barette.Library.UserControls.Client {
+namespace Barette.Library.UserControls.Client
+{
     /// <summary>
     /// Description résumée de ClientControl.
     /// </summary>
     [ToolboxItem(true)]
-    public class ClientControl : System.Windows.Forms.UserControl {
+    public class ClientControl : UserControl
+    {
         /// <summary>
         /// Type de Seance
         /// </summary>
@@ -51,67 +47,67 @@ namespace Barette.Library.UserControls.Client {
         public string _MontantCours = "";
         private SchoolInfo _infoSchool = null;
 
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.GroupBox gbCoursType;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button cmdShowSeanceTheorique;
-        private System.Windows.Forms.TextBox txtN6R;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtAdressStreet;
-        private System.Windows.Forms.TextBox txtNumeroPermis;
-        private System.Windows.Forms.DateTimePicker DateInscription;
-        private System.Windows.Forms.CheckBox chkDisponibilityDimanche;
-        private System.Windows.Forms.CheckBox chkDisponibilitySamedi;
-        private System.Windows.Forms.CheckBox chkDisponibilitySoir;
-        private System.Windows.Forms.CheckBox chkDisponibilityPM;
-        private System.Windows.Forms.CheckBox chkDisponibilityAM;
-        private System.Windows.Forms.RadioButton rbTypeClientFinish;
-        private System.Windows.Forms.RadioButton rbTypeClientActif;
-        private System.Windows.Forms.RadioButton rbVehiculMotocyclette;
-        private System.Windows.Forms.RadioButton rbVehiculMoto;
-        private System.Windows.Forms.RadioButton rbVehiculAutomatique;
-        private System.Windows.Forms.RadioButton rbVehiculManuel;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.ImageList ImageListToolBar;
-        private System.Windows.Forms.ToolTip toolTipText;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtAdressApp;
-        private System.Windows.Forms.CheckBox cbMoto;
-        private System.Windows.Forms.CheckBox cbAuto;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.ComponentModel.IContainer components;
-        private System.Windows.Forms.Button cmdAlwayDispo;
-        private System.Windows.Forms.DateTimePicker dtpBVA;
-        private System.Windows.Forms.Timer timerCheckClientValid;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.DateTimePicker dtpDatePermis;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DateTimePicker dtpDatePermisPlus8;
-        private System.Windows.Forms.CheckBox cbPermisObtenue;
+        private GroupBox groupBox2;
+        private Label label11;
+        private GroupBox gbCoursType;
+        private GroupBox groupBox1;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private Label label10;
+        private Label label12;
+        private GroupBox groupBox5;
+        private Label label13;
+        private Button cmdShowSeanceTheorique;
+        private TextBox txtN6R;
+        private TextBox txtFirstName;
+        private TextBox txtName;
+        private TextBox txtAdressStreet;
+        private TextBox txtNumeroPermis;
+        private DateTimePicker DateInscription;
+        private CheckBox chkDisponibilityDimanche;
+        private CheckBox chkDisponibilitySamedi;
+        private CheckBox chkDisponibilitySoir;
+        private CheckBox chkDisponibilityPM;
+        private CheckBox chkDisponibilityAM;
+        private RadioButton rbTypeClientFinish;
+        private RadioButton rbTypeClientActif;
+        private RadioButton rbVehiculMotocyclette;
+        private RadioButton rbVehiculMoto;
+        private RadioButton rbVehiculAutomatique;
+        private RadioButton rbVehiculManuel;
+        private PrintDocument printDocument1;
+        private GroupBox groupBox7;
+        private Label label14;
+        private Label label15;
+        private GroupBox groupBox8;
+        private ImageList ImageListToolBar;
+        private ToolTip toolTipText;
+        private Button button1;
+        private Label label9;
+        private GroupBox groupBox3;
+        private Label label16;
+        private TextBox txtAdressApp;
+        private CheckBox cbMoto;
+        private CheckBox cbAuto;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private IContainer components;
+        private Button cmdAlwayDispo;
+        private DateTimePicker dtpBVA;
+        private Timer timerCheckClientValid;
+        private GroupBox groupBox6;
+        private DateTimePicker dtpDatePermis;
+        private PictureBox pictureBox3;
+        private Label label17;
+        private Label label18;
+        private DateTimePicker dtpDatePermisPlus8;
+        private CheckBox cbPermisObtenue;
         private PictureBox pictureBox4;
         private Label label19;
         private Label label20;
@@ -155,7 +151,7 @@ namespace Barette.Library.UserControls.Client {
         private RadioButton rbProgramMoto2015;
         private RadioButton rbProgramMotoNormal;
         private PrintDocument printDocAttestationMoto2015;
-        private System.Windows.Forms.CheckBox cbBVA;
+        private CheckBox cbBVA;
 
         public ClientControl(SchoolInfo info) {
             // Cet appel est requis par le Concepteur de formulaires Windows.Forms.
@@ -187,125 +183,125 @@ namespace Barette.Library.UserControls.Client {
         /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientControl));
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.cmdAlwayDispo = new System.Windows.Forms.Button();
-            this.chkDisponibilityDimanche = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilitySamedi = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilitySoir = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilityPM = new System.Windows.Forms.CheckBox();
-            this.chkDisponibilityAM = new System.Windows.Forms.CheckBox();
-            this.txtNumeroPermis = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.gbCoursType = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtN6R = new System.Windows.Forms.TextBox();
-            this.rbVehiculMotocyclette = new System.Windows.Forms.RadioButton();
-            this.rbVehiculMoto = new System.Windows.Forms.RadioButton();
-            this.rbVehiculManuel = new System.Windows.Forms.RadioButton();
-            this.rbVehiculAutomatique = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbCity = new Barette.Library.UserControls.ComboCityPicker();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.DateNaissance = new System.Windows.Forms.DateTimePicker();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtPhoneNumber = new System.Windows.Forms.MaskedTextBox();
-            this.txtCodePostal = new System.Windows.Forms.MaskedTextBox();
+            this.components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(ClientControl));
+            this.groupBox2 = new GroupBox();
+            this.pictureBox4 = new PictureBox();
+            this.cmdAlwayDispo = new Button();
+            this.chkDisponibilityDimanche = new CheckBox();
+            this.chkDisponibilitySamedi = new CheckBox();
+            this.chkDisponibilitySoir = new CheckBox();
+            this.chkDisponibilityPM = new CheckBox();
+            this.chkDisponibilityAM = new CheckBox();
+            this.txtNumeroPermis = new TextBox();
+            this.label11 = new Label();
+            this.gbCoursType = new GroupBox();
+            this.label19 = new Label();
+            this.txtN6R = new TextBox();
+            this.rbVehiculMotocyclette = new RadioButton();
+            this.rbVehiculMoto = new RadioButton();
+            this.rbVehiculManuel = new RadioButton();
+            this.rbVehiculAutomatique = new RadioButton();
+            this.groupBox1 = new GroupBox();
+            this.cbCity = new ComboCityPicker();
+            this.txtEmail = new TextBox();
+            this.label26 = new Label();
+            this.DateNaissance = new DateTimePicker();
+            this.label21 = new Label();
+            this.txtPhoneNumber = new MaskedTextBox();
+            this.txtCodePostal = new MaskedTextBox();
             this.txtAdressNumber = new UtilityLibrary.WinControls.NumericTextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtAdressApp = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAdressStreet = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtPhoneBureau = new System.Windows.Forms.MaskedTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.rbTypeClientFinish = new System.Windows.Forms.RadioButton();
-            this.rbTypeClientActif = new System.Windows.Forms.RadioButton();
-            this.DateInscription = new System.Windows.Forms.DateTimePicker();
-            this.label13 = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new PictureBox();
+            this.txtAdressApp = new TextBox();
+            this.label9 = new Label();
+            this.label8 = new Label();
+            this.label7 = new Label();
+            this.label6 = new Label();
+            this.label5 = new Label();
+            this.label4 = new Label();
+            this.label3 = new Label();
+            this.label2 = new Label();
+            this.label1 = new Label();
+            this.txtAdressStreet = new TextBox();
+            this.txtFirstName = new TextBox();
+            this.txtName = new TextBox();
+            this.label12 = new Label();
+            this.txtPhoneBureau = new MaskedTextBox();
+            this.label10 = new Label();
+            this.groupBox5 = new GroupBox();
+            this.rbTypeClientFinish = new RadioButton();
+            this.rbTypeClientActif = new RadioButton();
+            this.DateInscription = new DateTimePicker();
+            this.label13 = new Label();
+            this.printDocument1 = new PrintDocument();
+            this.groupBox7 = new GroupBox();
             this.dbRecuNumber = new UtilityLibrary.WinControls.NumericTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.CashBox_Solde = new Barette.Library.UserControls.CashTextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.txtNotes = new Barette.Library.UserControls.TextEdit.TextEditor();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ImageListToolBar = new System.Windows.Forms.ImageList(this.components);
-            this.toolTipText = new System.Windows.Forms.ToolTip(this.components);
-            this.cbBVA = new System.Windows.Forms.CheckBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cbNullContrat = new System.Windows.Forms.CheckBox();
-            this.cmdShowSeanceT = new System.Windows.Forms.Button();
-            this.cmdShowSeanceTheorique = new System.Windows.Forms.Button();
-            this.cmdAutoDateExpiration = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.cmdClearbox = new System.Windows.Forms.Button();
-            this.cmdShowSeancesMoto2015 = new System.Windows.Forms.Button();
-            this.ctbTauxHorairePratique = new Barette.Library.UserControls.CashTextBox();
-            this.ctbTauxHoraireTheorique = new Barette.Library.UserControls.CashTextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtpBVA = new System.Windows.Forms.DateTimePicker();
-            this.cbMoto = new System.Windows.Forms.CheckBox();
-            this.cbAuto = new System.Windows.Forms.CheckBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.ctbLocationMontant = new Barette.Library.UserControls.CashTextBox();
-            this.timerCheckClientValid = new System.Windows.Forms.Timer(this.components);
-            this.dtpDatePermis = new System.Windows.Forms.DateTimePicker();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.cbPermisObtenue = new System.Windows.Forms.CheckBox();
-            this.dtpDatePermisPlus8 = new System.Windows.Forms.DateTimePicker();
-            this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.DateExpiration = new System.Windows.Forms.DateTimePicker();
-            this.label23 = new System.Windows.Forms.Label();
-            this.DateDebutCours = new System.Windows.Forms.DateTimePicker();
-            this.printDocContract = new System.Drawing.Printing.PrintDocument();
-            this.dtpAttestation2 = new System.Windows.Forms.DateTimePicker();
-            this.dtpAttestation1 = new System.Windows.Forms.DateTimePicker();
-            this.printDocTheorique = new System.Drawing.Printing.PrintDocument();
-            this.label25 = new System.Windows.Forms.Label();
-            this.EmailError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.printDocMoto2015 = new System.Drawing.Printing.PrintDocument();
-            this.gbProgramMoto = new System.Windows.Forms.GroupBox();
-            this.rbProgramMoto2015 = new System.Windows.Forms.RadioButton();
-            this.rbProgramMotoNormal = new System.Windows.Forms.RadioButton();
+            this.button1 = new Button();
+            this.label15 = new Label();
+            this.CashBox_Solde = new CashTextBox();
+            this.label14 = new Label();
+            this.groupBox8 = new GroupBox();
+            this.txtNotes = new TextEditor();
+            this.pictureBox1 = new PictureBox();
+            this.ImageListToolBar = new ImageList(this.components);
+            this.toolTipText = new ToolTip(this.components);
+            this.cbBVA = new CheckBox();
+            this.label20 = new Label();
+            this.cbNullContrat = new CheckBox();
+            this.cmdShowSeanceT = new Button();
+            this.cmdShowSeanceTheorique = new Button();
+            this.cmdAutoDateExpiration = new Button();
+            this.label24 = new Label();
+            this.cmdClearbox = new Button();
+            this.cmdShowSeancesMoto2015 = new Button();
+            this.ctbTauxHorairePratique = new CashTextBox();
+            this.ctbTauxHoraireTheorique = new CashTextBox();
+            this.groupBox3 = new GroupBox();
+            this.dtpBVA = new DateTimePicker();
+            this.cbMoto = new CheckBox();
+            this.cbAuto = new CheckBox();
+            this.label16 = new Label();
+            this.ctbLocationMontant = new CashTextBox();
+            this.timerCheckClientValid = new Timer(this.components);
+            this.dtpDatePermis = new DateTimePicker();
+            this.groupBox6 = new GroupBox();
+            this.cbPermisObtenue = new CheckBox();
+            this.dtpDatePermisPlus8 = new DateTimePicker();
+            this.label17 = new Label();
+            this.pictureBox3 = new PictureBox();
+            this.label18 = new Label();
+            this.label22 = new Label();
+            this.DateExpiration = new DateTimePicker();
+            this.label23 = new Label();
+            this.DateDebutCours = new DateTimePicker();
+            this.printDocContract = new PrintDocument();
+            this.dtpAttestation2 = new DateTimePicker();
+            this.dtpAttestation1 = new DateTimePicker();
+            this.printDocTheorique = new PrintDocument();
+            this.label25 = new Label();
+            this.EmailError = new ErrorProvider(this.components);
+            this.printDocMoto2015 = new PrintDocument();
+            this.gbProgramMoto = new GroupBox();
+            this.rbProgramMoto2015 = new RadioButton();
+            this.rbProgramMotoNormal = new RadioButton();
             this.txtNumeroGroupe = new UtilityLibrary.WinControls.NumericTextBox();
             this.txtNumeroAttestation2 = new UtilityLibrary.WinControls.NumericTextBox();
             this.txtNumeroContrat = new UtilityLibrary.WinControls.NumericTextBox();
             this.txtNumeroAttestation = new UtilityLibrary.WinControls.NumericTextBox();
-            this.printDocAttestationMoto2015 = new System.Drawing.Printing.PrintDocument();
+            this.printDocAttestationMoto2015 = new PrintDocument();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.gbCoursType.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmailError)).BeginInit();
+            ((ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((ISupportInitialize)(this.EmailError)).BeginInit();
             this.gbProgramMoto.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -319,9 +315,9 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox2.Controls.Add(this.chkDisponibilityPM);
             this.groupBox2.Controls.Add(this.chkDisponibilityAM);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox2.Location = new System.Drawing.Point(0, 355);
+            this.groupBox2.Location = new Point(0, 355);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(220, 80);
+            this.groupBox2.Size = new Size(220, 80);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Disponibilité";
@@ -329,30 +325,30 @@ namespace Barette.Library.UserControls.Client {
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Barette.Library.Properties.Resources.stylish8;
-            this.pictureBox4.Location = new System.Drawing.Point(7, 20);
+            this.pictureBox4.Location = new Point(7, 20);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.Size = new Size(32, 32);
             this.pictureBox4.TabIndex = 20;
             this.pictureBox4.TabStop = false;
             // 
             // cmdAlwayDispo
             // 
             this.cmdAlwayDispo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdAlwayDispo.Location = new System.Drawing.Point(132, 14);
-            this.cmdAlwayDispo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.cmdAlwayDispo.Location = new Point(132, 14);
+            this.cmdAlwayDispo.Margin = new Padding(3, 3, 3, 0);
             this.cmdAlwayDispo.Name = "cmdAlwayDispo";
-            this.cmdAlwayDispo.Size = new System.Drawing.Size(75, 23);
+            this.cmdAlwayDispo.Size = new Size(75, 23);
             this.cmdAlwayDispo.TabIndex = 6;
             this.cmdAlwayDispo.Text = "Toujours";
-            this.cmdAlwayDispo.Click += new System.EventHandler(this.cmdAlwayDispo_Click);
+            this.cmdAlwayDispo.Click += new EventHandler(this.cmdAlwayDispo_Click);
             // 
             // chkDisponibilityDimanche
             // 
             this.chkDisponibilityDimanche.AutoSize = true;
             this.chkDisponibilityDimanche.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilityDimanche.Location = new System.Drawing.Point(132, 54);
+            this.chkDisponibilityDimanche.Location = new Point(132, 54);
             this.chkDisponibilityDimanche.Name = "chkDisponibilityDimanche";
-            this.chkDisponibilityDimanche.Size = new System.Drawing.Size(80, 18);
+            this.chkDisponibilityDimanche.Size = new Size(80, 18);
             this.chkDisponibilityDimanche.TabIndex = 5;
             this.chkDisponibilityDimanche.Text = "Dimanche";
             // 
@@ -360,10 +356,10 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.chkDisponibilitySamedi.AutoSize = true;
             this.chkDisponibilitySamedi.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilitySamedi.Location = new System.Drawing.Point(132, 38);
-            this.chkDisponibilitySamedi.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            this.chkDisponibilitySamedi.Location = new Point(132, 38);
+            this.chkDisponibilitySamedi.Margin = new Padding(3, 1, 3, 3);
             this.chkDisponibilitySamedi.Name = "chkDisponibilitySamedi";
-            this.chkDisponibilitySamedi.Size = new System.Drawing.Size(67, 18);
+            this.chkDisponibilitySamedi.Size = new Size(67, 18);
             this.chkDisponibilitySamedi.TabIndex = 4;
             this.chkDisponibilitySamedi.Text = "Samedi";
             // 
@@ -371,9 +367,9 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.chkDisponibilitySoir.AutoSize = true;
             this.chkDisponibilitySoir.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilitySoir.Location = new System.Drawing.Point(44, 54);
+            this.chkDisponibilitySoir.Location = new Point(44, 54);
             this.chkDisponibilitySoir.Name = "chkDisponibilitySoir";
-            this.chkDisponibilitySoir.Size = new System.Drawing.Size(62, 18);
+            this.chkDisponibilitySoir.Size = new Size(62, 18);
             this.chkDisponibilitySoir.TabIndex = 3;
             this.chkDisponibilitySoir.Text = "Soirée";
             // 
@@ -381,9 +377,9 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.chkDisponibilityPM.AutoSize = true;
             this.chkDisponibilityPM.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilityPM.Location = new System.Drawing.Point(44, 38);
+            this.chkDisponibilityPM.Location = new Point(44, 38);
             this.chkDisponibilityPM.Name = "chkDisponibilityPM";
-            this.chkDisponibilityPM.Size = new System.Drawing.Size(81, 18);
+            this.chkDisponibilityPM.Size = new Size(81, 18);
             this.chkDisponibilityPM.TabIndex = 2;
             this.chkDisponibilityPM.Text = "Après Midi";
             // 
@@ -391,27 +387,27 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.chkDisponibilityAM.AutoSize = true;
             this.chkDisponibilityAM.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkDisponibilityAM.Location = new System.Drawing.Point(44, 22);
+            this.chkDisponibilityAM.Location = new Point(44, 22);
             this.chkDisponibilityAM.Name = "chkDisponibilityAM";
-            this.chkDisponibilityAM.Size = new System.Drawing.Size(58, 18);
+            this.chkDisponibilityAM.Size = new Size(58, 18);
             this.chkDisponibilityAM.TabIndex = 1;
             this.chkDisponibilityAM.Text = "Matin";
             // 
             // txtNumeroPermis
             // 
             this.txtNumeroPermis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumeroPermis.Location = new System.Drawing.Point(128, 31);
+            this.txtNumeroPermis.Location = new Point(128, 31);
             this.txtNumeroPermis.MaxLength = 20;
             this.txtNumeroPermis.Name = "txtNumeroPermis";
-            this.txtNumeroPermis.Size = new System.Drawing.Size(144, 20);
+            this.txtNumeroPermis.Size = new Size(144, 20);
             this.txtNumeroPermis.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(48, 31);
+            this.label11.Location = new Point(48, 31);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 13);
+            this.label11.Size = new Size(72, 13);
             this.label11.TabIndex = 13;
             this.label11.Text = "No. de permis";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -425,9 +421,9 @@ namespace Barette.Library.UserControls.Client {
             this.gbCoursType.Controls.Add(this.rbVehiculManuel);
             this.gbCoursType.Controls.Add(this.rbVehiculAutomatique);
             this.gbCoursType.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.gbCoursType.Location = new System.Drawing.Point(0, 442);
+            this.gbCoursType.Location = new Point(0, 442);
             this.gbCoursType.Name = "gbCoursType";
-            this.gbCoursType.Size = new System.Drawing.Size(183, 88);
+            this.gbCoursType.Size = new Size(183, 88);
             this.gbCoursType.TabIndex = 12;
             this.gbCoursType.TabStop = false;
             this.gbCoursType.Text = "Type de véhicule";
@@ -435,9 +431,9 @@ namespace Barette.Library.UserControls.Client {
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(8, 66);
+            this.label19.Location = new Point(8, 66);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(36, 13);
+            this.label19.Size = new Size(36, 13);
             this.label19.TabIndex = 23;
             this.label19.Text = "Nº6R:";
             // 
@@ -445,60 +441,60 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.txtN6R.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtN6R.Enabled = false;
-            this.txtN6R.Location = new System.Drawing.Point(48, 64);
+            this.txtN6R.Location = new Point(48, 64);
             this.txtN6R.Name = "txtN6R";
-            this.txtN6R.Size = new System.Drawing.Size(122, 20);
+            this.txtN6R.Size = new Size(122, 20);
             this.txtN6R.TabIndex = 5;
             // 
             // rbVehiculMotocyclette
             // 
             this.rbVehiculMotocyclette.AutoSize = true;
             this.rbVehiculMotocyclette.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculMotocyclette.Location = new System.Drawing.Point(95, 39);
+            this.rbVehiculMotocyclette.Location = new Point(95, 39);
             this.rbVehiculMotocyclette.Name = "rbVehiculMotocyclette";
-            this.rbVehiculMotocyclette.Size = new System.Drawing.Size(89, 18);
+            this.rbVehiculMotocyclette.Size = new Size(89, 18);
             this.rbVehiculMotocyclette.TabIndex = 4;
             this.rbVehiculMotocyclette.Tag = "General";
             this.rbVehiculMotocyclette.Text = "Cyclomoteur";
-            this.rbVehiculMotocyclette.CheckedChanged += new System.EventHandler(this.rbCamion_CheckedChanged);
+            this.rbVehiculMotocyclette.CheckedChanged += new EventHandler(this.rbCamion_CheckedChanged);
             // 
             // rbVehiculMoto
             // 
             this.rbVehiculMoto.AutoSize = true;
             this.rbVehiculMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculMoto.Location = new System.Drawing.Point(8, 39);
+            this.rbVehiculMoto.Location = new Point(8, 39);
             this.rbVehiculMoto.Name = "rbVehiculMoto";
-            this.rbVehiculMoto.Size = new System.Drawing.Size(55, 18);
+            this.rbVehiculMoto.Size = new Size(55, 18);
             this.rbVehiculMoto.TabIndex = 2;
             this.rbVehiculMoto.Tag = "Moto";
             this.rbVehiculMoto.Text = "Moto";
-            this.rbVehiculMoto.CheckedChanged += new System.EventHandler(this.rbMoto_CheckedChanged);
+            this.rbVehiculMoto.CheckedChanged += new EventHandler(this.rbMoto_CheckedChanged);
             // 
             // rbVehiculManuel
             // 
             this.rbVehiculManuel.AutoSize = true;
             this.rbVehiculManuel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculManuel.Location = new System.Drawing.Point(95, 16);
+            this.rbVehiculManuel.Location = new Point(95, 16);
             this.rbVehiculManuel.Name = "rbVehiculManuel";
-            this.rbVehiculManuel.Size = new System.Drawing.Size(66, 18);
+            this.rbVehiculManuel.Size = new Size(66, 18);
             this.rbVehiculManuel.TabIndex = 3;
             this.rbVehiculManuel.Tag = "General";
             this.rbVehiculManuel.Text = "Manuel";
-            this.rbVehiculManuel.CheckedChanged += new System.EventHandler(this.rbManuel_CheckedChanged);
+            this.rbVehiculManuel.CheckedChanged += new EventHandler(this.rbManuel_CheckedChanged);
             // 
             // rbVehiculAutomatique
             // 
             this.rbVehiculAutomatique.AutoSize = true;
             this.rbVehiculAutomatique.Checked = true;
             this.rbVehiculAutomatique.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbVehiculAutomatique.Location = new System.Drawing.Point(8, 16);
+            this.rbVehiculAutomatique.Location = new Point(8, 16);
             this.rbVehiculAutomatique.Name = "rbVehiculAutomatique";
-            this.rbVehiculAutomatique.Size = new System.Drawing.Size(90, 18);
+            this.rbVehiculAutomatique.Size = new Size(90, 18);
             this.rbVehiculAutomatique.TabIndex = 1;
             this.rbVehiculAutomatique.TabStop = true;
             this.rbVehiculAutomatique.Tag = "General";
             this.rbVehiculAutomatique.Text = "Automatique";
-            this.rbVehiculAutomatique.CheckedChanged += new System.EventHandler(this.rbAutomatique_CheckedChanged);
+            this.rbVehiculAutomatique.CheckedChanged += new EventHandler(this.rbAutomatique_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -527,10 +523,10 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtPhoneBureau);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox1.Location = new System.Drawing.Point(0, 112);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.groupBox1.Location = new Point(0, 112);
+            this.groupBox1.Margin = new Padding(3, 2, 3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(640, 158);
+            this.groupBox1.Size = new Size(640, 158);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informations sur le client";
@@ -10293,72 +10289,72 @@ namespace Barette.Library.UserControls.Client {
             "Ville Saguenay"});
             this.cbCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbCity.Location = new System.Drawing.Point(120, 78);
+            this.cbCity.Location = new Point(120, 78);
             this.cbCity.Name = "cbCity";
-            this.cbCity.Size = new System.Drawing.Size(213, 20);
+            this.cbCity.Size = new Size(213, 20);
             this.cbCity.TabIndex = 29;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(456, 132);
+            this.txtEmail.Location = new Point(456, 132);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(176, 20);
+            this.txtEmail.Size = new Size(176, 20);
             this.txtEmail.TabIndex = 28;
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
+            this.txtEmail.Leave += new EventHandler(this.txtEmail_Leave);
+            this.txtEmail.Validating += new CancelEventHandler(this.txtEmail_Validating);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(352, 135);
+            this.label26.Location = new Point(352, 135);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(48, 13);
+            this.label26.Size = new Size(48, 13);
             this.label26.TabIndex = 27;
             this.label26.Text = "Courriel :";
             // 
             // DateNaissance
             // 
-            this.DateNaissance.Location = new System.Drawing.Point(456, 106);
+            this.DateNaissance.Location = new Point(456, 106);
             this.DateNaissance.Name = "DateNaissance";
-            this.DateNaissance.Size = new System.Drawing.Size(123, 20);
+            this.DateNaissance.Size = new Size(123, 20);
             this.DateNaissance.TabIndex = 10;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(352, 109);
+            this.label21.Location = new Point(352, 109);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 13);
+            this.label21.Size = new Size(87, 13);
             this.label21.TabIndex = 26;
             this.label21.Text = "Date naissance :";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(162, 107);
+            this.txtPhoneNumber.Location = new Point(162, 107);
             this.txtPhoneNumber.Mask = "(999)000-0000";
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtPhoneNumber.Size = new Size(100, 20);
             this.txtPhoneNumber.TabIndex = 8;
-            this.txtPhoneNumber.Enter += new System.EventHandler(this.txtPhoneNumber_Enter);
+            this.txtPhoneNumber.Enter += new EventHandler(this.txtPhoneNumber_Enter);
             // 
             // txtCodePostal
             // 
-            this.txtCodePostal.Location = new System.Drawing.Point(456, 78);
+            this.txtCodePostal.Location = new Point(456, 78);
             this.txtCodePostal.Mask = "L0L-0L0";
             this.txtCodePostal.Name = "txtCodePostal";
-            this.txtCodePostal.Size = new System.Drawing.Size(56, 20);
+            this.txtCodePostal.Size = new Size(56, 20);
             this.txtCodePostal.TabIndex = 7;
-            this.txtCodePostal.Enter += new System.EventHandler(this.txtCodePostal_Enter);
-            this.txtCodePostal.Leave += new System.EventHandler(this.txtCodePostal_Leave);
+            this.txtCodePostal.Enter += new EventHandler(this.txtCodePostal_Enter);
+            this.txtCodePostal.Leave += new EventHandler(this.txtCodePostal_Leave);
             // 
             // txtAdressNumber
             // 
-            this.txtAdressNumber.Location = new System.Drawing.Point(155, 51);
+            this.txtAdressNumber.Location = new Point(155, 51);
             this.txtAdressNumber.Name = "txtAdressNumber";
-            this.txtAdressNumber.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtAdressNumber.SetRange = new Size(0, 9999999);
             this.txtAdressNumber.ShortcutsEnabled = false;
-            this.txtAdressNumber.Size = new System.Drawing.Size(54, 20);
+            this.txtAdressNumber.Size = new Size(54, 20);
             this.txtAdressNumber.TabIndex = 3;
             this.txtAdressNumber.Text = "0";
             this.txtAdressNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -10366,36 +10362,36 @@ namespace Barette.Library.UserControls.Client {
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(8, 24);
+            this.pictureBox2.Image = ((Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new Point(8, 24);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.Size = new Size(32, 32);
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
             // 
             // txtAdressApp
             // 
             this.txtAdressApp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAdressApp.Location = new System.Drawing.Point(584, 51);
+            this.txtAdressApp.Location = new Point(584, 51);
             this.txtAdressApp.Name = "txtAdressApp";
-            this.txtAdressApp.Size = new System.Drawing.Size(48, 20);
+            this.txtAdressApp.Size = new Size(48, 20);
             this.txtAdressApp.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(352, 79);
+            this.label9.Location = new Point(352, 79);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 13);
+            this.label9.Size = new Size(76, 13);
             this.label9.TabIndex = 22;
             this.label9.Text = "Code Postale :";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(48, 109);
+            this.label8.Location = new Point(48, 109);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 13);
+            this.label8.Size = new Size(64, 13);
             this.label8.TabIndex = 19;
             this.label8.Text = "Téléphone :";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10403,9 +10399,9 @@ namespace Barette.Library.UserControls.Client {
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(329, 27);
+            this.label7.Location = new Point(329, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.Size = new Size(49, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "Prénom :";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10413,9 +10409,9 @@ namespace Barette.Library.UserControls.Client {
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 54);
+            this.label6.Location = new Point(48, 54);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new Size(48, 13);
             this.label6.TabIndex = 15;
             this.label6.Text = "Adresse:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10423,9 +10419,9 @@ namespace Barette.Library.UserControls.Client {
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(122, 55);
+            this.label5.Location = new Point(122, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.Size = new Size(27, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "No :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10433,18 +10429,18 @@ namespace Barette.Library.UserControls.Client {
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(215, 55);
+            this.label4.Location = new Point(215, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.Size = new Size(33, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Rue :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(550, 50);
+            this.label3.Location = new Point(550, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 20);
+            this.label3.Size = new Size(32, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "App.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10452,9 +10448,9 @@ namespace Barette.Library.UserControls.Client {
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 81);
+            this.label2.Location = new Point(48, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new Size(32, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "Ville :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10462,60 +10458,60 @@ namespace Barette.Library.UserControls.Client {
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 27);
+            this.label1.Location = new Point(48, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new Size(35, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Nom :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtAdressStreet
             // 
-            this.txtAdressStreet.Location = new System.Drawing.Point(254, 51);
+            this.txtAdressStreet.Location = new Point(254, 51);
             this.txtAdressStreet.Name = "txtAdressStreet";
-            this.txtAdressStreet.Size = new System.Drawing.Size(290, 20);
+            this.txtAdressStreet.Size = new Size(290, 20);
             this.txtAdressStreet.TabIndex = 4;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(384, 24);
+            this.txtFirstName.Location = new Point(384, 24);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(248, 20);
+            this.txtFirstName.Size = new Size(248, 20);
             this.txtFirstName.TabIndex = 2;
-            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
+            this.txtFirstName.TextChanged += new EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(120, 24);
+            this.txtName.Location = new Point(120, 24);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(192, 20);
+            this.txtName.Size = new Size(192, 20);
             this.txtName.TabIndex = 1;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(48, 134);
+            this.label12.Location = new Point(48, 134);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 13);
+            this.label12.Size = new Size(95, 13);
             this.label12.TabIndex = 21;
             this.label12.Text = "Téléphone (Autre):";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtPhoneBureau
             // 
-            this.txtPhoneBureau.Location = new System.Drawing.Point(162, 132);
+            this.txtPhoneBureau.Location = new Point(162, 132);
             this.txtPhoneBureau.Mask = "(999)000-0000";
             this.txtPhoneBureau.Name = "txtPhoneBureau";
-            this.txtPhoneBureau.Size = new System.Drawing.Size(100, 20);
+            this.txtPhoneBureau.Size = new Size(100, 20);
             this.txtPhoneBureau.TabIndex = 9;
-            this.txtPhoneBureau.Enter += new System.EventHandler(this.txtPhoneBureau_Enter);
+            this.txtPhoneBureau.Enter += new EventHandler(this.txtPhoneBureau_Enter);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 12);
+            this.label10.Location = new Point(5, 12);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 13);
+            this.label10.Size = new Size(58, 13);
             this.label10.TabIndex = 27;
             this.label10.Text = "Nº contrat:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10525,10 +10521,10 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox5.Controls.Add(this.rbTypeClientFinish);
             this.groupBox5.Controls.Add(this.rbTypeClientActif);
             this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox5.Location = new System.Drawing.Point(190, 442);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            this.groupBox5.Location = new Point(190, 442);
+            this.groupBox5.Margin = new Padding(3, 1, 3, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(93, 88);
+            this.groupBox5.Size = new Size(93, 88);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "États du client";
@@ -10537,39 +10533,39 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.rbTypeClientFinish.AutoSize = true;
             this.rbTypeClientFinish.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbTypeClientFinish.Location = new System.Drawing.Point(6, 54);
+            this.rbTypeClientFinish.Location = new Point(6, 54);
             this.rbTypeClientFinish.Name = "rbTypeClientFinish";
-            this.rbTypeClientFinish.Size = new System.Drawing.Size(95, 18);
+            this.rbTypeClientFinish.Size = new Size(95, 18);
             this.rbTypeClientFinish.TabIndex = 2;
             this.rbTypeClientFinish.Text = "Cours terminé";
-            this.rbTypeClientFinish.CheckedChanged += new System.EventHandler(this.rbTypeClientFinish_CheckedChanged);
+            this.rbTypeClientFinish.CheckedChanged += new EventHandler(this.rbTypeClientFinish_CheckedChanged);
             // 
             // rbTypeClientActif
             // 
             this.rbTypeClientActif.Checked = true;
             this.rbTypeClientActif.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbTypeClientActif.Location = new System.Drawing.Point(6, 27);
+            this.rbTypeClientActif.Location = new Point(6, 27);
             this.rbTypeClientActif.Name = "rbTypeClientActif";
-            this.rbTypeClientActif.Size = new System.Drawing.Size(88, 16);
+            this.rbTypeClientActif.Size = new Size(88, 16);
             this.rbTypeClientActif.TabIndex = 1;
             this.rbTypeClientActif.TabStop = true;
             this.rbTypeClientActif.Text = "Actif";
             // 
             // DateInscription
             // 
-            this.DateInscription.Location = new System.Drawing.Point(487, 9);
+            this.DateInscription.Location = new Point(487, 9);
             this.DateInscription.Name = "DateInscription";
-            this.DateInscription.Size = new System.Drawing.Size(128, 20);
+            this.DateInscription.Size = new Size(128, 20);
             this.DateInscription.TabIndex = 3;
-            this.DateInscription.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
-            this.DateInscription.ValueChanged += new System.EventHandler(this.DateInscription_ValueChanged);
+            this.DateInscription.Value = new DateTime(2015, 4, 11, 0, 0, 0, 0);
+            this.DateInscription.ValueChanged += new EventHandler(this.DateInscription_ValueChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(378, 11);
+            this.label13.Location = new Point(378, 11);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.Size = new Size(61, 13);
             this.label13.TabIndex = 33;
             this.label13.Text = "Inscription :";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10578,7 +10574,7 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.printDocument1.DocumentName = "Fichier Client";
             this.printDocument1.OriginAtMargins = true;
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.printDocument1.PrintPage += new PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // groupBox7
             // 
@@ -10588,21 +10584,21 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox7.Controls.Add(this.CashBox_Solde);
             this.groupBox7.Controls.Add(this.label14);
             this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox7.Location = new System.Drawing.Point(227, 355);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.groupBox7.Location = new Point(227, 355);
+            this.groupBox7.Margin = new Padding(3, 3, 3, 0);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(301, 80);
+            this.groupBox7.Size = new Size(301, 80);
             this.groupBox7.TabIndex = 9;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Information sur le solde";
             // 
             // dbRecuNumber
             // 
-            this.dbRecuNumber.Location = new System.Drawing.Point(154, 47);
+            this.dbRecuNumber.Location = new Point(154, 47);
             this.dbRecuNumber.Name = "dbRecuNumber";
-            this.dbRecuNumber.SetRange = new System.Drawing.Size(0, 9999999);
+            this.dbRecuNumber.SetRange = new Size(0, 9999999);
             this.dbRecuNumber.ShortcutsEnabled = false;
-            this.dbRecuNumber.Size = new System.Drawing.Size(64, 20);
+            this.dbRecuNumber.Size = new Size(64, 20);
             this.dbRecuNumber.TabIndex = 2;
             this.dbRecuNumber.Text = "0";
             this.dbRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -10610,30 +10606,30 @@ namespace Barette.Library.UserControls.Client {
             // 
             // button1
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(224, 20);
+            this.button1.Image = ((Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new Point(224, 20);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 48);
+            this.button1.Size = new Size(64, 48);
             this.button1.TabIndex = 3;
             this.toolTipText.SetToolTip(this.button1, "Paiement et reçu");
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new EventHandler(this.button1_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 50);
+            this.label15.Location = new Point(9, 50);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(118, 13);
+            this.label15.Size = new Size(118, 13);
             this.label15.TabIndex = 7;
             this.label15.Text = "Dernier numéro de reçu";
             // 
             // CashBox_Solde
             // 
             this.CashBox_Solde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.CashBox_Solde.Location = new System.Drawing.Point(154, 23);
+            this.CashBox_Solde.Location = new Point(154, 23);
             this.CashBox_Solde.Name = "CashBox_Solde";
             this.CashBox_Solde.ReadOnly = true;
-            this.CashBox_Solde.Size = new System.Drawing.Size(64, 20);
+            this.CashBox_Solde.Size = new Size(64, 20);
             this.CashBox_Solde.TabIndex = 1;
             this.CashBox_Solde.Text = "0 $";
             this.CashBox_Solde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -10641,72 +10637,72 @@ namespace Barette.Library.UserControls.Client {
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 28);
+            this.label14.Location = new Point(9, 28);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(34, 13);
+            this.label14.Size = new Size(34, 13);
             this.label14.TabIndex = 1;
             this.label14.Text = "Solde";
             // 
             // groupBox8
             // 
-            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.groupBox8.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox8.Controls.Add(this.txtNotes);
             this.groupBox8.Controls.Add(this.pictureBox1);
             this.groupBox8.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox8.Location = new System.Drawing.Point(0, 538);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.groupBox8.Location = new Point(0, 538);
+            this.groupBox8.Margin = new Padding(3, 2, 3, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(640, 177);
+            this.groupBox8.Size = new Size(640, 177);
             this.groupBox8.TabIndex = 31;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Notes";
             // 
             // txtNotes
             // 
-            this.txtNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtNotes.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtNotes.Location = new System.Drawing.Point(46, 16);
+            this.txtNotes.Location = new Point(46, 16);
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.PlainText = "";
             this.txtNotes.RTFCode = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
     "ans Serif;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs17\\par\r\n}\r\n";
             this.txtNotes.RTFTextChanged = true;
-            this.txtNotes.Size = new System.Drawing.Size(591, 155);
+            this.txtNotes.Size = new Size(591, 155);
             this.txtNotes.TabIndex = 15;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(8, 16);
+            this.pictureBox1.Image = ((Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new Point(8, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.Size = new Size(32, 32);
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
             // 
             // ImageListToolBar
             // 
             this.ImageListToolBar.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ImageListToolBar.ImageSize = new System.Drawing.Size(16, 16);
+            this.ImageListToolBar.ImageSize = new Size(16, 16);
             this.ImageListToolBar.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // cbBVA
             // 
             this.cbBVA.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbBVA.Location = new System.Drawing.Point(8, 23);
+            this.cbBVA.Location = new Point(8, 23);
             this.cbBVA.Name = "cbBVA";
-            this.cbBVA.Size = new System.Drawing.Size(48, 24);
+            this.cbBVA.Size = new Size(48, 24);
             this.cbBVA.TabIndex = 1;
             this.cbBVA.Text = "BVA";
             this.toolTipText.SetToolTip(this.cbBVA, "Date pour le Bureau des Véhicules Automobile.");
-            this.cbBVA.CheckedChanged += new System.EventHandler(this.cbBVA_CheckedChanged);
+            this.cbBVA.CheckedChanged += new EventHandler(this.cbBVA_CheckedChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(5, 37);
+            this.label20.Location = new Point(5, 37);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(84, 13);
+            this.label20.Size = new Size(84, 13);
             this.label20.TabIndex = 39;
             this.label20.Text = "Nº Attestation 1:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10715,59 +10711,59 @@ namespace Barette.Library.UserControls.Client {
             // cbNullContrat
             // 
             this.cbNullContrat.AutoSize = true;
-            this.cbNullContrat.Location = new System.Drawing.Point(187, 11);
+            this.cbNullContrat.Location = new Point(187, 11);
             this.cbNullContrat.Name = "cbNullContrat";
-            this.cbNullContrat.Size = new System.Drawing.Size(15, 14);
+            this.cbNullContrat.Size = new Size(15, 14);
             this.cbNullContrat.TabIndex = 41;
             this.toolTipText.SetToolTip(this.cbNullContrat, "Cocher cette case permet de ne pas afficher ce contrat dans le rapport : ligue de" +
         " sécurité.");
             // 
             // cmdShowSeanceT
             // 
-            this.cmdShowSeanceT.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.cmdShowSeanceT.Image = ((System.Drawing.Image)(resources.GetObject("cmdShowSeanceT.Image")));
+            this.cmdShowSeanceT.Font = new Font("Microsoft Sans Serif", 7F);
+            this.cmdShowSeanceT.Image = ((Image)(resources.GetObject("cmdShowSeanceT.Image")));
             this.cmdShowSeanceT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdShowSeanceT.Location = new System.Drawing.Point(534, 398);
+            this.cmdShowSeanceT.Location = new Point(534, 398);
             this.cmdShowSeanceT.Name = "cmdShowSeanceT";
-            this.cmdShowSeanceT.Size = new System.Drawing.Size(104, 43);
+            this.cmdShowSeanceT.Size = new Size(104, 43);
             this.cmdShowSeanceT.TabIndex = 11;
             this.cmdShowSeanceT.TabStop = false;
             this.cmdShowSeanceT.Text = "Pratique";
             this.cmdShowSeanceT.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.toolTipText.SetToolTip(this.cmdShowSeanceT, "Afficher les séances");
-            this.cmdShowSeanceT.Click += new System.EventHandler(this.cmdShowSeance_Click);
+            this.cmdShowSeanceT.Click += new EventHandler(this.cmdShowSeance_Click);
             // 
             // cmdShowSeanceTheorique
             // 
-            this.cmdShowSeanceTheorique.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.cmdShowSeanceTheorique.Font = new Font("Microsoft Sans Serif", 7F);
             this.cmdShowSeanceTheorique.Image = global::Barette.Library.Properties.Resources.book_icon;
             this.cmdShowSeanceTheorique.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdShowSeanceTheorique.Location = new System.Drawing.Point(534, 353);
+            this.cmdShowSeanceTheorique.Location = new Point(534, 353);
             this.cmdShowSeanceTheorique.Name = "cmdShowSeanceTheorique";
-            this.cmdShowSeanceTheorique.Size = new System.Drawing.Size(104, 43);
+            this.cmdShowSeanceTheorique.Size = new Size(104, 43);
             this.cmdShowSeanceTheorique.TabIndex = 10;
             this.cmdShowSeanceTheorique.TabStop = false;
             this.cmdShowSeanceTheorique.Text = "Théorique";
             this.cmdShowSeanceTheorique.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.toolTipText.SetToolTip(this.cmdShowSeanceTheorique, "Afficher les séances");
-            this.cmdShowSeanceTheorique.Click += new System.EventHandler(this.cmdShowSeanceTheorique_Click);
+            this.cmdShowSeanceTheorique.Click += new EventHandler(this.cmdShowSeanceTheorique_Click);
             // 
             // cmdAutoDateExpiration
             // 
             this.cmdAutoDateExpiration.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmdAutoDateExpiration.Location = new System.Drawing.Point(615, 33);
+            this.cmdAutoDateExpiration.Location = new Point(615, 33);
             this.cmdAutoDateExpiration.Name = "cmdAutoDateExpiration";
-            this.cmdAutoDateExpiration.Size = new System.Drawing.Size(20, 20);
+            this.cmdAutoDateExpiration.Size = new Size(20, 20);
             this.cmdAutoDateExpiration.TabIndex = 47;
             this.toolTipText.SetToolTip(this.cmdAutoDateExpiration, "Ajoute 365 jour à la date d\'inscription");
-            this.cmdAutoDateExpiration.Click += new System.EventHandler(this.cmdAutoDateExpiration_Click);
+            this.cmdAutoDateExpiration.Click += new EventHandler(this.cmdAutoDateExpiration_Click);
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(5, 61);
+            this.label24.Location = new Point(5, 61);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(84, 13);
+            this.label24.Size = new Size(84, 13);
             this.label24.TabIndex = 51;
             this.label24.Text = "Nº Attestation 2:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -10776,37 +10772,37 @@ namespace Barette.Library.UserControls.Client {
             // cmdClearbox
             // 
             this.cmdClearbox.Enabled = false;
-            this.cmdClearbox.Location = new System.Drawing.Point(189, 81);
+            this.cmdClearbox.Location = new Point(189, 81);
             this.cmdClearbox.Name = "cmdClearbox";
-            this.cmdClearbox.Size = new System.Drawing.Size(22, 20);
+            this.cmdClearbox.Size = new Size(22, 20);
             this.cmdClearbox.TabIndex = 56;
             this.cmdClearbox.Text = "X";
             this.toolTipText.SetToolTip(this.cmdClearbox, "Supprimer du group");
             this.cmdClearbox.UseVisualStyleBackColor = true;
-            this.cmdClearbox.Click += new System.EventHandler(this.cmdClearbox_Click);
+            this.cmdClearbox.Click += new EventHandler(this.cmdClearbox_Click);
             // 
             // cmdShowSeancesMoto2015
             // 
-            this.cmdShowSeancesMoto2015.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.cmdShowSeancesMoto2015.Font = new Font("Microsoft Sans Serif", 7F);
             this.cmdShowSeancesMoto2015.Image = global::Barette.Library.Properties.Resources.book_icon;
             this.cmdShowSeancesMoto2015.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdShowSeancesMoto2015.Location = new System.Drawing.Point(534, 353);
+            this.cmdShowSeancesMoto2015.Location = new Point(534, 353);
             this.cmdShowSeancesMoto2015.Name = "cmdShowSeancesMoto2015";
-            this.cmdShowSeancesMoto2015.Size = new System.Drawing.Size(104, 88);
+            this.cmdShowSeancesMoto2015.Size = new Size(104, 88);
             this.cmdShowSeancesMoto2015.TabIndex = 57;
             this.cmdShowSeancesMoto2015.TabStop = false;
             this.cmdShowSeancesMoto2015.Text = "Séances ";
             this.cmdShowSeancesMoto2015.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTipText.SetToolTip(this.cmdShowSeancesMoto2015, "Afficher les séances");
-            this.cmdShowSeancesMoto2015.Click += new System.EventHandler(this.cmdShowSeancesMoto2015_Click);
+            this.cmdShowSeancesMoto2015.Click += new EventHandler(this.cmdShowSeancesMoto2015_Click);
             // 
             // ctbTauxHorairePratique
             // 
             this.ctbTauxHorairePratique.BackColor = System.Drawing.SystemColors.Window;
-            this.ctbTauxHorairePratique.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.ctbTauxHorairePratique.Location = new System.Drawing.Point(584, 415);
+            this.ctbTauxHorairePratique.Font = new Font("Microsoft Sans Serif", 7F);
+            this.ctbTauxHorairePratique.Location = new Point(584, 415);
             this.ctbTauxHorairePratique.Name = "ctbTauxHorairePratique";
-            this.ctbTauxHorairePratique.Size = new System.Drawing.Size(48, 18);
+            this.ctbTauxHorairePratique.Size = new Size(48, 18);
             this.ctbTauxHorairePratique.TabIndex = 49;
             this.ctbTauxHorairePratique.Text = "0 $";
             this.ctbTauxHorairePratique.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -10815,10 +10811,10 @@ namespace Barette.Library.UserControls.Client {
             // ctbTauxHoraireTheorique
             // 
             this.ctbTauxHoraireTheorique.BackColor = System.Drawing.SystemColors.Window;
-            this.ctbTauxHoraireTheorique.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctbTauxHoraireTheorique.Location = new System.Drawing.Point(584, 371);
+            this.ctbTauxHoraireTheorique.Font = new Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctbTauxHoraireTheorique.Location = new Point(584, 371);
             this.ctbTauxHoraireTheorique.Name = "ctbTauxHoraireTheorique";
-            this.ctbTauxHoraireTheorique.Size = new System.Drawing.Size(48, 18);
+            this.ctbTauxHoraireTheorique.Size = new Size(48, 18);
             this.ctbTauxHoraireTheorique.TabIndex = 48;
             this.ctbTauxHoraireTheorique.Text = "0 $";
             this.ctbTauxHoraireTheorique.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -10833,10 +10829,10 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.ctbLocationMontant);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox3.Location = new System.Drawing.Point(289, 444);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 2);
+            this.groupBox3.Location = new Point(289, 444);
+            this.groupBox3.Margin = new Padding(3, 0, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(265, 88);
+            this.groupBox3.Size = new Size(265, 88);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Location";
@@ -10846,65 +10842,65 @@ namespace Barette.Library.UserControls.Client {
             this.dtpBVA.CustomFormat = "ddd yyyy/MM/dd \'  Heure:\' HH:mm";
             this.dtpBVA.Enabled = false;
             this.dtpBVA.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBVA.Location = new System.Drawing.Point(56, 23);
+            this.dtpBVA.Location = new Point(56, 23);
             this.dtpBVA.Name = "dtpBVA";
-            this.dtpBVA.Size = new System.Drawing.Size(199, 20);
+            this.dtpBVA.Size = new Size(199, 20);
             this.dtpBVA.TabIndex = 2;
             // 
             // cbMoto
             // 
             this.cbMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbMoto.Location = new System.Drawing.Point(209, 52);
+            this.cbMoto.Location = new Point(209, 52);
             this.cbMoto.Name = "cbMoto";
-            this.cbMoto.Size = new System.Drawing.Size(48, 24);
+            this.cbMoto.Size = new Size(48, 24);
             this.cbMoto.TabIndex = 5;
             this.cbMoto.Text = "Moto";
             // 
             // cbAuto
             // 
             this.cbAuto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbAuto.Location = new System.Drawing.Point(130, 52);
+            this.cbAuto.Location = new Point(130, 52);
             this.cbAuto.Name = "cbAuto";
-            this.cbAuto.Size = new System.Drawing.Size(80, 24);
+            this.cbAuto.Size = new Size(80, 24);
             this.cbAuto.TabIndex = 4;
             this.cbAuto.Text = "Automobile";
-            this.cbAuto.CheckedChanged += new System.EventHandler(this.cbAuto_CheckedChanged);
+            this.cbAuto.CheckedChanged += new EventHandler(this.cbAuto_CheckedChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 58);
+            this.label16.Location = new Point(8, 58);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(46, 13);
+            this.label16.Size = new Size(46, 13);
             this.label16.TabIndex = 18;
             this.label16.Text = "Montant";
             // 
             // ctbLocationMontant
             // 
             this.ctbLocationMontant.BackColor = System.Drawing.SystemColors.Window;
-            this.ctbLocationMontant.Location = new System.Drawing.Point(56, 56);
+            this.ctbLocationMontant.Location = new Point(56, 56);
             this.ctbLocationMontant.Name = "ctbLocationMontant";
-            this.ctbLocationMontant.Size = new System.Drawing.Size(54, 20);
+            this.ctbLocationMontant.Size = new Size(54, 20);
             this.ctbLocationMontant.TabIndex = 3;
             this.ctbLocationMontant.Text = "0 $";
             this.ctbLocationMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.ctbLocationMontant.Leave += new System.EventHandler(this.ctbLocationMontant_Leave);
+            this.ctbLocationMontant.Leave += new EventHandler(this.ctbLocationMontant_Leave);
             // 
             // timerCheckClientValid
             // 
             this.timerCheckClientValid.Enabled = true;
-            this.timerCheckClientValid.Tick += new System.EventHandler(this.timerCheckClientValid_Tick);
+            this.timerCheckClientValid.Tick += new EventHandler(this.timerCheckClientValid_Tick);
             // 
             // dtpDatePermis
             // 
             this.dtpDatePermis.CustomFormat = "dd MMMM yyyy";
             this.dtpDatePermis.Enabled = false;
             this.dtpDatePermis.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDatePermis.Location = new System.Drawing.Point(480, 16);
+            this.dtpDatePermis.Location = new Point(480, 16);
             this.dtpDatePermis.Name = "dtpDatePermis";
-            this.dtpDatePermis.Size = new System.Drawing.Size(152, 20);
+            this.dtpDatePermis.Size = new Size(152, 20);
             this.dtpDatePermis.TabIndex = 3;
-            this.dtpDatePermis.ValueChanged += new System.EventHandler(this.dtpDatePermis_ValueChanged);
+            this.dtpDatePermis.ValueChanged += new EventHandler(this.dtpDatePermis_ValueChanged);
             // 
             // groupBox6
             // 
@@ -10917,9 +10913,9 @@ namespace Barette.Library.UserControls.Client {
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.label18);
             this.groupBox6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox6.Location = new System.Drawing.Point(0, 274);
+            this.groupBox6.Location = new Point(0, 274);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(640, 72);
+            this.groupBox6.Size = new Size(640, 72);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Permis de conduire";
@@ -10927,119 +10923,119 @@ namespace Barette.Library.UserControls.Client {
             // cbPermisObtenue
             // 
             this.cbPermisObtenue.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbPermisObtenue.Location = new System.Drawing.Point(462, 27);
+            this.cbPermisObtenue.Location = new Point(462, 27);
             this.cbPermisObtenue.Name = "cbPermisObtenue";
-            this.cbPermisObtenue.Size = new System.Drawing.Size(16, 24);
+            this.cbPermisObtenue.Size = new Size(16, 24);
             this.cbPermisObtenue.TabIndex = 2;
-            this.cbPermisObtenue.CheckedChanged += new System.EventHandler(this.cbPermisObtenue_CheckedChanged);
+            this.cbPermisObtenue.CheckedChanged += new EventHandler(this.cbPermisObtenue_CheckedChanged);
             // 
             // dtpDatePermisPlus8
             // 
             this.dtpDatePermisPlus8.CustomFormat = "dd MMMM yyyy";
             this.dtpDatePermisPlus8.Enabled = false;
             this.dtpDatePermisPlus8.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDatePermisPlus8.Location = new System.Drawing.Point(480, 40);
+            this.dtpDatePermisPlus8.Location = new Point(480, 40);
             this.dtpDatePermisPlus8.Name = "dtpDatePermisPlus8";
-            this.dtpDatePermisPlus8.Size = new System.Drawing.Size(152, 20);
+            this.dtpDatePermisPlus8.Size = new Size(152, 20);
             this.dtpDatePermisPlus8.TabIndex = 4;
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(288, 18);
+            this.label17.Location = new Point(288, 18);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 16);
+            this.label17.Size = new Size(100, 16);
             this.label17.TabIndex = 29;
             this.label17.Text = "Date d\'obtention:";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(8, 25);
+            this.pictureBox3.Image = ((Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new Point(8, 25);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.Size = new Size(32, 32);
             this.pictureBox3.TabIndex = 28;
             this.pictureBox3.TabStop = false;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(288, 42);
+            this.label18.Location = new Point(288, 42);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(159, 13);
+            this.label18.Size = new Size(159, 13);
             this.label18.TabIndex = 30;
             this.label18.Text = "Date min. de l’examen pratique :";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(378, 37);
+            this.label22.Location = new Point(378, 37);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(98, 13);
+            this.label22.Size = new Size(98, 13);
             this.label22.TabIndex = 43;
             this.label22.Text = "Expiration (contrat):";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DateExpiration
             // 
-            this.DateExpiration.Location = new System.Drawing.Point(488, 34);
+            this.DateExpiration.Location = new Point(488, 34);
             this.DateExpiration.Name = "DateExpiration";
-            this.DateExpiration.Size = new System.Drawing.Size(128, 20);
+            this.DateExpiration.Size = new Size(128, 20);
             this.DateExpiration.TabIndex = 4;
-            this.DateExpiration.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            this.DateExpiration.Value = new DateTime(2015, 4, 11, 0, 0, 0, 0);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(378, 62);
+            this.label23.Location = new Point(378, 62);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(91, 13);
+            this.label23.Size = new Size(91, 13);
             this.label23.TabIndex = 45;
             this.label23.Text = "Début des cours :";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DateDebutCours
             // 
-            this.DateDebutCours.Location = new System.Drawing.Point(488, 60);
+            this.DateDebutCours.Location = new Point(488, 60);
             this.DateDebutCours.Name = "DateDebutCours";
-            this.DateDebutCours.Size = new System.Drawing.Size(128, 20);
+            this.DateDebutCours.Size = new Size(128, 20);
             this.DateDebutCours.TabIndex = 5;
-            this.DateDebutCours.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            this.DateDebutCours.Value = new DateTime(2015, 4, 11, 0, 0, 0, 0);
             // 
             // printDocContract
             // 
             this.printDocContract.DocumentName = "Contrat du client";
-            this.printDocContract.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocContract_PrintPage);
+            this.printDocContract.PrintPage += new PrintPageEventHandler(this.printDocContract_PrintPage);
             // 
             // dtpAttestation2
             // 
             this.dtpAttestation2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAttestation2.Location = new System.Drawing.Point(187, 58);
+            this.dtpAttestation2.Location = new Point(187, 58);
             this.dtpAttestation2.Name = "dtpAttestation2";
-            this.dtpAttestation2.Size = new System.Drawing.Size(95, 20);
+            this.dtpAttestation2.Size = new Size(95, 20);
             this.dtpAttestation2.TabIndex = 52;
-            this.dtpAttestation2.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            this.dtpAttestation2.Value = new DateTime(2015, 4, 11, 0, 0, 0, 0);
             // 
             // dtpAttestation1
             // 
             this.dtpAttestation1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAttestation1.Location = new System.Drawing.Point(187, 34);
+            this.dtpAttestation1.Location = new Point(187, 34);
             this.dtpAttestation1.Name = "dtpAttestation1";
-            this.dtpAttestation1.Size = new System.Drawing.Size(95, 20);
+            this.dtpAttestation1.Size = new Size(95, 20);
             this.dtpAttestation1.TabIndex = 53;
-            this.dtpAttestation1.Value = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            this.dtpAttestation1.Value = new DateTime(2015, 4, 11, 0, 0, 0, 0);
             // 
             // printDocTheorique
             // 
             this.printDocTheorique.DocumentName = "Fichier du client";
             this.printDocTheorique.OriginAtMargins = true;
-            this.printDocTheorique.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocTheorique_PrintPage);
+            this.printDocTheorique.PrintPage += new PrintPageEventHandler(this.printDocTheorique_PrintPage);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(5, 85);
+            this.label25.Location = new Point(5, 85);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(63, 13);
+            this.label25.Size = new Size(63, 13);
             this.label25.TabIndex = 55;
             this.label25.Text = "Nº Groupe :";
             // 
@@ -11051,17 +11047,17 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.printDocMoto2015.DocumentName = "Fichier du client";
             this.printDocMoto2015.OriginAtMargins = true;
-            this.printDocMoto2015.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocMoto2015_PrintPage);
+            this.printDocMoto2015.PrintPage += new PrintPageEventHandler(this.printDocMoto2015_PrintPage);
             // 
             // gbProgramMoto
             // 
             this.gbProgramMoto.Controls.Add(this.rbProgramMoto2015);
             this.gbProgramMoto.Controls.Add(this.rbProgramMotoNormal);
             this.gbProgramMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.gbProgramMoto.Location = new System.Drawing.Point(560, 445);
-            this.gbProgramMoto.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            this.gbProgramMoto.Location = new Point(560, 445);
+            this.gbProgramMoto.Margin = new Padding(3, 1, 3, 3);
             this.gbProgramMoto.Name = "gbProgramMoto";
-            this.gbProgramMoto.Size = new System.Drawing.Size(80, 88);
+            this.gbProgramMoto.Size = new Size(80, 88);
             this.gbProgramMoto.TabIndex = 58;
             this.gbProgramMoto.TabStop = false;
             this.gbProgramMoto.Text = "Moto Program";
@@ -11070,33 +11066,33 @@ namespace Barette.Library.UserControls.Client {
             // 
             this.rbProgramMoto2015.AutoSize = true;
             this.rbProgramMoto2015.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbProgramMoto2015.Location = new System.Drawing.Point(6, 54);
+            this.rbProgramMoto2015.Location = new Point(6, 54);
             this.rbProgramMoto2015.Name = "rbProgramMoto2015";
-            this.rbProgramMoto2015.Size = new System.Drawing.Size(75, 18);
+            this.rbProgramMoto2015.Size = new Size(75, 18);
             this.rbProgramMoto2015.TabIndex = 2;
             this.rbProgramMoto2015.Text = "Nouveau";
-            this.rbProgramMoto2015.CheckedChanged += new System.EventHandler(this.rbProgramMoto2015_CheckedChanged);
+            this.rbProgramMoto2015.CheckedChanged += new EventHandler(this.rbProgramMoto2015_CheckedChanged);
             // 
             // rbProgramMotoNormal
             // 
             this.rbProgramMotoNormal.Checked = true;
             this.rbProgramMotoNormal.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.rbProgramMotoNormal.Location = new System.Drawing.Point(6, 27);
+            this.rbProgramMotoNormal.Location = new Point(6, 27);
             this.rbProgramMotoNormal.Name = "rbProgramMotoNormal";
-            this.rbProgramMotoNormal.Size = new System.Drawing.Size(69, 21);
+            this.rbProgramMotoNormal.Size = new Size(69, 21);
             this.rbProgramMotoNormal.TabIndex = 1;
             this.rbProgramMotoNormal.TabStop = true;
             this.rbProgramMotoNormal.Text = "Ancien";
-            this.rbProgramMotoNormal.CheckedChanged += new System.EventHandler(this.rbProgramMotoNormal_CheckedChanged);
+            this.rbProgramMotoNormal.CheckedChanged += new EventHandler(this.rbProgramMotoNormal_CheckedChanged);
             // 
             // txtNumeroGroupe
             // 
             this.txtNumeroGroupe.Enabled = false;
-            this.txtNumeroGroupe.Location = new System.Drawing.Point(103, 82);
+            this.txtNumeroGroupe.Location = new Point(103, 82);
             this.txtNumeroGroupe.Name = "txtNumeroGroupe";
-            this.txtNumeroGroupe.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtNumeroGroupe.SetRange = new Size(0, 9999999);
             this.txtNumeroGroupe.ShortcutsEnabled = false;
-            this.txtNumeroGroupe.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroGroupe.Size = new Size(80, 20);
             this.txtNumeroGroupe.TabIndex = 54;
             this.txtNumeroGroupe.Text = "0";
             this.txtNumeroGroupe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -11104,12 +11100,12 @@ namespace Barette.Library.UserControls.Client {
             // 
             // txtNumeroAttestation2
             // 
-            this.txtNumeroAttestation2.Location = new System.Drawing.Point(103, 58);
-            this.txtNumeroAttestation2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.txtNumeroAttestation2.Location = new Point(103, 58);
+            this.txtNumeroAttestation2.Margin = new Padding(3, 3, 3, 1);
             this.txtNumeroAttestation2.Name = "txtNumeroAttestation2";
-            this.txtNumeroAttestation2.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtNumeroAttestation2.SetRange = new Size(0, 9999999);
             this.txtNumeroAttestation2.ShortcutsEnabled = false;
-            this.txtNumeroAttestation2.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroAttestation2.Size = new Size(80, 20);
             this.txtNumeroAttestation2.TabIndex = 50;
             this.txtNumeroAttestation2.Text = "0";
             this.txtNumeroAttestation2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -11117,12 +11113,12 @@ namespace Barette.Library.UserControls.Client {
             // 
             // txtNumeroContrat
             // 
-            this.txtNumeroContrat.Location = new System.Drawing.Point(103, 9);
-            this.txtNumeroContrat.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.txtNumeroContrat.Location = new Point(103, 9);
+            this.txtNumeroContrat.Margin = new Padding(3, 3, 3, 1);
             this.txtNumeroContrat.Name = "txtNumeroContrat";
-            this.txtNumeroContrat.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtNumeroContrat.SetRange = new Size(0, 9999999);
             this.txtNumeroContrat.ShortcutsEnabled = false;
-            this.txtNumeroContrat.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroContrat.Size = new Size(80, 20);
             this.txtNumeroContrat.TabIndex = 1;
             this.txtNumeroContrat.Text = "0";
             this.txtNumeroContrat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -11130,12 +11126,12 @@ namespace Barette.Library.UserControls.Client {
             // 
             // txtNumeroAttestation
             // 
-            this.txtNumeroAttestation.Location = new System.Drawing.Point(103, 34);
-            this.txtNumeroAttestation.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.txtNumeroAttestation.Location = new Point(103, 34);
+            this.txtNumeroAttestation.Margin = new Padding(3, 3, 3, 1);
             this.txtNumeroAttestation.Name = "txtNumeroAttestation";
-            this.txtNumeroAttestation.SetRange = new System.Drawing.Size(0, 9999999);
+            this.txtNumeroAttestation.SetRange = new Size(0, 9999999);
             this.txtNumeroAttestation.ShortcutsEnabled = false;
-            this.txtNumeroAttestation.Size = new System.Drawing.Size(80, 20);
+            this.txtNumeroAttestation.Size = new Size(80, 20);
             this.txtNumeroAttestation.TabIndex = 2;
             this.txtNumeroAttestation.Text = "0";
             this.txtNumeroAttestation.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -11144,7 +11140,7 @@ namespace Barette.Library.UserControls.Client {
             // printDocAttestationMoto2015
             // 
             this.printDocAttestationMoto2015.DocumentName = "Attestation";
-            this.printDocAttestationMoto2015.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocAttestationMoto2015_PrintPage);
+            this.printDocAttestationMoto2015.PrintPage += new PrintPageEventHandler(this.printDocAttestationMoto2015_PrintPage);
             // 
             // ClientControl
             // 
@@ -11184,27 +11180,27 @@ namespace Barette.Library.UserControls.Client {
             this.Controls.Add(this.cmdShowSeanceTheorique);
             this.DoubleBuffered = true;
             this.Name = "ClientControl";
-            this.Size = new System.Drawing.Size(640, 718);
+            this.Size = new Size(640, 718);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((ISupportInitialize)(this.pictureBox4)).EndInit();
             this.gbCoursType.ResumeLayout(false);
             this.gbCoursType.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmailError)).EndInit();
+            ((ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((ISupportInitialize)(this.EmailError)).EndInit();
             this.gbProgramMoto.ResumeLayout(false);
             this.gbProgramMoto.PerformLayout();
             this.ResumeLayout(false);
@@ -11213,30 +11209,30 @@ namespace Barette.Library.UserControls.Client {
         }
         #endregion
 
-        private void cmdShowSeance_Click(object sender, System.EventArgs e) {
+        private void cmdShowSeance_Click(object sender, EventArgs e) {
             ShowCours();
         }
 
         #region Type de Seance
-        private void rbManuel_CheckedChanged(object sender, System.EventArgs e) {
+        private void rbManuel_CheckedChanged(object sender, EventArgs e) {
             _SceanceType = SeanceType.Automobile;
 
             UpdateProgramMotoControl();
         }
 
-        private void rbCamion_CheckedChanged(object sender, System.EventArgs e) {
+        private void rbCamion_CheckedChanged(object sender, EventArgs e) {
             _SceanceType = SeanceType.Cyclomoteur;
 
             UpdateProgramMotoControl();
         }
 
-        private void rbAutomatique_CheckedChanged(object sender, System.EventArgs e) {
+        private void rbAutomatique_CheckedChanged(object sender, EventArgs e) {
             _SceanceType = SeanceType.Automobile;
             
             UpdateProgramMotoControl();
         }
 
-        private void rbMoto_CheckedChanged(object sender, System.EventArgs e) {
+        private void rbMoto_CheckedChanged(object sender, EventArgs e) {
             _SceanceType = SeanceType.Moto;
             txtN6R.Enabled = rbVehiculMoto.Checked;
 
@@ -11447,69 +11443,71 @@ namespace Barette.Library.UserControls.Client {
             }
 
             //Creation d'un nouveau client
-            _Client = new Customer();
+            _Client = new Customer
+            {
 
-            //Replace les seances
-            _Client.Seances = seances;
+                //Replace les seances
+                Seances = seances,
 
-            //Replace les paiments
-            _Client.Paiment = paiment;
+                //Replace les paiments
+                Paiment = paiment,
 
-            //Replace les seance de cours theorique
-            _Client.SeancesTheorique = seancesTheorique;
+                //Replace les seance de cours theorique
+                SeancesTheorique = seancesTheorique,
 
-            //Information
-            _Client.City = cbCity.Text;
-            _Client.ContratNumber = txtNumeroContrat.Text;
-            _Client.ClientNull = cbNullContrat.Checked;
-            _Client.AttestationNumber1 = txtNumeroAttestation.Text;
-            _Client.AttestationNumber2 = txtNumeroAttestation2.Text;
-            _Client.DateInscription = DateInscription.Value;
-            _Client.FirstName = txtFirstName.Text;
-            _Client.Name = txtName.Text;
-            _Client.No6R = txtN6R.Text;
-            _Client.Phone = txtPhoneNumber.Text;
-            _Client.PhoneBureau = txtPhoneBureau.Text;
-            _Client.StreetApp = txtAdressApp.Text;
-            _Client.StreetName = txtAdressStreet.Text;
-            _Client.StreetNumber = txtAdressNumber.Text;
-            _Client.CodePostal = txtCodePostal.Text;
-            _Client.Notes = txtNotes.RTFCode;
-            _Client.DateNaissance = DateNaissance.Value;
-            _Client.DateExpiration = DateExpiration.Value;
-            _Client.DateDebutCours = DateDebutCours.Value;
-            _Client.DateAttestation1 = dtpAttestation1.Value;
-            _Client.DateAttestation2 = dtpAttestation2.Value;
-            _Client.NumeroGroupe = Convert.ToInt32(txtNumeroGroupe.Text);
-            _Client.Email = txtEmail.Text;
+                //Information
+                City = cbCity.Text,
+                ContratNumber = txtNumeroContrat.Text,
+                ClientNull = cbNullContrat.Checked,
+                AttestationNumber1 = txtNumeroAttestation.Text,
+                AttestationNumber2 = txtNumeroAttestation2.Text,
+                DateInscription = DateInscription.Value,
+                FirstName = txtFirstName.Text,
+                Name = txtName.Text,
+                No6R = txtN6R.Text,
+                Phone = txtPhoneNumber.Text,
+                PhoneBureau = txtPhoneBureau.Text,
+                StreetApp = txtAdressApp.Text,
+                StreetName = txtAdressStreet.Text,
+                StreetNumber = txtAdressNumber.Text,
+                CodePostal = txtCodePostal.Text,
+                Notes = txtNotes.RTFCode,
+                DateNaissance = DateNaissance.Value,
+                DateExpiration = DateExpiration.Value,
+                DateDebutCours = DateDebutCours.Value,
+                DateAttestation1 = dtpAttestation1.Value,
+                DateAttestation2 = dtpAttestation2.Value,
+                NumeroGroupe = Convert.ToInt32(txtNumeroGroupe.Text),
+                Email = txtEmail.Text,
 
-            //Taux horaire
-            _Client.TauxHorairePratique = ctbTauxHorairePratique.Text;
-            _Client.TauxHoraireTheorique = ctbTauxHoraireTheorique.Text;
+                //Taux horaire
+                TauxHorairePratique = ctbTauxHorairePratique.Text,
+                TauxHoraireTheorique = ctbTauxHoraireTheorique.Text,
 
-            //Permis de conduire
-            _Client.NumeroPermis = txtNumeroPermis.Text;
-            _Client.DateTemporaire = dtpDatePermis.Value;
-            _Client.HaveTemporaire = cbPermisObtenue.Checked;
+                //Permis de conduire
+                NumeroPermis = txtNumeroPermis.Text,
+                DateTemporaire = dtpDatePermis.Value,
+                HaveTemporaire = cbPermisObtenue.Checked,
 
-            //Location de vehicule
-            _Client.LocationAutomobile = cbAuto.Checked;
-            _Client.LocationMoto = cbMoto.Checked;
-            _Client.MontantLocation = ctbLocationMontant.Text;
-            _Client.BVA = cbBVA.Checked;
-            _Client.BVADate = dtpBVA.Value;
+                //Location de vehicule
+                LocationAutomobile = cbAuto.Checked,
+                LocationMoto = cbMoto.Checked,
+                MontantLocation = ctbLocationMontant.Text,
+                BVA = cbBVA.Checked,
+                BVADate = dtpBVA.Value,
 
-            //Information sur le solde du client
-            _Client.Solde = CashBox_Solde.Text;
-            _Client.LastRecuNumber = dbRecuNumber.Text;
-            _Client.MontantCours = _MontantCours;
+                //Information sur le solde du client
+                Solde = CashBox_Solde.Text,
+                LastRecuNumber = dbRecuNumber.Text,
+                MontantCours = _MontantCours,
 
-            //Disponibiliter
-            _Client.DisponibilityAM = chkDisponibilityAM.Checked;
-            _Client.DisponibilityPM = chkDisponibilityPM.Checked;
-            _Client.DisponibilitySoirer = chkDisponibilitySoir.Checked;
-            _Client.DisponibilitySamedi = chkDisponibilitySamedi.Checked;
-            _Client.DisponibilityDimanche = chkDisponibilityDimanche.Checked;
+                //Disponibiliter
+                DisponibilityAM = chkDisponibilityAM.Checked,
+                DisponibilityPM = chkDisponibilityPM.Checked,
+                DisponibilitySoirer = chkDisponibilitySoir.Checked,
+                DisponibilitySamedi = chkDisponibilitySamedi.Checked,
+                DisponibilityDimanche = chkDisponibilityDimanche.Checked
+            };
 
             //Type de client
             if (rbTypeClientActif.Checked)
@@ -11868,14 +11866,17 @@ namespace Barette.Library.UserControls.Client {
             _PrintRoute = PrintRoute;
 
             //Lance l'impression
-            PrintDialog printConfig = new PrintDialog();
-
-            printConfig.PrinterSettings = printDocument1.PrinterSettings;
+            PrintDialog printConfig = new PrintDialog
+            {
+                PrinterSettings = printDocument1.PrinterSettings
+            };
 
 #if DEBUG
-            PrintPreviewDialog prev = new PrintPreviewDialog();
-            prev.Width = 750;
-            prev.Height = 1000;
+            PrintPreviewDialog prev = new PrintPreviewDialog
+            {
+                Width = 750,
+                Height = 1000
+            };
 
             // Type de document à imprimé
             switch (DocType) {
@@ -11967,7 +11968,7 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e) {
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e) {
 
             //Ecriture du header (image)
             Stream strm = Type.GetType("Barette.Library.UserControls.Client.ClientControl").Assembly.GetManifestResourceStream("Barette.Library.res.Printlogo.png");
@@ -11977,7 +11978,7 @@ namespace Barette.Library.UserControls.Client {
             float leftMargin = 0;//e.MarginBounds.Left;
 
             //Facrication des fonts
-            Font printFont = new System.Drawing.Font("Courier New", 11);
+            Font printFont = new Font("Courier New", 11);
             Font printFontTime = new Font("Times New Roman", 12, FontStyle.Regular);
             Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
             Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
@@ -12242,7 +12243,7 @@ namespace Barette.Library.UserControls.Client {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void printDocTheorique_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e) {
+        private void printDocTheorique_PrintPage(object sender, PrintPageEventArgs e) {
 
             //Ecriture du header (image)
             Stream strm = Type.GetType("Barette.Library.UserControls.Client.ClientControl").Assembly.GetManifestResourceStream("Barette.Library.res.Printlogo.png");
@@ -12252,7 +12253,7 @@ namespace Barette.Library.UserControls.Client {
             float leftMargin = 0;//e.MarginBounds.Left;
 
             //Facrication des fonts
-            Font printFont = new System.Drawing.Font("Courier New", 11);
+            Font printFont = new Font("Courier New", 11);
             Font printFontTime = new Font("Times New Roman", 12, FontStyle.Regular);
             Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
             Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
@@ -12535,18 +12536,18 @@ namespace Barette.Library.UserControls.Client {
         }
 
 
-        private void cmdNow_Click(object sender, System.EventArgs e) {
+        private void cmdNow_Click(object sender, EventArgs e) {
 
         }
 
-        private void button1_Click(object sender, System.EventArgs e) {
+        private void button1_Click(object sender, EventArgs e) {
             ShowPaiement();
 
             //Afficher le solde et le dernier numero de recu
             //...
         }
 
-        private void txtNotes_TextChanged(object sender, System.EventArgs e) {
+        private void txtNotes_TextChanged(object sender, EventArgs e) {
             //			int CharRestant = txtNotes2.MaxLength - txtNotes2.Text.Length;
             //
             //			lblCharRestant.Text = CharRestant + " Caractères restant"; 
@@ -12554,13 +12555,13 @@ namespace Barette.Library.UserControls.Client {
 
         }
 
-        private void ctbLocationMontant_Leave(object sender, System.EventArgs e) {
+        private void ctbLocationMontant_Leave(object sender, EventArgs e) {
             if (ctbLocationMontant.Text == "")
                 ctbLocationMontant.Text = " 0 $";
 
         }
 
-        private void cmdAlwayDispo_Click(object sender, System.EventArgs e) {
+        private void cmdAlwayDispo_Click(object sender, EventArgs e) {
             chkDisponibilityAM.Checked = true;
             chkDisponibilityPM.Checked = true;
             chkDisponibilitySoir.Checked = true;
@@ -12568,15 +12569,15 @@ namespace Barette.Library.UserControls.Client {
             chkDisponibilitySamedi.Checked = true;
         }
 
-        private void txtFirstName_TextChanged(object sender, System.EventArgs e) {
+        private void txtFirstName_TextChanged(object sender, EventArgs e) {
 
         }
 
-        private void cbBVA_CheckedChanged(object sender, System.EventArgs e) {
+        private void cbBVA_CheckedChanged(object sender, EventArgs e) {
             dtpBVA.Enabled = cbBVA.Checked;
         }
 
-        private void timerCheckClientValid_Tick(object sender, System.EventArgs e) {
+        private void timerCheckClientValid_Tick(object sender, EventArgs e) {
             if (ValidNoText()) _AutoUpdate = true;
 
             if (txtNumeroGroupe.Value == 0) {
@@ -12592,11 +12593,11 @@ namespace Barette.Library.UserControls.Client {
             
         }
 
-        private void dtpDatePermis_ValueChanged(object sender, System.EventArgs e) {
+        private void dtpDatePermis_ValueChanged(object sender, EventArgs e) {
             dtpDatePermisPlus8.Value = dtpDatePermis.Value.AddMonths(8);
         }
 
-        private void cbPermisObtenue_CheckedChanged(object sender, System.EventArgs e) {
+        private void cbPermisObtenue_CheckedChanged(object sender, EventArgs e) {
             dtpDatePermis.Enabled = dtpDatePermisPlus8.Enabled = cbPermisObtenue.Checked;
         }
 
@@ -12675,7 +12676,7 @@ namespace Barette.Library.UserControls.Client {
 
         private void printDocContract_PrintPage(object sender, PrintPageEventArgs e) {
             //Fabrication des fonts
-            Font printFont = new System.Drawing.Font("Courier New", 11);
+            Font printFont = new Font("Courier New", 11);
             Font printFontTime8 = new Font("Times New Roman", 8, FontStyle.Regular);
             Font printFontTime10 = new Font("Times New Roman", 10, FontStyle.Regular);
             Font printFontTime12 = new Font("Times New Roman", 12, FontStyle.Regular);
@@ -13038,7 +13039,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             int TraficatedSeanceNumberForGerald = 0;
 
             //Facrication des fonts
-            Font printFont = new System.Drawing.Font("Courier New", 10);
+            Font printFont = new Font("Courier New", 10);
             Font printFontTime = new Font("Times New Roman", 11, FontStyle.Regular);
             Font printFontTime8 = new Font("Times New Roman", 8, FontStyle.Regular);
             Font printFontBold = new Font("Times New Roman", 11, FontStyle.Bold);
@@ -13318,7 +13319,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             float leftMargin = 0;
 
             //Facrication des fonts
-            Font printFont = new System.Drawing.Font("Courier New", 10);
+            Font printFont = new Font("Courier New", 10);
             Font printFontTime = new Font("Times New Roman", 11, FontStyle.Regular);
             Font printFontTime8 = new Font("Times New Roman", 8, FontStyle.Regular);
             Font printFontBold = new Font("Times New Roman", 11, FontStyle.Bold);

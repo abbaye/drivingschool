@@ -1,16 +1,11 @@
 using System;
-using System.IO;
 using System.Drawing;
-using System.Reflection;
 using System.Drawing.Text;
 using System.Collections;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
 using System.Diagnostics;
-using System.Text;
-using UtilityLibrary.Menus;
 using UtilityLibrary.Win32;
 using UtilityLibrary.Collections;
 using UtilityLibrary.General;
@@ -18,30 +13,32 @@ using UtilityLibrary.General;
 
 namespace UtilityLibrary.Menus
 {
-	internal class FocusCatcher : NativeWindow
+    internal class FocusCatcher : NativeWindow
 	{
 		public FocusCatcher(IntPtr hParent)
 		{
-			CreateParams cp = new CreateParams();
+            CreateParams cp = new CreateParams
+            {
 
-			// Any old title will do as it will not be shown
-			cp.Caption = "NativeFocusCatcher";
-			
-			// Set the position off the screen so it will not be seen
-			cp.X = -1;
-			cp.Y = -1;
-			cp.Height = 0;
-			cp.Width = 0;
+                // Any old title will do as it will not be shown
+                Caption = "NativeFocusCatcher",
 
-			// As a top-level window it has no parent
-			cp.Parent = hParent;
-			
-			// Create as a child of the specified parent
-			cp.Style = unchecked((int)(uint)Win32.WindowStyles.WS_CHILD +
-				(int)(uint)Win32.WindowStyles.WS_VISIBLE);
+                // Set the position off the screen so it will not be seen
+                X = -1,
+                Y = -1,
+                Height = 0,
+                Width = 0,
 
-			// Create the actual window
-			this.CreateHandle(cp);
+                // As a top-level window it has no parent
+                Parent = hParent,
+
+                // Create as a child of the specified parent
+                Style = unchecked((int)(uint)Win32.WindowStyles.WS_CHILD +
+                (int)(uint)Win32.WindowStyles.WS_VISIBLE)
+            };
+
+            // Create the actual window
+            this.CreateHandle(cp);
 		}		
 	}
 
@@ -184,10 +181,12 @@ namespace UtilityLibrary.Menus
 			_direction = DirectionUL.Horizontal;
 			_textFont = SystemInformation.MenuFont;
 
-			// Create and initialise the timer object (but do not start it running!)
-			_timer = new Timer();
-			_timer.Interval = _selectionDelay;
-			_timer.Tick += new EventHandler(OnTimerExpire);
+            // Create and initialise the timer object (but do not start it running!)
+            _timer = new Timer
+            {
+                Interval = _selectionDelay
+            };
+            _timer.Tick += new EventHandler(OnTimerExpire);
 		}
 
 		[Category("Appearance")]
@@ -380,9 +379,9 @@ namespace UtilityLibrary.Menus
 
 			// Create and show the popup window (without taking the focus)
 			CreateAndShowWindow();
-		
-			// Create an object for storing windows message information
-			Win32.MSG msg = new Win32.MSG();
+
+            // Create an object for storing windows message information
+            MSG msg = new MSG();
 
 			// Draw everything now...
 			//RefreshAllCommands();
@@ -464,8 +463,8 @@ namespace UtilityLibrary.Menus
 									// Let the parent chain of PopupMenu's decide if they want it
 									if (!ParentWantsMouseMessage(ref msg) && !child && !combolist)
 									{
-										// Eat the message to prevent the destination getting it
-										Win32.MSG eat = new Win32.MSG();
+                                        // Eat the message to prevent the destination getting it
+                                        MSG eat = new MSG();
 										WindowsAPI.GetMessage(ref eat, 0, 0, 0);
 
 										// Do not attempt to pull a message off the queue as it has already
@@ -518,10 +517,10 @@ namespace UtilityLibrary.Menus
 											// Does this item have a submenu?
 											if (dc.SubMenu)
 											{
-												// Consume the keyboard message to prevent the submenu immediately
-												// processing the same message again. Remember this routine is called
-												// after PeekMessage but the message is still on the queue at this point
-												Win32.MSG eat = new Win32.MSG();
+                                                    // Consume the keyboard message to prevent the submenu immediately
+                                                    // processing the same message again. Remember this routine is called
+                                                    // after PeekMessage but the message is still on the queue at this point
+                                                    MSG eat = new MSG();
 												WindowsAPI.GetMessage(ref eat, 0, 0, 0);
 
 												// Handle the submenu
@@ -652,30 +651,32 @@ namespace UtilityLibrary.Menus
 
 			Point screenPos = CorrectPositionForScreen(winSize);
 
-			CreateParams cp = new CreateParams();
+            CreateParams cp = new CreateParams
+            {
 
-			// Any old title will do as it will not be shown
-			cp.Caption = "NativePopupMenu";
-			
-			// Define the screen position/size
-			cp.X = screenPos.X;
-			cp.Y = screenPos.Y;
-			cp.Height = winSize.Height;
-			cp.Width = winSize.Width;
+                // Any old title will do as it will not be shown
+                Caption = "NativePopupMenu",
 
-			// As a top-level window it has no parent
-			cp.Parent = IntPtr.Zero;
-			
-			// Appear as a top-level window
-			cp.Style = unchecked((int)(uint)Win32.WindowStyles.WS_POPUP |
-				(int)(uint)Win32.WindowStyles.WS_CLIPCHILDREN);
-			
-			// Set styles so that it does not have a caption bar and is above all other 
-			// windows in the ZOrder, i.e. TOPMOST
-			cp.ExStyle = (int)Win32.WindowExStyles.WS_EX_TOPMOST + (int)Win32.WindowExStyles.WS_EX_TOOLWINDOW;
+                // Define the screen position/size
+                X = screenPos.X,
+                Y = screenPos.Y,
+                Height = winSize.Height,
+                Width = winSize.Width,
 
-			// OS specific style
-			if (_layered)
+                // As a top-level window it has no parent
+                Parent = IntPtr.Zero,
+
+                // Appear as a top-level window
+                Style = unchecked((int)(uint)Win32.WindowStyles.WS_POPUP |
+                (int)(uint)Win32.WindowStyles.WS_CLIPCHILDREN),
+
+                // Set styles so that it does not have a caption bar and is above all other 
+                // windows in the ZOrder, i.e. TOPMOST
+                ExStyle = (int)Win32.WindowExStyles.WS_EX_TOPMOST + (int)Win32.WindowExStyles.WS_EX_TOOLWINDOW
+            };
+
+            // OS specific style
+            if (_layered)
 			{
 				// If not on NT then we are going to use alpha blending on the shadow border
 				// and so we need to specify the layered window style so the OS can handle it
@@ -786,30 +787,32 @@ namespace UtilityLibrary.Menus
 				// Select this bitmap for updating the window presentation
 				IntPtr oldBitmap = WindowsAPI.SelectObject(memoryDC, hBitmap);
 
-				// New window size
-				Win32.SIZE ulwsize;
+                // New window size
+                SIZE ulwsize;
 				ulwsize.cx = size.Width;
 				ulwsize.cy = size.Height;
 
-				// New window position
-				Win32.POINT topPos;
+                // New window position
+                POINT topPos;
 				topPos.x = point.X;
 				topPos.y = point.Y;
 
-				// Offset into memory bitmap is always zero
-				Win32.POINT pointSource;
+                // Offset into memory bitmap is always zero
+                POINT pointSource;
 				pointSource.x = 0;
 				pointSource.y = 0;
 
-				// We want to make the entire bitmap opaque 
-				Win32.BLENDFUNCTION blend = new Win32.BLENDFUNCTION();
-				blend.BlendOp             = (byte)Win32.AlphaFlags.AC_SRC_OVER;
-				blend.BlendFlags          = 0;
-				blend.SourceConstantAlpha = 255;
-				blend.AlphaFormat         = (byte)Win32.AlphaFlags.AC_SRC_ALPHA;
+                // We want to make the entire bitmap opaque 
+                BLENDFUNCTION blend = new BLENDFUNCTION
+                {
+                    BlendOp = (byte)Win32.AlphaFlags.AC_SRC_OVER,
+                    BlendFlags = 0,
+                    SourceConstantAlpha = 255,
+                    AlphaFormat = (byte)Win32.AlphaFlags.AC_SRC_ALPHA
+                };
 
-				// Tell operating system to use our bitmap for painting
-				WindowsAPI.UpdateLayeredWindow(Handle, hDC, ref topPos, ref ulwsize, 
+                // Tell operating system to use our bitmap for painting
+                WindowsAPI.UpdateLayeredWindow(Handle, hDC, ref topPos, ref ulwsize, 
 										   memoryDC, ref pointSource, 0, ref blend, 
 										   (int)Win32.UpdateLayeredWindowsFlags.ULW_ALPHA);
 
@@ -1343,7 +1346,7 @@ namespace UtilityLibrary.Menus
 
 		protected void RefreshAllCommands()
 		{
-			Win32.RECT rectRaw = new Win32.RECT();
+            RECT rectRaw = new RECT();
 
 			// Grab the screen rectangle of the window
 			WindowsAPI.GetWindowRect(this.Handle, ref rectRaw);
@@ -1536,15 +1539,17 @@ namespace UtilityLibrary.Menus
 			if (_style == VisualStyle.Plain)
 				rectText.Height -= SystemInformation.Border3DSize.Height * 2;
 
-			// Draw the text into this rectangle
-			StringFormat format = new StringFormat();
-			format.FormatFlags = StringFormatFlags.DirectionVertical | 
-								 StringFormatFlags.NoClip | 
-								 StringFormatFlags.NoWrap;
-			format.Alignment = StringAlignment.Near;
-			format.LineAlignment = StringAlignment.Center;
+            // Draw the text into this rectangle
+            StringFormat format = new StringFormat
+            {
+                FormatFlags = StringFormatFlags.DirectionVertical |
+                                 StringFormatFlags.NoClip |
+                                 StringFormatFlags.NoWrap,
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center
+            };
 
-			Brush textBrush = null;
+            Brush textBrush = null;
 			bool disposeText = true;
 
 			if (_menuCommands.ExtraTextBrush != null)
@@ -1826,15 +1831,17 @@ namespace UtilityLibrary.Menus
 					// Calculate text drawing rectangle
 					Rectangle strRect = new Rectangle(leftPos, drawRect.Top, shortCutX - leftPos, drawRect.Height);
 
-					// Left align the text drawing on a single line centered vertically
-					// and process the & character to be shown as an underscore on next character
-					StringFormat format = new StringFormat();
-					format.FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap;
-					format.Alignment = StringAlignment.Near;
-					format.LineAlignment = StringAlignment.Center;
-					format.HotkeyPrefix = HotkeyPrefix.Show;
+                    // Left align the text drawing on a single line centered vertically
+                    // and process the & character to be shown as an underscore on next character
+                    StringFormat format = new StringFormat
+                    {
+                        FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap,
+                        Alignment = StringAlignment.Near,
+                        LineAlignment = StringAlignment.Center,
+                        HotkeyPrefix = HotkeyPrefix.Show
+                    };
 
-					SolidBrush textBrush;
+                    SolidBrush textBrush;
 
 					// Create brush depending on enabled state
 					if (mc.Enabled)
@@ -2197,10 +2204,10 @@ namespace UtilityLibrary.Menus
 				// Does this item have a submenu?
 				if (dc.SubMenu)
 				{
-					// Consume the keyboard message to prevent the submenu immediately
-					// processing the same message again. Remember this routine is called
-					// after PeekMessage but the message is still on the queue at this point
-					Win32.MSG msg = new Win32.MSG();
+                    // Consume the keyboard message to prevent the submenu immediately
+                    // processing the same message again. Remember this routine is called
+                    // after PeekMessage but the message is still on the queue at this point
+                    MSG msg = new MSG();
 					WindowsAPI.GetMessage(ref msg, 0, 0, 0);
 	
 					// Handle the submenu
@@ -2294,9 +2301,9 @@ namespace UtilityLibrary.Menus
 			return -1;
 		}
 
-		protected bool ParentWantsMouseMessage(ref Win32.MSG msg)
+		protected bool ParentWantsMouseMessage(ref MSG msg)
 		{
-			Win32.POINT screenPos;
+            POINT screenPos;
 			screenPos.x = (int)((uint)msg.lParam & 0x0000FFFFU);
 			screenPos.y = (int)(((uint)msg.lParam & 0xFFFF0000U) >> 16);
 
@@ -2307,7 +2314,7 @@ namespace UtilityLibrary.Menus
 			// then we should always allow mousemoves to be processed
 			if ((msg.message == (int)Msg.WM_MOUSEMOVE) && (_parentControl != null))
 			{
-				Win32.RECT rectRaw = new Win32.RECT();
+                RECT rectRaw = new RECT();
 
 				// Grab the screen rectangle of the parent control
 				WindowsAPI.GetWindowRect(_parentControl.Handle, ref rectRaw);
@@ -2325,9 +2332,9 @@ namespace UtilityLibrary.Menus
 				return false;
 		}
 
-		protected bool WantMouseMessage(Win32.POINT screenPos)
+		protected bool WantMouseMessage(POINT screenPos)
 		{
-			Win32.RECT rectRaw = new Win32.RECT();
+            RECT rectRaw = new RECT();
 
 			// Grab the screen rectangle of the window
 			WindowsAPI.GetWindowRect(this.Handle, ref rectRaw);
@@ -2457,14 +2464,14 @@ namespace UtilityLibrary.Menus
 
 			DrawCommand dc = _drawCommands[popupItem] as DrawCommand;
 
-			// Find screen coordinate of Top right of item cell
-			Win32.POINT screenPosTR;
+            // Find screen coordinate of Top right of item cell
+            POINT screenPosTR;
 			screenPosTR.x = dc.DrawRect.Right;
 			screenPosTR.y = dc.DrawRect.Top;
 			WindowsAPI.ClientToScreen(this.Handle, ref screenPosTR);
-			
-			// Find screen coordinate of top left of item cell
-			Win32.POINT screenPosTL;
+
+            // Find screen coordinate of top left of item cell
+            POINT screenPosTL;
 			screenPosTL.x = dc.DrawRect.Left;
 			screenPosTL.y = dc.DrawRect.Top;
 			WindowsAPI.ClientToScreen(this.Handle, ref screenPosTL);
@@ -2548,12 +2555,12 @@ namespace UtilityLibrary.Menus
 			if (_grabFocus)
 				GrabTheFocus();
 
-			Win32.PAINTSTRUCT ps = new Win32.PAINTSTRUCT();
+            PAINTSTRUCT ps = new PAINTSTRUCT();
 
 			// Have to call BeginPaint whenever processing a WM_PAINT message
 			IntPtr hDC = WindowsAPI.BeginPaint(m.HWnd, ref ps);
 
-			Win32.RECT rectRaw = new Win32.RECT();
+            RECT rectRaw = new RECT();
 
 			// Grab the screen rectangle of the window
 			WindowsAPI.GetWindowRect(this.Handle, ref rectRaw);
@@ -2627,17 +2634,19 @@ namespace UtilityLibrary.Menus
 			// Is the first time we have noticed a mouse movement over our window
 			if (!_mouseOver)
 			{
-				// Crea the structure needed for WindowsAPI call
-				Win32.TRACKMOUSEEVENTS tme = new Win32.TRACKMOUSEEVENTS();
+                // Crea the structure needed for WindowsAPI call
+                TRACKMOUSEEVENTS tme = new TRACKMOUSEEVENTS
+                {
 
-				// Fill in the structure
-				tme.cbSize = 16;									
-				tme.dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE;
-				tme.hWnd = this.Handle;								
-				tme.dwHoverTime = 0;								
+                    // Fill in the structure
+                    cbSize = 16,
+                    dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE,
+                    hWnd = this.Handle,
+                    dwHoverTime = 0
+                };
 
-				// Request that a message gets sent when mouse leaves this window
-				WindowsAPI.TrackMouseEvent(ref tme);
+                // Request that a message gets sent when mouse leaves this window
+                WindowsAPI.TrackMouseEvent(ref tme);
 
 				// Yes, we know the mouse is over window
 				_mouseOver = true;

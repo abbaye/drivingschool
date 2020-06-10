@@ -148,17 +148,17 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 			zipComment = commentBytes;
 		}
-		
-		/// <summary>
-		/// Sets the compression level.  The new level will be activated
-		/// immediately.
-		/// </summary>
-		/// <param name="level">The new compression level (1 to 9).</param>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Level specified is not supported.
-		/// </exception>
-		/// <see cref="ICSharpCode.SharpZipLib.Zip.Compression.Deflater"/>
-		public void SetLevel(int level)
+
+        /// <summary>
+        /// Sets the compression level.  The new level will be activated
+        /// immediately.
+        /// </summary>
+        /// <param name="level">The new compression level (1 to 9).</param>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Level specified is not supported.
+        /// </exception>
+        /// <see cref="Deflater"/>
+        public void SetLevel(int level)
 		{
 			deflater_.SetLevel(level);
 			defaultCompressionLevel = level;
@@ -218,32 +218,32 @@ namespace ICSharpCode.SharpZipLib.Zip
 				WriteLeInt((int)(value >> 32));
 			}
 		}
-		
-		/// <summary>
-		/// Starts a new Zip entry. It automatically closes the previous
-		/// entry if present.
-		/// All entry elements bar name are optional, but must be correct if present.
-		/// If the compression method is stored and the output is not patchable
-		/// the compression for that entry is automatically changed to deflate level 0
-		/// </summary>
-		/// <param name="entry">
-		/// the entry.
-		/// </param>
-		/// <exception cref="System.ArgumentNullException">
-		/// if entry passed is null.
-		/// </exception>
-		/// <exception cref="System.IO.IOException">
-		/// if an I/O error occured.
-		/// </exception>
-		/// <exception cref="System.InvalidOperationException">
-		/// if stream was finished
-		/// </exception>
-		/// <exception cref="ZipException">
-		/// Too many entries in the Zip file<br/>
-		/// Entry name is too long<br/>
-		/// Finish has already been called<br/>
-		/// </exception>
-		public void PutNextEntry(ZipEntry entry)
+
+        /// <summary>
+        /// Starts a new Zip entry. It automatically closes the previous
+        /// entry if present.
+        /// All entry elements bar name are optional, but must be correct if present.
+        /// If the compression method is stored and the output is not patchable
+        /// the compression for that entry is automatically changed to deflate level 0
+        /// </summary>
+        /// <param name="entry">
+        /// the entry.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        /// if entry passed is null.
+        /// </exception>
+        /// <exception cref="IOException">
+        /// if an I/O error occured.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// if stream was finished
+        /// </exception>
+        /// <exception cref="ZipException">
+        /// Too many entries in the Zip file<br/>
+        /// Entry name is too long<br/>
+        /// Finish has already been called<br/>
+        /// </exception>
+        public void PutNextEntry(ZipEntry entry)
 		{
 			if ( entry == null ) {
 				throw new ArgumentNullException("entry");
@@ -457,17 +457,17 @@ namespace ICSharpCode.SharpZipLib.Zip
 				}
 			}
 		}
-		
-		/// <summary>
-		/// Closes the current entry, updating header and footer information as required
-		/// </summary>
-		/// <exception cref="System.IO.IOException">
-		/// An I/O error occurs.
-		/// </exception>
-		/// <exception cref="System.InvalidOperationException">
-		/// No entry is active.
-		/// </exception>
-		public void CloseEntry()
+
+        /// <summary>
+        /// Closes the current entry, updating header and footer information as required
+        /// </summary>
+        /// <exception cref="IOException">
+        /// An I/O error occurs.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// No entry is active.
+        /// </exception>
+        public void CloseEntry()
 		{
 			if (curEntry == null) {
 				throw new InvalidOperationException("No open entry");
@@ -620,15 +620,15 @@ namespace ICSharpCode.SharpZipLib.Zip
 		}
 #endif
 
-		/// <summary>
-		/// Writes the given buffer to the current entry.
-		/// </summary>
-		/// <param name="buffer">The buffer containing data to write.</param>
-		/// <param name="offset">The offset of the first byte to write.</param>
-		/// <param name="count">The number of bytes to write.</param>
-		/// <exception cref="ZipException">Archive size is invalid</exception>
-		/// <exception cref="System.InvalidOperationException">No entry is active.</exception>
-		public override void Write(byte[] buffer, int offset, int count)
+        /// <summary>
+        /// Writes the given buffer to the current entry.
+        /// </summary>
+        /// <param name="buffer">The buffer containing data to write.</param>
+        /// <param name="offset">The offset of the first byte to write.</param>
+        /// <param name="count">The number of bytes to write.</param>
+        /// <exception cref="ZipException">Archive size is invalid</exception>
+        /// <exception cref="InvalidOperationException">No entry is active.</exception>
+        public override void Write(byte[] buffer, int offset, int count)
 		{
 			if (curEntry == null) {
 				throw new InvalidOperationException("No open entry.");
@@ -690,22 +690,22 @@ namespace ICSharpCode.SharpZipLib.Zip
 				offset += bufferCount;
 			}
 		}
-		
-		/// <summary>
-		/// Finishes the stream.  This will write the central directory at the
-		/// end of the zip file and flush the stream.
-		/// </summary>
-		/// <remarks>
-		/// This is automatically called when the stream is closed.
-		/// </remarks>
-		/// <exception cref="System.IO.IOException">
-		/// An I/O error occurs.
-		/// </exception>
-		/// <exception cref="ZipException">
-		/// Comment exceeds the maximum length<br/>
-		/// Entry name exceeds the maximum length
-		/// </exception>
-		public override void Finish()
+
+        /// <summary>
+        /// Finishes the stream.  This will write the central directory at the
+        /// end of the zip file and flush the stream.
+        /// </summary>
+        /// <remarks>
+        /// This is automatically called when the stream is closed.
+        /// </remarks>
+        /// <exception cref="IOException">
+        /// An I/O error occurs.
+        /// </exception>
+        /// <exception cref="ZipException">
+        /// Comment exceeds the maximum length<br/>
+        /// Entry name exceeds the maximum length
+        /// </exception>
+        public override void Finish()
 		{
 			if (entries == null)  {
 				return;
@@ -845,11 +845,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		/// The entries for the archive.
 		/// </summary>
 		ArrayList entries  = new ArrayList();
-		
-		/// <summary>
-		/// Used to track the crc of data added to entries.
-		/// </summary>
-		Crc32 crc = new Crc32();
+
+        /// <summary>
+        /// Used to track the crc of data added to entries.
+        /// </summary>
+        readonly Crc32 crc = new Crc32();
 		
 		/// <summary>
 		/// The current entry being added.

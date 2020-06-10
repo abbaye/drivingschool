@@ -9,8 +9,6 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
-
 namespace Crownwood.Magic.Win32
 {
     public enum PeekMessageFlags

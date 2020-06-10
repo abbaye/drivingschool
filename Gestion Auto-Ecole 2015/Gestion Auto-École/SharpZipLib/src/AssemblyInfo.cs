@@ -36,7 +36,6 @@
 
 using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 #if (NET_1_0)
@@ -78,7 +77,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("Copyright 2001-2010 Mike Krueger, John Reilly")]
 
 [assembly: AssemblyVersion("0.86.0.518")]
-[assembly: AssemblyInformationalVersionAttribute("0.86.0")]
+[assembly: AssemblyInformationalVersion("0.86.0")]
 
 
 [assembly: CLSCompliant(true)]

@@ -1,14 +1,14 @@
-using System;
 using System.Collections;
 
 using Barette.Library.Client;
 
-namespace Barette.Library.Collections {
-	/// <summary>
-	/// Collection de Client.
-	/// Des fonctions seront ajouté plus tard en rapport avec la collectionB
-	/// </summary>
-	public class CustomerCollection : CollectionWithEvents, IEnumerable {
+namespace Barette.Library.Collections
+{
+    /// <summary>
+    /// Collection de Client.
+    /// Des fonctions seront ajouté plus tard en rapport avec la collectionB
+    /// </summary>
+    public class CustomerCollection : CollectionWithEvents, IEnumerable {
 
 		public Customer Add(Customer value) {
 			base.List.Add(value as object);

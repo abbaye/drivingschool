@@ -10,7 +10,6 @@
 // *****************************************************************************
 
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 //
 // General Information about an assembly is controlled through the following 
@@ -25,7 +24,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyProduct("Magic")]
 [assembly: AssemblyCopyright("Copyright 2002-2003 - Crownwood Consulting Ltd")]
 [assembly: AssemblyTrademark("Magic - The User Interface Library for .NET")]
-[assembly: AssemblyCulture("")]		
+[assembly: AssemblyCulture("")]
 
 //
 // Version information for an assembly consists of the following four values:

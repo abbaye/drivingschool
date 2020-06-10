@@ -9,15 +9,9 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
-using System.IO;
 using System.Drawing;
-using System.Resources;
-using System.Reflection;
-using System.Collections;
 using System.Windows.Forms;
 using System.ComponentModel;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Controls
 {

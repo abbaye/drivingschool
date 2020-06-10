@@ -1,16 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library.Client;
 using Barette.Library.Collections;
 
-namespace Barette.Library.UserControls.Schedule {
-	public partial class ScheduleControl : UserControl {
+namespace Barette.Library.UserControls.Schedule
+{
+    public partial class ScheduleControl : UserControl {
 		private CustomerCollection _ClientList = null;
 		private EmployeCollection _EmployeList = null;
 		private DateTime _Date = DateTime.Now;
@@ -154,12 +150,13 @@ namespace Barette.Library.UserControls.Schedule {
 		/// <param name="client"></param>
 		/// <param name="cours"></param>
 		private void AddCoursToList(Customer client, Seance cours) {
-			ListViewItem itm = new ListViewItem();
+            ListViewItem itm = new ListViewItem
+            {
+                Text = DateTimeFunc.FormatHour(cours.DateHeure),
 
-			itm.Text = DateTimeFunc.FormatHour(cours.DateHeure);
-
-			itm.Tag = client;
-			itm.SubItems.Add(client.ContratNumber);
+                Tag = client
+            };
+            itm.SubItems.Add(client.ContratNumber);
 			itm.SubItems.Add(client.Name + " " + client.FirstName);
 			itm.SubItems.Add(cours.SceanceNumber.ToString());
 			itm.SubItems.Add(cours.Code);
@@ -171,12 +168,13 @@ namespace Barette.Library.UserControls.Schedule {
 		/// Ajoute une entrée vide à la liste
 		/// </summary>
 		private void AddCoursToList(DateTime hours) {
-			ListViewItem itm = new ListViewItem();
+            ListViewItem itm = new ListViewItem
+            {
+                Text = DateTimeFunc.FormatHour(hours)
+            };
 
-			itm.Text = DateTimeFunc.FormatHour(hours);
-
-			//itm.Tag = client;
-			itm.SubItems.Add("");
+            //itm.Tag = client;
+            itm.SubItems.Add("");
 			itm.SubItems.Add("");
 			itm.SubItems.Add("");
 			itm.SubItems.Add("");
@@ -270,21 +268,24 @@ namespace Barette.Library.UserControls.Schedule {
 		public ScheduleDescription HoraireDescription {
 			get {
 				ScheduleInfos infos;
-				ScheduleDescription Description = new ScheduleDescription();
-				Description.Jour = _Date;
-				Description.NomMoniteur = _EmployeName;
-				Customer client = null;
+                ScheduleDescription Description = new ScheduleDescription
+                {
+                    Jour = _Date,
+                    NomMoniteur = _EmployeName
+                };
+                Customer client = null;
 
 				//Créé la description detaille de la journée
 				for (int i=0; i<listViewEx1.Items.Count; i++){
-					infos = new ScheduleInfos();
+                    infos = new ScheduleInfos
+                    {
+                        Heures = DateTime.Parse(listViewEx1.Items[i].Text.Replace("h", ":")),
+                        ClientName = listViewEx1.Items[i].SubItems[2].Text,
+                        SeanceNumber = listViewEx1.Items[i].SubItems[3].Text,
+                        SeanceCode = listViewEx1.Items[i].SubItems[4].Text
+                    };
 
-					infos.Heures = DateTime.Parse(listViewEx1.Items[i].Text.Replace("h", ":"));
-					infos.ClientName = listViewEx1.Items[i].SubItems[2].Text;										
-					infos.SeanceNumber = listViewEx1.Items[i].SubItems[3].Text;
-					infos.SeanceCode = listViewEx1.Items[i].SubItems[4].Text;
-										
-					client = _ClientList.GetClient(listViewEx1.Items[i].SubItems[1].Text);
+                    client = _ClientList.GetClient(listViewEx1.Items[i].SubItems[1].Text);
 					if (client != null) {
 						infos.PhoneNumber = client.Phone;
 						infos.ContratNumber = client.ContratNumber;

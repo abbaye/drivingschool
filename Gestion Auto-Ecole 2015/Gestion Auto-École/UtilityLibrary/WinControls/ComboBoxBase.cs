@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Security;
@@ -16,12 +14,12 @@ using UtilityLibrary.Win32;
 namespace UtilityLibrary.WinControls
 {
 
-	#region Helper Classes
-	internal class EditCtrlHook : System.Windows.Forms.NativeWindow
-	{
-		
-		#region Class Variables
-		ComboBoxBase comboBox = null;
+    #region Helper Classes
+    internal class EditCtrlHook : NativeWindow
+    {
+
+        #region Class Variables
+        readonly ComboBoxBase comboBox = null;
 		bool ignoreNextPaintMessage = false;
 		#endregion
 		
@@ -97,17 +95,19 @@ namespace UtilityLibrary.WinControls
 		#region Implementation
 		void RequestMouseLeaveMessage(IntPtr hWnd)
 		{
-			// Crea the structure needed for WindowsAPI call
-			Win32.TRACKMOUSEEVENTS tme = new Win32.TRACKMOUSEEVENTS();
+            // Crea the structure needed for WindowsAPI call
+            TRACKMOUSEEVENTS tme = new TRACKMOUSEEVENTS
+            {
 
-			// Fill in the structure
-			tme.cbSize = 16;									
-			tme.dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE;
-			tme.hWnd = hWnd;								
-			tme.dwHoverTime = 0;								
+                // Fill in the structure
+                cbSize = 16,
+                dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE,
+                hWnd = hWnd,
+                dwHoverTime = 0
+            };
 
-			// Request that a message gets sent when mouse leaves this window
-			WindowsAPI.TrackMouseEvent(ref tme);
+            // Request that a message gets sent when mouse leaves this window
+            WindowsAPI.TrackMouseEvent(ref tme);
 		}
 
 		void DrawDisableState()
@@ -145,8 +145,8 @@ namespace UtilityLibrary.WinControls
 	/// Summary description for ComboBoxBase.
 	/// </summary>
 	[ToolboxItem(false)]
-	public class ComboBoxBase : System.Windows.Forms.ComboBox
-	{
+	public class ComboBoxBase : ComboBox
+    {
 		#region Class Variables
 		private IntPtr mouseHookHandle = IntPtr.Zero;
 		private GCHandle mouseProcHandle;

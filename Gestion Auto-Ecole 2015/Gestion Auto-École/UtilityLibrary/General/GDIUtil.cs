@@ -1,15 +1,14 @@
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 
 using UtilityLibrary.Win32;
 
 namespace UtilityLibrary.General
 {
-	/// <summary>
-	/// Summary description for GDIUtil.
-	/// </summary>
-	public class GDIUtil
+    /// <summary>
+    /// Summary description for GDIUtil.
+    /// </summary>
+    public class GDIUtil
 	{
 		#region Constructors
 		// We won't instatiate any object

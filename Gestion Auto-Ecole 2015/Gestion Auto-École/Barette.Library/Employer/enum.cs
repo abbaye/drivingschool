@@ -1,11 +1,10 @@
-using System;
+namespace Barette.Library.Employer
+{
 
-namespace Barette.Library.Employer {
-
-	/// <summary>
-	/// Type d'employé
-	/// </summary>
-	public enum TypeEmploye {
+    /// <summary>
+    /// Type d'employé
+    /// </summary>
+    public enum TypeEmploye {
 		TauxHorraire,
 		Dirigeant,
 		Contractuel

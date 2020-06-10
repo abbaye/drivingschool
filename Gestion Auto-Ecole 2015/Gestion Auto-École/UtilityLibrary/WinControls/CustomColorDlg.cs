@@ -1,54 +1,50 @@
 using System;
 using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-using System.Diagnostics;
 using System.Resources;
 using System.Reflection;
-using UtilityLibrary.WinControls;
 using UtilityLibrary.General;
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for CustomColorDlg.
-	/// </summary>
-	public class CustomColorDlg : System.Windows.Forms.Form
-	{
+    /// <summary>
+    /// Summary description for CustomColorDlg.
+    /// </summary>
+    public class CustomColorDlg : Form
+    {
 		#region Class Variables
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Label Label1;
+		private Button button1;
+		private Button button2;
+		private Label label2;
+		private Label label3;
+		private Label label4;
+		private Label label5;
+		private Label label6;
+		private Label label7;
+		private Label Label1;
 		private Color currentColor = Color.White;
-		private System.Windows.Forms.Panel currentColorPanel;
-		private System.Windows.Forms.PictureBox paletteBox;
+		private Panel currentColorPanel;
+		private PictureBox paletteBox;
 		private NumericTextBox hueEdit;
 		private NumericTextBox satEdit;
 		private NumericTextBox lumEdit;
 		private NumericTextBox redEdit;
 		private NumericTextBox greenEdit;
 		private NumericTextBox blueEdit;
-		private System.Windows.Forms.PictureBox lumBox;
+		private PictureBox lumBox;
 		private Color paletteColor;
 		private bool drawCrossHair = true;
 		private Point crossPos = new Point(0, 0);
-		private float DELTA_WIDTH = 240.0f/200.0f;
-		private float DELTA_HEIGHT = 240.0f/186.0f;
+		private readonly float DELTA_WIDTH = 240.0f/200.0f;
+		private readonly float DELTA_HEIGHT = 240.0f/186.0f;
 		private bool updatingUI = false;
-		private ResourceManager rm = null;
+		private readonly ResourceManager rm = null;
 
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
+		private readonly System.ComponentModel.Container components = null;
 		#endregion
 
 		#region Constructors
@@ -98,7 +94,7 @@ namespace UtilityLibrary.WinControls
 		#endregion
 
 		#region Implementation
-		void CustomColorDlg_Load(object sender, System.EventArgs e)
+		void CustomColorDlg_Load(object sender, EventArgs e)
 		{
 			updatingUI = true;
 			currentColorPanel.BackColor = CurrentColor;
@@ -130,7 +126,7 @@ namespace UtilityLibrary.WinControls
 		
 		}
 
-		void LumBox_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+		void LumBox_Paint(object sender, PaintEventArgs e)
 		{
 			Rectangle r = new Rectangle(0, 5 , lumBox.Width - 10, lumBox.Height-10);
 			
@@ -170,7 +166,7 @@ namespace UtilityLibrary.WinControls
 		
 		}
 
-		void lumBox_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+		void lumBox_MouseMove(object sender, MouseEventArgs e)
 		{
 			if ( lumBox.Capture == true )
 			{
@@ -183,13 +179,13 @@ namespace UtilityLibrary.WinControls
 			}
 		}
 
-		void lumBox_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+		void lumBox_MouseUp(object sender, MouseEventArgs e)
 		{
 			lumBox.Capture = false;
 			LuminosityChanged();
 		}
 
-		void lumBox_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+		void lumBox_MouseDown(object sender, MouseEventArgs e)
 		{
 			lumBox.Capture = true;
 			int y  = e.Y;
@@ -311,7 +307,7 @@ namespace UtilityLibrary.WinControls
 
 		}
 
-		void paletteBox_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+		void paletteBox_MouseMove(object sender, MouseEventArgs e)
 		{
 			
 			if ( paletteBox.Capture != true )
@@ -350,7 +346,7 @@ namespace UtilityLibrary.WinControls
 			
 		}
 
-		void paletteBox_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+		void paletteBox_MouseUp(object sender, MouseEventArgs e)
 		{
 			paletteBox.Capture = false;
 			drawCrossHair = true;
@@ -360,7 +356,7 @@ namespace UtilityLibrary.WinControls
 			HueSatChanged();
 		}
 
-		void paletteBox_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+		void paletteBox_MouseDown(object sender, MouseEventArgs e)
 		{
 			paletteBox.Capture = true;
 			drawCrossHair = false;
@@ -369,7 +365,7 @@ namespace UtilityLibrary.WinControls
 			paletteBox.Invalidate();
 		}
 
-		void paletteBox_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+		void paletteBox_Paint(object sender, PaintEventArgs e)
 		{
 			
 			// Draw the cross-hair
@@ -386,37 +382,37 @@ namespace UtilityLibrary.WinControls
 		
 		}
 
-		void hueEdit_TextChanged(object sender, System.EventArgs e)
+		void hueEdit_TextChanged(object sender, EventArgs e)
 		{
 			if ( !updatingUI )
 				HueSatTextBoxChanged();
 		}
 
-		void satEdit_TextChanged(object sender, System.EventArgs e)
+		void satEdit_TextChanged(object sender, EventArgs e)
 		{
 			if ( !updatingUI )
 				HueSatTextBoxChanged();
 		}
 
-		void lumEdit_TextChanged(object sender, System.EventArgs e)
+		void lumEdit_TextChanged(object sender, EventArgs e)
 		{
 			if ( !updatingUI )
 				LuminosityChanged();
 		}
 
-		void redEdit_TextChanged(object sender, System.EventArgs e)
+		void redEdit_TextChanged(object sender, EventArgs e)
 		{
 			if ( !updatingUI )
 				RGBTextChanged();
 		}
 
-		void greenEdit_TextChanged(object sender, System.EventArgs e)
+		void greenEdit_TextChanged(object sender, EventArgs e)
 		{
 			if ( !updatingUI )
 				RGBTextChanged();
 		}
 
-		void blueEdit_TextChanged(object sender, System.EventArgs e)
+		void blueEdit_TextChanged(object sender, EventArgs e)
 		{
 			if ( !updatingUI )
 				RGBTextChanged();
@@ -431,212 +427,212 @@ namespace UtilityLibrary.WinControls
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(CustomColorDlg));
-			this.paletteBox = new System.Windows.Forms.PictureBox();
-			this.lumBox = new System.Windows.Forms.PictureBox();
-			this.currentColorPanel = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+            ResourceManager resources = new ResourceManager(typeof(CustomColorDlg));
+			this.paletteBox = new PictureBox();
+			this.lumBox = new PictureBox();
+			this.currentColorPanel = new Panel();
+			this.button1 = new Button();
+			this.button2 = new Button();
 			this.hueEdit = new NumericTextBox();
 			this.satEdit = new NumericTextBox();
 			this.lumEdit = new NumericTextBox();
 			this.redEdit = new NumericTextBox();
 			this.greenEdit = new NumericTextBox();
 			this.blueEdit = new NumericTextBox();
-			this.Label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
+			this.Label1 = new Label();
+			this.label2 = new Label();
+			this.label3 = new Label();
+			this.label4 = new Label();
+			this.label5 = new Label();
+			this.label6 = new Label();
+			this.label7 = new Label();
 			this.SuspendLayout();
 			// 
 			// paletteBox
 			// 
 			this.paletteBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.paletteBox.Location = new System.Drawing.Point(10, 12);
+			this.paletteBox.Location = new Point(10, 12);
 			this.paletteBox.Name = "paletteBox";
-			this.paletteBox.Size = new System.Drawing.Size(202, 188);
+			this.paletteBox.Size = new Size(202, 188);
 			this.paletteBox.TabIndex = 0;
 			this.paletteBox.TabStop = false;
-			this.paletteBox.Paint += new System.Windows.Forms.PaintEventHandler(this.paletteBox_Paint);
-			this.paletteBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.paletteBox_MouseUp);
-			this.paletteBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.paletteBox_MouseMove);
-			this.paletteBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.paletteBox_MouseDown);
+			this.paletteBox.Paint += new PaintEventHandler(this.paletteBox_Paint);
+			this.paletteBox.MouseUp += new MouseEventHandler(this.paletteBox_MouseUp);
+			this.paletteBox.MouseMove += new MouseEventHandler(this.paletteBox_MouseMove);
+			this.paletteBox.MouseDown += new MouseEventHandler(this.paletteBox_MouseDown);
 			// 
 			// lumBox
 			// 
-			this.lumBox.Location = new System.Drawing.Point(220, 7);
+			this.lumBox.Location = new Point(220, 7);
 			this.lumBox.Name = "lumBox";
-			this.lumBox.Size = new System.Drawing.Size(24, 198);
+			this.lumBox.Size = new Size(24, 198);
 			this.lumBox.TabIndex = 1;
 			this.lumBox.TabStop = false;
-			this.lumBox.Paint += new System.Windows.Forms.PaintEventHandler(this.LumBox_Paint);
-			this.lumBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lumBox_MouseUp);
-			this.lumBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lumBox_MouseMove);
-			this.lumBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lumBox_MouseDown);
+			this.lumBox.Paint += new PaintEventHandler(this.LumBox_Paint);
+			this.lumBox.MouseUp += new MouseEventHandler(this.lumBox_MouseUp);
+			this.lumBox.MouseMove += new MouseEventHandler(this.lumBox_MouseMove);
+			this.lumBox.MouseDown += new MouseEventHandler(this.lumBox_MouseDown);
 			// 
 			// currentColorPanel
 			// 
 			this.currentColorPanel.BackColor = System.Drawing.SystemColors.Control;
 			this.currentColorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.currentColorPanel.Location = new System.Drawing.Point(12, 212);
+			this.currentColorPanel.Location = new Point(12, 212);
 			this.currentColorPanel.Name = "currentColorPanel";
-			this.currentColorPanel.Size = new System.Drawing.Size(66, 48);
+			this.currentColorPanel.Size = new Size(66, 48);
 			this.currentColorPanel.TabIndex = 2;
 			// 
 			// button1
 			// 
 			this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.button1.Location = new System.Drawing.Point(52, 298);
+			this.button1.Location = new Point(52, 298);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(64, 22);
+			this.button1.Size = new Size(64, 22);
 			this.button1.TabIndex = 3;
 			this.button1.Text = "Add Color";
 			// 
 			// button2
 			// 
 			this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.button2.Location = new System.Drawing.Point(138, 298);
+			this.button2.Location = new Point(138, 298);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(64, 22);
+			this.button2.Size = new Size(64, 22);
 			this.button2.TabIndex = 4;
 			this.button2.Text = "Cancel";
 			// 
 			// hueEdit
 			// 
-			this.hueEdit.Location = new System.Drawing.Point(124, 218);
+			this.hueEdit.Location = new Point(124, 218);
 			this.hueEdit.MaxLength = 3;
 			this.hueEdit.Name = "hueEdit";
-			this.hueEdit.SetRange = new System.Drawing.Size(0, 240);
-			this.hueEdit.Size = new System.Drawing.Size(30, 20);
+			this.hueEdit.SetRange = new Size(0, 240);
+			this.hueEdit.Size = new Size(30, 20);
 			this.hueEdit.TabIndex = 5;
 			this.hueEdit.Text = "160";
-			this.hueEdit.TextChanged += new System.EventHandler(this.hueEdit_TextChanged);
+			this.hueEdit.TextChanged += new EventHandler(this.hueEdit_TextChanged);
 			// 
 			// satEdit
 			// 
-			this.satEdit.Location = new System.Drawing.Point(124, 241);
+			this.satEdit.Location = new Point(124, 241);
 			this.satEdit.MaxLength = 3;
 			this.satEdit.Name = "satEdit";
-			this.satEdit.SetRange = new System.Drawing.Size(0, 240);
-			this.satEdit.Size = new System.Drawing.Size(30, 20);
+			this.satEdit.SetRange = new Size(0, 240);
+			this.satEdit.Size = new Size(30, 20);
 			this.satEdit.TabIndex = 6;
 			this.satEdit.Text = "0";
-			this.satEdit.TextChanged += new System.EventHandler(this.satEdit_TextChanged);
+			this.satEdit.TextChanged += new EventHandler(this.satEdit_TextChanged);
 			// 
 			// lumEdit
 			// 
-			this.lumEdit.Location = new System.Drawing.Point(124, 264);
+			this.lumEdit.Location = new Point(124, 264);
 			this.lumEdit.MaxLength = 3;
 			this.lumEdit.Name = "lumEdit";
-			this.lumEdit.SetRange = new System.Drawing.Size(0, 240);
-			this.lumEdit.Size = new System.Drawing.Size(30, 20);
+			this.lumEdit.SetRange = new Size(0, 240);
+			this.lumEdit.Size = new Size(30, 20);
 			this.lumEdit.TabIndex = 7;
 			this.lumEdit.Text = "0";
-			this.lumEdit.TextChanged += new System.EventHandler(this.lumEdit_TextChanged);
+			this.lumEdit.TextChanged += new EventHandler(this.lumEdit_TextChanged);
 			// 
 			// redEdit
 			// 
-			this.redEdit.Location = new System.Drawing.Point(200, 218);
+			this.redEdit.Location = new Point(200, 218);
 			this.redEdit.MaxLength = 3;
 			this.redEdit.Name = "redEdit";
-			this.redEdit.SetRange = new System.Drawing.Size(0, 255);
-			this.redEdit.Size = new System.Drawing.Size(30, 20);
+			this.redEdit.SetRange = new Size(0, 255);
+			this.redEdit.Size = new Size(30, 20);
 			this.redEdit.TabIndex = 8;
 			this.redEdit.Text = "0";
-			this.redEdit.TextChanged += new System.EventHandler(this.redEdit_TextChanged);
+			this.redEdit.TextChanged += new EventHandler(this.redEdit_TextChanged);
 			// 
 			// greenEdit
 			// 
-			this.greenEdit.Location = new System.Drawing.Point(200, 241);
+			this.greenEdit.Location = new Point(200, 241);
 			this.greenEdit.MaxLength = 3;
 			this.greenEdit.Name = "greenEdit";
-			this.greenEdit.SetRange = new System.Drawing.Size(0, 255);
-			this.greenEdit.Size = new System.Drawing.Size(30, 20);
+			this.greenEdit.SetRange = new Size(0, 255);
+			this.greenEdit.Size = new Size(30, 20);
 			this.greenEdit.TabIndex = 9;
 			this.greenEdit.Text = "0";
-			this.greenEdit.TextChanged += new System.EventHandler(this.greenEdit_TextChanged);
+			this.greenEdit.TextChanged += new EventHandler(this.greenEdit_TextChanged);
 			// 
 			// blueEdit
 			// 
-			this.blueEdit.Location = new System.Drawing.Point(200, 264);
+			this.blueEdit.Location = new Point(200, 264);
 			this.blueEdit.MaxLength = 3;
 			this.blueEdit.Name = "blueEdit";
-			this.blueEdit.SetRange = new System.Drawing.Size(0, 255);
-			this.blueEdit.Size = new System.Drawing.Size(30, 20);
+			this.blueEdit.SetRange = new Size(0, 255);
+			this.blueEdit.Size = new Size(30, 20);
 			this.blueEdit.TabIndex = 10;
 			this.blueEdit.Text = "0";
-			this.blueEdit.TextChanged += new System.EventHandler(this.blueEdit_TextChanged);
+			this.blueEdit.TextChanged += new EventHandler(this.blueEdit_TextChanged);
 			// 
 			// Label1
 			// 
-			this.Label1.Location = new System.Drawing.Point(96, 220);
+			this.Label1.Location = new Point(96, 220);
 			this.Label1.Name = "Label1";
-			this.Label1.Size = new System.Drawing.Size(26, 18);
+			this.Label1.Size = new Size(26, 18);
 			this.Label1.TabIndex = 11;
 			this.Label1.Text = "Hue";
 			this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(96, 243);
+			this.label2.Location = new Point(96, 243);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(26, 18);
+			this.label2.Size = new Size(26, 18);
 			this.label2.TabIndex = 12;
 			this.label2.Text = "Sat";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label3
 			// 
-			this.label3.Location = new System.Drawing.Point(96, 266);
+			this.label3.Location = new Point(96, 266);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(26, 18);
+			this.label3.Size = new Size(26, 18);
 			this.label3.TabIndex = 13;
 			this.label3.Text = "Lum";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label4
 			// 
-			this.label4.Location = new System.Drawing.Point(166, 220);
+			this.label4.Location = new Point(166, 220);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(34, 18);
+			this.label4.Size = new Size(34, 18);
 			this.label4.TabIndex = 14;
 			this.label4.Text = "Red:";
 			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// label5
 			// 
-			this.label5.Location = new System.Drawing.Point(158, 242);
+			this.label5.Location = new Point(158, 242);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(42, 18);
+			this.label5.Size = new Size(42, 18);
 			this.label5.TabIndex = 15;
 			this.label5.Text = "Green:";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// label6
 			// 
-			this.label6.Location = new System.Drawing.Point(158, 266);
+			this.label6.Location = new Point(158, 266);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(42, 18);
+			this.label6.Size = new Size(42, 18);
 			this.label6.TabIndex = 16;
 			this.label6.Text = "Blue:";
 			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// label7
 			// 
-			this.label7.Location = new System.Drawing.Point(18, 266);
+			this.label7.Location = new Point(18, 266);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(60, 14);
+			this.label7.Size = new Size(60, 14);
 			this.label7.TabIndex = 17;
 			this.label7.Text = "Color|Solid";
 			// 
 			// CustomColorDlg
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(246, 330);
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
+			this.AutoScaleBaseSize = new Size(5, 13);
+			this.ClientSize = new Size(246, 330);
+			this.Controls.AddRange(new Control[] {
 																		  this.label7,
 																		  this.label6,
 																		  this.label5,
@@ -661,7 +657,7 @@ namespace UtilityLibrary.WinControls
 			this.Name = "CustomColorDlg";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Define Color";
-			this.Load += new System.EventHandler(this.CustomColorDlg_Load);
+			this.Load += new EventHandler(this.CustomColorDlg_Load);
 			this.ResumeLayout(false);
 
 		}

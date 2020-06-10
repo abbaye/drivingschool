@@ -1,15 +1,14 @@
 using System;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.IO;
 
 using Barette.IDE.Forms;
 
-namespace Barette.IDE {
-	/// <summary>
-	/// Description résumée de MainEntry.
-	/// </summary>
-	public sealed class MainEntry {
+namespace Barette.IDE
+{
+    /// <summary>
+    /// Description résumée de MainEntry.
+    /// </summary>
+    public sealed class MainEntry {
 #if DEBUG
         /// <summary>
         /// Point d'entrée principal de l'application.

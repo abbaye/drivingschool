@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 
 using Barette.Library.Client;
-using Barette.Library.Forms;
 using Barette.Library.Collections;
 
-namespace Barette.Library.UserControls {
-	public partial class SeancePicker : UserControl {
+namespace Barette.Library.UserControls
+{
+    public partial class SeancePicker : UserControl {
 
 		public SeancePicker() {
 			InitializeComponent();
@@ -23,17 +20,19 @@ namespace Barette.Library.UserControls {
         
 		public Seance Seance {
 			get {
-				Seance tmp = new Seance();
-				tmp.Active = Checked;
-				tmp.Code = Code;
-				tmp.DateHeure = DateSceance.Value;
-				tmp.DateModified = DateModifiedPicker.Value;
-				tmp.Employer = Employer;
-				tmp.SceanceNumber = NumeroSeance;
-				tmp.DateModifiedChecked = DateModifiedChecked;
-				tmp.Absence = cbAbsence.Checked;
-				tmp.Montant = ctbMontantCours.Text;
-				return tmp;
+                Seance tmp = new Seance
+                {
+                    Active = Checked,
+                    Code = Code,
+                    DateHeure = DateSceance.Value,
+                    DateModified = DateModifiedPicker.Value,
+                    Employer = Employer,
+                    SceanceNumber = NumeroSeance,
+                    DateModifiedChecked = DateModifiedChecked,
+                    Absence = cbAbsence.Checked,
+                    Montant = ctbMontantCours.Text
+                };
+                return tmp;
 			}
 			set {
                 Checked = value.Active;
@@ -150,11 +149,11 @@ namespace Barette.Library.UserControls {
 			}
 		}
 
-		private void SeancePicker_Resize(object sender, System.EventArgs e) {
+		private void SeancePicker_Resize(object sender, EventArgs e) {
             Height = 25;
 		}
 
-		private void lblSceanceNumber_CheckedChanged(object sender, System.EventArgs e) {
+		private void lblSceanceNumber_CheckedChanged(object sender, EventArgs e) {
 
 			if (lblSceanceNumber.Checked == true)
 				DateSceance.Value = DateTime.Now;

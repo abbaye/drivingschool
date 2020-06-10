@@ -1,28 +1,28 @@
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Xml;
-using System.Text; 
-using System.IO; 
+using System.Text;
+using System.IO;
 
-namespace Barette.Library.Forms {
-	/// <summary>
-	/// Description résumée de FormScéanceCode.
-	/// </summary>
-	public class FormSeanceCode : System.Windows.Forms.Form {
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
-		private System.Windows.Forms.ColumnHeader columnHeader2;
-		private System.Windows.Forms.ListView lvCode;
-		private System.Windows.Forms.Button cmdAdd;
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.TextBox txtDefinitions;
-		private System.Windows.Forms.TextBox txtCode;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button cmdCancel;
+namespace Barette.Library.Forms
+{
+    /// <summary>
+    /// Description résumée de FormScéanceCode.
+    /// </summary>
+    public class FormSeanceCode : Form
+    {
+		private Button button1;
+		private ColumnHeader columnHeader1;
+		private ColumnHeader columnHeader2;
+		private ListView lvCode;
+		private Button cmdAdd;
+		private GroupBox groupBox1;
+		private TextBox txtDefinitions;
+		private TextBox txtCode;
+		private Label label1;
+		private Label label2;
+		private Button cmdCancel;
 		private ToolBar tbCode;
 		private ToolBarButton tbbAddPaiment;
 		private ToolBarButton tbbDelete;
@@ -30,7 +30,7 @@ namespace Barette.Library.Forms {
 		private Timer TimerButton;
 		private IContainer components;
 
-        private Config _AppConfig;
+        private readonly Config _AppConfig;
 
 		public FormSeanceCode(Config appconfig) {
 			//
@@ -62,30 +62,30 @@ namespace Barette.Library.Forms {
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeanceCode));
-            lvCode = new System.Windows.Forms.ListView();
-            columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            button1 = new System.Windows.Forms.Button();
-            cmdAdd = new System.Windows.Forms.Button();
-            groupBox1 = new System.Windows.Forms.GroupBox();
-            label2 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            txtCode = new System.Windows.Forms.TextBox();
-            txtDefinitions = new System.Windows.Forms.TextBox();
-            cmdCancel = new System.Windows.Forms.Button();
-            tbCode = new System.Windows.Forms.ToolBar();
-            tbbAddPaiment = new System.Windows.Forms.ToolBarButton();
-            tbbDelete = new System.Windows.Forms.ToolBarButton();
-            imageListLarge = new System.Windows.Forms.ImageList(components);
-            TimerButton = new System.Windows.Forms.Timer(components);
+            components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(FormSeanceCode));
+            lvCode = new ListView();
+            columnHeader1 = ((ColumnHeader)(new ColumnHeader()));
+            columnHeader2 = ((ColumnHeader)(new ColumnHeader()));
+            button1 = new Button();
+            cmdAdd = new Button();
+            groupBox1 = new GroupBox();
+            label2 = new Label();
+            label1 = new Label();
+            txtCode = new TextBox();
+            txtDefinitions = new TextBox();
+            cmdCancel = new Button();
+            tbCode = new ToolBar();
+            tbbAddPaiment = new ToolBarButton();
+            tbbDelete = new ToolBarButton();
+            imageListLarge = new ImageList(components);
+            TimerButton = new Timer(components);
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // lvCode
             // 
-            lvCode.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            lvCode.Columns.AddRange(new ColumnHeader[] {
             columnHeader1,
             columnHeader2});
             lvCode.FullRowSelect = true;
@@ -96,7 +96,7 @@ namespace Barette.Library.Forms {
             lvCode.TabIndex = 0;
             lvCode.UseCompatibleStateImageBehavior = false;
             lvCode.View = System.Windows.Forms.View.Details;
-            lvCode.KeyUp += new System.Windows.Forms.KeyEventHandler(lvCode_KeyUp);
+            lvCode.KeyUp += new KeyEventHandler(lvCode_KeyUp);
             // 
             // columnHeader1
             // 
@@ -118,7 +118,7 @@ namespace Barette.Library.Forms {
             button1.TabIndex = 5;
             button1.Text = "Appliquer";
             button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            button1.Click += new System.EventHandler(button1_Click);
+            button1.Click += new EventHandler(button1_Click);
             // 
             // cmdAdd
             // 
@@ -130,7 +130,7 @@ namespace Barette.Library.Forms {
             cmdAdd.TabIndex = 2;
             cmdAdd.Text = "Ajouter ";
             cmdAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            cmdAdd.Click += new System.EventHandler(cmdAdd_Click);
+            cmdAdd.Click += new EventHandler(cmdAdd_Click);
             // 
             // groupBox1
             // 
@@ -194,12 +194,12 @@ namespace Barette.Library.Forms {
             cmdCancel.TabIndex = 6;
             cmdCancel.Text = "Annuler ";
             cmdCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            cmdCancel.Click += new System.EventHandler(cmdCancel_Click);
+            cmdCancel.Click += new EventHandler(cmdCancel_Click);
             // 
             // tbCode
             // 
             tbCode.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
-            tbCode.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            tbCode.Buttons.AddRange(new ToolBarButton[] {
             tbbAddPaiment,
             tbbDelete});
             tbCode.Divider = false;
@@ -212,7 +212,7 @@ namespace Barette.Library.Forms {
             tbCode.Size = new System.Drawing.Size(252, 42);
             tbCode.TabIndex = 27;
             tbCode.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
-            tbCode.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(tbCode_ButtonClick);
+            tbCode.ButtonClick += new ToolBarButtonClickEventHandler(tbCode_ButtonClick);
             // 
             // tbbAddPaiment
             // 
@@ -232,7 +232,7 @@ namespace Barette.Library.Forms {
             // 
             // imageListLarge
             // 
-            imageListLarge.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListLarge.ImageStream")));
+            imageListLarge.ImageStream = ((ImageListStreamer)(resources.GetObject("imageListLarge.ImageStream")));
             imageListLarge.TransparentColor = System.Drawing.Color.Transparent;
             imageListLarge.Images.SetKeyName(0, "delete-icon.png");
             imageListLarge.Images.SetKeyName(1, "add-icon.png");
@@ -241,7 +241,7 @@ namespace Barette.Library.Forms {
             // 
             TimerButton.Enabled = true;
             TimerButton.Interval = 250;
-            TimerButton.Tick += new System.EventHandler(TimerButton_Tick);
+            TimerButton.Tick += new EventHandler(TimerButton_Tick);
             // 
             // FormSeanceCode
             // 
@@ -261,7 +261,7 @@ namespace Barette.Library.Forms {
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Liste de codes de séances";
-            Load += new System.EventHandler(FormScéanceCode_Load);
+            Load += new EventHandler(FormScéanceCode_Load);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -270,11 +270,11 @@ namespace Barette.Library.Forms {
 		}
 		#endregion
 
-		private void FormScéanceCode_Load(object sender, System.EventArgs e) {
+		private void FormScéanceCode_Load(object sender, EventArgs e) {
 		
 		}
 
-		private void button1_Click(object sender, System.EventArgs e) {
+		private void button1_Click(object sender, EventArgs e) {
             SaveCode();
             Close(); //Fermer la dialog			
 		}
@@ -290,7 +290,7 @@ namespace Barette.Library.Forms {
 			}
 		}
 
-		private void cmdAdd_Click(object sender, System.EventArgs e) {
+		private void cmdAdd_Click(object sender, EventArgs e) {
 			if (txtCode.Text != "" && txtDefinitions.Text != ""){
 				string[] str= new string[2]{txtCode.Text, txtDefinitions.Text}; 
 				ListViewItem itm = new ListViewItem(str);
@@ -302,11 +302,13 @@ namespace Barette.Library.Forms {
 
 		private void SaveCode() {
 			try{
-				XmlTextWriter myWriter = new XmlTextWriter(@"Data\code.xml", Encoding.Unicode);  
-				myWriter.Formatting = Formatting.Indented;
-			
-				//Header avec la version
-				myWriter.WriteStartElement("ECBCodeSeance");
+                XmlTextWriter myWriter = new XmlTextWriter(@"Data\code.xml", Encoding.Unicode)
+                {
+                    Formatting = Formatting.Indented
+                };
+
+                //Header avec la version
+                myWriter.WriteStartElement("ECBCodeSeance");
 				myWriter.WriteAttributeString("Version", "1.0");
 					
 				//Ecriture des code 
@@ -376,7 +378,7 @@ namespace Barette.Library.Forms {
 			txtCode.Focus();
 		}
 
-		private void cmdCancel_Click(object sender, System.EventArgs e) {
+		private void cmdCancel_Click(object sender, EventArgs e) {
             Close();
 		}
 

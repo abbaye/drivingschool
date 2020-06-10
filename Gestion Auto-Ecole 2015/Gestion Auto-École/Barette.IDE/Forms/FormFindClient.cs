@@ -1,10 +1,6 @@
 using System;
 using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
-using System.IO; 
-using System.Diagnostics;
 using System.Linq;
 
 using Barette.Library.Win32;
@@ -13,45 +9,46 @@ using Barette.Library.Collections;
 using Barette.Library.Listview;
 
 
-namespace Barette.IDE.Forms {
-	/// <summary>
-	/// Description résumée de FormFindClient.
-	/// </summary>
-	public class FormFindClient : Form
+namespace Barette.IDE.Forms
+{
+    /// <summary>
+    /// Description résumée de FormFindClient.
+    /// </summary>
+    public class FormFindClient : Form
     {
 		/// <summary>
 		/// acces a la Fenetre principal
 		/// </summary>		
-		private FormMain _FormMain = null;
+		private readonly FormMain _FormMain = null;
 
 		/// <summary>
 		/// Donne acess a la liste des employe
 		/// </summary>
-		private EmployeCollection _ListEmploye = null;
+		private readonly EmployeCollection _ListEmploye = null;
 
-		private System.Windows.Forms.ListView listFindResult;
-		private System.Windows.Forms.CheckBox chkDisponibilityPM;
-		private System.Windows.Forms.CheckBox chkDisponibilityAM;
-		private System.Windows.Forms.ColumnHeader colheadName;
-		private System.Windows.Forms.ColumnHeader colheadContratNumber;
-		private System.Windows.Forms.ColumnHeader colheadDate;
-		private System.Windows.Forms.ImageList imageList1;
-		private System.Windows.Forms.ToolBar toolBar1;
-		private System.Windows.Forms.ToolBarButton toolBarButton5;		
-		private System.Windows.Forms.Timer timer1;
-		private System.Windows.Forms.ColumnHeader colHeadPhone;
-		private System.Windows.Forms.ColumnHeader colHeadTypeVehicule;
-		private System.Windows.Forms.ColumnHeader colHeadSolde;
-		private System.Windows.Forms.ToolBarButton toolBarButton2;
-		private System.Windows.Forms.ToolBarButton tbbShowClient;
-        private System.Windows.Forms.ToolBarButton tbbSeparator1;
+		private ListView listFindResult;
+		private CheckBox chkDisponibilityPM;
+		private CheckBox chkDisponibilityAM;
+		private ColumnHeader colheadName;
+		private ColumnHeader colheadContratNumber;
+		private ColumnHeader colheadDate;
+		private ImageList imageList1;
+		private ToolBar toolBar1;
+		private ToolBarButton toolBarButton5;		
+		private Timer timer1;
+		private ColumnHeader colHeadPhone;
+		private ColumnHeader colHeadTypeVehicule;
+		private ColumnHeader colHeadSolde;
+		private ToolBarButton toolBarButton2;
+		private ToolBarButton tbbShowClient;
+        private ToolBarButton tbbSeparator1;
 		private ColumnHeader colHeadDernierPaiment;
 		private ToolBarButton tbbPrintFindList;
 		private System.Drawing.Printing.PrintDocument PrintRelever;
 		private ImageList ImageListSmall;
 		private ToolBarButton tbbRefresh;
 		private ToolBarButton toolBarButton1;
-		private Barette.Library.UserControls.Client.ClientControl clientControl1;
+		private Library.UserControls.Client.ClientControl clientControl1;
 		private ToolBarButton tbbShowPaiment;
         private Label lblTotalFind;
         private TabPage tpMoto;
@@ -132,65 +129,65 @@ namespace Barette.IDE.Forms {
 		private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFindClient));
-            Barette.Library.Client.Customer customer2 = new Barette.Library.Client.Customer();
-            listFindResult = new System.Windows.Forms.ListView();
-            colheadContratNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colheadName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colheadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadTypeVehicule = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadSolde = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            colHeadDernierPaiment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            ImageListSmall = new System.Windows.Forms.ImageList(components);
-            chkDisponibilityPM = new System.Windows.Forms.CheckBox();
-            chkDisponibilityAM = new System.Windows.Forms.CheckBox();
-            imageList1 = new System.Windows.Forms.ImageList(components);
-            toolBar1 = new System.Windows.Forms.ToolBar();
-            tbbRefresh = new System.Windows.Forms.ToolBarButton();
-            toolBarButton1 = new System.Windows.Forms.ToolBarButton();
-            tbbShowClient = new System.Windows.Forms.ToolBarButton();
-            tbbShowPaiment = new System.Windows.Forms.ToolBarButton();
-            toolBarButton2 = new System.Windows.Forms.ToolBarButton();
-            tbbSeparator1 = new System.Windows.Forms.ToolBarButton();
-            toolBarButton5 = new System.Windows.Forms.ToolBarButton();
-            tbbPrintFindList = new System.Windows.Forms.ToolBarButton();
-            timer1 = new System.Windows.Forms.Timer(components);
+            Customer customer2 = new Customer();
+            listFindResult = new ListView();
+            colheadContratNumber = ((ColumnHeader)(new ColumnHeader()));
+            colheadName = ((ColumnHeader)(new ColumnHeader()));
+            colheadDate = ((ColumnHeader)(new ColumnHeader()));
+            colHeadPhone = ((ColumnHeader)(new ColumnHeader()));
+            colHeadTypeVehicule = ((ColumnHeader)(new ColumnHeader()));
+            colHeadSolde = ((ColumnHeader)(new ColumnHeader()));
+            colHeadDernierPaiment = ((ColumnHeader)(new ColumnHeader()));
+            ImageListSmall = new ImageList(components);
+            chkDisponibilityPM = new CheckBox();
+            chkDisponibilityAM = new CheckBox();
+            imageList1 = new ImageList(components);
+            toolBar1 = new ToolBar();
+            tbbRefresh = new ToolBarButton();
+            toolBarButton1 = new ToolBarButton();
+            tbbShowClient = new ToolBarButton();
+            tbbShowPaiment = new ToolBarButton();
+            toolBarButton2 = new ToolBarButton();
+            tbbSeparator1 = new ToolBarButton();
+            toolBarButton5 = new ToolBarButton();
+            tbbPrintFindList = new ToolBarButton();
+            timer1 = new Timer(components);
             PrintRelever = new System.Drawing.Printing.PrintDocument();
-            clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
-            lblTotalFind = new System.Windows.Forms.Label();
-            tpMoto = new System.Windows.Forms.TabPage();
-            pictureBox3 = new System.Windows.Forms.PictureBox();
-            label4 = new System.Windows.Forms.Label();
-            dtpDateFinMoto = new System.Windows.Forms.DateTimePicker();
-            dtpDateDebutMoto = new System.Windows.Forms.DateTimePicker();
-            label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            tpDate = new System.Windows.Forms.TabPage();
-            monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-            cbChoice = new System.Windows.Forms.ComboBox();
-            tpClientType = new System.Windows.Forms.TabPage();
-            rbTypeClientActif = new System.Windows.Forms.RadioButton();
-            rbTypeClientFinish = new System.Windows.Forms.RadioButton();
-            tpDispo = new System.Windows.Forms.TabPage();
-            rbMatin = new System.Windows.Forms.RadioButton();
-            rbApresMidi = new System.Windows.Forms.RadioButton();
-            rbSoir = new System.Windows.Forms.RadioButton();
-            rbSamedi = new System.Windows.Forms.RadioButton();
-            rbDimanche = new System.Windows.Forms.RadioButton();
-            rbAlway = new System.Windows.Forms.RadioButton();
-            tpVehicule = new System.Windows.Forms.TabPage();
-            rbVehiculManuel = new System.Windows.Forms.RadioButton();
-            rbVehiculAutomatique = new System.Windows.Forms.RadioButton();
-            rbVehiculMoto = new System.Windows.Forms.RadioButton();
-            rbVehiculCyclomoteur = new System.Windows.Forms.RadioButton();
-            tpClientInfo = new System.Windows.Forms.TabPage();
-            rbName = new System.Windows.Forms.RadioButton();
-            txtClientName = new System.Windows.Forms.TextBox();
-            rbFirstName = new System.Windows.Forms.RadioButton();
-            txtFirstName = new System.Windows.Forms.TextBox();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            label1 = new System.Windows.Forms.Label();
-            tabControl1 = new System.Windows.Forms.TabControl();
+            clientControl1 = new Library.UserControls.Client.ClientControl();
+            lblTotalFind = new Label();
+            tpMoto = new TabPage();
+            pictureBox3 = new PictureBox();
+            label4 = new Label();
+            dtpDateFinMoto = new DateTimePicker();
+            dtpDateDebutMoto = new DateTimePicker();
+            label5 = new Label();
+            label6 = new Label();
+            tpDate = new TabPage();
+            monthCalendar2 = new MonthCalendar();
+            cbChoice = new ComboBox();
+            tpClientType = new TabPage();
+            rbTypeClientActif = new RadioButton();
+            rbTypeClientFinish = new RadioButton();
+            tpDispo = new TabPage();
+            rbMatin = new RadioButton();
+            rbApresMidi = new RadioButton();
+            rbSoir = new RadioButton();
+            rbSamedi = new RadioButton();
+            rbDimanche = new RadioButton();
+            rbAlway = new RadioButton();
+            tpVehicule = new TabPage();
+            rbVehiculManuel = new RadioButton();
+            rbVehiculAutomatique = new RadioButton();
+            rbVehiculMoto = new RadioButton();
+            rbVehiculCyclomoteur = new RadioButton();
+            tpClientInfo = new TabPage();
+            rbName = new RadioButton();
+            txtClientName = new TextBox();
+            rbFirstName = new RadioButton();
+            txtFirstName = new TextBox();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            tabControl1 = new TabControl();
             tpMoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
             tpDate.SuspendLayout();
@@ -204,10 +201,10 @@ namespace Barette.IDE.Forms {
             // 
             // listFindResult
             // 
-            listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            listFindResult.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            listFindResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            listFindResult.Columns.AddRange(new ColumnHeader[] {
             colheadContratNumber,
             colheadName,
             colheadDate,
@@ -216,17 +213,17 @@ namespace Barette.IDE.Forms {
             colHeadSolde,
             colHeadDernierPaiment});
             listFindResult.FullRowSelect = true;
-            listFindResult.Location = new System.Drawing.Point(8, 306);
+            listFindResult.Location = new Point(8, 306);
             listFindResult.MultiSelect = false;
             listFindResult.Name = "listFindResult";
-            listFindResult.Size = new System.Drawing.Size(852, 200);
+            listFindResult.Size = new Size(852, 200);
             listFindResult.SmallImageList = ImageListSmall;
             listFindResult.TabIndex = 0;
             listFindResult.UseCompatibleStateImageBehavior = false;
             listFindResult.View = System.Windows.Forms.View.Details;
-            listFindResult.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(listFindResult_ColumnClick);
-            listFindResult.SelectedIndexChanged += new System.EventHandler(listFindResult_SelectedIndexChanged);
-            listFindResult.Click += new System.EventHandler(listFindResult_Click);
+            listFindResult.ColumnClick += new ColumnClickEventHandler(listFindResult_ColumnClick);
+            listFindResult.SelectedIndexChanged += new EventHandler(listFindResult_SelectedIndexChanged);
+            listFindResult.Click += new EventHandler(listFindResult_Click);
             // 
             // colheadContratNumber
             // 
@@ -268,7 +265,7 @@ namespace Barette.IDE.Forms {
             // 
             // ImageListSmall
             // 
-            ImageListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            ImageListSmall.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
             ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             ImageListSmall.Images.SetKeyName(0, "Moto");
             ImageListSmall.Images.SetKeyName(1, "Auto");
@@ -276,21 +273,21 @@ namespace Barette.IDE.Forms {
             // 
             // chkDisponibilityPM
             // 
-            chkDisponibilityPM.Location = new System.Drawing.Point(0, 0);
+            chkDisponibilityPM.Location = new Point(0, 0);
             chkDisponibilityPM.Name = "chkDisponibilityPM";
-            chkDisponibilityPM.Size = new System.Drawing.Size(104, 24);
+            chkDisponibilityPM.Size = new Size(104, 24);
             chkDisponibilityPM.TabIndex = 0;
             // 
             // chkDisponibilityAM
             // 
-            chkDisponibilityAM.Location = new System.Drawing.Point(0, 0);
+            chkDisponibilityAM.Location = new Point(0, 0);
             chkDisponibilityAM.Name = "chkDisponibilityAM";
-            chkDisponibilityAM.Size = new System.Drawing.Size(104, 24);
+            chkDisponibilityAM.Size = new Size(104, 24);
             chkDisponibilityAM.TabIndex = 0;
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             imageList1.Images.SetKeyName(1, "");
@@ -303,7 +300,7 @@ namespace Barette.IDE.Forms {
             // 
             toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
             toolBar1.AutoSize = false;
-            toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            toolBar1.Buttons.AddRange(new ToolBarButton[] {
             tbbRefresh,
             toolBarButton1,
             tbbShowClient,
@@ -316,13 +313,13 @@ namespace Barette.IDE.Forms {
             toolBar1.Dock = System.Windows.Forms.DockStyle.None;
             toolBar1.DropDownArrows = true;
             toolBar1.ImageList = imageList1;
-            toolBar1.Location = new System.Drawing.Point(8, 12);
+            toolBar1.Location = new Point(8, 12);
             toolBar1.Name = "toolBar1";
             toolBar1.ShowToolTips = true;
-            toolBar1.Size = new System.Drawing.Size(478, 42);
+            toolBar1.Size = new Size(478, 42);
             toolBar1.TabIndex = 13;
             toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
-            toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(toolBar1_ButtonClick);
+            toolBar1.ButtonClick += new ToolBarButtonClickEventHandler(toolBar1_ButtonClick);
             // 
             // tbbRefresh
             // 
@@ -378,7 +375,7 @@ namespace Barette.IDE.Forms {
             // 
             timer1.Enabled = true;
             timer1.Interval = 200;
-            timer1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Tick += new EventHandler(timer1_Tick);
             // 
             // PrintRelever
             // 
@@ -391,18 +388,18 @@ namespace Barette.IDE.Forms {
             customer2.AttestationNumber1 = "";
             customer2.AttestationNumber2 = "";
             customer2.BVA = false;
-            customer2.BVADate = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
+            customer2.BVADate = new DateTime(2005, 2, 20, 18, 50, 33, 675);
             customer2.City = "";
             customer2.ClientNull = false;
             customer2.CodePostal = "   -";
             customer2.ContratNumber = "0";
-            customer2.DateAttestation1 = new System.DateTime(2010, 5, 27, 13, 11, 41, 692);
-            customer2.DateAttestation2 = new System.DateTime(2010, 5, 27, 13, 11, 41, 692);
-            customer2.DateDebutCours = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer2.DateExpiration = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer2.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
-            customer2.DateNaissance = new System.DateTime(2010, 3, 10, 16, 11, 1, 688);
-            customer2.DateTemporaire = new System.DateTime(2005, 2, 20, 18, 50, 33, 675);
+            customer2.DateAttestation1 = new DateTime(2010, 5, 27, 13, 11, 41, 692);
+            customer2.DateAttestation2 = new DateTime(2010, 5, 27, 13, 11, 41, 692);
+            customer2.DateDebutCours = new DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer2.DateExpiration = new DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer2.DateInscription = new DateTime(2003, 8, 26, 0, 0, 0, 0);
+            customer2.DateNaissance = new DateTime(2010, 3, 10, 16, 11, 1, 688);
+            customer2.DateTemporaire = new DateTime(2005, 2, 20, 18, 50, 33, 675);
             customer2.DisponibilityAlway = false;
             customer2.DisponibilityAM = false;
             customer2.DisponibilityDimanche = false;
@@ -433,19 +430,19 @@ namespace Barette.IDE.Forms {
             customer2.TypeClient = Barette.Library.Client.ProfileType.Actif;
             customer2.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
             clientControl1.Client = customer2;
-            clientControl1.Location = new System.Drawing.Point(657, 344);
+            clientControl1.Location = new Point(657, 344);
             clientControl1.Name = "clientControl1";
             clientControl1.School = null;
-            clientControl1.Size = new System.Drawing.Size(160, 160);
+            clientControl1.Size = new Size(160, 160);
             clientControl1.TabIndex = 14;
             clientControl1.Visible = false;
             // 
             // lblTotalFind
             // 
             lblTotalFind.AutoSize = true;
-            lblTotalFind.Location = new System.Drawing.Point(9, 285);
+            lblTotalFind.Location = new Point(9, 285);
             lblTotalFind.Name = "lblTotalFind";
-            lblTotalFind.Size = new System.Drawing.Size(197, 13);
+            lblTotalFind.Size = new Size(197, 13);
             lblTotalFind.TabIndex = 15;
             lblTotalFind.Text = "0 Résultats trouvé dans votre recherche";
             // 
@@ -457,59 +454,59 @@ namespace Barette.IDE.Forms {
             tpMoto.Controls.Add(dtpDateFinMoto);
             tpMoto.Controls.Add(label4);
             tpMoto.Controls.Add(pictureBox3);
-            tpMoto.Location = new System.Drawing.Point(4, 25);
+            tpMoto.Location = new Point(4, 25);
             tpMoto.Name = "tpMoto";
-            tpMoto.Padding = new System.Windows.Forms.Padding(3);
-            tpMoto.Size = new System.Drawing.Size(844, 193);
+            tpMoto.Padding = new Padding(3);
+            tpMoto.Size = new Size(844, 193);
             tpMoto.TabIndex = 8;
             tpMoto.Tag = "MOTO";
             tpMoto.Text = "Moto";
             // 
             // pictureBox3
             // 
-            pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox3.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            pictureBox3.Location = new System.Drawing.Point(548, 16);
+            pictureBox3.Image = ((Image)(resources.GetObject("pictureBox3.Image")));
+            pictureBox3.Location = new Point(548, 16);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new System.Drawing.Size(32, 32);
+            pictureBox3.Size = new Size(32, 32);
             pictureBox3.TabIndex = 6;
             pictureBox3.TabStop = false;
             // 
             // label4
             // 
-            label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            label4.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             label4.BackColor = System.Drawing.Color.Transparent;
-            label4.Location = new System.Drawing.Point(587, 16);
+            label4.Location = new Point(587, 16);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(248, 48);
+            label4.Size = new Size(248, 48);
             label4.TabIndex = 7;
             label4.Text = "Recherche tous les clients de moto qui ont payé leurs cours complètement. Cette r" +
                 "echerche est trié par la colonne : Dernier Paiment.";
             // 
             // dtpDateFinMoto
             // 
-            dtpDateFinMoto.Location = new System.Drawing.Point(297, 70);
+            dtpDateFinMoto.Location = new Point(297, 70);
             dtpDateFinMoto.Name = "dtpDateFinMoto";
-            dtpDateFinMoto.Size = new System.Drawing.Size(138, 20);
+            dtpDateFinMoto.Size = new Size(138, 20);
             dtpDateFinMoto.TabIndex = 8;
             // 
             // dtpDateDebutMoto
             // 
-            dtpDateDebutMoto.Location = new System.Drawing.Point(66, 70);
-            dtpDateDebutMoto.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            dtpDateDebutMoto.Location = new Point(66, 70);
+            dtpDateDebutMoto.Margin = new Padding(3, 1, 3, 3);
             dtpDateDebutMoto.Name = "dtpDateDebutMoto";
-            dtpDateDebutMoto.Size = new System.Drawing.Size(138, 20);
+            dtpDateDebutMoto.Size = new Size(138, 20);
             dtpDateDebutMoto.TabIndex = 9;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.BackColor = System.Drawing.Color.Transparent;
-            label5.Location = new System.Drawing.Point(66, 54);
-            label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            label5.Location = new Point(66, 54);
+            label5.Margin = new Padding(3, 3, 3, 1);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(75, 13);
+            label5.Size = new Size(75, 13);
             label5.TabIndex = 10;
             label5.Text = "Date de début";
             // 
@@ -517,9 +514,9 @@ namespace Barette.IDE.Forms {
             // 
             label6.AutoSize = true;
             label6.BackColor = System.Drawing.Color.Transparent;
-            label6.Location = new System.Drawing.Point(297, 52);
+            label6.Location = new Point(297, 52);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(59, 13);
+            label6.Size = new Size(59, 13);
             label6.TabIndex = 11;
             label6.Text = "Date de fin";
             // 
@@ -527,16 +524,16 @@ namespace Barette.IDE.Forms {
             // 
             tpDate.Controls.Add(cbChoice);
             tpDate.Controls.Add(monthCalendar2);
-            tpDate.Location = new System.Drawing.Point(4, 25);
+            tpDate.Location = new Point(4, 25);
             tpDate.Name = "tpDate";
-            tpDate.Size = new System.Drawing.Size(844, 193);
+            tpDate.Size = new Size(844, 193);
             tpDate.TabIndex = 4;
             tpDate.Tag = "INSCRIPTIONDATE";
             tpDate.Text = "Date Inscription";
             // 
             // monthCalendar2
             // 
-            monthCalendar2.Location = new System.Drawing.Point(244, 18);
+            monthCalendar2.Location = new Point(244, 18);
             monthCalendar2.MaxSelectionCount = 1;
             monthCalendar2.Name = "monthCalendar2";
             monthCalendar2.TabIndex = 1;
@@ -551,18 +548,18 @@ namespace Barette.IDE.Forms {
             "Plus petit que ( < )",
             "Plus grand ou égal à ( >= )",
             "Plus petit ou égal à ( <= )"});
-            cbChoice.Location = new System.Drawing.Point(12, 85);
+            cbChoice.Location = new Point(12, 85);
             cbChoice.Name = "cbChoice";
-            cbChoice.Size = new System.Drawing.Size(224, 21);
+            cbChoice.Size = new Size(224, 21);
             cbChoice.TabIndex = 2;
             // 
             // tpClientType
             // 
             tpClientType.Controls.Add(rbTypeClientFinish);
             tpClientType.Controls.Add(rbTypeClientActif);
-            tpClientType.Location = new System.Drawing.Point(4, 25);
+            tpClientType.Location = new Point(4, 25);
             tpClientType.Name = "tpClientType";
-            tpClientType.Size = new System.Drawing.Size(844, 193);
+            tpClientType.Size = new Size(844, 193);
             tpClientType.TabIndex = 3;
             tpClientType.Tag = "CLIENTTYPE";
             tpClientType.Text = "Type de client";
@@ -571,9 +568,9 @@ namespace Barette.IDE.Forms {
             // 
             rbTypeClientActif.Checked = true;
             rbTypeClientActif.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbTypeClientActif.Location = new System.Drawing.Point(32, 40);
+            rbTypeClientActif.Location = new Point(32, 40);
             rbTypeClientActif.Name = "rbTypeClientActif";
-            rbTypeClientActif.Size = new System.Drawing.Size(104, 24);
+            rbTypeClientActif.Size = new Size(104, 24);
             rbTypeClientActif.TabIndex = 6;
             rbTypeClientActif.TabStop = true;
             rbTypeClientActif.Text = "Actif";
@@ -581,9 +578,9 @@ namespace Barette.IDE.Forms {
             // rbTypeClientFinish
             // 
             rbTypeClientFinish.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbTypeClientFinish.Location = new System.Drawing.Point(32, 82);
+            rbTypeClientFinish.Location = new Point(32, 82);
             rbTypeClientFinish.Name = "rbTypeClientFinish";
-            rbTypeClientFinish.Size = new System.Drawing.Size(104, 24);
+            rbTypeClientFinish.Size = new Size(104, 24);
             rbTypeClientFinish.TabIndex = 8;
             rbTypeClientFinish.Text = "Cours terminé";
             // 
@@ -596,9 +593,9 @@ namespace Barette.IDE.Forms {
             tpDispo.Controls.Add(rbSoir);
             tpDispo.Controls.Add(rbApresMidi);
             tpDispo.Controls.Add(rbMatin);
-            tpDispo.Location = new System.Drawing.Point(4, 25);
+            tpDispo.Location = new Point(4, 25);
             tpDispo.Name = "tpDispo";
-            tpDispo.Size = new System.Drawing.Size(844, 193);
+            tpDispo.Size = new Size(844, 193);
             tpDispo.TabIndex = 2;
             tpDispo.Tag = "DISPO";
             tpDispo.Text = "Disponibilité";
@@ -606,9 +603,9 @@ namespace Barette.IDE.Forms {
             // rbMatin
             // 
             rbMatin.BackColor = System.Drawing.Color.Transparent;
-            rbMatin.Location = new System.Drawing.Point(136, 30);
+            rbMatin.Location = new Point(136, 30);
             rbMatin.Name = "rbMatin";
-            rbMatin.Size = new System.Drawing.Size(104, 24);
+            rbMatin.Size = new Size(104, 24);
             rbMatin.TabIndex = 11;
             rbMatin.Text = "Matin";
             rbMatin.UseVisualStyleBackColor = false;
@@ -616,9 +613,9 @@ namespace Barette.IDE.Forms {
             // rbApresMidi
             // 
             rbApresMidi.BackColor = System.Drawing.Color.Transparent;
-            rbApresMidi.Location = new System.Drawing.Point(136, 54);
+            rbApresMidi.Location = new Point(136, 54);
             rbApresMidi.Name = "rbApresMidi";
-            rbApresMidi.Size = new System.Drawing.Size(104, 24);
+            rbApresMidi.Size = new Size(104, 24);
             rbApresMidi.TabIndex = 12;
             rbApresMidi.Text = "Après Midi";
             rbApresMidi.UseVisualStyleBackColor = false;
@@ -626,9 +623,9 @@ namespace Barette.IDE.Forms {
             // rbSoir
             // 
             rbSoir.BackColor = System.Drawing.Color.Transparent;
-            rbSoir.Location = new System.Drawing.Point(136, 78);
+            rbSoir.Location = new Point(136, 78);
             rbSoir.Name = "rbSoir";
-            rbSoir.Size = new System.Drawing.Size(104, 24);
+            rbSoir.Size = new Size(104, 24);
             rbSoir.TabIndex = 13;
             rbSoir.Text = "Soirée";
             rbSoir.UseVisualStyleBackColor = false;
@@ -636,9 +633,9 @@ namespace Barette.IDE.Forms {
             // rbSamedi
             // 
             rbSamedi.BackColor = System.Drawing.Color.Transparent;
-            rbSamedi.Location = new System.Drawing.Point(136, 102);
+            rbSamedi.Location = new Point(136, 102);
             rbSamedi.Name = "rbSamedi";
-            rbSamedi.Size = new System.Drawing.Size(104, 24);
+            rbSamedi.Size = new Size(104, 24);
             rbSamedi.TabIndex = 14;
             rbSamedi.Text = "Samedi";
             rbSamedi.UseVisualStyleBackColor = false;
@@ -646,9 +643,9 @@ namespace Barette.IDE.Forms {
             // rbDimanche
             // 
             rbDimanche.BackColor = System.Drawing.Color.Transparent;
-            rbDimanche.Location = new System.Drawing.Point(136, 126);
+            rbDimanche.Location = new Point(136, 126);
             rbDimanche.Name = "rbDimanche";
-            rbDimanche.Size = new System.Drawing.Size(104, 24);
+            rbDimanche.Size = new Size(104, 24);
             rbDimanche.TabIndex = 15;
             rbDimanche.Text = "Dimanche";
             rbDimanche.UseVisualStyleBackColor = false;
@@ -657,9 +654,9 @@ namespace Barette.IDE.Forms {
             // 
             rbAlway.BackColor = System.Drawing.Color.Transparent;
             rbAlway.Checked = true;
-            rbAlway.Location = new System.Drawing.Point(24, 78);
+            rbAlway.Location = new Point(24, 78);
             rbAlway.Name = "rbAlway";
-            rbAlway.Size = new System.Drawing.Size(104, 24);
+            rbAlway.Size = new Size(104, 24);
             rbAlway.TabIndex = 16;
             rbAlway.TabStop = true;
             rbAlway.Text = "Toujours";
@@ -671,9 +668,9 @@ namespace Barette.IDE.Forms {
             tpVehicule.Controls.Add(rbVehiculMoto);
             tpVehicule.Controls.Add(rbVehiculAutomatique);
             tpVehicule.Controls.Add(rbVehiculManuel);
-            tpVehicule.Location = new System.Drawing.Point(4, 25);
+            tpVehicule.Location = new Point(4, 25);
             tpVehicule.Name = "tpVehicule";
-            tpVehicule.Size = new System.Drawing.Size(844, 193);
+            tpVehicule.Size = new Size(844, 193);
             tpVehicule.TabIndex = 5;
             tpVehicule.Tag = "VEHICULE";
             tpVehicule.Text = "Type de véhicule";
@@ -682,9 +679,9 @@ namespace Barette.IDE.Forms {
             // 
             rbVehiculManuel.Checked = true;
             rbVehiculManuel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbVehiculManuel.Location = new System.Drawing.Point(68, 34);
+            rbVehiculManuel.Location = new Point(68, 34);
             rbVehiculManuel.Name = "rbVehiculManuel";
-            rbVehiculManuel.Size = new System.Drawing.Size(88, 24);
+            rbVehiculManuel.Size = new Size(88, 24);
             rbVehiculManuel.TabIndex = 22;
             rbVehiculManuel.TabStop = true;
             rbVehiculManuel.Tag = "General";
@@ -693,9 +690,9 @@ namespace Barette.IDE.Forms {
             // rbVehiculAutomatique
             // 
             rbVehiculAutomatique.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbVehiculAutomatique.Location = new System.Drawing.Point(68, 64);
+            rbVehiculAutomatique.Location = new Point(68, 64);
             rbVehiculAutomatique.Name = "rbVehiculAutomatique";
-            rbVehiculAutomatique.Size = new System.Drawing.Size(88, 24);
+            rbVehiculAutomatique.Size = new Size(88, 24);
             rbVehiculAutomatique.TabIndex = 24;
             rbVehiculAutomatique.Tag = "General";
             rbVehiculAutomatique.Text = "Automatique";
@@ -703,9 +700,9 @@ namespace Barette.IDE.Forms {
             // rbVehiculMoto
             // 
             rbVehiculMoto.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbVehiculMoto.Location = new System.Drawing.Point(68, 124);
+            rbVehiculMoto.Location = new Point(68, 124);
             rbVehiculMoto.Name = "rbVehiculMoto";
-            rbVehiculMoto.Size = new System.Drawing.Size(120, 24);
+            rbVehiculMoto.Size = new Size(120, 24);
             rbVehiculMoto.TabIndex = 25;
             rbVehiculMoto.Tag = "Moto";
             rbVehiculMoto.Text = "Motocyclette";
@@ -713,9 +710,9 @@ namespace Barette.IDE.Forms {
             // rbVehiculCyclomoteur
             // 
             rbVehiculCyclomoteur.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbVehiculCyclomoteur.Location = new System.Drawing.Point(68, 94);
+            rbVehiculCyclomoteur.Location = new Point(68, 94);
             rbVehiculCyclomoteur.Name = "rbVehiculCyclomoteur";
-            rbVehiculCyclomoteur.Size = new System.Drawing.Size(106, 24);
+            rbVehiculCyclomoteur.Size = new Size(106, 24);
             rbVehiculCyclomoteur.TabIndex = 23;
             rbVehiculCyclomoteur.Tag = "General";
             rbVehiculCyclomoteur.Text = "Cyclomoteur";
@@ -728,9 +725,9 @@ namespace Barette.IDE.Forms {
             tpClientInfo.Controls.Add(txtClientName);
             tpClientInfo.Controls.Add(rbFirstName);
             tpClientInfo.Controls.Add(rbName);
-            tpClientInfo.Location = new System.Drawing.Point(4, 25);
+            tpClientInfo.Location = new Point(4, 25);
             tpClientInfo.Name = "tpClientInfo";
-            tpClientInfo.Size = new System.Drawing.Size(844, 193);
+            tpClientInfo.Size = new Size(844, 193);
             tpClientInfo.TabIndex = 0;
             tpClientInfo.Tag = "CLIENTINFO";
             tpClientInfo.Text = "Informations client";
@@ -739,9 +736,9 @@ namespace Barette.IDE.Forms {
             // 
             rbName.BackColor = System.Drawing.Color.Transparent;
             rbName.Checked = true;
-            rbName.Location = new System.Drawing.Point(248, 24);
+            rbName.Location = new Point(248, 24);
             rbName.Name = "rbName";
-            rbName.Size = new System.Drawing.Size(76, 24);
+            rbName.Size = new Size(76, 24);
             rbName.TabIndex = 0;
             rbName.TabStop = true;
             rbName.Text = "Prénom";
@@ -749,53 +746,53 @@ namespace Barette.IDE.Forms {
             // 
             // txtClientName
             // 
-            txtClientName.Location = new System.Drawing.Point(88, 24);
+            txtClientName.Location = new Point(88, 24);
             txtClientName.Name = "txtClientName";
-            txtClientName.Size = new System.Drawing.Size(144, 20);
+            txtClientName.Size = new Size(144, 20);
             txtClientName.TabIndex = 1;
-            txtClientName.Enter += new System.EventHandler(txtClientName_Enter);
+            txtClientName.Enter += new EventHandler(txtClientName_Enter);
             // 
             // rbFirstName
             // 
             rbFirstName.BackColor = System.Drawing.Color.Transparent;
-            rbFirstName.Location = new System.Drawing.Point(24, 24);
+            rbFirstName.Location = new Point(24, 24);
             rbFirstName.Name = "rbFirstName";
-            rbFirstName.Size = new System.Drawing.Size(64, 24);
+            rbFirstName.Size = new Size(64, 24);
             rbFirstName.TabIndex = 2;
             rbFirstName.Text = "Nom";
             rbFirstName.UseVisualStyleBackColor = false;
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new System.Drawing.Point(330, 24);
+            txtFirstName.Location = new Point(330, 24);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new System.Drawing.Size(144, 20);
+            txtFirstName.Size = new Size(144, 20);
             txtFirstName.TabIndex = 3;
-            txtFirstName.Enter += new System.EventHandler(txtFirstName_Enter);
+            txtFirstName.Enter += new EventHandler(txtFirstName_Enter);
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            pictureBox1.Location = new System.Drawing.Point(16, 72);
+            pictureBox1.Image = ((Image)(resources.GetObject("pictureBox1.Image")));
+            pictureBox1.Location = new Point(16, 72);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(32, 32);
+            pictureBox1.Size = new Size(32, 32);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // label1
             // 
             label1.BackColor = System.Drawing.Color.Transparent;
-            label1.Location = new System.Drawing.Point(56, 72);
+            label1.Location = new Point(56, 72);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(232, 48);
+            label1.Size = new Size(232, 48);
             label1.TabIndex = 5;
             label1.Text = "Si vous n’inscriver rien dans aucune des boîtes de texte le programme trouvera to" +
                 "us les clients.";
             // 
             // tabControl1
             // 
-            tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            tabControl1.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             tabControl1.Controls.Add(tpClientInfo);
             tabControl1.Controls.Add(tpVehicule);
@@ -804,17 +801,17 @@ namespace Barette.IDE.Forms {
             tabControl1.Controls.Add(tpDate);
             tabControl1.Controls.Add(tpMoto);
             tabControl1.HotTrack = true;
-            tabControl1.ItemSize = new System.Drawing.Size(97, 21);
-            tabControl1.Location = new System.Drawing.Point(8, 60);
+            tabControl1.ItemSize = new Size(97, 21);
+            tabControl1.Location = new Point(8, 60);
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(852, 222);
+            tabControl1.Size = new Size(852, 222);
             tabControl1.TabIndex = 1;
             // 
             // FormFindClient
             // 
-            ClientSize = new System.Drawing.Size(868, 510);
+            ClientSize = new Size(868, 510);
             Controls.Add(lblTotalFind);
             Controls.Add(toolBar1);
             Controls.Add(clientControl1);
@@ -822,7 +819,7 @@ namespace Barette.IDE.Forms {
             Controls.Add(tabControl1);
             Name = "FormFindClient";
             Text = "FormFindClient";
-            Load += new System.EventHandler(FormFindClient_Load);
+            Load += new EventHandler(FormFindClient_Load);
             tpMoto.ResumeLayout(false);
             tpMoto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
@@ -1097,10 +1094,11 @@ namespace Barette.IDE.Forms {
 		/// </summary>
 		/// <param name="client"></param>
 		private void AddClientToList(Customer client){
-			ListViewItem itm = new ListViewItem();
-
-			itm.Text = client.ContratNumber;
-			itm.SubItems.Add(client.FirstName + " " + client.Name);
+            ListViewItem itm = new ListViewItem
+            {
+                Text = client.ContratNumber
+            };
+            itm.SubItems.Add(client.FirstName + " " + client.Name);
 			itm.SubItems.Add(client.DateInscription.ToShortDateString());
 			itm.SubItems.Add(client.Phone);
 			itm.SubItems.Add(client.TypeVehicule.ToString());
@@ -1156,9 +1154,11 @@ namespace Barette.IDE.Forms {
 			_LinePrinted = -1;
 
 #if DEBUG
-			PrintPreviewDialog prev = new PrintPreviewDialog();
-			prev.Document = PrintRelever;
-			prev.ShowDialog(this);
+            PrintPreviewDialog prev = new PrintPreviewDialog
+            {
+                Document = PrintRelever
+            };
+            prev.ShowDialog(this);
 
 #else
 			//Lance l'impression
@@ -1174,12 +1174,14 @@ namespace Barette.IDE.Forms {
 			float topMargin = 30;
 			float leftMargin = 0;//e.MarginBounds.Left;
 
-			//Defini le style de l'alignement
-			StringFormat style = new StringFormat();
-			style.Alignment = StringAlignment.Near;
+            //Defini le style de l'alignement
+            StringFormat style = new StringFormat
+            {
+                Alignment = StringAlignment.Near
+            };
 
-			//Facrication de la font
-			Font printFont = new Font("Times New Roman", 12, FontStyle.Regular);
+            //Facrication de la font
+            Font printFont = new Font("Times New Roman", 12, FontStyle.Regular);
 			Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
 			Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
 
@@ -1190,8 +1192,8 @@ namespace Barette.IDE.Forms {
 				//Initialisation des variables dans le bloc header pour q'il ne le
 				//face qu'a la premiere page
 				_TotalLine = listFindResult.Items.Count;
-				_LinesPerPage = Convert.ToInt16((e.MarginBounds.Height - 40) / printFont.GetHeight(e.Graphics));
-				_TotalPage = Convert.ToInt16(Decimal.Round(Convert.ToDecimal(_TotalLine) / Convert.ToDecimal(_LinesPerPage), 0));
+				_LinesPerPage = Convert.ToInt32((e.MarginBounds.Height - 40) / printFont.GetHeight(e.Graphics));
+				_TotalPage = Convert.ToInt32(Decimal.Round(Convert.ToDecimal(_TotalLine) / Convert.ToDecimal(_LinesPerPage), 0));
 				if (_TotalPage == 0) _TotalPage = 1;
 
 				//Date(s) d'impression : Choisi le bon type de Header a écrire
@@ -1266,11 +1268,11 @@ namespace Barette.IDE.Forms {
 		}
 		#endregion
 
-		private void FormFindClient_Load(object sender, System.EventArgs e) {
+		private void FormFindClient_Load(object sender, EventArgs e) {
 			cbChoice.SelectedIndex = 0;
 		}
 
-		private void toolBar1_ButtonClick(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e) {
+		private void toolBar1_ButtonClick(object sender, ToolBarButtonClickEventArgs e) {
 			switch(e.Button.Tag.ToString()){
 				case "PRINT":
 					clientControl1.PrintDoc(Barette.Library.UserControls.Client.PrintDocumentType.InfoClient);
@@ -1293,11 +1295,11 @@ namespace Barette.IDE.Forms {
 			}
 		}
 
-		private void listFindResult_Click(object sender, System.EventArgs e) {
+		private void listFindResult_Click(object sender, EventArgs e) {
 
 		}
 
-		private void timer1_Tick(object sender, System.EventArgs e) {
+		private void timer1_Tick(object sender, EventArgs e) {
 			if (listFindResult.SelectedItems.Count == 0) {
 				tbbShowClient.Enabled = false;
 				tbbShowPaiment.Enabled = false;
@@ -1314,15 +1316,15 @@ namespace Barette.IDE.Forms {
 			tbbPrintFindList.Enabled = (listFindResult.Items.Count > 0);
 		}
 
-		private void txtFirstName_Enter(object sender, System.EventArgs e) {
+		private void txtFirstName_Enter(object sender, EventArgs e) {
 			rbName.Checked = true;
 		}
 
-		private void txtClientName_Enter(object sender, System.EventArgs e) {
+		private void txtClientName_Enter(object sender, EventArgs e) {
 			rbFirstName.Checked = true;
 		}
 
-		private void listFindResult_ColumnClick(object sender, System.Windows.Forms.ColumnClickEventArgs e) {
+		private void listFindResult_ColumnClick(object sender, ColumnClickEventArgs e) {
 
             listFindResult.ListViewItemSorter = new ListViewItemComparer(e.Column);	
 			

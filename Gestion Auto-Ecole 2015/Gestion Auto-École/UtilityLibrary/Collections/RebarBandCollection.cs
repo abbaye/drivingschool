@@ -11,7 +11,8 @@ namespace UtilityLibrary.Collections
 	public class RebarBandCollection : IEnumerable
 	{
 		public event EventHandler Changed;
-		ArrayList bands = new ArrayList();
+
+        readonly ArrayList bands = new ArrayList();
 		
 		public IEnumerator GetEnumerator()
 		{

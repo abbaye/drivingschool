@@ -1,21 +1,14 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Text;
 using System.Windows.Forms;
-
-using Barette.Library;
 
 #endregion
 
-namespace Barette.Library.Forms {
-	public partial class AlertForm : Form {
-		private PostIt _notes = null;
+namespace Barette.Library.Forms
+{
+    public partial class AlertForm : Form {
+		private readonly PostIt _notes = null;
 
 		public AlertForm(PostIt notes) {
 			InitializeComponent();

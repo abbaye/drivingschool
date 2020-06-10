@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
-using System.Threading;
 
-namespace Barette.Library.Backup {
+namespace Barette.Library.Backup
+{
     public partial class FormBackupProgress : Form {
         public FormBackupProgress(int Minimum, int Maximum) {
             InitializeComponent();

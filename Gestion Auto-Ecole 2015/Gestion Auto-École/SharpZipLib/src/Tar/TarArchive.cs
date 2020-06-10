@@ -868,9 +868,8 @@ namespace ICSharpCode.SharpZipLib.Tar
 		string pathPrefix;
 		
 		bool applyUserInfoOverrides;
-		
-		TarInputStream  tarIn;
-		TarOutputStream tarOut;
+        readonly TarInputStream  tarIn;
+        readonly TarOutputStream tarOut;
 		bool isDisposed;
 		#endregion
 	}

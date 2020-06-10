@@ -10,21 +10,17 @@
 // *****************************************************************************
 
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Crownwood.Magic.Common;
 using Crownwood.Magic.Controls;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Forms
 {
-	/// <summary>
-	/// Summary description for WizardDialog.
-	/// </summary>
-	public class WizardDialog : System.Windows.Forms.Form
-	{
+    /// <summary>
+    /// Summary description for WizardDialog.
+    /// </summary>
+    public class WizardDialog : Form
+    {
 	    public enum TitleModes
 	    {
 	        None,
@@ -41,7 +37,7 @@ namespace Crownwood.Magic.Forms
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
+		private readonly Container components = null;
 
 		public WizardDialog()
 		{
@@ -82,7 +78,7 @@ namespace Crownwood.Magic.Forms
 		private void InitializeComponent()
 		{
             System.Resources.ResourceManager resources = new System.Resources.ResourceManager(typeof(WizardDialog));
-            this.wizardControl = new Crownwood.Magic.Controls.WizardControl();
+            this.wizardControl = new WizardControl();
             this.SuspendLayout();
             // 
             // wizardControl
@@ -93,23 +89,23 @@ namespace Crownwood.Magic.Forms
             this.wizardControl.SelectedIndex = -1;
             this.wizardControl.Size = new System.Drawing.Size(416, 285);
             this.wizardControl.TabIndex = 0;
-            this.wizardControl.CancelClick += new System.EventHandler(this.OnCancelClick);
-            this.wizardControl.CloseClick += new System.EventHandler(this.OnCloseClick);
-            this.wizardControl.NextClick += new System.ComponentModel.CancelEventHandler(this.OnNextClick);
-            this.wizardControl.FinishClick += new System.EventHandler(this.OnFinishClick);
-            this.wizardControl.WizardPageEnter += new Crownwood.Magic.Controls.WizardControl.WizardPageHandler(this.OnWizardPageEnter);
-            this.wizardControl.BackClick += new System.ComponentModel.CancelEventHandler(this.OnBackClick);
-            this.wizardControl.HelpClick += new System.EventHandler(this.OnHelpClick);
-            this.wizardControl.WizardPageLeave += new Crownwood.Magic.Controls.WizardControl.WizardPageHandler(this.OnWizardPageLeave);
-            this.wizardControl.WizardCaptionTitleChanged += new System.EventHandler(this.OnWizardCaptionTitleChanged);
-            this.wizardControl.SelectionChanged += new System.EventHandler(this.OnSelectionChanged);
-            this.wizardControl.UpdateClick += new System.EventHandler(this.OnUpdateClick);
+            this.wizardControl.CancelClick += new EventHandler(this.OnCancelClick);
+            this.wizardControl.CloseClick += new EventHandler(this.OnCloseClick);
+            this.wizardControl.NextClick += new CancelEventHandler(this.OnNextClick);
+            this.wizardControl.FinishClick += new EventHandler(this.OnFinishClick);
+            this.wizardControl.WizardPageEnter += new WizardControl.WizardPageHandler(this.OnWizardPageEnter);
+            this.wizardControl.BackClick += new CancelEventHandler(this.OnBackClick);
+            this.wizardControl.HelpClick += new EventHandler(this.OnHelpClick);
+            this.wizardControl.WizardPageLeave += new WizardControl.WizardPageHandler(this.OnWizardPageLeave);
+            this.wizardControl.WizardCaptionTitleChanged += new EventHandler(this.OnWizardCaptionTitleChanged);
+            this.wizardControl.SelectionChanged += new EventHandler(this.OnSelectionChanged);
+            this.wizardControl.UpdateClick += new EventHandler(this.OnUpdateClick);
             // 
             // WizardDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.Size(5, 13);
             this.ClientSize = new System.Drawing.Size(416, 285);
-            this.Controls.AddRange(new System.Windows.Forms.Control[] {
+            this.Controls.AddRange(new Control[] {
                                                                           this.wizardControl});
             this.Name = "WizardDialog";
             this.Text = "Wizard Dialog";
@@ -286,12 +282,12 @@ namespace Crownwood.Magic.Forms
             ApplyTitleMode();
         }
 
-        protected virtual void OnWizardPageEnter(Controls.WizardPage wp, Controls.WizardControl wc)
+        protected virtual void OnWizardPageEnter(WizardPage wp, WizardControl wc)
         {
             // By default we do nothing, let derived class override
         }
 
-        protected virtual void OnWizardPageLeave(Controls.WizardPage wp, Controls.WizardControl wc)
+        protected virtual void OnWizardPageLeave(WizardPage wp, WizardControl wc)
         {
             // By default we do nothing, let derived class override
         }

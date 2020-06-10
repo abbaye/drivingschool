@@ -3,9 +3,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Drawing.Drawing2D;
 using System.Resources;
-using System.Drawing.Text;
 using System.Reflection;
 using System.Collections;
 using System.ComponentModel;
@@ -15,8 +13,8 @@ using UtilityLibrary.General;
 
 namespace UtilityLibrary.WinControls
 {
-	#region Enumerations
-	public enum SortedListViewFormatType
+    #region Enumerations
+    public enum SortedListViewFormatType
 	{
 		String,
 		Numeric,
@@ -113,10 +111,10 @@ namespace UtilityLibrary.WinControls
 		#endregion
 	}
 
-	internal class HeaderHook : System.Windows.Forms.NativeWindow
-	{
-		#region Class Variables
-		ListViewEx listView = null;
+	internal class HeaderHook : NativeWindow
+    {
+        #region Class Variables
+        readonly ListViewEx listView = null;
 		#endregion
 		
 		#region Constructors
@@ -194,8 +192,8 @@ namespace UtilityLibrary.WinControls
     
 	public class CompareListItems : IComparer
 	{
-		#region Class Variables
-		ListViewEx listView = null;
+        #region Class Variables
+        readonly ListViewEx listView = null;
 		#endregion
 		
 		#region Constructors
@@ -324,10 +322,10 @@ namespace UtilityLibrary.WinControls
 
 		// Header Icons
 		ImageList headerImageList;
-		ArrayList headerIconsList = new ArrayList();
+        readonly ArrayList headerIconsList = new ArrayList();
 
-		// Sorting helper 
-		ArrayList rowSorterList = new ArrayList();
+        // Sorting helper 
+        readonly ArrayList rowSorterList = new ArrayList();
 		
 		// We only support small 16x16 icons
 		const int IMAGE_WIDTH = 16;
@@ -355,9 +353,11 @@ namespace UtilityLibrary.WinControls
 
 		private void InitializeCheckBoxesImageList()
 		{
-			checkBoxesImageList = new ImageList();
-			checkBoxesImageList.ImageSize = new Size(16, 16);
-			Assembly thisAssembly = Assembly.GetAssembly(Type.GetType("UtilityLibrary.WinControls.ListViewEx"));
+            checkBoxesImageList = new ImageList
+            {
+                ImageSize = new Size(16, 16)
+            };
+            Assembly thisAssembly = Assembly.GetAssembly(Type.GetType("UtilityLibrary.WinControls.ListViewEx"));
 			ResourceManager rm = new ResourceManager("UtilityLibrary.Resources.SortedListView", thisAssembly);
 			Bitmap checkBox = (Bitmap)rm.GetObject("CheckBox");
 			checkBox.MakeTransparent(Color.FromArgb(0, 128, 128));
@@ -826,28 +826,32 @@ namespace UtilityLibrary.WinControls
        
 		string GetSubItemText(int row, int col)
 		{
-			// I am going to use the Windows API since using the .NET
-			// ListViewSubItem.Text property is causing the nasty side
-			// effect of changing the text when I draw the string using TextUtil.DrawText,
-			// even though that is not my intention at all.
-			// I am not sure about why this is happening but using the API solves the problem
-			LVITEM lvi = new LVITEM();
-			lvi.iItem = row;
-			lvi.mask = (int)ListViewItemFlags.LVIF_TEXT;
-			lvi.iSubItem = col;
-			lvi.cchTextMax = BUFFER_SIZE;
-			lvi.pszText = Marshal.AllocHGlobal(BUFFER_SIZE);
-			WindowsAPI.SendMessage(Handle, (int)ListViewMessages.LVM_GETITEMTEXTW, row, ref lvi);
+            // I am going to use the Windows API since using the .NET
+            // ListViewSubItem.Text property is causing the nasty side
+            // effect of changing the text when I draw the string using TextUtil.DrawText,
+            // even though that is not my intention at all.
+            // I am not sure about why this is happening but using the API solves the problem
+            LVITEM lvi = new LVITEM
+            {
+                iItem = row,
+                mask = (int)ListViewItemFlags.LVIF_TEXT,
+                iSubItem = col,
+                cchTextMax = BUFFER_SIZE,
+                pszText = Marshal.AllocHGlobal(BUFFER_SIZE)
+            };
+            WindowsAPI.SendMessage(Handle, (int)ListViewMessages.LVM_GETITEMTEXTW, row, ref lvi);
 			string text = Marshal.PtrToStringAuto(lvi.pszText);
 			return text;
 		}
 
 		Rectangle GetSubItemRect(int row, int col)
 		{
-			RECT rc = new RECT();
-			rc.top = col;
-			rc.left = (int)SubItemPortion.LVIR_BOUNDS;
-			WindowsAPI.SendMessage(Handle, (int)ListViewMessages.LVM_GETSUBITEMRECT,  row, ref rc);
+            RECT rc = new RECT
+            {
+                top = col,
+                left = (int)SubItemPortion.LVIR_BOUNDS
+            };
+            WindowsAPI.SendMessage(Handle, (int)ListViewMessages.LVM_GETSUBITEMRECT,  row, ref rc);
 			return new Rectangle(rc.left, rc.top, rc.right-rc.left, rc.bottom-rc.top);
 		}
 
@@ -878,14 +882,16 @@ namespace UtilityLibrary.WinControls
 
 		protected string GetHeaderItemText(int index)
 		{
-			// I get the bug that I get on the ListView if 
-			// I use the columns collection to retreive the text
-			// That's why I prefer to use the Windows API
+            // I get the bug that I get on the ListView if 
+            // I use the columns collection to retreive the text
+            // That's why I prefer to use the Windows API
 
-			HDITEM hdi = new HDITEM();
-			hdi.mask = (int)HeaderItemFlags.HDI_TEXT;
-			hdi.cchTextMax =  BUFFER_SIZE;
-			hdi.pszText = Marshal.AllocHGlobal(BUFFER_SIZE);
+            HDITEM hdi = new HDITEM
+            {
+                mask = (int)HeaderItemFlags.HDI_TEXT,
+                cchTextMax = BUFFER_SIZE,
+                pszText = Marshal.AllocHGlobal(BUFFER_SIZE)
+            };
             WindowsAPI.SendMessage(hHeader, (int)HeaderControlMessages.HDM_GETITEMW, index, ref hdi);
 			string text = Marshal.PtrToStringAuto(hdi.pszText);
 			return text;

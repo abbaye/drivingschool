@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
 
 using Barette.Library.UserControls.Schedule;
 
-namespace Barette.Library.Collections {
-	/// <summary>
-	/// Collection d'information sur les schedules de cours.
-	/// Des fonctions seront ajouté plus tard en rapport avec la collectionB
-	/// </summary>
-	public class ScheduleInfosCollection : CollectionWithEvents {
+namespace Barette.Library.Collections
+{
+    /// <summary>
+    /// Collection d'information sur les schedules de cours.
+    /// Des fonctions seront ajouté plus tard en rapport avec la collectionB
+    /// </summary>
+    public class ScheduleInfosCollection : CollectionWithEvents {
 		public ScheduleInfos Add(ScheduleInfos value) {
 			base.List.Add(value as object);
 

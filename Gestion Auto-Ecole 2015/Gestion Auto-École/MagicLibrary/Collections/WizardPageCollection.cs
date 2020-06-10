@@ -9,9 +9,7 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
 using Crownwood.Magic.Controls;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Collections
 {
@@ -20,14 +18,16 @@ namespace Crownwood.Magic.Collections
         public WizardPage Add(TabPage value)
         {
             // Create a WizardPage from the TabPage
-            WizardPage wp = new WizardPage();
-            wp.Title = value.Title;
-            wp.Control = value.Control;
-            wp.ImageIndex = value.ImageIndex;
-            wp.ImageList = value.ImageList;
-            wp.Icon = value.Icon;
-            wp.Selected = value.Selected;
-            wp.StartFocus = value.StartFocus;
+            WizardPage wp = new WizardPage
+            {
+                Title = value.Title,
+                Control = value.Control,
+                ImageIndex = value.ImageIndex,
+                ImageList = value.ImageList,
+                Icon = value.Icon,
+                Selected = value.Selected,
+                StartFocus = value.StartFocus
+            };
 
             return Add(wp);           
         }

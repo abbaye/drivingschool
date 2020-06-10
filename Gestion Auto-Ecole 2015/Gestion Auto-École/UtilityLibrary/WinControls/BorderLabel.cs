@@ -10,11 +10,11 @@ namespace UtilityLibrary.WinControls
 	/// </summary>
 	public class BorderLabel : Label
 	{
-		Pen pen = null;
-		Pen hoverPen = null;
-		bool highlight = false;
-		int width = -1;
-		int gap = 0;
+        readonly Pen pen = null;
+        readonly Pen hoverPen = null;
+        readonly bool highlight = false;
+        readonly int width = -1;
+        readonly int gap = 0;
 		
 		public BorderLabel(Color BorderColor, Color HoverColor): this(BorderColor, HoverColor, 1)
 		{
@@ -40,9 +40,11 @@ namespace UtilityLibrary.WinControls
 		{
 			highlight = false;
 			width = Width;
-			pen = new Pen(BorderColor, Width);
-			pen.Alignment = PenAlignment.Inset;
-			if ( Width == 1 )
+            pen = new Pen(BorderColor, Width)
+            {
+                Alignment = PenAlignment.Inset
+            };
+            if ( Width == 1 )
 				gap = 1;
 		}
 

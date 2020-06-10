@@ -1,11 +1,10 @@
-using System;
+namespace Barette.Library.UserControls.Client
+{
 
-namespace Barette.Library.UserControls.Client {
-
-	/// <summary>
-	/// Mode d'édition des paiments.
-	/// </summary>
-	public enum PaiementMode{
+    /// <summary>
+    /// Mode d'édition des paiments.
+    /// </summary>
+    public enum PaiementMode{
 		Nouveau,
 		Modifier
 	}

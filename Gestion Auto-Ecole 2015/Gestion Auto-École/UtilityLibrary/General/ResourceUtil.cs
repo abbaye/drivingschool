@@ -84,14 +84,16 @@ namespace UtilityLibrary.General
 												   bool makeTransparent,
 												   Point transparentPixel)
 		{
-			// Create storage for bitmap strip
-			ImageList images = new ImageList();
+            // Create storage for bitmap strip
+            ImageList images = new ImageList
+            {
 
-			// Define the size of images we supply
-			images.ImageSize = imageSize;
+                // Define the size of images we supply
+                ImageSize = imageSize
+            };
 
-			// Get the assembly that contains the bitmap resource
-			Assembly myAssembly = Assembly.GetAssembly(assemblyType);
+            // Get the assembly that contains the bitmap resource
+            Assembly myAssembly = Assembly.GetAssembly(assemblyType);
 
 			// Get the resource stream containing the images
 			Stream imageStream = myAssembly.GetManifestResourceStream(imageName);
@@ -151,14 +153,16 @@ namespace UtilityLibrary.General
 			bool makeTransparent,
 			Point transparentPixel)
 		{
-			// Create storage for bitmap strip
-			ImageList images = new ImageList();
+            // Create storage for bitmap strip
+            ImageList images = new ImageList
+            {
 
-			// Define the size of images we supply
-			images.ImageSize = imageSize;
+                // Define the size of images we supply
+                ImageSize = imageSize
+            };
 
-			// Get the assembly that contains the bitmap resource
-			Assembly thisAssembly = Assembly.GetAssembly(assemblyType);
+            // Get the assembly that contains the bitmap resource
+            Assembly thisAssembly = Assembly.GetAssembly(assemblyType);
 			ResourceManager rm = new ResourceManager(resourceHolder, thisAssembly);
 			Bitmap pics = (Bitmap)rm.GetObject(imageName);
 

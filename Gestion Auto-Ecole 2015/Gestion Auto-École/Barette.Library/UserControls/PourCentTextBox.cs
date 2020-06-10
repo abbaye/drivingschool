@@ -1,19 +1,15 @@
 using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Windows.Forms;
 
-namespace Barette.Library.UserControls {
-	/// <summary>
-	/// Description résumée de DecimalTextBox.
-	/// </summary>	
-	public class PourCentTextBox : System.Windows.Forms.TextBox {
+namespace Barette.Library.UserControls
+{
+    /// <summary>
+    /// Description résumée de DecimalTextBox.
+    /// </summary>	
+    public class PourCentTextBox : System.Windows.Forms.TextBox {
 		/// <summary> 
 		/// Variable nécessaire au concepteur.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
+		private readonly System.ComponentModel.Container components = null;
 
 		public PourCentTextBox() {
 
@@ -43,9 +39,9 @@ namespace Barette.Library.UserControls {
             // CashTextBox
             // 
             KeyPress += new System.Windows.Forms.KeyPressEventHandler(CashTextBox_KeyPress);
-            TextChanged += new System.EventHandler(CashTextBox_TextChanged);
-            Leave += new System.EventHandler(CashTextBox_Leave);
-            Enter += new System.EventHandler(CashTextBox_Enter);
+            TextChanged += new EventHandler(CashTextBox_TextChanged);
+            Leave += new EventHandler(CashTextBox_Leave);
+            Enter += new EventHandler(CashTextBox_Enter);
 
 		}
 		#endregion
@@ -71,7 +67,7 @@ namespace Barette.Library.UserControls {
 		/// <summary>
 		/// se produit lorsque le focus survien
 		/// </summary>
-		private void CashTextBox_Enter(object sender, System.EventArgs e) {
+		private void CashTextBox_Enter(object sender, EventArgs e) {
             Text = Text.Replace(" %", "");
 
 			if (Text.EndsWith(",00"))
@@ -81,7 +77,7 @@ namespace Barette.Library.UserControls {
 		/// <summary>
 		/// se produit lorsque le focus quite le controle
 		/// </summary>
-		private void CashTextBox_Leave(object sender, System.EventArgs e) {
+		private void CashTextBox_Leave(object sender, EventArgs e) {
 			if (Text.Length > 0){			
 
 				//Ajoute un 0 avant le virgule
@@ -118,7 +114,7 @@ namespace Barette.Library.UserControls {
 			return false;
 		}
 
-		private void CashTextBox_TextChanged(object sender, System.EventArgs e) {
+		private void CashTextBox_TextChanged(object sender, EventArgs e) {
 			//ligne bidon servant a corriger un bug.. vive le patchage
 			double temp = Value; 
 		}

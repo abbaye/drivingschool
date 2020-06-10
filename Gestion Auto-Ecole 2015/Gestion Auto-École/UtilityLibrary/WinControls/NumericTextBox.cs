@@ -1,18 +1,14 @@
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for NumericTextBox.
-	/// </summary>
-	public class NumericTextBox : System.Windows.Forms.TextBox
-	{
+    /// <summary>
+    /// Summary description for NumericTextBox.
+    /// </summary>
+    public class NumericTextBox : TextBox
+    {
 		private int minimum = -1;
 		private int maximum = -1;
 		private bool useRange = false;
@@ -53,7 +49,7 @@ namespace UtilityLibrary.WinControls
             // NumericTextBox
             // 
             this.ShortcutsEnabled = false;
-            this.TextChanged += new System.EventHandler(this.NumericTextBox_TextChanged);
+            this.TextChanged += new EventHandler(this.NumericTextBox_TextChanged);
             this.ResumeLayout(false);
 
 		}
@@ -90,7 +86,7 @@ namespace UtilityLibrary.WinControls
         }
 				
 
-		private void NumericTextBox_TextChanged(object sender, System.EventArgs e)
+		private void NumericTextBox_TextChanged(object sender, EventArgs e)
 		{
 			if ( useRange ) 
 			{

@@ -1,18 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library.Collections;
 using Barette.Library;
 
-namespace Barette.IDE.Forms.Calendar {
-	public partial class FormJourFerier : Form {
-		OffDateCollection _ColOffDate = null;
-        Config _AppConfig;
+namespace Barette.IDE.Forms.Calendar
+{
+    public partial class FormJourFerier : Form {
+        readonly OffDateCollection _ColOffDate = null;
+        readonly Config _AppConfig;
 
 		public FormJourFerier(OffDateCollection col, Config appconfig) {
 			InitializeComponent();
@@ -136,10 +132,12 @@ namespace Barette.IDE.Forms.Calendar {
 			_ColOffDate.Clear();
 
 			for (int i = 0; i < lvDate.Items.Count; i++){
-				offDate = new OffDate();
-				offDate.Date = Convert.ToDateTime(lvDate.Items[i].Text);
-				offDate.Description = lvDate.Items[i].SubItems[1].Text;
-				_ColOffDate.Add(offDate);
+                offDate = new OffDate
+                {
+                    Date = Convert.ToDateTime(lvDate.Items[i].Text),
+                    Description = lvDate.Items[i].SubItems[1].Text
+                };
+                _ColOffDate.Add(offDate);
 			}
 
             Close();

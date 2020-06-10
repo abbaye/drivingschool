@@ -1,10 +1,8 @@
-
-using System;
 using System.Collections;
 
 namespace UtilityLibrary.Collections
 {
-	public class CollectionWithEvents : CollectionBase
+    public class CollectionWithEvents : CollectionBase
 	{
 		// Declare the event signatures
 		public delegate void CollectionClear();

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Barette.Library.TypeCours {
+﻿namespace Barette.Library.TypeCours
+{
 
     /// <summary>
     /// Cette classe represente un type de cours. Example : Automobile, Moto ...

@@ -1,21 +1,18 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
-using System.Diagnostics;
 using UtilityLibrary.General;
 using UtilityLibrary.Win32;
 
 namespace UtilityLibrary.WinControls
 {
-	// <summary>
-	/// Summary description for TextBoxEx.
-	/// </summary>
-	[ToolboxItem(false)]
-	public class TextBoxEx : System.Windows.Forms.TextBox
-	{
+    // <summary>
+    /// Summary description for TextBoxEx.
+    /// </summary>
+    [ToolboxItem(false)]
+	public class TextBoxEx : TextBox
+    {
 		#region Class Variables
 		DrawState drawState = DrawState.Normal;
 		#endregion
@@ -121,8 +118,8 @@ namespace UtilityLibrary.WinControls
 		#region Implementation
 		void DrawTextBoxState(DrawState drawState)
 		{
-			// Get window area
-			Win32.RECT rc = new Win32.RECT();
+            // Get window area
+            RECT rc = new RECT();
 			WindowsAPI.GetWindowRect(Handle, ref rc);
 			// Convert to Rectangle
 			Rectangle rect = new Rectangle(0, 0, rc.right - rc.left, rc.bottom - rc.top);

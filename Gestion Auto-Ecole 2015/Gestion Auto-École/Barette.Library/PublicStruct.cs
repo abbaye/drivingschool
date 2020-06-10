@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Barette.Library {
+﻿namespace Barette.Library
+{
     /// <summary>
     /// Cette structure représente une Adress postal.
     /// </summary>

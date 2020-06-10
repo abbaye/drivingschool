@@ -1,18 +1,14 @@
 ﻿#region Using directives
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
-using System.ComponentModel;
 
 #endregion
 
-namespace Barette.Library {
-	/// <summary>
-	/// Configuration du Logiciel
-	/// </summary>
-	public class Config {
+namespace Barette.Library
+{
+    /// <summary>
+    /// Configuration du Logiciel
+    /// </summary>
+    public class Config {
         /// <summary>
         /// Nom de l'Application
         /// </summary>

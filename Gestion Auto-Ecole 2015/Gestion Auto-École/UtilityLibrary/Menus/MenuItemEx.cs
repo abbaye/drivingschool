@@ -2,30 +2,27 @@ using System;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Resources;
 using UtilityLibrary.Win32;
-using UtilityLibrary.WinControls;
 using UtilityLibrary.General;
 using UtilityLibrary.CommandBars;
 
 namespace UtilityLibrary.Menus
 {
-	/// <summary>
-	/// Summary description for MenuItemEx.
-	/// </summary>
-	public class MenuItemEx : MenuItem
+    /// <summary>
+    /// Summary description for MenuItemEx.
+    /// </summary>
+    public class MenuItemEx : MenuItem
 	{
-		static ColorGroup group = ColorGroup.GetColorGroup();
+		static readonly ColorGroup group = ColorGroup.GetColorGroup();
 		static Color bgColor  = group.bgColor;
 		static Color stripeColor = group.stripeColor;
 		static Color selectionColor  = group.selectionColor;
 		static Color borderColor = group.borderColor;
 		static Color darkSelectionColor = group.darkSelectionColor;
 		
-		static int iconSize = SystemInformation.SmallIconSize.Width + 5;
+		static readonly int iconSize = SystemInformation.SmallIconSize.Width + 5;
 		static int itemHeight;
 		static bool doColorUpdate = false;
 		string shortcuttext = "";
@@ -39,17 +36,19 @@ namespace UtilityLibrary.Menus
 		int imageIndex = -1;
 
 
-		static int BITMAP_SIZE = 16;
-		static int STRIPE_WIDTH = iconSize + 2;
+		static readonly int BITMAP_SIZE = 16;
+		static readonly int STRIPE_WIDTH = iconSize + 2;
 		protected static ImageList menuImages;
 		static Color transparentColor = Color.FromArgb(192, 192, 192);
 								
 		static MenuItemEx()
 		{
-			// Initialize menu glyphs: checkmark and bullet
-			menuImages = new ImageList();
-			menuImages.ImageSize = new Size(BITMAP_SIZE, BITMAP_SIZE);
-			Assembly thisAssembly = Assembly.GetAssembly(Type.GetType("UtilityLibrary.Menus.MenuItemEx"));
+            // Initialize menu glyphs: checkmark and bullet
+            menuImages = new ImageList
+            {
+                ImageSize = new Size(BITMAP_SIZE, BITMAP_SIZE)
+            };
+            Assembly thisAssembly = Assembly.GetAssembly(Type.GetType("UtilityLibrary.Menus.MenuItemEx"));
 			ResourceManager rm = new ResourceManager("UtilityLibrary.Resources.ImagesMenu", thisAssembly);
 			Bitmap glyphs = (Bitmap)rm.GetObject("Glyphs");
 			glyphs.MakeTransparent(transparentColor);
@@ -95,14 +94,16 @@ namespace UtilityLibrary.Menus
 
 		static public MenuItem CloneMenu(MenuItemEx currentItem)
 		{
-			MenuItemEx clonedItem = new MenuItemEx(currentItem.Text, (Bitmap)currentItem.Icon, 
-				(Shortcut)currentItem.Shortcut, currentItem.ClickHandler);
-			// Preserve the enable and check state
-			clonedItem.Enabled = currentItem.Enabled;
-			clonedItem.Checked = currentItem.Checked;
-			clonedItem.RadioCheck = currentItem.RadioCheck;
+            MenuItemEx clonedItem = new MenuItemEx(currentItem.Text, (Bitmap)currentItem.Icon,
+                (Shortcut)currentItem.Shortcut, currentItem.ClickHandler)
+            {
+                // Preserve the enable and check state
+                Enabled = currentItem.Enabled,
+                Checked = currentItem.Checked,
+                RadioCheck = currentItem.RadioCheck
+            };
 
-			foreach (MenuItemEx item in currentItem.MenuItems)
+            foreach (MenuItemEx item in currentItem.MenuItems)
 			{
 				clonedItem.MenuItems.Add(CloneMenu(item));
 			}
@@ -473,12 +474,14 @@ namespace UtilityLibrary.Menus
 
 		public void DrawMenuText(Graphics g, Rectangle bounds, string text, string shortcut, bool enabled, bool toplevel, DrawItemState state )
 		{
-			StringFormat stringformat = new StringFormat();
-			stringformat.HotkeyPrefix = HotkeyPrefix.Show;
-		
-			// if 3D background happens to be black, as it is the case when
-			// using a high contrast color theme, then make sure text is white
-			bool highContrast = false;
+            StringFormat stringformat = new StringFormat
+            {
+                HotkeyPrefix = HotkeyPrefix.Show
+            };
+
+            // if 3D background happens to be black, as it is the case when
+            // using a high contrast color theme, then make sure text is white
+            bool highContrast = false;
 			bool whiteHighContrast = false;
 			if ( SystemColors.Control.ToArgb() == Color.FromArgb(255,0,0,0).ToArgb() ) highContrast = true;
 			if ( SystemColors.Control.ToArgb() == Color.FromArgb(255,255,255,255).ToArgb() ) whiteHighContrast = true;

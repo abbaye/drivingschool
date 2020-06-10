@@ -1,26 +1,22 @@
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
-using System.Xml;
-using System.Text; 
-using System.IO; 
 
 using Barette.Library.Employer;
 using Barette.Library.Listview;
 
-namespace Barette.IDE.Forms {
-	/// <summary>
-	/// Description résumée de FormScéanceCode.
-	/// </summary>
-	public class FormEmploye : Form
+namespace Barette.IDE.Forms
+{
+    /// <summary>
+    /// Description résumée de FormScéanceCode.
+    /// </summary>
+    public class FormEmploye : Form
     {
 		private ImageList ImageListTB;
 		private ToolBar tbEmploye;
 		private ToolBarButton tbbSeparator;
 		private ToolBarButton tbbRefresh;
-		private Barette.Library.UserControls.EmployeControl employeControl1;
+		private Library.UserControls.EmployeControl employeControl1;
 		private ListViewEx lvEmploye;
 		private ColumnHeader colHeadNumeroEmploye;
 		private ColumnHeader colHeadName;
@@ -31,7 +27,7 @@ namespace Barette.IDE.Forms {
 		private Timer AutoUpdateTimer;
 		private Timer TimerEnableDisable;
 
-		private FormMain _FormMain = null;
+		private readonly FormMain _FormMain = null;
 
 		public FormEmploye(FormMain formMain) {
 			//
@@ -62,27 +58,27 @@ namespace Barette.IDE.Forms {
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmploye));
-            Barette.Library.Employer.Employe employe1 = new Barette.Library.Employer.Employe();
-            ImageListTB = new System.Windows.Forms.ImageList(components);
-            tbEmploye = new System.Windows.Forms.ToolBar();
-            toolBarButton1 = new System.Windows.Forms.ToolBarButton();
-            toolBarButton2 = new System.Windows.Forms.ToolBarButton();
-            tbbSeparator = new System.Windows.Forms.ToolBarButton();
-            tbbRefresh = new System.Windows.Forms.ToolBarButton();
-            ImageListLV = new System.Windows.Forms.ImageList(components);
-            AutoUpdateTimer = new System.Windows.Forms.Timer(components);
-            employeControl1 = new Barette.Library.UserControls.EmployeControl();
-            lvEmploye = new Barette.Library.Listview.ListViewEx();
-            colHeadName = new System.Windows.Forms.ColumnHeader();
-            colHeadNumeroEmploye = new System.Windows.Forms.ColumnHeader();
-            TimerEnableDisable = new System.Windows.Forms.Timer(components);
+            components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(FormEmploye));
+            Employe employe1 = new Employe();
+            ImageListTB = new ImageList(components);
+            tbEmploye = new ToolBar();
+            toolBarButton1 = new ToolBarButton();
+            toolBarButton2 = new ToolBarButton();
+            tbbSeparator = new ToolBarButton();
+            tbbRefresh = new ToolBarButton();
+            ImageListLV = new ImageList(components);
+            AutoUpdateTimer = new Timer(components);
+            employeControl1 = new Library.UserControls.EmployeControl();
+            lvEmploye = new ListViewEx();
+            colHeadName = new ColumnHeader();
+            colHeadNumeroEmploye = new ColumnHeader();
+            TimerEnableDisable = new Timer(components);
             SuspendLayout();
             // 
             // ImageListTB
             // 
-            ImageListTB.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageListTB.ImageStream")));
+            ImageListTB.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListTB.ImageStream")));
             ImageListTB.TransparentColor = System.Drawing.Color.Transparent;
             ImageListTB.Images.SetKeyName(0, "add-icon.png");
             ImageListTB.Images.SetKeyName(1, "delete-icon.png");
@@ -93,7 +89,7 @@ namespace Barette.IDE.Forms {
             // tbEmploye
             // 
             tbEmploye.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
-            tbEmploye.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            tbEmploye.Buttons.AddRange(new ToolBarButton[] {
             toolBarButton1,
             toolBarButton2,
             tbbSeparator,
@@ -103,13 +99,13 @@ namespace Barette.IDE.Forms {
             tbEmploye.DropDownArrows = true;
             tbEmploye.ImageList = ImageListTB;
             tbEmploye.Location = new System.Drawing.Point(4, 6);
-            tbEmploye.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            tbEmploye.Margin = new Padding(3, 3, 3, 0);
             tbEmploye.Name = "tbEmploye";
             tbEmploye.ShowToolTips = true;
             tbEmploye.Size = new System.Drawing.Size(233, 42);
             tbEmploye.TabIndex = 16;
             tbEmploye.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
-            tbEmploye.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(tbEmploye_ButtonClick);
+            tbEmploye.ButtonClick += new ToolBarButtonClickEventHandler(tbEmploye_ButtonClick);
             // 
             // toolBarButton1
             // 
@@ -139,7 +135,7 @@ namespace Barette.IDE.Forms {
             // 
             // ImageListLV
             // 
-            ImageListLV.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageListLV.ImageStream")));
+            ImageListLV.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListLV.ImageStream")));
             ImageListLV.TransparentColor = System.Drawing.Color.Transparent;
             ImageListLV.Images.SetKeyName(0, "employe");
             // 
@@ -147,11 +143,11 @@ namespace Barette.IDE.Forms {
             // 
             AutoUpdateTimer.Enabled = true;
             AutoUpdateTimer.Interval = 250;
-            AutoUpdateTimer.Tick += new System.EventHandler(AutoUpdateTimer_Tick);
+            AutoUpdateTimer.Tick += new EventHandler(AutoUpdateTimer_Tick);
             // 
             // employeControl1
             // 
-            employeControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            employeControl1.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             employeControl1.Location = new System.Drawing.Point(255, 6);
@@ -161,14 +157,14 @@ namespace Barette.IDE.Forms {
             // 
             // lvEmploye
             // 
-            lvEmploye.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            lvEmploye.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            lvEmploye.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            lvEmploye.Columns.AddRange(new ColumnHeader[] {
             colHeadName,
             colHeadNumeroEmploye});
             lvEmploye.FullRowSelect = true;
             lvEmploye.Location = new System.Drawing.Point(5, 51);
-            lvEmploye.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            lvEmploye.Margin = new Padding(3, 2, 3, 3);
             lvEmploye.MultiSelect = false;
             lvEmploye.Name = "lvEmploye";
             lvEmploye.Size = new System.Drawing.Size(233, 479);
@@ -177,8 +173,8 @@ namespace Barette.IDE.Forms {
             lvEmploye.TabIndex = 0;
             lvEmploye.UseCompatibleStateImageBehavior = false;
             lvEmploye.View = System.Windows.Forms.View.Details;
-            lvEmploye.SelectedIndexChanged += new System.EventHandler(lvEmploye_SelectedIndexChanged);
-            lvEmploye.KeyDown += new System.Windows.Forms.KeyEventHandler(lvEmploye_KeyDown);
+            lvEmploye.SelectedIndexChanged += new EventHandler(lvEmploye_SelectedIndexChanged);
+            lvEmploye.KeyDown += new KeyEventHandler(lvEmploye_KeyDown);
             // 
             // colHeadName
             // 
@@ -194,7 +190,7 @@ namespace Barette.IDE.Forms {
             // 
             TimerEnableDisable.Enabled = true;
             TimerEnableDisable.Interval = 250;
-            TimerEnableDisable.Tick += new System.EventHandler(TimerEnableDisable_Tick);
+            TimerEnableDisable.Tick += new EventHandler(TimerEnableDisable_Tick);
             // 
             // FormEmploye
             // 

@@ -9,23 +9,19 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
-using System.IO;
 using System.Xml;
-using System.Windows.Forms;
 using Crownwood.Magic.Menus;
-using Crownwood.Magic.Controls;
 
 namespace Crownwood.Magic.Controls
 {
     public class TGCloseRequestEventArgs
 	{
 	    protected TabGroupLeaf _tgl;
-	    protected Controls.TabControl _tc;
-	    protected Controls.TabPage _tp;
+	    protected TabControl _tc;
+	    protected TabPage _tp;
 	    protected bool _cancel;
 	
-		public TGCloseRequestEventArgs(TabGroupLeaf tgl, Controls.TabControl tc, Controls.TabPage tp)
+		public TGCloseRequestEventArgs(TabGroupLeaf tgl, TabControl tc, TabPage tp)
 		{
 		    // Definie initial state
 		    _tgl = tgl;
@@ -39,12 +35,12 @@ namespace Crownwood.Magic.Controls
 		    get { return _tgl; }
 		}
     
-        public Controls.TabControl TabControl
+        public TabControl TabControl
         {
             get { return _tc; }
         }
 
-        public Controls.TabPage TabPage
+        public TabPage TabPage
         {
             get { return _tp; }
         }
@@ -60,8 +56,8 @@ namespace Crownwood.Magic.Controls
     {
         protected PopupMenu _contextMenu;
 	
-        public TGContextMenuEventArgs(TabGroupLeaf tgl, Controls.TabControl tc, 
-                                      Controls.TabPage tp, PopupMenu contextMenu)
+        public TGContextMenuEventArgs(TabGroupLeaf tgl, TabControl tc,
+                                      TabPage tp, PopupMenu contextMenu)
             : base(tgl, tc, tp)
         {
             // Definie initial state
@@ -76,11 +72,11 @@ namespace Crownwood.Magic.Controls
     
     public class TGPageLoadingEventArgs
     {
-        protected Controls.TabPage _tp;
+        protected TabPage _tp;
         protected XmlTextReader _xmlIn;
         protected bool _cancel;
         
-        public TGPageLoadingEventArgs(Controls.TabPage tp, XmlTextReader xmlIn)
+        public TGPageLoadingEventArgs(TabPage tp, XmlTextReader xmlIn)
         {
             // Definie initial state
             _tp = tp;
@@ -88,7 +84,7 @@ namespace Crownwood.Magic.Controls
             _cancel = false;
         }
         
-        public Controls.TabPage TabPage
+        public TabPage TabPage
         {
             get { return _tp; }
         }
@@ -107,17 +103,17 @@ namespace Crownwood.Magic.Controls
 
     public class TGPageSavingEventArgs
     {
-        protected Controls.TabPage _tp;
+        protected TabPage _tp;
         protected XmlTextWriter _xmlOut;
         
-        public TGPageSavingEventArgs(Controls.TabPage tp, XmlTextWriter xmlOut)
+        public TGPageSavingEventArgs(TabPage tp, XmlTextWriter xmlOut)
         {
             // Definie initial state
             _tp = tp;
             _xmlOut = xmlOut;
         }
         
-        public Controls.TabPage TabPage
+        public TabPage TabPage
         {
             get { return _tp; }
         }

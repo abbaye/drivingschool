@@ -1,9 +1,8 @@
-using System;
 using System.Drawing;
 
 namespace UtilityLibrary.Menus
 {
-	internal class DrawCommand
+    internal class DrawCommand
 	{
 		// Instance fields
 		protected int _row;

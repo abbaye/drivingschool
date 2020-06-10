@@ -11,15 +11,13 @@
 
 using System;
 using System.Drawing;
-using System.Collections;
 using System.Windows.Forms;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Controls;
 using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Controls
 {
-	public class Target
+    public class Target
 	{
 	    public enum TargetActions
 	    {
@@ -76,7 +74,7 @@ namespace Crownwood.Magic.Controls
 	    // Instance fields
         protected TabbedGroups _host;
         protected TabGroupLeaf _leaf;
-	    protected Controls.TabControl _source;
+	    protected TabControl _source;
         protected Target _lastTarget;
         protected TargetCollection _targets;
 	    
@@ -89,7 +87,7 @@ namespace Crownwood.Magic.Controls
                                                                     "Crownwood.Magic.Resources.TabbedInvalid.cur");
         }
 	    
-	    public TargetManager(TabbedGroups host, TabGroupLeaf leaf, Controls.TabControl source)
+	    public TargetManager(TabbedGroups host, TabGroupLeaf leaf, TabControl source)
 	    {
 	        // Define state
 	        _host = host;
@@ -115,8 +113,8 @@ namespace Crownwood.Magic.Controls
 	    
 	    protected void CreateTargets(TabGroupLeaf leaf)
 	    {
-	        // Grab the underlying tab control
-	        Controls.TabControl tc = leaf.GroupControl as Controls.TabControl;
+            // Grab the underlying tab control
+            TabControl tc = leaf.GroupControl as TabControl;
 
             // Get the total size of the tab control itself in screen coordinates
             Rectangle totalSize = tc.RectangleToScreen(tc.ClientRectangle);

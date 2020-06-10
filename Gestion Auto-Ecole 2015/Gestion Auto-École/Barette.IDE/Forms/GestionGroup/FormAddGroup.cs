@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library;
 
-namespace Barette.IDE.Forms.GestionGroup {
+namespace Barette.IDE.Forms.GestionGroup
+{
     public partial class FormAddGroup : Form {
 
         /// <summary>
         /// Liste de groupe
         /// </summary>
-        private List<StudentGroup> _groupList;
+        private readonly List<StudentGroup> _groupList;
 
-        private Config _appconfig;
+        private readonly Config _appconfig;
 
         /// <summary>
         /// Type de groupe

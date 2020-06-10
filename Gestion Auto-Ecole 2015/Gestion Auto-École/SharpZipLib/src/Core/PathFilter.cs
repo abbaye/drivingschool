@@ -73,10 +73,10 @@ namespace ICSharpCode.SharpZipLib.Core
 			}
 			return result;
 		}
-		#endregion
+        #endregion
 
-		#region Instance Fields
-		NameFilter nameFilter_;
+        #region Instance Fields
+        readonly NameFilter nameFilter_;
 		#endregion
 	}
 
@@ -133,16 +133,16 @@ namespace ICSharpCode.SharpZipLib.Core
 			MinDate = minDate;
 			MaxDate = maxDate;
 		}
-		#endregion
+        #endregion
 
-		#region IScanFilter Members
-		/// <summary>
-		/// Test a filename to see if it matches the filter.
-		/// </summary>
-		/// <param name="name">The filename to test.</param>
-		/// <returns>True if the filter matches, false otherwise.</returns>
-		/// <exception cref="System.IO.FileNotFoundException">The <see paramref="fileName"/> doesnt exist</exception>
-		public override bool IsMatch(string name)
+        #region IScanFilter Members
+        /// <summary>
+        /// Test a filename to see if it matches the filter.
+        /// </summary>
+        /// <param name="name">The filename to test.</param>
+        /// <returns>True if the filter matches, false otherwise.</returns>
+        /// <exception cref="FileNotFoundException">The <see paramref="fileName"/> doesnt exist</exception>
+        public override bool IsMatch(string name)
 		{
 			bool result = base.IsMatch(name);
 

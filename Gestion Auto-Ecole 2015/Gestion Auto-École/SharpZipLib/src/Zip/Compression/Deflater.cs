@@ -141,34 +141,34 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		{
 			
 		}
-		
-		/// <summary>
-		/// Creates a new deflater with given compression level.
-		/// </summary>
-		/// <param name="level">
-		/// the compression level, a value between NO_COMPRESSION
-		/// and BEST_COMPRESSION, or DEFAULT_COMPRESSION.
-		/// </param>
-		/// <exception cref="System.ArgumentOutOfRangeException">if lvl is out of range.</exception>
-		public Deflater(int level) : this(level, false)
+
+        /// <summary>
+        /// Creates a new deflater with given compression level.
+        /// </summary>
+        /// <param name="level">
+        /// the compression level, a value between NO_COMPRESSION
+        /// and BEST_COMPRESSION, or DEFAULT_COMPRESSION.
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">if lvl is out of range.</exception>
+        public Deflater(int level) : this(level, false)
 		{
 			
 		}
-		
-		/// <summary>
-		/// Creates a new deflater with given compression level.
-		/// </summary>
-		/// <param name="level">
-		/// the compression level, a value between NO_COMPRESSION
-		/// and BEST_COMPRESSION.
-		/// </param>
-		/// <param name="noZlibHeaderOrFooter">
-		/// true, if we should suppress the Zlib/RFC1950 header at the
-		/// beginning and the adler checksum at the end of the output.  This is
-		/// useful for the GZIP/PKZIP formats.
-		/// </param>
-		/// <exception cref="System.ArgumentOutOfRangeException">if lvl is out of range.</exception>
-		public Deflater(int level, bool noZlibHeaderOrFooter)
+
+        /// <summary>
+        /// Creates a new deflater with given compression level.
+        /// </summary>
+        /// <param name="level">
+        /// the compression level, a value between NO_COMPRESSION
+        /// and BEST_COMPRESSION.
+        /// </param>
+        /// <param name="noZlibHeaderOrFooter">
+        /// true, if we should suppress the Zlib/RFC1950 header at the
+        /// beginning and the adler checksum at the end of the output.  This is
+        /// useful for the GZIP/PKZIP formats.
+        /// </param>
+        /// <exception cref="ArgumentOutOfRangeException">if lvl is out of range.</exception>
+        public Deflater(int level, bool noZlibHeaderOrFooter)
 		{
 			if (level == DEFAULT_COMPRESSION) {
 				level = 6;
@@ -268,46 +268,46 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 				return engine.NeedsInput();
 			}
 		}
-		
-		/// <summary>
-		/// Sets the data which should be compressed next.  This should be only
-		/// called when needsInput indicates that more input is needed.
-		/// If you call setInput when needsInput() returns false, the
-		/// previous input that is still pending will be thrown away.
-		/// The given byte array should not be changed, before needsInput() returns
-		/// true again.
-		/// This call is equivalent to <code>setInput(input, 0, input.length)</code>.
-		/// </summary>
-		/// <param name="input">
-		/// the buffer containing the input data.
-		/// </param>
-		/// <exception cref="System.InvalidOperationException">
-		/// if the buffer was finished() or ended().
-		/// </exception>
-		public void SetInput(byte[] input)
+
+        /// <summary>
+        /// Sets the data which should be compressed next.  This should be only
+        /// called when needsInput indicates that more input is needed.
+        /// If you call setInput when needsInput() returns false, the
+        /// previous input that is still pending will be thrown away.
+        /// The given byte array should not be changed, before needsInput() returns
+        /// true again.
+        /// This call is equivalent to <code>setInput(input, 0, input.length)</code>.
+        /// </summary>
+        /// <param name="input">
+        /// the buffer containing the input data.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// if the buffer was finished() or ended().
+        /// </exception>
+        public void SetInput(byte[] input)
 		{
 			SetInput(input, 0, input.Length);
 		}
-		
-		/// <summary>
-		/// Sets the data which should be compressed next.  This should be
-		/// only called when needsInput indicates that more input is needed.
-		/// The given byte array should not be changed, before needsInput() returns
-		/// true again.
-		/// </summary>
-		/// <param name="input">
-		/// the buffer containing the input data.
-		/// </param>
-		/// <param name="offset">
-		/// the start of the data.
-		/// </param>
-		/// <param name="count">
-		/// the number of data bytes of input.
-		/// </param>
-		/// <exception cref="System.InvalidOperationException">
-		/// if the buffer was Finish()ed or if previous input is still pending.
-		/// </exception>
-		public void SetInput(byte[] input, int offset, int count)
+
+        /// <summary>
+        /// Sets the data which should be compressed next.  This should be
+        /// only called when needsInput indicates that more input is needed.
+        /// The given byte array should not be changed, before needsInput() returns
+        /// true again.
+        /// </summary>
+        /// <param name="input">
+        /// the buffer containing the input data.
+        /// </param>
+        /// <param name="offset">
+        /// the start of the data.
+        /// </param>
+        /// <param name="count">
+        /// the number of data bytes of input.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// if the buffer was Finish()ed or if previous input is still pending.
+        /// </exception>
+        public void SetInput(byte[] input, int offset, int count)
 		{
 			if ((state & IS_FINISHING) != 0) {
 				throw new InvalidOperationException("Finish() already called");
@@ -374,30 +374,30 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		{
 			return Deflate(output, 0, output.Length);
 		}
-		
-		/// <summary>
-		/// Deflates the current input block to the given array.
-		/// </summary>
-		/// <param name="output">
-		/// Buffer to store the compressed data.
-		/// </param>
-		/// <param name="offset">
-		/// Offset into the output array.
-		/// </param>
-		/// <param name="length">
-		/// The maximum number of bytes that may be stored.
-		/// </param>
-		/// <returns>
-		/// The number of compressed bytes added to the output, or 0 if either
-		/// needsInput() or finished() returns true or length is zero.
-		/// </returns>
-		/// <exception cref="System.InvalidOperationException">
-		/// If Finish() was previously called.
-		/// </exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// If offset or length don't match the array length.
-		/// </exception>
-		public int Deflate(byte[] output, int offset, int length)
+
+        /// <summary>
+        /// Deflates the current input block to the given array.
+        /// </summary>
+        /// <param name="output">
+        /// Buffer to store the compressed data.
+        /// </param>
+        /// <param name="offset">
+        /// Offset into the output array.
+        /// </param>
+        /// <param name="length">
+        /// The maximum number of bytes that may be stored.
+        /// </param>
+        /// <returns>
+        /// The number of compressed bytes added to the output, or 0 if either
+        /// needsInput() or finished() returns true or length is zero.
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// If Finish() was previously called.
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// If offset or length don't match the array length.
+        /// </exception>
+        public int Deflate(byte[] output, int offset, int length)
 		{
 			int origLength = length;
 			
@@ -476,43 +476,43 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 			}
 			return origLength - length;
 		}
-		
-		/// <summary>
-		/// Sets the dictionary which should be used in the deflate process.
-		/// This call is equivalent to <code>setDictionary(dict, 0, dict.Length)</code>.
-		/// </summary>
-		/// <param name="dictionary">
-		/// the dictionary.
-		/// </param>
-		/// <exception cref="System.InvalidOperationException">
-		/// if SetInput () or Deflate () were already called or another dictionary was already set.
-		/// </exception>
-		public void SetDictionary(byte[] dictionary)
+
+        /// <summary>
+        /// Sets the dictionary which should be used in the deflate process.
+        /// This call is equivalent to <code>setDictionary(dict, 0, dict.Length)</code>.
+        /// </summary>
+        /// <param name="dictionary">
+        /// the dictionary.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// if SetInput () or Deflate () were already called or another dictionary was already set.
+        /// </exception>
+        public void SetDictionary(byte[] dictionary)
 		{
 			SetDictionary(dictionary, 0, dictionary.Length);
 		}
-		
-		/// <summary>
-		/// Sets the dictionary which should be used in the deflate process.
-		/// The dictionary is a byte array containing strings that are
-		/// likely to occur in the data which should be compressed.  The
-		/// dictionary is not stored in the compressed output, only a
-		/// checksum.  To decompress the output you need to supply the same
-		/// dictionary again.
-		/// </summary>
-		/// <param name="dictionary">
-		/// The dictionary data
-		/// </param>
-		/// <param name="index">
-		/// The index where dictionary information commences.
-		/// </param>
-		/// <param name="count">
-		/// The number of bytes in the dictionary.
-		/// </param>
-		/// <exception cref="System.InvalidOperationException">
-		/// If SetInput () or Deflate() were already called or another dictionary was already set.
-		/// </exception>
-		public void SetDictionary(byte[] dictionary, int index, int count)
+
+        /// <summary>
+        /// Sets the dictionary which should be used in the deflate process.
+        /// The dictionary is a byte array containing strings that are
+        /// likely to occur in the data which should be compressed.  The
+        /// dictionary is not stored in the compressed output, only a
+        /// checksum.  To decompress the output you need to supply the same
+        /// dictionary again.
+        /// </summary>
+        /// <param name="dictionary">
+        /// The dictionary data
+        /// </param>
+        /// <param name="index">
+        /// The index where dictionary information commences.
+        /// </param>
+        /// <param name="count">
+        /// The number of bytes in the dictionary.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// If SetInput () or Deflate() were already called or another dictionary was already set.
+        /// </exception>
+        public void SetDictionary(byte[] dictionary, int index, int count)
 		{
 			if (state != INIT_STATE) {
 				throw new InvalidOperationException();
@@ -527,11 +527,11 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// Compression level.
 		/// </summary>
 		int level;
-		
-		/// <summary>
-		/// If true no Zlib/RFC1950 headers or footers are generated
-		/// </summary>
-		bool noZlibHeaderOrFooter;
+
+        /// <summary>
+        /// If true no Zlib/RFC1950 headers or footers are generated
+        /// </summary>
+        readonly bool noZlibHeaderOrFooter;
 		
 		/// <summary>
 		/// The current state.
@@ -542,16 +542,16 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// The total bytes of output written.
 		/// </summary>
 		long totalOut;
-		
-		/// <summary>
-		/// The pending output.
-		/// </summary>
-		DeflaterPending pending;
-		
-		/// <summary>
-		/// The deflater engine.
-		/// </summary>
-		DeflaterEngine engine;
+
+        /// <summary>
+        /// The pending output.
+        /// </summary>
+        readonly DeflaterPending pending;
+
+        /// <summary>
+        /// The deflater engine.
+        /// </summary>
+        readonly DeflaterEngine engine;
 		#endregion
 	}
 }

@@ -1,20 +1,18 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using UtilityLibrary.General;
 using UtilityLibrary.Win32;
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for RadioButtonEx.
-	/// </summary>
-	[ToolboxItem(false)]
-	public class RadioButtonEx : System.Windows.Forms.RadioButton
-	{
+    /// <summary>
+    /// Summary description for RadioButtonEx.
+    /// </summary>
+    [ToolboxItem(false)]
+	public class RadioButtonEx : RadioButton
+    {
 		#region Class Variables
 		const int CIRCLE_DIAMETER = 11;
 		DrawState drawState = DrawState.Normal;

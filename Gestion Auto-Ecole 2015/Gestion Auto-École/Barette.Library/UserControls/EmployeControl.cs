@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library.Employer;
 
-namespace Barette.Library.UserControls {
-	public partial class EmployeControl : UserControl {
+namespace Barette.Library.UserControls
+{
+    public partial class EmployeControl : UserControl {
 		private Employe _Employe = new Employe();
 
 		public EmployeControl() {
@@ -32,41 +28,43 @@ namespace Barette.Library.UserControls {
 		/// </summary>
 		private void MakeEmploye() {
             //Creation de l'objet
-            _Employe = new Employe();
+            _Employe = new Employe
+            {
 
-            //Information générale
-            _Employe.NumeroEmploye = txtNumeroEmploye.Text;
-            _Employe.Nom = txtName.Text;
-            //this._Employe.Prenom = this.txtFirstName.Text;
-            _Employe.NomAffichageRapport = txtFirstName.Text;
-            _Employe.NAS = mtNAS.Text;
-            _Employe.TauxHorraire = ctbSalaire.Text;
-            _Employe.Telephone = txtPhoneNumber.Text;
-            _Employe.TelephoneAutre = txtPhoneOther.Text;
-            _Employe.Titre = cbTitre.Text;
-            _Employe.NumeroPermis = txtPermis.Text;
+                //Information générale
+                NumeroEmploye = txtNumeroEmploye.Text,
+                Nom = txtName.Text,
+                //this._Employe.Prenom = this.txtFirstName.Text;
+                NomAffichageRapport = txtFirstName.Text,
+                NAS = mtNAS.Text,
+                TauxHorraire = ctbSalaire.Text,
+                Telephone = txtPhoneNumber.Text,
+                TelephoneAutre = txtPhoneOther.Text,
+                Titre = cbTitre.Text,
+                NumeroPermis = txtPermis.Text,
 
-            //Debut de la création de l'employé
-            _Employe.AdultACharge = Convert.ToInt16(ntbAdultACharge.Text);
-            _Employe.EnfantACharge = Convert.ToInt16(ntbEnfantACharge.Text);
+                //Debut de la création de l'employé
+                AdultACharge = Convert.ToInt32(ntbAdultACharge.Text),
+                EnfantACharge = Convert.ToInt32(ntbEnfantACharge.Text),
 
-            //Adresse
-            _Employe.City = cbCity.Text;
-            _Employe.CodePostal = txtCodePostal.Text;
-            _Employe.StreetApp = txtAdressApp.Text;
-            _Employe.StreetName = txtAdressStreet.Text;
-            _Employe.StreetNumber = txtAdressNumber.Text;
+                //Adresse
+                City = cbCity.Text,
+                CodePostal = txtCodePostal.Text,
+                StreetApp = txtAdressApp.Text,
+                StreetName = txtAdressStreet.Text,
+                StreetNumber = txtAdressNumber.Text,
 
-            //Date
-            _Employe.DateDernierJourTravailler = dtpLastDay.Value;
-            _Employe.DateEmbauche = dtpFirstDay.Value;
-            _Employe.DateNaissance = dtbDateNaissance.Value;
+                //Date
+                DateDernierJourTravailler = dtpLastDay.Value,
+                DateEmbauche = dtpFirstDay.Value,
+                DateNaissance = dtbDateNaissance.Value,
 
-            _Employe.NatureEmploie = cbNatureEmploie.Text;
-            _Employe.Notes = teNotes.RTFCode;
+                NatureEmploie = cbNatureEmploie.Text,
+                Notes = teNotes.RTFCode
+            };
 
-			//Situation familiale
-			if (cbSituationFamiliale.Text == "Célibataire")
+            //Situation familiale
+            if (cbSituationFamiliale.Text == "Célibataire")
                 _Employe.SituationFamiliale = FamilyStatus.Celibataire;
 			else if (cbSituationFamiliale.Text == "Divorcé(e)")
                 _Employe.SituationFamiliale = FamilyStatus.Divorce;

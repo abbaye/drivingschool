@@ -9,9 +9,7 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
 using Crownwood.Magic.Docking;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Collections
 {

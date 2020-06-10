@@ -1,14 +1,12 @@
 using System;
-using System.Collections;
 
-using Barette.Library.Client;
-
-namespace Barette.Library.Collections {
-	/// <summary>
-	/// Collection typé DateTime.
-	/// Des fonctions seront ajouté plus tard en rapport avec la collectionB
-	/// </summary>
-	public class DateTimeCollection : CollectionWithEvents {
+namespace Barette.Library.Collections
+{
+    /// <summary>
+    /// Collection typé DateTime.
+    /// Des fonctions seront ajouté plus tard en rapport avec la collectionB
+    /// </summary>
+    public class DateTimeCollection : CollectionWithEvents {
 		public DateTime Add(DateTime value) {
 			base.List.Add(value as object);
 

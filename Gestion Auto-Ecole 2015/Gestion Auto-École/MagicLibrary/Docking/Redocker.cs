@@ -9,9 +9,7 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
 using System.Windows.Forms;
-using Crownwood.Magic.Docking;
 
 namespace Crownwood.Magic.Docking
 {

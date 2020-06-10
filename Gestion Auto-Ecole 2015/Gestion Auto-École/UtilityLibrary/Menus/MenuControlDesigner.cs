@@ -1,22 +1,15 @@
-
-using System;
-using System.Drawing;
 using System.Collections;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace UtilityLibrary.Menus
 {
-	public class MenuControlDesigner :  System.Windows.Forms.Design.ParentControlDesigner
+    public class MenuControlDesigner :  System.Windows.Forms.Design.ParentControlDesigner
 	{
 		public override ICollection AssociatedComponents
 		{
 			get 
 			{
-				if (base.Control is UtilityLibrary.Menus.MenuControl)
-					return ((UtilityLibrary.Menus.MenuControl)base.Control).MenuCommands;
+				if (base.Control is MenuControl)
+					return ((MenuControl)base.Control).MenuCommands;
 				else
 					return base.AssociatedComponents;
 			}

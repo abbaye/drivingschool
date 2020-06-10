@@ -1,21 +1,15 @@
-using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
-using System.Diagnostics;
-using UtilityLibrary.Win32;
 using UtilityLibrary.General;
-using UtilityLibrary.Menus;
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for ColorComboBox.
-	/// </summary>
-	[ToolboxItem(true)]
-	[ToolboxBitmap(typeof(UtilityLibrary.WinControls.ColorComboBox), 
+    /// <summary>
+    /// Summary description for ColorComboBox.
+    /// </summary>
+    [ToolboxItem(true)]
+	[ToolboxBitmap(typeof(ColorComboBox), 
      "UtilityLibrary.WinControls.ColorComboBox.bmp")]
 	public class ColorComboBox : ComboBoxBase
 	{

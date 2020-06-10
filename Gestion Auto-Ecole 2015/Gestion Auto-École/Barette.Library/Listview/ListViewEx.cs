@@ -1,17 +1,12 @@
 ﻿#region Using directives
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 
 #endregion
 
-namespace Barette.Library.Listview {
-	public partial class ListViewEx : ListView {
+namespace Barette.Library.Listview
+{
+    public partial class ListViewEx : ListView {
 		public ListViewEx() {
 			InitializeComponent();
 		}

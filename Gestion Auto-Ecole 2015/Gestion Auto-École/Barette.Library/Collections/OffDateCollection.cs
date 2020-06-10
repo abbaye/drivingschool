@@ -1,14 +1,10 @@
-using System;
-using System.Collections;
-
-using Barette.Library;
-
-namespace Barette.Library.Collections {
-	/// <summary>
-	/// Collection de Client.
-	/// Des fonctions seront ajouté plus tard en rapport avec la collectionB
-	/// </summary>
-	public class OffDateCollection : CollectionWithEvents {
+namespace Barette.Library.Collections
+{
+    /// <summary>
+    /// Collection de Client.
+    /// Des fonctions seront ajouté plus tard en rapport avec la collectionB
+    /// </summary>
+    public class OffDateCollection : CollectionWithEvents {
 		public OffDate Add(OffDate value) {
 			base.List.Add(value as object);
 

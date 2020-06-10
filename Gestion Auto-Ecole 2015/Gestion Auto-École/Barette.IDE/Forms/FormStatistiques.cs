@@ -8,7 +8,7 @@ using Barette.Library.Collections;
 
 namespace Barette.IDE.Forms {
     public partial class FormStatistiques : Form {
-        CustomerCollection _clientlist;
+        readonly CustomerCollection _clientlist;
 
         ///// <summary>
         ///// TEST
@@ -78,9 +78,10 @@ namespace Barette.IDE.Forms {
         /// <param name="Name"></param>
         /// <param name="info"></param>
         private void AddStatistique(string Name, string info, VehiculeType Icon) {
-            ListViewItem itm = new ListViewItem();
-
-            itm.Text = Name;
+            ListViewItem itm = new ListViewItem
+            {
+                Text = Name
+            };
             itm.SubItems.Add(info);
 
             switch (Icon) {
@@ -104,9 +105,10 @@ namespace Barette.IDE.Forms {
         /// <param name="Name"></param>
         /// <param name="info"></param>
         private void AddStatistique(string Name, string info) {
-            ListViewItem itm = new ListViewItem();
-
-            itm.Text = Name;
+            ListViewItem itm = new ListViewItem
+            {
+                Text = Name
+            };
             itm.SubItems.Add(info);
 
             lvStats.Items.Add(itm);
@@ -131,10 +133,10 @@ namespace Barette.IDE.Forms {
             foreach (var client in GroupTypeClient) {
                 switch (client.Key) {
                     case ProfileType.Actif:
-                        AddStatistique("Clients Actif", client.Count<Customer>().ToString());
+                        AddStatistique("Clients Actif", client.Count().ToString());
                         break;
                     case ProfileType.CoursTerminer:
-                        AddStatistique("Clients Terminé", client.Count<Customer>().ToString());
+                        AddStatistique("Clients Terminé", client.Count().ToString());
                         break;
                 }
             }
@@ -142,16 +144,16 @@ namespace Barette.IDE.Forms {
             foreach (var client in GroupTypeVehicule) {
                 switch (client.Key) {
                     case VehiculeType.Moto:
-                        AddStatistique("Motocyclette", client.Count<Customer>().ToString(), VehiculeType.Moto);
+                        AddStatistique("Motocyclette", client.Count().ToString(), VehiculeType.Moto);
                         break;
                     case VehiculeType.Cyclomoteur:
-                        AddStatistique("Cyclomoteur", client.Count<Customer>().ToString(), VehiculeType.Cyclomoteur);
+                        AddStatistique("Cyclomoteur", client.Count().ToString(), VehiculeType.Cyclomoteur);
                         break;
                     case VehiculeType.Manuel:
-                        AddStatistique("Conduite Manuel", client.Count<Customer>().ToString(), VehiculeType.Automobile);
+                        AddStatistique("Conduite Manuel", client.Count().ToString(), VehiculeType.Automobile);
                         break;
                     case VehiculeType.Automatique:
-                        AddStatistique("Conduite Automatique", client.Count<Customer>().ToString(), VehiculeType.Automobile);
+                        AddStatistique("Conduite Automatique", client.Count().ToString(), VehiculeType.Automobile);
                         break;
                 }
             }

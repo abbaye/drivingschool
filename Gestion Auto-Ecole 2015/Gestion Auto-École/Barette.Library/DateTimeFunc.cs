@@ -1,9 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Barette.Library {
-	public static class DateTimeFunc {		
+namespace Barette.Library
+{
+    public static class DateTimeFunc {		
 		/// <summary>
 		/// Format l'heure sous forme 00h00
 		/// </summary>

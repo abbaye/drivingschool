@@ -3,15 +3,14 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 using UtilityLibrary.Win32;
-using UtilityLibrary.Menus;
 
 
 namespace UtilityLibrary.CommandBars
 {
-	/// <summary>
-	/// Summary description for ToolBarItem.
-	/// </summary>
-	public enum ToolBarItemStyle
+    /// <summary>
+    /// Summary description for ToolBarItem.
+    /// </summary>
+    public enum ToolBarItemStyle
 	{
 		DropDownButton = 0,
 		PushButton = 1,
@@ -37,7 +36,7 @@ namespace UtilityLibrary.CommandBars
 		string toolTip = null;
 		Object tag = null;
 		EventHandler clickHandler = null;
-		ComboBox comboBox = null;
+        readonly ComboBox comboBox = null;
 		int index = -1;
 		ToolBarEx parentToolBar = null;
 		MenuItem[] menuItems = null;

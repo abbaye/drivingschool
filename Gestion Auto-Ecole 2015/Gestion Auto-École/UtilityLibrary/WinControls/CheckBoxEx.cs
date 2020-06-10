@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using System.Diagnostics;
 using UtilityLibrary.General;
@@ -10,19 +8,19 @@ using UtilityLibrary.Win32;
 
 namespace UtilityLibrary.WinControls
 {
-	
-	/// <summary>
-	/// Summary description for CheckBoxEx.
-	/// </summary>
-	[ToolboxItem(false)]
-	public class CheckBoxEx : System.Windows.Forms.CheckBox
-	{
+
+    /// <summary>
+    /// Summary description for CheckBoxEx.
+    /// </summary>
+    [ToolboxItem(false)]
+	public class CheckBoxEx : CheckBox
+    {
 		
 		#region Class Variables
 		const int CHECK_MARK_SIZE = 11;
 		DrawState drawState = DrawState.Normal;
-		Bitmap checkMarkChecked = null;
-		Bitmap checkMarkUnchecked = null;
+        readonly Bitmap checkMarkChecked = null;
+        readonly Bitmap checkMarkUnchecked = null;
 		Bitmap checkMarkHotChecked = null;
 		Bitmap checkMarkHotUnchecked = null;
 		Bitmap checkMarkDisableChecked = null;

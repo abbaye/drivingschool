@@ -1,7 +1,5 @@
 using System;
 using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
 using System.Linq;
 
@@ -11,34 +9,35 @@ using Barette.Library.Client;
 using Barette.Library.Listview;
 using Barette.Library.Collections;
 
-namespace Barette.IDE.Forms {
+namespace Barette.IDE.Forms
+{
     /// <summary>
     /// Description résumée de FormClients.
     /// </summary>
     public class FormClients : Form
     {
-        private System.Windows.Forms.ToolBar toolBar1;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Timer AutoUpdateTimer;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolBarButton tbbRefresh;
-        private System.Windows.Forms.ToolBarButton tbbSeparator;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolBarButton tbbCheckDoublons;
-        private System.Windows.Forms.ToolBarButton tbbSeparator2;
+        private ToolBar toolBar1;
+        private ImageList imageList1;
+        private Timer AutoUpdateTimer;
+        private Label label1;
+        private ToolBarButton tbbRefresh;
+        private ToolBarButton tbbSeparator;
+        private Timer timer1;
+        private ToolBarButton tbbCheckDoublons;
+        private ToolBarButton tbbSeparator2;
         private ImageList ImageListSmall;
         private SplitContainer splitContainer1;
         private ListViewEx lvClient;
         private ColumnHeader colhClientName;
         private ColumnHeader colhClientNumber;
-        private Barette.Library.UserControls.ACComboBox lstNumeroClient;
-        public Barette.Library.UserControls.Client.ClientControl clientControl1;
+        private Library.UserControls.ACComboBox lstNumeroClient;
+        public Library.UserControls.Client.ClientControl clientControl1;
         private System.ComponentModel.IContainer components;
         private ContextMenu cmPrintChoice;
         private MenuItem mnuClientInfo;
         private MenuItem menuItem4;
         private MenuItem mnuClientContrat;
-        private EmployeCollection _ListEmploye;
+        private readonly EmployeCollection _ListEmploye;
         private ColumnHeader colhClientNoGroup;
         private ToolTip toolTip1;
         private ToolBarButton tbbSeparator3;
@@ -56,12 +55,12 @@ namespace Barette.IDE.Forms {
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem supprimerLeClientToolStripMenuItem;
         
-        private SchoolInfo _InfoSchool;
-        private Config _AppConfig;
+        private readonly SchoolInfo _InfoSchool;
+        private readonly Config _AppConfig;
         private MenuItem mnuClientPaimentList;
         private MenuItem menuItem2;
         private MenuItem mnuClientAttestation;
-        private CustomerCollection _ClientList;
+        private readonly CustomerCollection _ClientList;
 
         public FormClients(CustomerCollection ClientList, EmployeCollection ListEmploye, SchoolInfo info, Config AppConfig) {
             //
@@ -115,51 +114,51 @@ namespace Barette.IDE.Forms {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClients));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Véhicule : Manuel", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Véhicule : Cyclomoteur", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Véhicule : Automatique", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Véhicule : Motocyclette", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Cours Terminé", System.Windows.Forms.HorizontalAlignment.Left);
-            Barette.Library.Client.Customer customer1 = new Barette.Library.Client.Customer();
-            this.ImageListSmall = new System.Windows.Forms.ImageList(this.components);
-            this.toolBar1 = new System.Windows.Forms.ToolBar();
-            this.tbbAddClient = new System.Windows.Forms.ToolBarButton();
-            this.tbbDeleteClient = new System.Windows.Forms.ToolBarButton();
-            this.tbbSeparator3 = new System.Windows.Forms.ToolBarButton();
-            this.tbbFindCustomer = new System.Windows.Forms.ToolBarButton();
-            this.tbbPrint = new System.Windows.Forms.ToolBarButton();
-            this.cmPrintChoice = new System.Windows.Forms.ContextMenu();
-            this.mnuClientInfo = new System.Windows.Forms.MenuItem();
-            this.mnuClientPaimentList = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.mnuClientContrat = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.mnuClientAttestation = new System.Windows.Forms.MenuItem();
-            this.tbbSeparator = new System.Windows.Forms.ToolBarButton();
-            this.tbbRefresh = new System.Windows.Forms.ToolBarButton();
-            this.tbbSeparator2 = new System.Windows.Forms.ToolBarButton();
-            this.tbbCheckDoublons = new System.Windows.Forms.ToolBarButton();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.AutoUpdateTimer = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lvClient = new Barette.Library.Listview.ListViewEx();
-            this.colhClientName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colhClientNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colhClientNoGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lstNumeroClient = new Barette.Library.UserControls.ACComboBox();
-            this.clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cmStripClientList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.rafraichirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.imprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informationSurLeClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.contratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.supprimerLeClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ListViewGroup listViewGroup1 = new ListViewGroup("Véhicule : Manuel", System.Windows.Forms.HorizontalAlignment.Left);
+            ListViewGroup listViewGroup2 = new ListViewGroup("Véhicule : Cyclomoteur", System.Windows.Forms.HorizontalAlignment.Left);
+            ListViewGroup listViewGroup3 = new ListViewGroup("Véhicule : Automatique", System.Windows.Forms.HorizontalAlignment.Left);
+            ListViewGroup listViewGroup4 = new ListViewGroup("Véhicule : Motocyclette", System.Windows.Forms.HorizontalAlignment.Left);
+            ListViewGroup listViewGroup5 = new ListViewGroup("Cours Terminé", System.Windows.Forms.HorizontalAlignment.Left);
+            Customer customer1 = new Customer();
+            this.ImageListSmall = new ImageList(this.components);
+            this.toolBar1 = new ToolBar();
+            this.tbbAddClient = new ToolBarButton();
+            this.tbbDeleteClient = new ToolBarButton();
+            this.tbbSeparator3 = new ToolBarButton();
+            this.tbbFindCustomer = new ToolBarButton();
+            this.tbbPrint = new ToolBarButton();
+            this.cmPrintChoice = new ContextMenu();
+            this.mnuClientInfo = new MenuItem();
+            this.mnuClientPaimentList = new MenuItem();
+            this.menuItem4 = new MenuItem();
+            this.mnuClientContrat = new MenuItem();
+            this.menuItem2 = new MenuItem();
+            this.mnuClientAttestation = new MenuItem();
+            this.tbbSeparator = new ToolBarButton();
+            this.tbbRefresh = new ToolBarButton();
+            this.tbbSeparator2 = new ToolBarButton();
+            this.tbbCheckDoublons = new ToolBarButton();
+            this.imageList1 = new ImageList(this.components);
+            this.timer1 = new Timer(this.components);
+            this.AutoUpdateTimer = new Timer(this.components);
+            this.label1 = new Label();
+            this.splitContainer1 = new SplitContainer();
+            this.lvClient = new ListViewEx();
+            this.colhClientName = ((ColumnHeader)(new ColumnHeader()));
+            this.colhClientNumber = ((ColumnHeader)(new ColumnHeader()));
+            this.colhClientNoGroup = ((ColumnHeader)(new ColumnHeader()));
+            this.lstNumeroClient = new Library.UserControls.ACComboBox();
+            this.clientControl1 = new Library.UserControls.Client.ClientControl();
+            this.toolTip1 = new ToolTip(this.components);
+            this.cmStripClientList = new ContextMenuStrip(this.components);
+            this.rafraichirToolStripMenuItem = new ToolStripMenuItem();
+            this.toolStripSeparator2 = new ToolStripSeparator();
+            this.imprimerToolStripMenuItem = new ToolStripMenuItem();
+            this.informationSurLeClientToolStripMenuItem = new ToolStripMenuItem();
+            this.toolStripSeparator1 = new ToolStripSeparator();
+            this.contratToolStripMenuItem = new ToolStripMenuItem();
+            this.toolStripSeparator3 = new ToolStripSeparator();
+            this.supprimerLeClientToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -169,7 +168,7 @@ namespace Barette.IDE.Forms {
             // 
             // ImageListSmall
             // 
-            this.ImageListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            this.ImageListSmall.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
             this.ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             this.ImageListSmall.Images.SetKeyName(0, "Moto");
             this.ImageListSmall.Images.SetKeyName(1, "auto.ico");
@@ -178,7 +177,7 @@ namespace Barette.IDE.Forms {
             // toolBar1
             // 
             this.toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
-            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            this.toolBar1.Buttons.AddRange(new ToolBarButton[] {
             this.tbbAddClient,
             this.tbbDeleteClient,
             this.tbbSeparator3,
@@ -191,14 +190,14 @@ namespace Barette.IDE.Forms {
             this.toolBar1.Divider = false;
             this.toolBar1.DropDownArrows = true;
             this.toolBar1.ImageList = this.imageList1;
-            this.toolBar1.Location = new System.Drawing.Point(0, 0);
-            this.toolBar1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.toolBar1.Location = new Point(0, 0);
+            this.toolBar1.Margin = new Padding(3, 3, 3, 0);
             this.toolBar1.Name = "toolBar1";
             this.toolBar1.ShowToolTips = true;
-            this.toolBar1.Size = new System.Drawing.Size(326, 50);
+            this.toolBar1.Size = new Size(326, 50);
             this.toolBar1.TabIndex = 9;
             this.toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
-            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
+            this.toolBar1.ButtonClick += new ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
             // 
             // tbbAddClient
             // 
@@ -237,7 +236,7 @@ namespace Barette.IDE.Forms {
             // 
             // cmPrintChoice
             // 
-            this.cmPrintChoice.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.cmPrintChoice.MenuItems.AddRange(new MenuItem[] {
             this.mnuClientInfo,
             this.mnuClientPaimentList,
             this.menuItem4,
@@ -250,13 +249,13 @@ namespace Barette.IDE.Forms {
             this.mnuClientInfo.DefaultItem = true;
             this.mnuClientInfo.Index = 0;
             this.mnuClientInfo.Text = "Information sur le client";
-            this.mnuClientInfo.Click += new System.EventHandler(this.mnuClientInfo_Click);
+            this.mnuClientInfo.Click += new EventHandler(this.mnuClientInfo_Click);
             // 
             // mnuClientPaimentList
             // 
             this.mnuClientPaimentList.Index = 1;
             this.mnuClientPaimentList.Text = "Liste des paiments";
-            this.mnuClientPaimentList.Click += new System.EventHandler(this.mnuClientPaimentList_Click);
+            this.mnuClientPaimentList.Click += new EventHandler(this.mnuClientPaimentList_Click);
             // 
             // menuItem4
             // 
@@ -267,7 +266,7 @@ namespace Barette.IDE.Forms {
             // 
             this.mnuClientContrat.Index = 3;
             this.mnuClientContrat.Text = "Contrat du client";
-            this.mnuClientContrat.Click += new System.EventHandler(this.mnuClientContrat_Click);
+            this.mnuClientContrat.Click += new EventHandler(this.mnuClientContrat_Click);
             // 
             // menuItem2
             // 
@@ -278,7 +277,7 @@ namespace Barette.IDE.Forms {
             // 
             this.mnuClientAttestation.Index = 5;
             this.mnuClientAttestation.Text = "Attestation (Moto et Cyclomoteur)";
-            this.mnuClientAttestation.Click += new System.EventHandler(this.mnuClientAttestation_Click);
+            this.mnuClientAttestation.Click += new EventHandler(this.mnuClientAttestation_Click);
             // 
             // tbbSeparator
             // 
@@ -306,7 +305,7 @@ namespace Barette.IDE.Forms {
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "add-icon.png");
             this.imageList1.Images.SetKeyName(1, "delete-icon.png");
@@ -320,28 +319,28 @@ namespace Barette.IDE.Forms {
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 200;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new EventHandler(this.timer1_Tick);
             // 
             // AutoUpdateTimer
             // 
             this.AutoUpdateTimer.Enabled = true;
             this.AutoUpdateTimer.Interval = 250;
-            this.AutoUpdateTimer.Tick += new System.EventHandler(this.AutoUpdateTimer_Tick);
+            this.AutoUpdateTimer.Tick += new EventHandler(this.AutoUpdateTimer_Tick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 54);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            this.label1.Location = new Point(3, 54);
+            this.label1.Margin = new Padding(3, 1, 3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.Size = new Size(114, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "Recherche No. client :";
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -350,24 +349,24 @@ namespace Barette.IDE.Forms {
             this.splitContainer1.Panel1.Controls.Add(this.lstNumeroClient);
             this.splitContainer1.Panel1.Controls.Add(this.toolBar1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Resize += new System.EventHandler(this.splitContainer1_Panel1_Resize);
+            this.splitContainer1.Panel1.Resize += new EventHandler(this.splitContainer1_Panel1_Resize);
             this.splitContainer1.Panel1MinSize = 326;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.clientControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1027, 625);
+            this.splitContainer1.Size = new Size(1027, 625);
             this.splitContainer1.SplitterDistance = 326;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 15;
-            this.splitContainer1.DoubleClick += new System.EventHandler(this.splitContainer1_DoubleClick);
+            this.splitContainer1.DoubleClick += new EventHandler(this.splitContainer1_DoubleClick);
             // 
             // lvClient
             // 
-            this.lvClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvClient.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvClient.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvClient.Columns.AddRange(new ColumnHeader[] {
             this.colhClientName,
             this.colhClientNumber,
             this.colhClientNoGroup});
@@ -382,25 +381,25 @@ namespace Barette.IDE.Forms {
             listViewGroup4.Name = "Moto";
             listViewGroup5.Header = "Cours Terminé";
             listViewGroup5.Name = "CoursTermine";
-            this.lvClient.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            this.lvClient.Groups.AddRange(new ListViewGroup[] {
             listViewGroup1,
             listViewGroup2,
             listViewGroup3,
             listViewGroup4,
             listViewGroup5});
             this.lvClient.HideSelection = false;
-            this.lvClient.Location = new System.Drawing.Point(4, 76);
+            this.lvClient.Location = new Point(4, 76);
             this.lvClient.MultiSelect = false;
             this.lvClient.Name = "lvClient";
             this.lvClient.ShowItemToolTips = true;
-            this.lvClient.Size = new System.Drawing.Size(310, 537);
+            this.lvClient.Size = new Size(310, 537);
             this.lvClient.SmallImageList = this.ImageListSmall;
             this.lvClient.TabIndex = 0;
             this.lvClient.UseCompatibleStateImageBehavior = false;
             this.lvClient.View = System.Windows.Forms.View.Details;
-            this.lvClient.SelectedIndexChanged += new System.EventHandler(this.lvClient_SelectedIndexChanged);
-            this.lvClient.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lvClient_KeyDown);
-            this.lvClient.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lvClient_MouseUp);
+            this.lvClient.SelectedIndexChanged += new EventHandler(this.lvClient_SelectedIndexChanged);
+            this.lvClient.KeyDown += new KeyEventHandler(this.lvClient_KeyDown);
+            this.lvClient.MouseUp += new MouseEventHandler(this.lvClient_MouseUp);
             // 
             // colhClientName
             // 
@@ -421,17 +420,17 @@ namespace Barette.IDE.Forms {
             // 
             // lstNumeroClient
             // 
-            this.lstNumeroClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lstNumeroClient.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstNumeroClient.FormattingEnabled = true;
-            this.lstNumeroClient.Location = new System.Drawing.Point(123, 51);
-            this.lstNumeroClient.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.lstNumeroClient.Location = new Point(123, 51);
+            this.lstNumeroClient.Margin = new Padding(3, 3, 3, 1);
             this.lstNumeroClient.Name = "lstNumeroClient";
-            this.lstNumeroClient.Size = new System.Drawing.Size(192, 21);
+            this.lstNumeroClient.Size = new Size(192, 21);
             this.lstNumeroClient.Sorted = true;
             this.lstNumeroClient.TabIndex = 13;
-            this.lstNumeroClient.SelectedIndexChanged += new System.EventHandler(this.lstNumeroClient_SelectedIndexChanged);
-            this.lstNumeroClient.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstNumeroClient_KeyDown);
+            this.lstNumeroClient.SelectedIndexChanged += new EventHandler(this.lstNumeroClient_SelectedIndexChanged);
+            this.lstNumeroClient.KeyDown += new KeyEventHandler(this.lstNumeroClient_KeyDown);
             // 
             // clientControl1
             // 
@@ -440,18 +439,18 @@ namespace Barette.IDE.Forms {
             customer1.AttestationNumber1 = "";
             customer1.AttestationNumber2 = "";
             customer1.BVA = false;
-            customer1.BVADate = new System.DateTime(2010, 3, 12, 8, 33, 17, 367);
+            customer1.BVADate = new DateTime(2010, 3, 12, 8, 33, 17, 367);
             customer1.City = "";
             customer1.ClientNull = false;
             customer1.CodePostal = "   -";
             customer1.ContratNumber = "0";
-            customer1.DateAttestation1 = new System.DateTime(2010, 6, 23, 11, 10, 33, 591);
-            customer1.DateAttestation2 = new System.DateTime(2010, 6, 23, 11, 10, 33, 591);
-            customer1.DateDebutCours = new System.DateTime(2010, 3, 12, 8, 33, 17, 570);
-            customer1.DateExpiration = new System.DateTime(2010, 3, 12, 8, 33, 17, 570);
-            customer1.DateInscription = new System.DateTime(2010, 3, 12, 8, 33, 17, 367);
-            customer1.DateNaissance = new System.DateTime(2010, 3, 12, 8, 33, 17, 570);
-            customer1.DateTemporaire = new System.DateTime(2010, 3, 12, 8, 33, 17, 367);
+            customer1.DateAttestation1 = new DateTime(2010, 6, 23, 11, 10, 33, 591);
+            customer1.DateAttestation2 = new DateTime(2010, 6, 23, 11, 10, 33, 591);
+            customer1.DateDebutCours = new DateTime(2010, 3, 12, 8, 33, 17, 570);
+            customer1.DateExpiration = new DateTime(2010, 3, 12, 8, 33, 17, 570);
+            customer1.DateInscription = new DateTime(2010, 3, 12, 8, 33, 17, 367);
+            customer1.DateNaissance = new DateTime(2010, 3, 12, 8, 33, 17, 570);
+            customer1.DateTemporaire = new DateTime(2010, 3, 12, 8, 33, 17, 367);
             customer1.DisponibilityAlway = false;
             customer1.DisponibilityAM = false;
             customer1.DisponibilityDimanche = false;
@@ -485,82 +484,82 @@ namespace Barette.IDE.Forms {
             customer1.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
             this.clientControl1.Client = customer1;
             this.clientControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clientControl1.Location = new System.Drawing.Point(0, 0);
+            this.clientControl1.Location = new Point(0, 0);
             this.clientControl1.Name = "clientControl1";
             this.clientControl1.School = null;
-            this.clientControl1.Size = new System.Drawing.Size(695, 625);
+            this.clientControl1.Size = new Size(695, 625);
             this.clientControl1.TabIndex = 10;
             // 
             // cmStripClientList
             // 
-            this.cmStripClientList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmStripClientList.Items.AddRange(new ToolStripItem[] {
             this.rafraichirToolStripMenuItem,
             this.toolStripSeparator2,
             this.imprimerToolStripMenuItem,
             this.toolStripSeparator3,
             this.supprimerLeClientToolStripMenuItem});
             this.cmStripClientList.Name = "cmStripClientList";
-            this.cmStripClientList.Size = new System.Drawing.Size(174, 82);
+            this.cmStripClientList.Size = new Size(174, 82);
             // 
             // rafraichirToolStripMenuItem
             // 
             this.rafraichirToolStripMenuItem.Name = "rafraichirToolStripMenuItem";
-            this.rafraichirToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.rafraichirToolStripMenuItem.Size = new Size(173, 22);
             this.rafraichirToolStripMenuItem.Text = "Rafraichir";
-            this.rafraichirToolStripMenuItem.Click += new System.EventHandler(this.menuRefresh_Click);
+            this.rafraichirToolStripMenuItem.Click += new EventHandler(this.menuRefresh_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator2.Size = new Size(170, 6);
             // 
             // imprimerToolStripMenuItem
             // 
-            this.imprimerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.imprimerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] {
             this.informationSurLeClientToolStripMenuItem,
             this.toolStripSeparator1,
             this.contratToolStripMenuItem});
             this.imprimerToolStripMenuItem.Name = "imprimerToolStripMenuItem";
-            this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.imprimerToolStripMenuItem.Size = new Size(173, 22);
             this.imprimerToolStripMenuItem.Text = "Imprimer";
             // 
             // informationSurLeClientToolStripMenuItem
             // 
             this.informationSurLeClientToolStripMenuItem.Name = "informationSurLeClientToolStripMenuItem";
-            this.informationSurLeClientToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.informationSurLeClientToolStripMenuItem.Size = new Size(200, 22);
             this.informationSurLeClientToolStripMenuItem.Text = "Information sur le client";
-            this.informationSurLeClientToolStripMenuItem.Click += new System.EventHandler(this.menuPrint_Click);
+            this.informationSurLeClientToolStripMenuItem.Click += new EventHandler(this.menuPrint_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
+            this.toolStripSeparator1.Size = new Size(197, 6);
             // 
             // contratToolStripMenuItem
             // 
             this.contratToolStripMenuItem.Name = "contratToolStripMenuItem";
-            this.contratToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.contratToolStripMenuItem.Size = new Size(200, 22);
             this.contratToolStripMenuItem.Text = "Contrat du client";
-            this.contratToolStripMenuItem.Click += new System.EventHandler(this.menuPrintContrat_Click);
+            this.contratToolStripMenuItem.Click += new EventHandler(this.menuPrintContrat_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator3.Size = new Size(170, 6);
             // 
             // supprimerLeClientToolStripMenuItem
             // 
             this.supprimerLeClientToolStripMenuItem.Name = "supprimerLeClientToolStripMenuItem";
-            this.supprimerLeClientToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.supprimerLeClientToolStripMenuItem.Size = new Size(173, 22);
             this.supprimerLeClientToolStripMenuItem.Text = "Supprimer le client";
-            this.supprimerLeClientToolStripMenuItem.Click += new System.EventHandler(this.menuDeleteClient_Click);
+            this.supprimerLeClientToolStripMenuItem.Click += new EventHandler(this.menuDeleteClient_Click);
             // 
             // FormClients
             // 
-            this.ClientSize = new System.Drawing.Size(1027, 625);
+            this.ClientSize = new Size(1027, 625);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormClients";
-            this.Load += new System.EventHandler(this.FormClients_Load);
+            this.Load += new EventHandler(this.FormClients_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -705,7 +704,7 @@ namespace Barette.IDE.Forms {
             return DialogResult.No;
         }
 
-        private void toolBar1_ButtonClick(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e) {
+        private void toolBar1_ButtonClick(object sender, ToolBarButtonClickEventArgs e) {
             switch (e.Button.Tag.ToString()) {
                 case "ADD":
                     FormAjoutClient frmAddClient = new FormAjoutClient(this, _InfoSchool, _AppConfig);
@@ -735,7 +734,7 @@ namespace Barette.IDE.Forms {
             }
         }
 
-        private void timer1_Tick(object sender, System.EventArgs e) {
+        private void timer1_Tick(object sender, EventArgs e) {
             if (lvClient.SelectedItems.Count > 0) {
                 clientControl1.Enabled = true;
                 tbbDeleteClient.Enabled = true;
@@ -755,7 +754,7 @@ namespace Barette.IDE.Forms {
             }
         }
 
-        private void lvClient_SelectedIndexChanged(object sender, System.EventArgs e) {
+        private void lvClient_SelectedIndexChanged(object sender, EventArgs e) {
             if (lvClient.SelectedItems.Count > 0) {
                 //Reasignation
                 clientControl1.Client = _ClientList.GetClient(lvClient.SelectedItems[0].SubItems[1].Text);
@@ -768,7 +767,7 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Mise a jour automatique du client en cour d'édition
         /// </summary>		
-        private void AutoUpdateTimer_Tick(object sender, System.EventArgs e) {
+        private void AutoUpdateTimer_Tick(object sender, EventArgs e) {
             if (clientControl1.AutoUpdate == true)
                 ApplyModification();
         }
@@ -817,7 +816,7 @@ namespace Barette.IDE.Forms {
                 lstNumeroClient.Items.Add(client.ContratNumber);
         }
 
-        private void lstNumeroClient_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e) {
+        private void lstNumeroClient_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Return) {
                 if (lstNumeroClient.Text != "") {
                     SelectionClient(lstNumeroClient.Text);
@@ -825,7 +824,7 @@ namespace Barette.IDE.Forms {
             }
         }
 
-        private void lstNumeroClient_SelectedIndexChanged(object sender, System.EventArgs e) {
+        private void lstNumeroClient_SelectedIndexChanged(object sender, EventArgs e) {
             if (lstNumeroClient.Text != "") {
                 SelectionClient(lstNumeroClient.Text);
             }
@@ -834,7 +833,7 @@ namespace Barette.IDE.Forms {
         /// <summary>
         /// Réagir aux touche du clavier dans la liste de client
         /// </summary>        
-        private void lvClient_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e) {
+        private void lvClient_KeyDown(object sender, KeyEventArgs e) {
             switch (e.KeyCode) {
                 case Keys.Delete:
                     DeleteSelectedClient();
@@ -860,7 +859,7 @@ namespace Barette.IDE.Forms {
 
             var listdoublon = from V in _ClientList.Cast<Customer>()
                               group V by V.ContratNumber into M
-                              where M.Count<Customer>() > 1
+                              where M.Count() > 1
                               select M;
 
             foreach (var client in listdoublon) {
@@ -880,25 +879,25 @@ namespace Barette.IDE.Forms {
 
         }
 
-        private void menuDeleteClient_Click(object sender, System.EventArgs e) {
+        private void menuDeleteClient_Click(object sender, EventArgs e) {
             DeleteSelectedClient();
             RefreshFindList();
         }
 
-        private void menuRefresh_Click(object sender, System.EventArgs e) {
+        private void menuRefresh_Click(object sender, EventArgs e) {
             RefreshClientList(_AppConfig);
             RefreshFindList();
         }
 
-        private void cbClientName_CheckedChanged(object sender, System.EventArgs e) {
+        private void cbClientName_CheckedChanged(object sender, EventArgs e) {
 
         }
 
-        private void menuPrint_Click(object sender, System.EventArgs e) {
+        private void menuPrint_Click(object sender, EventArgs e) {
             clientControl1.PrintDoc(Barette.Library.UserControls.Client.PrintDocumentType.InfoClient);
         }
 
-        private void menuPrintContrat_Click(object sender, System.EventArgs e) {
+        private void menuPrintContrat_Click(object sender, EventArgs e) {
             clientControl1.PrintDoc(Barette.Library.UserControls.Client.PrintDocumentType.Contract);
         }
 

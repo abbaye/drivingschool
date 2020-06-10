@@ -10,22 +10,18 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
-using System.Data;
 using System.Drawing;
 using System.Reflection;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Crownwood.Magic.Menus;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Controls;
 using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Controls
 {
-	public class TabGroupLeaf : TabGroupBase
+    public class TabGroupLeaf : TabGroupBase
 	{
 	    // Class constants
 	    protected const int _imageWidth = 16;
@@ -49,7 +45,7 @@ namespace Crownwood.Magic.Controls
         protected Cursor _savedCursor;
         protected bool _dragEntered;
         protected TargetManager _targetManager;
-        protected Controls.TabControl _tabControl;
+        protected TabControl _tabControl;
 
         static TabGroupLeaf()
         {
@@ -63,13 +59,15 @@ namespace Crownwood.Magic.Controls
 		public TabGroupLeaf(TabbedGroups tabbedGroups, TabGroupBase parent)
 		    : base(tabbedGroups, parent)
 		{
-		    // Create our managed tab control instance
-		    _tabControl = new Controls.TabControl();
-		    
-		    // We need page drag to begin when mouse dragged a small distance
-		    _tabControl.DragFromControl = false;
-		    
-		    // We need to monitor attempts to drag into the tab control
+            // Create our managed tab control instance
+            _tabControl = new TabControl
+            {
+
+                // We need page drag to begin when mouse dragged a small distance
+                DragFromControl = false
+            };
+
+            // We need to monitor attempts to drag into the tab control
             _dragEntered = false;
             _tabControl.AllowDrop = true;
             _tabControl.DragDrop += new DragEventHandler(OnControlDragDrop);
@@ -149,7 +147,7 @@ namespace Crownwood.Magic.Controls
 			}
 		}
 
-		protected void DefinePopupMenuForControl(Controls.TabControl tabControl)
+		protected void DefinePopupMenuForControl(TabControl tabControl)
         {
             PopupMenu pm = new PopupMenu();
             
@@ -255,7 +253,7 @@ namespace Crownwood.Magic.Controls
             xmlOut.WriteAttributeString("Space", _space.ToString());
 
             // Output each tab page
-            foreach(Controls.TabPage tp in _tabControl.TabPages)
+            foreach(TabPage tp in _tabControl.TabPages)
             {
                 string controlType = "null";
                 
@@ -306,7 +304,7 @@ namespace Crownwood.Magic.Controls
                 // Must always be a page instance
                 if (xmlIn.Name == "Page")
                 {
-                    Controls.TabPage tp = new Controls.TabPage();
+                    TabPage tp = new TabPage();
 
                     // Grab the expected attributes
                     string title = xmlIn.GetAttribute(0);
@@ -644,7 +642,7 @@ namespace Crownwood.Magic.Controls
             // Make new leaf the active one
             _tabbedGroups.ActiveLeaf = leaf;
                 
-            TabControl tc = leaf.GroupControl as Controls.TabControl;
+            TabControl tc = leaf.GroupControl as TabControl;
                 
             // Select the newly added page
             tc.SelectedTab = tp;
@@ -681,9 +679,9 @@ namespace Crownwood.Magic.Controls
                 else
                     newGroup = tgs.InsertNewLeaf(pos + 1);
             }
-                     
+
             // Get tab control for source leaf
-            Controls.TabControl tc = sourceLeaf.GroupControl as Controls.TabControl;
+            TabControl tc = sourceLeaf.GroupControl as TabControl;
                         
             TabPage tp = tc.SelectedTab;
 

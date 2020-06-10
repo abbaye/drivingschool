@@ -1,22 +1,18 @@
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
 using UtilityLibrary.Win32;
 using UtilityLibrary.General;
 
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for TreeViewEx.
-	/// </summary>
-	public class TreeViewEx : System.Windows.Forms.TreeView
-	{
+    /// <summary>
+    /// Summary description for TreeViewEx.
+    /// </summary>
+    public class TreeViewEx : TreeView
+    {
 		bool itemHasFocus = false;
 		
 		public TreeViewEx()
@@ -146,12 +142,14 @@ namespace UtilityLibrary.WinControls
 		string GetItemText(IntPtr hTreeItem)
 		{
             string text;
-			TVITEM tvi = new TVITEM();
-			tvi.hItem = hTreeItem;
-			tvi.mask = (int)TreeViewItemFlags.TVIF_TEXT;
-			tvi.cchTextMax = 80;
-			tvi.pszText = Marshal.AllocHGlobal(80);
-			WindowsAPI.SendMessage(Handle, (int)TreeViewMessages.TVM_GETITEMW, 0, ref tvi);
+            TVITEM tvi = new TVITEM
+            {
+                hItem = hTreeItem,
+                mask = (int)TreeViewItemFlags.TVIF_TEXT,
+                cchTextMax = 80,
+                pszText = Marshal.AllocHGlobal(80)
+            };
+            WindowsAPI.SendMessage(Handle, (int)TreeViewMessages.TVM_GETITEMW, 0, ref tvi);
 			text = Marshal.PtrToStringAuto(tvi.pszText);
 			return text;
 		}

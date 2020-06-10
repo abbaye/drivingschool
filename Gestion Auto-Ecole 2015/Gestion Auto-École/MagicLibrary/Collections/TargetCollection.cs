@@ -9,10 +9,8 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
 using Crownwood.Magic.Controls;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Collections
 {

@@ -1,14 +1,11 @@
-using System;
 using System.Windows.Forms;
-using System.Drawing;
-using UtilityLibrary.Menus;
 
 namespace UtilityLibrary.CommandBars
 {
-	/// <summary>
-	/// Summary description for PopopMenu.
-	/// </summary>
-	public class CommandBarMenu : ContextMenu
+    /// <summary>
+    /// Summary description for PopopMenu.
+    /// </summary>
+    public class CommandBarMenu : ContextMenu
 	{
 		// This is just to keep track of the selected
 		// menu as well as hold the menuitems in the menubar

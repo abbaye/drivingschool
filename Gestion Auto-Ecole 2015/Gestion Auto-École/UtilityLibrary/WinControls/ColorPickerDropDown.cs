@@ -1,27 +1,23 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
-using System.Diagnostics;
 using UtilityLibrary.General;
-using UtilityLibrary.WinControls;
 using UtilityLibrary.Win32;
 
 namespace UtilityLibrary.WinControls
 {
-	#region Delegates
-	public delegate void ColorChangeEventHandler(object sender, ColorChangeArgs e);
+    #region Delegates
+    public delegate void ColorChangeEventHandler(object sender, ColorChangeArgs e);
 	#endregion
 
 	#region Helper Classes
 	[ToolboxItem(false)]
 	public class ColorChangeArgs: EventArgs
 	{
-		#region Class Variables
-		Color newColor;
-		string senderName;
+        #region Class Variables
+        readonly Color newColor;
+        readonly string senderName;
 		#endregion
 		
 		#region Constructors
@@ -50,20 +46,20 @@ namespace UtilityLibrary.WinControls
 	/// <summary>
 	/// Summary description for ColorPickerDropDown.
 	/// </summary>
-	public class ColorPickerDropDown : System.Windows.Forms.Form
-	{
+	public class ColorPickerDropDown : Form
+    {
 		
 		#region Events
 		public event ColorChangeEventHandler ColorChanged;
 		#endregion
 		
 		#region Class Variables
-		private System.Windows.Forms.TabControl tabControl;
-		private ColorListBox webColorsList;
-		private ColorListBox systemColorsList;
-		private System.Windows.Forms.TabPage customColorsPage;
-		private System.Windows.Forms.TabPage webColorsPage;
-		private System.Windows.Forms.TabPage systemColorsPage;
+		private TabControl tabControl;
+		private readonly ColorListBox webColorsList;
+		private readonly ColorListBox systemColorsList;
+		private TabPage customColorsPage;
+		private TabPage webColorsPage;
+		private TabPage systemColorsPage;
 		private const int CUSTOM_COLORS_COUNT = 64;
 		private const int CUSTOM_COLOR_WIDTH = 20;
 		private const int CUSTOM_COLOR_HEIGHT = 20;
@@ -77,10 +73,10 @@ namespace UtilityLibrary.WinControls
 		private Color currentColor;
 		private bool exitLoop = false;
 		
-		static Rectangle[] customColorsRects = new Rectangle[64];
+		static readonly Rectangle[] customColorsRects = new Rectangle[64];
 
         #region Custom Colors Array
-		static Color[] customColors = {
+		static readonly Color[] customColors = {
 										  Color.FromArgb(255,255,255), Color.FromArgb(224,224,224), Color.FromArgb(192,192,192),
 										  Color.FromArgb(128,128,128), Color.FromArgb(64,64,64), Color.FromArgb(0,0,0),
 										  Color.White, Color.White,
@@ -117,7 +113,7 @@ namespace UtilityLibrary.WinControls
 		/// <summary> 
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
+		private readonly Container components = null;
 
 		#endregion
 			
@@ -257,41 +253,41 @@ namespace UtilityLibrary.WinControls
 			// customColorsPage
 			// 
 			this.customColorsPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.customColorsPage.Location = new System.Drawing.Point(4, 22);
+			this.customColorsPage.Location = new Point(4, 22);
 			this.customColorsPage.Name = "customColorsPage";
-			this.customColorsPage.Size = new System.Drawing.Size(178, 188);
+			this.customColorsPage.Size = new Size(178, 188);
 			this.customColorsPage.TabIndex = 0;
 			this.customColorsPage.Text = "Custom";
-			this.customColorsPage.Click += new System.EventHandler(this.customColorsPage_Click);
-			this.customColorsPage.Paint += new System.Windows.Forms.PaintEventHandler(this.customColorsPage_Paint);
-			this.customColorsPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.customColorsPage_MouseDown);
+			this.customColorsPage.Click += new EventHandler(this.customColorsPage_Click);
+			this.customColorsPage.Paint += new PaintEventHandler(this.customColorsPage_Paint);
+			this.customColorsPage.MouseDown += new MouseEventHandler(this.customColorsPage_MouseDown);
 		
 			// 
 			// webColorsList
 			// 
 			this.webColorsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.webColorsList.Location = new System.Drawing.Point(6, 4);
+			this.webColorsList.Location = new Point(6, 4);
 			this.webColorsList.Name = "webColorsList";
-			this.webColorsList.Size = new System.Drawing.Size(178, 188);
+			this.webColorsList.Size = new Size(178, 188);
 			this.webColorsList.TabIndex = 0;
-			this.webColorsList.Click += new System.EventHandler(this.webColorsList_Click);
-			this.webColorsPage.Controls.AddRange(new System.Windows.Forms.Control[] {
+			this.webColorsList.Click += new EventHandler(this.webColorsList_Click);
+			this.webColorsPage.Controls.AddRange(new Control[] {
 																						this.webColorsList});
 			// 
 			// systemColorsList
 			// 
 			this.systemColorsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.systemColorsList.Location = new System.Drawing.Point(8, 8);
+			this.systemColorsList.Location = new Point(8, 8);
 			this.systemColorsList.Name = "systemColorsList";
-			this.systemColorsList.Size = new System.Drawing.Size(178, 188);
+			this.systemColorsList.Size = new Size(178, 188);
 			this.systemColorsList.TabIndex = 0;
-			this.systemColorsList.Click += new System.EventHandler(this.systemColorsList_Click);
-			this.systemColorsPage.Controls.AddRange(new System.Windows.Forms.Control[] {
+			this.systemColorsList.Click += new EventHandler(this.systemColorsList_Click);
+			this.systemColorsPage.Controls.AddRange(new Control[] {
 																						   this.systemColorsList});
 
 		}
 
-		void customColorsPage_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+		void customColorsPage_Paint(object sender, PaintEventArgs e)
 		{
 			// Paint custom colors
             Graphics g = e.Graphics;
@@ -329,7 +325,7 @@ namespace UtilityLibrary.WinControls
 			customColorsRectsSaved = true;
 		}
 
-		void customColorsPage_Click(object sender, System.EventArgs e)
+		void customColorsPage_Click(object sender, EventArgs e)
 		{
 
 			// Get current mouse position
@@ -342,9 +338,11 @@ namespace UtilityLibrary.WinControls
 				int index = -1;
 				if ( IsSpareColor(clientMousePos, ref index)) 
 				{
-					CustomColorDlg dlg = new CustomColorDlg();
-					dlg.CurrentColor = customColors[index];
-					if ( dlg.ShowDialog(this) == DialogResult.OK )
+                    CustomColorDlg dlg = new CustomColorDlg
+                    {
+                        CurrentColor = customColors[index]
+                    };
+                    if ( dlg.ShowDialog(this) == DialogResult.OK )
 					{
 						customColors[index] = dlg.CurrentColor;
 						ColorChangeArgs ca = new ColorChangeArgs(dlg.CurrentColor, "CustomTab");
@@ -407,7 +405,7 @@ namespace UtilityLibrary.WinControls
 			return false;
 		}
 
-		void customColorsPage_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+		void customColorsPage_MouseDown(object sender, MouseEventArgs e)
 		{
 			if ( e.Button == MouseButtons.Right ) 
 			{
@@ -415,7 +413,7 @@ namespace UtilityLibrary.WinControls
 			}
 		}
 
-		void tabControl_SelectedIndexChanged(object sender, System.EventArgs e)
+		void tabControl_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			int index = tabControl.SelectedIndex;
 			if ( index == 1 )
@@ -425,7 +423,7 @@ namespace UtilityLibrary.WinControls
 		
 		}
 
-		void webColorsList_Click(object sender, System.EventArgs e)
+		void webColorsList_Click(object sender, EventArgs e)
 		{
             Color color = Color.FromName(webColorsList.Text);
 			ColorChangeArgs ca = new ColorChangeArgs(color, "WebTab");
@@ -435,7 +433,7 @@ namespace UtilityLibrary.WinControls
 
 		}
 
-		void systemColorsList_Click(object sender, System.EventArgs e)
+		void systemColorsList_Click(object sender, EventArgs e)
 		{
 			Color color = Color.FromName(systemColorsList.Text);
 			currentColor = color;
@@ -484,7 +482,7 @@ namespace UtilityLibrary.WinControls
             return false;
 		}
 
-		void ColorPickerDropDown_VisibleChanged(object sender, System.EventArgs e)
+		void ColorPickerDropDown_VisibleChanged(object sender, EventArgs e)
 		{
 		
 			if ( !Visible ) 
@@ -538,8 +536,8 @@ namespace UtilityLibrary.WinControls
 
 		void StartPeekMessageLoop()
 		{
-			// Create an object for storing windows message information
-			Win32.MSG msg = new Win32.MSG();
+            // Create an object for storing windows message information
+            MSG msg = new MSG();
 			bool leaveMsg = false;
 			
 			// Process messages until exit condition recognised
@@ -581,8 +579,8 @@ namespace UtilityLibrary.WinControls
 								// Is the mouse event for this popup window?
 								if ((msg.hwnd != this.Handle && !IsChild(msg.hwnd)) )
 								{
-									// Eat the message to prevent the destination getting it
-									Win32.MSG eat = new Win32.MSG();
+                                    // Eat the message to prevent the destination getting it
+                                    MSG eat = new MSG();
 									WindowsAPI.GetMessage(ref eat, 0, 0, 0);
 
 									// Do not attempt to pull a message off the queue as it has already
@@ -617,69 +615,69 @@ namespace UtilityLibrary.WinControls
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.tabControl = new System.Windows.Forms.TabControl();
-			this.customColorsPage = new System.Windows.Forms.TabPage();
-			this.webColorsPage = new System.Windows.Forms.TabPage();
-			this.systemColorsPage = new System.Windows.Forms.TabPage();
+			this.tabControl = new TabControl();
+			this.customColorsPage = new TabPage();
+			this.webColorsPage = new TabPage();
+			this.systemColorsPage = new TabPage();
 			this.tabControl.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl
 			// 
-			this.tabControl.Controls.AddRange(new System.Windows.Forms.Control[] {
+			this.tabControl.Controls.AddRange(new Control[] {
 																					 this.customColorsPage,
 																					 this.webColorsPage,
 																					 this.systemColorsPage});
 			this.tabControl.Cursor = System.Windows.Forms.Cursors.Default;
-			this.tabControl.Location = new System.Drawing.Point(0, 4);
+			this.tabControl.Location = new Point(0, 4);
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
-			this.tabControl.Size = new System.Drawing.Size(200, 188);
+			this.tabControl.Size = new Size(200, 188);
 			this.tabControl.TabIndex = 0;
-			this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
+			this.tabControl.SelectedIndexChanged += new EventHandler(this.tabControl_SelectedIndexChanged);
 			// 
 			// customColorsPage
 			// 
 			this.customColorsPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.customColorsPage.Location = new System.Drawing.Point(4, 22);
+			this.customColorsPage.Location = new Point(4, 22);
 			this.customColorsPage.Name = "customColorsPage";
-			this.customColorsPage.Size = new System.Drawing.Size(192, 162);
+			this.customColorsPage.Size = new Size(192, 162);
 			this.customColorsPage.TabIndex = 0;
 			this.customColorsPage.Text = "Custom";
-			this.customColorsPage.Click += new System.EventHandler(this.customColorsPage_Click);
-			this.customColorsPage.Paint += new System.Windows.Forms.PaintEventHandler(this.customColorsPage_Paint);
-			this.customColorsPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.customColorsPage_MouseDown);
+			this.customColorsPage.Click += new EventHandler(this.customColorsPage_Click);
+			this.customColorsPage.Paint += new PaintEventHandler(this.customColorsPage_Paint);
+			this.customColorsPage.MouseDown += new MouseEventHandler(this.customColorsPage_MouseDown);
 			// 
 			// webColorsPage
 			// 
 			this.webColorsPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.webColorsPage.Location = new System.Drawing.Point(4, 22);
+			this.webColorsPage.Location = new Point(4, 22);
 			this.webColorsPage.Name = "webColorsPage";
-			this.webColorsPage.Size = new System.Drawing.Size(192, 162);
+			this.webColorsPage.Size = new Size(192, 162);
 			this.webColorsPage.TabIndex = 1;
 			this.webColorsPage.Text = "Web";
 			// 
 			// systemColorsPage
 			// 
 			this.systemColorsPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.systemColorsPage.Location = new System.Drawing.Point(4, 22);
+			this.systemColorsPage.Location = new Point(4, 22);
 			this.systemColorsPage.Name = "systemColorsPage";
-			this.systemColorsPage.Size = new System.Drawing.Size(192, 162);
+			this.systemColorsPage.Size = new Size(192, 162);
 			this.systemColorsPage.TabIndex = 2;
 			this.systemColorsPage.Text = "System";
 			// 
 			// ColorPickerDropDown
 			// 
 			this.AutoScaleMode  = AutoScaleMode.Dpi;
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(198, 215);
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
+			this.AutoScaleBaseSize = new Size(5, 13);
+			this.ClientSize = new Size(198, 215);
+			this.Controls.AddRange(new Control[] {
 																		  this.tabControl});
 			this.ForeColor = System.Drawing.SystemColors.Control;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "ColorPickerDropDown";
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-			this.VisibleChanged += new System.EventHandler(this.ColorPickerDropDown_VisibleChanged);
+			this.VisibleChanged += new EventHandler(this.ColorPickerDropDown_VisibleChanged);
 			this.tabControl.ResumeLayout(false);
 			this.ResumeLayout(false);
 

@@ -10,17 +10,15 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
 using System.Drawing;
 using System.Windows.Forms;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Controls;
 using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Controls
 {
-	public class TabGroupSequence : TabGroupBase, IResizeSource
+    public class TabGroupSequence : TabGroupBase, IResizeSource
 	{
 	    // Class fields
 	    protected const int SPACE_PRECISION = 3;

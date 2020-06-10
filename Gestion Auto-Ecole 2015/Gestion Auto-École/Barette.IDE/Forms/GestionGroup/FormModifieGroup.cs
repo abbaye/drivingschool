@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library;
 
-namespace Barette.IDE.Forms.GestionGroup {
+namespace Barette.IDE.Forms.GestionGroup
+{
     public partial class FormModifieGroup : Form {
 
         /// <summary>
         /// Liste de groupe
         /// </summary>
-        private StudentGroup _group;
+        private readonly StudentGroup _group;
         
         public FormModifieGroup(StudentGroup group) {
             InitializeComponent();

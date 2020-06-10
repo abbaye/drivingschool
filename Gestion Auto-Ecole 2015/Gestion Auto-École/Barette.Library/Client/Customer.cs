@@ -1,16 +1,15 @@
 using System;
-using System.Collections;
 using System.Linq;
-using System.Linq.Expressions;
 
 using Barette.Library.Collections;
 using System.Collections.Generic;
 
-namespace Barette.Library.Client {
-	/// <summary>
-	/// Description résumée de Class1.
-	/// </summary>
-	public class Customer : IComparable {
+namespace Barette.Library.Client
+{
+    /// <summary>
+    /// Description résumée de Class1.
+    /// </summary>
+    public class Customer : IComparable {
 		SeanceCollection _Seance = null;
         SeanceCollection _SeanceTheorique = null;
 		PaimentCollection _Paiment = null;

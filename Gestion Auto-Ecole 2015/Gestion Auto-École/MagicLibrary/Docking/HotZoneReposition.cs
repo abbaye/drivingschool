@@ -9,7 +9,6 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Crownwood.Magic.Common;

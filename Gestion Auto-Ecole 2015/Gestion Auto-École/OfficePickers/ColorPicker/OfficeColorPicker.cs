@@ -1,12 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using OfficePickers.Util;
-using OfficePickers.ColorPicker;
 
 namespace OfficePickers.ColorPicker
 {
@@ -94,11 +90,11 @@ namespace OfficePickers.ColorPicker
         /// <summary>
         /// Known colors list that user may select from 
         /// </summary>
-        private SelectableColor[] colors = new SelectableColor[40];
+        private readonly SelectableColor[] colors = new SelectableColor[40];
         /// <summary>
         /// Buttons rectangle definitions.
         /// </summary>
-        private Rectangle[] buttons = new Rectangle[41];
+        private readonly Rectangle[] buttons = new Rectangle[41];
         /// <summary>
         /// Hot Track index to paint its button with HotTrack color
         /// </summary>
@@ -369,9 +365,11 @@ namespace OfficePickers.ColorPicker
             Rectangle buttonRec = new Rectangle(x, y, 8 * 18 - 1, 22);
             // The text will be displayed in the center of the rectangle
             // using format string.
-            StringFormat format = new StringFormat();
-            format.Alignment = StringAlignment.Center;
-            format.LineAlignment = StringAlignment.Center;
+            StringFormat format = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
             Font buttonFont = new Font("Arial", 8);
             bool selected = _currentSelected == 40;
             bool hotTrack = _currentHotTrack == 40;

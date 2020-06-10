@@ -786,22 +786,22 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		// Hash index of string to be inserted
 		int ins_h;
 
-		/// <summary>
-		/// Hashtable, hashing three characters to an index for window, so
-		/// that window[index]..window[index+2] have this hash code.  
-		/// Note that the array should really be unsigned short, so you need
-		/// to and the values with 0xffff.
-		/// </summary>
-		short[] head;
+        /// <summary>
+        /// Hashtable, hashing three characters to an index for window, so
+        /// that window[index]..window[index+2] have this hash code.  
+        /// Note that the array should really be unsigned short, so you need
+        /// to and the values with 0xffff.
+        /// </summary>
+        readonly short[] head;
 
-		/// <summary>
-		/// <code>prev[index &amp; WMASK]</code> points to the previous index that has the
-		/// same hash code as the string starting at index.  This way 
-		/// entries with the same hash code are in a linked list.
-		/// Note that the array should really be unsigned short, so you need
-		/// to and the values with 0xffff.
-		/// </summary>
-		short[] prev;
+        /// <summary>
+        /// <code>prev[index &amp; WMASK]</code> points to the previous index that has the
+        /// same hash code as the string starting at index.  This way 
+        /// entries with the same hash code are in a linked list.
+        /// Note that the array should really be unsigned short, so you need
+        /// to and the values with 0xffff.
+        /// </summary>
+        readonly short[] prev;
 		
 		int    matchStart;
 		// Length of best match
@@ -823,11 +823,11 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// </summary>
 		int    lookahead;
 
-		/// <summary>
-		/// This array contains the part of the uncompressed stream that 
-		/// is of relevance.  The current character is indexed by strstart.
-		/// </summary>
-		byte[] window;
+        /// <summary>
+        /// This array contains the part of the uncompressed stream that 
+        /// is of relevance.  The current character is indexed by strstart.
+        /// </summary>
+        readonly byte[] window;
 		
 		DeflateStrategy strategy;
 		int max_chain, max_lazy, niceLength, goodLength;
@@ -856,14 +856,13 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// The end offset of the input data.
 		/// </summary>
 		int inputEnd;
-		
-		DeflaterPending pending;
-		DeflaterHuffman huffman;
-		
-		/// <summary>
-		/// The adler checksum
-		/// </summary>
-		Adler32 adler;
+        readonly DeflaterPending pending;
+        readonly DeflaterHuffman huffman;
+
+        /// <summary>
+        /// The adler checksum
+        /// </summary>
+        readonly Adler32 adler;
 		#endregion
 	}
 }

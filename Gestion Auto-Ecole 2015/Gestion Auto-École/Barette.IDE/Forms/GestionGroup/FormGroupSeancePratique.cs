@@ -1,35 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library;
 using Barette.Library.Client;
 using Barette.Library.Collections;
 
-namespace Barette.IDE.Forms.GestionGroup {
+namespace Barette.IDE.Forms.GestionGroup
+{
     public partial class FormGroupSeancePratique : Form {
 
         /// <summary>
         /// Liste de client
         /// </summary>
-        private CustomerCollection _ClientList;
+        private readonly CustomerCollection _ClientList;
 
         /// <summary>
         /// Liste d'employe
         /// </summary>
-        private EmployeCollection _EmployerList;
+        private readonly EmployeCollection _EmployerList;
 
         /// <summary>
         /// Groupe sur lequel les modification seront effectué
         /// </summary>
-        private StudentGroup _Groupe;
+        private readonly StudentGroup _Groupe;
 
-        private Config _AppConfig;
+        private readonly Config _AppConfig;
 
         public FormGroupSeancePratique(StudentGroup group, CustomerCollection clientlist, EmployeCollection EmployerList, Config appconfig) {
             InitializeComponent();

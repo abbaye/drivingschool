@@ -2,7 +2,6 @@ using System;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using UtilityLibrary.Collections;
 using UtilityLibrary.Win32;
@@ -10,12 +9,12 @@ using UtilityLibrary.General;
 
 namespace UtilityLibrary.CommandBars
 {
-	/// <summary>
-	/// Summary description for Rebar.
-	/// </summary>
-	public class ReBar : Control, IMessageFilter
+    /// <summary>
+    /// Summary description for Rebar.
+    /// </summary>
+    public class ReBar : Control, IMessageFilter
 	{
-		RebarBandCollection bands = new RebarBandCollection();
+        readonly RebarBandCollection bands = new RebarBandCollection();
 		static bool needsColorUpdate = false;
 		bool bGotIsCommonCtrl6 = false;
 		bool isCommonCtrl6 = false;
@@ -33,12 +32,14 @@ namespace UtilityLibrary.CommandBars
 		{
 			// Cache this value for efficenty
 			if ( bGotIsCommonCtrl6 == false )
-			{			
-				DLLVERSIONINFO dllVersion = new DLLVERSIONINFO();
-				// We are assummng here that anything greater or equal than 6
-				// will have the new XP theme drawing enable
-				dllVersion.cbSize = Marshal.SizeOf(typeof(DLLVERSIONINFO));
-				WindowsAPI.GetCommonControlDLLVersion(ref dllVersion);
+			{
+                DLLVERSIONINFO dllVersion = new DLLVERSIONINFO
+                {
+                    // We are assummng here that anything greater or equal than 6
+                    // will have the new XP theme drawing enable
+                    cbSize = Marshal.SizeOf(typeof(DLLVERSIONINFO))
+                };
+                WindowsAPI.GetCommonControlDLLVersion(ref dllVersion);
 				bGotIsCommonCtrl6 = true;
 				isCommonCtrl6 = (dllVersion.dwMajorVersion >= 6);
 			}
@@ -274,10 +275,12 @@ namespace UtilityLibrary.CommandBars
 		{
 			if (!RecreatingHandle)
 			{
-				INITCOMMONCONTROLSEX icex = new INITCOMMONCONTROLSEX();
-				icex.dwSize = Marshal.SizeOf(typeof(INITCOMMONCONTROLSEX));
-				icex.dwICC = (int)(CommonControlInitFlags.ICC_BAR_CLASSES | CommonControlInitFlags.ICC_COOL_CLASSES);
-				bool  fail = WindowsAPI.InitCommonControlsEx(icex);
+                INITCOMMONCONTROLSEX icex = new INITCOMMONCONTROLSEX
+                {
+                    dwSize = Marshal.SizeOf(typeof(INITCOMMONCONTROLSEX)),
+                    dwICC = (int)(CommonControlInitFlags.ICC_BAR_CLASSES | CommonControlInitFlags.ICC_COOL_CLASSES)
+                };
+                bool  fail = WindowsAPI.InitCommonControlsEx(icex);
 			}
 			base.CreateHandle();
 		}
@@ -470,20 +473,24 @@ namespace UtilityLibrary.CommandBars
 
 		REBARBANDINFO GetRebarInfo(int index)
 		{
-			REBARBANDINFO rbbi = new REBARBANDINFO();
-			rbbi.cbSize = Marshal.SizeOf(typeof(REBARBANDINFO));
-			rbbi.fMask = (int)(RebarInfoMask.RBBIM_ID|RebarInfoMask.RBBIM_IDEALSIZE);
-			WindowsAPI.SendMessage(Handle, (int)RebarMessages.RB_GETBANDINFOW, index, ref rbbi);
+            REBARBANDINFO rbbi = new REBARBANDINFO
+            {
+                cbSize = Marshal.SizeOf(typeof(REBARBANDINFO)),
+                fMask = (int)(RebarInfoMask.RBBIM_ID | RebarInfoMask.RBBIM_IDEALSIZE)
+            };
+            WindowsAPI.SendMessage(Handle, (int)RebarMessages.RB_GETBANDINFOW, index, ref rbbi);
 			return rbbi;
 		}
 		
 		REBARBANDINFO GetBandInfo(int index)
 		{
 			Control band = bands[index];
-			REBARBANDINFO rbbi = new REBARBANDINFO();
-			rbbi.cbSize = Marshal.SizeOf(typeof(REBARBANDINFO));
-					
-			if ( !IsCommonCtrl6() )
+            REBARBANDINFO rbbi = new REBARBANDINFO
+            {
+                cbSize = Marshal.SizeOf(typeof(REBARBANDINFO))
+            };
+
+            if ( !IsCommonCtrl6() )
 			{
 				rbbi.fMask = (int)RebarInfoMask.RBBIM_COLORS;
 				rbbi.clrBack = (int)ColorUtil.RGB(ColorUtil.VSNetControlColor.R,

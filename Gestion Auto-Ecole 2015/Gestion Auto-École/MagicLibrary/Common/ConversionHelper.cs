@@ -10,7 +10,6 @@
 // *****************************************************************************
 
 using System;
-using System.Text;
 using System.Drawing;
 
 namespace Crownwood.Magic.Common

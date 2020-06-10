@@ -10,14 +10,13 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
 using System.Xml;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Crownwood.Magic.Controls
 {
-	public abstract class TabGroupBase : IDisposable
+    public abstract class TabGroupBase : IDisposable
 	{
 	    public enum NotifyCode
 	    {

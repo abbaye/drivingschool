@@ -1,23 +1,22 @@
 using System;
 using System.Collections;
-using System.Windows.Forms;
 using UtilityLibrary.WinControls;
 
 namespace UtilityLibrary.Collections
 {
-	/// <summary>
-	/// Summary description for OutlookBarBandCollection.
-	/// </summary>
-	public class OutlookBarBandCollection  : System.Collections.CollectionBase, IEnumerable
+    /// <summary>
+    /// Summary description for OutlookBarBandCollection.
+    /// </summary>
+    public class OutlookBarBandCollection  : CollectionBase, IEnumerable
 	{
 		
 		#region Events
         public event EventHandler Changed;
-		#endregion
+        #endregion
 
-		#region Class Variables
-		// Back reference to the parent control
-		OutlookBar parentBar = null;
+        #region Class Variables
+        // Back reference to the parent control
+        readonly OutlookBar parentBar = null;
 		#endregion
 
 		#region Constructors

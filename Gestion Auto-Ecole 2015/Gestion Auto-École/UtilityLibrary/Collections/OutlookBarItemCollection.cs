@@ -1,21 +1,21 @@
 using System;
 using System.Collections;
-using System.Windows.Forms;
 using UtilityLibrary.WinControls;
 
 namespace UtilityLibrary.Collections
 {
-	/// <summary>
-	/// Summary description for OutlookBarItemCollection.
-	/// </summary>
-	public class OutlookBarItemCollection : IEnumerable
+    /// <summary>
+    /// Summary description for OutlookBarItemCollection.
+    /// </summary>
+    public class OutlookBarItemCollection : IEnumerable
 	{
 		public OutlookBarItemCollection()
 		{
 			
 		}
 		public event EventHandler Changed;
-		ArrayList items = new ArrayList();
+
+        readonly ArrayList items = new ArrayList();
 		
 		public IEnumerator GetEnumerator()
 		{

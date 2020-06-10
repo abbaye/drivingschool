@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library;
@@ -13,8 +8,8 @@ namespace Barette.IDE.Forms.InfoEcole
     public partial class FormInfoEcole : Form
     {
 
-        private SchoolInfo _InfoSchool;
-        private Config _appConfig;
+        private readonly SchoolInfo _InfoSchool;
+        private readonly Config _appConfig;
 
         public FormInfoEcole(SchoolInfo info, bool FirstRun, Config appconfig)
         {

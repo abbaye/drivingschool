@@ -1,10 +1,9 @@
-using System;
-
-namespace Barette.Library.Client {
-	/// <summary>
-	/// Type de vethicule
-	/// </summary>
-	public enum VehiculeType{
+namespace Barette.Library.Client
+{
+    /// <summary>
+    /// Type de vethicule
+    /// </summary>
+    public enum VehiculeType{
 		Manuel,
 		Cyclomoteur,
 		Automatique,

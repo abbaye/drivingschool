@@ -20,10 +20,10 @@ namespace Crownwood.Magic.Win32
         public static extern int CombineRgn(IntPtr dest, IntPtr src1, IntPtr src2, int flags);
 
         [DllImport("gdi32.dll", CharSet=CharSet.Auto)]
-        public static extern IntPtr CreateRectRgnIndirect(ref Win32.RECT rect); 
+        public static extern IntPtr CreateRectRgnIndirect(ref RECT rect); 
 
         [DllImport("gdi32.dll", CharSet=CharSet.Auto)]
-        public static extern int GetClipBox(IntPtr hDC, ref Win32.RECT rectBox); 
+        public static extern int GetClipBox(IntPtr hDC, ref RECT rectBox); 
 
         [DllImport("gdi32.dll", CharSet=CharSet.Auto)]
         public static extern int SelectClipRgn(IntPtr hDC, IntPtr hRgn); 

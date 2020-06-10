@@ -1,15 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 using Barette.Library.Client;
 using Barette.Library.Collections;
 
-namespace Barette.Library.UserControls.Schedule {
-	/// <summary>
-	/// CLASSE NON COMPLETE
-	/// </summary>
-	public class ScheduleOverlaps {
+namespace Barette.Library.UserControls.Schedule
+{
+    /// <summary>
+    /// CLASSE NON COMPLETE
+    /// </summary>
+    public class ScheduleOverlaps {
 		CustomerCollection _Clientlist = null;
 		string _Employe = null;
 

@@ -1,16 +1,14 @@
-using System;
-using System.Collections;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Barette.Library.UserControls {
-	/// <summary>
-	/// Combox Box supportant l'auto-complation
-	/// </summary>
-	public class ACComboBox : System.Windows.Forms.ComboBox {
+namespace Barette.Library.UserControls
+{
+    /// <summary>
+    /// Combox Box supportant l'auto-complation
+    /// </summary>
+    public class ACComboBox : ComboBox
+    {
 		private bool autoComplete;
 
 		[DefaultValue(true),
@@ -96,7 +94,7 @@ namespace Barette.Library.UserControls {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			components = new System.ComponentModel.Container();
+			components = new Container();
 		}
 		#endregion
 	}

@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
 
 using Barette.Library.Client;
 
-namespace Barette.Library.Collections {
-	/// <summary>
-	/// Collection de Paiment.
-	/// Des fonctions seront ajouté plus tard en rapport avec la collectionB
-	/// </summary>
-	public class PaimentCollection : CollectionWithEvents {
+namespace Barette.Library.Collections
+{
+    /// <summary>
+    /// Collection de Paiment.
+    /// Des fonctions seront ajouté plus tard en rapport avec la collectionB
+    /// </summary>
+    public class PaimentCollection : CollectionWithEvents {
 		public Paiement Add(Paiement value) {
 			base.List.Add(value as object);
 

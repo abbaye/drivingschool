@@ -1,29 +1,27 @@
 using System;
-using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 
 using Barette.Library.Client;
-using Barette.Library.UserControls.Client;
 using Barette.Library.Collections;
 
-namespace Barette.Library.UserControls.Client {
-	/// <summary>
-	/// Description résumée de FormSeanceMoto.
-	/// </summary>
-    public class FormSeanceMotocyclette : System.Windows.Forms.Form
+namespace Barette.Library.UserControls.Client
+{
+    /// <summary>
+    /// Description résumée de FormSeanceMoto.
+    /// </summary>
+    public class FormSeanceMotocyclette : Form
     {
 		/// <summary>
 		/// client referer
 		/// </summary>
-		private Customer _client;
-		private ClientControl _ctrlClient;
+		private readonly Customer _client;
+		private readonly ClientControl _ctrlClient;
 
-        private System.Windows.Forms.GroupBox groupBox1;
-		private Barette.Library.UserControls.SeancePicker seancePicker3;
-        private Barette.Library.UserControls.SeancePicker seancePicker2;
-        private Barette.Library.UserControls.SeancePicker seancePicker1;
+        private GroupBox groupBox1;
+		private SeancePicker seancePicker3;
+        private SeancePicker seancePicker2;
+        private SeancePicker seancePicker1;
 		private Button cmdPrint;
 		private ImageList imageList1;
         private IContainer components;
@@ -35,7 +33,7 @@ namespace Barette.Library.UserControls.Client {
         private Label label2;
         private Label label1;
 
-		private EmployeCollection _ListEmploye;
+		private readonly EmployeCollection _ListEmploye;
 
 		public FormSeanceMotocyclette(Customer client, ClientControl ctrl, EmployeCollection ListEmploye) {
 			//
@@ -75,24 +73,24 @@ namespace Barette.Library.UserControls.Client {
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeanceMotocyclette));
-            Barette.Library.Client.Seance seance1 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance2 = new Barette.Library.Client.Seance();
-            Barette.Library.Client.Seance seance3 = new Barette.Library.Client.Seance();
-            groupBox1 = new System.Windows.Forms.GroupBox();
-            cmdPrint = new System.Windows.Forms.Button();
-            imageList1 = new System.Windows.Forms.ImageList(components);
-            seancePicker3 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker2 = new Barette.Library.UserControls.SeancePicker();
-            seancePicker1 = new Barette.Library.UserControls.SeancePicker();
-            cmdAnnuler = new System.Windows.Forms.Button();
-            cmdOK = new System.Windows.Forms.Button();
-            label5 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
+            components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(FormSeanceMotocyclette));
+            Seance seance1 = new Seance();
+            Seance seance2 = new Seance();
+            Seance seance3 = new Seance();
+            groupBox1 = new GroupBox();
+            cmdPrint = new Button();
+            imageList1 = new ImageList(components);
+            seancePicker3 = new SeancePicker();
+            seancePicker2 = new SeancePicker();
+            seancePicker1 = new SeancePicker();
+            cmdAnnuler = new Button();
+            cmdOK = new Button();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -123,11 +121,11 @@ namespace Barette.Library.UserControls.Client {
             cmdPrint.Name = "cmdPrint";
             cmdPrint.Size = new System.Drawing.Size(51, 46);
             cmdPrint.TabIndex = 40;
-            cmdPrint.Click += new System.EventHandler(cmdPrintHorsRoute_Click);
+            cmdPrint.Click += new EventHandler(cmdPrintHorsRoute_Click);
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             // 
@@ -136,24 +134,24 @@ namespace Barette.Library.UserControls.Client {
             seancePicker3.Absence = false;
             seancePicker3.Checked = false;
             seancePicker3.Code = "";
-            seancePicker3.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 551);
+            seancePicker3.DateModified = new DateTime(2005, 2, 27, 8, 25, 29, 551);
             seancePicker3.DateModifiedChecked = false;
             seancePicker3.Employer = "";
             seancePicker3.Location = new System.Drawing.Point(19, 96);
-            seancePicker3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            seancePicker3.Margin = new Padding(3, 3, 3, 2);
             seancePicker3.Name = "seancePicker3";
             seancePicker3.NumeroSeance = 3;
             seance1.Absence = false;
             seance1.Active = false;
             seance1.Code = "";
-            seance1.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance1.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 551);
+            seance1.DateHeure = new DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance1.DateModified = new DateTime(2005, 2, 27, 8, 25, 29, 551);
             seance1.DateModifiedChecked = false;
             seance1.Employer = "";
             seance1.Montant = "";
             seance1.SceanceNumber = 3;
             seancePicker3.Seance = seance1;
-            seancePicker3.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seancePicker3.SeanceDateTime = new DateTime(2005, 2, 27, 7, 47, 43, 572);
             seancePicker3.Size = new System.Drawing.Size(786, 25);
             seancePicker3.TabIndex = 30;
             // 
@@ -162,7 +160,7 @@ namespace Barette.Library.UserControls.Client {
             seancePicker2.Absence = false;
             seancePicker2.Checked = false;
             seancePicker2.Code = "";
-            seancePicker2.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 571);
+            seancePicker2.DateModified = new DateTime(2005, 2, 27, 8, 25, 29, 571);
             seancePicker2.DateModifiedChecked = false;
             seancePicker2.Employer = "";
             seancePicker2.Location = new System.Drawing.Point(19, 68);
@@ -171,14 +169,14 @@ namespace Barette.Library.UserControls.Client {
             seance2.Absence = false;
             seance2.Active = false;
             seance2.Code = "";
-            seance2.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance2.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 571);
+            seance2.DateHeure = new DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance2.DateModified = new DateTime(2005, 2, 27, 8, 25, 29, 571);
             seance2.DateModifiedChecked = false;
             seance2.Employer = "";
             seance2.Montant = "";
             seance2.SceanceNumber = 2;
             seancePicker2.Seance = seance2;
-            seancePicker2.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seancePicker2.SeanceDateTime = new DateTime(2005, 2, 27, 7, 47, 43, 572);
             seancePicker2.Size = new System.Drawing.Size(786, 25);
             seancePicker2.TabIndex = 29;
             // 
@@ -187,7 +185,7 @@ namespace Barette.Library.UserControls.Client {
             seancePicker1.Absence = false;
             seancePicker1.Checked = false;
             seancePicker1.Code = "";
-            seancePicker1.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
+            seancePicker1.DateModified = new DateTime(2005, 2, 27, 8, 25, 29, 581);
             seancePicker1.DateModifiedChecked = false;
             seancePicker1.Employer = "";
             seancePicker1.Location = new System.Drawing.Point(19, 40);
@@ -196,20 +194,20 @@ namespace Barette.Library.UserControls.Client {
             seance3.Absence = false;
             seance3.Active = false;
             seance3.Code = "";
-            seance3.DateHeure = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
-            seance3.DateModified = new System.DateTime(2005, 2, 27, 8, 25, 29, 581);
+            seance3.DateHeure = new DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seance3.DateModified = new DateTime(2005, 2, 27, 8, 25, 29, 581);
             seance3.DateModifiedChecked = false;
             seance3.Employer = "";
             seance3.Montant = "";
             seance3.SceanceNumber = 1;
             seancePicker1.Seance = seance3;
-            seancePicker1.SeanceDateTime = new System.DateTime(2005, 2, 27, 7, 47, 43, 572);
+            seancePicker1.SeanceDateTime = new DateTime(2005, 2, 27, 7, 47, 43, 572);
             seancePicker1.Size = new System.Drawing.Size(786, 25);
             seancePicker1.TabIndex = 27;
             // 
             // cmdAnnuler
             // 
-            cmdAnnuler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAnnuler.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             cmdAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             cmdAnnuler.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
             cmdAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -219,11 +217,11 @@ namespace Barette.Library.UserControls.Client {
             cmdAnnuler.TabIndex = 30;
             cmdAnnuler.Text = "Annuler";
             cmdAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            cmdAnnuler.Click += new System.EventHandler(cmdCancel_Click);
+            cmdAnnuler.Click += new EventHandler(cmdCancel_Click);
             // 
             // cmdOK
             // 
-            cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdOK.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             cmdOK.Image = global::Barette.Library.Properties.Resources.accept_icon;
             cmdOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -233,13 +231,13 @@ namespace Barette.Library.UserControls.Client {
             cmdOK.TabIndex = 29;
             cmdOK.Text = "Appliquer";
             cmdOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            cmdOK.Click += new System.EventHandler(cmdOK_Click);
+            cmdOK.Click += new EventHandler(cmdOK_Click);
             // 
             // label5
             // 
             label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.Location = new System.Drawing.Point(606, 15);
-            label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label5.Margin = new Padding(3, 3, 3, 0);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(59, 23);
             label5.TabIndex = 45;
@@ -250,7 +248,7 @@ namespace Barette.Library.UserControls.Client {
             // 
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.Location = new System.Drawing.Point(289, 14);
-            label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label4.Margin = new Padding(3, 3, 3, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(128, 23);
             label4.TabIndex = 44;
@@ -261,7 +259,7 @@ namespace Barette.Library.UserControls.Client {
             // 
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.Location = new System.Drawing.Point(496, 14);
-            label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label3.Margin = new Padding(3, 3, 3, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(97, 23);
             label3.TabIndex = 43;
@@ -272,7 +270,7 @@ namespace Barette.Library.UserControls.Client {
             // 
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.Location = new System.Drawing.Point(423, 14);
-            label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label2.Margin = new Padding(3, 3, 3, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(57, 23);
             label2.TabIndex = 42;
@@ -283,7 +281,7 @@ namespace Barette.Library.UserControls.Client {
             // 
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.Location = new System.Drawing.Point(102, 14);
-            label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            label1.Margin = new Padding(3, 3, 3, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(200, 23);
             label1.TabIndex = 41;
@@ -308,11 +306,11 @@ namespace Barette.Library.UserControls.Client {
 		}
 		#endregion
 
-		private void cmdCancel_Click(object sender, System.EventArgs e) {
+		private void cmdCancel_Click(object sender, EventArgs e) {
             Close();
 		}
 
-		private void cmdOK_Click(object sender, System.EventArgs e) {
+		private void cmdOK_Click(object sender, EventArgs e) {
             //Suppression des seance en cours
             _client.Seances.Clear();
 

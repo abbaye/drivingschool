@@ -9,7 +9,7 @@ namespace Barette.Library.Listview
 	/// ref: ms-help://MS.VSCC.2003/MS.MSDNQTR.2003FEB.1036/cpref/html/frlrfsystemwindowsformslistviewclasslistviewitemsortertopic.htm
 	/// </summary>
 	public class ListViewItemComparer : IComparer {
-		private int col;
+		private readonly int col;
 
 		public ListViewItemComparer() {
 			col=0;

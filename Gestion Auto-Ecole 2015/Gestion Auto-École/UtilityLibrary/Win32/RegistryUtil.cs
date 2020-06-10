@@ -40,11 +40,11 @@ namespace UtilityLibrary.Win32
 			{
 				RegKey[regStrings.Length].SetValue(KeyName, KeyValue);     
 			}
-			catch (System.NullReferenceException)
+			catch (NullReferenceException)
 			{
 				throw(new Exception("Null Reference"));
 			}
-			catch (System.UnauthorizedAccessException)
+			catch (UnauthorizedAccessException)
 			{
     			throw(new Exception("Unauthorized Access"));
 			}

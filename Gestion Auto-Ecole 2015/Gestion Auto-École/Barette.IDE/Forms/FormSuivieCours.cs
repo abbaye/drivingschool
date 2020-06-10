@@ -1,27 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-
-using Barette.Library.Listview;
 using Barette.Library.Client;
 using Barette.Library.Collections;
 
-namespace Barette.IDE.Forms {
+namespace Barette.IDE.Forms
+{
     public partial class FormSuivieCours : Form {
 
         /// <summary>
         /// Represente une collection de client
         /// </summary>
-        CustomerCollection _clientlist = null;
+        readonly CustomerCollection _clientlist = null;
 
         /// <summary>
         /// Fenetre principal
         /// </summary>
-        FormMain _FormMain = null;
+        readonly FormMain _FormMain = null;
 
 
         public FormSuivieCours(CustomerCollection client, FormMain frmMain) {

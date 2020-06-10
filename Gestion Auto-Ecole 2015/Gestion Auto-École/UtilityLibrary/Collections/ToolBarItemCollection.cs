@@ -1,18 +1,18 @@
 using System;
-using System.Diagnostics;
 using System.Collections;
 using System.Windows.Forms;
 using UtilityLibrary.CommandBars;
 
 namespace UtilityLibrary.Collections
 {
-	/// <summary>
-	/// Summary description for ToolbarButtonCollection.
-	/// </summary>
-	public class ToolBarItemCollection : IEnumerable
+    /// <summary>
+    /// Summary description for ToolbarButtonCollection.
+    /// </summary>
+    public class ToolBarItemCollection : IEnumerable
 	{
 			public event EventHandler Changed;
-			ArrayList items = new ArrayList();
+
+        readonly ArrayList items = new ArrayList();
 
 			public IEnumerator GetEnumerator()
 			{

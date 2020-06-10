@@ -10,18 +10,13 @@
 // *****************************************************************************
 
 using System;
-using System.IO;
-using System.Text;
 using System.Drawing;
-using System.Resources;
-using System.Reflection;
 using System.Collections;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Imaging;
 using Microsoft.Win32;
-using Crownwood.Magic.Win32;
 using Crownwood.Magic.Menus;
 using Crownwood.Magic.Common;
 using Crownwood.Magic.Collections;
@@ -31,7 +26,7 @@ namespace Crownwood.Magic.Controls
     [ToolboxBitmap(typeof(TabControl))]
     [DefaultProperty("Appearance")]
     [DefaultEvent("SelectionChanged")]
-    [Designer(typeof(Crownwood.Magic.Controls.TabControlDesigner))]
+    [Designer(typeof(TabControlDesigner))]
     public class TabControl : Panel
     {
         // Enumeration of appearance styles
@@ -331,17 +326,21 @@ namespace Crownwood.Magic.Controls
 
             // Default to having a MultiForm usage
             SetAppearance(VisualAppearance.MultiForm);
-            
+
             // Need a timer so that when the mouse leaves, a fractionaly delay occurs before
             // noticing and hiding the tabs area when the appropriate style is set
-            _overTimer = new Timer();
-            _overTimer.Interval = _leaveTimeout;
+            _overTimer = new Timer
+            {
+                Interval = _leaveTimeout
+            };
             _overTimer.Tick += new EventHandler(OnMouseTick);
 
-			// Need a timer so that when the mouse hovers in drag over mode the page then changes
-			_dragTimer = new Timer();
-			_dragTimer.Interval = 200;
-			_dragTimer.Tick += new EventHandler(OnDragOverTick);
+            // Need a timer so that when the mouse hovers in drag over mode the page then changes
+            _dragTimer = new Timer
+            {
+                Interval = 200
+            };
+            _dragTimer.Tick += new EventHandler(OnDragOverTick);
 
             // Need notification when the MenuFont is changed
             Microsoft.Win32.SystemEvents.UserPreferenceChanged += 
@@ -369,7 +368,7 @@ namespace Crownwood.Magic.Controls
         }
 
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-		public new Control.ControlCollection Controls 
+		public new ControlCollection Controls 
 		{
 			get { return base.Controls; }
 		}
@@ -2823,11 +2822,13 @@ namespace Crownwood.Magic.Controls
 
                     // Ensure only a single line is draw from then left hand side of the
                     // rectangle and if to large for line to shows ellipsis for us
-                    StringFormat drawFormat = new StringFormat();
-                    drawFormat.FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap;
-                    drawFormat.Trimming = StringTrimming.EllipsisCharacter;
-                    drawFormat.Alignment = StringAlignment.Center;
-                    drawFormat.HotkeyPrefix = HotkeyPrefix.Show;
+                    StringFormat drawFormat = new StringFormat
+                    {
+                        FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap,
+                        Trimming = StringTrimming.EllipsisCharacter,
+                        Alignment = StringAlignment.Center,
+                        HotkeyPrefix = HotkeyPrefix.Show
+                    };
 
                     // Find the vertical drawing limits for text
                     int yStart = rectTab.Top + _position[_styleIndex, (int)PositionIndex.ImageGapTop];

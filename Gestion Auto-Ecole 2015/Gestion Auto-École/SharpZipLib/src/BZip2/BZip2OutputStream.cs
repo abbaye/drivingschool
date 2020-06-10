@@ -1820,28 +1820,25 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		index in zptr[] of original string after sorting.
 		--*/
 		int origPtr;
-		
-		/*--
+
+        /*--
 		always: in the range 0 .. 9.
 		The current block size is 100000 * this number.
 		--*/
-		int blockSize100k;
+        readonly int blockSize100k;
 		
 		bool blockRandomised;
 		
 		int bytesOut;
 		int bsBuff;
 		int bsLive;
-		IChecksum mCrc = new StrangeCRC();
-		
-		bool[] inUse = new bool[256];
+        readonly IChecksum mCrc = new StrangeCRC();
+        readonly bool[] inUse = new bool[256];
 		int nInUse;
-		
-		char[] seqToUnseq = new char[256];
-		char[] unseqToSeq = new char[256];
-		
-		char[] selector = new char[BZip2Constants.MaximumSelectors];
-		char[] selectorMtf = new char[BZip2Constants.MaximumSelectors];
+        readonly char[] seqToUnseq = new char[256];
+        readonly char[] unseqToSeq = new char[256];
+        readonly char[] selector = new char[BZip2Constants.MaximumSelectors];
+        readonly char[] selectorMtf = new char[BZip2Constants.MaximumSelectors];
 		
 		byte[]  block;
 		int[]   quadrant;
@@ -1850,15 +1847,14 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		int[]   ftab;
 		
 		int nMTF;
-		
-		int[] mtfFreq = new int[BZip2Constants.MaximumAlphaSize];
-		
-		/*
+        readonly int[] mtfFreq = new int[BZip2Constants.MaximumAlphaSize];
+
+        /*
 		* Used when sorting.  If too many long comparisons
 		* happen, we stop sorting, randomise the block
 		* slightly, and try again.
 		*/
-		int workFactor;
+        readonly int workFactor;
 		int workDone;
 		int workLimit;
 		bool firstAttempt;

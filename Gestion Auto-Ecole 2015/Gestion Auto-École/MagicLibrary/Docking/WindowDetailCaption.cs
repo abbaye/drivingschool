@@ -14,7 +14,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing.Imaging;
-using Microsoft.Win32;
 using Crownwood.Magic.Common;
 using Crownwood.Magic.Controls;
 

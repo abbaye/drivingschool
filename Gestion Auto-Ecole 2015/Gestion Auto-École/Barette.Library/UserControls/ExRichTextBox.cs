@@ -5,17 +5,17 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Windows.Forms;
 
 //Créé par Khendys en 2005
 //Modifié par Derek Tremblay
 
-namespace Barette.Library.UserControls.Khendys.Controls {
+namespace Barette.Library.UserControls.Khendys.Controls
+{
 
-	#region Public Enums
+    #region Public Enums
 
-	// Enum for possible RTF colors
-	public enum RtfColor {
+    // Enum for possible RTF colors
+    public enum RtfColor {
 		Black, Maroon, Green, Olive, Navy, Purple, Teal, Gray, Silver,
 		Red, Lime, Yellow, Blue, Fuchsia, Aqua, White
 	}
@@ -146,16 +146,16 @@ namespace Barette.Library.UserControls.Khendys.Controls {
 		private RtfColor highlightColor;
 
 		// Dictionary that maps color enums to RTF color codes
-		private HybridDictionary rtfColor;
+		private readonly HybridDictionary rtfColor;
 
 		// Dictionary that mapas Framework font families to RTF font families
-		private HybridDictionary rtfFontFamily;
+		private readonly HybridDictionary rtfFontFamily;
 
 		// The horizontal resolution at which the control is being displayed
-		private float xDpi;
+		private readonly float xDpi;
 
 		// The vertical resolution at which the control is being displayed
-		private float yDpi;
+		private readonly float yDpi;
 
 		#endregion
 
@@ -190,7 +190,7 @@ namespace Barette.Library.UserControls.Khendys.Controls {
 		 * */
 		private const string RTF_DOCUMENT_PRE = @"\viewkind4\uc1\pard\cf1\f0\fs20";
 		private const string RTF_DOCUMENT_POST = @"\cf0\fs17}";
-		private string RTF_IMAGE_POST = @"}";
+		private readonly string RTF_IMAGE_POST = @"}";
 
 		#endregion
 
@@ -678,7 +678,7 @@ namespace Barette.Library.UserControls.Khendys.Controls {
 		/// <param name="_flags">
 		/// Flags used to specify the format of the Windows Metafile returned
 		/// </param>
-		[DllImportAttribute("gdiplus.dll")]
+		[DllImport("gdiplus.dll")]
 		private static extern uint GdipEmfToWmfBits (IntPtr _hEmf, uint _bufferSize,
 			byte[] _buffer, int _mappingMode, EmfToWmfBitsFlags _flags);
 

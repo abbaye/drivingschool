@@ -13,14 +13,11 @@ using System;
 using System.IO;
 using System.Xml;
 using System.Text;
-using System.Data;
 using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Crownwood.Magic.Win32;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Controls;
 
 namespace Crownwood.Magic.Controls
 {
@@ -107,14 +104,14 @@ namespace Crownwood.Magic.Controls
         protected VisualStyle _style;
 	
 	    // Delegates for events
-	    public delegate void TabControlCreatedHandler(TabbedGroups tg, Controls.TabControl tc);
+	    public delegate void TabControlCreatedHandler(TabbedGroups tg, TabControl tc);
 	    public delegate void PageCloseRequestHandler(TabbedGroups tg, TGCloseRequestEventArgs e);
         public delegate void PageContextMenuHandler(TabbedGroups tg, TGContextMenuEventArgs e);
         public delegate void GlobalSavingHandler(TabbedGroups tg, XmlTextWriter xmlOut);
         public delegate void GlobalLoadingHandler(TabbedGroups tg, XmlTextReader xmlIn);
         public delegate void PageSavingHandler(TabbedGroups tg, TGPageSavingEventArgs e);
         public delegate void PageLoadingHandler(TabbedGroups tg, TGPageLoadingEventArgs e);
-        public delegate void ExternalDropHandler(TabbedGroups tg, TabGroupLeaf tgl, Controls.TabControl tc, DragProvider dp);
+        public delegate void ExternalDropHandler(TabbedGroups tg, TabGroupLeaf tgl, TabControl tc, DragProvider dp);
 	
 	    // Instance events
 	    public event TabControlCreatedHandler TabControlCreated;
@@ -759,7 +756,7 @@ namespace Crownwood.Magic.Controls
                     if (_activeLeaf != null)
                     {
                         // Get access to the contained tab control
-                        TabControl tc = _activeLeaf.GroupControl as Controls.TabControl;
+                        TabControl tc = _activeLeaf.GroupControl as TabControl;
                         
 						try{
 							// Remove bold text for the selected page
@@ -774,7 +771,7 @@ namespace Crownwood.Magic.Controls
                     if (value != null)
                     {
                         // Get access to the contained tab control
-                        TabControl tc = value.GroupControl as Controls.TabControl;
+                        TabControl tc = value.GroupControl as TabControl;
                         
                         // Remove bold text for the selected page
                         tc.BoldSelectedPage = true;
@@ -973,7 +970,7 @@ namespace Crownwood.Magic.Controls
             }
         }
         
-        public virtual void OnTabControlCreated(Controls.TabControl tc)
+        public virtual void OnTabControlCreated(TabControl tc)
         {
 			// Only modify leaf count when not suspended
 			if (_suspendLeafCount == 0)
@@ -1070,7 +1067,7 @@ namespace Crownwood.Magic.Controls
                 DirtyChanged(this, e);
         }
 
-        public virtual void OnExternalDrop(TabGroupLeaf tgl, Controls.TabControl tc, DragProvider dp)
+        public virtual void OnExternalDrop(TabGroupLeaf tgl, TabControl tc, DragProvider dp)
         {
             // Has anyone registered for the event?
             if (ExternalDrop != null)
@@ -1138,11 +1135,13 @@ namespace Crownwood.Magic.Controls
 
         public void SaveConfigToStream(Stream stream, Encoding encoding)
         {
-            XmlTextWriter xmlOut = new XmlTextWriter(stream, encoding); 
+            XmlTextWriter xmlOut = new XmlTextWriter(stream, encoding)
+            {
 
-            // Use indenting for readability
-            xmlOut.Formatting = Formatting.Indented;
-			
+                // Use indenting for readability
+                Formatting = Formatting.Indented
+            };
+
             // Always begin file with identification and warning
             xmlOut.WriteStartDocument();
             xmlOut.WriteComment(" Magic, The User Interface library for .NET (www.dotnetmagic.com) ");
@@ -1205,10 +1204,12 @@ namespace Crownwood.Magic.Controls
 
         public void LoadConfigFromStream(Stream stream)
         {
-            XmlTextReader xmlIn = new XmlTextReader(stream); 
+            XmlTextReader xmlIn = new XmlTextReader(stream)
+            {
 
-            // Ignore whitespace, not interested
-            xmlIn.WhitespaceHandling = WhitespaceHandling.None;
+                // Ignore whitespace, not interested
+                WhitespaceHandling = WhitespaceHandling.None
+            };
 
             // Moves the reader to the root element.
             xmlIn.MoveToContent();
@@ -1639,7 +1640,7 @@ namespace Crownwood.Magic.Controls
             // Must have an active leaf for shortcuts to operate against
             if (_activeLeaf != null)
             {
-                Controls.TabControl tc = _activeLeaf.GroupControl as Controls.TabControl;
+                TabControl tc = _activeLeaf.GroupControl as TabControl;
             
                 // Must have an active tab for these shortcuts to work against
                 if (tc.SelectedTab != null)
@@ -1732,7 +1733,7 @@ namespace Crownwood.Magic.Controls
                 do
                 {
                     // Access to the embedded tab control
-                    Controls.TabControl tc = thisLeaf.GroupControl as Controls.TabControl;
+                    TabControl tc = thisLeaf.GroupControl as TabControl;
                 
                     // Does it have any pages?
                     if (tc.TabPages.Count > 0)
@@ -1801,7 +1802,7 @@ namespace Crownwood.Magic.Controls
                 do
                 {
                     // Access to the embedded tab control
-                    Controls.TabControl tc = thisLeaf.GroupControl as Controls.TabControl;
+                    TabControl tc = thisLeaf.GroupControl as TabControl;
                 
                     // Does it have any pages?
                     if (tc.TabPages.Count > 0)

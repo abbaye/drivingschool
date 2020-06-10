@@ -8,14 +8,13 @@ using System.Diagnostics;
 using System.Reflection;
 
 using UtilityLibrary.General;
-using UtilityLibrary.Win32;
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for TextComboBox.
-	/// </summary>
-	[ToolboxItem(false)]
+    /// <summary>
+    /// Summary description for TextComboBox.
+    /// </summary>
+    [ToolboxItem(false)]
 	public class TextComboBox : ComboBoxBase
 	{
 	

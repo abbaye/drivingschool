@@ -10,10 +10,7 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
-using Crownwood.Magic.Common;
 using Crownwood.Magic.Controls;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Collections
 {

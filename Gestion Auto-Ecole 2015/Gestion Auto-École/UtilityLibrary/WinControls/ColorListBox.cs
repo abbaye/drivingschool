@@ -1,22 +1,18 @@
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
-using System.Drawing.Design;
 
 using UtilityLibrary.General;
 
-namespace UtilityLibrary.WinControls 
+namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for ColorListBox.
-	/// </summary>
-	[ToolboxBitmap(typeof(UtilityLibrary.WinControls.ColorListBox), 
+    /// <summary>
+    /// Summary description for ColorListBox.
+    /// </summary>
+    [ToolboxBitmap(typeof(ColorListBox), 
 		 "UtilityLibrary.WinControls.ColorListBox.bmp")]
-	public class ColorListBox : System.Windows.Forms.ListBox
-	{
+	public class ColorListBox : ListBox
+    {
 		
 		#region Class variables
 		string[] colorArray = null;
@@ -49,7 +45,7 @@ namespace UtilityLibrary.WinControls
 		#endregion
 		
 		#region Properties
-		public  new ListBox.ObjectCollection Items
+		public  new ObjectCollection Items
 		{
 			get{ return base.Items; }
 		}

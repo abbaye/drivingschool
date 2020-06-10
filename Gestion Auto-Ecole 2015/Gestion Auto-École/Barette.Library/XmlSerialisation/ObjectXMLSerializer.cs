@@ -2,12 +2,12 @@ using System;
 using System.Xml.Serialization;	 //For serialization of an object to an XML Document file.
 using System.Runtime.Serialization.Formatters.Binary; // For serialization of an object to an XML Binary file.
 using System.IO;				 //For reading/writing data to an XML file.
-using System.ComponentModel;	 //For error messsages.
 using System.IO.IsolatedStorage; //For accessing user isolated data.
 
-namespace Barette.Library.XmlSerialisation {
+namespace Barette.Library.XmlSerialisation
+{
 
-	public enum SerializedFormatType {
+    public enum SerializedFormatType {
 		Binary, Document
 	}	
 

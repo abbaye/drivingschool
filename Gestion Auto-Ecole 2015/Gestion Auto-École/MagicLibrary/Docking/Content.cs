@@ -14,7 +14,6 @@ using System.Xml;
 using System.Drawing;
 using System.Windows.Forms;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Docking;
 
 namespace Crownwood.Magic.Docking
 {

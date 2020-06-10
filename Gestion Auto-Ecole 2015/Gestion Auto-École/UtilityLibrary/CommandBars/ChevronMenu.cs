@@ -1,4 +1,3 @@
-using System;
 using System.Windows.Forms;
 using System.Drawing;
 using UtilityLibrary.Collections;
@@ -7,10 +6,10 @@ using UtilityLibrary.WinControls;
 
 namespace UtilityLibrary.CommandBars
 {
-	/// <summary>
-	/// Summary description for ToolBarItemMenu.
-	/// </summary>
-	public class ChevronMenu : PopupMenu
+    /// <summary>
+    /// Summary description for ToolBarItemMenu.
+    /// </summary>
+    public class ChevronMenu : PopupMenu
 	{
 		ToolBarItemCollection items = new ToolBarItemCollection();
 		

@@ -11,16 +11,14 @@
 
 using System;
 using System.Drawing;
-using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Crownwood.Magic.Win32;
-using Crownwood.Magic.Docking;
 using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Docking
 {
-	public class FloatingForm : Form, IHotZoneSource, IMessageFilter
+    public class FloatingForm : Form, IHotZoneSource, IMessageFilter
 	{
 		// Class constants
 		private const int HITTEST_CAPTION = 2;
@@ -337,7 +335,7 @@ namespace Crownwood.Magic.Docking
 			base.OnClosing(e);
 		}
 
-        protected override void OnResize(System.EventArgs e)
+        protected override void OnResize(EventArgs e)
         {
             // Grab the aggregate collection of all Content objects in the Zone
             ContentCollection cc = ZoneHelper.Contents(_zone);
@@ -413,8 +411,8 @@ namespace Crownwood.Magic.Docking
 						// Ensure that we gain focus and look active
 						this.Activate();
 
-						// Get mouse position to inscreen coordinates
-						Win32.POINT mousePos;
+                        // Get mouse position to inscreen coordinates
+                        POINT mousePos;
 						mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
 						mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
 
@@ -436,7 +434,7 @@ namespace Crownwood.Magic.Docking
 			{
 				if (_intercept)
 				{
-					Win32.POINT mousePos;
+                    POINT mousePos;
 					mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
 					mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
 
@@ -451,7 +449,7 @@ namespace Crownwood.Magic.Docking
 			{
 				if (_intercept)
 				{
-					Win32.POINT mousePos;
+                    POINT mousePos;
 					mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
 					mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
 
@@ -471,7 +469,7 @@ namespace Crownwood.Magic.Docking
 			{
 				if (_intercept)
 				{
-					Win32.POINT mousePos;
+                    POINT mousePos;
 					mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
 					mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
 		
@@ -503,8 +501,8 @@ namespace Crownwood.Magic.Docking
 			{
 			    if (!_intercept)
 			    {
-				    // Get screen coordinates of the mouse
-                    Win32.POINT mousePos;
+                    // Get screen coordinates of the mouse
+                    POINT mousePos;
                     mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
                     mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
         			

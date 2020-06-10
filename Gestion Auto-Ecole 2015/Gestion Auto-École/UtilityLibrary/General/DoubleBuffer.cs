@@ -1,12 +1,11 @@
-using System;
 using System.Drawing;
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for BitmapDoubleBuffer.
-	/// </summary>
-	public class DoubleBuffer
+    /// <summary>
+    /// Summary description for BitmapDoubleBuffer.
+    /// </summary>
+    public class DoubleBuffer
 	{
 		int bufferWidth;
 		int bufferHeight;

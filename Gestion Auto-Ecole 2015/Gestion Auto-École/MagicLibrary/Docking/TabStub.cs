@@ -15,9 +15,7 @@ using System.Collections;
 using System.Windows.Forms;
 using System.ComponentModel;
 using Microsoft.Win32;
-using Crownwood.Magic.Win32;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Controls;
 using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Docking
@@ -29,16 +27,16 @@ namespace Crownwood.Magic.Docking
 		{
 			protected int _index;
 			protected Rectangle _drawRect;
-            protected Crownwood.Magic.Controls.TabPage _tabPage;
+            protected Controls.TabPage _tabPage;
 
-			public DrawTab(Crownwood.Magic.Controls.TabPage tabPage, Rectangle drawRect, int index)
+			public DrawTab(Controls.TabPage tabPage, Rectangle drawRect, int index)
 			{
 				_index = index;
 				_tabPage = tabPage;
 				_drawRect = drawRect;
 			}
 
-			public Crownwood.Magic.Controls.TabPage TabPage  { get { return _tabPage; } }
+			public Controls.TabPage TabPage  { get { return _tabPage; } }
             public Rectangle DrawRect                        { get { return _drawRect; } }
 			public int Index                                 { get { return _index; } }
 		}
@@ -102,10 +100,12 @@ namespace Crownwood.Magic.Docking
 			// Default default colors
 			DefineBackColor(SystemColors.Control);
 
-			// Create the Timer for handling hovering over items
-			_hoverTimer = new Timer();
-			_hoverTimer.Interval = _hoverInterval;
-			_hoverTimer.Tick += new EventHandler(OnTimerExpire);
+            // Create the Timer for handling hovering over items
+            _hoverTimer = new Timer
+            {
+                Interval = _hoverInterval
+            };
+            _hoverTimer.Tick += new EventHandler(OnTimerExpire);
 		}
 
         protected override void Dispose(bool disposing)
@@ -298,8 +298,8 @@ namespace Crownwood.Magic.Docking
 				_selectedIndex = index;
 			}
 
-			// Cast to correct type
-			Crownwood.Magic.Controls.TabPage page = value as Crownwood.Magic.Controls.TabPage;
+            // Cast to correct type
+            Controls.TabPage page = value as Controls.TabPage;
 
 			// Grab the content instance of the page
 			Content c = page.Tag as Content;
@@ -346,8 +346,8 @@ namespace Crownwood.Magic.Docking
 
         protected void OnRemovedPage(int index, object value)
         {
-			// Cast to correct type
-			Crownwood.Magic.Controls.TabPage page = value as Crownwood.Magic.Controls.TabPage;
+            // Cast to correct type
+            Controls.TabPage page = value as Controls.TabPage;
 
 			// Grab the content instance of the page
 			Content c = page.Tag as Content;
@@ -365,7 +365,7 @@ namespace Crownwood.Magic.Docking
 			bool update = false;
 
 			// Scan each tab page in turn
-			foreach(Crownwood.Magic.Controls.TabPage page in _tabPages)
+			foreach(Controls.TabPage page in _tabPages)
 			{
 				// Is this the page for the changed content?
 				if (page.Tag == obj)
@@ -580,7 +580,7 @@ namespace Crownwood.Magic.Docking
 			// Find largest space needed for drawing page text
 			using(Graphics g = this.CreateGraphics())
 			{
-				foreach(Crownwood.Magic.Controls.TabPage page in _tabPages)
+				foreach(Controls.TabPage page in _tabPages)
 				{
 					// Find width of the requested text
 					SizeF dimension = g.MeasureString(page.Title, this.Font);
@@ -864,8 +864,8 @@ namespace Crownwood.Magic.Docking
                     // Style specific cell outline drawing
                     DrawOutlineForCell(e.Graphics, borderPen, drawRect);
 
-					// Draw the image in the left/top of the cell
-					Crownwood.Magic.Controls.TabPage page = dt.TabPage;
+                    // Draw the image in the left/top of the cell
+                    Controls.TabPage page = dt.TabPage;
 
                     int xDraw;
                     int yDraw;
@@ -910,13 +910,15 @@ namespace Crownwood.Magic.Docking
 						{
 							Rectangle textRect;
 
-							StringFormat drawFormat = new StringFormat();
-						    drawFormat.FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap;
-							drawFormat.Alignment = StringAlignment.Center;
-							drawFormat.LineAlignment = StringAlignment.Center;
+                            StringFormat drawFormat = new StringFormat
+                            {
+                                FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap,
+                                Alignment = StringAlignment.Center,
+                                LineAlignment = StringAlignment.Center
+                            };
 
-							// Create text drawing rectangle
-							switch(_edge)
+                            // Create text drawing rectangle
+                            switch (_edge)
 							{
 								case Edge.Left:
 								case Edge.Right:

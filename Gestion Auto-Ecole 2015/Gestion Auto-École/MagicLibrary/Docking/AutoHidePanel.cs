@@ -347,13 +347,17 @@ namespace Crownwood.Magic.Docking
         protected void CreateTimers()
         {
             // Define the Sliding timer
-            _slideTimer = new Timer();
-            _slideTimer.Interval = _slideInterval;
+            _slideTimer = new Timer
+            {
+                Interval = _slideInterval
+            };
             _slideTimer.Tick += new EventHandler(OnSlideTick);
-            
+
             // Define the Dismiss timer
-            _dismissTimer = new Timer();
-            _dismissTimer.Interval = _dismissInterval;
+            _dismissTimer = new Timer
+            {
+                Interval = _dismissInterval
+            };
             _dismissTimer.Tick += new EventHandler(OnDismissTick);
         }
 
@@ -405,7 +409,7 @@ namespace Crownwood.Magic.Docking
             foreach(TabStub ts in this.Controls)
             {
                 // Test each page inside the TabStub
-                foreach(Crownwood.Magic.Controls.TabPage page in ts.TabPages)
+                foreach(Controls.TabPage page in ts.TabPages)
                 {
                     if (c.Title == (page.Tag as Content).Title)
                         return ts;
@@ -421,7 +425,7 @@ namespace Crownwood.Magic.Docking
             foreach(TabStub ts in this.Controls)
             {
                 // Test each page inside the TabStub
-                foreach(Crownwood.Magic.Controls.TabPage page in ts.TabPages)
+                foreach(Controls.TabPage page in ts.TabPages)
                 {
                     if (c.Title == (page.Tag as Content).Title)
                     {
@@ -460,7 +464,7 @@ namespace Crownwood.Magic.Docking
                 TabStub ts = this.Controls[controlIndex] as TabStub;
             
                 // Process each Page in the TabStub
-                foreach(Crownwood.Magic.Controls.TabPage page in ts.TabPages)
+                foreach(Controls.TabPage page in ts.TabPages)
                 {
                     Content content = page.Tag as Content;
 
@@ -538,7 +542,7 @@ namespace Crownwood.Magic.Docking
                 TabStub ts = this.Controls[controlIndex] as TabStub;
 
                 // Process each Page in the TabStub
-                foreach(Crownwood.Magic.Controls.TabPage page in ts.TabPages)
+                foreach(Controls.TabPage page in ts.TabPages)
                 {
                     Content c = page.Tag as Content;
 
@@ -610,20 +614,22 @@ namespace Crownwood.Magic.Docking
             {
                 // Remove Panel/WCT from display and stop timers
                 RemoveDisplayedWindow();
-            }                
-        
+            }
+
             // Create a new tab page
-            Crownwood.Magic.Controls.TabPage page = new Crownwood.Magic.Controls.TabPage();
-		        
-            // Copy across the visual properties
-            page.Title = content.Title;
-            page.ImageList = content.ImageList;
-            page.ImageIndex = content.ImageIndex;
-			page.Icon = content.Icon;
-                
-            // Remember reference to Content it represents
-            page.Tag = content;
-		        
+            Controls.TabPage page = new Controls.TabPage
+            {
+
+                // Copy across the visual properties
+                Title = content.Title,
+                ImageList = content.ImageList,
+                ImageIndex = content.ImageIndex,
+                Icon = content.Icon,
+
+                // Remember reference to Content it represents
+                Tag = content
+            };
+
             // Add into the stub
             ts.TabPages.Insert(index, page);
 		        
@@ -650,12 +656,14 @@ namespace Crownwood.Magic.Docking
         public void AddContentsAsGroup(ContentCollection contents, int index)
 		{
             // Create new TabStub to represent the Contents
-            TabStub ts = new TabStub(_manager.Style);
+            TabStub ts = new TabStub(_manager.Style)
+            {
 
-            // Set manager requested settings
-            ts.Font = _manager.CaptionFont;
-            ts.BackColor = _manager.BackColor;
-            ts.ForeColor = _manager.InactiveTextColor;
+                // Set manager requested settings
+                Font = _manager.CaptionFont,
+                BackColor = _manager.BackColor,
+                ForeColor = _manager.InactiveTextColor
+            };
 
             // Hook into events
             ts.PageOver += new TabStub.TabStubIndexHandler(OnPageOver);
@@ -666,17 +674,19 @@ namespace Crownwood.Magic.Docking
             foreach(Content c in contents)
             {
                 // Create page object
-                Crownwood.Magic.Controls.TabPage page = new Crownwood.Magic.Controls.TabPage();
-		        
-                // Copy across the visual properties
-                page.Title = c.Title;
-                page.ImageList = c.ImageList;
-                page.ImageIndex = c.ImageIndex;
-				page.Icon = c.Icon;
-                
-                // Remember reference to Content it represents
-                page.Tag = c;
-		        
+                Controls.TabPage page = new Controls.TabPage
+                {
+
+                    // Copy across the visual properties
+                    Title = c.Title,
+                    ImageList = c.ImageList,
+                    ImageIndex = c.ImageIndex,
+                    Icon = c.Icon,
+
+                    // Remember reference to Content it represents
+                    Tag = c
+                };
+
                 // Add into the stub
                 ts.TabPages.Add(page);
 		        
@@ -1026,13 +1036,13 @@ namespace Crownwood.Magic.Docking
         public void RemoveContent(Content c)
         {
             TabStub targetTS = null;
-            Crownwood.Magic.Controls.TabPage targetPage = null;
+            Controls.TabPage targetPage = null;
         
             // Find the TabStub group this content is inside
             foreach(TabStub ts in this.Controls)
             {
                 // Test each page of the TabStub control
-                foreach(Crownwood.Magic.Controls.TabPage page in ts.TabPages)
+                foreach(Controls.TabPage page in ts.TabPages)
                 {
                     Content pageC = page.Tag as Content;
                     
@@ -1577,7 +1587,7 @@ namespace Crownwood.Magic.Docking
                 switch(msg.Msg)
                 {
                     case (int)Win32.Msgs.WM_MOUSEMOVE:
-                        Win32.POINT screenPos;
+                        POINT screenPos;
                         screenPos.x = (int)((uint)msg.LParam & 0x0000FFFFU);
                         screenPos.y = (int)(((uint)msg.LParam & 0xFFFF0000U) >> 16);
 

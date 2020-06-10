@@ -1,23 +1,18 @@
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing.Text;
-using System.Diagnostics;
 using System.Security;
 using UtilityLibrary.Collections;
 using UtilityLibrary.Win32;
 using UtilityLibrary.General;
 using UtilityLibrary.WinControls;
-using UtilityLibrary.Menus;
 
 namespace UtilityLibrary.CommandBars
 {
-	
-	public enum BarType
+
+    public enum BarType
 	{
 		ToolBar = 0,
 		MenuBar = 1
@@ -26,14 +21,13 @@ namespace UtilityLibrary.CommandBars
 	/// <summary>
 	/// Summary description for ToolBarEx.
 	/// </summary>
-	public class ToolBarEx : System.Windows.Forms.Control, IChevron
+	public class ToolBarEx : Control, IChevron
 	{
-		
-		ToolBarItemCollection items = new ToolBarItemCollection();
+        readonly ToolBarItemCollection items = new ToolBarItemCollection();
 		ToolBarItem[] handledItems = new ToolBarItem[0];
 		bool[] handledItemsVisible = new bool[0];
-		ChevronMenu chevronMenu = new ChevronMenu();
-		BarType barType = BarType.ToolBar;
+        readonly ChevronMenu chevronMenu = new ChevronMenu();
+        readonly BarType barType = BarType.ToolBar;
 		const int DROWPDOWN_ARROW_WIDTH = 14;
 		const int MARGIN = 3;
 		const int MENUTEXT_MARGIN = 8;
@@ -56,7 +50,7 @@ namespace UtilityLibrary.CommandBars
 		bool trackEscapePressed = false;
 		IntPtr hookHandle = IntPtr.Zero;
 		bool doKeyboardSelect = false;
-		bool useNewRow = true;
+        readonly bool useNewRow = true;
 		
 		public ToolBarEx()
 		{
@@ -153,12 +147,14 @@ namespace UtilityLibrary.CommandBars
 		{
 			// Cache this value for efficenty
 			if ( bGotIsCommonCtrl6 == false )
-			{			
-				DLLVERSIONINFO dllVersion = new DLLVERSIONINFO();
-				// We are assummng here that anything greater or equal than 6
-				// will have the new XP theme drawing enable
-				dllVersion.cbSize = Marshal.SizeOf(typeof(DLLVERSIONINFO));
-				WindowsAPI.GetCommonControlDLLVersion(ref dllVersion);
+			{
+                DLLVERSIONINFO dllVersion = new DLLVERSIONINFO
+                {
+                    // We are assummng here that anything greater or equal than 6
+                    // will have the new XP theme drawing enable
+                    cbSize = Marshal.SizeOf(typeof(DLLVERSIONINFO))
+                };
+                WindowsAPI.GetCommonControlDLLVersion(ref dllVersion);
 				bGotIsCommonCtrl6 = true;
 				isCommonCtrl6 = (dllVersion.dwMajorVersion >= 6);
 			}
@@ -171,10 +167,12 @@ namespace UtilityLibrary.CommandBars
 			// Make sure common control library initilizes toolbars and rebars
 			if ( !RecreatingHandle )
 			{
-				INITCOMMONCONTROLSEX icex = new INITCOMMONCONTROLSEX();
-				icex.dwSize = Marshal.SizeOf(typeof(INITCOMMONCONTROLSEX));
-				icex.dwICC = (int)(CommonControlInitFlags.ICC_BAR_CLASSES | CommonControlInitFlags.ICC_COOL_CLASSES);
-				WindowsAPI.InitCommonControlsEx(icex);
+                INITCOMMONCONTROLSEX icex = new INITCOMMONCONTROLSEX
+                {
+                    dwSize = Marshal.SizeOf(typeof(INITCOMMONCONTROLSEX)),
+                    dwICC = (int)(CommonControlInitFlags.ICC_BAR_CLASSES | CommonControlInitFlags.ICC_COOL_CLASSES)
+                };
+                WindowsAPI.InitCommonControlsEx(icex);
 			}
 			
 			base.CreateHandle();
@@ -272,10 +270,12 @@ namespace UtilityLibrary.CommandBars
 
 		int HitTest(Point point)
 		{
-			POINT pt = new POINT();
-			pt.x = point.X;
-			pt.y = point.Y;
-			int hit = WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_HITTEST, 0, ref pt);
+            POINT pt = new POINT
+            {
+                x = point.X,
+                y = point.Y
+            };
+            int hit = WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_HITTEST, 0, ref pt);
 			if (hit > 0)
 			{
 				point = PointToScreen(point);
@@ -898,9 +898,11 @@ namespace UtilityLibrary.CommandBars
 					}
 				}
 
-				StringFormat stringFormat = new StringFormat();
-				stringFormat.HotkeyPrefix = HotkeyPrefix.Show;
-				g.DrawString(item.Text, SystemInformation.MenuFont, Brushes.Black, pos, stringFormat); 
+                StringFormat stringFormat = new StringFormat
+                {
+                    HotkeyPrefix = HotkeyPrefix.Show
+                };
+                g.DrawString(item.Text, SystemInformation.MenuFont, Brushes.Black, pos, stringFormat); 
 			}
 		
 			m.Result = (IntPtr) CustomDrawReturnFlags.CDRF_SKIPDEFAULT;
@@ -1071,19 +1073,21 @@ namespace UtilityLibrary.CommandBars
 		TBBUTTONINFO GetButtonInfo(int index)
 		{
 			ToolBarItem item = items[index];
-			TBBUTTONINFO tbi = new TBBUTTONINFO();
-			tbi.cbSize = Marshal.SizeOf(typeof(TBBUTTONINFO));
-			tbi.dwMask = (int)(ToolBarButtonInfoFlags.TBIF_IMAGE | ToolBarButtonInfoFlags.TBIF_STATE | 
-				 ToolBarButtonInfoFlags.TBIF_STYLE | ToolBarButtonInfoFlags.TBIF_COMMAND | ToolBarButtonInfoFlags.TBIF_SIZE);
-			tbi.idCommand = index;			
-			tbi.iImage = (int)ToolBarButtonInfoFlags.I_IMAGECALLBACK;
-			tbi.fsState = 0;
-			tbi.cx = 0;
-			tbi.lParam = IntPtr.Zero;
-			tbi.pszText = IntPtr.Zero;
-			tbi.cchText = 0;
-			
-			if ( item.Style == ToolBarItemStyle.ComboBox )
+            TBBUTTONINFO tbi = new TBBUTTONINFO
+            {
+                cbSize = Marshal.SizeOf(typeof(TBBUTTONINFO)),
+                dwMask = (int)(ToolBarButtonInfoFlags.TBIF_IMAGE | ToolBarButtonInfoFlags.TBIF_STATE |
+                 ToolBarButtonInfoFlags.TBIF_STYLE | ToolBarButtonInfoFlags.TBIF_COMMAND | ToolBarButtonInfoFlags.TBIF_SIZE),
+                idCommand = index,
+                iImage = (int)ToolBarButtonInfoFlags.I_IMAGECALLBACK,
+                fsState = 0,
+                cx = 0,
+                lParam = IntPtr.Zero,
+                pszText = IntPtr.Zero,
+                cchText = 0
+            };
+
+            if ( item.Style == ToolBarItemStyle.ComboBox )
 			{
 				tbi.fsStyle = (int)(ToolBarButtonStyles.TBSTYLE_BUTTON) ;
 				tbi.cx = (short)item.ComboBox.Width;
@@ -1167,9 +1171,11 @@ namespace UtilityLibrary.CommandBars
 			{
 				items[i].Index = i;
 				items[i].ToolBar = this;
-				TBBUTTON button = new TBBUTTON();
-				button.idCommand = i;
-				WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_INSERTBUTTON, i, ref button);
+                TBBUTTON button = new TBBUTTON
+                {
+                    idCommand = i
+                };
+                WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_INSERTBUTTON, i, ref button);
 	
 				TBBUTTONINFO tbi = GetButtonInfo(i);
 				WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_SETBUTTONINFOW, i, ref tbi);
@@ -1204,12 +1210,14 @@ namespace UtilityLibrary.CommandBars
 					if (image.Height > size.Height) size.Height = image.Height;
 				}
 			}
-	
-			imageList = new ImageList();
-			imageList.ImageSize = size;
-			imageList.ColorDepth = ColorDepth.Depth32Bit;		
 
-			for (int i = 0; i < items.Count; i++)
+            imageList = new ImageList
+            {
+                ImageSize = size,
+                ColorDepth = ColorDepth.Depth32Bit
+            };
+
+            for (int i = 0; i < items.Count; i++)
 			{
 				// Take combobox size into consideration too
 				if ( items[i].Style == ToolBarItemStyle.ComboBox )

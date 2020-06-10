@@ -14,7 +14,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Docking;
 using Crownwood.Magic.Controls;
 using Crownwood.Magic.Collections;
 

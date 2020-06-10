@@ -166,19 +166,18 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// unprocessed input.
 		/// </summary>
 		long totalIn;
-		
-		/// <summary>
-		/// This variable stores the noHeader flag that was given to the constructor.
-		/// True means, that the inflated stream doesn't contain a Zlib header or 
-		/// footer.
-		/// </summary>
-		bool noHeader;
-		
-		StreamManipulator input;
-		OutputWindow outputWindow;
+
+        /// <summary>
+        /// This variable stores the noHeader flag that was given to the constructor.
+        /// True means, that the inflated stream doesn't contain a Zlib header or 
+        /// footer.
+        /// </summary>
+        readonly bool noHeader;
+        readonly StreamManipulator input;
+        readonly OutputWindow outputWindow;
 		InflaterDynHeader dynHeader;
 		InflaterHuffmanTree litlenTree, distTree;
-		Adler32 adler;
+        readonly Adler32 adler;
 		#endregion
 		
 		#region Constructors
@@ -571,29 +570,29 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		{
 			SetDictionary(buffer, 0, buffer.Length);
 		}
-		
-		/// <summary>
-		/// Sets the preset dictionary.  This should only be called, if
-		/// needsDictionary() returns true and it should set the same
-		/// dictionary, that was used for deflating.  The getAdler()
-		/// function returns the checksum of the dictionary needed.
-		/// </summary>
-		/// <param name="buffer">
-		/// The dictionary.
-		/// </param>
-		/// <param name="index">
-		/// The index into buffer where the dictionary starts.
-		/// </param>
-		/// <param name="count">
-		/// The number of bytes in the dictionary.
-		/// </param>
-		/// <exception cref="System.InvalidOperationException">
-		/// No dictionary is needed.
-		/// </exception>
-		/// <exception cref="SharpZipBaseException">
-		/// The adler checksum for the buffer is invalid
-		/// </exception>
-		public void SetDictionary(byte[] buffer, int index, int count)
+
+        /// <summary>
+        /// Sets the preset dictionary.  This should only be called, if
+        /// needsDictionary() returns true and it should set the same
+        /// dictionary, that was used for deflating.  The getAdler()
+        /// function returns the checksum of the dictionary needed.
+        /// </summary>
+        /// <param name="buffer">
+        /// The dictionary.
+        /// </param>
+        /// <param name="index">
+        /// The index into buffer where the dictionary starts.
+        /// </param>
+        /// <param name="count">
+        /// The number of bytes in the dictionary.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// No dictionary is needed.
+        /// </exception>
+        /// <exception cref="SharpZipBaseException">
+        /// The adler checksum for the buffer is invalid
+        /// </exception>
+        public void SetDictionary(byte[] buffer, int index, int count)
 		{
 			if ( buffer == null ) {
 				throw new ArgumentNullException("buffer");
@@ -632,52 +631,52 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		{
 			SetInput(buffer, 0, buffer.Length);
 		}
-		
-		/// <summary>
-		/// Sets the input.  This should only be called, if needsInput()
-		/// returns true.
-		/// </summary>
-		/// <param name="buffer">
-		/// The source of input data
-		/// </param>
-		/// <param name="index">
-		/// The index into buffer where the input starts.
-		/// </param>
-		/// <param name="count">
-		/// The number of bytes of input to use.
-		/// </param>
-		/// <exception cref="System.InvalidOperationException">
-		/// No input is needed.
-		/// </exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// The index and/or count are wrong.
-		/// </exception>
-		public void SetInput(byte[] buffer, int index, int count)
+
+        /// <summary>
+        /// Sets the input.  This should only be called, if needsInput()
+        /// returns true.
+        /// </summary>
+        /// <param name="buffer">
+        /// The source of input data
+        /// </param>
+        /// <param name="index">
+        /// The index into buffer where the input starts.
+        /// </param>
+        /// <param name="count">
+        /// The number of bytes of input to use.
+        /// </param>
+        /// <exception cref="InvalidOperationException">
+        /// No input is needed.
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// The index and/or count are wrong.
+        /// </exception>
+        public void SetInput(byte[] buffer, int index, int count)
 		{
 			input.SetInput(buffer, index, count);
 			totalIn += (long)count;
 		}
-		
-		/// <summary>
-		/// Inflates the compressed stream to the output buffer.  If this
-		/// returns 0, you should check, whether IsNeedingDictionary(),
-		/// IsNeedingInput() or IsFinished() returns true, to determine why no
-		/// further output is produced.
-		/// </summary>
-		/// <param name="buffer">
-		/// the output buffer.
-		/// </param>
-		/// <returns>
-		/// The number of bytes written to the buffer, 0 if no further
-		/// output can be produced.
-		/// </returns>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// if buffer has length 0.
-		/// </exception>
-		/// <exception cref="System.FormatException">
-		/// if deflated stream is invalid.
-		/// </exception>
-		public int Inflate(byte[] buffer)
+
+        /// <summary>
+        /// Inflates the compressed stream to the output buffer.  If this
+        /// returns 0, you should check, whether IsNeedingDictionary(),
+        /// IsNeedingInput() or IsFinished() returns true, to determine why no
+        /// further output is produced.
+        /// </summary>
+        /// <param name="buffer">
+        /// the output buffer.
+        /// </param>
+        /// <returns>
+        /// The number of bytes written to the buffer, 0 if no further
+        /// output can be produced.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// if buffer has length 0.
+        /// </exception>
+        /// <exception cref="FormatException">
+        /// if deflated stream is invalid.
+        /// </exception>
+        public int Inflate(byte[] buffer)
 		{
 			if ( buffer == null )
 			{
@@ -686,35 +685,35 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 
 			return Inflate(buffer, 0, buffer.Length);
 		}
-		
-		/// <summary>
-		/// Inflates the compressed stream to the output buffer.  If this
-		/// returns 0, you should check, whether needsDictionary(),
-		/// needsInput() or finished() returns true, to determine why no
-		/// further output is produced.
-		/// </summary>
-		/// <param name="buffer">
-		/// the output buffer.
-		/// </param>
-		/// <param name="offset">
-		/// the offset in buffer where storing starts.
-		/// </param>
-		/// <param name="count">
-		/// the maximum number of bytes to output.
-		/// </param>
-		/// <returns>
-		/// the number of bytes written to the buffer, 0 if no further output can be produced.
-		/// </returns>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// if count is less than 0.
-		/// </exception>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// if the index and / or count are wrong.
-		/// </exception>
-		/// <exception cref="System.FormatException">
-		/// if deflated stream is invalid.
-		/// </exception>
-		public int Inflate(byte[] buffer, int offset, int count)
+
+        /// <summary>
+        /// Inflates the compressed stream to the output buffer.  If this
+        /// returns 0, you should check, whether needsDictionary(),
+        /// needsInput() or finished() returns true, to determine why no
+        /// further output is produced.
+        /// </summary>
+        /// <param name="buffer">
+        /// the output buffer.
+        /// </param>
+        /// <param name="offset">
+        /// the offset in buffer where storing starts.
+        /// </param>
+        /// <param name="count">
+        /// the maximum number of bytes to output.
+        /// </param>
+        /// <returns>
+        /// the number of bytes written to the buffer, 0 if no further output can be produced.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// if count is less than 0.
+        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// if the index and / or count are wrong.
+        /// </exception>
+        /// <exception cref="FormatException">
+        /// if deflated stream is invalid.
+        /// </exception>
+        public int Inflate(byte[] buffer, int offset, int count)
 		{
 			if ( buffer == null )
 			{

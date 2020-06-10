@@ -1,9 +1,7 @@
-using System;
-
 namespace UtilityLibrary.General
 {
 
-	public enum VisualStyle
+    public enum VisualStyle
 	{
 		IDE		= 0,
 		Plain	= 1

@@ -35,15 +35,14 @@
 
 using System;
 using System.IO;
-using System.Text;
 
 namespace ICSharpCode.SharpZipLib.Zip
 {
 
-	/// <summary>
-	/// Holds data pertinent to a data descriptor.
-	/// </summary>
-	public class DescriptorData
+    /// <summary>
+    /// Holds data pertinent to a data descriptor.
+    /// </summary>
+    public class DescriptorData
 	{
 		/// <summary>
 		/// Get /set the compressed size of data.
@@ -461,17 +460,17 @@ namespace ICSharpCode.SharpZipLib.Zip
 			return byteValue1 | (byteValue2 << 8);
 		}
 
-		/// <summary>
-		/// Read an int in little endian byte order.
-		/// </summary>
-		/// <returns>Returns the value read.</returns>
-		/// <exception cref="IOException">
-		/// An i/o error occurs.
-		/// </exception>
-		/// <exception cref="System.IO.EndOfStreamException">
-		/// The file ends prematurely
-		/// </exception>
-		public int ReadLEInt()
+        /// <summary>
+        /// Read an int in little endian byte order.
+        /// </summary>
+        /// <returns>Returns the value read.</returns>
+        /// <exception cref="IOException">
+        /// An i/o error occurs.
+        /// </exception>
+        /// <exception cref="EndOfStreamException">
+        /// The file ends prematurely
+        /// </exception>
+        public int ReadLEInt()
 		{
 			return ReadLEShort() | (ReadLEShort() << 16);
 		}

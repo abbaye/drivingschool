@@ -10,14 +10,10 @@
 // *****************************************************************************
 
 using System;
-using System.Data;
 using System.Drawing;
-using System.Collections;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.ComponentModel;
 using Crownwood.Magic.Common;
-using Crownwood.Magic.Controls;
 using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Controls
@@ -67,17 +63,17 @@ namespace Crownwood.Magic.Controls
         protected WizardPageCollection _wizardPages;
 	    
 	    // Instance designer fields
-        protected System.Windows.Forms.Panel _panelTop;
-        protected System.Windows.Forms.Panel _panelBottom;
-        protected System.Windows.Forms.Button _buttonUpdate;
-        protected System.Windows.Forms.Button _buttonCancel;
-        protected System.Windows.Forms.Button _buttonBack;
-        protected System.Windows.Forms.Button _buttonNext;
-        protected System.Windows.Forms.Button _buttonFinish;
-        protected System.Windows.Forms.Button _buttonClose;
-        protected System.Windows.Forms.Button _buttonHelp;
-        protected Crownwood.Magic.Controls.TabControl _tabControl;
-		protected System.ComponentModel.Container components = null;
+        protected Panel _panelTop;
+        protected Panel _panelBottom;
+        protected Button _buttonUpdate;
+        protected Button _buttonCancel;
+        protected Button _buttonBack;
+        protected Button _buttonNext;
+        protected Button _buttonFinish;
+        protected Button _buttonClose;
+        protected Button _buttonHelp;
+        protected TabControl _tabControl;
+		protected Container components = null;
 
         // Delegate definitions
         public delegate void WizardPageHandler(WizardPage wp, WizardControl wc);
@@ -116,9 +112,9 @@ namespace Crownwood.Magic.Controls
             _wizardPages = new WizardPageCollection();
             
             // Hook into collection events
-            _wizardPages.Cleared += new Collections.CollectionClear(OnWizardCleared);
-            _wizardPages.Inserted += new Collections.CollectionChange(OnWizardInserted);
-            _wizardPages.Removed += new Collections.CollectionChange(OnWizardRemoved);
+            _wizardPages.Cleared += new CollectionClear(OnWizardCleared);
+            _wizardPages.Inserted += new CollectionChange(OnWizardInserted);
+            _wizardPages.Removed += new CollectionChange(OnWizardRemoved);
 
             // Hook into drawing events
             _panelTop.Resize += new EventHandler(OnRepaintPanels);
@@ -168,16 +164,16 @@ namespace Crownwood.Magic.Controls
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this._tabControl = new Crownwood.Magic.Controls.TabControl();
-            this._panelTop = new System.Windows.Forms.Panel();
-            this._panelBottom = new System.Windows.Forms.Panel();
-            this._buttonUpdate = new System.Windows.Forms.Button();
-            this._buttonBack = new System.Windows.Forms.Button();
-            this._buttonNext = new System.Windows.Forms.Button();
-            this._buttonCancel = new System.Windows.Forms.Button();
-            this._buttonFinish = new System.Windows.Forms.Button();
-            this._buttonClose = new System.Windows.Forms.Button();
-            this._buttonHelp = new System.Windows.Forms.Button();
+            this._tabControl = new TabControl();
+            this._panelTop = new Panel();
+            this._panelBottom = new Panel();
+            this._buttonUpdate = new Button();
+            this._buttonBack = new Button();
+            this._buttonNext = new Button();
+            this._buttonCancel = new Button();
+            this._buttonFinish = new Button();
+            this._buttonClose = new Button();
+            this._buttonHelp = new Button();
             this._panelBottom.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,13 +184,13 @@ namespace Crownwood.Magic.Controls
                 | System.Windows.Forms.AnchorStyles.Right);
             this._tabControl.Appearance = Crownwood.Magic.Controls.TabControl.VisualAppearance.MultiDocument;
             this._tabControl.IDEPixelBorder = false;
-            this._tabControl.Location = new System.Drawing.Point(0, 80);
+            this._tabControl.Location = new Point(0, 80);
             this._tabControl.Multiline = true;
             this._tabControl.MultilineFullWidth = true;
             this._tabControl.Name = "_tabControl";
             this._tabControl.ShowArrows = false;
             this._tabControl.ShowClose = false;
-            this._tabControl.Size = new System.Drawing.Size(424, 264);
+            this._tabControl.Size = new Size(424, 264);
             this._tabControl.TabIndex = 0;
             // 
             // _panelTop
@@ -202,12 +198,12 @@ namespace Crownwood.Magic.Controls
             this._panelTop.BackColor = System.Drawing.SystemColors.Window;
             this._panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this._panelTop.Name = "_panelTop";
-            this._panelTop.Size = new System.Drawing.Size(424, 80);
+            this._panelTop.Size = new Size(424, 80);
             this._panelTop.TabIndex = 1;
             // 
             // _panelBottom
             // 
-            this._panelBottom.Controls.AddRange(new System.Windows.Forms.Control[] {
+            this._panelBottom.Controls.AddRange(new Control[] {
                                                                                        this._buttonUpdate,
                                                                                        this._buttonBack,
                                                                                        this._buttonNext,
@@ -216,89 +212,89 @@ namespace Crownwood.Magic.Controls
                                                                                        this._buttonClose,
                                                                                        this._buttonHelp});
             this._panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this._panelBottom.Location = new System.Drawing.Point(0, 344);
+            this._panelBottom.Location = new Point(0, 344);
             this._panelBottom.Name = "_panelBottom";
-            this._panelBottom.Size = new System.Drawing.Size(424, 48);
+            this._panelBottom.Size = new Size(424, 48);
             this._panelBottom.TabIndex = 2;
             // 
             // _buttonUpdate
             // 
             this._buttonUpdate.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
 			this._buttonUpdate.FlatStyle = FlatStyle.System;
-			this._buttonUpdate.Location = new System.Drawing.Point(8, 14);
+			this._buttonUpdate.Location = new Point(8, 14);
             this._buttonUpdate.Name = "_buttonUpdate";
             this._buttonUpdate.TabIndex = 4;
             this._buttonUpdate.Text = "Update";
-            this._buttonUpdate.Click += new System.EventHandler(this.OnButtonUpdate);
+            this._buttonUpdate.Click += new EventHandler(this.OnButtonUpdate);
             // 
             // _buttonBack
             // 
             this._buttonBack.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
 			this._buttonBack.FlatStyle = FlatStyle.System;
-			this._buttonBack.Location = new System.Drawing.Point(56, 14);
+			this._buttonBack.Location = new Point(56, 14);
             this._buttonBack.Name = "_buttonBack";
             this._buttonBack.TabIndex = 3;
             this._buttonBack.Text = "< Back";
-            this._buttonBack.Click += new System.EventHandler(this.OnButtonBack);
+            this._buttonBack.Click += new EventHandler(this.OnButtonBack);
             // 
             // _buttonNext
             // 
             this._buttonNext.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
 			this._buttonNext.FlatStyle = FlatStyle.System;
-			this._buttonNext.Location = new System.Drawing.Point(120, 14);
+			this._buttonNext.Location = new Point(120, 14);
             this._buttonNext.Name = "_buttonNext";
             this._buttonNext.TabIndex = 2;
             this._buttonNext.Text = "Next >";
-            this._buttonNext.Click += new System.EventHandler(this.OnButtonNext);
+            this._buttonNext.Click += new EventHandler(this.OnButtonNext);
             // 
             // _buttonCancel
             // 
             this._buttonCancel.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
 			this._buttonCancel.FlatStyle = FlatStyle.System;
-			this._buttonCancel.Location = new System.Drawing.Point(184, 14);
+			this._buttonCancel.Location = new Point(184, 14);
             this._buttonCancel.Name = "_buttonCancel";
             this._buttonCancel.TabIndex = 1;
             this._buttonCancel.Text = "Cancel";
-            this._buttonCancel.Click += new System.EventHandler(this.OnButtonCancel);
+            this._buttonCancel.Click += new EventHandler(this.OnButtonCancel);
             // 
             // _buttonFinish
             // 
             this._buttonFinish.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
 			this._buttonFinish.FlatStyle = FlatStyle.System;
-			this._buttonFinish.Location = new System.Drawing.Point(248, 14);
+			this._buttonFinish.Location = new Point(248, 14);
             this._buttonFinish.Name = "_buttonFinish";
             this._buttonFinish.TabIndex = 0;
             this._buttonFinish.Text = "Finish";
-            this._buttonFinish.Click += new System.EventHandler(this.OnButtonFinish);
+            this._buttonFinish.Click += new EventHandler(this.OnButtonFinish);
             // 
             // _buttonClose
             // 
             this._buttonClose.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
 			this._buttonClose.FlatStyle = FlatStyle.System;
-			this._buttonClose.Location = new System.Drawing.Point(304, 14);
+			this._buttonClose.Location = new Point(304, 14);
             this._buttonClose.Name = "_buttonClose";
             this._buttonClose.TabIndex = 0;
             this._buttonClose.Text = "Close";
-            this._buttonClose.Click += new System.EventHandler(this.OnButtonClose);
+            this._buttonClose.Click += new EventHandler(this.OnButtonClose);
             // 
             // _buttonHelp
             // 
             this._buttonHelp.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
 			this._buttonHelp.FlatStyle = FlatStyle.System;
-			this._buttonHelp.Location = new System.Drawing.Point(360, 14);
+			this._buttonHelp.Location = new Point(360, 14);
             this._buttonHelp.Name = "_buttonHelp";
             this._buttonHelp.TabIndex = 0;
             this._buttonHelp.Text = "Help";
-            this._buttonHelp.Click += new System.EventHandler(this.OnButtonHelp);
+            this._buttonHelp.Click += new EventHandler(this.OnButtonHelp);
             // 
             // WizardControl
             // 
-            this.Controls.AddRange(new System.Windows.Forms.Control[] {
+            this.Controls.AddRange(new Control[] {
                                                                           this._tabControl,
                                                                           this._panelTop,
                                                                           this._panelBottom});
             this.Name = "WizardControl";
-            this.Size = new System.Drawing.Size(424, 392);
+            this.Size = new Size(424, 392);
             this._panelBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -307,7 +303,7 @@ namespace Crownwood.Magic.Controls
 		
         [Category("Wizard")]
         [Description("Access to underlying TabControl instance")]
-        public Controls.TabControl TabControl
+        public TabControl TabControl
         {
             get { return _tabControl; }
         }
@@ -1739,15 +1735,17 @@ namespace Crownwood.Magic.Controls
         
             // Create main title drawing rectangle
             RectangleF drawRectF = new Rectangle(_panelGap, _panelGap, right - _panelGap, _fontTitle.Height);
-                                                
-            StringFormat drawFormat = new StringFormat();
-            drawFormat.Alignment = StringAlignment.Near;
-            drawFormat.LineAlignment = StringAlignment.Center;
-            drawFormat.Trimming = StringTrimming.EllipsisCharacter;
-            drawFormat.FormatFlags = StringFormatFlags.NoClip |
-                                     StringFormatFlags.NoWrap;
-            
-            using(SolidBrush mainTitleBrush = new SolidBrush(_colorTitle))
+
+            StringFormat drawFormat = new StringFormat
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center,
+                Trimming = StringTrimming.EllipsisCharacter,
+                FormatFlags = StringFormatFlags.NoClip |
+                                     StringFormatFlags.NoWrap
+            };
+
+            using (SolidBrush mainTitleBrush = new SolidBrush(_colorTitle))
                 pe.Graphics.DrawString(_title, _fontTitle, mainTitleBrush, drawRectF, drawFormat);            
              
             // Is there a selected tab for display?   

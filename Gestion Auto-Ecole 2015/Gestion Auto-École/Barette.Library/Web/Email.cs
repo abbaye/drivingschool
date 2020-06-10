@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
-namespace Barette.Library.Web {
+namespace Barette.Library.Web
+{
     public static class Email {
         /// <summary>
         /// Validé un courriel

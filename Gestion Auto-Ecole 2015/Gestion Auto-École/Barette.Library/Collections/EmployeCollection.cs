@@ -1,16 +1,12 @@
-using System;
-using System.Collections;
-using System.IO;  
-using System.Xml;
-using System.Xml.Serialization;
 
 using Barette.Library.Employer;
 
-namespace Barette.Library.Collections {
-	/// <summary>
-	/// Collection d'employé.
-	/// </summary>
-	public class EmployeCollection : CollectionWithEvents {
+namespace Barette.Library.Collections
+{
+    /// <summary>
+    /// Collection d'employé.
+    /// </summary>
+    public class EmployeCollection : CollectionWithEvents {
 		public Employe Add(Employe value) {
 			base.List.Add(value as object);
 

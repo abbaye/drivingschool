@@ -1,27 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library;
 using Barette.Library.Collections;
 using Barette.Library.Client;
 
-namespace Barette.IDE.Forms.GestionGroup {
+namespace Barette.IDE.Forms.GestionGroup
+{
     public partial class FormAddStudent : Form {
 
         /// <summary>
         /// List de client
         /// </summary>
-        private CustomerCollection _clientList;
+        private readonly CustomerCollection _clientList;
 
-        private StudentGroup _groupe;
+        private readonly StudentGroup _groupe;
 
-        private Config _Appconfig;
+        private readonly Config _Appconfig;
 
         public FormAddStudent(CustomerCollection clientlist, StudentGroup group, Config appconfig) {
             InitializeComponent();
@@ -45,9 +41,10 @@ namespace Barette.IDE.Forms.GestionGroup {
         /// </summary>
         /// <param name="client"></param>
         private void AddClientToList(Customer client) {
-            ListViewItem itm = new ListViewItem();
-
-            itm.Text = client.ContratNumber;
+            ListViewItem itm = new ListViewItem
+            {
+                Text = client.ContratNumber
+            };
             itm.SubItems.Add(client.DateInscription.ToShortDateString());
 
             itm.SubItems.Add(client.FirstName + " " + client.Name);

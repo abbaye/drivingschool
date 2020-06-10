@@ -1,24 +1,20 @@
 using System;
-using System.IO;
 using System.Drawing;
-using System.Reflection;
 using System.Collections;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
-using System.Drawing.Imaging;
 using UtilityLibrary.Win32;
-using UtilityLibrary.Menus;
 using UtilityLibrary.General;
 using UtilityLibrary.Collections;
 
 
 namespace UtilityLibrary.Menus
 {
-	[ToolboxBitmap(typeof(MenuControl))]
+    [ToolboxBitmap(typeof(MenuControl))]
 	[DefaultProperty("MenuCommands")]
 	[DefaultEvent("PopupStart")]
-	[Designer(typeof(UtilityLibrary.Menus.MenuControlDesigner))]
+	[Designer(typeof(MenuControlDesigner))]
 	public class MenuControl : ContainerControl, IMessageFilter
 	{
 		// Class constants
@@ -416,17 +412,19 @@ namespace UtilityLibrary.Menus
 				// Is the first time we have noticed a mouse movement over our window
 				if (!_mouseOver)
 				{
-					// Crea the structure needed for WindowsAPI call
-					Win32.TRACKMOUSEEVENTS tme = new Win32.TRACKMOUSEEVENTS();
+                    // Crea the structure needed for WindowsAPI call
+                    TRACKMOUSEEVENTS tme = new TRACKMOUSEEVENTS
+                    {
 
-					// Fill in the structure
-					tme.cbSize = 16;									
-					tme.dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE;
-					tme.hWnd = this.Handle;								
-					tme.dwHoverTime = 0;								
+                        // Fill in the structure
+                        cbSize = 16,
+                        dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE,
+                        hWnd = this.Handle,
+                        dwHoverTime = 0
+                    };
 
-					// Request that a message gets sent when mouse leaves this window
-					WindowsAPI.TrackMouseEvent(ref tme);
+                    // Request that a message gets sent when mouse leaves this window
+                    WindowsAPI.TrackMouseEvent(ref tme);
 
 					// Yes, we know the mouse is over window
 					_mouseOver = true;
@@ -934,16 +932,18 @@ namespace UtilityLibrary.Menus
 					g.DrawImage(_menuImages.Images[_chevronIndex], xPos, yPos);
 				}
 				else
-				{	
-					// Left align the text drawing on a single line centered vertically
-					// and process the & character to be shown as an underscore on next character
-					StringFormat format = new StringFormat();
-					format.FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap;
-					format.Alignment = StringAlignment.Center;
-					format.LineAlignment = StringAlignment.Center;
-					format.HotkeyPrefix = HotkeyPrefix.Show;
+				{
+                    // Left align the text drawing on a single line centered vertically
+                    // and process the & character to be shown as an underscore on next character
+                    StringFormat format = new StringFormat
+                    {
+                        FormatFlags = StringFormatFlags.NoClip | StringFormatFlags.NoWrap,
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center,
+                        HotkeyPrefix = HotkeyPrefix.Show
+                    };
 
-					if (_direction == DirectionUL.Vertical)
+                    if (_direction == DirectionUL.Vertical)
 						format.FormatFlags |= StringFormatFlags.DirectionVertical;
 
 
@@ -1070,15 +1070,17 @@ namespace UtilityLibrary.Menus
 			if (_direction == DirectionUL.Horizontal)
 				borderGap = dc.DrawRect.Width - _subMenuBorderAdjust;
 			else
-				borderGap = dc.DrawRect.Height - _subMenuBorderAdjust;		
-	
-			_popupMenu = new PopupMenu();
+				borderGap = dc.DrawRect.Height - _subMenuBorderAdjust;
 
-			// Define the correct visual style based on ours
-			_popupMenu.Style = this.Style;
+            _popupMenu = new PopupMenu
+            {
 
-			// Key direction when keys cause dismissal
-			int returnDir = 0;
+                // Define the correct visual style based on ours
+                Style = this.Style
+            };
+
+            // Key direction when keys cause dismissal
+            int returnDir = 0;
 
 			if (dc.Chevron)
 			{

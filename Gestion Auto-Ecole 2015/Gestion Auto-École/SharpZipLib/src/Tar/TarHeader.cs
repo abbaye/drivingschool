@@ -1087,7 +1087,7 @@ namespace ICSharpCode.SharpZipLib.Tar
 			return sum;
 		}
 		
-		static int GetCTime(System.DateTime dateTime)
+		static int GetCTime(DateTime dateTime)
 		{
 			return unchecked((int)((dateTime.Ticks - dateTime1970.Ticks) / timeConversionFactor));
 		}

@@ -1,18 +1,15 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Drawing.Imaging;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 
 #endregion
 
-namespace Barette.Library.UserControls.TextEdit {
+namespace Barette.Library.UserControls.TextEdit
+{
 	/// <summary>
 	/// Composant éditeur de texte.
 	/// </summary>
@@ -21,8 +18,8 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// Définit/récupère La source RTF du contrôle.
 		/// </summary>
 		/// <value>La source RTF du contrôle.</value>
-		[CategoryAttribute("Text attributes"),
-		DescriptionAttribute("Text rtf source.")]
+		[Category("Text attributes"),
+        Description("Text rtf source.")]
 		public string RTFCode {
 			set { richTextBox1.Rtf = value; }
 			get { return richTextBox1.Rtf; }
@@ -32,8 +29,8 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// Définit/récupère le texte sans formatage RTF.
 		/// </summary>
 		/// <value>String Standard.</value>
-		[CategoryAttribute("Text attributes"),
-		DescriptionAttribute("Text rtf source.")]
+		[Category("Text attributes"),
+        Description("Text rtf source.")]
 		public string PlainText {
 			set { richTextBox1.Text = value; }
 			get { return richTextBox1.Text; }
@@ -44,8 +41,8 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// Définit/récupère le flag permettant de savoir si le texte à changé ou non.
 		/// </summary>
 		/// <value>Le flag permettant de savoir si le texte a changé ou non.</value>
-		[CategoryAttribute("Text attributes"),
-		DescriptionAttribute("Set or gets the RTFTextChanged flag."),
+		[Category("Text attributes"),
+        Description("Set or gets the RTFTextChanged flag."),
 		DefaultValue(false)]
 		public bool RTFTextChanged {
 			set { m_RTFTextChanged = value; }
@@ -61,7 +58,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <summary>
 		/// Survient lorsque le texte change.
 		/// </summary>
-		[CategoryAttribute("Text events"), DescriptionAttribute("Occurs when the RTFTextChanged flag changes.")]
+		[Category("Text events"), Description("Occurs when the RTFTextChanged flag changes.")]
 		public event NewEventHandler OnChange;
 
 		/// <summary>
@@ -203,7 +200,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		/// <param name="e">Voir la documentation MSDN.</param>
 		private void fontSizeToolStripButton_SelectedIndexChanged(object sender, EventArgs e) {
 			try {
-				int i = System.Convert.ToInt16(fontSizeToolStripButton.Text);
+				int i = System.Convert.ToInt32(fontSizeToolStripButton.Text);
                 richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.Name, i, richTextBox1.SelectionFont.Style);
 			} catch {
 				//TODO: MessageBox.Show("La valeur doit être un entier !");
@@ -220,7 +217,7 @@ namespace Barette.Library.UserControls.TextEdit {
 		private void fontSizeToolStripButton_KeyUp(object sender, KeyEventArgs e) {
 			if (e.KeyCode != Keys.Enter) return;
 			try {
-				int i = System.Convert.ToInt16(fontSizeToolStripButton.Text);
+				int i = System.Convert.ToInt32(fontSizeToolStripButton.Text);
                 richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.Name, i, richTextBox1.SelectionFont.Style);
 			} catch {
 				//TODO: MessageBox.Show("La valeur doit être un entier !");

@@ -1,19 +1,16 @@
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using System.Diagnostics;
 using UtilityLibrary.General;
 
 namespace UtilityLibrary.WinControls
 {
-	/// <summary>
-	/// Summary description for VSNetButton.
-	/// </summary>
-	public class ButtonEx : System.Windows.Forms.Button
-	{
+    /// <summary>
+    /// Summary description for VSNetButton.
+    /// </summary>
+    public class ButtonEx : Button
+    {
 
 		bool gotFocus = false;
 		bool mouseDown = false;

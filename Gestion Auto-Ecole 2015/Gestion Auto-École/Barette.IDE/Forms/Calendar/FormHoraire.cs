@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Threading;
 using System.Linq;
 using System.IO;
 
@@ -15,15 +11,15 @@ using Barette.Library.UserControls.Schedule;
 using Barette.Library.Client;
 using Barette.Library.Employer;
 using Barette.Library;
-using System.Collections;
 
-namespace Barette.IDE.Forms.Calendar {
+namespace Barette.IDE.Forms.Calendar
+{
 	public partial class FormHoraire : Form {
-		CustomerCollection _ClientList = null;
-		OffDateCollection _ColJourFerier = null;
-		EmployeCollection _ColEmploye = null;
-		PostItCollection _ColPostIt = null; //Collection de notes pour les Horaires
-		FormMain _formMain = null;
+		readonly CustomerCollection _ClientList = null;
+		readonly OffDateCollection _ColJourFerier = null;
+		readonly EmployeCollection _ColEmploye = null;
+		readonly PostItCollection _ColPostIt = null; //Collection de notes pour les Horaires
+		readonly FormMain _formMain = null;
 		ScheduleControl _ScheduleControlSelected = null; //Control qui est présentement sélectionné
 		ScheduleInfos _SelectedItemsInfos = null; //Information sur l'item sélectioné
         PrintMode _printMode = PrintMode.Nothing;
@@ -172,12 +168,13 @@ namespace Barette.IDE.Forms.Calendar {
                             (cours.Active == true))
                             {
                             client = _ClientList[i];
-                            itm = new ListViewItem();
+						itm = new ListViewItem
+						{
+							Text = DateTimeFunc.FormatHour(cours.DateHeure),
 
-                            itm.Text = DateTimeFunc.FormatHour(cours.DateHeure);
-
-                            itm.Tag = client;
-                            itm.SubItems.Add(client.ContratNumber);
+							Tag = client
+						};
+						itm.SubItems.Add(client.ContratNumber);
                             itm.SubItems.Add(client.Name + " " + client.FirstName);
                             itm.SubItems.Add(cours.SceanceNumber.ToString());
                             itm.SubItems.Add(cours.Montant);
@@ -396,11 +393,13 @@ namespace Barette.IDE.Forms.Calendar {
 			else {
 				//sinon on cree une nouvelle notes en cas de texte non vide
 				if (txtNotes.Text != "") {
-					notes = new PostIt();
-					notes.Date = vCalendar.SelectionStart.Date;
-					notes.Message = txtNotes.Text;
-					notes.Employe = cbEmploye.Text;
-                    _ColPostIt.Add(notes);
+					notes = new PostIt
+					{
+						Date = vCalendar.SelectionStart.Date,
+						Message = txtNotes.Text,
+						Employe = cbEmploye.Text
+					};
+					_ColPostIt.Add(notes);
 				}
 			}
 		}
@@ -432,11 +431,13 @@ namespace Barette.IDE.Forms.Calendar {
 			else {
 				//sinon on cree une nouvelle notes en cas de texte non existant
 				if (Notes != "") {
-					notes = new PostIt();
-					notes.Date = vCalendar.SelectionStart.Date;
-					notes.Message = Notes;
-					notes.Employe = cbEmploye.Text;
-                    _ColPostIt.Add(notes);
+					notes = new PostIt
+					{
+						Date = vCalendar.SelectionStart.Date,
+						Message = Notes,
+						Employe = cbEmploye.Text
+					};
+					_ColPostIt.Add(notes);
 				}
 			}
 		}
@@ -463,13 +464,16 @@ namespace Barette.IDE.Forms.Calendar {
 		/// </summary>
 		private void PrintHoraire() {
 			//Lance l'impression
-			PrintDialog printConfig = new PrintDialog();
-
-			printConfig.PrinterSettings = printDocument1.PrinterSettings;
+			PrintDialog printConfig = new PrintDialog
+			{
+				PrinterSettings = printDocument1.PrinterSettings
+			};
 
 #if DEBUG
-			PrintPreviewDialog prev = new PrintPreviewDialog();
-			prev.Document = printDocument1;
+			PrintPreviewDialog prev = new PrintPreviewDialog
+			{
+				Document = printDocument1
+			};
 			prev.ShowDialog(this);
 
 #else
@@ -579,23 +583,26 @@ namespace Barette.IDE.Forms.Calendar {
 		/// </summary>
 		private void PrintHoraireWeek() {
 			//Lance l'impression
-			PrintDialog printConfig = new PrintDialog();
+			PrintDialog printConfig = new PrintDialog
+			{
+				PrinterSettings = printDocWeek.PrinterSettings
+			};
 
-			printConfig.PrinterSettings = printDocWeek.PrinterSettings;
-			
 			//Recherche le type de papier "Legal" et ensuite mettre la page au format Portrait
-			 for (int i = 0; i < printDocWeek.PrinterSettings.PaperSizes.Count; i++){
+			for (int i = 0; i < printDocWeek.PrinterSettings.PaperSizes.Count; i++){
 				 if (printDocWeek.PrinterSettings.PaperSizes[i].Kind == System.Drawing.Printing.PaperKind.Legal) {
 					 printDocWeek.DefaultPageSettings.PaperSize = printDocWeek.PrinterSettings.PaperSizes[i];
 				 }
 			 }
-			 printDocWeek.DefaultPageSettings.Landscape = true; 
+			 printDocWeek.DefaultPageSettings.Landscape = true;
 
 
 			//Imprime la page
 #if DEBUG
-			PrintPreviewDialog prev = new PrintPreviewDialog();
-			prev.Document = printDocWeek;
+			PrintPreviewDialog prev = new PrintPreviewDialog
+			{
+				Document = printDocWeek
+			};
 			prev.ShowDialog(this);
 
 #else
@@ -702,7 +709,7 @@ namespace Barette.IDE.Forms.Calendar {
 					//Obtenir le client et le numéro de seance
 					client = _ClientList.GetClient(listViewEx1.Items[i].SubItems[1].Text);
 					if (client != null)
-						return client.GetSeance(Convert.ToInt16(listViewEx1.Items[i].SubItems[3].Text));
+						return client.GetSeance(Convert.ToInt32(listViewEx1.Items[i].SubItems[3].Text));
 				}
 			}
 
@@ -869,15 +876,18 @@ namespace Barette.IDE.Forms.Calendar {
         {
             _printMode = mode;
 
-            //Lance l'impression
-            PrintDialog printConfig = new PrintDialog();
-
-            printConfig.PrinterSettings = printDocument2.PrinterSettings;
+			//Lance l'impression
+			PrintDialog printConfig = new PrintDialog
+			{
+				PrinterSettings = printDocument2.PrinterSettings
+			};
 
 #if DEBUG
-            PrintPreviewDialog prev = new PrintPreviewDialog();
-            prev.Document = printDocument2;
-            prev.ShowDialog(this);
+			PrintPreviewDialog prev = new PrintPreviewDialog
+			{
+				Document = printDocument2
+			};
+			prev.ShowDialog(this);
 
 #else
 			if(printConfig.ShowDialog(this) == DialogResult.OK)	

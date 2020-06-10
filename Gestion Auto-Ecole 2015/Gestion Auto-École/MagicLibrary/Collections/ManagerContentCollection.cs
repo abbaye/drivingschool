@@ -10,11 +10,8 @@
 // *****************************************************************************
 
 using System;
-using System.Xml;
 using System.Windows.Forms;
-using System.Runtime.Serialization;
 using Crownwood.Magic.Docking;
-using Crownwood.Magic.Collections;
 
 namespace Crownwood.Magic.Collections
 {

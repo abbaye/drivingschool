@@ -37,26 +37,24 @@
 // obligated to do so.  If you do not wish to do so, delete this
 // exception statement from your version.
 
-using System;
-
-namespace ICSharpCode.SharpZipLib.Zip.Compression 
+namespace ICSharpCode.SharpZipLib.Zip.Compression
 {
-	
-	/// <summary>
-	/// This class is general purpose class for writing data to a buffer.
-	/// 
-	/// It allows you to write bits as well as bytes
-	/// Based on DeflaterPending.java
-	/// 
-	/// author of the original java version : Jochen Hoenicke
-	/// </summary>
-	public class PendingBuffer
+
+    /// <summary>
+    /// This class is general purpose class for writing data to a buffer.
+    /// 
+    /// It allows you to write bits as well as bytes
+    /// Based on DeflaterPending.java
+    /// 
+    /// author of the original java version : Jochen Hoenicke
+    /// </summary>
+    public class PendingBuffer
 	{
-		#region Instance Fields
-		/// <summary>
-		/// Internal work buffer
-		/// </summary>
-		byte[] buffer_;
+        #region Instance Fields
+        /// <summary>
+        /// Internal work buffer
+        /// </summary>
+        readonly byte[] buffer_;
 		
 		int    start;
 		int    end;

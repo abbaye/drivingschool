@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Barette.Library
+﻿namespace Barette.Library
 {
     /// <summary>
     /// Cette classe représente des informations l'école de conduite

@@ -77,15 +77,15 @@ namespace ICSharpCode.SharpZipLib.Zip
 			/// Use the recorded LastAccessTimeUtc value for the file.
 			/// </summary>
 			LastAccessTimeUtc,
-			/// <summary>
-			/// Use a fixed value.
-			/// </summary>
-			/// <remarks>The actual <see cref="DateTime"/> value used can be
-			/// specified via the <see cref="ZipEntryFactory(DateTime)"/> constructor or 
-			/// using the <see cref="ZipEntryFactory(TimeSetting)"/> with the setting set
-			/// to <see cref="TimeSetting.Fixed"/> which will use the <see cref="DateTime"/> when this class was constructed.
-			/// The <see cref="FixedDateTime"/> property can also be used to set this value.</remarks>
-			Fixed,
+            /// <summary>
+            /// Use a fixed value.
+            /// </summary>
+            /// <remarks>The actual <see cref="DateTime"/> value used can be
+            /// specified via the <see cref="ZipEntryFactory(DateTime)"/> constructor or 
+            /// using the <see cref="ZipEntryFactory(TimeSetting)"/> with the setting set
+            /// to <see cref="Fixed"/> which will use the <see cref="DateTime"/> when this class was constructed.
+            /// The <see cref="FixedDateTime"/> property can also be used to set this value.</remarks>
+            Fixed,
 		}
 		#endregion
 
@@ -218,10 +218,12 @@ namespace ICSharpCode.SharpZipLib.Zip
 		/// <returns>Returns a new <see cref="ZipEntry"/> based on the <paramref name="fileName"/>.</returns>
 		public ZipEntry MakeFileEntry(string fileName, bool useFileSystem)
 		{
-			ZipEntry result = new ZipEntry(nameTransform_.TransformFile(fileName));
-			result.IsUnicodeText = isUnicodeText_;
+            ZipEntry result = new ZipEntry(nameTransform_.TransformFile(fileName))
+            {
+                IsUnicodeText = isUnicodeText_
+            };
 
-			int externalAttributes = 0;
+            int externalAttributes = 0;
 			bool useAttributes = (setAttributes_ != 0);
 
 			FileInfo fi = null;
@@ -318,12 +320,14 @@ namespace ICSharpCode.SharpZipLib.Zip
 		/// <returns>Returns a new <see cref="ZipEntry"></see> representing a directory.</returns>
 		public ZipEntry MakeDirectoryEntry(string directoryName, bool useFileSystem)
 		{
-			
-			ZipEntry result = new ZipEntry(nameTransform_.TransformDirectory(directoryName));
-            result.IsUnicodeText = isUnicodeText_;
-            result.Size = 0;
-			
-			int externalAttributes = 0;
+
+            ZipEntry result = new ZipEntry(nameTransform_.TransformDirectory(directoryName))
+            {
+                IsUnicodeText = isUnicodeText_,
+                Size = 0
+            };
+
+            int externalAttributes = 0;
 
 			DirectoryInfo di = null;
 

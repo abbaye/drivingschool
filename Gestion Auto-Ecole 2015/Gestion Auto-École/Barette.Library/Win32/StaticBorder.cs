@@ -1,12 +1,11 @@
-using System;
 using System.Runtime.InteropServices;
-using System.CodeDom;
 
-namespace Barette.Library.Win32 {
-	/// <summary>
-	/// Classe contenant des methode static pour la creation de bordure au tours de control
-	/// </summary>	
-	public sealed class StaticBorder {
+namespace Barette.Library.Win32
+{
+    /// <summary>
+    /// Classe contenant des methode static pour la creation de bordure au tours de control
+    /// </summary>	
+    public sealed class StaticBorder {
 		//Constante 
 		private const short GWL_EXSTYLE = (-20);
 		private const short WS_EX_CLIENTEDGE = 0x200;

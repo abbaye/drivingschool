@@ -1,6 +1,5 @@
 
 using System;
-using System.Collections;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
@@ -8,7 +7,7 @@ using UtilityLibrary.Collections;
 
 namespace UtilityLibrary.Menus
 {
-	[ToolboxItem(false)]
+    [ToolboxItem(false)]
 	public class MenuCommand : Component
 	{
 		// Enumeration of property change events

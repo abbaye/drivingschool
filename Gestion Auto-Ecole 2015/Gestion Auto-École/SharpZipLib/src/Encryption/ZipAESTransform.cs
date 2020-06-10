@@ -58,16 +58,16 @@ namespace ICSharpCode.SharpZipLib.Encryption {
 		// block but use only the first 16 bytes of it, and discard the second half.
 		private const int ENCRYPT_BLOCK = 16;
 
-		private int _blockSize;
-		private ICryptoTransform _encryptor;
+		private readonly int _blockSize;
+		private readonly ICryptoTransform _encryptor;
 		private readonly byte[] _counterNonce;
-		private byte[] _encryptBuffer;
+		private readonly byte[] _encryptBuffer;
 		private int _encrPos;
-		private byte[] _pwdVerifier;
-		private HMACSHA1 _hmacsha1;
+		private readonly byte[] _pwdVerifier;
+		private readonly HMACSHA1 _hmacsha1;
 		private bool _finalised;
 
-		private bool _writeMode;
+		private readonly bool _writeMode;
 
 		/// <summary>
 		/// Constructor.
@@ -91,9 +91,11 @@ namespace ICSharpCode.SharpZipLib.Encryption {
 
 			// Performs the equivalent of derive_key in Dr Brian Gladman's pwd2key.c
 			Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(key, saltBytes, KEY_ROUNDS);
-			RijndaelManaged rm = new RijndaelManaged();
-			rm.Mode = CipherMode.ECB;			// No feedback from cipher for CTR mode
-			_counterNonce = new byte[_blockSize];
+            RijndaelManaged rm = new RijndaelManaged
+            {
+                Mode = CipherMode.ECB           // No feedback from cipher for CTR mode
+            };
+            _counterNonce = new byte[_blockSize];
 			byte[] byteKey1 = pdb.GetBytes(_blockSize);
 			byte[] byteKey2 = pdb.GetBytes(_blockSize);
 			_encryptor = rm.CreateEncryptor(byteKey1, byteKey2);

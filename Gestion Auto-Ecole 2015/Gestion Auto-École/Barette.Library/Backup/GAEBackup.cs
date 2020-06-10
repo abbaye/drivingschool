@@ -1,11 +1,11 @@
-﻿using System; 
-using System.IO;
+﻿using System.IO;
 using System.Threading;
 using ICSharpCode.SharpZipLib.Zip;
 
 
 
-namespace Barette.Library.Backup {
+namespace Barette.Library.Backup
+{
     public enum TauxCompression {
         Storage = 1,
         Bas = 3,

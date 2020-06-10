@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
 
 using Barette.Library.Client;
 
-namespace Barette.Library.Collections {
-	/// <summary>
-	/// Collection de Client.
-	/// Des fonctions seront ajouté plus tard en rapport avec la collectionB
-	/// </summary>
-	public class SeanceCollection : CollectionWithEvents {
+namespace Barette.Library.Collections
+{
+    /// <summary>
+    /// Collection de Client.
+    /// Des fonctions seront ajouté plus tard en rapport avec la collectionB
+    /// </summary>
+    public class SeanceCollection : CollectionWithEvents {
 		public Seance Add(Seance value) {
 			base.List.Add(value as object);
 

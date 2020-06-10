@@ -325,7 +325,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 
 		#region Instance Fields
 		int rawLength;
-		byte[] rawData;
+        readonly byte[] rawData;
 		
 		int clearTextLength;
 		byte[] clearText;
@@ -337,21 +337,21 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 		
 #if !NETCF_1_0
 		ICryptoTransform cryptoTransform;
-#endif		
-		Stream inputStream;
+#endif
+        readonly Stream inputStream;
 		#endregion
 	}
-	
-	/// <summary>
-	/// This filter stream is used to decompress data compressed using the "deflate"
-	/// format. The "deflate" format is described in RFC 1951.
-	///
-	/// This stream may form the basis for other decompression filters, such
-	/// as the <see cref="ICSharpCode.SharpZipLib.GZip.GZipInputStream">GZipInputStream</see>.
-	///
-	/// Author of the original java version : John Leuner.
-	/// </summary>
-	public class InflaterInputStream : Stream
+
+    /// <summary>
+    /// This filter stream is used to decompress data compressed using the "deflate"
+    /// format. The "deflate" format is described in RFC 1951.
+    ///
+    /// This stream may form the basis for other decompression filters, such
+    /// as the <see cref="GZip.GZipInputStream">GZipInputStream</see>.
+    ///
+    /// Author of the original java version : John Leuner.
+    /// </summary>
+    public class InflaterInputStream : Stream
 	{
 		#region Constructors
 		/// <summary>
@@ -622,18 +622,18 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 		{
 			throw new NotSupportedException("InflaterInputStream WriteByte not supported");
 		}
-		
-		/// <summary>
-		/// Entry point to begin an asynchronous write.  Always throws a NotSupportedException.
-		/// </summary>
-		/// <param name="buffer">The buffer to write data from</param>
-		/// <param name="offset">Offset of first byte to write</param>
-		/// <param name="count">The maximum number of bytes to write</param>
-		/// <param name="callback">The method to be called when the asynchronous write operation is completed</param>
-		/// <param name="state">A user-provided object that distinguishes this particular asynchronous write request from other requests</param>
-		/// <returns>An <see cref="System.IAsyncResult">IAsyncResult</see> that references the asynchronous write</returns>
-		/// <exception cref="NotSupportedException">Any access</exception>
-		public override IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
+
+        /// <summary>
+        /// Entry point to begin an asynchronous write.  Always throws a NotSupportedException.
+        /// </summary>
+        /// <param name="buffer">The buffer to write data from</param>
+        /// <param name="offset">Offset of first byte to write</param>
+        /// <param name="count">The maximum number of bytes to write</param>
+        /// <param name="callback">The method to be called when the asynchronous write operation is completed</param>
+        /// <param name="state">A user-provided object that distinguishes this particular asynchronous write request from other requests</param>
+        /// <returns>An <see cref="IAsyncResult">IAsyncResult</see> that references the asynchronous write</returns>
+        /// <exception cref="NotSupportedException">Any access</exception>
+        public override IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
 		{
 			throw new NotSupportedException("InflaterInputStream BeginWrite not supported");
 		}
@@ -710,7 +710,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 		/// <summary>
 		/// Base stream the inflater reads from.
 		/// </summary>
-		private Stream baseInputStream;
+		private readonly Stream baseInputStream;
 		
 		/// <summary>
 		/// The compressed size

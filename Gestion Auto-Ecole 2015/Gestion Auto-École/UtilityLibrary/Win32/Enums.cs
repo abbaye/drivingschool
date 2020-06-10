@@ -1,16 +1,11 @@
-using System;
-using System.Runtime.InteropServices;
-using System.Drawing;
-
-
 namespace UtilityLibrary.Win32
 {
-	/// <summary>
-	/// Window API enumerations
-	/// </summary>
-	
-	#region Peek Message Flags
-	public enum PeekMessageFlags
+    /// <summary>
+    /// Window API enumerations
+    /// </summary>
+
+    #region Peek Message Flags
+    public enum PeekMessageFlags
 	{
 		PM_NOREMOVE		= 0,
 		PM_REMOVE		= 1,

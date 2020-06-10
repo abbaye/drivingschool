@@ -111,11 +111,13 @@ namespace ICSharpCode.SharpZipLib.Tar
 		/// <returns>Returns a clone of this entry.</returns>
 		public object Clone()
 		{
-			TarEntry entry = new TarEntry();
-			entry.file = file;
-			entry.header = (TarHeader)header.Clone();
-			entry.Name = Name;
-			return entry;
+            TarEntry entry = new TarEntry
+            {
+                file = file,
+                header = (TarHeader)header.Clone(),
+                Name = Name
+            };
+            return entry;
 		}
 		#endregion
 

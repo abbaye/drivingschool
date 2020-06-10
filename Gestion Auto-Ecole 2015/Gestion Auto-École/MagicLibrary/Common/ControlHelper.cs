@@ -9,7 +9,6 @@
 //  Magic Version 1.7.4.0 	www.dotnetmagic.com
 // *****************************************************************************
 
-using System;
 using System.Windows.Forms;
 
 namespace Crownwood.Magic.Common
@@ -25,12 +24,14 @@ namespace Crownwood.Magic.Common
                 
 				if (parentForm != null)
 				{
-					// Create a hidden, temporary button
-					tempButton = new Button();
-					tempButton.Visible = false;
+                    // Create a hidden, temporary button
+                    tempButton = new Button
+                    {
+                        Visible = false
+                    };
 
-					// Add this temporary button to the parent form
-					parentForm.Controls.Add(tempButton);
+                    // Add this temporary button to the parent form
+                    parentForm.Controls.Add(tempButton);
 
 					// Must ensure that temp button is the active one
 					parentForm.ActiveControl = tempButton;
@@ -57,12 +58,14 @@ namespace Crownwood.Magic.Common
 
 				if (parentForm != null)
 				{
-					// Create a hidden, temporary button
-					tempButton = new Button();
-					tempButton.Visible = false;
+                    // Create a hidden, temporary button
+                    tempButton = new Button
+                    {
+                        Visible = false
+                    };
 
-					// Add this temporary button to the parent form
-					parentForm.Controls.Add(tempButton);
+                    // Add this temporary button to the parent form
+                    parentForm.Controls.Add(tempButton);
 
 					// Must ensure that temp button is the active one
 					parentForm.ActiveControl = tempButton;

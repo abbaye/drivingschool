@@ -35,14 +35,16 @@ namespace UtilityLibrary.General
 
 			IntPtr fontHandle = font.ToHfont();
 			IntPtr currentFontHandle = WindowsAPI.SelectObject(hdc, fontHandle);
-			
-			Win32.RECT rect = new Win32.RECT();
-			rect.left = 0;
-			rect.right = 0;
-			rect.top = 0;
-			rect.bottom = 0;
-		
-			WindowsAPI.DrawText(hdc, text, text.Length, ref rect, 
+
+            RECT rect = new RECT
+            {
+                left = 0,
+                right = 0,
+                top = 0,
+                bottom = 0
+            };
+
+            WindowsAPI.DrawText(hdc, text, text.Length, ref rect, 
 				(int)(DrawTextFormatFlags.DT_SINGLELINE | DrawTextFormatFlags.DT_LEFT | DrawTextFormatFlags.DT_CALCRECT));
 			WindowsAPI.SelectObject(hdc, currentFontHandle);
 			WindowsAPI.DeleteObject(fontHandle);
@@ -71,14 +73,16 @@ namespace UtilityLibrary.General
 
 			IntPtr fontHandle = font.ToHfont();
 			IntPtr currentFontHandle = WindowsAPI.SelectObject(hdc, fontHandle);
-			
-			Win32.RECT rect = new Win32.RECT();
-			rect.left = rc.Left;
-			rect.right = rc.Right;
-			rect.top = rc.Top;
-			rect.bottom = rc.Bottom;
-		
-			WindowsAPI.DrawText(hdc, text, text.Length, ref rect, (int)drawFlags);
+
+            RECT rect = new RECT
+            {
+                left = rc.Left,
+                right = rc.Right,
+                top = rc.Top,
+                bottom = rc.Bottom
+            };
+
+            WindowsAPI.DrawText(hdc, text, text.Length, ref rect, (int)drawFlags);
 			WindowsAPI.SelectObject(hdc, currentFontHandle);
 			WindowsAPI.DeleteObject(fontHandle);
 
@@ -97,11 +101,13 @@ namespace UtilityLibrary.General
 			IntPtr fontHandle = font.ToHfont();
 			IntPtr currentFontHandle = WindowsAPI.SelectObject(hdc, fontHandle);
 			WindowsAPI.SetBkMode(hdc, BackgroundMode.TRANSPARENT);
-           						
-            RECT rc = new RECT();
-			rc.left = rect.Left;
-			rc.top = rect.Top;
-			rc.right = rc.left + rect.Width;
+
+            RECT rc = new RECT
+            {
+                left = rect.Left,
+                top = rect.Top
+            };
+            rc.right = rc.left + rect.Width;
 			rc.bottom = rc.top + rect.Height;
 			
 			WindowsAPI.DrawText(hdc, text, text.Length, ref rc, 

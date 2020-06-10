@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Data;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
@@ -16,10 +14,11 @@ using UtilityLibrary.Win32;
 using UtilityLibrary.General;
 using UtilityLibrary.Menus;
 
-namespace UtilityLibrary.WinControls {
-		
-	#region Delegates
-	public delegate void OutlookBarPropertyChangedHandler(OutlookBarBand band, OutlookBarProperty property);
+namespace UtilityLibrary.WinControls
+{
+
+    #region Delegates
+    public delegate void OutlookBarPropertyChangedHandler(OutlookBarBand band, OutlookBarProperty property);
 	public delegate void OutlookBarItemClickedHandler(OutlookBarBand band, OutlookBarItem item);
 	public delegate void OutlookBarItemDroppedHandler(OutlookBarBand band, OutlookBarItem item);
 	public delegate void OutlookBarIconViewChangedHandler(OutlookBarBand band);
@@ -70,11 +69,11 @@ namespace UtilityLibrary.WinControls {
 	#region OutlookBarBand class
 	[ToolboxItem(false)]
 	public class OutlookBarBand : Control {
-		#region Class variables
-		Control childControl = null;
+        #region Class variables
+        readonly Control childControl = null;
 		ImageList smallImageList = null;
 		ImageList largeImageList = null;
-		OutlookBarItemCollection items = null;
+        readonly OutlookBarItemCollection items = null;
 		Color background = ColorUtil.VSNetControlColor;
 		Color textColor = SystemColors.ControlText;
 		IconView iconView = IconView.Large;
@@ -230,9 +229,10 @@ namespace UtilityLibrary.WinControls {
 	#endregion
 
 	#region OutlookBar class
-	[ToolboxBitmap(typeof(UtilityLibrary.WinControls.OutlookBar), 
+	[ToolboxBitmap(typeof(OutlookBar), 
 		 "UtilityLibrary.WinControls.OutlookBar.bmp")]
-	public class OutlookBar : System.Windows.Forms.Control {
+	public class OutlookBar : Control
+    {
 		
 		#region Class variables
 		const int BAND_HEADER_HEIGHT = 22;
@@ -243,8 +243,8 @@ namespace UtilityLibrary.WinControls {
 		int lastHighlightedItem = -1;
 		Rectangle upArrowRect;
 		Rectangle downArrowRect;
-		DrawState upArrowDrawState = DrawState.Normal;
-		DrawState downArrowDrawState = DrawState.Normal;
+        readonly DrawState upArrowDrawState = DrawState.Normal;
+        readonly DrawState downArrowDrawState = DrawState.Normal;
 		bool upArrowVisible = false;
 		bool downArrowVisible = false;
 		bool upArrowPressed = false;
@@ -264,20 +264,19 @@ namespace UtilityLibrary.WinControls {
 		// Context Menus
 		ContextMenu contextMenu = null;
 		Point lastClickedPoint = Point.Empty;
-		
-		int selectedHeader = -1;
-		System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
+        readonly int selectedHeader = -1;
+        readonly System.Windows.Forms.Timer highlightTimer = new System.Windows.Forms.Timer();
 		bool previousPressed = false;
 		int animationSpeed = 20;
-		Cursor dragCursor = null;
+        readonly Cursor dragCursor = null;
 		int lastDrawnLineIndex = -1;
 		bool paintedDropLineLastItem = false;
 		int droppedPosition = -1;
 		bool forceHightlight = false;
 		int forceHightlightIndex = -1;
-		
-		// For in place editing of the 
-		TextBoxEx textBox = new TextBoxEx();
+
+        // For in place editing of the 
+        readonly TextBoxEx textBox = new TextBoxEx();
 		bool editingAnItem = false;
         						
 		const int X_SMALLICON_LABEL_OFFSET = 2;
@@ -292,9 +291,9 @@ namespace UtilityLibrary.WinControls {
 		// Flat Arrow Buttons helpers
 		DrawState upFlatArrowState = DrawState.Normal;
 		DrawState downFlatArrowState = DrawState.Normal;
-		
-		// Bands
-		OutlookBarBandCollection bands = null;
+
+        // Bands
+        readonly OutlookBarBandCollection bands = null;
 		#endregion
 
 		#region Events
@@ -659,15 +658,17 @@ namespace UtilityLibrary.WinControls {
 			if ( band.IconView == IconView.Large )
 				margin = LARGE_TOP_MARGIN;
 
-			// Work with Windows Rect is easier to change settings
-			RECT rcItem = new RECT();
-			rcItem.left = rc.Left;
-			rcItem.top = top;
-			rcItem.right = rc.Left + itemSize.Width;
-			rcItem.bottom = top + itemSize.Height;
+            // Work with Windows Rect is easier to change settings
+            RECT rcItem = new RECT
+            {
+                left = rc.Left,
+                top = top,
+                right = rc.Left + itemSize.Width,
+                bottom = top + itemSize.Height
+            };
 
-			// Adjust rectangle
-			rcItem.top -= y;
+            // Adjust rectangle
+            rcItem.top -= y;
 			rcItem.bottom -= y;
 			rcItem.top += margin;
 			rcItem.bottom += margin;
@@ -797,8 +798,8 @@ namespace UtilityLibrary.WinControls {
              
 			doScrollingLoop = true;           
 			while ( doScrollingLoop ) {
-				// Check messages until we find a condition to break out of the loop
-				Win32.MSG msg = new Win32.MSG();
+                // Check messages until we find a condition to break out of the loop
+                MSG msg = new MSG();
 				WindowsAPI.GetMessage(ref msg, 0, 0, 0);
 				Point point = new Point(0,0);
 				if ( msg.message == (int)Msg.WM_MOUSEMOVE || msg.message == (int)Msg.WM_LBUTTONUP ) {
@@ -940,8 +941,8 @@ namespace UtilityLibrary.WinControls {
 			            
 			bool doLoop = true;
 			while (doLoop) {
-				// Check messages until we find a condition to break out of the loop
-				Win32.MSG msg = new Win32.MSG();
+                // Check messages until we find a condition to break out of the loop
+                MSG msg = new MSG();
 				WindowsAPI.GetMessage(ref msg, 0, 0, 0);
 				Point point = new Point(0,0);
 				if ( msg.message == (int)Msg.WM_MOUSEMOVE || msg.message == (int)Msg.WM_LBUTTONUP ) {
@@ -1009,8 +1010,8 @@ namespace UtilityLibrary.WinControls {
             			            
 			bool doLoop = true;
 			while ( doLoop ) {
-				// Check messages until we find a condition to break out of the loop
-				Win32.MSG msg = new Win32.MSG();
+                // Check messages until we find a condition to break out of the loop
+                MSG msg = new MSG();
 				WindowsAPI.GetMessage(ref msg, 0, 0, 0);
 				Point point = new Point(0,0);
 				if ( msg.message == (int)Msg.WM_MOUSEMOVE || msg.message == (int)Msg.WM_LBUTTONUP ) {
@@ -1485,10 +1486,12 @@ namespace UtilityLibrary.WinControls {
 			else {
 				ControlPaint.DrawBorder3D(g, rc, style);
 			}
-			StringFormat stringFormat = new StringFormat();
-			stringFormat.LineAlignment = StringAlignment.Center;
-			stringFormat.Alignment = StringAlignment.Center;	
-			g.DrawString(bandName, Font, SystemBrushes.WindowText, rc, stringFormat);
+            StringFormat stringFormat = new StringFormat
+            {
+                LineAlignment = StringAlignment.Center,
+                Alignment = StringAlignment.Center
+            };
+            g.DrawString(bandName, Font, SystemBrushes.WindowText, rc, stringFormat);
 			
 		}
 

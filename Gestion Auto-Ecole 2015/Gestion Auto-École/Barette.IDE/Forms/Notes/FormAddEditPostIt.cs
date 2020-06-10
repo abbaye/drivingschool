@@ -1,19 +1,15 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 #endregion
 
-using Barette.Library; 
+using Barette.Library;
 
-namespace Barette.IDE.Forms.Notes {
-	partial class FormAddEditPostIt : Form {
+namespace Barette.IDE.Forms.Notes
+{
+    partial class FormAddEditPostIt : Form {
 		public FormAddEditPostIt() {
 			InitializeComponent();
 		}
@@ -26,14 +22,15 @@ namespace Barette.IDE.Forms.Notes {
 
 		public PostIt Notes {
 			get {
-				PostIt notes = new PostIt();
+                PostIt notes = new PostIt
+                {
+                    Alerte = cbAlerte.Checked,
+                    AlerteDateTime = DateTimeAlerte.Value,
+                    Message = txtMessage.Text,
+                    Date = DatePostIt.Value
+                };
 
-				notes.Alerte = cbAlerte.Checked;
-				notes.AlerteDateTime = DateTimeAlerte.Value;
-				notes.Message = txtMessage.Text;
-				notes.Date = DatePostIt.Value;
-
-				return notes;
+                return notes;
 			}
 			set {
                 cbAlerte.Checked = value.Alerte;

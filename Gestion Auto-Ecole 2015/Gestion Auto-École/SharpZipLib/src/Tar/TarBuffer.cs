@@ -186,10 +186,12 @@ or which contains garbage records after a zero block.
 #endif				
 			}
 
-			TarBuffer tarBuffer = new TarBuffer();
-			tarBuffer.inputStream  = inputStream;
-			tarBuffer.outputStream = null;
-			tarBuffer.Initialize(blockFactor);
+            TarBuffer tarBuffer = new TarBuffer
+            {
+                inputStream = inputStream,
+                outputStream = null
+            };
+            tarBuffer.Initialize(blockFactor);
 			
 			return tarBuffer;
 		}
@@ -231,10 +233,12 @@ or which contains garbage records after a zero block.
 #endif				
 			}
 
-			TarBuffer tarBuffer = new TarBuffer();
-			tarBuffer.inputStream  = null;
-			tarBuffer.outputStream = outputStream;
-			tarBuffer.Initialize(blockFactor);
+            TarBuffer tarBuffer = new TarBuffer
+            {
+                inputStream = null,
+                outputStream = outputStream
+            };
+            tarBuffer.Initialize(blockFactor);
 			
 			return tarBuffer;
 		}

@@ -219,7 +219,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			CompressionMethod method)
 		{
 			if (name == null) {
-				throw new System.ArgumentNullException("name");
+				throw new ArgumentNullException("name");
 			}
 
 			if ( name.Length > 0xffff )	{
@@ -699,7 +699,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				uint mon  = Math.Max(1, Math.Min(12, ((dosTime >> 21) & 0xf)));
 				uint year = ((dosTime >> 25) & 0x7f) + 1980;
 				int day = Math.Max(1, Math.Min(DateTime.DaysInMonth((int)year, (int)mon), (int)((dosTime >> 16) & 0x1f)));
-				return new System.DateTime((int)year, (int)mon, day, (int)hrs, (int)min, (int)sec);
+				return new DateTime((int)year, (int)mon, day, (int)hrs, (int)min, (int)sec);
 			}
 
 			set {
@@ -788,16 +788,16 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 		}
 
-		/// <summary>
-		/// Gets/Sets the crc of the uncompressed data.
-		/// </summary>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// Crc is not in the range 0..0xffffffffL
-		/// </exception>
-		/// <returns>
-		/// The crc value or -1 if unknown.
-		/// </returns>
-		public long Crc 
+        /// <summary>
+        /// Gets/Sets the crc of the uncompressed data.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Crc is not in the range 0..0xffffffffL
+        /// </exception>
+        /// <returns>
+        /// The crc value or -1 if unknown.
+        /// </returns>
+        public long Crc 
 		{
 			get {
 				return (known & Known.Crc) != 0 ? crc & 0xffffffffL : -1L;
@@ -810,16 +810,16 @@ namespace ICSharpCode.SharpZipLib.Zip
 				this.known |= Known.Crc;
 			}
 		}
-		
-		/// <summary>
-		/// Gets/Sets the compression method. Only Deflated and Stored are supported.
-		/// </summary>
-		/// <returns>
-		/// The compression method for this entry
-		/// </returns>
-		/// <see cref="ICSharpCode.SharpZipLib.Zip.CompressionMethod.Deflated"/>
-		/// <see cref="ICSharpCode.SharpZipLib.Zip.CompressionMethod.Stored"/>
-		public CompressionMethod CompressionMethod {
+
+        /// <summary>
+        /// Gets/Sets the compression method. Only Deflated and Stored are supported.
+        /// </summary>
+        /// <returns>
+        /// The compression method for this entry
+        /// </returns>
+        /// <see cref="CompressionMethod.Deflated"/>
+        /// <see cref="CompressionMethod.Stored"/>
+        public CompressionMethod CompressionMethod {
 			get {
 				return method;
 			}
@@ -843,16 +843,16 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 		}
 
-		/// <summary>
-		/// Gets/Sets the extra data.
-		/// </summary>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// Extra data is longer than 64KB (0xffff) bytes.
-		/// </exception>
-		/// <returns>
-		/// Extra data or null if not set.
-		/// </returns>
-		public byte[] ExtraData {
+        /// <summary>
+        /// Gets/Sets the extra data.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Extra data is longer than 64KB (0xffff) bytes.
+        /// </exception>
+        /// <returns>
+        /// Extra data or null if not set.
+        /// </returns>
+        public byte[] ExtraData {
 			
 			get {
 // TODO: This is slightly safer but less efficient.  Think about wether it should change.
@@ -866,7 +866,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				}
 				else {
 					if (value.Length > 0xffff) {
-						throw new System.ArgumentOutOfRangeException("value");
+						throw new ArgumentOutOfRangeException("value");
 					}
 				
 					extra = new byte[value.Length];
@@ -1023,7 +1023,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				if ( ((flags & 1) != 0) && (length >= 5) ) {
 					int iTime = extraData.ReadInt();
 
-					DateTime = (new System.DateTime ( 1970, 1, 1, 0, 0, 0 ).ToUniversalTime() +
+					DateTime = (new DateTime( 1970, 1, 1, 0, 0, 0 ).ToUniversalTime() +
 						new TimeSpan ( 0, 0, 0, iTime, 0 )).ToLocalTime();
 				}
 			}
@@ -1061,20 +1061,20 @@ namespace ICSharpCode.SharpZipLib.Zip
 #endif
 		}
 
-		/// <summary>
-		/// Gets/Sets the entry comment.
-		/// </summary>
-		/// <exception cref="System.ArgumentOutOfRangeException">
-		/// If comment is longer than 0xffff.
-		/// </exception>
-		/// <returns>
-		/// The comment or null if not set.
-		/// </returns>
-		/// <remarks>
-		/// A comment is only available for entries when read via the <see cref="ZipFile"/> class.
-		/// The <see cref="ZipInputStream"/> class doesnt have the comment data available.
-		/// </remarks>
-		public string Comment {
+        /// <summary>
+        /// Gets/Sets the entry comment.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// If comment is longer than 0xffff.
+        /// </exception>
+        /// <returns>
+        /// The comment or null if not set.
+        /// </returns>
+        /// <remarks>
+        /// A comment is only available for entries when read via the <see cref="ZipFile"/> class.
+        /// The <see cref="ZipInputStream"/> class doesnt have the comment data available.
+        /// </remarks>
+        public string Comment {
 			get {
 				return comment;
 			}
@@ -1222,10 +1222,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 		Known known;
 		int    externalFileAttributes = -1;     // contains external attributes (O/S dependant)
 		
-		ushort versionMadeBy;					// Contains host system and version information
-												// only relevant for central header entries
-		
-		string name;
+		ushort versionMadeBy;                   // Contains host system and version information
+                                                // only relevant for central header entries
+
+
+        readonly string name;
 		ulong  size;
 		ulong  compressedSize;
 		ushort versionToExtract;                // Version required to extract (library handles <= 2.0)

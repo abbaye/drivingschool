@@ -1,24 +1,21 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Resources;
 using System.Diagnostics;
 using UtilityLibrary.General;
-using UtilityLibrary.WinControls;
 using UtilityLibrary.Win32;
 
 namespace UtilityLibrary.WinControls
 {
-	
-	#region Helper Classes
-	public class NewColorArgs : EventArgs
+
+    #region Helper Classes
+    public class NewColorArgs : EventArgs
 	{
-		#region Class Variables
-		Color newColor;
+        #region Class Variables
+        readonly Color newColor;
 		#endregion
 		
 		#region Class Variables
@@ -37,11 +34,11 @@ namespace UtilityLibrary.WinControls
 	}
 		
 	[ToolboxItem(false)]
-	internal class ArrowButton : System.Windows.Forms.Button
-	{
+	internal class ArrowButton : Button
+    {
 
-		#region Class Variables
-		ColorPicker colorPicker = null;
+        #region Class Variables
+        readonly ColorPicker colorPicker = null;
 		DrawState drawState = DrawState.Normal;
 		#endregion
 
@@ -213,27 +210,29 @@ namespace UtilityLibrary.WinControls
 
 		void RequestMouseLeaveMessage(IntPtr hWnd)
 		{
-			// Crea the structure needed for WindowsAPI call
-			Win32.TRACKMOUSEEVENTS tme = new Win32.TRACKMOUSEEVENTS();
+            // Crea the structure needed for WindowsAPI call
+            TRACKMOUSEEVENTS tme = new TRACKMOUSEEVENTS
+            {
 
-			// Fill in the structure
-			tme.cbSize = 16;									
-			tme.dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE;
-			tme.hWnd = hWnd;								
-			tme.dwHoverTime = 0;								
+                // Fill in the structure
+                cbSize = 16,
+                dwFlags = (uint)Win32.TrackerEventFlags.TME_LEAVE,
+                hWnd = hWnd,
+                dwHoverTime = 0
+            };
 
-			// Request that a message gets sent when mouse leaves this window
-			WindowsAPI.TrackMouseEvent(ref tme);
+            // Request that a message gets sent when mouse leaves this window
+            WindowsAPI.TrackMouseEvent(ref tme);
 		}
 
 		#endregion 
 		
 	}
 
-	internal class ColorPickerEditCtrlHook : System.Windows.Forms.NativeWindow
-	{
-		#region Class Variables
-		ColorPicker colorPicker;
+	internal class ColorPickerEditCtrlHook : NativeWindow
+    {
+        #region Class Variables
+        readonly ColorPicker colorPicker;
 		bool ignoreNextPaintMessage = false;
 		#endregion
 		
@@ -312,18 +311,18 @@ namespace UtilityLibrary.WinControls
 	/// Summary description for ColorPicker.
 	/// </summary>
 	[ToolboxItem(false)]
-	public class ColorPicker : System.Windows.Forms.UserControl
-	{
+	public class ColorPicker : UserControl
+    {
 		
 		#region Class Variables
-		internal System.Windows.Forms.TextBox colorTextBox;
+		internal TextBox colorTextBox;
 		internal ArrowButton arrowButton;
 		internal ColorPickerDropDown colorDropDown;
 		const int COLOR_PANEL_WIDTH = 20;
 		const int ARROW_BUTTON_WIDTH = 15;
 		int TEXTBOX_HEIGHT = -1;
 		const int MARGIN = 8;
-		ResourceManager rm = null;
+        readonly ResourceManager rm = null;
         Color currentColor = Color.White;
 		public delegate void NewColorEventHandler(object sender, NewColorArgs e);
 		public event NewColorEventHandler NewColor;
@@ -335,7 +334,7 @@ namespace UtilityLibrary.WinControls
 		/// <summary> 
 		/// Required designer variable.
 		/// </summary>
-		private System.ComponentModel.Container components = null;
+		private readonly Container components = null;
 		#endregion
 
 		#region Constructors
@@ -594,7 +593,7 @@ namespace UtilityLibrary.WinControls
 
 		}
 
-		void arrowButton_Click(object sender, System.EventArgs e)
+		void arrowButton_Click(object sender, EventArgs e)
 		{
 			// Show color picker dropdown control
 			Point point = new Point(0,0);
@@ -638,12 +637,12 @@ namespace UtilityLibrary.WinControls
 			InitializeColorTextBoxString(ea.NewColor, ea.SenderName);
 		}
 
-		void ColorPicker_Load(object sender, System.EventArgs e)
+		void ColorPicker_Load(object sender, EventArgs e)
 		{
 			SetupChildrenControls();		
 		}
 
-		void colorTextBox_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+		void colorTextBox_KeyUp(object sender, KeyEventArgs e)
 		{
 			// If not the enter key then do not process
 			if ( e.KeyCode != Keys.Enter)
@@ -831,39 +830,39 @@ namespace UtilityLibrary.WinControls
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.colorTextBox = new System.Windows.Forms.TextBox();
+			this.colorTextBox = new TextBox();
 			this.arrowButton = new ArrowButton(this);
 			this.SuspendLayout();
 			// 
 			// colorTextBox
 			// 
 			this.colorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.colorTextBox.Location = new System.Drawing.Point(38, 4);
+			this.colorTextBox.Location = new Point(38, 4);
 			this.colorTextBox.Name = "colorTextBox";
-			this.colorTextBox.Size = new System.Drawing.Size(122, 13);
+			this.colorTextBox.Size = new Size(122, 13);
 			this.colorTextBox.TabIndex = 0;
 			this.colorTextBox.Text = "textBox1";
-			this.colorTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.colorTextBox_KeyUp);
+			this.colorTextBox.KeyUp += new KeyEventHandler(this.colorTextBox_KeyUp);
 			// 
 			// arrowButton
 			// 
 			this.arrowButton.BackColor = System.Drawing.SystemColors.Control;
 			this.arrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.arrowButton.Location = new System.Drawing.Point(166, 4);
+			this.arrowButton.Location = new Point(166, 4);
 			this.arrowButton.Name = "arrowButton";
-			this.arrowButton.Size = new System.Drawing.Size(18, 10);
+			this.arrowButton.Size = new Size(18, 10);
 			this.arrowButton.TabIndex = 1;
-			this.arrowButton.Click += new System.EventHandler(this.arrowButton_Click);
+			this.arrowButton.Click += new EventHandler(this.arrowButton_Click);
 			// 
 			// ColorPicker
 			// 
 			this.BackColor = System.Drawing.Color.White;
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
+			this.Controls.AddRange(new Control[] {
 																		  this.arrowButton,
 																		  this.colorTextBox});
 			this.Name = "ColorPicker";
-			this.Size = new System.Drawing.Size(190, 24);
-			this.Load += new System.EventHandler(this.ColorPicker_Load);
+			this.Size = new Size(190, 24);
+			this.Load += new EventHandler(this.ColorPicker_Load);
 			this.ResumeLayout(false);
 
 		}

@@ -1,21 +1,17 @@
 ﻿#region Using directives
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 using Barette.Library;
 
 #endregion
 
-namespace Barette.IDE.Forms.Notes {
-	partial class FormPostIt : Form {
+namespace Barette.IDE.Forms.Notes
+{
+    partial class FormPostIt : Form {
 
-		private FormMain _FormMain = null;
+		private readonly FormMain _FormMain = null;
 
 		public FormPostIt(FormMain formMain) {
 			InitializeComponent();
@@ -189,26 +185,28 @@ namespace Barette.IDE.Forms.Notes {
 
 		public PostIt NotesSelected {
 			get {
-				PostIt notes = new PostIt();
+                PostIt notes = new PostIt
+                {
+                    Message = (string)lvNote.SelectedItems[0].Tag,
+                    Alerte = Convert.ToBoolean(lvNote.SelectedItems[0].SubItems[1].Text),
+                    AlerteDateTime = DateTime.Parse(lvNote.SelectedItems[0].SubItems[2].Text),
+                    Date = DateTime.Parse(lvNote.SelectedItems[0].SubItems[3].Text)
+                };
 
-				notes.Message = (string)lvNote.SelectedItems[0].Tag;
-				notes.Alerte = Convert.ToBoolean(lvNote.SelectedItems[0].SubItems[1].Text);
-				notes.AlerteDateTime = DateTime.Parse(lvNote.SelectedItems[0].SubItems[2].Text);
-				notes.Date = DateTime.Parse(lvNote.SelectedItems[0].SubItems[3].Text);
-
-				return notes;
+                return notes;
 			}
 		}
 
 		public PostIt Notes(int index) {
-			PostIt notes = new PostIt();
+            PostIt notes = new PostIt
+            {
+                Message = (string)lvNote.Items[index].Tag,
+                Alerte = Convert.ToBoolean(lvNote.Items[index].SubItems[1].Text),
+                AlerteDateTime = DateTime.Parse(lvNote.Items[index].SubItems[2].Text),
+                Date = DateTime.Parse(lvNote.Items[index].SubItems[3].Text)
+            };
 
-			notes.Message = (string)lvNote.Items[index].Tag;
-			notes.Alerte = Convert.ToBoolean(lvNote.Items[index].SubItems[1].Text);
-			notes.AlerteDateTime = DateTime.Parse(lvNote.Items[index].SubItems[2].Text);
-			notes.Date = DateTime.Parse(lvNote.Items[index].SubItems[3].Text);
-
-			return notes;
+            return notes;
 		}
 
 	}

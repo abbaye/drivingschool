@@ -1,11 +1,11 @@
 using System;
-using Barette.Library;
 
-namespace Barette.Library.Client {
-	/// <summary>
-	/// Description résumée de Paiment.
-	/// </summary>
-	public class Paiement {
+namespace Barette.Library.Client
+{
+    /// <summary>
+    /// Description résumée de Paiment.
+    /// </summary>
+    public class Paiement {
 		private DateTime		_date;
 		private TypePaiment		_typePaiment;
 		private string			_PaimentAutre;
