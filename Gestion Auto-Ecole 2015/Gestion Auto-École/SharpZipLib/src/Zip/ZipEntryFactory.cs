@@ -134,13 +134,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 			get { return nameTransform_; }
 			set 
 			{
-				if (value == null) {
-					nameTransform_ = new ZipNameTransform();
-				}
-				else {
-					nameTransform_ = value;
-				}
-			}
+				nameTransform_ = value == null ? new ZipNameTransform() : value;
+            }
 		}
 
 		/// <summary>
@@ -224,7 +219,7 @@ namespace ICSharpCode.SharpZipLib.Zip
             };
 
             int externalAttributes = 0;
-			bool useAttributes = (setAttributes_ != 0);
+			bool useAttributes = setAttributes_ != 0;
 
 			FileInfo fi = null;
 			if (useFileSystem)
@@ -283,7 +278,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				result.Size = fi.Length;
 
 				useAttributes = true;
-				externalAttributes = ((int)fi.Attributes & getAttributes_);
+				externalAttributes = (int)fi.Attributes & getAttributes_;
 			}
 			else
 			{
@@ -385,7 +380,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 						throw new ZipException("Unhandled time setting in MakeDirectoryEntry");
 				}
 
-				externalAttributes = ((int)di.Attributes & getAttributes_);
+				externalAttributes = (int)di.Attributes & getAttributes_;
 			}
 			else
 			{
@@ -396,7 +391,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 
 			// Always set directory attribute on.
-			externalAttributes |= (setAttributes_ | 16);
+			externalAttributes |= setAttributes_ | 16;
 			result.ExternalFileAttributes = externalAttributes;
 
 			return result;

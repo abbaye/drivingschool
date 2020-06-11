@@ -51,7 +51,7 @@ namespace Crownwood.Magic.Collections
         public TabPage this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as TabPage); }
+            get { return base.List[index] as TabPage; }
         }
 
         public TabPage this[string title]

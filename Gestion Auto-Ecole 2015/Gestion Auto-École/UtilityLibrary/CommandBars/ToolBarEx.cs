@@ -156,7 +156,7 @@ namespace UtilityLibrary.CommandBars
                 };
                 WindowsAPI.GetCommonControlDLLVersion(ref dllVersion);
 				bGotIsCommonCtrl6 = true;
-				isCommonCtrl6 = (dllVersion.dwMajorVersion >= 6);
+				isCommonCtrl6 = dllVersion.dwMajorVersion >= 6;
 			}
 			return isCommonCtrl6;
 		}
@@ -233,7 +233,7 @@ namespace UtilityLibrary.CommandBars
 				if ( state == State.Hot )
 				{
 					int index = HitTest(point);
-					if ((IsValid(index)) && ( point != lastMousePosition))
+					if (IsValid(index) && ( point != lastMousePosition))
 						SetHotItem(index);
 					return;
 				}
@@ -265,7 +265,7 @@ namespace UtilityLibrary.CommandBars
 		bool IsValid(int index)
 		{
 			int count = WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_BUTTONCOUNT, 0, 0);
-			return ((index >= 0) && (index < count));
+			return (index >= 0) && (index < count);
 		}
 
 		int HitTest(Point point)
@@ -323,7 +323,7 @@ namespace UtilityLibrary.CommandBars
 				BeginUpdate();
 
 				// Raise event
-				ToolBarItem item = (ToolBarItem)items[index];
+				ToolBarItem item = items[index];
 				item.RaiseDropDown();
 				// Item state
 				WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_PRESSBUTTON, index, -1);
@@ -432,7 +432,7 @@ namespace UtilityLibrary.CommandBars
 					if (point != lastMousePosition)
 					{
 						int index = HitTest(point);
-						if ((IsValid(index)) && (index != trackHotItem))
+						if (IsValid(index) && (index != trackHotItem))
 							TrackDropDownNext(index);
 						lastMousePosition = point;
 					}
@@ -490,7 +490,7 @@ namespace UtilityLibrary.CommandBars
 					ToolBarItem item = items[i];
 					if ( item.ComboBox != null )
 						hasComboBox = true;
-					IsSeparator = (item.Style == ToolBarItemStyle.Separator);
+					IsSeparator = item.Style == ToolBarItemStyle.Separator;
 					if ( item.Visible ) 
 						if ( (!IsSeparator ) || (chevronItems.Count != 0) )
 						{
@@ -563,11 +563,8 @@ namespace UtilityLibrary.CommandBars
 				{
 					RECT rect = new RECT();
 					WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_GETITEMRECT, i, ref rect);
-					if (rect.right > size.Width)
-						item.ComboBox.Visible = false;
-					else
-						item.ComboBox.Visible = true;
-				}
+					item.ComboBox.Visible = rect.right <= size.Width;
+                }
 			}
 		}
 
@@ -643,7 +640,7 @@ namespace UtilityLibrary.CommandBars
 				int index = 0;
 				foreach (MenuItem menuItem in menu.MenuItems)
 				{
-					if ((menuItem != null) && (menuItem.OwnerDraw) && (menuItem.Mnemonic == key))
+					if ((menuItem != null) && menuItem.OwnerDraw && (menuItem.Mnemonic == key))
 					{
 						message.Result = (IntPtr) (((int)MenuCharReturnValues.MNC_EXECUTE << 16) | index);
 						return;
@@ -658,7 +655,7 @@ namespace UtilityLibrary.CommandBars
 		void NotifyNeedTextA(ref Message m)
 		{
 			TOOLTIPTEXTA ttt = (TOOLTIPTEXTA) m.GetLParam(typeof(TOOLTIPTEXTA));
-			ToolBarItem item = (ToolBarItem) items[ttt.hdr.idFrom];
+			ToolBarItem item = items[ttt.hdr.idFrom];
 			string toolTip = item.ToolTip;
 			if ( toolTip != null && toolTip != string.Empty )
 			{
@@ -676,7 +673,7 @@ namespace UtilityLibrary.CommandBars
 	
 			// This code is a duplicate of NotifyNeedTextA
 			TOOLTIPTEXT ttt = (TOOLTIPTEXT) m.GetLParam(typeof(TOOLTIPTEXT));
-			ToolBarItem item = (ToolBarItem) items[ttt.hdr.idFrom];
+			ToolBarItem item = items[ttt.hdr.idFrom];
 			string toolTip = item.ToolTip;
 			if ( toolTip != null && toolTip != string.Empty )
 			{
@@ -738,11 +735,11 @@ namespace UtilityLibrary.CommandBars
 				return;
 			}
 
-			bool hot = (bool)((tbcd.nmcd.uItemState & (int)CustomDrawItemStateFlags.CDIS_HOT) != 0);
-			bool selected = (bool)((tbcd.nmcd.uItemState & (int)CustomDrawItemStateFlags.CDIS_SELECTED) != 0);
-			bool disabled = (bool)((tbcd.nmcd.uItemState & (int)CustomDrawItemStateFlags.CDIS_DISABLED) != 0);
+			bool hot = (tbcd.nmcd.uItemState & (int)CustomDrawItemStateFlags.CDIS_HOT) != 0;
+			bool selected = (tbcd.nmcd.uItemState & (int)CustomDrawItemStateFlags.CDIS_SELECTED) != 0;
+			bool disabled = (tbcd.nmcd.uItemState & (int)CustomDrawItemStateFlags.CDIS_DISABLED) != 0;
 			string tempString = item.Text;
-			bool hasText = (tempString != string.Empty && tempString != null);
+			bool hasText = tempString != string.Empty && tempString != null;
 	
 			if (item.Checked) 
 			{
@@ -816,7 +813,7 @@ namespace UtilityLibrary.CommandBars
 					{
 						hMainWindow = WindowsAPI.GetParent(hreBar);
 						if ( hMainWindow != IntPtr.Zero ) 
-							mainHasFocus = ( hMainWindow == WindowsAPI.GetFocus());
+							mainHasFocus =  hMainWindow == WindowsAPI.GetFocus();
 					}
 
 					if ( hMainWindow != IntPtr.Zero &&  mainHasFocus)
@@ -886,7 +883,7 @@ namespace UtilityLibrary.CommandBars
 				Point pos;
 				if ( barType == BarType.MenuBar )	
 				{
-					int offset = rc.left + ((rc.right - rc.left) - textSize.Width)/2;
+					int offset = rc.left + (rc.right - rc.left - textSize.Width)/2;
 					pos = new Point(offset, rc.top + ((rc.bottom - rc.top - textSize.Height) / 2));
 				}
 				else
@@ -913,7 +910,7 @@ namespace UtilityLibrary.CommandBars
 		{
 			// Draw arrow glyph
 			Point[] pts = new Point[3];
-			int leftEdge = rectangle.Left + (rectangle.Width-DROWPDOWN_ARROW_WIDTH+1);
+			int leftEdge = rectangle.Left + rectangle.Width-DROWPDOWN_ARROW_WIDTH+1;
 			int middle = rectangle.Top + rectangle.Height/2-1;
 			pts[0] = new Point(leftEdge + 4, middle);
 			pts[1] = new Point(leftEdge + 9,  middle);
@@ -951,12 +948,12 @@ namespace UtilityLibrary.CommandBars
 				}
   
 				//  Check if we have a mnemonic
-				bool alt = ((keys & Keys.Alt) != 0);
+				bool alt = (keys & Keys.Alt) != 0;
 				if ( alt )
 				{
 					Keys keyCode = keys & Keys.KeyCode;
 					char key = (char)(int)keyCode;
-					if ((Char.IsDigit(key) || (Char.IsLetter(key))))
+					if (Char.IsDigit(key) || Char.IsLetter(key))
 					{
 						ToolBarItem mnemonicsHit = items[key];        
 						if ( mnemonicsHit != null ) 
@@ -980,7 +977,7 @@ namespace UtilityLibrary.CommandBars
 			MenuItem resultItem = null;
 			foreach (MenuItem item in menuItems )
 			{
-				if ( ((int)item.Shortcut == (int)keys) && (item.Enabled) && (item.Visible) )
+				if ( ((int)item.Shortcut == (int)keys) && item.Enabled && item.Visible )
 					return item;
 				else
 				{
@@ -997,11 +994,8 @@ namespace UtilityLibrary.CommandBars
 			int count = collection.Count;
 			foreach (MenuItem item in collection )
 			{
-				if ( ((int)item.Shortcut == (int)keys) && (item.Enabled) && (item.Visible) )
-					return item;
-				else
-					return FindShortcutItem(item.MenuItems, keys);
-			}
+                return ((int)item.Shortcut == (int)keys) && item.Enabled && item.Visible ? item : FindShortcutItem(item.MenuItems, keys);
+            }
 			return null;
 		}
 
@@ -1089,13 +1083,13 @@ namespace UtilityLibrary.CommandBars
 
             if ( item.Style == ToolBarItemStyle.ComboBox )
 			{
-				tbi.fsStyle = (int)(ToolBarButtonStyles.TBSTYLE_BUTTON) ;
+				tbi.fsStyle = (int)ToolBarButtonStyles.TBSTYLE_BUTTON ;
 				tbi.cx = (short)item.ComboBox.Width;
 				WindowsAPI.SetParent(item.ComboBox.Handle, Handle);
 			}
 			else if ( item.Text != null && item.Text != string.Empty )
 			{
-				tbi.fsStyle = (int)(ToolBarButtonStyles.TBSTYLE_BUTTON);
+				tbi.fsStyle = (int)ToolBarButtonStyles.TBSTYLE_BUTTON;
 				tbi.cx = MARGIN;
 				if ( item.Image != null )
 					tbi.cx += (short)(item.Image.Size.Width + MARGIN);
@@ -1189,11 +1183,11 @@ namespace UtilityLibrary.CommandBars
 		{
 			RECT rect = new RECT();
 			WindowsAPI.SendMessage(Handle, (int)ToolBarMessages.TB_GETRECT, index, ref rect);
-			int rectHeight = (rect.bottom-rect.top);
+			int rectHeight = rect.bottom-rect.top;
 			int cbHeight = Items[index].ComboBox.Bounds.Height;
 			int topOffset = rect.top+(rectHeight-cbHeight)/2;
 			Items[index].ComboBox.Bounds = new Rectangle(rect.left+1, topOffset, 
-					(rect.right-rect.left)-2, cbHeight);
+					rect.right-rect.left-2, cbHeight);
 			
 		}
 

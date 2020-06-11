@@ -1,7 +1,0 @@
-C:\Users\Lenovo\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\SharpZipLib\bin\ICSharpCode.SharpZipLib.xml
-C:\Users\Lenovo\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\SharpZipLib\bin\ICSharpCode.SharpZipLib.dll
-C:\Users\Lenovo\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\SharpZipLib\bin\ICSharpCode.SharpZipLib.pdb
-C:\Users\Lenovo\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\SharpZipLib\src\obj\Debug\ICSharpCode.SharpZLib.csproj.CoreCompileInputs.cache
-C:\Users\Lenovo\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\SharpZipLib\src\obj\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\Lenovo\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\SharpZipLib\src\obj\Debug\ICSharpCode.SharpZipLib.pdb
-C:\Users\Lenovo\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\SharpZipLib\src\obj\Debug\ICSharpCode.SharpZLib.csprojAssemblyReference.cache

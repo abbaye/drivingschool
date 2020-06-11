@@ -74,7 +74,7 @@ namespace Crownwood.Magic.Collections
         public MenuCommand this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as MenuCommand); }
+            get { return base.List[index] as MenuCommand; }
         }
 
         public MenuCommand this[string text]

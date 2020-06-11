@@ -121,13 +121,13 @@ namespace Barette.Library.UserControls.Client
             ListViewGroup listViewGroup15 = new ListViewGroup("Credit", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPaiment));
             this.ListViewPaiment = new ListView();
-            this.colHeadDate = ((ColumnHeader)(new ColumnHeader()));
-            this.colHeadMontant = ((ColumnHeader)(new ColumnHeader()));
-            this.colHeadTPS = ((ColumnHeader)(new ColumnHeader()));
-            this.colHeadTVQ = ((ColumnHeader)(new ColumnHeader()));
-            this.colHeadRecuNumber = ((ColumnHeader)(new ColumnHeader()));
-            this.colHeadRL = ((ColumnHeader)(new ColumnHeader()));
-            this.colHeadTypePaiment = ((ColumnHeader)(new ColumnHeader()));
+            this.colHeadDate = new ColumnHeader();
+            this.colHeadMontant = new ColumnHeader();
+            this.colHeadTPS = new ColumnHeader();
+            this.colHeadTVQ = new ColumnHeader();
+            this.colHeadRecuNumber = new ColumnHeader();
+            this.colHeadRL = new ColumnHeader();
+            this.colHeadTypePaiment = new ColumnHeader();
             this.label1 = new Label();
             this.gbPaiment = new GroupBox();
             this.groupBox2 = new GroupBox();
@@ -170,13 +170,13 @@ namespace Barette.Library.UserControls.Client
             this.gbPaiment.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timerAutuUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)this.timerAutuUpdate).BeginInit();
             this.SuspendLayout();
             // 
             // ListViewPaiment
             // 
-            this.ListViewPaiment.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ListViewPaiment.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
+            | System.Windows.Forms.AnchorStyles.Left;
             this.ListViewPaiment.Columns.AddRange(new ColumnHeader[] {
             this.colHeadDate,
             this.colHeadMontant,
@@ -286,7 +286,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.groupBox2.Controls.Add(this.cbAbsence);
             this.groupBox2.Controls.Add(this.cbLocationAuto);
             this.groupBox2.Controls.Add(this.cbRetourLivre);
@@ -300,7 +300,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cbAbsence
             // 
-            this.cbAbsence.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbAbsence.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.cbAbsence.AutoSize = true;
             this.cbAbsence.Location = new Point(7, 73);
             this.cbAbsence.Margin = new Padding(3, 3, 3, 1);
@@ -311,7 +311,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cbLocationAuto
             // 
-            this.cbLocationAuto.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbLocationAuto.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.cbLocationAuto.AutoSize = true;
             this.cbLocationAuto.Location = new Point(7, 49);
             this.cbLocationAuto.Name = "cbLocationAuto";
@@ -321,7 +321,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cbRetourLivre
             // 
-            this.cbRetourLivre.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbRetourLivre.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.cbRetourLivre.AutoSize = true;
             this.cbRetourLivre.Location = new Point(7, 24);
             this.cbRetourLivre.Name = "cbRetourLivre";
@@ -331,7 +331,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // button1
             // 
-            this.button1.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.button1.Location = new Point(7, 138);
             this.button1.Margin = new Padding(3, 2, 3, 3);
             this.button1.Name = "button1";
@@ -421,8 +421,8 @@ namespace Barette.Library.UserControls.Client
             // 
             // NumeroRecu
             // 
-            this.NumeroRecu.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NumeroRecu.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left
+            | System.Windows.Forms.AnchorStyles.Right;
             this.NumeroRecu.Location = new Point(144, 88);
             this.NumeroRecu.Name = "NumeroRecu";
             this.NumeroRecu.SetRange = new Size(0, 99999999);
@@ -444,8 +444,8 @@ namespace Barette.Library.UserControls.Client
             // 
             // DateFacture
             // 
-            this.DateFacture.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DateFacture.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left
+            | System.Windows.Forms.AnchorStyles.Right;
             this.DateFacture.Location = new Point(144, 24);
             this.DateFacture.Name = "DateFacture";
             this.DateFacture.Size = new Size(160, 20);
@@ -461,8 +461,8 @@ namespace Barette.Library.UserControls.Client
             // 
             // MontantPaiment
             // 
-            this.MontantPaiment.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MontantPaiment.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left
+            | System.Windows.Forms.AnchorStyles.Right;
             this.MontantPaiment.Location = new Point(144, 56);
             this.MontantPaiment.Name = "MontantPaiment";
             this.MontantPaiment.Size = new Size(88, 20);
@@ -480,7 +480,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdMakePaiment
             // 
-            this.cmdMakePaiment.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdMakePaiment.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.cmdMakePaiment.Image = global::Barette.Library.Properties.Resources.add_icon;
             this.cmdMakePaiment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdMakePaiment.Location = new Point(153, 295);
@@ -493,7 +493,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdCancel
             // 
-            this.cmdCancel.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
             this.cmdCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -507,7 +507,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdApply
             // 
-            this.cmdApply.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdApply.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             this.cmdApply.Image = global::Barette.Library.Properties.Resources.accept_icon;
             this.cmdApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdApply.Location = new Point(698, 460);
@@ -553,7 +553,7 @@ namespace Barette.Library.UserControls.Client
             this.printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
             this.printPreviewDialog1.ClientSize = new Size(400, 300);
             this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
@@ -619,7 +619,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "new-page-icon.png");
             this.imageList1.Images.SetKeyName(1, "delete-icon.png");
@@ -675,7 +675,7 @@ namespace Barette.Library.UserControls.Client
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.timerAutuUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)this.timerAutuUpdate).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -767,11 +767,7 @@ namespace Barette.Library.UserControls.Client
 					typePaiment = "PD";
                 else if (rbVISA.Checked == true)
                     typePaiment = "VISA";
-                else if (rbMasterCard.Checked == true)
-                    typePaiment = "MASTER";
-                else {
-					typePaiment = txtTypePaiment.Text;
-				}
+                else typePaiment = rbMasterCard.Checked == true ? "MASTER" : txtTypePaiment.Text;
 
                 //Creation de l'item et ajout dans les bonnes sections
                 TaxeExtractor taxe = new TaxeExtractor();
@@ -823,10 +819,7 @@ namespace Barette.Library.UserControls.Client
                         type = "RL";
                     else if (cbLocationAuto.Checked == true)
                         type = "LA";
-                    else if (cbAbsence.Checked == true)
-                        type = "ABS";
-                    else
-                        type = "";
+                    else type = cbAbsence.Checked == true ? "ABS" : "";
 
                     if (rbArgentComptant.Checked == true)
                         typePaiment = "AC";
@@ -836,11 +829,7 @@ namespace Barette.Library.UserControls.Client
                         typePaiment = "PD";
                     else if (rbVISA.Checked == true)
                         typePaiment = "VISA";
-                    else if (rbMasterCard.Checked == true)
-                        typePaiment = "MASTER";
-                    else {
-                        typePaiment = txtTypePaiment.Text;
-                    }
+                    else typePaiment = rbMasterCard.Checked == true ? "MASTER" : txtTypePaiment.Text;
 
                     //Creation de l'item et ajout dans les bonnes sections
                     TaxeExtractor taxe = new TaxeExtractor();
@@ -1098,11 +1087,8 @@ namespace Barette.Library.UserControls.Client
 		}
 
 		private void cbTotalCours_TextChanged(object sender, EventArgs e) {
-			if (cbTotalCours.Value > 0)
-				gbPaiment.Enabled = true;
-			else
-				gbPaiment.Enabled = false;
-		}
+			gbPaiment.Enabled = cbTotalCours.Value > 0;
+        }
 
 		/// <summary>
 		/// Selectionne un paiment dans la liste
@@ -1282,9 +1268,9 @@ namespace Barette.Library.UserControls.Client
 			yPos += printFont.Height;
             e.Graphics.DrawString("Solde : " + lblSolde.Text, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 
-			yPos += (printFont.Height * 2);
+			yPos += printFont.Height * 2;
             e.Graphics.DrawString("TPS : " + _infoSchool.TPS, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            yPos += (printFont.Height);
+            yPos += printFont.Height;
             e.Graphics.DrawString("TVQ : " + _infoSchool.TVQ, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 
 			yPos += 40;
@@ -1305,12 +1291,9 @@ namespace Barette.Library.UserControls.Client
 				MontantPaiment.Text = ListViewPaiment.SelectedItems[0].SubItems[1].Text.Replace(" $", "");
 				NumeroRecu.Text = ListViewPaiment.SelectedItems[0].SubItems[4].Text;
 
-				if (ListViewPaiment.SelectedItems[0].SubItems[5].Text == "RL")
-					cbRetourLivre.Checked = true;
-				else
-					cbRetourLivre.Checked = false;
+				cbRetourLivre.Checked = ListViewPaiment.SelectedItems[0].SubItems[5].Text == "RL";
 
-				switch (ListViewPaiment.SelectedItems[0].SubItems[6].Text) {
+                switch (ListViewPaiment.SelectedItems[0].SubItems[6].Text) {
 					case "AC":
 						rbArgentComptant.Checked = true;
 						break;
@@ -1440,16 +1423,10 @@ namespace Barette.Library.UserControls.Client
 		}
 
 		private void timerSelection_Tick(object sender, EventArgs e) {
-			if (ListViewPaiment.SelectedItems.Count > 0)
-				tbbDelete.Enabled = true;
-			else
-				tbbDelete.Enabled = false;
+			tbbDelete.Enabled = ListViewPaiment.SelectedItems.Count > 0;
 
-			if (ListViewPaiment.Items.Count > 0)
-				tbbPrint.Enabled = true;
-			else
-				tbbPrint.Enabled = false;
-		}
+            tbbPrint.Enabled = ListViewPaiment.Items.Count > 0;
+        }
 
 		private void timerAutuUpdate_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
 			if (_Mode == PaiementMode.Modifier)

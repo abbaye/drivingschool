@@ -996,7 +996,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				resultHandler(status, null);
 			}
 
-			return (status.ErrorCount == 0);
+			return status.ErrorCount == 0;
 		}
 
 		[Flags]
@@ -1252,7 +1252,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				// Size can be verified only if it is known in the local header.
 				// it will always be known in the central header.
 				if (((localFlags & (int)GeneralBitFlags.Descriptor) == 0) ||
-					((size > 0) || (compressedSize > 0))) {
+					(size > 0) || (compressedSize > 0)) {
 
 					if (size != entry.Size) {
 						throw new ZipException(
@@ -1315,13 +1315,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 
 			set {
-				if (value == null) {
-					updateEntryFactory_ = new ZipEntryFactory();
-				}
-				else {
-					updateEntryFactory_ = value;
-				}
-			}
+				updateEntryFactory_ = value == null ? new ZipEntryFactory() : value;
+            }
 		}
 
 		/// <summary>
@@ -1947,7 +1942,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			if ( !entry.HasCrc ) {
 				// Note patch address for updating CRC later.
 				update.CrcPatchOffset = baseStream_.Position;
-				WriteLEInt(( int )0);
+				WriteLEInt(0);
 			}
 			else {
 				WriteLEInt(unchecked(( int )entry.Crc));
@@ -2040,14 +2035,14 @@ namespace ICSharpCode.SharpZipLib.Zip
 				WriteLEInt((int)entry.Crc);
 			}
 
-			if ( (entry.IsZip64Forced()) || (entry.CompressedSize >= 0xffffffff) ) {
+			if ( entry.IsZip64Forced() || (entry.CompressedSize >= 0xffffffff) ) {
 				WriteLEInt(-1);
 			}
 			else {
 				WriteLEInt((int)(entry.CompressedSize & 0xffffffff));
 			}
 
-			if ( (entry.IsZip64Forced()) || (entry.Size >= 0xffffffff) ) {
+			if ( entry.IsZip64Forced() || (entry.Size >= 0xffffffff) ) {
 				WriteLEInt(-1);
 			}
 			else {
@@ -2264,7 +2259,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			int bytesToCopy = GetDescriptorSize(update);
 
 			while ( bytesToCopy > 0 ) {
-				int readSize = (int)bytesToCopy;
+				int readSize = bytesToCopy;
 				byte[] buffer = GetBuffer();
 
 				stream.Position = sourcePosition;
@@ -2518,7 +2513,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 					// WinZip produces a warning on these entries:
 					// "caution: value of lrec.csize (compressed size) changed from ..."
 					destinationPosition +=
-						(sourcePosition - entryDataOffset) + NameLengthOffset +	// Header size
+						sourcePosition - entryDataOffset + NameLengthOffset +	// Header size
 						update.Entry.CompressedSize + GetDescriptorSize(update);
 			}
 			else {
@@ -2654,13 +2649,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 				int result;
 
 				if (zx == null) {
-					if (zy == null) { 
-						result = 0; 
-					}
-					else {
-						result = -1;
-					}
-				}
+					result = zy == null ? 0 : -1;
+                }
 				else if (zy == null) {
 					result = 1;
 				}
@@ -2674,13 +2664,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 						if (offsetDiff < 0) {
 							result = -1;
 						}
-						else if (offsetDiff == 0) {
-							result = 0;
-						}
-						else {
-							result = 1;
-						}
-					}
+						else
+                        {
+                            result = offsetDiff == 0 ? 0 : 1;
+                        }
+                    }
 				}
 				return result;
 			}
@@ -3209,8 +3197,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 				int method             = ReadLEUshort();
 				uint dostime           = ReadLEUint();
 				uint crc               = ReadLEUint();
-				long csize             = (long)ReadLEUint();
-				long size              = (long)ReadLEUint();
+				long csize             = ReadLEUint();
+				long size              = ReadLEUint();
 				int nameLen            = ReadLEUshort();
 				int extraLen           = ReadLEUshort();
 				int commentLen         = ReadLEUshort();
@@ -3232,20 +3220,15 @@ namespace ICSharpCode.SharpZipLib.Zip
                     Size = size & 0xffffffffL,
                     CompressedSize = csize & 0xffffffffL,
                     Flags = bitFlags,
-                    DosTime = (uint)dostime,
+                    DosTime = dostime,
                     ZipFileIndex = (long)i,
                     Offset = offset,
                     ExternalFileAttributes = (int)externalAttributes
                 };
 
-                if ((bitFlags & 8) == 0) {
-					entry.CryptoCheckValue = (byte)(crc >> 24);
-				}
-				else {
-					entry.CryptoCheckValue = (byte)((dostime >> 8) & 0xff);
-				}
+                entry.CryptoCheckValue = (bitFlags & 8) == 0 ? (byte)(crc >> 24) : (byte)((dostime >> 8) & 0xff);
 
-				if (extraLen > 0) {
+                if (extraLen > 0) {
 					byte[] extra = new byte[extraLen];
 					StreamUtils.ReadFully(baseStream_, extra);
 					entry.ExtraData = extra;
@@ -3542,7 +3525,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			
 			public bool MoveNext() 
 			{
-				return (++index < array.Length);
+				return ++index < array.Length;
 			}
             #endregion
             #region Instance Fields

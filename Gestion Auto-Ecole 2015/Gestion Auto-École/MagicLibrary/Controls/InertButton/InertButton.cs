@@ -318,8 +318,8 @@ namespace Crownwood.Magic.Controls
                     {
                         // No, so use the simple DrawImage method
                         e.Graphics.DrawImage(_imageList.Images[_imageIndexEnabled], 
-                                             (_mouseOver &&  _mouseCapture ? new Point(2,2) : 
-                                             new Point(1,1)));
+                                             _mouseOver &&  _mouseCapture ? new Point(2,2) : 
+                                             new Point(1,1));
                     }
                     else
                     {
@@ -347,17 +347,11 @@ namespace Crownwood.Magic.Controls
                     // Decide on the type of border to draw around image
                     if (_popupStyle)
                     {
-                        if (_mouseOver && this.Enabled)
-                            bs = (_mouseCapture ? ButtonBorderStyle.Inset : ButtonBorderStyle.Outset);
-                        else
-                            bs = ButtonBorderStyle.Solid;
+                        bs = _mouseOver && this.Enabled ? _mouseCapture ? ButtonBorderStyle.Inset : ButtonBorderStyle.Outset : ButtonBorderStyle.Solid;
                     }
                     else
                     {
-                        if (this.Enabled)
-                            bs = ((_mouseOver && _mouseCapture) ? ButtonBorderStyle.Inset : ButtonBorderStyle.Outset);
-                        else
-                            bs = ButtonBorderStyle.Solid;
+                        bs = this.Enabled ? (_mouseOver && _mouseCapture) ? ButtonBorderStyle.Inset : ButtonBorderStyle.Outset : ButtonBorderStyle.Solid;
                     }
 
                     ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, 

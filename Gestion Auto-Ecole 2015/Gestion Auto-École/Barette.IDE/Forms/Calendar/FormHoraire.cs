@@ -256,8 +256,8 @@ namespace Barette.IDE.Forms.Calendar
             ///////TEST
             var BoldedDate = from seance in _ClientList.GetAllSeancesPratique().Cast<Seance>()
                              where (seance.Employer == cbEmploye.Text) && 
-                                    (seance.DateHeure.Date >= StartDate.Date && 
-                                    (seance.DateHeure.Date <= StartDate.Date.AddDays(92).Date)) //+3 mois 
+                                    seance.DateHeure.Date >= StartDate.Date && 
+                                    (seance.DateHeure.Date <= StartDate.Date.AddDays(92).Date) //+3 mois 
                              group seance by new { month = seance.DateHeure.Month, year = seance.DateHeure.Year, day = seance.DateHeure.Day} into d
                              select new { datetime = DateTime.Parse(string.Format("{0}/{1}/{2}", d.Key.month, d.Key.year, d.Key.day))};
 
@@ -284,12 +284,11 @@ namespace Barette.IDE.Forms.Calendar
 					isOffDate = false;
 			}
 
-			if (isOffDate)
-				lblDate.Text = vCalendar.SelectionStart.Date.ToLongDateString() + " [" +
-					vCalendar.AnnualDates[OffDateIndex].Comment + "]";
-			else
-				lblDate.Text = vCalendar.SelectionStart.Date.ToLongDateString();
-		}
+			lblDate.Text = isOffDate
+                ? vCalendar.SelectionStart.Date.ToLongDateString() + " [" +
+                    vCalendar.AnnualDates[OffDateIndex].Comment + "]"
+                : vCalendar.SelectionStart.Date.ToLongDateString();
+        }
 
 		/// <summary>
 		/// Obtenir l'information sur la date de congé cité si elle existe
@@ -308,11 +307,8 @@ namespace Barette.IDE.Forms.Calendar
 					isOffDate = false;
 			}
 
-			if (isOffDate)
-				return vCalendar.AnnualDates[OffDateIndex].Comment;
-			else
-				return "";
-		}
+            return isOffDate ? vCalendar.AnnualDates[OffDateIndex].Comment : "";
+        }
 
 		/// <summary>
 		/// Afficher tous les jours dans le calendrié
@@ -345,17 +341,12 @@ namespace Barette.IDE.Forms.Calendar
 
 		private void timerButton_Tick(object sender, EventArgs e) {
 			if (tabControl1.SelectedTab.Tag.ToString() == "DAY") {
-				if (listViewEx1.SelectedItems.Count > 0)
-					tbbShowClient.Enabled = tbbShowSeances.Enabled = true;
-				else
-					tbbShowClient.Enabled = tbbShowSeances.Enabled = false;
-			} else {
+				tbbShowClient.Enabled = listViewEx1.SelectedItems.Count > 0 ? (tbbShowSeances.Enabled = true) : (tbbShowSeances.Enabled = false);
+            } else {
 				if (_SelectedItemsInfos != null){
-					if (_SelectedItemsInfos != null)
-						tbbShowClient.Enabled = tbbShowSeances.Enabled = true;
-					else
-						tbbShowClient.Enabled = tbbShowSeances.Enabled = false;
-				}else
+					tbbShowClient.Enabled = _SelectedItemsInfos != null ? (tbbShowSeances.Enabled = true) : (tbbShowSeances.Enabled = false);
+                }
+                else
 					tbbShowClient.Enabled = tbbShowSeances.Enabled = false;
 			}				
 		}
@@ -681,7 +672,7 @@ namespace Barette.IDE.Forms.Calendar
 						e.Graphics.DrawString("(" + HoraireDescriptions[i].HoraireJour[j].ContratNumber + ")", printFont6, Brushes.Black, LeftColumn + 150, yPosCalandar + printFont6.Height);
 					}
 
-					yPosCalandar += ((float)printFont.Height * 1.75f) ;
+					yPosCalandar += printFont.Height * 1.75f ;
 				}
 			} 
 		}

@@ -37,7 +37,7 @@ namespace UtilityLibrary.WinControls
 						
 			switch(m.Msg)
 			{
-				case ((int)Msg.WM_PAINT):
+				case (int)Msg.WM_PAINT:
 					if ( ignoreNextPaintMessage )
 					{
 						ignoreNextPaintMessage = false;
@@ -61,7 +61,7 @@ namespace UtilityLibrary.WinControls
 					}
 
 					break;
-				case ((int)Msg.WM_MOUSEMOVE):
+				case (int)Msg.WM_MOUSEMOVE:
 					RequestMouseLeaveMessage(m.HWnd); 
 					if ( comboBox.highlighted == false)
 					{
@@ -72,7 +72,7 @@ namespace UtilityLibrary.WinControls
 						}
 					}
 					break;
-				case ((int)Msg.WM_MOUSELEAVE):
+				case (int)Msg.WM_MOUSELEAVE:
 					if ( comboBox.highlighted == true && !comboBox.ContainsFocus)
 					{
 						using (Graphics g = Graphics.FromHwnd(comboBox.Handle))
@@ -370,16 +370,9 @@ namespace UtilityLibrary.WinControls
 		internal void DrawComboBoxBorder(Graphics g, Color color)
 		{
             // Keep track of what we painted last
-			if ( color.Equals(ColorUtil.VSNetBorderColor) )
-			{
-				highlighted =  true;
-			}
-			else
-			{
-				highlighted = false;
-			}
-			
-			Pen pen = new Pen(new SolidBrush(color), 1);
+			highlighted = color.Equals(ColorUtil.VSNetBorderColor);
+
+            Pen pen = new Pen(new SolidBrush(color), 1);
 			g.DrawRectangle(pen, ClientRectangle.Left, ClientRectangle.Top, ClientRectangle.Width-1, ClientRectangle.Height-1);
 			
 			// We need to draw an extra "inner" border to erase the ugly 3D look of  the combobox
@@ -495,7 +488,7 @@ namespace UtilityLibrary.WinControls
 			Point[] pts = new Point[3];
 			pts[0] = new Point(left + arrowWidth/2 - 2, top + height/2-1);
 			pts[1] = new Point(left + arrowWidth/2 + 3,  top + height/2-1);
-			pts[2] = new Point(left + arrowWidth/2, (top + height/2-1) + 3);
+			pts[2] = new Point(left + arrowWidth/2, top + height/2-1 + 3);
 			
 			if ( disable ) 
 			{

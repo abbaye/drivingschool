@@ -105,14 +105,14 @@ namespace UtilityLibrary.WinControls
 					// The NET MouseEnter Mouse Leave mechanism seems to fall
 					// apart when I use PeekMessage function in the ColorPickerDropDown class
 					// use the Windows API to keep it working
-				case ((int)Msg.WM_MOUSEMOVE):
+				case (int)Msg.WM_MOUSEMOVE:
 					if ( colorPicker != null )
 					{
 						RequestMouseLeaveMessage(m.HWnd); 
 						colorPicker.DrawState = DrawState.Hot;
 					}
 					break;
-				case ((int)Msg.WM_MOUSELEAVE):
+				case (int)Msg.WM_MOUSELEAVE:
 					Point mousePos = Control.MousePosition;
 					if ( colorPicker != null && !colorPicker.ClientRectangle.Contains(colorPicker.PointToClient(mousePos))	
 						&& !colorPicker.colorTextBox.ContainsFocus )
@@ -249,7 +249,7 @@ namespace UtilityLibrary.WinControls
 			Msg currentMessage = (Msg)m.Msg;
 			switch(m.Msg)
 			{
-				case ((int)Msg.WM_PAINT):
+				case (int)Msg.WM_PAINT:
 					if ( ignoreNextPaintMessage )
 					{
 						ignoreNextPaintMessage = false;
@@ -382,11 +382,8 @@ namespace UtilityLibrary.WinControls
 
 		protected override void OnEnabledChanged(EventArgs e)
 		{
-			if ( Enabled == true )
-				drawState = DrawState.Normal;
-			else
-				drawState = DrawState.Disable;
-			base.OnEnabledChanged(e);
+			drawState = Enabled == true ? DrawState.Normal : DrawState.Disable;
+            base.OnEnabledChanged(e);
 		}
 
 		protected override void OnMouseEnter(EventArgs e)
@@ -725,7 +722,7 @@ namespace UtilityLibrary.WinControls
 				R = Convert.ToInt32(stringR);
 				G = Convert.ToInt32(stringG);
 				B = Convert.ToInt32(stringB);
-				if ( ( R < 0 || R > 255 ) || ( G < 0 || G > 255 ) || ( B < 0 || B > 255 ) ) 
+				if (  R < 0 || R > 255  ||  G < 0 || G > 255  ||  B < 0 || B > 255  ) 
 				{
 					ResetTextBox("Out of bounds RGB value");
 					return;

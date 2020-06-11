@@ -127,23 +127,23 @@ namespace Barette.Library.UserControls.Client
             seancePicker1 = new SeancePicker();
             imageList1 = new ImageList(components);
             cmdPrint = new Button();
-            ((ISupportInitialize)(pictureBox1)).BeginInit();
-            ((ISupportInitialize)(pictureBox2)).BeginInit();
-            ((ISupportInitialize)(pictureBox3)).BeginInit();
-            ((ISupportInitialize)(pictureBox4)).BeginInit();
-            ((ISupportInitialize)(pictureBox5)).BeginInit();
-            ((ISupportInitialize)(pictureBox6)).BeginInit();
-            ((ISupportInitialize)(pictureBox7)).BeginInit();
-            ((ISupportInitialize)(pictureBox8)).BeginInit();
-            ((ISupportInitialize)(pictureBox9)).BeginInit();
-            ((ISupportInitialize)(pictureBox10)).BeginInit();
-            ((ISupportInitialize)(pictureBox11)).BeginInit();
-            ((ISupportInitialize)(pictureBox12)).BeginInit();
+            ((ISupportInitialize)pictureBox1).BeginInit();
+            ((ISupportInitialize)pictureBox2).BeginInit();
+            ((ISupportInitialize)pictureBox3).BeginInit();
+            ((ISupportInitialize)pictureBox4).BeginInit();
+            ((ISupportInitialize)pictureBox5).BeginInit();
+            ((ISupportInitialize)pictureBox6).BeginInit();
+            ((ISupportInitialize)pictureBox7).BeginInit();
+            ((ISupportInitialize)pictureBox8).BeginInit();
+            ((ISupportInitialize)pictureBox9).BeginInit();
+            ((ISupportInitialize)pictureBox10).BeginInit();
+            ((ISupportInitialize)pictureBox11).BeginInit();
+            ((ISupportInitialize)pictureBox12).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new System.Drawing.Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(35, 35);
@@ -251,7 +251,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdAnnuler
             // 
-            cmdAnnuler.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAnnuler.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             cmdAnnuler.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
             cmdAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,7 +265,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdOK
             // 
-            cmdOK.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             cmdOK.Image = global::Barette.Library.Properties.Resources.accept_icon;
             cmdOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -589,7 +589,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             // 
@@ -641,18 +641,18 @@ namespace Barette.Library.UserControls.Client
             ShowInTaskbar = false;
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Séance de cours théorique : Automobile";
-            ((ISupportInitialize)(pictureBox1)).EndInit();
-            ((ISupportInitialize)(pictureBox2)).EndInit();
-            ((ISupportInitialize)(pictureBox3)).EndInit();
-            ((ISupportInitialize)(pictureBox4)).EndInit();
-            ((ISupportInitialize)(pictureBox5)).EndInit();
-            ((ISupportInitialize)(pictureBox6)).EndInit();
-            ((ISupportInitialize)(pictureBox7)).EndInit();
-            ((ISupportInitialize)(pictureBox8)).EndInit();
-            ((ISupportInitialize)(pictureBox9)).EndInit();
-            ((ISupportInitialize)(pictureBox10)).EndInit();
-            ((ISupportInitialize)(pictureBox11)).EndInit();
-            ((ISupportInitialize)(pictureBox12)).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)pictureBox2).EndInit();
+            ((ISupportInitialize)pictureBox3).EndInit();
+            ((ISupportInitialize)pictureBox4).EndInit();
+            ((ISupportInitialize)pictureBox5).EndInit();
+            ((ISupportInitialize)pictureBox6).EndInit();
+            ((ISupportInitialize)pictureBox7).EndInit();
+            ((ISupportInitialize)pictureBox8).EndInit();
+            ((ISupportInitialize)pictureBox9).EndInit();
+            ((ISupportInitialize)pictureBox10).EndInit();
+            ((ISupportInitialize)pictureBox11).EndInit();
+            ((ISupportInitialize)pictureBox12).EndInit();
             ResumeLayout(false);
 
 		}

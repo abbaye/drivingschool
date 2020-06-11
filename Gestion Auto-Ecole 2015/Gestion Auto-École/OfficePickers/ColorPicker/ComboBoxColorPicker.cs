@@ -31,8 +31,7 @@ namespace OfficePickers.ColorPicker
         {
             get
             {
-                if (_colorPicker != null) return _colorPicker.Color;
-                return Color.Empty;
+                return _colorPicker != null ? _colorPicker.Color : Color.Empty;
             }
             set
             {

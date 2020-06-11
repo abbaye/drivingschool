@@ -323,12 +323,12 @@ namespace Barette.IDE.Forms
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)this.tabGroup).BeginInit();
             this.SuspendLayout();
             // 
             // OutlookBarImageList
             // 
-            this.OutlookBarImageList.ImageStream = ((ImageListStreamer)(resources.GetObject("OutlookBarImageList.ImageStream")));
+            this.OutlookBarImageList.ImageStream = (ImageListStreamer)resources.GetObject("OutlookBarImageList.ImageStream");
             this.OutlookBarImageList.TransparentColor = System.Drawing.Color.Transparent;
             this.OutlookBarImageList.Images.SetKeyName(0, "user-group-icon.png");
             this.OutlookBarImageList.Images.SetKeyName(1, "search-icon.png");
@@ -423,7 +423,7 @@ namespace Barette.IDE.Forms
             // 
             this.tsmnuEnregistrer.Image = global::Barette.IDE.Properties.Resources.Save_icon;
             this.tsmnuEnregistrer.Name = "tsmnuEnregistrer";
-            this.tsmnuEnregistrer.ShortcutKeys = ((Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.tsmnuEnregistrer.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S;
             this.tsmnuEnregistrer.Size = new Size(186, 22);
             this.tsmnuEnregistrer.Text = "Enregistrer";
             this.tsmnuEnregistrer.Click += new EventHandler(this.tsmnuEnregistrer_Click);
@@ -841,7 +841,7 @@ namespace Barette.IDE.Forms
             // 
             // outBandGestion
             // 
-            this.outBandGestion.Background = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(233)))));
+            this.outBandGestion.Background = System.Drawing.Color.FromArgb(239, 239, 233);
             this.outBandGestion.IconView = UtilityLibrary.WinControls.IconView.Large;
             this.outBandGestion.LargeImageList = this.OutlookBarImageList;
             this.outBandGestion.Location = new Point(0, 0);
@@ -875,7 +875,7 @@ namespace Barette.IDE.Forms
             this.ClientSize = new Size(1016, 671);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
-            this.Icon = ((Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = (Icon)resources.GetObject("$this.Icon");
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -889,7 +889,7 @@ namespace Barette.IDE.Forms
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)this.tabGroup).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1888,10 +1888,7 @@ namespace Barette.IDE.Forms
                     if (!programMotoChecked)
                         if (client.TypeVehicule == VehiculeType.Moto)
                         {
-                            if (client.DateInscription <= new DateTime(2015, 05, 31))
-                                client.ProgramMoto = ProgramMoto.ProgramNormal;
-                            else
-                                client.ProgramMoto = ProgramMoto.Program2015;
+                            client.ProgramMoto = client.DateInscription <= new DateTime(2015, 05, 31) ? ProgramMoto.ProgramNormal : ProgramMoto.Program2015;
                         }
                         else
                             client.ProgramMoto = ProgramMoto.Nothing;

@@ -87,7 +87,7 @@ namespace UtilityLibrary.WinControls
 						
 			switch(m.Msg)
 			{
-				case ((int)Msg.WM_PAINT):
+				case (int)Msg.WM_PAINT:
 				{
 					// Let the edit control do its painting
 					base.WndProc(ref m);
@@ -123,7 +123,7 @@ namespace UtilityLibrary.WinControls
 					// if he is to use this class
 					string message = "FlatStyle needs to be set to Flat for this class";
 					ArgumentException argumentException = new ArgumentException("FlatStyle", message);
-					throw(argumentException);
+					throw argumentException;
 				}
 				else 
 					base.FlatStyle = value;

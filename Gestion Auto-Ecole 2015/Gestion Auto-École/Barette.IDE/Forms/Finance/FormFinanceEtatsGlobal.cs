@@ -267,7 +267,7 @@ namespace Barette.IDE.Forms.Finance
             // 
             // cmdOK
             // 
-            cmdOK.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
             cmdOK.Location = new System.Drawing.Point(421, 216);
             cmdOK.Name = "cmdOK";
@@ -475,7 +475,7 @@ namespace Barette.IDE.Forms.Finance
             Controls.Add(cmdOK);
             Controls.Add(gbEtatsGlobal);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormFinanceEtatsGlobal";
@@ -517,7 +517,7 @@ namespace Barette.IDE.Forms.Finance
 
 					if (paiment.DatePaiment.Date.Year.ToString() == cbYear.Text){
 						montant = Convert.ToDecimal(paiment.Montant.Replace(" $", ""));
-						TotalSansTaxe += (montant / VariableTaxe) * 100;				
+						TotalSansTaxe += montant / VariableTaxe * 100;				
 						Total += montant;
 						compteur++;
 					}
@@ -560,7 +560,7 @@ namespace Barette.IDE.Forms.Finance
 					if (paiment.DatePaiment.Date.Year.ToString() == cbYearMois.Text && 
 						paiment.DatePaiment.Date.Month == cbMonth.SelectedIndex + 1){
 						montant = Convert.ToDecimal(paiment.Montant.Replace(" $", ""));
-						TotalSansTaxe += (montant / VariableTaxe) * 100;				
+						TotalSansTaxe += montant / VariableTaxe * 100;				
 						Total += montant;
 						compteur++;
 					}

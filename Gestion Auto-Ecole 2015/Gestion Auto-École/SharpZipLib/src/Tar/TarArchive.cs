@@ -140,14 +140,8 @@ namespace ICSharpCode.SharpZipLib.Tar
 
 			TarInputStream tarStream = inputStream as TarInputStream;
 
-		    TarArchive result;
-			if ( tarStream != null ) {
-				result = new TarArchive(tarStream);
-			}
-			else {
-				result = CreateInputTarArchive(inputStream, TarBuffer.DefaultBlockFactor);
-			}
-		    return result;
+		    TarArchive result = tarStream != null ? new TarArchive(tarStream) : CreateInputTarArchive(inputStream, TarBuffer.DefaultBlockFactor);
+            return result;
 		}
 		
 		/// <summary>
@@ -182,14 +176,8 @@ namespace ICSharpCode.SharpZipLib.Tar
 			
             TarOutputStream tarStream = outputStream as TarOutputStream;
 
-		    TarArchive result;
-			if ( tarStream != null ) {
-				result = new TarArchive(tarStream);
-			}
-			else {
-				result = CreateOutputTarArchive(outputStream, TarBuffer.DefaultBlockFactor);
-			}
-		    return result;
+		    TarArchive result = tarStream != null ? new TarArchive(tarStream) : CreateOutputTarArchive(outputStream, TarBuffer.DefaultBlockFactor);
+            return result;
 		}
 
 		/// <summary>
@@ -610,7 +598,7 @@ namespace ICSharpCode.SharpZipLib.Tar
 						if (asciiTrans) {
 							for (int off = 0, b = 0; b < numRead; ++b) {
 								if (rdbuf[b] == 10) {
-									string s = Encoding.ASCII.GetString(rdbuf, off, (b - off));
+									string s = Encoding.ASCII.GetString(rdbuf, off, b - off);
 									outw.WriteLine(s);
 									off = b + 1;
 								}

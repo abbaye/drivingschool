@@ -24,10 +24,7 @@ namespace Crownwood.Magic.Controls
         {
             get 
             {
-                if (base.Control is WizardControl)
-                    return ((WizardControl)base.Control).WizardPages;
-                else
-                    return base.AssociatedComponents;
+                return base.Control is WizardControl ? ((WizardControl)base.Control).WizardPages : base.AssociatedComponents;
             }
         }
 

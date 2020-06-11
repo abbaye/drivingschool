@@ -99,11 +99,8 @@ namespace UtilityLibrary.WinControls
 		public OutlookBarBand() {
 			// Constructor for designer support
 			items = new OutlookBarItemCollection();
-			if( this.Site!= null)
-				Name = Site.Name;
-			else
-				Name = null;
-		}
+			Name = this.Site!= null ? Site.Name : null;
+        }
 		#endregion
 
 		#region Overrides
@@ -488,7 +485,7 @@ namespace UtilityLibrary.WinControls
 		protected override  void WndProc(ref Message m) {
 			bool callBase = true;
 			switch(m.Msg) {
-				case ((int)Msg.WM_CONTEXTMENU): {
+				case (int)Msg.WM_CONTEXTMENU: {
 					Point pt = WindowsAPI.GetPointFromLPARAM((int)m.LParam);
 					pt = PointToClient(pt);
 					Rectangle viewPortRect = GetViewPortRect();
@@ -1193,13 +1190,8 @@ namespace UtilityLibrary.WinControls
 			Rectangle itemRect = GetItemRect(g, bands[currentBandIndex], index, Rectangle.Empty);
 
 			Rectangle viewPortRect = GetViewPortRect();
-			int y;
-			if  ( bands[currentBandIndex].IconView == IconView.Small)
-				y = itemRect.Top - Y_SMALLICON_SPACING/2;
-			else
-				y = itemRect.Top - Y_LARGEICON_SPACING;
-			
-			if ( hit == HitTestType.DropLineLastItem ) {
+			int y = bands[currentBandIndex].IconView == IconView.Small ? itemRect.Top - Y_SMALLICON_SPACING/2 : itemRect.Top - Y_LARGEICON_SPACING;
+            if ( hit == HitTestType.DropLineLastItem ) {
 				// use the bottom of the label if dealing with the last item
 				Rectangle labelRect = GetLabelRect(itemsCount-1);
 				y = labelRect.Bottom + Y_LARGEICON_SPACING;
@@ -1230,17 +1222,11 @@ namespace UtilityLibrary.WinControls
 			// Draw left triangle
 			Point top;
 			Point bottom;
-			if ( index == firstItem )
-				top = new Point(viewPortRect.Left+5, y);
-			else
-				top = new Point(viewPortRect.Left+5, y-6);
+			top = index == firstItem ? new Point(viewPortRect.Left+5, y) : new Point(viewPortRect.Left+5, y-6);
 
-			if ( hit == HitTestType.DropLineLastItem )
-				bottom =  new Point(viewPortRect.Left+5, y+1);
-			else
-				bottom = new Point(viewPortRect.Left+5, y+6);
+            bottom = hit == HitTestType.DropLineLastItem ? new Point(viewPortRect.Left+5, y+1) : new Point(viewPortRect.Left+5, y+6);
 
-			Point middle = new Point(viewPortRect.Left+11, y);
+            Point middle = new Point(viewPortRect.Left+11, y);
 			Point[] points = new Point[3];
 			points.SetValue(top, 0);
 			points.SetValue(middle, 1);
@@ -1248,17 +1234,11 @@ namespace UtilityLibrary.WinControls
 			g.FillPolygon(brush, points);
 
 			// Draw right triangle
-			if ( index == firstItem )
-				top = new Point(viewPortRect.Right-5, y);
-			else
-				top = new Point(viewPortRect.Right-5, y - 6);
+			top = index == firstItem ? new Point(viewPortRect.Right-5, y) : new Point(viewPortRect.Right-5, y - 6);
 
-			if ( hit == HitTestType.DropLineLastItem  )
-				bottom = new Point(viewPortRect.Right-5, y+1);
-			else
-				bottom = new Point(viewPortRect.Right-5, y + 6);
- 
-			middle = new Point(viewPortRect.Right-11, y);
+            bottom = hit == HitTestType.DropLineLastItem ? new Point(viewPortRect.Right-5, y+1) : new Point(viewPortRect.Right-5, y + 6);
+
+            middle = new Point(viewPortRect.Right-11, y);
 			points.SetValue(top, 0);
 			points.SetValue(middle, 1);
 			points.SetValue(bottom, 2);
@@ -1382,7 +1362,7 @@ namespace UtilityLibrary.WinControls
 
 		Rectangle GetHeaderRect(int index) {
 			// Make sure we are within bounds
-			Debug.Assert((index >= 0 && index <= bands.Count-1), "Invalid Header Index");
+			Debug.Assert(index >= 0 && index <= bands.Count-1, "Invalid Header Index");
 			Rectangle rect = GetWorkRect();
 
 			int top = rect.Top;
@@ -1553,15 +1533,8 @@ namespace UtilityLibrary.WinControls
 				return;
 			}
 			
-			Brush b;
-			if ( state == DrawState.Hot ) {
-				b = new SolidBrush(ColorUtil.VSNetCheckedColor);
-			}
-			else {
-				b = new SolidBrush(ColorUtil.VSNetControlColor);
-			}
-
-			g.FillRectangle(b, rc.Left, rc.Top, rc.Width-1, rc.Height-1);
+			Brush b = state == DrawState.Hot ? new SolidBrush(ColorUtil.VSNetCheckedColor) : new SolidBrush(ColorUtil.VSNetControlColor);
+            g.FillRectangle(b, rc.Left, rc.Top, rc.Width-1, rc.Height-1);
 			b.Dispose();
 
 			using ( Pen p = new Pen(ColorUtil.VSNetBorderColor) ) {
@@ -1812,13 +1785,8 @@ namespace UtilityLibrary.WinControls
 			IntPtr hOldToBitmap = WindowsAPI.SelectObject(hDCTo, bmTo);
             
 			// Draw in the memory device context
-			Graphics gHeaderDC;
-			if ( To > From )
-				gHeaderDC = Graphics.FromHdc(hDCTo);
-			else
-				gHeaderDC = Graphics.FromHdc(hDCFrom);
-
-			DrawBandBitmap(hDCFrom, bands[From], From, drawingRect);
+			Graphics gHeaderDC = To > From ? Graphics.FromHdc(hDCTo) : Graphics.FromHdc(hDCFrom);
+            DrawBandBitmap(hDCFrom, bands[From], From, drawingRect);
 			DrawBandBitmap(hDCTo,  bands[To], To, drawingRect);
 			DrawHeader(gHeaderDC, To, new Rectangle(drawingRect.Left, drawingRect.Top, 
 				drawingRect.Width, drawingRect.Top + BAND_HEADER_HEIGHT), Border3DStyle.RaisedInner);
@@ -1961,13 +1929,12 @@ namespace UtilityLibrary.WinControls
 			}
 			
 			if ( itemSizeType == ItemSizeType.All ) {
-				if ( band.IconView == IconView.Small )
-					return new Size(iconSize.Width + labelSize.Width + X_SMALLICON_LABEL_OFFSET, 
-						iconSize.Height > labelSize.Height?iconSize.Height:labelSize.Height);
-				else
-					return new Size(iconSize.Width>labelSize.Width?iconSize.Width:labelSize.Width, iconSize.Height +
-						labelSize.Height + Y_LARGEICON_LABEL_OFFSET + Y_LARGEICON_SPACING);
-			}
+                return band.IconView == IconView.Small
+                    ? new Size(iconSize.Width + labelSize.Width + X_SMALLICON_LABEL_OFFSET,
+                        iconSize.Height > labelSize.Height?iconSize.Height:labelSize.Height)
+                    : new Size(iconSize.Width>labelSize.Width?iconSize.Width:labelSize.Width, iconSize.Height +
+                        labelSize.Height + Y_LARGEICON_LABEL_OFFSET + Y_LARGEICON_SPACING);
+            }
 
 			return new Size(0,0);
 		}
@@ -2143,8 +2110,8 @@ namespace UtilityLibrary.WinControls
 				smallIconsMenu.RadioCheck = false;
 			}
 			else {
-				largeIconsMenu.RadioCheck = (band.IconView == IconView.Large);
-				smallIconsMenu.RadioCheck = (band.IconView == IconView.Small);
+				largeIconsMenu.RadioCheck = band.IconView == IconView.Large;
+				smallIconsMenu.RadioCheck = band.IconView == IconView.Small;
 			}
 		
 		}

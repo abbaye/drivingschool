@@ -528,10 +528,7 @@ namespace Barette.Library.Client
         public bool DisponibilityAlway {
             get {
 
-                if (_DisponibilityAM && _DisponibilityPM && _DisponibilitySoirer && DisponibilitySamedi && _DisponibilityDimanche)
-                    return true;
-                else
-                    return false;               
+                return _DisponibilityAM && _DisponibilityPM && _DisponibilitySoirer && DisponibilitySamedi && _DisponibilityDimanche;
             }
             set {
                 _DisponibilityAM = _DisponibilityPM = _DisponibilitySoirer = DisponibilitySamedi = _DisponibilityDimanche = value;
@@ -649,10 +646,7 @@ namespace Barette.Library.Client
         {
             Seance seance = GetSeance(SeanceNumber);
 
-            if (seance != null)
-                return seance;
-            else
-                return new Seance();
+            return seance != null ? seance : new Seance();
         }
 
         /// <summary>
@@ -664,10 +658,7 @@ namespace Barette.Library.Client
         {
             Seance seance = GetSeanceTheorique(SeanceNumber);
 
-            if (seance != null)
-                return seance;
-            else
-                return new Seance();
+            return seance != null ? seance : new Seance();
         }
 
         /// <summary>
@@ -699,7 +690,7 @@ namespace Barette.Library.Client
 					}
 				}
 
-				return Convert.ToDecimal((Convert.ToDouble(MontantCours.Replace(" $", "")) - solde)); 
+				return Convert.ToDecimal(Convert.ToDouble(MontantCours.Replace(" $", "")) - solde); 
 			} catch {
 				return -1;
 			}
@@ -729,10 +720,7 @@ namespace Barette.Library.Client
         /// <param name="reverse"></param>
         /// <returns></returns>
         public String GetFullName(bool reverse) {
-            if (reverse)
-                return FirstName + " " + Name;
-            else
-                return Name + " " + FirstName;
+            return reverse ? FirstName + " " + Name : Name + " " + FirstName;
         }
 
 

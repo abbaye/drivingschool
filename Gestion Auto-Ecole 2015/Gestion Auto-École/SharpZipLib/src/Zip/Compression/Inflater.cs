@@ -654,7 +654,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
         public void SetInput(byte[] buffer, int index, int count)
 		{
 			input.SetInput(buffer, index, count);
-			totalIn += (long)count;
+			totalIn += count;
 		}
 
         /// <summary>
@@ -765,7 +765,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 						adler.Update(buffer, offset, more);
 						offset += more;
 						bytesCopied += more;
-						totalOut += (long)more;
+						totalOut += more;
 						count -= more;
 						if (count == 0) {
 							return bytesCopied;
@@ -841,7 +841,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// </returns>
 		public long TotalIn {
 			get {
-				return totalIn - (long)RemainingInput;
+				return totalIn - RemainingInput;
 			}
 		}
 		

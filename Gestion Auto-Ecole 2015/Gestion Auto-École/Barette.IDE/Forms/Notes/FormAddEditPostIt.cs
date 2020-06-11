@@ -47,7 +47,7 @@ namespace Barette.IDE.Forms.Notes
 
 		private void txtMessage_TextChanged(object sender, EventArgs e)
 		{
-			cmdClose.Enabled = (txtMessage.Text.Length > 0);
+			cmdClose.Enabled = txtMessage.Text.Length > 0;
 		}
 	}
 }

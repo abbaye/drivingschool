@@ -101,9 +101,9 @@ namespace UtilityLibrary.WinControls
 			float r = CurrentColor.R;
 			float g = CurrentColor.G;
 			float b = CurrentColor.B;
-			redEdit.Text = (Convert.ToInt32(r)).ToString();
-			greenEdit.Text = (Convert.ToInt32(g)).ToString();
-			blueEdit.Text = (Convert.ToInt32(b)).ToString();
+			redEdit.Text = Convert.ToInt32(r).ToString();
+			greenEdit.Text = Convert.ToInt32(g).ToString();
+			blueEdit.Text = Convert.ToInt32(b).ToString();
 			
 			float h = 0;
 			float s = 0;
@@ -154,7 +154,7 @@ namespace UtilityLibrary.WinControls
 			// Draw the indicator
 			Point[] pts = new Point[3];
 			int iTop = 240 - Convert.ToInt32(lumEdit.Text);
-			iTop = ((lumBox.Height - 10) * iTop )/240 + 4;
+			iTop = (lumBox.Height - 10) * iTop /240 + 4;
 			
 			// Make sure we don't go out of bounds
 			if ( iTop > lumBox.Height - 5 ) iTop = lumBox.Height - 5;
@@ -173,7 +173,7 @@ namespace UtilityLibrary.WinControls
 					int y  = e.Y;
 				if ( y < 5 ) y = 5;
 				if ( y > lumBox.Height - 5 ) y = lumBox.Height - 5;
-				int lum = 240 - ((y-5) * 240)/(lumBox.Height-10);
+				int lum = 240 - (y-5) * 240/(lumBox.Height-10);
 				lumEdit.Text = lum.ToString();
 				LuminosityChanged();
 			}
@@ -191,7 +191,7 @@ namespace UtilityLibrary.WinControls
 			int y  = e.Y;
 			if ( y < 5 ) y = 5;
 			if ( y > lumBox.Height - 5 ) y = lumBox.Height - 5;
-			int lum = 240 - ((y-5) * 240)/(lumBox.Height-10);
+			int lum = 240 - (y-5) * 240/(lumBox.Height-10);
 			lumEdit.Text = lum.ToString();
 			LuminosityChanged();
 		}
@@ -215,7 +215,7 @@ namespace UtilityLibrary.WinControls
 			// Calculate new Hue and Sat bases on mouse position coordinates
 			updatingUI = true;
 			float h = crossPos.X * DELTA_WIDTH;
-			float s = (240.0f -(crossPos.Y * DELTA_HEIGHT));
+			float s = 240.0f -(crossPos.Y * DELTA_HEIGHT);
 			float l = (float)Convert.ToDouble(lumEdit.Text);
 
 			hueEdit.Text = Convert.ToString((int)h);
@@ -288,9 +288,9 @@ namespace UtilityLibrary.WinControls
 			float b = 0.0f;
 			ColorUtil.HSLToRGB(h, s, l, ref r, ref g, ref b);
 			CurrentColor = Color.FromArgb((int)r, (int)g, (int)b);
-			redEdit.Text = (Convert.ToInt32(r)).ToString();
-			greenEdit.Text = (Convert.ToInt32(g)).ToString();
-			blueEdit.Text = (Convert.ToInt32(b)).ToString();
+			redEdit.Text = Convert.ToInt32(r).ToString();
+			greenEdit.Text = Convert.ToInt32(g).ToString();
+			blueEdit.Text = Convert.ToInt32(b).ToString();
 			currentColorPanel.BackColor = CurrentColor;
 
 			// Palette color is the pure form of the hue/sat

@@ -45,7 +45,7 @@ namespace Barette.Library.Collections
 		}
 
 		public ScheduleInfos this[int index] {
-			get { return (base.List[index] as ScheduleInfos); }
+			get { return base.List[index] as ScheduleInfos; }
 		}
 
 		public int IndexOf(ScheduleInfos value) {

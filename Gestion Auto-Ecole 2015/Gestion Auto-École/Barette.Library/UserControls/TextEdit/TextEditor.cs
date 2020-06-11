@@ -158,9 +158,9 @@ namespace Barette.Library.UserControls.TextEdit
             StrikeouttoolStripButton.Checked = richTextBox1.SelectionFont.Strikeout;
             fontToolStripComboBox.Text = richTextBox1.SelectionFont.Name;
             fontSizeToolStripButton.Text = richTextBox1.SelectionFont.Size.ToString();
-			leftToolStripButton.Checked = (richTextBox1.SelectionAlignment == HorizontalAlignment.Left);
-			centerToolStripButton.Checked = (richTextBox1.SelectionAlignment == HorizontalAlignment.Center);
-			rightToolStripButton.Checked = (richTextBox1.SelectionAlignment == HorizontalAlignment.Right);
+			leftToolStripButton.Checked = richTextBox1.SelectionAlignment == HorizontalAlignment.Left;
+			centerToolStripButton.Checked = richTextBox1.SelectionAlignment == HorizontalAlignment.Center;
+			rightToolStripButton.Checked = richTextBox1.SelectionAlignment == HorizontalAlignment.Right;
 			bulletToolStripButton.Checked = richTextBox1.SelectionBullet;
             toolStripColorPicker1.Color = richTextBox1.SelectionColor;
 		}
@@ -300,11 +300,8 @@ namespace Barette.Library.UserControls.TextEdit
 		}
 
 		private void SurligneToolStripButton_Click(object sender, EventArgs e) {
-			if (richTextBox1.SelectionBackColor != Color.Yellow)
-				richTextBox1.SelectionBackColor = Color.Yellow;
-			else
-				richTextBox1.SelectionBackColor = Color.Transparent;
-		}
+			richTextBox1.SelectionBackColor = richTextBox1.SelectionBackColor != Color.Yellow ? Color.Yellow : Color.Transparent;
+        }
 
         private void toolStripColorPicker1_SelectedColorChanged(object sender, EventArgs e) {
             richTextBox1.SelectionColor = toolStripColorPicker1.Color;

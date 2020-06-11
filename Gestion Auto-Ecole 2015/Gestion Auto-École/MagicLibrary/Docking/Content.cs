@@ -481,7 +481,7 @@ namespace Crownwood.Magic.Docking
 
         public void UpdateVisibility()
         {
-            _visible = ((_parentWindowContent != null) || (_autoHidden && (_autoHidePanel != null)));
+            _visible = (_parentWindowContent != null) || (_autoHidden && (_autoHidePanel != null));
         }
 
         public virtual void OnPropertyChanging(Property prop)
@@ -531,12 +531,9 @@ namespace Crownwood.Magic.Docking
 				    // Cannot record restore information if not in a Form
 				    if (parentForm != null)
 				    {
-					    // Decide which restore actually needs recording
-					    if (parentForm is FloatingForm)
-						    return RecordFloatingRestore();
-					    else
-						    return RecordDockingRestore();
-				    }	
+                        // Decide which restore actually needs recording
+                        return parentForm is FloatingForm ? RecordFloatingRestore() : RecordDockingRestore();
+                    }	
 		        }
 			}
 

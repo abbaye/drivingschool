@@ -416,13 +416,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public int ExternalFileAttributes 
 		{
 			get {
-				if ((known & Known.ExternalAttributes) == 0) {
-					return -1;
-				} 
-				else {
-					return externalFileAttributes;
-				}
-			}
+                return (known & Known.ExternalAttributes) == 0 ? -1 : externalFileAttributes;
+            }
 			
 			set {
 				externalFileAttributes = value;
@@ -438,7 +433,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public int VersionMadeBy 
 		{
 			get { 
-				return (versionMadeBy & 0xff);
+				return versionMadeBy & 0xff;
 			}
 		}
 
@@ -448,8 +443,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public bool IsDOSEntry
 		{
 			get {
-				return ((HostSystem == ( int )HostSystemID.Msdos) ||
-					(HostSystem == ( int )HostSystemID.WindowsNT));
+				return (HostSystem == ( int )HostSystemID.Msdos) ||
+					(HostSystem == ( int )HostSystemID.WindowsNT);
 			}
 		}
 
@@ -667,13 +662,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public long DosTime 
 		{
 			get {
-				if ((known & Known.Time) == 0) {
-					return 0;
-				} 
-				else {
-					return dosTime;
-				}
-			}
+                return (known & Known.Time) == 0 ? 0 : dosTime;
+            }
 			
 			set {
 				unchecked {
@@ -696,7 +686,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				uint sec  = Math.Min(59, 2 * (dosTime & 0x1f));
 				uint min  = Math.Min(59, (dosTime >> 5) & 0x3f);
 				uint hrs  = Math.Min(23, (dosTime >> 11) & 0x1f);
-				uint mon  = Math.Max(1, Math.Min(12, ((dosTime >> 21) & 0xf)));
+				uint mon  = Math.Max(1, Math.Min(12, (dosTime >> 21) & 0xf));
 				uint year = ((dosTime >> 25) & 0x7f) + 1980;
 				int day = Math.Max(1, Math.Min(DateTime.DaysInMonth((int)year, (int)mon), (int)((dosTime >> 16) & 0x1f)));
 				return new DateTime((int)year, (int)mon, day, (int)hrs, (int)min, (int)sec);
@@ -803,7 +793,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				return (known & Known.Crc) != 0 ? crc & 0xffffffffL : -1L;
 			}
 			set {
-				if (((ulong)crc & 0xffffffff00000000L) != 0) {
+				if ((crc & 0xffffffff00000000L) != 0) {
 					throw new ArgumentOutOfRangeException("value");
 				}
 				this.crc = (uint)value;

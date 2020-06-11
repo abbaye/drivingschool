@@ -91,10 +91,7 @@ namespace Crownwood.Magic.Controls
                 
                 if (vector == -1)
                 {
-                    if (_style == VisualStyle.IDE)
-                        vector = _ideLength;
-                    else 
-                        vector = _plainLength;
+                    vector = _style == VisualStyle.IDE ? _ideLength : _plainLength;
                 }
                
                 return vector;
@@ -294,13 +291,10 @@ namespace Crownwood.Magic.Controls
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            if ((_resizeSource != null) && (_resizeSource.CanResize(this)))
+            if ((_resizeSource != null) && _resizeSource.CanResize(this))
             {
                 // Display the correct mouse shape
-				if (_direction == DirectionUL.Vertical)
-					this.Cursor = Cursors.SizeNS;
-                else
-                    this.Cursor = Cursors.SizeWE;
+				this.Cursor = _direction == DirectionUL.Vertical ? Cursors.SizeNS : Cursors.SizeWE;
             }
             else
                 this.Cursor = Cursors.Arrow;

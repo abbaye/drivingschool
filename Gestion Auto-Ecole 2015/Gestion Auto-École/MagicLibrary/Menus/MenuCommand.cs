@@ -353,7 +353,7 @@ namespace Crownwood.Magic.Menus
         [Browsable(false)]
         public bool IsParent
         {
-            get { return (_menuItems.Count > 0); }
+            get { return _menuItems.Count > 0; }
         }
 
         [DefaultValue("")]

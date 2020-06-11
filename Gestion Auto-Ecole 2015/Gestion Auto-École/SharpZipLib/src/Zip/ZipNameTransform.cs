@@ -188,13 +188,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 				while (index >= 0 ) {
 					builder[index] = replacement;
 
-					if (index >= name.Length) {
-						index = -1;
-					}
-					else {
-						index = name.IndexOfAny(InvalidEntryChars, index + 1);
-					}
-				}
+					index = index >= name.Length ? -1 : name.IndexOfAny(InvalidEntryChars, index + 1);
+                }
 				name = builder.ToString();
 			}
 
@@ -219,18 +214,14 @@ namespace ICSharpCode.SharpZipLib.Zip
 		/// </remarks>
 		public static bool IsValidName(string name, bool relaxed)
 		{
-			bool result = (name != null);
+			bool result = name != null;
 
 			if ( result ) {
-				if ( relaxed ) {
-					result = name.IndexOfAny(InvalidEntryCharsRelaxed) < 0;
-				}
-				else {
-					result = 
-						(name.IndexOfAny(InvalidEntryChars) < 0) &&
-						(name.IndexOf('/') != 0);
-				}
-			}
+				result = relaxed
+                    ? name.IndexOfAny(InvalidEntryCharsRelaxed) < 0
+                    : (name.IndexOfAny(InvalidEntryChars) < 0) &&
+                        (name.IndexOf('/') != 0);
+            }
 
 			return result;
 		}

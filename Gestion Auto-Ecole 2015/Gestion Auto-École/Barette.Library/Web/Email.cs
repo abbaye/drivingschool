@@ -11,9 +11,7 @@ namespace Barette.Library.Web
         /// <returns>Retour True si le email est du bon format</returns>
         public static bool IsValidEmailAddress(string EmailAddress) {
             Regex regEmail = new Regex(@"^[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
-            if (regEmail.IsMatch(EmailAddress))  ///in Email address write user email address
-                return true;
-            return false;
+            return regEmail.IsMatch(EmailAddress);
         }
 
     }

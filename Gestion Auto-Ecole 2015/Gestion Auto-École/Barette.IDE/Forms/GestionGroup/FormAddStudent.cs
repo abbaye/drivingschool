@@ -80,7 +80,7 @@ namespace Barette.IDE.Forms.GestionGroup
             listFindResult.Items.Clear();
 
             var clientsAll = from client in _clientList.Cast<Customer>()
-                             where (client.GetCustomerType() == _groupe.Type)
+                             where client.GetCustomerType() == _groupe.Type
                              select client;
 
             var clients = from client in _clientList.Cast<Customer>()

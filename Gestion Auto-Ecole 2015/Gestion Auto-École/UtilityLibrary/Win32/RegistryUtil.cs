@@ -42,11 +42,11 @@ namespace UtilityLibrary.Win32
 			}
 			catch (NullReferenceException)
 			{
-				throw(new Exception("Null Reference"));
+				throw new Exception("Null Reference");
 			}
 			catch (UnauthorizedAccessException)
 			{
-    			throw(new Exception("Unauthorized Access"));
+    			throw new Exception("Unauthorized Access");
 			}
 		}
 

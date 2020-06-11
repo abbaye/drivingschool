@@ -44,7 +44,7 @@ namespace Barette.Library.Collections
 		}
 
 		public Employe this[int index] {
-			get { return (base.List[index] as Employe); }
+			get { return base.List[index] as Employe; }
 		}
 
 		public int IndexOf(Employe value) {

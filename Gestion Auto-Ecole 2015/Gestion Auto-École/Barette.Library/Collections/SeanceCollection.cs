@@ -45,7 +45,7 @@ namespace Barette.Library.Collections
 		}
 
 		public Seance this[int index] {
-			get { return (base.List[index] as Seance); }
+			get { return base.List[index] as Seance; }
 		}
 
 		public int IndexOf(Seance value) {

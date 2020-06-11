@@ -68,7 +68,7 @@ namespace Crownwood.Magic.Collections
         public String this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as String); }
+            get { return base.List[index] as String; }
         }
 
         public int IndexOf(String value)

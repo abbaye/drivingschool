@@ -19,10 +19,7 @@ namespace Crownwood.Magic.Menus
         {
             get 
             {
-                if (base.Control is MenuControl)
-                    return ((MenuControl)base.Control).MenuCommands;
-                else
-                    return base.AssociatedComponents;
+                return base.Control is MenuControl ? ((MenuControl)base.Control).MenuCommands : base.AssociatedComponents;
             }
         }
 

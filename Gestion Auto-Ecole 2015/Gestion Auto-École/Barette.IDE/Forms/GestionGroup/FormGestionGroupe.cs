@@ -492,7 +492,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
                 if (client != null) {
 
                     yPos += printFont.Height;
-                    e.Graphics.DrawString((_LinePrinted + 1) + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+                    e.Graphics.DrawString(_LinePrinted + 1 + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
 
                     e.Graphics.DrawString(listFindResult.Items[_LinePrinted].Text, printFont, Brushes.Black, leftMargin + 50, yPos, new StringFormat());                    
                     e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[1].Text, printFont, Brushes.Black, leftMargin + 125, yPos, new StringFormat());

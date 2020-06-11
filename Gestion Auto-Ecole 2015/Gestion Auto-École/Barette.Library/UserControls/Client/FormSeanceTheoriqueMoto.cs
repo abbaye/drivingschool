@@ -91,7 +91,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label1
             // 
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label1.Location = new System.Drawing.Point(88, 5);
             label1.Margin = new Padding(3, 3, 3, 0);
             label1.Name = "label1";
@@ -102,7 +102,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label2
             // 
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label2.Location = new System.Drawing.Point(409, 5);
             label2.Margin = new Padding(3, 3, 3, 0);
             label2.Name = "label2";
@@ -113,7 +113,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label3
             // 
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label3.Location = new System.Drawing.Point(482, 5);
             label3.Margin = new Padding(3, 3, 3, 0);
             label3.Name = "label3";
@@ -124,7 +124,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label4
             // 
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label4.Location = new System.Drawing.Point(275, 5);
             label4.Margin = new Padding(3, 3, 3, 0);
             label4.Name = "label4";
@@ -135,7 +135,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label5
             // 
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label5.Location = new System.Drawing.Point(592, 6);
             label5.Margin = new Padding(3, 3, 3, 0);
             label5.Name = "label5";
@@ -146,7 +146,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdAnnuler
             // 
-            cmdAnnuler.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAnnuler.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             cmdAnnuler.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
             cmdAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -160,7 +160,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdOK
             // 
-            cmdOK.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             cmdOK.Image = global::Barette.Library.Properties.Resources.accept_icon;
             cmdOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,7 +174,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             // 

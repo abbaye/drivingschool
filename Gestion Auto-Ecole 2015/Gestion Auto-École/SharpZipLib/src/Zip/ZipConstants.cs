@@ -506,54 +506,42 @@ namespace ICSharpCode.SharpZipLib.Zip
 		/// </returns>
 		public static string ConvertToString(byte[] data, int count)
 		{
-			if ( data == null ) {
-				return string.Empty;	
-			}
-			
-			return Encoding.GetEncoding(DefaultCodePage).GetString(data, 0, count);
-		}
-	
-		/// <summary>
-		/// Convert a byte array to string
-		/// </summary>
-		/// <param name="data">
-		/// Byte array to convert
-		/// </param>
-		/// <returns>
-		/// <paramref name="data">data</paramref>converted to a string
-		/// </returns>
-		public static string ConvertToString(byte[] data)
-		{
-			if ( data == null ) {
-				return string.Empty;	
-			}
-			return ConvertToString(data, data.Length);
-		}
+            return data == null ? string.Empty : Encoding.GetEncoding(DefaultCodePage).GetString(data, 0, count);
+        }
 
-		/// <summary>
-		/// Convert a byte array to string
-		/// </summary>
-		/// <param name="flags">The applicable general purpose bits flags</param>
-		/// <param name="data">
-		/// Byte array to convert
-		/// </param>
-		/// <param name="count">The number of bytes to convert.</param>
-		/// <returns>
-		/// <paramref name="data">data</paramref>converted to a string
-		/// </returns>
-		public static string ConvertToStringExt(int flags, byte[] data, int count)
+        /// <summary>
+        /// Convert a byte array to string
+        /// </summary>
+        /// <param name="data">
+        /// Byte array to convert
+        /// </param>
+        /// <returns>
+        /// <paramref name="data">data</paramref>converted to a string
+        /// </returns>
+        public static string ConvertToString(byte[] data)
+		{
+            return data == null ? string.Empty : ConvertToString(data, data.Length);
+        }
+
+        /// <summary>
+        /// Convert a byte array to string
+        /// </summary>
+        /// <param name="flags">The applicable general purpose bits flags</param>
+        /// <param name="data">
+        /// Byte array to convert
+        /// </param>
+        /// <param name="count">The number of bytes to convert.</param>
+        /// <returns>
+        /// <paramref name="data">data</paramref>converted to a string
+        /// </returns>
+        public static string ConvertToStringExt(int flags, byte[] data, int count)
 		{
 			if ( data == null ) {
 				return string.Empty;	
 			}
-			
-			if ( (flags & (int)GeneralBitFlags.UnicodeText) != 0 ) {
-				return Encoding.UTF8.GetString(data, 0, count);
-			}
-			else {
-				return ConvertToString(data, count);
-			}
-		}
+
+            return (flags & (int)GeneralBitFlags.UnicodeText) != 0 ? Encoding.UTF8.GetString(data, 0, count) : ConvertToString(data, count);
+        }
 		
 		/// <summary>
 		/// Convert a byte array to string
@@ -570,14 +558,11 @@ namespace ICSharpCode.SharpZipLib.Zip
 			if ( data == null ) {
 				return string.Empty;	
 			}
-			
-			if ( (flags & (int)GeneralBitFlags.UnicodeText) != 0 ) {
-				return Encoding.UTF8.GetString(data, 0, data.Length);
-			}
-			else {
-				return ConvertToString(data, data.Length);
-			}
-		}
+
+            return (flags & (int)GeneralBitFlags.UnicodeText) != 0
+                ? Encoding.UTF8.GetString(data, 0, data.Length)
+                : ConvertToString(data, data.Length);
+        }
 
 		/// <summary>
 		/// Convert a string to a byte array
@@ -588,34 +573,25 @@ namespace ICSharpCode.SharpZipLib.Zip
 		/// <returns>Converted array</returns>
 		public static byte[] ConvertToArray(string str)
 		{
-			if ( str == null ) {
-				return new byte[0];
-			}
-			
-			return Encoding.GetEncoding(DefaultCodePage).GetBytes(str);
-		}
+            return str == null ? (new byte[0]) : Encoding.GetEncoding(DefaultCodePage).GetBytes(str);
+        }
 
-		/// <summary>
-		/// Convert a string to a byte array
-		/// </summary>
+        /// <summary>
+        /// Convert a string to a byte array
+        /// </summary>
         /// <param name="flags">The applicable <see cref="GeneralBitFlags">general purpose bits flags</see></param>
-		/// <param name="str">
-		/// String to convert to an array
-		/// </param>
-		/// <returns>Converted array</returns>
-		public static byte[] ConvertToArray(int flags, string str)
+        /// <param name="str">
+        /// String to convert to an array
+        /// </param>
+        /// <returns>Converted array</returns>
+        public static byte[] ConvertToArray(int flags, string str)
 		{
 			if (str == null) {
 				return new byte[0];
 			}
 
-			if ((flags & (int)GeneralBitFlags.UnicodeText) != 0) {
-				return Encoding.UTF8.GetBytes(str);
-			}
-			else {
-				return ConvertToArray(str);
-			}
-		}
+            return (flags & (int)GeneralBitFlags.UnicodeText) != 0 ? Encoding.UTF8.GetBytes(str) : ConvertToArray(str);
+        }
 
 		
 		/// <summary>

@@ -47,7 +47,7 @@ namespace Barette.Library.Collections
 		}
 
 		public Customer this[int index] {
-			get { return (base.List[index] as Customer); }
+			get { return base.List[index] as Customer; }
 		}
 
 		public int IndexOf(Customer value) {

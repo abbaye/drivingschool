@@ -66,7 +66,7 @@ namespace UtilityLibrary.General
 		{
 			// given h,s,l,[240 and r,g,b [0-255]
 			// convert h [0-360], s,l,r,g,b [0-1]
-			h=(h/240)*360;
+			h=h/240*360;
 			s /= 240;
 			l /= 240;
 			r /= 255;
@@ -80,11 +80,11 @@ namespace UtilityLibrary.General
 			if (l<=0.5f) 
 			{
 				//m2=(l*(l+s)); seems to be typo in Foley??, replace l for 1
-				m2=(l*(1+s));				
+				m2=l*(1+s);				
 			} 
 			else 
 			{
-				m2=(l+s-l*s);
+				m2=l+s-l*s;
 			}
 			
 			//calc m1
@@ -131,15 +131,11 @@ namespace UtilityLibrary.General
 			{
 				return n2;
 			} 
-			else if (hue<240.0f) 
-			{
-				return n1+(n2-n1)*(240.0f-hue)/60.0f;
-			} 
-			else 
-			{
-				return n1;
-			}
-		}
+			else
+            {
+                return hue < 240.0f ? n1 + (n2 - n1) * (240.0f - hue) / 60.0f : n1;
+            }
+        }
 
 
 		static public void RGBToHSL(int r, int g, int b, ref float h, ref float s, ref float l)
@@ -168,17 +164,10 @@ namespace UtilityLibrary.General
 				delta = max-min;						
 			
 				//calc the Saturation
-				if (l < 0.5) 
-				{
-					s = delta/(max+min);
-				} 
-				else 
-				{
-					s = delta/(2.0f-(max+min));
-				}
-				
-				//calc the hue
-				if (fr==max) 
+				s = l < 0.5 ? delta /(max+min) : delta /(2.0f-(max+min));
+
+                //calc the hue
+                if (fr==max) 
 				{
 					h = (fg-fb)/delta;
 				} 
@@ -204,7 +193,7 @@ namespace UtilityLibrary.General
 			//h [0-360], h,l [0-1]
 			l*=240;
 			s*=240;
-			h=(h/360)*240;
+			h=h/360*240;
             
 		}
 		#endregion
@@ -216,11 +205,10 @@ namespace UtilityLibrary.General
 		{
 			get 
 			{
-				if ( useCustomColor && backgroundColor != Color.Empty )
-					return backgroundColor;
-				else
-					return CalculateColor(SystemColors.Window, SystemColors.Control, 220);
-			}
+                return useCustomColor && backgroundColor != Color.Empty
+                    ? backgroundColor
+                    : CalculateColor(SystemColors.Window, SystemColors.Control, 220);
+            }
 			set
 			{
 				// Flag that we are going to use custom colors instead
@@ -236,11 +224,10 @@ namespace UtilityLibrary.General
 		{
 			get 
 			{
-				if ( useCustomColor && selectionColor != Color.Empty )
-					return selectionColor;
-				else
-					return CalculateColor(SystemColors.Highlight, SystemColors.Window, 70);
-			}
+                return useCustomColor && selectionColor != Color.Empty
+                    ? selectionColor
+                    : CalculateColor(SystemColors.Highlight, SystemColors.Window, 70);
+            }
 			set
 			{
 				// Flag that we are going to use custom colors instead
@@ -256,11 +243,9 @@ namespace UtilityLibrary.General
 		static public Color VSNetControlColor
 		{
 			get 
-			{	if ( useCustomColor && controlColor != Color.Empty )
-					return controlColor;
-				else
-					return CalculateColor(SystemColors.Control, VSNetBackgroundColor, 195);
-			}
+			{
+                return useCustomColor && controlColor != Color.Empty ? controlColor : CalculateColor(SystemColors.Control, VSNetBackgroundColor, 195);
+            }
 			set
 			{
 				// Flag that we are going to use custom colors instead
@@ -277,11 +262,10 @@ namespace UtilityLibrary.General
 		{
 			get 
 			{
-				if ( useCustomColor && pressedColor != Color.Empty )
-					return pressedColor;
-				else
-					return CalculateColor(SystemColors.Highlight, ColorUtil.VSNetSelectionColor, 70);
-			}
+                return useCustomColor && pressedColor != Color.Empty
+                    ? pressedColor
+                    : CalculateColor(SystemColors.Highlight, ColorUtil.VSNetSelectionColor, 70);
+            }
 			set
 			{
 				// Flag that we are going to use custom colors instead
@@ -298,11 +282,10 @@ namespace UtilityLibrary.General
 		{
 			get 
 			{
-				if ( useCustomColor && pressedColor != Color.Empty )
-					return checkedColor;
-				else
-					return CalculateColor(SystemColors.Highlight,  SystemColors.Window, 30);
-			}
+                return useCustomColor && pressedColor != Color.Empty
+                    ? checkedColor
+                    : CalculateColor(SystemColors.Highlight,  SystemColors.Window, 30);
+            }
 			set
 			{
 				// Flag that we are going to use custom colors instead
@@ -395,7 +378,7 @@ namespace UtilityLibrary.General
 				currentColor = Color.FromKnownColor(enumValue);
 				string colorName = currentColor.Name;
 				if ( !useTransparent ) 
-					badColor = (colorName == "Transparent");
+					badColor = colorName == "Transparent";
 				if ( color.A == currentColor.A && color.R == currentColor.R && color.G == currentColor.G 
 					&& color.B == currentColor.B && !currentColor.IsSystemColor
 					&& !badColor )
@@ -459,7 +442,7 @@ namespace UtilityLibrary.General
 				R = Convert.ToInt32(stringR);
 				G = Convert.ToInt32(stringG);
 				B = Convert.ToInt32(stringB);
-				if ( ( R < 0 || R > 255 ) || ( G < 0 || G > 255 ) || ( B < 0 || B > 255 ) ) 
+				if (  R < 0 || R > 255  ||  G < 0 || G > 255  ||  B < 0 || B > 255  ) 
 				{
 					throw new Exception("Out of bounds RGB value");
 				}
@@ -494,17 +477,17 @@ namespace UtilityLibrary.General
 
 		static public byte GetGValue(uint color)
 		{
-			return ((byte)(((short)(color)) >> 8));
+			return (byte)(((short)color) >> 8);
 		}
 
 		static public byte GetBValue(uint color)
 		{
-			return ((byte)((color)>>16));
+			return (byte)((color)>>16);
 		}
 
 		static public uint RGB(int r, int g, int b)
 		{
-			return ((uint)(((byte)(r)|((short)((byte)(g))<<8))|(((short)(byte)(b))<<16)));
+			return (uint)((byte)r|((byte)g << 8)|((byte)b << 16));
 
 		}
 		#endregion

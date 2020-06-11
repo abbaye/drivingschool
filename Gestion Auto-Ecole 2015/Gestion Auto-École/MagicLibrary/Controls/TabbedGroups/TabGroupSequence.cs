@@ -413,8 +413,8 @@ namespace Crownwood.Magic.Controls
             int count = Convert.ToInt32(rawCount);
             int unique = Convert.ToInt32(rawUnique);
             Decimal space = Convert.ToDecimal(rawSpace);
-            DirectionUL direction = (rawDirection == "Horizontal" ? DirectionUL.Horizontal : 
-                                                                  DirectionUL.Vertical);
+            DirectionUL direction = rawDirection == "Horizontal" ? DirectionUL.Horizontal : 
+                                                                  DirectionUL.Vertical;
             
             // Update myself with new values
             _unique = unique;
@@ -1089,10 +1089,7 @@ namespace Crownwood.Magic.Controls
                     Size minimal = _children[child++].MinimumSize;
 
                     // Length needed is depends on direction 
-                    if (_direction == DirectionUL.Vertical)
-                        positions[index] = minimal.Height;
-                    else
-                        positions[index] = minimal.Width;
+                    positions[index] = _direction == DirectionUL.Vertical ? minimal.Height : minimal.Width;
                 }
 
                 // Reduce available space by that just allocated
@@ -1110,7 +1107,7 @@ namespace Crownwood.Magic.Controls
             {
                 Control c = _control.Controls[index];
                 
-                bool isResizeBar = (c is ResizeBar);
+                bool isResizeBar = c is ResizeBar;
 
                 // We do not allocate any more space for resize bars
                 if (!isResizeBar)
@@ -1227,10 +1224,7 @@ namespace Crownwood.Magic.Controls
                 TabGroupBase after = _children[beforeIndex + 1];
 
                 // If groups on both sides have no space then cannot resize there relative positions
-                if (((before.Space <= 0m) && (after.Space <= 0m)))
-                    return false;
-                else
-                    return true;
+                return before.Space > 0m || after.Space > 0m;
             }
             else
             {
@@ -1338,7 +1332,7 @@ namespace Crownwood.Magic.Controls
 
             // Is there any room to allow a percentage calculation
             if ((newLength > 0) && (space > 0))
-                newPercent = (Decimal)newLength / (Decimal)space * 100m;
+                newPercent = newLength / (Decimal)space * 100m;
 
             // What is the change in area
             Decimal reallocate = newPercent - group.Space;

@@ -97,7 +97,7 @@ namespace Crownwood.Magic.Collections
         public Content this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as Content); }
+            get { return base.List[index] as Content; }
         }
 
         public Content this[string title]

@@ -171,7 +171,7 @@ namespace Crownwood.Magic.Docking
 				{
 					if (value != base.Font)
 					{
-						_defaultFont = (value == SystemInformation.MenuFont);
+						_defaultFont = value == SystemInformation.MenuFont;
 
 						base.Font = value;
 						ResizeControl();
@@ -190,7 +190,7 @@ namespace Crownwood.Magic.Docking
             {
                 if (this.BackColor != value)
                 {
-                    _defaultColor = (value == SystemColors.Control);
+                    _defaultColor = value == SystemColors.Control;
 					DefineBackColor(value);
                     Invalidate();
                 }

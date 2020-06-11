@@ -192,7 +192,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// </summary>
 		public void Reset()
 		{
-			state = (noZlibHeaderOrFooter ? BUSY_STATE : INIT_STATE);
+			state = noZlibHeaderOrFooter ? BUSY_STATE : INIT_STATE;
 			totalOut = 0;
 			pending.Reset();
 			engine.Reset();
@@ -244,7 +244,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// </summary>
 		public void Finish() 
 		{
-			state |= (IS_FLUSHING | IS_FINISHING);
+			state |= IS_FLUSHING | IS_FINISHING;
 		}
 		
 		/// <summary>

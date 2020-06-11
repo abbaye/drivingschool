@@ -50,8 +50,8 @@ namespace ICSharpCode.SharpZipLib.BZip2
 	public class BZip2OutputStream : Stream
 	{
 		#region Constants
-		const int SETMASK       = (1 << 21);
-		const int CLEARMASK     = (~SETMASK);
+		const int SETMASK       = 1 << 21;
+		const int CLEARMASK     = ~SETMASK;
 		const int GREATER_ICOST = 15;
 		const int LESSER_ICOST = 0;
 		const int SMALL_THRESH = 20;
@@ -533,7 +533,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		{
 			while (bsLive > 0) 
 			{
-				int ch = (bsBuff >> 24);
+				int ch = bsBuff >> 24;
 				baseStream.WriteByte((byte)ch); // write 8-bit
 				bsBuff <<= 8;
 				bsLive -= 8;
@@ -544,13 +544,13 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		void BsW(int n, int v)
 		{
 			while (bsLive >= 8) {
-				int ch = (bsBuff >> 24);
+				int ch = bsBuff >> 24;
 				unchecked{baseStream.WriteByte((byte)ch);} // write 8-bit
 				bsBuff <<= 8;
 				bsLive -= 8;
 				++bytesOut;
 			}
-			bsBuff |= (v << (32 - bsLive - n));
+			bsBuff |= v << (32 - bsLive - n);
 			bsLive += n;
 		}
 		
@@ -601,14 +601,12 @@ namespace ICSharpCode.SharpZipLib.BZip2
 				nGroups = 3;
 			} else if (nMTF < 1200) {
 				nGroups = 4;
-			} else if (nMTF < 2400) {
-				nGroups = 5;
-			} else {
-				nGroups = 6;
-			}
-			
-			/*--- Generate an initial set of coding tables ---*/ 
-			int nPart = nGroups;
+			} else
+            {
+                nGroups = nMTF < 2400 ? 5 : 6;
+            }
+            /*--- Generate an initial set of coding tables ---*/
+            int nPart = nGroups;
 			int remF  = nMTF;
 			gs = 0;
 			while (nPart > 0) {
@@ -626,12 +624,8 @@ namespace ICSharpCode.SharpZipLib.BZip2
 				}
 				
 				for (int v = 0; v < alphaSize; v++) {
-					if (v >= gs && v <= ge) {
-						len[nPart - 1][v] = (char)LESSER_ICOST;
-					} else {
-						len[nPart - 1][v] = (char)GREATER_ICOST;
-					}
-				}
+					len[nPart - 1][v] = v >= gs && v <= ge ? (char)LESSER_ICOST : (char)GREATER_ICOST;
+                }
 				
 				nPart--;
 				gs = ge + 1;
@@ -1023,7 +1017,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 						if (unLo > unHi) {
 							break;
 						}
-						n = ((int)block[zptr[unLo]+d + 1]) - med;
+						n = block[zptr[unLo] + d + 1] - med;
 						if (n == 0) {
 							int temp = zptr[unLo];
 							zptr[unLo] = zptr[ltLo];
@@ -1042,7 +1036,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 						if (unLo > unHi) {
 							break;
 						}
-						n = ((int)block[zptr[unHi]+d + 1]) - med;
+						n = block[zptr[unHi] + d + 1] - med;
 						if (n == 0) {
 							int temp = zptr[unHi];
 							zptr[unHi] = zptr[gtHi];
@@ -1126,7 +1120,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 				quadrant[i] = 0;
 			}
 			
-			block[0] = (byte)(block[last + 1]);
+			block[0] = block[last + 1];
 			
 			if (last < 4000) {
 				/*--
@@ -1168,7 +1162,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 					zptr[ftab[j]] = i;
 				}
 				
-				j = ((block[last + 1]) << 8) + (block[1]);
+				j = ((block[last + 1]) << 8) + block[1];
 				ftab[j]--;
 				zptr[ftab[j]] = last;
 				
@@ -1192,7 +1186,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 					for (i = h; i <= 255; i++) {
 						vv = runningOrder[i];
 						j = i;
-						while ((ftab[((runningOrder[j-h])+1) << 8] - ftab[(runningOrder[j-h]) << 8]) > (ftab[((vv)+1) << 8] - ftab[(vv) << 8])) {
+						while ((ftab[(runningOrder[j-h]+1) << 8] - ftab[(runningOrder[j-h]) << 8]) > (ftab[(vv+1) << 8] - ftab[(vv) << 8])) {
 							runningOrder[j] = runningOrder[j-h];
 							j = j - h;
 							if (j <= (h - 1)) {
@@ -1227,7 +1221,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 							int hi = (ftab[sb+1] & CLEARMASK) - 1;
 							if (hi > lo) {
 								QSort3(lo, hi, 2);
-								numQSorted += (hi - lo + 1);
+								numQSorted += hi - lo + 1;
 								if (workDone > workLimit && firstAttempt) {
 									return;
 								}
@@ -1257,7 +1251,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 						
 						for (j = 0; j < bbSize; j++) {
 							int a2update = zptr[bbStart + j];
-							int qVal = (j >> shifts);
+							int qVal = j >> shifts;
 							quadrant[a2update] = qVal;
 							if (a2update < BZip2Constants.OvershootBytes) {
 								quadrant[a2update + last + 1] = qVal;
@@ -1303,7 +1297,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 			
 			for (i = 0; i <= last; i++) {
 				if (rNToGo == 0) {
-					rNToGo = (int)BZip2Constants.RandomNumbers[rTPos];
+					rNToGo = BZip2Constants.RandomNumbers[rTPos];
 					rTPos++;
 					if (rTPos == 512) {
 						rTPos = 0;
@@ -1549,12 +1543,12 @@ namespace ICSharpCode.SharpZipLib.BZip2
 						while (true) {
 							switch (zPend % 2) {
 								case 0:
-									szptr[wr] = (short)BZip2Constants.RunA;
+									szptr[wr] = BZip2Constants.RunA;
 									wr++;
 									mtfFreq[BZip2Constants.RunA]++;
 									break;
 								case 1:
-									szptr[wr] = (short)BZip2Constants.RunB;
+									szptr[wr] = BZip2Constants.RunB;
 									wr++;
 									mtfFreq[BZip2Constants.RunB]++;
 									break;
@@ -1577,12 +1571,12 @@ namespace ICSharpCode.SharpZipLib.BZip2
 				while (true) {
 					switch (zPend % 2) {
 						case 0:
-							szptr[wr] = (short)BZip2Constants.RunA;
+							szptr[wr] = BZip2Constants.RunA;
 							wr++;
 							mtfFreq[BZip2Constants.RunA]++;
 							break;
 						case 1:
-							szptr[wr] = (short)BZip2Constants.RunB;
+							szptr[wr] = BZip2Constants.RunB;
 							wr++;
 							mtfFreq[BZip2Constants.RunB]++;
 							break;
@@ -1709,8 +1703,8 @@ namespace ICSharpCode.SharpZipLib.BZip2
 					nNodes++;
 					parent[n1] = parent[n2] = nNodes;
 					
-					weight[nNodes] = (int)((weight[n1] & 0xffffff00) + (weight[n2] & 0xffffff00)) | 
-						(int)(1 + (((weight[n1] & 0x000000ff) > (weight[n2] & 0x000000ff)) ? (weight[n1] & 0x000000ff) : (weight[n2] & 0x000000ff)));
+					weight[nNodes] = (int)((weight[n1] & 0xffffff00) + (weight[n2] & 0xffffff00)) |
+                        1 + (((weight[n1] & 0x000000ff) > (weight[n2] & 0x000000ff)) ? (weight[n1] & 0x000000ff) : (weight[n2] & 0x000000ff));
 					
 					parent[nNodes] = -1;
 					nHeap++;

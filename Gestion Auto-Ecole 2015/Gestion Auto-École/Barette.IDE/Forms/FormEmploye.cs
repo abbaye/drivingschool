@@ -78,7 +78,7 @@ namespace Barette.IDE.Forms
             // 
             // ImageListTB
             // 
-            ImageListTB.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListTB.ImageStream")));
+            ImageListTB.ImageStream = (ImageListStreamer)resources.GetObject("ImageListTB.ImageStream");
             ImageListTB.TransparentColor = System.Drawing.Color.Transparent;
             ImageListTB.Images.SetKeyName(0, "add-icon.png");
             ImageListTB.Images.SetKeyName(1, "delete-icon.png");
@@ -135,7 +135,7 @@ namespace Barette.IDE.Forms
             // 
             // ImageListLV
             // 
-            ImageListLV.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListLV.ImageStream")));
+            ImageListLV.ImageStream = (ImageListStreamer)resources.GetObject("ImageListLV.ImageStream");
             ImageListLV.TransparentColor = System.Drawing.Color.Transparent;
             ImageListLV.Images.SetKeyName(0, "employe");
             // 
@@ -147,9 +147,9 @@ namespace Barette.IDE.Forms
             // 
             // employeControl1
             // 
-            employeControl1.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            employeControl1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
+                        | System.Windows.Forms.AnchorStyles.Left
+                        | System.Windows.Forms.AnchorStyles.Right;
             employeControl1.Location = new System.Drawing.Point(255, 6);
             employeControl1.Name = "employeControl1";
             employeControl1.Size = new System.Drawing.Size(634, 524);
@@ -157,8 +157,8 @@ namespace Barette.IDE.Forms
             // 
             // lvEmploye
             // 
-            lvEmploye.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            lvEmploye.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
+                        | System.Windows.Forms.AnchorStyles.Left;
             lvEmploye.Columns.AddRange(new ColumnHeader[] {
             colHeadName,
             colHeadNumeroEmploye});

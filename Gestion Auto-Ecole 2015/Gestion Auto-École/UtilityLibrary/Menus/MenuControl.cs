@@ -76,7 +76,7 @@ namespace UtilityLibrary.Menus
 														 new Point(0,0));
 
 			// We need to know if the OS supports layered windows
-			_supportsLayered = (OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) != null);
+			_supportsLayered = OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) != null;
 		}
 
 		public MenuControl()
@@ -536,7 +536,7 @@ namespace UtilityLibrary.Menus
 		internal void DrawSelectionUpwards()
 		{
 			// Double check the state is correct for this method to be called
-			if ((_trackItem != -1) && (_selected))
+			if ((_trackItem != -1) && _selected)
 			{
 				// This flag is tested in the DrawCommand method
 				_drawUpwards = true;
@@ -548,15 +548,10 @@ namespace UtilityLibrary.Menus
 
 		protected void Recalculate()
 		{
-			int length;
+			int length = _direction == DirectionUL.Horizontal ? this.Width : this.Height;
 
-			if (_direction == DirectionUL.Horizontal)
-				length = this.Width;
-			else 
-				length = this.Height;
-
-			// Is there space for any commands?
-			if (length > 0)
+            // Is there space for any commands?
+            if (length > 0)
 			{
 				// Count the number of rows needed
 				int rows = 0;
@@ -611,15 +606,13 @@ namespace UtilityLibrary.Menus
 							cellLength = cellMinLength + (int)dimension.Width + 1;
 						}
 
-						Rectangle cellRect;
+						Rectangle cellRect = _direction == DirectionUL.Horizontal
+                            ? new Rectangle(lengthStart, _rowHeight * rows, cellLength, _rowHeight)
+                            : new Rectangle(_rowWidth * rows, lengthStart, _rowWidth, cellLength);
 
-						// Create a new position rectangle
-						if (_direction == DirectionUL.Horizontal)
-							cellRect = new Rectangle(lengthStart, _rowHeight * rows, cellLength, _rowHeight);
-						else
-							cellRect = new Rectangle(_rowWidth * rows, lengthStart, _rowWidth, cellLength);
+                        // Create a new position rectangle
 
-						lengthStart += cellLength;
+                        lengthStart += cellLength;
 						columns++;
 
 						// If this item is overlapping the control edge and it is not the first
@@ -768,16 +761,13 @@ namespace UtilityLibrary.Menus
 						}
 						else
 						{					
-							if (!dc.Chevron)
-							{
-								boxRect = new Rectangle(textRect.Left,
-														textRect.Top - _boxExpandSides,
-														textRect.Width - _boxExpandSides,
-														textRect.Height + _boxExpandSides * 2);
-							}
-							else
-								boxRect = textRect;
-						}
+							boxRect = !dc.Chevron
+                                ? new Rectangle(textRect.Left,
+                                                        textRect.Top - _boxExpandSides,
+                                                        textRect.Width - _boxExpandSides,
+                                                        textRect.Height + _boxExpandSides * 2)
+                                : textRect;
+                        }
 
 						switch(_style)
 						{
@@ -804,15 +794,13 @@ namespace UtilityLibrary.Menus
 									int rightTop = boxRect.Top;
 									int leftLeft = boxRect.Left + _shadowGap;
 
-									SolidBrush shadowBrush;
+									SolidBrush shadowBrush = _supportsLayered && (_style == VisualStyle.IDE)
+                                        ? new SolidBrush(Color.FromArgb(64, 0, 0, 0))
+                                        : new SolidBrush(SystemColors.ControlDark);
 
-									// Decide if we need to use an alpha brush
-									if (_supportsLayered && (_style == VisualStyle.IDE))
-										shadowBrush = new SolidBrush(Color.FromArgb(64, 0, 0, 0));
-									else
-										shadowBrush = new SolidBrush(SystemColors.ControlDark);
+                                        // Decide if we need to use an alpha brush
 
-									g.FillRectangle(shadowBrush, new Rectangle(rightLeft, rightTop + _shadowGap - 1, _shadowGap, rightBottom - rightTop - _shadowGap*2));
+                                        g.FillRectangle(shadowBrush, new Rectangle(rightLeft, rightTop + _shadowGap - 1, _shadowGap, rightBottom - rightTop - _shadowGap*2));
 
 									shadowBrush.Dispose();
 								}
@@ -830,15 +818,13 @@ namespace UtilityLibrary.Menus
 
 										int rightTop = boxRect.Top + _shadowYOffset;
 
-										SolidBrush shadowBrush;
+										SolidBrush shadowBrush = _supportsLayered && (_style == VisualStyle.IDE)
+                                            ? new SolidBrush(Color.FromArgb(64, 0, 0, 0))
+                                            : new SolidBrush(SystemColors.ControlDark);
 
-										// Decide if we need to use an alpha brush
-										if (_supportsLayered && (_style == VisualStyle.IDE))
-											shadowBrush = new SolidBrush(Color.FromArgb(64, 0, 0, 0));
-										else
-											shadowBrush = new SolidBrush(SystemColors.ControlDark);
+                                            // Decide if we need to use an alpha brush
 
-										g.FillRectangle(shadowBrush, new Rectangle(rightLeft, rightTop, _shadowGap, rightBottom - rightTop));
+                                            g.FillRectangle(shadowBrush, new Rectangle(rightLeft, rightTop, _shadowGap, rightBottom - rightTop));
 
 										shadowBrush.Dispose();
 									}
@@ -850,15 +836,13 @@ namespace UtilityLibrary.Menus
 
 										int leftLeft = boxRect.Left + _shadowYOffset;
 
-										SolidBrush shadowBrush;
+										SolidBrush shadowBrush = _supportsLayered && (_style == VisualStyle.IDE)
+                                            ? new SolidBrush(Color.FromArgb(64, 0, 0, 0))
+                                            : new SolidBrush(SystemColors.ControlDark);
 
-										// Decide if we need to use an alpha brush
-										if (_supportsLayered && (_style == VisualStyle.IDE))
-											shadowBrush = new SolidBrush(Color.FromArgb(64, 0, 0, 0));
-										else
-											shadowBrush = new SolidBrush(SystemColors.ControlDark);
+                                            // Decide if we need to use an alpha brush
 
-										g.FillRectangle(shadowBrush, new Rectangle(leftLeft, rightBottom+1, rightBottom - leftLeft - _shadowGap, _shadowGap));
+                                            g.FillRectangle(shadowBrush, new Rectangle(leftLeft, rightBottom+1, rightBottom - leftLeft - _shadowGap, _shadowGap));
 
 										shadowBrush.Dispose();
 									}
@@ -992,7 +976,7 @@ namespace UtilityLibrary.Menus
 				DrawCommand dc = _drawCommands[i] as DrawCommand;
 
 				// Draw this command only
-				DrawSingleCommand(g, dc, (i == _trackItem));
+				DrawSingleCommand(g, dc, i == _trackItem);
 			}
 		}
 
@@ -1034,43 +1018,35 @@ namespace UtilityLibrary.Menus
 			
 			if (_style == VisualStyle.IDE)
 			{
-				if (_direction == DirectionUL.Horizontal)
-					screenPos = PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Bottom - _lengthGap - 1));
-				else
-					screenPos = PointToScreen(new Point(dc.DrawRect.Right - _breadthGap, drawRect.Top + _boxExpandSides - 1));
-			}
+				screenPos = _direction == DirectionUL.Horizontal
+                    ? PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Bottom - _lengthGap - 1))
+                    : PointToScreen(new Point(dc.DrawRect.Right - _breadthGap, drawRect.Top + _boxExpandSides - 1));
+            }
 			else
 			{
-				if (_direction == DirectionUL.Horizontal)
-					screenPos = PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Bottom));
-				else
-					screenPos = PointToScreen(new Point(dc.DrawRect.Right, drawRect.Top));
-			}
+				screenPos = _direction == DirectionUL.Horizontal
+                    ? PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Bottom))
+                    : PointToScreen(new Point(dc.DrawRect.Right, drawRect.Top));
+            }
 
 			Point aboveScreenPos;
 			
 			if (_style == VisualStyle.IDE)
 			{
-				if (_direction == DirectionUL.Horizontal)
-					aboveScreenPos = PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Top + _lengthGap + 1));
-				else
-					aboveScreenPos = PointToScreen(new Point(dc.DrawRect.Right - _breadthGap, drawRect.Bottom + _lengthGap));
-			}
+				aboveScreenPos = _direction == DirectionUL.Horizontal
+                    ? PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Top + _lengthGap + 1))
+                    : PointToScreen(new Point(dc.DrawRect.Right - _breadthGap, drawRect.Bottom + _lengthGap));
+            }
 			else
 			{
-				if (_direction == DirectionUL.Horizontal)
-					aboveScreenPos = PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Top));
-				else
-					aboveScreenPos = PointToScreen(new Point(dc.DrawRect.Right, drawRect.Bottom));
-			}
+				aboveScreenPos = _direction == DirectionUL.Horizontal
+                    ? PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Top))
+                    : PointToScreen(new Point(dc.DrawRect.Right, drawRect.Bottom));
+            }
 
-			int borderGap;
+			int borderGap = _direction == DirectionUL.Horizontal ? dc.DrawRect.Width - _subMenuBorderAdjust : dc.DrawRect.Height - _subMenuBorderAdjust;
 
-			// Calculate the missing gap in the PopupMenu border
-			if (_direction == DirectionUL.Horizontal)
-				borderGap = dc.DrawRect.Width - _subMenuBorderAdjust;
-			else
-				borderGap = dc.DrawRect.Height - _subMenuBorderAdjust;
+            // Calculate the missing gap in the PopupMenu border
 
             _popupMenu = new PopupMenu
             {
@@ -1537,15 +1513,15 @@ namespace UtilityLibrary.Menus
 							int code = (int)msg.WParam;
 
 							// ...plus the modifier for SHIFT...
-							if (((int)shiftKey & 0x00008000) != 0)
+							if ((shiftKey & 0x00008000) != 0)
 								code += 0x00010000;
 
 							// ...plus the modifier for CONTROL
-							if (((int)controlKey & 0x00008000) != 0)
+							if ((controlKey & 0x00008000) != 0)
 								code += 0x00020000;
 
 							// Construct shortcut from keystate and keychar
-							Shortcut sc = (Shortcut)(code);
+							Shortcut sc = (Shortcut)code;
 							
 							// Search for a matching command
 							return GenerateShortcut(sc, _menuCommands);
@@ -1639,7 +1615,7 @@ namespace UtilityLibrary.Menus
 			{
 				DrawCommand dc = _drawCommands[_trackItem] as DrawCommand;
 
-				OperateSubMenu(dc, (m.LParam != IntPtr.Zero), (m.WParam != IntPtr.Zero));
+				OperateSubMenu(dc, m.LParam != IntPtr.Zero, m.WParam != IntPtr.Zero);
 			}
 		}
 

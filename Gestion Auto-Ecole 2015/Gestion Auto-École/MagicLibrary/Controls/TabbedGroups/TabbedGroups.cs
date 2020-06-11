@@ -910,24 +910,18 @@ namespace Crownwood.Magic.Controls
         {
             // Get parent of the provided leaf
             TabGroupSequence tgs = current.Parent as TabGroupSequence;
-            
+
             // Must have a valid parent sequence
-            if (tgs != null)
-                return RecursiveFindLeafInSequence(tgs, current, true);
-            else
-                return null;
+            return tgs != null ? RecursiveFindLeafInSequence(tgs, current, true) : null;
         }
         
         public TabGroupLeaf PreviousLeaf(TabGroupLeaf current)
         {
             // Get parent of the provided leaf
             TabGroupSequence tgs = current.Parent as TabGroupSequence;
-            
+
             // Must have a valid parent sequence
-            if (tgs != null)
-                return RecursiveFindLeafInSequence(tgs, current, false);
-            else
-                return null;
+            return tgs != null ? RecursiveFindLeafInSequence(tgs, current, false) : null;
         }
 
         internal void MoveActiveToNearestFromLeaf(TabGroupBase oldLeaf)
@@ -1255,7 +1249,7 @@ namespace Crownwood.Magic.Controls
                 {
                     // Check it has the expected name
                     if (xmlIn.NodeType == XmlNodeType.EndElement)
-                        finished = (xmlIn.Name == "CustomGlobalData");
+                        finished = xmlIn.Name == "CustomGlobalData";
 
                     if (!finished)
                     {
@@ -1386,12 +1380,9 @@ namespace Crownwood.Magic.Controls
                     }
                 }
             }
-                        
+
             // Still no luck, try our own parent
-            if (tgs.Parent != null)
-                return RecursiveFindLeafInSequence(tgs.Parent as TabGroupSequence, tgs, forwards);
-            else
-                return null;
+            return tgs.Parent != null ? RecursiveFindLeafInSequence(tgs.Parent as TabGroupSequence, tgs, forwards) : null;
         }
 
         protected void MoveActiveInSequence(TabGroupSequence tgs, TabGroupBase child)
@@ -1580,18 +1571,15 @@ namespace Crownwood.Magic.Controls
                             int code = (int)msg.WParam;
 
                             // Is SHIFT pressed?
-                            bool shiftPressed = (((int)shiftKey & 0x00008000) != 0);
+                            bool shiftPressed = (shiftKey & 0x00008000) != 0;
 
                             // Is CONTROL pressed?
-                            bool controlPressed = (((int)controlKey & 0x00008000) != 0);
+                            bool controlPressed = (controlKey & 0x00008000) != 0;
 
                             // Was the TAB key pressed?
                             if ((code == (int)Win32.VirtualKeys.VK_TAB) && controlPressed)
                             {
-                                if (shiftPressed)
-                                    return SelectPreviousTab();
-                                else
-                                    return SelectNextTab();
+                                return shiftPressed ? SelectPreviousTab() : SelectNextTab();
                             }
                             else
                             {
@@ -1604,7 +1592,7 @@ namespace Crownwood.Magic.Controls
                                     code += 0x00020000;
 
                                 // Construct shortcut from keystate and keychar
-                                Shortcut sc = (Shortcut)(code);
+                                Shortcut sc = (Shortcut)code;
 
                                 // Search for a matching command
                                 return TestShortcut(sc);

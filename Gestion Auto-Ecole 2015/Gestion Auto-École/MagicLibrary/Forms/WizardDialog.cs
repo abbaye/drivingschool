@@ -85,7 +85,7 @@ namespace Crownwood.Magic.Forms
             // 
             this.wizardControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.wizardControl.Name = "wizardControl";
-            this.wizardControl.Picture = ((System.Drawing.Bitmap)(resources.GetObject("wizardControl.Picture")));
+            this.wizardControl.Picture = (System.Drawing.Bitmap)resources.GetObject("wizardControl.Picture");
             this.wizardControl.SelectedIndex = -1;
             this.wizardControl.Size = new System.Drawing.Size(416, 285);
             this.wizardControl.TabIndex = 0;

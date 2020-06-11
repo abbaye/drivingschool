@@ -99,12 +99,11 @@ namespace Barette.Library.XmlSerialisation
 			try {
 				BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-				if (isolatedStorageFolder == null)
-					fileStream = new FileStream(XMLFilePathName, FileMode.Open);
-				else
-					fileStream = new IsolatedStorageFileStream(XMLFilePathName, FileMode.Open, isolatedStorageFolder);
+				fileStream = isolatedStorageFolder == null
+                    ? new FileStream(XMLFilePathName, FileMode.Open)
+                    : new IsolatedStorageFileStream(XMLFilePathName, FileMode.Open, isolatedStorageFolder);
 
-				ObjectToLoad = binaryFormatter.Deserialize(fileStream);
+                ObjectToLoad = binaryFormatter.Deserialize(fileStream);
 			}
 			finally {
 				//Make sure to close the file even if an exception is raised...
@@ -124,12 +123,11 @@ namespace Barette.Library.XmlSerialisation
 
 				XmlSerializer xserDocumentSerializer = new XmlSerializer(ObjectType);
 
-				if (isolatedStorageFolder == null)
-					txrTextReader = new StreamReader(XMLFilePathName);
-				else
-					txrTextReader = new StreamReader(new IsolatedStorageFileStream(XMLFilePathName, FileMode.Open, isolatedStorageFolder));
+				txrTextReader = isolatedStorageFolder == null
+                    ? new StreamReader(XMLFilePathName)
+                    : new StreamReader(new IsolatedStorageFileStream(XMLFilePathName, FileMode.Open, isolatedStorageFolder));
 
-				ObjectToLoad = xserDocumentSerializer.Deserialize(txrTextReader);
+                ObjectToLoad = xserDocumentSerializer.Deserialize(txrTextReader);
 			}
 			finally {
 				//Make sure to close the file even if an exception is raised...
@@ -232,12 +230,11 @@ namespace Barette.Library.XmlSerialisation
 				//Create serializer object using the type name of the Object to serialize.
 				XmlSerializer xmlSerializer = new XmlSerializer(ObjectType);
 
-				if (isolatedStorageFolder == null)
-					textWriter = new StreamWriter(XMLFilePathName);
-				else
-					textWriter = new StreamWriter(new IsolatedStorageFileStream(XMLFilePathName, FileMode.OpenOrCreate, isolatedStorageFolder));
-				
-				xmlSerializer.Serialize(textWriter, ObjectToSave);
+				textWriter = isolatedStorageFolder == null
+                    ? new StreamWriter(XMLFilePathName)
+                    : new StreamWriter(new IsolatedStorageFileStream(XMLFilePathName, FileMode.OpenOrCreate, isolatedStorageFolder));
+
+                xmlSerializer.Serialize(textWriter, ObjectToSave);
 
 				success = true;
 			}
@@ -258,12 +255,11 @@ namespace Barette.Library.XmlSerialisation
 			try {
 				BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-				if (isolatedStorageFolder == null)
-					fileStream = new FileStream(XMLFilePathName, FileMode.OpenOrCreate);
-				else
-					fileStream = new IsolatedStorageFileStream(XMLFilePathName, FileMode.OpenOrCreate, isolatedStorageFolder);
-				
-				binaryFormatter.Serialize(fileStream, ObjectToSave);
+				fileStream = isolatedStorageFolder == null
+                    ? new FileStream(XMLFilePathName, FileMode.OpenOrCreate)
+                    : new IsolatedStorageFileStream(XMLFilePathName, FileMode.OpenOrCreate, isolatedStorageFolder);
+
+                binaryFormatter.Serialize(fileStream, ObjectToSave);
 
 				success = true;
 			}

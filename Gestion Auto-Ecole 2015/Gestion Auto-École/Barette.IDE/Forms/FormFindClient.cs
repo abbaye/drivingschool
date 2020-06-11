@@ -131,13 +131,13 @@ namespace Barette.IDE.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFindClient));
             Customer customer2 = new Customer();
             listFindResult = new ListView();
-            colheadContratNumber = ((ColumnHeader)(new ColumnHeader()));
-            colheadName = ((ColumnHeader)(new ColumnHeader()));
-            colheadDate = ((ColumnHeader)(new ColumnHeader()));
-            colHeadPhone = ((ColumnHeader)(new ColumnHeader()));
-            colHeadTypeVehicule = ((ColumnHeader)(new ColumnHeader()));
-            colHeadSolde = ((ColumnHeader)(new ColumnHeader()));
-            colHeadDernierPaiment = ((ColumnHeader)(new ColumnHeader()));
+            colheadContratNumber = new ColumnHeader();
+            colheadName = new ColumnHeader();
+            colheadDate = new ColumnHeader();
+            colHeadPhone = new ColumnHeader();
+            colHeadTypeVehicule = new ColumnHeader();
+            colHeadSolde = new ColumnHeader();
+            colHeadDernierPaiment = new ColumnHeader();
             ImageListSmall = new ImageList(components);
             chkDisponibilityPM = new CheckBox();
             chkDisponibilityAM = new CheckBox();
@@ -189,21 +189,21 @@ namespace Barette.IDE.Forms
             label1 = new Label();
             tabControl1 = new TabControl();
             tpMoto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             tpDate.SuspendLayout();
             tpClientType.SuspendLayout();
             tpDispo.SuspendLayout();
             tpVehicule.SuspendLayout();
             tpClientInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabControl1.SuspendLayout();
             SuspendLayout();
             // 
             // listFindResult
             // 
-            listFindResult.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            listFindResult.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
+                        | System.Windows.Forms.AnchorStyles.Left
+                        | System.Windows.Forms.AnchorStyles.Right;
             listFindResult.Columns.AddRange(new ColumnHeader[] {
             colheadContratNumber,
             colheadName,
@@ -265,7 +265,7 @@ namespace Barette.IDE.Forms
             // 
             // ImageListSmall
             // 
-            ImageListSmall.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            ImageListSmall.ImageStream = (ImageListStreamer)resources.GetObject("ImageListSmall.ImageStream");
             ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             ImageListSmall.Images.SetKeyName(0, "Moto");
             ImageListSmall.Images.SetKeyName(1, "Auto");
@@ -287,7 +287,7 @@ namespace Barette.IDE.Forms
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             imageList1.Images.SetKeyName(1, "");
@@ -464,9 +464,9 @@ namespace Barette.IDE.Forms
             // 
             // pictureBox3
             // 
-            pictureBox3.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            pictureBox3.Image = ((Image)(resources.GetObject("pictureBox3.Image")));
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(548, 16);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(32, 32);
@@ -475,7 +475,7 @@ namespace Barette.IDE.Forms
             // 
             // label4
             // 
-            label4.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            label4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label4.BackColor = System.Drawing.Color.Transparent;
             label4.Location = new Point(587, 16);
             label4.Name = "label4";
@@ -773,7 +773,7 @@ namespace Barette.IDE.Forms
             // pictureBox1
             // 
             pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            pictureBox1.Image = ((Image)(resources.GetObject("pictureBox1.Image")));
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(16, 72);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(32, 32);
@@ -792,8 +792,8 @@ namespace Barette.IDE.Forms
             // 
             // tabControl1
             // 
-            tabControl1.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            tabControl1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left
+                        | System.Windows.Forms.AnchorStyles.Right;
             tabControl1.Controls.Add(tpClientInfo);
             tabControl1.Controls.Add(tpVehicule);
             tabControl1.Controls.Add(tpDispo);
@@ -822,14 +822,14 @@ namespace Barette.IDE.Forms
             Load += new EventHandler(FormFindClient_Load);
             tpMoto.ResumeLayout(false);
             tpMoto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             tpDate.ResumeLayout(false);
             tpClientType.ResumeLayout(false);
             tpDispo.ResumeLayout(false);
             tpVehicule.ResumeLayout(false);
             tpClientInfo.ResumeLayout(false);
             tpClientInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabControl1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -1229,7 +1229,7 @@ namespace Barette.IDE.Forms
 						client.MontantLocation = "0,00 $";
 
 					yPos += printFont.Height;
-					e.Graphics.DrawString((_LinePrinted + 1) + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+					e.Graphics.DrawString(_LinePrinted + 1 + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
 					e.Graphics.DrawString(client.FirstName + " " + client.Name, printFont, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
 					e.Graphics.DrawString(listFindResult.Items[_LinePrinted].Text, printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 					e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[3].Text, printFont, Brushes.Black, leftMargin + 375, yPos, new StringFormat());
@@ -1313,7 +1313,7 @@ namespace Barette.IDE.Forms
 				tbbShowPaiment.Enabled = true;
 			}
 
-			tbbPrintFindList.Enabled = (listFindResult.Items.Count > 0);
+			tbbPrintFindList.Enabled = listFindResult.Items.Count > 0;
 		}
 
 		private void txtFirstName_Enter(object sender, EventArgs e) {

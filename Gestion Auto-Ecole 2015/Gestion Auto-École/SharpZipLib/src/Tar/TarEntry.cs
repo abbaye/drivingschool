@@ -159,18 +159,14 @@ namespace ICSharpCode.SharpZipLib.Tar
 		{
 			TarEntry localEntry = obj as TarEntry;
 
-			if ( localEntry != null )
-			{
-				return Name.Equals(localEntry.Name);
-			}
-			return false;
-		}
-		
-		/// <summary>
-		/// Derive a Hash value for the current <see cref="Object"/>
-		/// </summary>
-		/// <returns>A Hash code for the current <see cref="Object"/></returns>
-		public override int GetHashCode()
+            return localEntry != null ? Name.Equals(localEntry.Name) : false;
+        }
+
+        /// <summary>
+        /// Derive a Hash value for the current <see cref="Object"/>
+        /// </summary>
+        /// <returns>A Hash code for the current <see cref="Object"/></returns>
+        public override int GetHashCode()
 		{
 			return Name.GetHashCode();
 		}

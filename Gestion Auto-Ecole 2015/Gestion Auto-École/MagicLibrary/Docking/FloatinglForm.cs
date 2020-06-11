@@ -414,7 +414,7 @@ namespace Crownwood.Magic.Docking
                         // Get mouse position to inscreen coordinates
                         POINT mousePos;
 						mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
-						mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
+						mousePos.y = (short)(((uint)m.LParam & 0xFFFF0000U) >> 16);
 
 						// Find adjustment to bring screen to client coordinates
 						Point topLeft = PointToScreen(new Point(0, 0));
@@ -436,7 +436,7 @@ namespace Crownwood.Magic.Docking
 				{
                     POINT mousePos;
 					mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
-					mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
+					mousePos.y = (short)(((uint)m.LParam & 0xFFFF0000U) >> 16);
 
 					_redocker.OnMouseMove(new MouseEventArgs(MouseButtons.Left, 
 															 0, mousePos.x, mousePos.y, 0));
@@ -451,7 +451,7 @@ namespace Crownwood.Magic.Docking
 				{
                     POINT mousePos;
 					mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
-					mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
+					mousePos.y = (short)(((uint)m.LParam & 0xFFFF0000U) >> 16);
 
 					_redocker.QuitTrackingMode(new MouseEventArgs(MouseButtons.Left, 
 																  0, mousePos.x, mousePos.y, 0));
@@ -471,7 +471,7 @@ namespace Crownwood.Magic.Docking
 				{
                     POINT mousePos;
 					mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
-					mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
+					mousePos.y = (short)(((uint)m.LParam & 0xFFFF0000U) >> 16);
 		
 					_redocker.OnMouseUp(new MouseEventArgs(MouseButtons.Left, 0, 
 						                                   mousePos.x, mousePos.y, 0));
@@ -504,7 +504,7 @@ namespace Crownwood.Magic.Docking
                     // Get screen coordinates of the mouse
                     POINT mousePos;
                     mousePos.x = (short)((uint)m.LParam & 0x0000FFFFU);
-                    mousePos.y = (short)(uint)(((uint)m.LParam & 0xFFFF0000U) >> 16);
+                    mousePos.y = (short)(((uint)m.LParam & 0xFFFF0000U) >> 16);
         			
 				    // Box to transfer as parameter
 				    OnContext(new Point(mousePos.x, mousePos.y));

@@ -52,7 +52,7 @@ namespace Crownwood.Magic.Collections
         public HotZone this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as HotZone); }
+            get { return base.List[index] as HotZone; }
         }
 
         public int IndexOf(HotZone value)

@@ -213,13 +213,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 				while (index >= 0 ) {
 					builder[index] = replacement;
 
-					if (index >= name.Length) {
-						index = -1;
-					}
-					else {
-						index = name.IndexOfAny(InvalidEntryChars, index + 1);
-					}
-				}
+					index = index >= name.Length ? -1 : name.IndexOfAny(InvalidEntryChars, index + 1);
+                }
 				name = builder.ToString();
 			}
 			

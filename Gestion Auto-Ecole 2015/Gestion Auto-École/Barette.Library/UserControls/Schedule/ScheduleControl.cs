@@ -254,11 +254,8 @@ namespace Barette.Library.UserControls.Schedule
 						infos.ContratNumber = client.ContratNumber;
 					}
 
-					if (infos.ContratNumber == "")
-						return null;
-					else
-						return infos;
-				} else
+                    return infos.ContratNumber == "" ? null : infos;
+                } else
 					return null;
 
 			}

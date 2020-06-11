@@ -324,7 +324,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 			
 			storedBlockCRC  = BsGetInt32();
 			
-			blockRandomised = (BsR(1) == 1);
+			blockRandomised = BsR(1) == 1;
 			
 			GetAndMoveToFrontDecode();
 			
@@ -422,13 +422,13 @@ namespace ICSharpCode.SharpZipLib.BZip2
 			
 			//--- Receive the mapping table ---
 			for (int i = 0; i < 16; i++) {
-				inUse16[i] = (BsR(1) == 1);
+				inUse16[i] = BsR(1) == 1;
 			} 
 			
 			for (int i = 0; i < 16; i++) {
 				if (inUse16[i]) {
 					for (int j = 0; j < 16; j++) {
-						inUse[i * 16 + j] = (BsR(1) == 1);
+						inUse[i * 16 + j] = BsR(1) == 1;
 					}
 				} else {
 					for (int j = 0; j < 16; j++) {
@@ -695,7 +695,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 					}
 				}
 				rNToGo--;
-				ch2 ^= (int)((rNToGo == 1) ? 1 : 0);
+				ch2 ^= (rNToGo == 1) ? 1 : 0;
 				i2++;
 				
 				currentChar  = ch2;
@@ -758,7 +758,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		
 		void SetupRandPartC() 
 		{
-			if (j2 < (int)z) {
+			if (j2 < z) {
 				currentChar = ch2;
 				mCrc.Update(ch2);
 				j2++;
@@ -793,7 +793,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		
 		void SetupNoRandPartC() 
 		{
-			if (j2 < (int)z) {
+			if (j2 < z) {
 				currentChar = ch2;
 				mCrc.Update(ch2);
 				j2++;
@@ -882,7 +882,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 			
 			for (int i = minLen; i <= maxLen; i++) 
 			{
-				vec += (baseArray[i + 1] - baseArray[i]);
+				vec += baseArray[i + 1] - baseArray[i];
 				limit[i] = vec - 1;
 				vec <<= 1;
 			}

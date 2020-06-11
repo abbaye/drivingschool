@@ -325,7 +325,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 
 			entry.Offset = offset;
-			entry.CompressionMethod = (CompressionMethod)method;
+			entry.CompressionMethod = method;
 			
 			curMethod = method;
 			sizePatchPos = -1;

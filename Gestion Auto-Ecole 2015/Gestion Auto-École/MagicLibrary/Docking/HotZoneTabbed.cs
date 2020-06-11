@@ -76,7 +76,7 @@ namespace Crownwood.Magic.Docking
 
             DockingManager dockingManager = redock.DockingManager;
 
-			bool becomeFloating = (_wct.ParentZone.State == State.Floating);
+			bool becomeFloating = _wct.ParentZone.State == State.Floating;
 
             // Reduce flicker during transition
             dockingManager.Container.SuspendLayout();

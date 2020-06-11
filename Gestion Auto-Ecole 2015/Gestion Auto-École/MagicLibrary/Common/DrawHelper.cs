@@ -459,7 +459,7 @@ namespace Crownwood.Magic.Common
                 // Alternate black and white pixels across all lines
                 for(int x=0; x<8; x++, flag = !flag)
                     for(int y=0; y<8; y++, flag = !flag)
-                        bitmap.SetPixel(x, y, (flag ? white : black));
+                        bitmap.SetPixel(x, y, flag ? white : black);
 
                 IntPtr hBitmap = bitmap.GetHbitmap();
 

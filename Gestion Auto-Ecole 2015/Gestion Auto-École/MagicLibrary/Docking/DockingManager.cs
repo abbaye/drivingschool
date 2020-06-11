@@ -192,7 +192,7 @@ namespace Crownwood.Magic.Docking
 			        _zoneMinMax = value;
                 
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.ZoneMinMax, (object)_zoneMinMax);
+                    PropogateNameValue(PropogateName.ZoneMinMax, _zoneMinMax);
                 } 
 			}
 		}
@@ -252,7 +252,7 @@ namespace Crownwood.Magic.Docking
                     _resizeBarVector = value;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.ResizeBarVector, (object)_resizeBarVector);
+                    PropogateNameValue(PropogateName.ResizeBarVector, _resizeBarVector);
                 }
             }
         }
@@ -266,10 +266,10 @@ namespace Crownwood.Magic.Docking
                 if (value != _backColor)
                 {
                     _backColor = value;
-                    _defaultBackColor = (_backColor == SystemColors.Control);
+                    _defaultBackColor = _backColor == SystemColors.Control;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.BackColor, (object)_backColor);
+                    PropogateNameValue(PropogateName.BackColor, _backColor);
                 }
             }
         }
@@ -283,10 +283,10 @@ namespace Crownwood.Magic.Docking
                 if (value != _activeColor)
                 {
                     _activeColor = value;
-                    _defaultActiveColor = (_activeColor == SystemColors.ActiveCaption);
+                    _defaultActiveColor = _activeColor == SystemColors.ActiveCaption;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.ActiveColor, (object)_activeColor);
+                    PropogateNameValue(PropogateName.ActiveColor, _activeColor);
                 }
             }
         }
@@ -300,10 +300,10 @@ namespace Crownwood.Magic.Docking
                 if (value != _activeTextColor)
                 {
                     _activeTextColor = value;
-                    _defaultActiveTextColor = (_activeTextColor == SystemColors.ActiveCaptionText);
+                    _defaultActiveTextColor = _activeTextColor == SystemColors.ActiveCaptionText;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.ActiveTextColor, (object)_activeTextColor);
+                    PropogateNameValue(PropogateName.ActiveTextColor, _activeTextColor);
                 }
             }
         }
@@ -317,10 +317,10 @@ namespace Crownwood.Magic.Docking
                 if (value != _inactiveTextColor)
                 {
                     _inactiveTextColor = value;
-                    _defaultInactiveTextColor = (_inactiveTextColor == SystemColors.ControlText);
+                    _defaultInactiveTextColor = _inactiveTextColor == SystemColors.ControlText;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.InactiveTextColor, (object)_inactiveTextColor);
+                    PropogateNameValue(PropogateName.InactiveTextColor, _inactiveTextColor);
                 }
             }
         }
@@ -334,10 +334,10 @@ namespace Crownwood.Magic.Docking
                 if (value != _resizeBarColor)
                 {
                     _resizeBarColor = value;
-                    _defaultResizeBarColor = (_resizeBarColor == SystemColors.Control);
+                    _defaultResizeBarColor = _resizeBarColor == SystemColors.Control;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.ResizeBarColor, (object)_resizeBarColor);
+                    PropogateNameValue(PropogateName.ResizeBarColor, _resizeBarColor);
                 }
             }
         }
@@ -351,10 +351,10 @@ namespace Crownwood.Magic.Docking
                 if (value != _captionFont)
                 {
                     _captionFont = value;
-                    _defaultCaptionFont = (_captionFont == SystemInformation.MenuFont);
+                    _defaultCaptionFont = _captionFont == SystemInformation.MenuFont;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.CaptionFont, (object)_captionFont);
+                    PropogateNameValue(PropogateName.CaptionFont, _captionFont);
                 }
             }
         }
@@ -368,10 +368,10 @@ namespace Crownwood.Magic.Docking
                 if (value != _tabControlFont)
                 {
                     _tabControlFont = value;
-                    _defaultTabControlFont = (_captionFont == SystemInformation.MenuFont);
+                    _defaultTabControlFont = _captionFont == SystemInformation.MenuFont;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.TabControlFont, (object)_tabControlFont);
+                    PropogateNameValue(PropogateName.TabControlFont, _tabControlFont);
                 }
             }
         }
@@ -387,7 +387,7 @@ namespace Crownwood.Magic.Docking
                     _plainTabBorder = value;
                     
                     // Notify each object in docking hierarchy in case they need to know new value
-                    PropogateNameValue(PropogateName.PlainTabBorder, (object)_plainTabBorder);
+                    PropogateNameValue(PropogateName.PlainTabBorder, _plainTabBorder);
                 }
             }
         }
@@ -405,11 +405,11 @@ namespace Crownwood.Magic.Docking
             _defaultInactiveTextColor = true;
             _defaultResizeBarColor = true;
 
-            PropogateNameValue(PropogateName.BackColor, (object)_backColor);
-            PropogateNameValue(PropogateName.ActiveColor, (object)_activeColor);
-            PropogateNameValue(PropogateName.ActiveTextColor, (object)_activeTextColor);
-            PropogateNameValue(PropogateName.InactiveTextColor, (object)_inactiveTextColor);
-            PropogateNameValue(PropogateName.ResizeBarColor, (object)_resizeBarColor);
+            PropogateNameValue(PropogateName.BackColor, _backColor);
+            PropogateNameValue(PropogateName.ActiveColor, _activeColor);
+            PropogateNameValue(PropogateName.ActiveTextColor, _activeTextColor);
+            PropogateNameValue(PropogateName.InactiveTextColor, _inactiveTextColor);
+            PropogateNameValue(PropogateName.ResizeBarColor, _resizeBarColor);
         }
 
         public void UpdateInsideFill()
@@ -600,15 +600,13 @@ namespace Crownwood.Magic.Docking
             // Create new instance with correct style
             WindowContent wc = new WindowContentTabbed(this, _visualStyle);
 
-            WindowDetailCaption wdc;
+            WindowDetailCaption wdc = _visualStyle == VisualStyle.IDE
+                ? new WindowDetailCaptionIDE(this, contentClose, restore,
+                                                 invertAutoHide, showContextMenu)
+                : (WindowDetailCaption)new WindowDetailCaptionPlain(this, contentClose, restore,
+                                                   invertAutoHide, showContextMenu);
 
             // Create a style specific caption detail
-            if (_visualStyle == VisualStyle.IDE)
-                wdc = new WindowDetailCaptionIDE(this, contentClose, restore,
-                                                 invertAutoHide, showContextMenu);
-            else
-                wdc = new WindowDetailCaptionPlain(this, contentClose, restore,
-                                                   invertAutoHide, showContextMenu);
 
             // Add the caption to the window display
             wc.WindowDetails.Add(wdc);
@@ -875,7 +873,7 @@ namespace Crownwood.Magic.Docking
 			{
 				Control item = _container.Controls[index];
 
-				bool insideSource = (index < sourceIndex);
+				bool insideSource = index < sourceIndex;
 
 				switch(item.Dock)
 				{
@@ -1227,7 +1225,7 @@ namespace Crownwood.Magic.Docking
                 throw new ArgumentException("Can only load Version 3 and upwards Docking Configuration files");
 
             // Convert from string to proper types
-			_insideFill = (bool)Convert.ToBoolean(insideFill);
+			_insideFill = Convert.ToBoolean(insideFill);
 			_innerMinimum = ConversionHelper.StringToSize(innerSize);
 
 			ContentCollection cc = new ContentCollection();
@@ -1531,12 +1529,9 @@ namespace Crownwood.Magic.Docking
                 return _ahpRight;     
 
             if (_ahpTop.ContainsContent(c))
-                return _ahpTop;     
+                return _ahpTop;
 
-            if (_ahpBottom.ContainsContent(c))
-                return _ahpBottom;     
-                
-            return null;
+            return _ahpBottom.ContainsContent(c) ? _ahpBottom : null;
         }
 
         internal int SurpressVisibleEvents
@@ -1601,7 +1596,7 @@ namespace Crownwood.Magic.Docking
 						c.RecordRestore();
 
 						// Invert docked status
-						c.Docked = (c.Docked == false);
+						c.Docked = c.Docked == false;
 
 						copy.Add(c);
 					}
@@ -1786,12 +1781,12 @@ namespace Crownwood.Magic.Docking
 			{
 				if (dir == DirectionUL.Horizontal)
 				{
-					_firstHalfWidth = (_firstHalfWidth != true);
+					_firstHalfWidth = _firstHalfWidth != true;
 					alter = _firstHalfWidth;
 				}
 				else
 				{
-					_firstHalfHeight = (_firstHalfHeight != true);
+					_firstHalfHeight = _firstHalfHeight != true;
 					alter = _firstHalfHeight;
 				}
 
@@ -1813,12 +1808,9 @@ namespace Crownwood.Magic.Docking
 					Zone z = zcAlpha[0];
 
 					// Find how much space it can offer up
-					if (dir == DirectionUL.Horizontal)
-						available = z.Width - z.MinimumWidth;
-					else
-						available = z.Height - z.MinimumHeight;
+					available = dir == DirectionUL.Horizontal ? z.Width - z.MinimumWidth : z.Height - z.MinimumHeight;
 
-					if (available > 0)
+                    if (available > 0)
 					{
 						// Only take away the maximum we need
 						if (available > half1)
@@ -1845,12 +1837,9 @@ namespace Crownwood.Magic.Docking
 					Zone z = zcBeta[0];
 
 					// Find how much space it can offer up
-					if (dir == DirectionUL.Horizontal)
-						available = z.Width - z.MinimumWidth;
-					else
-						available = z.Height - z.MinimumHeight;
+					available = dir == DirectionUL.Horizontal ? z.Width - z.MinimumWidth : z.Height - z.MinimumHeight;
 
-					if (available > 0)
+                    if (available > 0)
 					{
 						// Only take away the maximum we need
 						if (available > half2)
@@ -1878,43 +1867,43 @@ namespace Crownwood.Magic.Docking
             if (_defaultBackColor)
             {
                 _backColor = SystemColors.Control;
-                PropogateNameValue(PropogateName.BackColor, (object)SystemColors.Control);
+                PropogateNameValue(PropogateName.BackColor, SystemColors.Control);
             }
 
             if (_defaultActiveColor)
             {
                 _activeColor = SystemColors.ActiveCaption;
-                PropogateNameValue(PropogateName.ActiveColor, (object)SystemColors.ActiveCaption);
+                PropogateNameValue(PropogateName.ActiveColor, SystemColors.ActiveCaption);
             }
             
             if (_defaultActiveTextColor)
             {
                 _activeTextColor = SystemColors.ActiveCaptionText;
-                PropogateNameValue(PropogateName.ActiveTextColor, (object)SystemColors.ActiveCaptionText);
+                PropogateNameValue(PropogateName.ActiveTextColor, SystemColors.ActiveCaptionText);
             }
 
             if (_defaultInactiveTextColor)
             {
                 _inactiveTextColor = SystemColors.ControlText;
-                PropogateNameValue(PropogateName.InactiveTextColor, (object)SystemColors.ControlText);
+                PropogateNameValue(PropogateName.InactiveTextColor, SystemColors.ControlText);
             }
 
             if (_defaultResizeBarColor)
             {
                 _resizeBarColor = SystemColors.Control;
-                PropogateNameValue(PropogateName.ResizeBarColor, (object)SystemColors.Control);
+                PropogateNameValue(PropogateName.ResizeBarColor, SystemColors.Control);
             }
 
             if (_defaultCaptionFont)
             {
                 _captionFont = SystemInformation.MenuFont;
-                PropogateNameValue(PropogateName.CaptionFont, (object)SystemInformation.MenuFont);
+                PropogateNameValue(PropogateName.CaptionFont, SystemInformation.MenuFont);
             }
 
             if (_defaultTabControlFont)
             {
                 _tabControlFont = SystemInformation.MenuFont;
-                PropogateNameValue(PropogateName.TabControlFont, (object)SystemInformation.MenuFont);
+                PropogateNameValue(PropogateName.TabControlFont, SystemInformation.MenuFont);
             }
         }
 

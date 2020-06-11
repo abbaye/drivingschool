@@ -106,11 +106,8 @@ namespace Crownwood.Magic.Docking
             get
             {
                 Controls.TabPage tp = _tabControl.SelectedTab;
-                
-                if (tp != null)
-                    return (Content)tp.Tag;
-                else
-                    return null;
+
+                return tp != null ? (Content)tp.Tag : null;
             }
         }
 
@@ -349,7 +346,7 @@ namespace Crownwood.Magic.Docking
 			c.RecordRestore();
 
 			// Invert docked status
-			c.Docked = (c.Docked == false);
+			c.Docked = c.Docked == false;
 
 			// Remove from current WindowContent and restore its position
 			_manager.HideContent(c, false, true);
@@ -522,11 +519,8 @@ namespace Crownwood.Magic.Docking
 							Form f = this.FindForm();
 
 							// Update width and height
-							if (f == null)
-								c.DisplaySize = this.ClientSize;
-							else
-								c.DisplaySize = f.Size;
-						}
+							c.DisplaySize = f == null ? this.ClientSize : f.Size;
+                        }
                         break;
                 }
             }
@@ -567,7 +561,7 @@ namespace Crownwood.Magic.Docking
                 Content selectedContent = _tabControl.SelectedTab.Tag as Content;
 
                 // Need to record if it is selected
-                selected = (selectedContent == c);
+                selected = selectedContent == c;
             }
 
             // Create a Restore object to handle this WindowContent

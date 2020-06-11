@@ -31,14 +31,14 @@ namespace Crownwood.Magic.Docking
             _redocker = redocker;
 
             Size floatSize = CalculateFloatingSize();
-            float widthPercentage = (float)floatSize.Width / (float)_newSize.Width;
-            float heightPercentage = (float)floatSize.Height / (float)_newSize.Height;
+            float widthPercentage = floatSize.Width / (float)_newSize.Width;
+            float heightPercentage = floatSize.Height / (float)_newSize.Height;
 
             _newSize.Width = floatSize.Width;
             _newSize.Height = floatSize.Height + SystemInformation.ToolWindowCaptionHeight;
             
-            _offset.X = (int)((float) _offset.X * widthPercentage);
-            _offset.Y = (int)((float) _offset.Y * heightPercentage);
+            _offset.X = (int)(_offset.X * widthPercentage);
+            _offset.Y = (int)(_offset.Y * heightPercentage);
 
 			// We do not want the indicator to be too far away from the cursor, so limit check the offset
 			if (_offset.X > newSize.Width)

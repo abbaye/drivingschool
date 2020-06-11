@@ -253,11 +253,11 @@ namespace Crownwood.Magic.Docking
             // We want lists of docked controls grouped by docking style
             foreach(Control item in _container.Controls)
             {
-                bool ignoreType = (item is AutoHidePanel);
+                bool ignoreType = item is AutoHidePanel;
 
                 int controlIndex = _container.Controls.IndexOf(item);
 
-                bool outer = (controlIndex >= outerIndex);
+                bool outer = controlIndex >= outerIndex;
 
                 if (item.Visible)
                 {
@@ -357,7 +357,7 @@ namespace Crownwood.Magic.Docking
         {
             foreach(Control c in leftList)
             {	
-                bool ignoreType = (c is AutoHidePanel);
+                bool ignoreType = c is AutoHidePanel;
             
                 int controlIndex = _container.Controls.IndexOf(c);
 
@@ -414,7 +414,7 @@ namespace Crownwood.Magic.Docking
         {
             foreach(Control c in rightList)
             {	
-                bool ignoreType = (c is AutoHidePanel);
+                bool ignoreType = c is AutoHidePanel;
             
                 int controlIndex = _container.Controls.IndexOf(c);
 
@@ -473,7 +473,7 @@ namespace Crownwood.Magic.Docking
         {
             foreach(Control c in topList)
             {	
-                bool ignoreType = (c is AutoHidePanel);
+                bool ignoreType = c is AutoHidePanel;
             
                 int controlIndex = _container.Controls.IndexOf(c);
 
@@ -530,7 +530,7 @@ namespace Crownwood.Magic.Docking
         {
             foreach(Control c in bottomList)
             {	
-                bool ignoreType = (c is AutoHidePanel);
+                bool ignoreType = c is AutoHidePanel;
             
                 int controlIndex = _container.Controls.IndexOf(c);
 
@@ -589,7 +589,7 @@ namespace Crownwood.Magic.Docking
         {
             foreach(Control c in fillList)
             {	
-                bool ignoreType = (c is AutoHidePanel);
+                bool ignoreType = c is AutoHidePanel;
             
                 int controlIndex = _container.Controls.IndexOf(c);
 

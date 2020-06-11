@@ -8,11 +8,8 @@ namespace UtilityLibrary.Menus
 		{
 			get 
 			{
-				if (base.Control is MenuControl)
-					return ((MenuControl)base.Control).MenuCommands;
-				else
-					return base.AssociatedComponents;
-			}
+                return base.Control is MenuControl ? ((MenuControl)base.Control).MenuCommands : base.AssociatedComponents;
+            }
 		}
 
 		protected override bool DrawGrid

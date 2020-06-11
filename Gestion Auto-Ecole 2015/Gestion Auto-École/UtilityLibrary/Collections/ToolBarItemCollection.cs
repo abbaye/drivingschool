@@ -83,7 +83,7 @@ namespace UtilityLibrary.Collections
 				get
 				{
 					foreach (ToolBarItem item in items)
-						if ( (item.Shortcut == shortcut) && (item.Enabled) && (item.Visible) )
+						if ( (item.Shortcut == shortcut) && item.Enabled && item.Visible )
 							return item;
 					return null;
 				}

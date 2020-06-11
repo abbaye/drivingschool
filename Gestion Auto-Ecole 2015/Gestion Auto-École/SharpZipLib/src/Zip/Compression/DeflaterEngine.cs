@@ -205,7 +205,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 		/// <returns>Return true if input is needed via <see cref="SetInput">SetInput</see></returns>
 		public bool NeedsInput()
 		{
-			return (inputEnd == inputOff);
+			return inputEnd == inputOff;
 		}
 
 		/// <summary>
@@ -563,7 +563,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 					scan_end   = window[best_end];
 				}
 				scan = strstart;
-			} while ((curMatch = (prev[curMatch & WMASK] & 0xffff)) > limit && --chainLength != 0);
+			} while ((curMatch = prev[curMatch & WMASK] & 0xffff) > limit && --chainLength != 0);
 			
 			matchLen = Math.Min(best_len, lookahead);
 			return matchLen >= MIN_MATCH;
@@ -772,7 +772,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression
 					if (prevAvailable) {
 						len--;
 					}
-					bool lastBlock = (finish && (lookahead == 0) && !prevAvailable);
+					bool lastBlock = finish && (lookahead == 0) && !prevAvailable;
 					huffman.FlushBlock(window, blockStart, len, lastBlock);
 					blockStart += len;
 					return !lastBlock;

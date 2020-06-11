@@ -359,7 +359,7 @@ or which contains garbage records after a zero block.
 			
 			byte[] result = new byte[BlockSize];
 			
-			Array.Copy(recordBuffer, (currentBlockIndex * BlockSize), result, 0, BlockSize );
+			Array.Copy(recordBuffer, currentBlockIndex * BlockSize, result, 0, BlockSize );
 			currentBlockIndex++;
 			return result;
 		}
@@ -493,7 +493,7 @@ or which contains garbage records after a zero block.
 				WriteRecord();
 			}
 
-			Array.Copy(block, 0, recordBuffer, (currentBlockIndex * BlockSize), BlockSize);
+			Array.Copy(block, 0, recordBuffer, currentBlockIndex * BlockSize, BlockSize);
 			currentBlockIndex++;
 		}
 		
@@ -533,7 +533,7 @@ or which contains garbage records after a zero block.
 				WriteRecord();
 			}
 			
-			Array.Copy(buffer, offset, recordBuffer, (currentBlockIndex * BlockSize), BlockSize);
+			Array.Copy(buffer, offset, recordBuffer, currentBlockIndex * BlockSize, BlockSize);
 			
 			currentBlockIndex++;
 		}

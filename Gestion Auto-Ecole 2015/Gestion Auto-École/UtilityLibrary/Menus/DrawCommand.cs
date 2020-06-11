@@ -70,10 +70,10 @@ namespace UtilityLibrary.Menus
 			_chevron = false;
 
 			// Is this MenuCommand a separator?
-			_separator = (_command.Text == "-");
+			_separator = _command.Text == "-";
 
 			// Does this MenuCommand contain a submenu?
-			_subMenu = (_command.MenuCommands.Count > 0);
+			_subMenu = _command.MenuCommands.Count > 0;
 
 			// Find position of first mnemonic character
 			int position = command.Text.IndexOf('&');

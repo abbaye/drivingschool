@@ -487,7 +487,7 @@ namespace Barette.Library.UserControls.Khendys.Controls
 			// half-points, so the font size is twice the value obtained from
 			// Font.SizeInPoints
 			_doc.Append(@"\fs");
-			_doc.Append((int)Math.Round((2 * _font.SizeInPoints)));
+			_doc.Append((int)Math.Round(2 * _font.SizeInPoints));
 
 			// Apppend a space before starting actual text (for clarity)
 			_doc.Append(@" ");
@@ -633,16 +633,16 @@ namespace Barette.Library.UserControls.Khendys.Controls
 			StringBuilder _rtf = new StringBuilder();
 
 			// Calculate the current width of the image in (0.01)mm
-			int picw = (int)Math.Round((_image.Width / xDpi) * HMM_PER_INCH);
+			int picw = (int)Math.Round(_image.Width / xDpi * HMM_PER_INCH);
 
 			// Calculate the current height of the image in (0.01)mm
-			int pich = (int)Math.Round((_image.Height / yDpi) * HMM_PER_INCH);
+			int pich = (int)Math.Round(_image.Height / yDpi * HMM_PER_INCH);
 
 			// Calculate the target width of the image in twips
-			int picwgoal = (int)Math.Round((_image.Width / xDpi) * TWIPS_PER_INCH);
+			int picwgoal = (int)Math.Round(_image.Width / xDpi * TWIPS_PER_INCH);
 
 			// Calculate the target height of the image in twips
-			int pichgoal = (int)Math.Round((_image.Height / yDpi) * TWIPS_PER_INCH);
+			int pichgoal = (int)Math.Round(_image.Height / yDpi * TWIPS_PER_INCH);
 
 			// Append values to RTF string
 			_rtf.Append(@"{\pict\wmetafile8");

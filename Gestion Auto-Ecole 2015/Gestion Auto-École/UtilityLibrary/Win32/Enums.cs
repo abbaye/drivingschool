@@ -518,9 +518,9 @@ namespace UtilityLibrary.Win32
 		CCS_ADJUSTABLE          = 0x00000020,
 		CCS_NODIVIDER           = 0x00000040,
 		CCS_VERT                = 0x00000080,
-		CCS_LEFT                = (CCS_VERT | CCS_TOP),
-		CCS_RIGHT               = (CCS_VERT | CCS_BOTTOM),
-		CCS_NOMOVEX             = (CCS_VERT | CCS_NOMOVEY)
+		CCS_LEFT                = CCS_VERT | CCS_TOP,
+		CCS_RIGHT               = CCS_VERT | CCS_BOTTOM,
+		CCS_NOMOVEX             = CCS_VERT | CCS_NOMOVEY
 	}
 	#endregion
 
@@ -531,7 +531,7 @@ namespace UtilityLibrary.Win32
 		TBSTYLE_SEP             = 0x0001,
 		TBSTYLE_CHECK           = 0x0002,
 		TBSTYLE_GROUP           = 0x0004,
-		TBSTYLE_CHECKGROUP      = (TBSTYLE_GROUP | TBSTYLE_CHECK),
+		TBSTYLE_CHECKGROUP      = TBSTYLE_GROUP | TBSTYLE_CHECK,
 		TBSTYLE_DROPDOWN        = 0x0008,
 		TBSTYLE_AUTOSIZE        = 0x0010,
 		TBSTYLE_NOPREFIX        = 0x0020, 
@@ -560,137 +560,137 @@ namespace UtilityLibrary.Win32
 	public enum ToolBarMessages
 	{
 		WM_USER                 =  0x0400,
-		TB_ENABLEBUTTON         = (WM_USER + 1),
-		TB_CHECKBUTTON          = (WM_USER + 2),
-		TB_PRESSBUTTON          = (WM_USER + 3),
-		TB_HIDEBUTTON           = (WM_USER + 4),
-		TB_INDETERMINATE        = (WM_USER + 5),
-		TB_MARKBUTTON           = (WM_USER + 6),
-		TB_ISBUTTONENABLED      = (WM_USER + 9),
-		TB_ISBUTTONCHECKED      = (WM_USER + 10),
-		TB_ISBUTTONPRESSED      = (WM_USER + 11),
-		TB_ISBUTTONHIDDEN       = (WM_USER + 12),
-		TB_ISBUTTONINDETERMINATE= (WM_USER + 13),
-		TB_ISBUTTONHIGHLIGHTED  = (WM_USER + 14),
-		TB_SETSTATE             = (WM_USER + 17),
-		TB_GETSTATE             = (WM_USER + 18),
-		TB_ADDBITMAP            = (WM_USER + 19),
-		TB_ADDBUTTONSA          = (WM_USER + 20),
-		TB_INSERTBUTTONA        = (WM_USER + 21),
-		TB_ADDBUTTONS           = (WM_USER + 20),
-		TB_INSERTBUTTON         = (WM_USER + 21),
-		TB_DELETEBUTTON         = (WM_USER + 22),
-		TB_GETBUTTON            = (WM_USER + 23),
-		TB_BUTTONCOUNT          = (WM_USER + 24),
-		TB_COMMANDTOINDEX       = (WM_USER + 25),
-		TB_SAVERESTOREA         = (WM_USER + 26),
-		TB_CUSTOMIZE            = (WM_USER + 27),
-		TB_ADDSTRINGA           = (WM_USER + 28),
-		TB_GETITEMRECT          = (WM_USER + 29),
-		TB_BUTTONSTRUCTSIZE     = (WM_USER + 30),
-		TB_SETBUTTONSIZE        = (WM_USER + 31),
-		TB_SETBITMAPSIZE        = (WM_USER + 32),
-		TB_AUTOSIZE             = (WM_USER + 33),
-		TB_GETTOOLTIPS          = (WM_USER + 35),
-		TB_SETTOOLTIPS          = (WM_USER + 36),
-		TB_SETPARENT            = (WM_USER + 37),
-		TB_SETROWS              = (WM_USER + 39),
-		TB_GETROWS              = (WM_USER + 40),
-		TB_GETBITMAPFLAGS       = (WM_USER + 41),
-		TB_SETCMDID             = (WM_USER + 42),
-		TB_CHANGEBITMAP         = (WM_USER + 43),
-		TB_GETBITMAP            = (WM_USER + 44),
-		TB_GETBUTTONTEXTA       = (WM_USER + 45),
-		TB_GETBUTTONTEXTW       = (WM_USER + 75),
-		TB_REPLACEBITMAP        = (WM_USER + 46),
-		TB_SETINDENT            = (WM_USER + 47),
-		TB_SETIMAGELIST         = (WM_USER + 48),
-		TB_GETIMAGELIST         = (WM_USER + 49),
-		TB_LOADIMAGES           = (WM_USER + 50),
-		TB_GETRECT              = (WM_USER + 51),
-		TB_SETHOTIMAGELIST      = (WM_USER + 52),
-		TB_GETHOTIMAGELIST      = (WM_USER + 53),
-		TB_SETDISABLEDIMAGELIST = (WM_USER + 54),
-		TB_GETDISABLEDIMAGELIST = (WM_USER + 55),
-		TB_SETSTYLE             = (WM_USER + 56),
-		TB_GETSTYLE             = (WM_USER + 57),
-		TB_GETBUTTONSIZE        = (WM_USER + 58),
-		TB_SETBUTTONWIDTH       = (WM_USER + 59),
-		TB_SETMAXTEXTROWS       = (WM_USER + 60),
-		TB_GETTEXTROWS          = (WM_USER + 61),
-		TB_GETOBJECT            = (WM_USER + 62), 
-		TB_GETBUTTONINFOW       = (WM_USER + 63),
-		TB_SETBUTTONINFOW       = (WM_USER + 64),
-		TB_GETBUTTONINFOA       = (WM_USER + 65),
-		TB_SETBUTTONINFOA       = (WM_USER + 66),
-		TB_INSERTBUTTONW        = (WM_USER + 67),
-		TB_ADDBUTTONSW          = (WM_USER + 68),
-		TB_HITTEST              = (WM_USER + 69),
-		TB_SETDRAWTEXTFLAGS     = (WM_USER + 70),
-		TB_GETHOTITEM           = (WM_USER + 71),
-		TB_SETHOTITEM           = (WM_USER + 72), 
-		TB_SETANCHORHIGHLIGHT   = (WM_USER + 73),  
-		TB_GETANCHORHIGHLIGHT   = (WM_USER + 74),
-		TB_SAVERESTOREW         = (WM_USER + 76),
-		TB_ADDSTRINGW           = (WM_USER + 77),
-		TB_MAPACCELERATORA      = (WM_USER + 78), 
-		TB_GETINSERTMARK        = (WM_USER + 79), 
-		TB_SETINSERTMARK        = (WM_USER + 80), 
-		TB_INSERTMARKHITTEST    = (WM_USER + 81),  
-		TB_MOVEBUTTON           = (WM_USER + 82),
-		TB_GETMAXSIZE           = (WM_USER + 83),  
-		TB_SETEXTENDEDSTYLE     = (WM_USER + 84),  
-		TB_GETEXTENDEDSTYLE     = (WM_USER + 85),  
-		TB_GETPADDING           = (WM_USER + 86),
-		TB_SETPADDING           = (WM_USER + 87),
-		TB_SETINSERTMARKCOLOR   = (WM_USER + 88),
-		TB_GETINSERTMARKCOLOR   = (WM_USER + 89)
+		TB_ENABLEBUTTON         = WM_USER + 1,
+		TB_CHECKBUTTON          = WM_USER + 2,
+		TB_PRESSBUTTON          = WM_USER + 3,
+		TB_HIDEBUTTON           = WM_USER + 4,
+		TB_INDETERMINATE        = WM_USER + 5,
+		TB_MARKBUTTON           = WM_USER + 6,
+		TB_ISBUTTONENABLED      = WM_USER + 9,
+		TB_ISBUTTONCHECKED      = WM_USER + 10,
+		TB_ISBUTTONPRESSED      = WM_USER + 11,
+		TB_ISBUTTONHIDDEN       = WM_USER + 12,
+		TB_ISBUTTONINDETERMINATE= WM_USER + 13,
+		TB_ISBUTTONHIGHLIGHTED  = WM_USER + 14,
+		TB_SETSTATE             = WM_USER + 17,
+		TB_GETSTATE             = WM_USER + 18,
+		TB_ADDBITMAP            = WM_USER + 19,
+		TB_ADDBUTTONSA          = WM_USER + 20,
+		TB_INSERTBUTTONA        = WM_USER + 21,
+		TB_ADDBUTTONS           = WM_USER + 20,
+		TB_INSERTBUTTON         = WM_USER + 21,
+		TB_DELETEBUTTON         = WM_USER + 22,
+		TB_GETBUTTON            = WM_USER + 23,
+		TB_BUTTONCOUNT          = WM_USER + 24,
+		TB_COMMANDTOINDEX       = WM_USER + 25,
+		TB_SAVERESTOREA         = WM_USER + 26,
+		TB_CUSTOMIZE            = WM_USER + 27,
+		TB_ADDSTRINGA           = WM_USER + 28,
+		TB_GETITEMRECT          = WM_USER + 29,
+		TB_BUTTONSTRUCTSIZE     = WM_USER + 30,
+		TB_SETBUTTONSIZE        = WM_USER + 31,
+		TB_SETBITMAPSIZE        = WM_USER + 32,
+		TB_AUTOSIZE             = WM_USER + 33,
+		TB_GETTOOLTIPS          = WM_USER + 35,
+		TB_SETTOOLTIPS          = WM_USER + 36,
+		TB_SETPARENT            = WM_USER + 37,
+		TB_SETROWS              = WM_USER + 39,
+		TB_GETROWS              = WM_USER + 40,
+		TB_GETBITMAPFLAGS       = WM_USER + 41,
+		TB_SETCMDID             = WM_USER + 42,
+		TB_CHANGEBITMAP         = WM_USER + 43,
+		TB_GETBITMAP            = WM_USER + 44,
+		TB_GETBUTTONTEXTA       = WM_USER + 45,
+		TB_GETBUTTONTEXTW       = WM_USER + 75,
+		TB_REPLACEBITMAP        = WM_USER + 46,
+		TB_SETINDENT            = WM_USER + 47,
+		TB_SETIMAGELIST         = WM_USER + 48,
+		TB_GETIMAGELIST         = WM_USER + 49,
+		TB_LOADIMAGES           = WM_USER + 50,
+		TB_GETRECT              = WM_USER + 51,
+		TB_SETHOTIMAGELIST      = WM_USER + 52,
+		TB_GETHOTIMAGELIST      = WM_USER + 53,
+		TB_SETDISABLEDIMAGELIST = WM_USER + 54,
+		TB_GETDISABLEDIMAGELIST = WM_USER + 55,
+		TB_SETSTYLE             = WM_USER + 56,
+		TB_GETSTYLE             = WM_USER + 57,
+		TB_GETBUTTONSIZE        = WM_USER + 58,
+		TB_SETBUTTONWIDTH       = WM_USER + 59,
+		TB_SETMAXTEXTROWS       = WM_USER + 60,
+		TB_GETTEXTROWS          = WM_USER + 61,
+		TB_GETOBJECT            = WM_USER + 62, 
+		TB_GETBUTTONINFOW       = WM_USER + 63,
+		TB_SETBUTTONINFOW       = WM_USER + 64,
+		TB_GETBUTTONINFOA       = WM_USER + 65,
+		TB_SETBUTTONINFOA       = WM_USER + 66,
+		TB_INSERTBUTTONW        = WM_USER + 67,
+		TB_ADDBUTTONSW          = WM_USER + 68,
+		TB_HITTEST              = WM_USER + 69,
+		TB_SETDRAWTEXTFLAGS     = WM_USER + 70,
+		TB_GETHOTITEM           = WM_USER + 71,
+		TB_SETHOTITEM           = WM_USER + 72, 
+		TB_SETANCHORHIGHLIGHT   = WM_USER + 73,  
+		TB_GETANCHORHIGHLIGHT   = WM_USER + 74,
+		TB_SAVERESTOREW         = WM_USER + 76,
+		TB_ADDSTRINGW           = WM_USER + 77,
+		TB_MAPACCELERATORA      = WM_USER + 78, 
+		TB_GETINSERTMARK        = WM_USER + 79, 
+		TB_SETINSERTMARK        = WM_USER + 80, 
+		TB_INSERTMARKHITTEST    = WM_USER + 81,  
+		TB_MOVEBUTTON           = WM_USER + 82,
+		TB_GETMAXSIZE           = WM_USER + 83,  
+		TB_SETEXTENDEDSTYLE     = WM_USER + 84,  
+		TB_GETEXTENDEDSTYLE     = WM_USER + 85,  
+		TB_GETPADDING           = WM_USER + 86,
+		TB_SETPADDING           = WM_USER + 87,
+		TB_SETINSERTMARKCOLOR   = WM_USER + 88,
+		TB_GETINSERTMARKCOLOR   = WM_USER + 89
 	}
 	#endregion
 
 	#region ToolBar Notifications
 	public enum ToolBarNotifications
 	{
-		TTN_NEEDTEXTA		= ((0-520)-0),
-		TTN_NEEDTEXTW		= ((0-520)-10),
-		TBN_QUERYINSERT		= ((0-700)-6),
-		TBN_DROPDOWN		= ((0-700)-10),
-		TBN_HOTITEMCHANGE	= ((0 - 700) - 13)
+		TTN_NEEDTEXTA		= 0-520-0,
+		TTN_NEEDTEXTW		= 0-520-10,
+		TBN_QUERYINSERT		= 0-700-6,
+		TBN_DROPDOWN		= 0-700-10,
+		TBN_HOTITEMCHANGE	= 0 - 700 - 13
 	}
 	#endregion
 
 	#region Reflected Messages
 	public enum ReflectedMessages
 	{
-		OCM__BASE				= (Msg.WM_USER+0x1c00),
-		OCM_COMMAND				= (OCM__BASE + Msg.WM_COMMAND),
-		OCM_CTLCOLORBTN			= (OCM__BASE + Msg.WM_CTLCOLORBTN),
-		OCM_CTLCOLOREDIT		= (OCM__BASE + Msg.WM_CTLCOLOREDIT),
-		OCM_CTLCOLORDLG			= (OCM__BASE + Msg.WM_CTLCOLORDLG),
-		OCM_CTLCOLORLISTBOX		= (OCM__BASE + Msg.WM_CTLCOLORLISTBOX),
-		OCM_CTLCOLORMSGBOX		= (OCM__BASE + Msg.WM_CTLCOLORMSGBOX),
-		OCM_CTLCOLORSCROLLBAR   = (OCM__BASE + Msg.WM_CTLCOLORSCROLLBAR),
-		OCM_CTLCOLORSTATIC		= (OCM__BASE + Msg.WM_CTLCOLORSTATIC),
-		OCM_CTLCOLOR			= (OCM__BASE + Msg.WM_CTLCOLOR),
-		OCM_DRAWITEM			= (OCM__BASE + Msg.WM_DRAWITEM),
-		OCM_MEASUREITEM			= (OCM__BASE + Msg.WM_MEASUREITEM),
-		OCM_DELETEITEM          = (OCM__BASE + Msg.WM_DELETEITEM),
-		OCM_VKEYTOITEM          = (OCM__BASE + Msg.WM_VKEYTOITEM),
-		OCM_CHARTOITEM          = (OCM__BASE + Msg.WM_CHARTOITEM),
-		OCM_COMPAREITEM         = (OCM__BASE + Msg.WM_COMPAREITEM),
-		OCM_HSCROLL             = (OCM__BASE + Msg.WM_HSCROLL),
-		OCM_VSCROLL             = (OCM__BASE + Msg.WM_VSCROLL),
-		OCM_PARENTNOTIFY        = (OCM__BASE + Msg.WM_PARENTNOTIFY),
-		OCM_NOTIFY              = (OCM__BASE + Msg.WM_NOTIFY)
+		OCM__BASE				= Msg.WM_USER+0x1c00,
+		OCM_COMMAND				= OCM__BASE + Msg.WM_COMMAND,
+		OCM_CTLCOLORBTN			= OCM__BASE + Msg.WM_CTLCOLORBTN,
+		OCM_CTLCOLOREDIT		= OCM__BASE + Msg.WM_CTLCOLOREDIT,
+		OCM_CTLCOLORDLG			= OCM__BASE + Msg.WM_CTLCOLORDLG,
+		OCM_CTLCOLORLISTBOX		= OCM__BASE + Msg.WM_CTLCOLORLISTBOX,
+		OCM_CTLCOLORMSGBOX		= OCM__BASE + Msg.WM_CTLCOLORMSGBOX,
+		OCM_CTLCOLORSCROLLBAR   = OCM__BASE + Msg.WM_CTLCOLORSCROLLBAR,
+		OCM_CTLCOLORSTATIC		= OCM__BASE + Msg.WM_CTLCOLORSTATIC,
+		OCM_CTLCOLOR			= OCM__BASE + Msg.WM_CTLCOLOR,
+		OCM_DRAWITEM			= OCM__BASE + Msg.WM_DRAWITEM,
+		OCM_MEASUREITEM			= OCM__BASE + Msg.WM_MEASUREITEM,
+		OCM_DELETEITEM          = OCM__BASE + Msg.WM_DELETEITEM,
+		OCM_VKEYTOITEM          = OCM__BASE + Msg.WM_VKEYTOITEM,
+		OCM_CHARTOITEM          = OCM__BASE + Msg.WM_CHARTOITEM,
+		OCM_COMPAREITEM         = OCM__BASE + Msg.WM_COMPAREITEM,
+		OCM_HSCROLL             = OCM__BASE + Msg.WM_HSCROLL,
+		OCM_VSCROLL             = OCM__BASE + Msg.WM_VSCROLL,
+		OCM_PARENTNOTIFY        = OCM__BASE + Msg.WM_PARENTNOTIFY,
+		OCM_NOTIFY              = OCM__BASE + Msg.WM_NOTIFY
 	}
 	#endregion
 
 	#region Notification Messages
 	public enum NotificationMessages
 	{
-		NM_FIRST      = (0-0),
-		NM_CUSTOMDRAW = (NM_FIRST-12),
-		NM_NCHITTEST  = (NM_FIRST-14) 
+		NM_FIRST      = 0-0,
+		NM_CUSTOMDRAW = NM_FIRST-12,
+		NM_NCHITTEST  = NM_FIRST-14 
 	}
 	#endregion
 
@@ -743,10 +743,10 @@ namespace UtilityLibrary.Win32
 		CDDS_PREERASE           = 0x00000003,
 		CDDS_POSTERASE          = 0x00000004,
 		CDDS_ITEM               = 0x00010000,
-		CDDS_ITEMPREPAINT       = (CDDS_ITEM | CDDS_PREPAINT),
-		CDDS_ITEMPOSTPAINT      = (CDDS_ITEM | CDDS_POSTPAINT),
-		CDDS_ITEMPREERASE       = (CDDS_ITEM | CDDS_PREERASE),
-		CDDS_ITEMPOSTERASE      = (CDDS_ITEM | CDDS_POSTERASE),
+		CDDS_ITEMPREPAINT       = CDDS_ITEM | CDDS_PREPAINT,
+		CDDS_ITEMPOSTPAINT      = CDDS_ITEM | CDDS_POSTPAINT,
+		CDDS_ITEMPREERASE       = CDDS_ITEM | CDDS_PREERASE,
+		CDDS_ITEMPOSTERASE      = CDDS_ITEM | CDDS_POSTERASE,
 		CDDS_SUBITEM            = 0x00020000
 	}
 	#endregion
@@ -773,7 +773,7 @@ namespace UtilityLibrary.Win32
 		TBSTYLE_SEP             = 0x0001,
 		TBSTYLE_CHECK           = 0x0002,
 		TBSTYLE_GROUP           = 0x0004,
-		TBSTYLE_CHECKGROUP      = (TBSTYLE_GROUP | TBSTYLE_CHECK),
+		TBSTYLE_CHECKGROUP      = TBSTYLE_GROUP | TBSTYLE_CHECK,
 		TBSTYLE_DROPDOWN        = 0x0008,
 		TBSTYLE_AUTOSIZE        = 0x0010,
 		TBSTYLE_NOPREFIX        = 0x0020, 
@@ -806,7 +806,7 @@ namespace UtilityLibrary.Win32
 	#region Windows Hook Codes
 	public enum WindowsHookCodes
 	{
-		WH_MSGFILTER        = (-1),
+		WH_MSGFILTER        = -1,
 		WH_JOURNALRECORD    = 0,
 		WH_JOURNALPLAYBACK  = 1,
 		WH_KEYBOARD         = 2,
@@ -883,17 +883,17 @@ namespace UtilityLibrary.Win32
 	#region Rebar Notifications
 	public enum RebarNotifications 
 	{
-		RBN_FIRST           = (0-831),
-		RBN_HEIGHTCHANGE    = (RBN_FIRST - 0),
-		RBN_GETOBJECT       = (RBN_FIRST - 1),
-		RBN_LAYOUTCHANGED   = (RBN_FIRST - 2),
-		RBN_AUTOSIZE        = (RBN_FIRST - 3),
-		RBN_BEGINDRAG       = (RBN_FIRST - 4),
-		RBN_ENDDRAG         = (RBN_FIRST - 5),
-		RBN_DELETINGBAND    = (RBN_FIRST - 6),   
-		RBN_DELETEDBAND     = (RBN_FIRST - 7),    
-		RBN_CHILDSIZE       = (RBN_FIRST - 8),
-		RBN_CHEVRONPUSHED   = (RBN_FIRST - 10)
+		RBN_FIRST           = 0-831,
+		RBN_HEIGHTCHANGE    = RBN_FIRST - 0,
+		RBN_GETOBJECT       = RBN_FIRST - 1,
+		RBN_LAYOUTCHANGED   = RBN_FIRST - 2,
+		RBN_AUTOSIZE        = RBN_FIRST - 3,
+		RBN_BEGINDRAG       = RBN_FIRST - 4,
+		RBN_ENDDRAG         = RBN_FIRST - 5,
+		RBN_DELETINGBAND    = RBN_FIRST - 6,   
+		RBN_DELETEDBAND     = RBN_FIRST - 7,    
+		RBN_CHILDSIZE       = RBN_FIRST - 8,
+		RBN_CHEVRONPUSHED   = RBN_FIRST - 10
 	}
 	#endregion
 
@@ -902,46 +902,46 @@ namespace UtilityLibrary.Win32
 	{
 		CCM_FIRST           =    0x2000,
 		WM_USER             =    0x0400,
-		RB_INSERTBANDA		=	(WM_USER +  1),
-		RB_DELETEBAND       =	(WM_USER +  2),
-		RB_GETBARINFO		=	(WM_USER +  3),
-		RB_SETBARINFO		=	(WM_USER +  4),
-		RB_GETBANDINFO		=	(WM_USER +  5),
-		RB_SETBANDINFOA		=	(WM_USER +  6),
-		RB_SETPARENT		=	(WM_USER +  7),
-		RB_HITTEST			=	(WM_USER +  8),
-		RB_GETRECT			=	(WM_USER +  9),
-		RB_INSERTBANDW		=	(WM_USER +  10),
-		RB_SETBANDINFOW		=	(WM_USER +  11),
-		RB_GETBANDCOUNT		=	(WM_USER +  12),
-		RB_GETROWCOUNT		=	(WM_USER +  13),
-		RB_GETROWHEIGHT		=	(WM_USER +  14),
-		RB_IDTOINDEX		=	(WM_USER +  16),
-		RB_GETTOOLTIPS		=	(WM_USER +  17),
-		RB_SETTOOLTIPS		=	(WM_USER +  18),
-		RB_SETBKCOLOR		=	(WM_USER +  19),
-		RB_GETBKCOLOR		=	(WM_USER +  20), 
-		RB_SETTEXTCOLOR		=	(WM_USER +  21),
-		RB_GETTEXTCOLOR		=	(WM_USER +  22),
-		RB_SIZETORECT		=	(WM_USER +  23), 
-		RB_SETCOLORSCHEME	=	(CCM_FIRST + 2),  
-		RB_GETCOLORSCHEME	=	(CCM_FIRST + 3), 
-		RB_BEGINDRAG		=	(WM_USER + 24),
-		RB_ENDDRAG			=	(WM_USER + 25),
-		RB_DRAGMOVE			=	(WM_USER + 26),
-		RB_GETBARHEIGHT		=	(WM_USER + 27),
-		RB_GETBANDINFOW		=	(WM_USER + 28),
-		RB_GETBANDINFOA		=	(WM_USER + 29),
-		RB_MINIMIZEBAND		=	(WM_USER + 30),
-		RB_MAXIMIZEBAND		=	(WM_USER + 31),
-		RB_GETDROPTARGET	=	(CCM_FIRST + 4),
-		RB_GETBANDBORDERS	=	(WM_USER + 34),  
-		RB_SHOWBAND			=	(WM_USER + 35),      
-		RB_SETPALETTE		=	(WM_USER + 37),
-		RB_GETPALETTE		=	(WM_USER + 38),
-		RB_MOVEBAND			=	(WM_USER + 39),
-		RB_SETUNICODEFORMAT =   (CCM_FIRST + 5),
-		RB_GETUNICODEFORMAT =   (CCM_FIRST + 6)
+		RB_INSERTBANDA		=	WM_USER +  1,
+		RB_DELETEBAND       =	WM_USER +  2,
+		RB_GETBARINFO		=	WM_USER +  3,
+		RB_SETBARINFO		=	WM_USER +  4,
+		RB_GETBANDINFO		=	WM_USER +  5,
+		RB_SETBANDINFOA		=	WM_USER +  6,
+		RB_SETPARENT		=	WM_USER +  7,
+		RB_HITTEST			=	WM_USER +  8,
+		RB_GETRECT			=	WM_USER +  9,
+		RB_INSERTBANDW		=	WM_USER +  10,
+		RB_SETBANDINFOW		=	WM_USER +  11,
+		RB_GETBANDCOUNT		=	WM_USER +  12,
+		RB_GETROWCOUNT		=	WM_USER +  13,
+		RB_GETROWHEIGHT		=	WM_USER +  14,
+		RB_IDTOINDEX		=	WM_USER +  16,
+		RB_GETTOOLTIPS		=	WM_USER +  17,
+		RB_SETTOOLTIPS		=	WM_USER +  18,
+		RB_SETBKCOLOR		=	WM_USER +  19,
+		RB_GETBKCOLOR		=	WM_USER +  20, 
+		RB_SETTEXTCOLOR		=	WM_USER +  21,
+		RB_GETTEXTCOLOR		=	WM_USER +  22,
+		RB_SIZETORECT		=	WM_USER +  23, 
+		RB_SETCOLORSCHEME	=	CCM_FIRST + 2,  
+		RB_GETCOLORSCHEME	=	CCM_FIRST + 3, 
+		RB_BEGINDRAG		=	WM_USER + 24,
+		RB_ENDDRAG			=	WM_USER + 25,
+		RB_DRAGMOVE			=	WM_USER + 26,
+		RB_GETBARHEIGHT		=	WM_USER + 27,
+		RB_GETBANDINFOW		=	WM_USER + 28,
+		RB_GETBANDINFOA		=	WM_USER + 29,
+		RB_MINIMIZEBAND		=	WM_USER + 30,
+		RB_MAXIMIZEBAND		=	WM_USER + 31,
+		RB_GETDROPTARGET	=	CCM_FIRST + 4,
+		RB_GETBANDBORDERS	=	WM_USER + 34,  
+		RB_SHOWBAND			=	WM_USER + 35,      
+		RB_SETPALETTE		=	WM_USER + 37,
+		RB_GETPALETTE		=	WM_USER + 38,
+		RB_MOVEBAND			=	WM_USER + 39,
+		RB_SETUNICODEFORMAT =   CCM_FIRST + 5,
+		RB_GETUNICODEFORMAT =   CCM_FIRST + 6
 	}
 	#endregion
 
@@ -1015,9 +1015,9 @@ namespace UtilityLibrary.Win32
 	public enum ListViewMessages
 	{
 		LVM_FIRST           =    0x1000,
-		LVM_GETSUBITEMRECT  = (LVM_FIRST + 56),
-		LVM_GETITEMSTATE    = (LVM_FIRST + 44),
-		LVM_GETITEMTEXTW    = (LVM_FIRST + 115)
+		LVM_GETSUBITEMRECT  = LVM_FIRST + 56,
+		LVM_GETITEMSTATE    = LVM_FIRST + 44,
+		LVM_GETITEMTEXTW    = LVM_FIRST + 115
 	}
 	#endregion
 
@@ -1025,21 +1025,21 @@ namespace UtilityLibrary.Win32
 	public enum HeaderControlMessages : int
 	{
 		HDM_FIRST        =  0x1200,
-		HDM_GETITEMRECT  = (HDM_FIRST + 7),
-		HDM_HITTEST      = (HDM_FIRST + 6),
-		HDM_SETIMAGELIST = (HDM_FIRST + 8),
-		HDM_GETITEMW     = (HDM_FIRST + 11),
-		HDM_ORDERTOINDEX = (HDM_FIRST + 15)
+		HDM_GETITEMRECT  = HDM_FIRST + 7,
+		HDM_HITTEST      = HDM_FIRST + 6,
+		HDM_SETIMAGELIST = HDM_FIRST + 8,
+		HDM_GETITEMW     = HDM_FIRST + 11,
+		HDM_ORDERTOINDEX = HDM_FIRST + 15
 	}
 	#endregion
 
 	#region Header Control Notifications
 	public enum HeaderControlNotifications
 	{
-		HDN_FIRST       = (0-300),
-		HDN_BEGINTRACKW = (HDN_FIRST-26),
-		HDN_ENDTRACKW   = (HDN_FIRST-27),
-		HDN_ITEMCLICKW  = (HDN_FIRST-22),
+		HDN_FIRST       = 0-300,
+		HDN_BEGINTRACKW = HDN_FIRST-26,
+		HDN_ENDTRACKW   = HDN_FIRST-27,
+		HDN_ITEMCLICKW  = HDN_FIRST-22,
 	}
 	#endregion
 
@@ -1152,13 +1152,13 @@ namespace UtilityLibrary.Win32
 	#region SetWindowLong indexes
 	public enum SetWindowLongOffsets
 	{
-		GWL_WNDPROC     = (-4),
-		GWL_HINSTANCE   = (-6),
-		GWL_HWNDPARENT  = (-8),
-		GWL_STYLE       = (-16),
-		GWL_EXSTYLE     = (-20),
-		GWL_USERDATA    = (-21),
-		GWL_ID          = (-12)
+		GWL_WNDPROC     = -4,
+		GWL_HINSTANCE   = -6,
+		GWL_HWNDPARENT  = -8,
+		GWL_STYLE       = -16,
+		GWL_EXSTYLE     = -20,
+		GWL_USERDATA    = -21,
+		GWL_ID          = -12
 	}
 	#endregion
 
@@ -1166,8 +1166,8 @@ namespace UtilityLibrary.Win32
 	public enum TreeViewMessages
 	{
 		TV_FIRST        =  0x1100,
-		TVM_GETITEMRECT = (TV_FIRST + 4),
-		TVM_GETITEMW    = (TV_FIRST + 62)
+		TVM_GETITEMRECT = TV_FIRST + 4,
+		TVM_GETITEMW    = TV_FIRST + 62
 	}
 	#endregion
 
@@ -1233,8 +1233,8 @@ namespace UtilityLibrary.Win32
 	#region HitTest 
 	public enum HitTest
 	{
-		HTERROR             = (-2),
-		HTTRANSPARENT       = (-1),
+		HTERROR             = -2,
+		HTTRANSPARENT       = -1,
 		HTNOWHERE           =   0,
 		HTCLIENT            =   1,
 		HTCAPTION           =   2,
@@ -1409,7 +1409,7 @@ namespace UtilityLibrary.Win32
 		SIF_POS             = 0x0004,
 		SIF_DISABLENOSCROLL = 0x0008,
 		SIF_TRACKPOS        = 0x0010,
-		SIF_ALL             = (SIF_RANGE | SIF_PAGE | SIF_POS | SIF_TRACKPOS)
+		SIF_ALL             = SIF_RANGE | SIF_PAGE | SIF_POS | SIF_TRACKPOS
 	}
 	#endregion
 
@@ -1476,9 +1476,9 @@ namespace UtilityLibrary.Win32
 	#region List View Notifications
 	public enum ListViewNotifications
 	{
-		LVN_FIRST             =  (0-100),
-		LVN_GETDISPINFOW      = (LVN_FIRST-77),
-		LVN_SETDISPINFOA      = (LVN_FIRST-51)
+		LVN_FIRST             =  0-100,
+		LVN_GETDISPINFOW      = LVN_FIRST-77,
+		LVN_SETDISPINFOA      = LVN_FIRST-51
 	}
 	#endregion
 

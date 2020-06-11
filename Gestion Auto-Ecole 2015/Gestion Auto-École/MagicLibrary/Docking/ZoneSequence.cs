@@ -137,7 +137,7 @@ namespace Crownwood.Magic.Docking
 
         public bool IsWindowMaximized(Window w)
         {
-            return (w == _maximizedWindow);
+            return w == _maximizedWindow;
         }
 
         public void MaximizeWindow(Window w)
@@ -204,7 +204,7 @@ namespace Crownwood.Magic.Docking
                 Window wAfter = _windows[_windows.IndexOf(wBefore) + 1];
 
                 // If Windows either side of the bar have no space then cannot resize there relative positions
-                if (((wBefore.ZoneArea <= 0m) && (wAfter.ZoneArea <= 0m)))
+                if ((wBefore.ZoneArea <= 0m) && (wAfter.ZoneArea <= 0m))
                     return false;
 
                 // If in maximized state and the bar is not connected to the maximized window
@@ -583,13 +583,9 @@ namespace Crownwood.Magic.Docking
             // Find the Zone client area in screen coordinates
             Rectangle zoneArea = this.RectangleToScreen(this.ClientRectangle);
 
-            int length;
+            int length = _direction == DirectionUL.Vertical ? zoneArea.Height / (_windows.Count + 1) : zoneArea.Width / (_windows.Count + 1);
 
             // Give a rough idea of the new window size
-            if (_direction == DirectionUL.Vertical)
-                length = zoneArea.Height / (_windows.Count + 1);
-            else
-                length = zoneArea.Width / (_windows.Count + 1);
 
             AddHotZoneWithIndex(collection, zoneArea, length, 0);
 
@@ -688,7 +684,7 @@ namespace Crownwood.Magic.Docking
 									// errors that occur from previous division, to ensure that the total 
 									// space it always exactly equal to 100.
 									if (found == otherWindows)
-										target.ZoneArea += (diff - allocated);
+										target.ZoneArea += diff - allocated;
 								}
 							}
 						}
@@ -954,10 +950,7 @@ namespace Crownwood.Magic.Docking
                 // Make the maximized Window have all the space
                 foreach(Window entry in _windows)
                 {
-                    if (entry == _maximizedWindow)
-                        entry.ZoneArea = 100m;
-                    else
-                        entry.ZoneArea = 0m; 
+                    entry.ZoneArea = entry == _maximizedWindow ? 100m : 0m;
                 }
 
                 // Remove maximized state
@@ -1010,7 +1003,7 @@ namespace Crownwood.Magic.Docking
 
             // Is there any room to allow a percentage calculation
             if ((newLength > 0) && (space > 0))
-                newPercent = (Decimal)newLength / (Decimal)space * 100;
+                newPercent = newLength / (Decimal)space * 100;
 
             // What is the change in area
             Decimal reallocate = newPercent - w.ZoneArea;
@@ -1219,10 +1212,7 @@ namespace Crownwood.Magic.Docking
                         Size minimal = w.MinimalSize;
 
                         // Length needed is depends on direction 
-                        if (_direction == DirectionUL.Vertical)
-                            positions[index].length = minimal.Height;
-                        else
-                            positions[index].length = minimal.Width;
+                        positions[index].length = _direction == DirectionUL.Vertical ? minimal.Height : minimal.Width;
                     }
                 }
 
@@ -1350,7 +1340,7 @@ namespace Crownwood.Magic.Docking
             int length = _resizeBar.Length;
 			
 			// We only want a resizeBar when actually docked against an edge
-			bool resizeBarPresent = ((this.Dock != DockStyle.Fill) && (this.Dock != DockStyle.None));
+			bool resizeBarPresent = (this.Dock != DockStyle.Fill) && (this.Dock != DockStyle.None);
 
             // Define the correct direction for the resize bar and new Zone position
             switch(_state)

@@ -110,7 +110,7 @@ namespace ICSharpCode.SharpZipLib.Encryption
 		/// </returns>
 		protected byte TransformByte()
 		{
-			uint temp = ((keys[2] & 0xFFFF) | 2);
+			uint temp = (keys[2] & 0xFFFF) | 2;
 			return (byte)((temp * (temp ^ 1)) >> 8);
 		}
 

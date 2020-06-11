@@ -119,14 +119,14 @@ namespace Barette.IDE.Forms.LigueSecuriter
             cbFindMoto = new RadioButton();
             cbFindAuto = new RadioButton();
             listFindResult = new ListViewEx();
-            colheadContratNumber = ((ColumnHeader)(new ColumnHeader()));
-            colheadDate = ((ColumnHeader)(new ColumnHeader()));
-            colheadName = ((ColumnHeader)(new ColumnHeader()));
-            colHeadAdresseComplete = ((ColumnHeader)(new ColumnHeader()));
-            colHeadNumeroPermis = ((ColumnHeader)(new ColumnHeader()));
-            colHeadDateNaissance = ((ColumnHeader)(new ColumnHeader()));
-            colHeadPhone = ((ColumnHeader)(new ColumnHeader()));
-            colHeadAttestationNumber = ((ColumnHeader)(new ColumnHeader()));
+            colheadContratNumber = new ColumnHeader();
+            colheadDate = new ColumnHeader();
+            colheadName = new ColumnHeader();
+            colHeadAdresseComplete = new ColumnHeader();
+            colHeadNumeroPermis = new ColumnHeader();
+            colHeadDateNaissance = new ColumnHeader();
+            colHeadPhone = new ColumnHeader();
+            colHeadAttestationNumber = new ColumnHeader();
             clientControl1 = new ClientControl();
             cbfindCyclomoteur = new RadioButton();
             groupBox1.SuspendLayout();
@@ -176,7 +176,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             imageList1.Images.SetKeyName(1, "");
@@ -272,7 +272,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
             // 
             // ImageListSmall
             // 
-            ImageListSmall.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            ImageListSmall.ImageStream = (ImageListStreamer)resources.GetObject("ImageListSmall.ImageStream");
             ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             ImageListSmall.Images.SetKeyName(0, "Moto");
             ImageListSmall.Images.SetKeyName(1, "Auto");
@@ -328,9 +328,9 @@ namespace Barette.IDE.Forms.LigueSecuriter
             // 
             // listFindResult
             // 
-            listFindResult.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            listFindResult.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
+                        | System.Windows.Forms.AnchorStyles.Left
+                        | System.Windows.Forms.AnchorStyles.Right;
             listFindResult.Columns.AddRange(new ColumnHeader[] {
             colheadContratNumber,
             colheadDate,
@@ -737,7 +737,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
 				if (client != null){
 
 					yPos += printFont.Height;
-                    e.Graphics.DrawString((_LinePrinted + 1) + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+                    e.Graphics.DrawString(_LinePrinted + 1 + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
 
                     e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[1].Text, printFont, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
 					e.Graphics.DrawString(client.FirstName + " " + client.Name, printFont , Brushes.Black,               leftMargin + 125, yPos, new StringFormat());					
@@ -854,20 +854,10 @@ namespace Barette.IDE.Forms.LigueSecuriter
 		}
 
 		private void timer1_Tick(object sender, EventArgs e) {
-			if (listFindResult.SelectedItems.Count == 0){
-				tbbShowClient.Enabled = 
-					tbbPrintClientInfo.Enabled = false;
-			}
-			else{
-				tbbShowClient.Enabled = 
-					tbbPrintClientInfo.Enabled = true;
-			}
+			tbbShowClient.Enabled = listFindResult.SelectedItems.Count == 0 ? (tbbPrintClientInfo.Enabled = false) : (tbbPrintClientInfo.Enabled = true);
 
-			if(listFindResult.Items.Count >0)
-				tbbTPSTVQ.Enabled = true;
-			else
-				tbbTPSTVQ.Enabled = false;
-		}
+            tbbTPSTVQ.Enabled = listFindResult.Items.Count >0;
+        }
 
 		private void cmdEqual_Click(object sender, EventArgs e) {
 			mcLigue2.SelectionStart = mcLigue1.SelectionStart;

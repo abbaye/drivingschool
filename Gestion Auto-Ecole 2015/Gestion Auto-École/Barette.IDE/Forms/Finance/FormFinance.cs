@@ -170,17 +170,17 @@ namespace Barette.IDE.Forms.Finance
             PrintCompteARecevoir = new System.Drawing.Printing.PrintDocument();
             clientControl1 = new ClientControl();
             listFindResult = new ListViewEx();
-            colheadContratNumber = ((ColumnHeader)(new ColumnHeader()));
-            colheadName = ((ColumnHeader)(new ColumnHeader()));
-            colheadDate = ((ColumnHeader)(new ColumnHeader()));
-            colHeadPhone = ((ColumnHeader)(new ColumnHeader()));
-            colHeadTypeVehicule = ((ColumnHeader)(new ColumnHeader()));
-            colHeadSolde = ((ColumnHeader)(new ColumnHeader()));
-            colHeadLastRecuNumber = ((ColumnHeader)(new ColumnHeader()));
-            colHeadMontant = ((ColumnHeader)(new ColumnHeader()));
-            colHeadDateRecu = ((ColumnHeader)(new ColumnHeader()));
-            colHeadRL = ((ColumnHeader)(new ColumnHeader()));
-            colHeadTypePaiment = ((ColumnHeader)(new ColumnHeader()));
+            colheadContratNumber = new ColumnHeader();
+            colheadName = new ColumnHeader();
+            colheadDate = new ColumnHeader();
+            colHeadPhone = new ColumnHeader();
+            colHeadTypeVehicule = new ColumnHeader();
+            colHeadSolde = new ColumnHeader();
+            colHeadLastRecuNumber = new ColumnHeader();
+            colHeadMontant = new ColumnHeader();
+            colHeadDateRecu = new ColumnHeader();
+            colHeadRL = new ColumnHeader();
+            colHeadTypePaiment = new ColumnHeader();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             tcRapportType.SuspendLayout();
@@ -261,7 +261,7 @@ namespace Barette.IDE.Forms.Finance
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             imageList1.Images.SetKeyName(1, "");
@@ -546,7 +546,7 @@ namespace Barette.IDE.Forms.Finance
             // 
             // ImageListSmall
             // 
-            ImageListSmall.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            ImageListSmall.ImageStream = (ImageListStreamer)resources.GetObject("ImageListSmall.ImageStream");
             ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             ImageListSmall.Images.SetKeyName(0, "Moto");
             ImageListSmall.Images.SetKeyName(1, "Auto");
@@ -564,8 +564,8 @@ namespace Barette.IDE.Forms.Finance
             // 
             // tcRapportType
             // 
-            tcRapportType.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            tcRapportType.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left
+                        | System.Windows.Forms.AnchorStyles.Right;
             tcRapportType.Controls.Add(tpRapportTaxe);
             tcRapportType.Controls.Add(tpCompteARecevoir);
             tcRapportType.Location = new Point(390, 47);
@@ -685,9 +685,9 @@ namespace Barette.IDE.Forms.Finance
             // 
             // listFindResult
             // 
-            listFindResult.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            listFindResult.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
+                        | System.Windows.Forms.AnchorStyles.Left
+                        | System.Windows.Forms.AnchorStyles.Right;
             listFindResult.Columns.AddRange(new ColumnHeader[] {
             colheadContratNumber,
             colheadName,
@@ -894,7 +894,7 @@ namespace Barette.IDE.Forms.Finance
             decimal TotalLivre = 0;
 			//const decimal VariableTaxe = 113.95M;
 
-            decimal VariableTaxe = (100 * (txtTPS.DecimalValue + 1)) * (txtTVQ.DecimalValue + 1);
+            decimal VariableTaxe = 100 * (txtTPS.DecimalValue + 1) * (txtTVQ.DecimalValue + 1);
 
 			//Initialise a 0;
 			lblTPS.Text = lblTVQ.Text =	lblMontantExcluTaxe.Text = lblMontantIncluTaxe.Text =
@@ -931,7 +931,7 @@ namespace Barette.IDE.Forms.Finance
                         break;
                 }
 
-				TotalSansTaxe += (montant / VariableTaxe) * 100;
+				TotalSansTaxe += montant / VariableTaxe * 100;
 				Total += montant;
 
 			}
@@ -945,12 +945,12 @@ namespace Barette.IDE.Forms.Finance
 
             //Cacule de la taxe
             if (TotalLivre != 0) { //si il y a des livre avec 1 taxe seulement (TVQ)
-                tps = (TotalSansTaxe) * txtTPS.DecimalValue;
-                tvq = ((((Total - TotalLivre) / VariableTaxe) * 100) + tps) * txtTVQ.DecimalValue;         
+                tps = TotalSansTaxe * txtTPS.DecimalValue;
+                tvq = (((Total - TotalLivre) / VariableTaxe * 100) + tps) * txtTVQ.DecimalValue;         
                 //tvq = (TotalSansTaxe + tps) * txtTVQ.DecimalValue;
             }
             else {
-                tps = (TotalSansTaxe) * txtTPS.DecimalValue;
+                tps = TotalSansTaxe * txtTPS.DecimalValue;
                 tvq = (TotalSansTaxe + tps) * txtTVQ.DecimalValue;
             }            
 
@@ -988,12 +988,9 @@ namespace Barette.IDE.Forms.Finance
 				type = "RL";
 			else if (paimentInfo.Type == PaiementType.LocationAuto)
 				type = "LA";
-			else if (paimentInfo.Type == PaiementType.Absence)
-				type = "ABS";
-			else
-				type = "";
-			
-			itm.SubItems.Add(type);
+			else type = paimentInfo.Type == PaiementType.Absence ? "ABS" : "";
+
+            itm.SubItems.Add(type);
 			
 			switch (client.TypeVehicule) {
 				case VehiculeType.Automatique:
@@ -1208,7 +1205,7 @@ namespace Barette.IDE.Forms.Finance
 						client.MontantLocation = "0,00 $";
 
 					yPos += printFont.Height;
-					e.Graphics.DrawString((_LinePrinted +1) + " - ", printFont , Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+					e.Graphics.DrawString(_LinePrinted +1 + " - ", printFont , Brushes.Black, leftMargin + 5, yPos, new StringFormat());
 					e.Graphics.DrawString(client.FirstName + " " + client.Name, printFont , Brushes.Black, leftMargin + 50, yPos, new StringFormat());
 					e.Graphics.DrawString(listFindResult.Items[_LinePrinted].Text, printFont , Brushes.Black, leftMargin + 300, yPos, new StringFormat());
 					e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[6].Text, printFont , Brushes.Black, leftMargin + 400, yPos, new StringFormat());
@@ -1253,7 +1250,7 @@ namespace Barette.IDE.Forms.Finance
 				e.Graphics.DrawString("Cumulatif des Paiments _______________________" , printFontBold16 , Brushes.Black, leftMargin + 50, yPos, new StringFormat());
 				yPos += printFont.Height + 15;
 				e.Graphics.DrawString("Nombre de paiments : ", printFont , Brushes.Black, leftMargin + 50, yPos, new StringFormat());
-				e.Graphics.DrawString((_LinePrinted +1) + "", printFont , Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+				e.Graphics.DrawString(_LinePrinted +1 + "", printFont , Brushes.Black, leftMargin + 220, yPos, new StringFormat());
 				yPos += printFont.Height;
 				e.Graphics.DrawString("Total partiel : ", printFont , Brushes.Black, leftMargin + 50, yPos, new StringFormat());
 				e.Graphics.DrawString(lblMontantExcluTaxe.Text, printFont, Brushes.Black, 300 - e.Graphics.MeasureString(lblMontantExcluTaxe.Text, printFont).Width, yPos, new StringFormat());
@@ -1339,7 +1336,7 @@ namespace Barette.IDE.Forms.Finance
 						client.MontantLocation = "0,00 $";
 
 					yPos += printFont.Height;
-					e.Graphics.DrawString((_LinePrinted + 1) + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+					e.Graphics.DrawString(_LinePrinted + 1 + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
 					e.Graphics.DrawString(client.FirstName + " " + client.Name, printFont, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
 					e.Graphics.DrawString(listFindResult.Items[_LinePrinted].Text, printFont, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
 					e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[5].Text, printFont, Brushes.Black, 575 - e.Graphics.MeasureString(listFindResult.Items[_LinePrinted].SubItems[5].Text, printFont).Width, yPos, new StringFormat());
@@ -1380,7 +1377,7 @@ namespace Barette.IDE.Forms.Finance
 				e.Graphics.DrawString("Cumulatif _______________________", printFontBold16, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
 				yPos += printFont.Height + 15;
 				e.Graphics.DrawString("Nombre de clients : ", printFont, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
-				e.Graphics.DrawString((_LinePrinted + 1) + "", printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
+				e.Graphics.DrawString(_LinePrinted + 1 + "", printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
 				yPos += printFont.Height;
 				e.Graphics.DrawString("Total partiel : ", printFont, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
 				e.Graphics.DrawString(lblMontantExcluTaxe.Text, printFont, Brushes.Black, leftMargin + 220, yPos, new StringFormat());
@@ -1464,22 +1461,14 @@ namespace Barette.IDE.Forms.Finance
 		}
 
 		private void timer1_Tick(object sender, EventArgs e) {
-			if (listFindResult.SelectedItems.Count == 0){
-				tbbShowClient.Enabled = 
-					tbbShowSeance.Enabled = 
-					tbbPrintClientInfo.Enabled = false;
-			}
-			else{
-				tbbShowClient.Enabled = 
-					tbbShowSeance.Enabled = 
-					tbbPrintClientInfo.Enabled = true;
-			}
+			tbbShowClient.Enabled = listFindResult.SelectedItems.Count == 0
+                ? (tbbShowSeance.Enabled =
+                    tbbPrintClientInfo.Enabled = false)
+                : (tbbShowSeance.Enabled =
+                    tbbPrintClientInfo.Enabled = true);
 
-			if(listFindResult.Items.Count >0)
-				tbbTPSTVQ.Enabled = true;
-			else
-				tbbTPSTVQ.Enabled = false;
-		}
+            tbbTPSTVQ.Enabled = listFindResult.Items.Count >0;
+        }
 
 		private void cmdEqual_Click(object sender, EventArgs e) {
 			mcRecu2.SelectionStart = mcRecu1.SelectionStart;

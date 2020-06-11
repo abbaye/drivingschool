@@ -123,16 +123,8 @@ namespace ICSharpCode.SharpZipLib.Core
 		{
 			get
 			{
-			    float result;
-				if (target_ <= 0)
-				{
-					result = 0;
-				}
-				else
-				{
-					result = ((float)processed_ / (float)target_) * 100.0f;
-				}
-			    return result;
+			    float result = target_ <= 0 ? 0 : processed_ / (float)target_ * 100.0f;
+                return result;
 			}
 		}
 		
@@ -369,7 +361,7 @@ namespace ICSharpCode.SharpZipLib.Core
 		bool OnDirectoryFailure(string directory, Exception e)
 		{
             DirectoryFailureHandler handler = DirectoryFailure;
-            bool result = (handler != null);
+            bool result = handler != null;
             if ( result ) {
 				ScanFailureEventArgs args = new ScanFailureEventArgs(directory, e);
 				handler(this, args);
@@ -387,7 +379,7 @@ namespace ICSharpCode.SharpZipLib.Core
 		{
             FileFailureHandler handler = FileFailure;
 
-            bool result = (handler != null);
+            bool result = handler != null;
 
 			if ( result ){
 				ScanFailureEventArgs args = new ScanFailureEventArgs(file, e);
@@ -499,7 +491,7 @@ namespace ICSharpCode.SharpZipLib.Core
 				try {
 					string[] names = System.IO.Directory.GetDirectories(directory);
 					foreach (string fulldir in names) {
-						if ((directoryFilter_ == null) || (directoryFilter_.IsMatch(fulldir))) {
+						if ((directoryFilter_ == null) || directoryFilter_.IsMatch(fulldir)) {
 							ScanDir(fulldir, true);
 							if ( !alive_ ) {
 								break;

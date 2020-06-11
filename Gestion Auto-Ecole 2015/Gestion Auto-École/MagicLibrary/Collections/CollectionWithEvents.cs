@@ -51,7 +51,7 @@ namespace Crownwood.Magic.Collections
 		// Are change events currently suspended?
 		public bool IsSuspended
 		{
-			get { return (_suspendCount > 0); }
+			get { return _suspendCount > 0; }
 		}
 
 		// Overrides for generating events

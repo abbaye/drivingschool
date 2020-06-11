@@ -264,8 +264,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 		/// </remarks>
 		public static bool IsValidValue(DateTime value)
 		{
-			return (( value >= new DateTime(1901, 12, 13, 20, 45, 52)) || 
-					( value <= new DateTime(2038, 1, 19, 03, 14, 07) ));
+			return ( value >= new DateTime(1901, 12, 13, 20, 45, 52)) || 
+					( value <= new DateTime(2038, 1, 19, 03, 14, 07) );
 		}
 
 		/// <summary>
@@ -532,15 +532,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 		/// <param name="data">The extra data.</param>
 		public ZipExtraData(byte[] data)
 		{
-			if ( data == null )
-			{
-				_data = new byte[0];
-			}
-			else
-			{
-				_data = data;
-			}
-		}
+			_data = data == null ? (new byte[0]) : data;
+        }
 		#endregion
 
 		/// <summary>
@@ -732,7 +725,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 
 			if ( Find(headerID) )
 			{
-				newLength -= (ValueLength + 4);
+				newLength -= ValueLength + 4;
 			}
 
 			if ( newLength > ushort.MaxValue ) {

@@ -144,9 +144,9 @@ namespace Barette.IDE.Forms
             this.label1 = new Label();
             this.splitContainer1 = new SplitContainer();
             this.lvClient = new ListViewEx();
-            this.colhClientName = ((ColumnHeader)(new ColumnHeader()));
-            this.colhClientNumber = ((ColumnHeader)(new ColumnHeader()));
-            this.colhClientNoGroup = ((ColumnHeader)(new ColumnHeader()));
+            this.colhClientName = new ColumnHeader();
+            this.colhClientNumber = new ColumnHeader();
+            this.colhClientNoGroup = new ColumnHeader();
             this.lstNumeroClient = new Library.UserControls.ACComboBox();
             this.clientControl1 = new Library.UserControls.Client.ClientControl();
             this.toolTip1 = new ToolTip(this.components);
@@ -159,7 +159,7 @@ namespace Barette.IDE.Forms
             this.contratToolStripMenuItem = new ToolStripMenuItem();
             this.toolStripSeparator3 = new ToolStripSeparator();
             this.supprimerLeClientToolStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)this.splitContainer1).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -168,7 +168,7 @@ namespace Barette.IDE.Forms
             // 
             // ImageListSmall
             // 
-            this.ImageListSmall.ImageStream = ((ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            this.ImageListSmall.ImageStream = (ImageListStreamer)resources.GetObject("ImageListSmall.ImageStream");
             this.ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             this.ImageListSmall.Images.SetKeyName(0, "Moto");
             this.ImageListSmall.Images.SetKeyName(1, "auto.ico");
@@ -305,7 +305,7 @@ namespace Barette.IDE.Forms
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "add-icon.png");
             this.imageList1.Images.SetKeyName(1, "delete-icon.png");
@@ -363,9 +363,9 @@ namespace Barette.IDE.Forms
             // 
             // lvClient
             // 
-            this.lvClient.Anchor = ((AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvClient.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
+            | System.Windows.Forms.AnchorStyles.Left
+            | System.Windows.Forms.AnchorStyles.Right;
             this.lvClient.Columns.AddRange(new ColumnHeader[] {
             this.colhClientName,
             this.colhClientNumber,
@@ -420,8 +420,8 @@ namespace Barette.IDE.Forms
             // 
             // lstNumeroClient
             // 
-            this.lstNumeroClient.Anchor = ((AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstNumeroClient.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left
+            | System.Windows.Forms.AnchorStyles.Right;
             this.lstNumeroClient.FormattingEnabled = true;
             this.lstNumeroClient.Location = new Point(123, 51);
             this.lstNumeroClient.Margin = new Padding(3, 3, 3, 1);
@@ -563,7 +563,7 @@ namespace Barette.IDE.Forms
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)this.splitContainer1).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.cmStripClientList.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -741,10 +741,7 @@ namespace Barette.IDE.Forms
                 tbbPrint.Enabled = true;
                 
                 //Menu d<impression de la liste des paiments
-                if (clientControl1.Client.Paiment.Count > 0)
-                    mnuClientPaimentList.Enabled = true;
-                else
-                    mnuClientPaimentList.Enabled = false;
+                mnuClientPaimentList.Enabled = clientControl1.Client.Paiment.Count > 0;
             }
             else {
                 clientControl1.Enabled = false;
@@ -1005,13 +1002,9 @@ namespace Barette.IDE.Forms
             if (client.TypeVehicule == VehiculeType.Cyclomoteur && !_AppConfig.ShowGestionClient_GroupeCyclomoteur)
                 return false;
 
-            if ((client.TypeVehicule == VehiculeType.Automatique ||
-                client.TypeVehicule == VehiculeType.Manuel ||
-                client.TypeVehicule == VehiculeType.Automobile) && !_AppConfig.ShowGestionClient_GroupeAutomobile)
-                return false;
-
-            return true;
-
+            return client.TypeVehicule != VehiculeType.Automatique &&
+                client.TypeVehicule != VehiculeType.Manuel &&
+                client.TypeVehicule != VehiculeType.Automobile || _AppConfig.ShowGestionClient_GroupeAutomobile;
         }
 
         private void mnuClientInfo_Click(object sender, EventArgs e) {

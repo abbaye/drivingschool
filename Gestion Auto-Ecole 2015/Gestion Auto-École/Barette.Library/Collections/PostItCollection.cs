@@ -42,7 +42,7 @@ namespace Barette.Library.Collections
 		}
 
 		public PostIt this[int index] {
-			get { return (base.List[index] as PostIt); }
+			get { return base.List[index] as PostIt; }
 		}
 
 		public int IndexOf(PostIt value) {

@@ -179,9 +179,9 @@ namespace Crownwood.Magic.Controls
             // 
             // _tabControl
             // 
-            this._tabControl.Anchor = (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-                | System.Windows.Forms.AnchorStyles.Left) 
-                | System.Windows.Forms.AnchorStyles.Right);
+            this._tabControl.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom 
+                | System.Windows.Forms.AnchorStyles.Left 
+                | System.Windows.Forms.AnchorStyles.Right;
             this._tabControl.Appearance = Crownwood.Magic.Controls.TabControl.VisualAppearance.MultiDocument;
             this._tabControl.IDEPixelBorder = false;
             this._tabControl.Location = new Point(0, 80);
@@ -219,7 +219,7 @@ namespace Crownwood.Magic.Controls
             // 
             // _buttonUpdate
             // 
-            this._buttonUpdate.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+            this._buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 			this._buttonUpdate.FlatStyle = FlatStyle.System;
 			this._buttonUpdate.Location = new Point(8, 14);
             this._buttonUpdate.Name = "_buttonUpdate";
@@ -229,7 +229,7 @@ namespace Crownwood.Magic.Controls
             // 
             // _buttonBack
             // 
-            this._buttonBack.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+            this._buttonBack.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 			this._buttonBack.FlatStyle = FlatStyle.System;
 			this._buttonBack.Location = new Point(56, 14);
             this._buttonBack.Name = "_buttonBack";
@@ -239,7 +239,7 @@ namespace Crownwood.Magic.Controls
             // 
             // _buttonNext
             // 
-            this._buttonNext.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+            this._buttonNext.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 			this._buttonNext.FlatStyle = FlatStyle.System;
 			this._buttonNext.Location = new Point(120, 14);
             this._buttonNext.Name = "_buttonNext";
@@ -249,7 +249,7 @@ namespace Crownwood.Magic.Controls
             // 
             // _buttonCancel
             // 
-            this._buttonCancel.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+            this._buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 			this._buttonCancel.FlatStyle = FlatStyle.System;
 			this._buttonCancel.Location = new Point(184, 14);
             this._buttonCancel.Name = "_buttonCancel";
@@ -259,7 +259,7 @@ namespace Crownwood.Magic.Controls
             // 
             // _buttonFinish
             // 
-            this._buttonFinish.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+            this._buttonFinish.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 			this._buttonFinish.FlatStyle = FlatStyle.System;
 			this._buttonFinish.Location = new Point(248, 14);
             this._buttonFinish.Name = "_buttonFinish";
@@ -269,7 +269,7 @@ namespace Crownwood.Magic.Controls
             // 
             // _buttonClose
             // 
-            this._buttonClose.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+            this._buttonClose.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 			this._buttonClose.FlatStyle = FlatStyle.System;
 			this._buttonClose.Location = new Point(304, 14);
             this._buttonClose.Name = "_buttonClose";
@@ -279,7 +279,7 @@ namespace Crownwood.Magic.Controls
             // 
             // _buttonHelp
             // 
-            this._buttonHelp.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+            this._buttonHelp.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
 			this._buttonHelp.FlatStyle = FlatStyle.System;
 			this._buttonHelp.Location = new Point(360, 14);
             this._buttonHelp.Name = "_buttonHelp";
@@ -1725,7 +1725,7 @@ namespace Crownwood.Magic.Controls
             if (_picture != null)
             {
                 // Calculate starting Y position to give equal space above and below image
-                int Y = (int)((_panelTop.Height - _picture.Height) / 2);
+                int Y = (_panelTop.Height - _picture.Height) / 2;
                 
                 pe.Graphics.DrawImage(_picture, _panelTop.Width - _picture.Width - Y, Y, _picture.Width, _picture.Height);
                 

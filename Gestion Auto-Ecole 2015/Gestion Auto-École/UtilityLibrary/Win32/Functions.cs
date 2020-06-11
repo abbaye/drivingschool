@@ -263,13 +263,13 @@ namespace UtilityLibrary.Win32
 		#region Win32 Macro-Like helpers
 		public static int GET_X_LPARAM(int lParam)
 		{
-			return (lParam & 0xffff);
+			return lParam & 0xffff;
 		}
 	 
 
 		public static int GET_Y_LPARAM(int lParam)
 		{
-			return (lParam >> 16);
+			return lParam >> 16;
 		}
 
 		public static Point GetPointFromLPARAM(int lParam)
@@ -279,12 +279,12 @@ namespace UtilityLibrary.Win32
 
 		public static int LOW_ORDER(int param)
 		{
-			return (param & 0xffff);
+			return param & 0xffff;
 		}
 
 		public static int HIGH_ORDER(int param)
 		{
-			return (param >> 16);
+			return param >> 16;
 		}
 
 		#endregion

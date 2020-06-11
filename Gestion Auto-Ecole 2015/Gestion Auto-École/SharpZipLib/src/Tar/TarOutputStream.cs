@@ -253,7 +253,7 @@ namespace ICSharpCode.SharpZipLib.Tar
 		/// </summary>
 		bool IsEntryOpen
 		{
-			get { return (currBytes < currSize); }
+			get { return currBytes < currSize; }
 
 		}
 

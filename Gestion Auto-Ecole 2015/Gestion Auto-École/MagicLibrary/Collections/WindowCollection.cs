@@ -51,7 +51,7 @@ namespace Crownwood.Magic.Collections
         public Window this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as Window); }
+            get { return base.List[index] as Window; }
         }
 
         public int IndexOf(Window value)

@@ -51,7 +51,7 @@ namespace Crownwood.Magic.Collections
         public Zone this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as Zone); }
+            get { return base.List[index] as Zone; }
         }
 
         public int IndexOf(Zone value)

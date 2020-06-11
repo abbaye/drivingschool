@@ -24,10 +24,7 @@ namespace Crownwood.Magic.Controls
         {
             get 
             {
-                if (base.Control is TabControl)
-                    return ((TabControl)base.Control).TabPages;
-                else
-                    return base.AssociatedComponents;
+                return base.Control is TabControl ? ((TabControl)base.Control).TabPages : base.AssociatedComponents;
             }
         }
 

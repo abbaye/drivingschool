@@ -51,12 +51,9 @@ namespace Barette.IDE.Forms.Notes
 			if (frmPostit.DialogResult == DialogResult.OK) {
 				ListViewItem itm = new ListViewItem();
 
-				if (frmPostit.Notes.Alerte == true)
-					itm.ImageIndex = 1;
-				else
-					itm.ImageIndex = 0;
+				itm.ImageIndex = frmPostit.Notes.Alerte == true ? 1 : 0;
 
-				itm.Tag = frmPostit.Notes.Message;
+                itm.Tag = frmPostit.Notes.Message;
 
 				msg = frmPostit.Notes.Message.Split('\n');
 				itm.Text = msg[0].Substring(0, msg[0].Length -1) + "...";
@@ -77,12 +74,9 @@ namespace Barette.IDE.Forms.Notes
 
 			ListViewItem itm = new ListViewItem();
 
-			if (notes.Alerte == true)
-				itm.ImageIndex = 1;
-			else
-				itm.ImageIndex = 0;
+			itm.ImageIndex = notes.Alerte == true ? 1 : 0;
 
-			itm.Tag = notes.Message;
+            itm.Tag = notes.Message;
 
 			msg = notes.Message.Split('\n');
 			itm.Text = msg[0].Substring(0, msg[0].Length - 1) + "...";
@@ -115,12 +109,9 @@ namespace Barette.IDE.Forms.Notes
 					if (frmPostit.DialogResult == DialogResult.OK) {
 						msg = frmPostit.Notes.Message.Split('\n');
 
-						if (frmPostit.Notes.Alerte == true)
-							lvNote.SelectedItems[0].ImageIndex = 1;
-						else
-							lvNote.SelectedItems[0].ImageIndex = 0;
+						lvNote.SelectedItems[0].ImageIndex = frmPostit.Notes.Alerte == true ? 1 : 0;
 
-						lvNote.SelectedItems[0].Tag = frmPostit.Notes.Message;
+                        lvNote.SelectedItems[0].Tag = frmPostit.Notes.Message;
 						lvNote.SelectedItems[0].Text = msg[0].Substring(0, msg[0].Length - 1) + "...";
 						lvNote.SelectedItems[0].SubItems[1].Text = frmPostit.Notes.Alerte.ToString();
 						lvNote.SelectedItems[0].SubItems[2].Text = frmPostit.Notes.AlerteDateTime.ToString();
@@ -167,11 +158,8 @@ namespace Barette.IDE.Forms.Notes
 
 		private void SelectionTimer_Tick(object sender, EventArgs e)
 		{
-			if (lvNote.SelectedItems.Count > 0)
-				tbbDelete.Enabled = tbbEdit.Enabled = true;
-			else
-				tbbDelete.Enabled = tbbEdit.Enabled = false;
-		}
+			tbbDelete.Enabled = lvNote.SelectedItems.Count > 0 ? (tbbEdit.Enabled = true) : (tbbEdit.Enabled = false);
+        }
 
 		private void ReloadPostItList() {
             //Efface la liste des notes

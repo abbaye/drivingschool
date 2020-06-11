@@ -224,12 +224,8 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 				return password; 
 			}
 			set {
-				if ( (value != null) && (value.Length == 0) ) {
-					password = null;
-				} else {
-					password = value; 
-				}
-			}
+				password = (value != null) && (value.Length == 0) ? null : value;
+            }
 		}
 
 		/// <summary>

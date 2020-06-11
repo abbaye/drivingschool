@@ -33,7 +33,7 @@ namespace Crownwood.Magic.Docking
             : base(hotArea, newSize)
         {
             // Minus one means create at the innermost position
-            InternalConstruct((inner ? Position.Inner : Position.Outer), state, -1);
+            InternalConstruct(inner ? Position.Inner : Position.Outer, state, -1);
         }
 
         public HotZoneReposition(Rectangle hotArea, Rectangle newSize, State state, int newIndex)

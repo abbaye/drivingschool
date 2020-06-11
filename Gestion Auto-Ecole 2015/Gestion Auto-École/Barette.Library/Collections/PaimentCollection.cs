@@ -45,7 +45,7 @@ namespace Barette.Library.Collections
 		}
 
 		public Paiement this[int index] {
-			get { return (base.List[index] as Paiement); }
+			get { return base.List[index] as Paiement; }
 		}
 
 		public int IndexOf(Paiement value) {

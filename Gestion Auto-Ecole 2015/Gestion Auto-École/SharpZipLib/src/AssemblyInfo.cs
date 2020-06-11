@@ -38,23 +38,23 @@ using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-#if (NET_1_0)
+#if NET_1_0
 [assembly: AssemblyTitle("SharpZipLib for .NET Framework 1.0")]
-#elif (NET_1_1)
+#elif NET_1_1
 [assembly: AssemblyTitle("SharpZipLib for .NET Framework 1.1")]
-#elif (NET_2_0)
+#elif NET_2_0
 [assembly: AssemblyTitle("SharpZipLib for .NET Framework 2.0")]
-#elif (NET_3_0)
+#elif NET_3_0
 [assembly: AssemblyTitle("SharpZipLib for .NET Framework 3.0")]
-#elif (NET_3_5)
+#elif NET_3_5
 [assembly: AssemblyTitle("SharpZipLib for .NET Framework 3.5")]
-#elif (NETCF_1_0)
+#elif NETCF_1_0
 [assembly: AssemblyTitle("SharpZipLib for .NET Compact Framework 1.0")]
-#elif (NETCF_2_0)
+#elif NETCF_2_0
 [assembly: AssemblyTitle("SharpZipLib for .NET Compact Framework 2.0")]
-#elif (MONO_1_0)
+#elif MONO_1_0
 [assembly: AssemblyTitle("SharpZipLib for Mono 1.0")]
-#elif (MONO_2_0)
+#elif MONO_2_0
 [assembly: AssemblyTitle("SharpZipLib for Mono 2.0")]
 #else
 [assembly: AssemblyTitle("SharpZipLibrary unlabelled version")]
@@ -82,7 +82,7 @@ using System.Runtime.InteropServices;
 
 [assembly: CLSCompliant(true)]
 
-#if (!NETCF)
+#if !NETCF
 //
 // If #Zip is strongly named it still allows partially trusted callers
 //
@@ -119,7 +119,7 @@ using System.Runtime.InteropServices;
 //   (*) Delay Signing is an advanced option - see the Microsoft .NET Framework
 //       documentation for more information on this.
 //
-#if (CLI_1_0 || NET_1_0 || NET_1_1 || NETCF_1_0 || SSCLI)
+#if CLI_1_0 || NET_1_0 || NET_1_1 || NETCF_1_0 || SSCLI
 [assembly: AssemblyDelaySign(false)]
 #if VSTUDIO
 [assembly: AssemblyKeyFile("../../ICSharpCode.SharpZipLib.key")]

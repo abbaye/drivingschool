@@ -300,13 +300,9 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 
 			// Determine how to handle reading of data if this is attempted.
-			if (entry.IsCompressionMethodSupported()) {
-				internalReader = new ReadDataHandler(InitialRead);
-			} else {
-				internalReader = new ReadDataHandler(ReadingNotSupported);
-			}
-			
-			return entry;
+			internalReader = entry.IsCompressionMethodSupported() ? new ReadDataHandler(InitialRead) : new ReadDataHandler(ReadingNotSupported);
+
+            return entry;
 		}
 		
 		/// <summary>
@@ -393,7 +389,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 			}
 		
 			if ( (inputBuffer.Available > csize) && (csize >= 0) ) {
-				inputBuffer.Available = (int)((long)inputBuffer.Available - csize);
+				inputBuffer.Available = (int)(inputBuffer.Available - csize);
 			} else {
 				csize -= inputBuffer.Available;
 				inputBuffer.Available = 0;
@@ -452,20 +448,17 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public override int ReadByte()
 		{
 			byte[] b = new byte[1];
-			if (Read(b, 0, 1) <= 0) {
-				return -1;
-			}
-			return b[0] & 0xff;
-		}
-		
-		/// <summary>
-		/// Handle attempts to read by throwing an <see cref="InvalidOperationException"/>.
-		/// </summary>
-		/// <param name="destination">The destination array to store data in.</param>
-		/// <param name="offset">The offset at which data read should be stored.</param>
-		/// <param name="count">The maximum number of bytes to read.</param>
-		/// <returns>Returns the number of bytes actually read.</returns>
-		int ReadingNotAvailable(byte[] destination, int offset, int count)
+            return Read(b, 0, 1) <= 0 ? -1 : b[0] & 0xff;
+        }
+
+        /// <summary>
+        /// Handle attempts to read by throwing an <see cref="InvalidOperationException"/>.
+        /// </summary>
+        /// <param name="destination">The destination array to store data in.</param>
+        /// <param name="offset">The offset at which data read should be stored.</param>
+        /// <param name="count">The maximum number of bytes to read.</param>
+        /// <returns>Returns the number of bytes actually read.</returns>
+        int ReadingNotAvailable(byte[] destination, int offset, int count)
 		{
 			throw new InvalidOperationException("Unable to read from this stream");
 		}

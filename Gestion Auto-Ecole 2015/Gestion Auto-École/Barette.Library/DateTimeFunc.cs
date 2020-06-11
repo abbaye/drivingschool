@@ -14,17 +14,11 @@ namespace Barette.Library
 
 			if (hoursToFormat.Minute == 0)
 				minute = "00";
-			else if (hoursToFormat.Minute < 10)
-				minute = "0" + hoursToFormat.Minute;
-			else
-				minute = hoursToFormat.Minute.ToString();
+			else minute = hoursToFormat.Minute < 10 ? "0" + hoursToFormat.Minute : hoursToFormat.Minute.ToString();
 
-			if (hoursToFormat.Hour < 10)
-				hours = "0" + hoursToFormat.Hour;
-			else
-				hours = hoursToFormat.Hour.ToString();
+            hours = hoursToFormat.Hour < 10 ? "0" + hoursToFormat.Hour : hoursToFormat.Hour.ToString();
 
-			return hours + "h" + minute;
+            return hours + "h" + minute;
 		}
 
 		/// <summary>
@@ -44,12 +38,9 @@ namespace Barette.Library
 		/// <param name="HeureHaute">Heure la plus haute</param>
 		/// <returns>Retourne vrai si l'heure est entre HeureBasse et HeureHaute</returns>
 		public static bool HoursIsBetween(DateTime HeureBasse, DateTime HeureEntre, DateTime HeureHaute) {
-			if (HeureBasse.TimeOfDay <= HeureEntre.TimeOfDay &&
-				HeureHaute.TimeOfDay > HeureEntre.TimeOfDay) {
-				return true;
-			} else
-				return false;
-		}
+            return HeureBasse.TimeOfDay <= HeureEntre.TimeOfDay &&
+				HeureHaute.TimeOfDay > HeureEntre.TimeOfDay;
+        }
 
 		/// <summary>
 		/// Retourne la valeur francaise de DayofWeek

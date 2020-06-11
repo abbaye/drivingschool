@@ -148,7 +148,7 @@ namespace UtilityLibrary.Menus
 														 new Point(0,0));
 
 			// We need to know if the OS supports layered windows
-			_supportsLayered = (OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) != null);
+			_supportsLayered = OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) != null;
 		}
 
 		public PopupMenu()
@@ -639,7 +639,7 @@ namespace UtilityLibrary.Menus
 		protected void CreateAndShowWindow()
 		{
 			// Decide if we need layered windows
-			_layered = (_supportsLayered && (_style == VisualStyle.IDE));
+			_layered = _supportsLayered && (_style == VisualStyle.IDE);
 			
 			// Don't use layered windows because we would need to do more work
 			// to paint the comboboxes
@@ -749,13 +749,10 @@ namespace UtilityLibrary.Menus
 		{
 			STRINGBUFFER className;
 			WindowsAPI.GetClassName(hWnd, out className, 80);
-			if ( className.szText == "ComboLBox" )
-				return true;
-			return false;
+            return className.szText == "ComboLBox";
+        }
 
-		}
-
-		protected void UpdateLayeredWindow()
+        protected void UpdateLayeredWindow()
 		{
 			UpdateLayeredWindow(_currentPoint, _currentSize);
 		}
@@ -905,11 +902,8 @@ namespace UtilityLibrary.Menus
 							_popupDown = false;
 
 							// Is there space above the required position?
-							if ((_aboveScreenPos.Y - winSize.Height) > 0)
-								screenPos.Y = _aboveScreenPos.Y - winSize.Height;
-							else
-								screenPos.Y = 0;
-						}
+							screenPos.Y = (_aboveScreenPos.Y - winSize.Height) > 0 ? _aboveScreenPos.Y - winSize.Height : 0;
+                        }
 						else
 							screenPos.Y = screenHeight - winSize.Height - 1;
 					}
@@ -974,11 +968,8 @@ namespace UtilityLibrary.Menus
 					_popupRight = true;
 
 					// Is there space below the required position?
-					if ((_screenPos.X + winSize.Width) > screenWidth)
-						screenPos.X = screenWidth - winSize.Width - 1;
-					else
-						screenPos.X = _screenPos.X;
-				}
+					screenPos.X = (_screenPos.X + winSize.Width) > screenWidth ? screenWidth - winSize.Width - 1 : _screenPos.X;
+                }
 				else
 					screenPos.X -= winSize.Width;
 			}
@@ -1449,12 +1440,9 @@ namespace UtilityLibrary.Menus
 
 				SolidBrush shadowBrush;
 
-				if (_layered)
-					shadowBrush = new SolidBrush(Color.FromArgb(64, 0, 0, 0));
-				else
-					shadowBrush = new SolidBrush(SystemColors.ControlDark);
+				shadowBrush = _layered ? new SolidBrush(Color.FromArgb(64, 0, 0, 0)) : new SolidBrush(SystemColors.ControlDark);
 
-				if ((_borderGap > 0) && (!_excludeTop) && (_direction == DirectionUL.Horizontal))
+                    if ((_borderGap > 0) && (!_excludeTop) && (_direction == DirectionUL.Horizontal))
 				{
 					int rightright = rectWin.Width;
 
@@ -1846,11 +1834,10 @@ namespace UtilityLibrary.Menus
 					// Create brush depending on enabled state
 					if (mc.Enabled)
 					{
-						if (!hotCommand || (_style == VisualStyle.IDE))
-							textBrush = new SolidBrush(SystemColors.MenuText);
-						else
-							textBrush = new SolidBrush(SystemColors.HighlightText);
-					}
+						textBrush = !hotCommand || (_style == VisualStyle.IDE)
+                            ? new SolidBrush(SystemColors.MenuText)
+                            : new SolidBrush(SystemColors.HighlightText);
+                    }
 					else 
 						textBrush = new SolidBrush(SystemColors.GrayText);
 
@@ -1905,13 +1892,10 @@ namespace UtilityLibrary.Menus
 						case VisualStyle.IDE:
 							Pen boxPen;
 
-							if (mc.Enabled)
-								boxPen = new Pen(ColorUtil.VSNetBorderColor);
-							else
-								boxPen = new Pen(SystemColors.GrayText);
+							boxPen = mc.Enabled ? new Pen(ColorUtil.VSNetBorderColor) : new Pen(SystemColors.GrayText);
 
-							// Draw the box around the checkmark area
-							g.DrawRectangle(boxPen, new Rectangle(imageLeft - 1, imageTop - 1, 
+                                // Draw the box around the checkmark area
+                                g.DrawRectangle(boxPen, new Rectangle(imageLeft - 1, imageTop - 1, 
 																  _imageHeight + 2, _imageWidth + 2));
 
 							boxPen.Dispose();
@@ -1923,18 +1907,16 @@ namespace UtilityLibrary.Menus
 						// Grab either tick or radio button image
 						if (mc.RadioCheck)
 						{
-							if (hotCommand && (_style == VisualStyle.Plain))
-								image = _menuImages.Images[(int)ImageIndex.RadioSelected];
-							else
-								image = _menuImages.Images[(int)ImageIndex.Radio];
-						}
+							image = hotCommand && (_style == VisualStyle.Plain)
+                                ? _menuImages.Images[(int)ImageIndex.RadioSelected]
+                                : _menuImages.Images[(int)ImageIndex.Radio];
+                        }
 						else
 						{
-							if (hotCommand && (_style == VisualStyle.Plain))
-								image = _menuImages.Images[(int)ImageIndex.CheckSelected];
-							else
-								image = _menuImages.Images[(int)ImageIndex.Check];
-						}
+							image = hotCommand && (_style == VisualStyle.Plain)
+                                ? _menuImages.Images[(int)ImageIndex.CheckSelected]
+                                : _menuImages.Images[(int)ImageIndex.Check];
+                        }
 					}
 					else
 					{
@@ -1958,7 +1940,7 @@ namespace UtilityLibrary.Menus
 					{
 						if (mc.Enabled)
 						{
-							if ((hotCommand) && (!mc.Checked) && (_style == VisualStyle.IDE))
+							if (hotCommand && (!mc.Checked) && (_style == VisualStyle.IDE))
 							{
 								// Draw a disabled icon offset down and right
 								ControlPaint.DrawImageDisabled(g, image, imageLeft + 1, imageTop + 1, 
@@ -2014,7 +1996,7 @@ namespace UtilityLibrary.Menus
 				DrawCommand dc = _drawCommands[i] as DrawCommand;
 
 				// Draw this command only
-				DrawSingleCommand(g, dc, (i == _trackItem));
+				DrawSingleCommand(g, dc, i == _trackItem);
 			}
 		}
 
@@ -2190,7 +2172,7 @@ namespace UtilityLibrary.Menus
 		protected bool ProcessKeyRight()
 		{
 			// Are we the first submenu of a parent control?
-			bool autoRight = (_parentControl != null);
+			bool autoRight = _parentControl != null;
 
 			bool checkKeys = false;
 
@@ -2325,12 +2307,9 @@ namespace UtilityLibrary.Menus
 					(screenPos.y <= rectRaw.bottom))
 					return true;
 			}
-			
-			if (_parentMenu != null)
-				return _parentMenu.WantMouseMessage(screenPos);
-			else
-				return false;
-		}
+
+            return _parentMenu != null ? _parentMenu.WantMouseMessage(screenPos) : false;
+        }
 
 		protected bool WantMouseMessage(POINT screenPos)
 		{
@@ -2339,10 +2318,10 @@ namespace UtilityLibrary.Menus
 			// Grab the screen rectangle of the window
 			WindowsAPI.GetWindowRect(this.Handle, ref rectRaw);
 
-			bool want = ((screenPos.x >= rectRaw.left) &&
+			bool want = (screenPos.x >= rectRaw.left) &&
 						 (screenPos.x <= rectRaw.right) &&
 						 (screenPos.y >= rectRaw.top) &&
-						 (screenPos.y <= rectRaw.bottom));
+						 (screenPos.y <= rectRaw.bottom);
 
 			if (!want && (_parentMenu != null))
 				want = _parentMenu.WantMouseMessage(screenPos);

@@ -710,11 +710,8 @@ namespace Crownwood.Magic.Docking
 			_next = next;				
 			_previous = previous;	
 			
-			if (content.Visible)			
-				_space = content.ParentWindowContent.ZoneArea;
-			else
-				_space = 50m;
-		}
+			_space = content.Visible ? content.ParentWindowContent.ZoneArea : 50m;
+        }
 
 		public override void PerformRestore(Zone z)
 		{

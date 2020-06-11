@@ -25,8 +25,8 @@ namespace UtilityLibrary.CommandBars
 			{
                 // I know these menu items are actually MenuItemExs
 				MenuItemEx item = (MenuItemEx)items[i];
-				MenuCommand currentMenuCommand = new MenuCommand(item.Text, (Bitmap)item.Icon,
-					(Shortcut)item.Shortcut, item.ClickHandler, item);
+				MenuCommand currentMenuCommand = new MenuCommand(item.Text, item.Icon,
+                    item.Shortcut, item.ClickHandler, item);
 				parentMenuCommand.MenuCommands.Add(currentMenuCommand);
 				if ( item.MenuItems.Count > 0 )
 					AddSubMenu(currentMenuCommand, item.MenuItems);
@@ -39,8 +39,8 @@ namespace UtilityLibrary.CommandBars
 			{
 				// I know these menu items are actually MenuItemExs
 				MenuItemEx item = (MenuItemEx)items[i];
-				MenuCommand currentMenuCommand = new MenuCommand(item.Text, (Bitmap)item.Icon,
-					(Shortcut)item.Shortcut, item.ClickHandler, item);
+				MenuCommand currentMenuCommand = new MenuCommand(item.Text, item.Icon,
+                    item.Shortcut, item.ClickHandler, item);
 				parentMenuCommand.MenuCommands.Add(currentMenuCommand);
 				if ( item.MenuItems.Count > 0 )
 					AddSubMenu(currentMenuCommand, item.MenuItems);

@@ -67,7 +67,7 @@ namespace Crownwood.Magic.Collections
         public WizardPage this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as WizardPage); }
+            get { return base.List[index] as WizardPage; }
         }
 
         public WizardPage this[string title]

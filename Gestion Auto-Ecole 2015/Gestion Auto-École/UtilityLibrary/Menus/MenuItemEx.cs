@@ -94,8 +94,8 @@ namespace UtilityLibrary.Menus
 
 		static public MenuItem CloneMenu(MenuItemEx currentItem)
 		{
-            MenuItemEx clonedItem = new MenuItemEx(currentItem.Text, (Bitmap)currentItem.Icon,
-                (Shortcut)currentItem.Shortcut, currentItem.ClickHandler)
+            MenuItemEx clonedItem = new MenuItemEx(currentItem.Text, currentItem.Icon,
+                currentItem.Shortcut, currentItem.ClickHandler)
             {
                 // Preserve the enable and check state
                 Enabled = currentItem.Enabled,
@@ -178,12 +178,9 @@ namespace UtilityLibrary.Menus
 					parent = (parent as MenuItemEx).Parent;
 				else if (parent is MenuItem)
 					parent = (parent as MenuItem).Parent;
-				else if ( parent == Parent.GetMainMenu() )
-					parent = null;
-				else
-					parent = null;
-				
-			}
+				else parent = parent == Parent.GetMainMenu() ? null : (Menu)null;
+
+            }
 				
 			if ( parent is CommandBarMenu )
 			{
@@ -265,16 +262,13 @@ namespace UtilityLibrary.Menus
 			{
 				tempShortcutText = "";
 			}
-			int textwidth = (int)(e.Graphics.MeasureString(Text + tempShortcutText, SystemInformation.MenuFont).Width);
+			int textwidth = (int)e.Graphics.MeasureString(Text + tempShortcutText, SystemInformation.MenuFont).Width;
 			int extraHeight = 2;
 			e.ItemHeight  = SystemInformation.MenuHeight + extraHeight;
-			if ( topLevel )
-				e.ItemWidth  = textwidth - 5; 
-			else
-				e.ItemWidth   =  textwidth + 45;
+			e.ItemWidth = topLevel ? textwidth - 5 : textwidth + 45;
 
-			// save menu item heihgt for later use
-			itemHeight = e.ItemHeight;
+            // save menu item heihgt for later use
+            itemHeight = e.ItemHeight;
 			
 		}
 
@@ -291,7 +285,7 @@ namespace UtilityLibrary.Menus
 			Graphics g = e.Graphics;
 			Rectangle bounds = e.Bounds;
 			bool selected = (e.State & DrawItemState.Selected) > 0;
-			bool toplevel = (Parent == Parent.GetMainMenu());
+			bool toplevel = Parent == Parent.GetMainMenu();
 			bool hasIcon  = Icon != null;
 			bool enabled = Enabled;
 
@@ -499,7 +493,7 @@ namespace UtilityLibrary.Menus
 				}
 			}
 			
-			int textwidth = (int)(g.MeasureString(text, SystemInformation.MenuFont).Width);
+			int textwidth = (int)g.MeasureString(text, SystemInformation.MenuFont).Width;
 			int x = toplevel ? bounds.Left + (bounds.Width - textwidth) / 2: bounds.Left + iconSize + 10;
 			int topGap = 4;
 			if ( toplevel ) topGap = 2;
@@ -508,12 +502,9 @@ namespace UtilityLibrary.Menus
 			
 			if (!enabled)
 				brush = new SolidBrush(Color.FromArgb(120, SystemColors.MenuText));
-			else if ( highContrast ) 
-				brush = new SolidBrush(Color.FromArgb(255, SystemColors.MenuText));
-			else 
-				brush = new SolidBrush(Color.Black);
+			else brush = highContrast ? new SolidBrush(Color.FromArgb(255, SystemColors.MenuText)) : new SolidBrush(Color.Black);
 
-			if ( whiteHighContrast && ( (state & DrawItemState.HotLight) > 0 
+            if ( whiteHighContrast && ( (state & DrawItemState.HotLight) > 0 
 				|| ( (state & DrawItemState.Selected) > 0 && !toplevel )) )
 				brush = new SolidBrush(Color.FromArgb(255, Color.White));
 			

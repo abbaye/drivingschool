@@ -175,7 +175,7 @@ namespace Crownwood.Magic.Docking
         public override void NotifyHideButton(bool show)
         {
             // Ignore the AutoHide feature when in floating form
-            _ignoreHideButton = (_parentWindow.State == State.Floating);
+            _ignoreHideButton = _parentWindow.State == State.Floating;
             
             _showHideButton = show;
             RecalculateButtons();
@@ -535,7 +535,7 @@ namespace Crownwood.Magic.Docking
             }
 
             // Ignore the AutoHide feature when in floating form
-            _ignoreHideButton = (_parentWindow.State == State.Floating);
+            _ignoreHideButton = _parentWindow.State == State.Floating;
 
             RecalculateButtons();
         }
@@ -617,14 +617,14 @@ namespace Crownwood.Magic.Docking
                 _maxButton.ImageAttributes = _inactiveAttr;
                 
                 // Reduce the lines drawing
-                _buttonOffset += (_buttonWidth + _insetButton);
+                _buttonOffset += _buttonWidth + _insetButton;
             }
         }
 
         protected override void OnRemoveMaximizeInterface()
         {
             // Reduce the lines drawing
-            _buttonOffset -= (_buttonWidth + _insetButton);
+            _buttonOffset -= _buttonWidth + _insetButton;
         }
 
         protected override void CreateButtons()
@@ -654,46 +654,28 @@ namespace Crownwood.Magic.Docking
 
         protected override void UpdateAutoHideImage()
         {
-            if (_pinnedImage)
-                _hideButton.ImageIndexEnabled = (int)ImageIndex.AutoShow;
-            else
-                _hideButton.ImageIndexEnabled = (int)ImageIndex.AutoHide;
+            _hideButton.ImageIndexEnabled = _pinnedImage ? (int)ImageIndex.AutoShow : (int)ImageIndex.AutoHide;
         }
         
         protected override void UpdateMaximizeImage()
         {
-            if (_showCloseButton)
-                _closeButton.ImageAttributes = _activeAttr;
-            else    
-                _closeButton.ImageAttributes = _inactiveAttr;
+            _closeButton.ImageAttributes = _showCloseButton ? _activeAttr : _inactiveAttr;
 
-            if (_showHideButton && !_ignoreHideButton)
-                _hideButton.ImageAttributes = _activeAttr;
-            else
-                _hideButton.ImageAttributes = _inactiveAttr;
+            _hideButton.ImageAttributes = _showHideButton && !_ignoreHideButton ? _activeAttr : _inactiveAttr;
 
             if (_maxButton != null)
             {
-                if (_maxInterface.IsMaximizeAvailable())
-                    _maxButton.ImageAttributes = _activeAttr;
-                else
-                    _maxButton.ImageAttributes = _inactiveAttr;
+                _maxButton.ImageAttributes = _maxInterface.IsMaximizeAvailable() ? _activeAttr : _inactiveAttr;
 
                 bool maximized = _maxInterface.IsWindowMaximized(this.ParentWindow);
 
                 if (_maxInterface.Direction == DirectionUL.Vertical)
                 {
-                    if (maximized)
-                        _maxButton.ImageIndexEnabled = (int)ImageIndex.EnabledVerticalMin;	
-                    else
-                        _maxButton.ImageIndexEnabled = (int)ImageIndex.EnabledVerticalMax;	
+                    _maxButton.ImageIndexEnabled = maximized ? (int)ImageIndex.EnabledVerticalMin : (int)ImageIndex.EnabledVerticalMax;
                 }
                 else
                 {
-                    if (maximized)
-                        _maxButton.ImageIndexEnabled = (int)ImageIndex.EnabledHorizontalMin;	
-                    else
-                        _maxButton.ImageIndexEnabled = (int)ImageIndex.EnabledHorizontalMax;	
+                    _maxButton.ImageIndexEnabled = maximized ? (int)ImageIndex.EnabledHorizontalMin : (int)ImageIndex.EnabledHorizontalMax;
                 }
             }
         }
@@ -926,7 +908,7 @@ namespace Crownwood.Magic.Docking
         public override void ParentStateChanged(State newState)
         { 
             // Ignore the AutoHide feature when in floating form
-            _ignoreHideButton = (_parentWindow.State == State.Floating);
+            _ignoreHideButton = _parentWindow.State == State.Floating;
 
             this.Dock = DockStyle.Top;
             RecalculateButtons();
@@ -998,10 +980,7 @@ namespace Crownwood.Magic.Docking
 
         protected override void UpdateAutoHideImage()
         {
-            if (_pinnedImage)
-                _hideButton.ImageIndexEnabled = (int)ImageIndex.AutoShow;
-            else
-                _hideButton.ImageIndexEnabled = (int)ImageIndex.AutoHide;
+            _hideButton.ImageIndexEnabled = _pinnedImage ? (int)ImageIndex.AutoShow : (int)ImageIndex.AutoHide;
         }
 
         protected override void UpdateMaximizeImage()
@@ -1022,10 +1001,7 @@ namespace Crownwood.Magic.Docking
                     if (!_maxButton.Visible)
                         _maxButton.Show();
 
-                    if (maximized)
-                        _maxButton.ImageIndexEnabled = (int)ImageIndex.EnabledVerticalMin;	
-                    else
-                        _maxButton.ImageIndexEnabled = (int)ImageIndex.EnabledVerticalMax;	
+                    _maxButton.ImageIndexEnabled = maximized ? (int)ImageIndex.EnabledVerticalMin : (int)ImageIndex.EnabledVerticalMax;
                 }
             }
         }
@@ -1271,7 +1247,7 @@ namespace Crownwood.Magic.Docking
                     rectCaption.Width -= _closeButton.Width + _buttonSpacer;
 
                     // Reduce width to account for the optional maximize button
-                    if ((_maxButton != null) && (_maxButton.Visible))
+                    if ((_maxButton != null) && _maxButton.Visible)
                         rectCaption.Width -= _closeButton.Width;
     				
                     e.Graphics.DrawString(this.Text, _manager.CaptionFont, activeTextBrush, rectCaption);
@@ -1298,7 +1274,7 @@ namespace Crownwood.Magic.Docking
                         rectCaption.Width -= _closeButton.Width + _buttonSpacer;
 
                         // Reduce width to account for the optional maximize button
-                        if ((_maxButton != null) && (_maxButton.Visible))
+                        if ((_maxButton != null) && _maxButton.Visible)
                             rectCaption.Width -= _maxButton.Width;
 
                         e.Graphics.DrawString(this.Text, _manager.CaptionFont, inactiveBrush, rectCaption);

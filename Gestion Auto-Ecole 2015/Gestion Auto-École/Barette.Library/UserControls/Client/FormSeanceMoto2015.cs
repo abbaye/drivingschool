@@ -194,7 +194,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label1
             // 
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label1.Location = new System.Drawing.Point(606, 23);
             label1.Margin = new Padding(3, 3, 3, 0);
             label1.Name = "label1";
@@ -205,7 +205,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label4
             // 
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label4.Location = new System.Drawing.Point(289, 22);
             label4.Margin = new Padding(3, 3, 3, 0);
             label4.Name = "label4";
@@ -216,7 +216,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label3
             // 
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label3.Location = new System.Drawing.Point(496, 22);
             label3.Margin = new Padding(3, 3, 3, 0);
             label3.Name = "label3";
@@ -227,7 +227,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label2
             // 
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label2.Location = new System.Drawing.Point(423, 22);
             label2.Margin = new Padding(3, 3, 3, 0);
             label2.Name = "label2";
@@ -238,7 +238,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label9
             // 
-            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label9.Location = new System.Drawing.Point(102, 22);
             label9.Margin = new Padding(3, 3, 3, 0);
             label9.Name = "label9";
@@ -275,7 +275,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdPrintHorsRoute
             // 
-            cmdPrintHorsRoute.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdPrintHorsRoute.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdPrintHorsRoute.ImageIndex = 0;
             cmdPrintHorsRoute.ImageList = imageList1;
             cmdPrintHorsRoute.Location = new System.Drawing.Point(529, 631);
@@ -286,13 +286,13 @@ namespace Barette.Library.UserControls.Client
             // 
             // imageList1
             // 
-            imageList1.ImageStream = ((ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
             imageList1.TransparentColor = System.Drawing.Color.Transparent;
             imageList1.Images.SetKeyName(0, "");
             // 
             // cmdAnnuler
             // 
-            cmdAnnuler.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAnnuler.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             cmdAnnuler.Image = global::Barette.Library.Properties.Resources.Cancel_2_icon;
             cmdAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,7 +306,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // cmdOK
             // 
-            cmdOK.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             cmdOK.Image = global::Barette.Library.Properties.Resources.accept_icon;
             cmdOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -320,7 +320,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label10
             // 
-            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label10.Location = new System.Drawing.Point(102, 19);
             label10.Margin = new Padding(3, 3, 3, 0);
             label10.Name = "label10";
@@ -331,7 +331,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label8
             // 
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label8.Location = new System.Drawing.Point(423, 19);
             label8.Margin = new Padding(3, 3, 3, 0);
             label8.Name = "label8";
@@ -342,7 +342,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label7
             // 
-            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label7.Location = new System.Drawing.Point(496, 19);
             label7.Margin = new Padding(3, 3, 3, 0);
             label7.Name = "label7";
@@ -353,7 +353,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label6
             // 
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label6.Location = new System.Drawing.Point(289, 19);
             label6.Margin = new Padding(3, 3, 3, 0);
             label6.Name = "label6";
@@ -364,7 +364,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label5
             // 
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label5.Location = new System.Drawing.Point(606, 20);
             label5.Margin = new Padding(3, 3, 3, 0);
             label5.Name = "label5";
@@ -557,7 +557,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label11
             // 
-            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label11.Location = new System.Drawing.Point(606, 20);
             label11.Margin = new Padding(3, 3, 3, 0);
             label11.Name = "label11";
@@ -568,7 +568,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label12
             // 
-            label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label12.Location = new System.Drawing.Point(289, 19);
             label12.Margin = new Padding(3, 3, 3, 0);
             label12.Name = "label12";
@@ -579,7 +579,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label13
             // 
-            label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label13.Location = new System.Drawing.Point(496, 19);
             label13.Margin = new Padding(3, 3, 3, 0);
             label13.Name = "label13";
@@ -590,7 +590,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label14
             // 
-            label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label14.Location = new System.Drawing.Point(423, 19);
             label14.Margin = new Padding(3, 3, 3, 0);
             label14.Name = "label14";
@@ -627,7 +627,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label15
             // 
-            label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label15.Location = new System.Drawing.Point(102, 19);
             label15.Margin = new Padding(3, 3, 3, 0);
             label15.Name = "label15";
@@ -736,7 +736,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label16
             // 
-            label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label16.Location = new System.Drawing.Point(606, 23);
             label16.Margin = new Padding(3, 3, 3, 0);
             label16.Name = "label16";
@@ -747,7 +747,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label17
             // 
-            label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label17.Location = new System.Drawing.Point(289, 22);
             label17.Margin = new Padding(3, 3, 3, 0);
             label17.Name = "label17";
@@ -758,7 +758,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label18
             // 
-            label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label18.Location = new System.Drawing.Point(496, 22);
             label18.Margin = new Padding(3, 3, 3, 0);
             label18.Name = "label18";
@@ -769,7 +769,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label19
             // 
-            label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label19.Location = new System.Drawing.Point(423, 22);
             label19.Margin = new Padding(3, 3, 3, 0);
             label19.Name = "label19";
@@ -780,7 +780,7 @@ namespace Barette.Library.UserControls.Client
             // 
             // label20
             // 
-            label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label20.Location = new System.Drawing.Point(102, 22);
             label20.Margin = new Padding(3, 3, 3, 0);
             label20.Name = "label20";

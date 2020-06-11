@@ -65,8 +65,8 @@ namespace Barette.Library.Forms
             components = new Container();
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FormSeanceCode));
             lvCode = new ListView();
-            columnHeader1 = ((ColumnHeader)(new ColumnHeader()));
-            columnHeader2 = ((ColumnHeader)(new ColumnHeader()));
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             button1 = new Button();
             cmdAdd = new Button();
             groupBox1 = new GroupBox();
@@ -232,7 +232,7 @@ namespace Barette.Library.Forms
             // 
             // imageListLarge
             // 
-            imageListLarge.ImageStream = ((ImageListStreamer)(resources.GetObject("imageListLarge.ImageStream")));
+            imageListLarge.ImageStream = (ImageListStreamer)resources.GetObject("imageListLarge.ImageStream");
             imageListLarge.TransparentColor = System.Drawing.Color.Transparent;
             imageListLarge.Images.SetKeyName(0, "delete-icon.png");
             imageListLarge.Images.SetKeyName(1, "add-icon.png");
@@ -394,11 +394,8 @@ namespace Barette.Library.Forms
 		}
 
 		private void TimerButton_Tick(object sender, EventArgs e) {
-			if (lvCode.SelectedItems.Count > 0)
-				tbbDelete.Enabled = true;
-			else
-				tbbDelete.Enabled = false;
-		}
+			tbbDelete.Enabled = lvCode.SelectedItems.Count > 0;
+        }
 
 		private void lvCode_KeyUp(object sender, KeyEventArgs e) {
 			switch (e.KeyCode) {

@@ -164,7 +164,7 @@ namespace Crownwood.Magic.Menus
                                                          new Point(0,0));
 
             // We need to know if the OS supports layered windows
-            _supportsLayered = (OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) != null);
+            _supportsLayered = OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) != null;
         }
 
         public PopupMenu()
@@ -848,7 +848,7 @@ namespace Crownwood.Magic.Menus
             // Show the window without activating it (i.e. do not take focus)
             User32.ShowWindow(this.Handle, (short)Win32.ShowWindowStyles.SW_SHOWNOACTIVATE);
 
-            int stepDelay = (int)(_animateTime / _blendSteps);
+            int stepDelay = _animateTime / _blendSteps;
             
             for(int i=0; i<_blendSteps; i++)
 		    {
@@ -875,7 +875,7 @@ namespace Crownwood.Magic.Menus
         protected void CreateAndShowWindow()
         {
             // Decide if we need layered windows
-            _layered = (_supportsLayered && (_style == VisualStyle.IDE));
+            _layered = _supportsLayered && (_style == VisualStyle.IDE);
 
             // Process the menu commands to determine where each one needs to be
             // drawn and return the size of the window needed to display it.
@@ -961,7 +961,7 @@ namespace Crownwood.Magic.Menus
                         // Does the system want animation to occur?
                         User32.SystemParametersInfo((uint)Win32.SPIActions.SPI_GETMENUANIMATION, 0, ref bRetValue, 0);
 
-                        animate = (bRetValue != 0);
+                        animate = bRetValue != 0;
                         break;
                 }
 
@@ -978,11 +978,8 @@ namespace Crownwood.Magic.Menus
 						User32.SystemParametersInfo((uint)Win32.SPIActions.SPI_GETMENUFADE, 0, ref bRetValue, 0);
 
 						// Use appropriate flags to match request
-						if (bRetValue != 0)
-							animateFlags = (uint)Animation.Blend;
-						else
-							animateFlags = (uint)Animation.SlideHorVerPositive;
-					}
+						animateFlags = bRetValue != 0 ? (uint)Animation.Blend : (uint)Animation.SlideHorVerPositive;
+                    }
 
 					// Animate the appearance of the window
 					if ((animateFlags & (uint)Win32.AnimateFlags.AW_BLEND) != 0)
@@ -1171,10 +1168,7 @@ namespace Crownwood.Magic.Menus
                             _popupDown = false;
 
                             // Is there space above the required position?
-                            if ((_aboveScreenPos.Y - winSize.Height) > screenTop)
-                                screenPos.Y = _aboveScreenPos.Y - winSize.Height;
-                            else
-                                screenPos.Y = screenTop;
+                            screenPos.Y = (_aboveScreenPos.Y - winSize.Height) > screenTop ? _aboveScreenPos.Y - winSize.Height : screenTop;
                         }
                         else
                             screenPos.Y = screenBottom - winSize.Height - 1;
@@ -1240,10 +1234,7 @@ namespace Crownwood.Magic.Menus
                     _popupRight = true;
 
                     // Is there space below the required position?
-                    if ((_screenPos.X + winSize.Width) > screenRight)
-                        screenPos.X = screenRight - winSize.Width - 1;
-                    else
-                        screenPos.X = _screenPos.X;
+                    screenPos.X = (_screenPos.X + winSize.Width) > screenRight ? screenRight - winSize.Width - 1 : _screenPos.X;
                 }
                 else
                     screenPos.X -= winSize.Width;
@@ -2295,10 +2286,7 @@ namespace Crownwood.Magic.Menus
                     // Create brush depending on enabled state
                     if (mc.Enabled)
                     {
-                        if (!hotCommand || (_style == VisualStyle.IDE))
-                            textBrush = new SolidBrush(_textColor);
-                        else
-                            textBrush = new SolidBrush(_highlightTextColor);
+                        textBrush = !hotCommand || (_style == VisualStyle.IDE) ? new SolidBrush(_textColor) : new SolidBrush(_highlightTextColor);
                     }
                     else 
                         textBrush = new SolidBrush(SystemColors.GrayText);
@@ -2390,17 +2378,15 @@ namespace Crownwood.Magic.Menus
                         // Grab either tick or radio button image
                         if (mc.RadioCheck)
                         {
-                            if (hotCommand && (_style == VisualStyle.Plain))
-                                image = _menuImages.Images[(int)ImageIndex.RadioSelected];
-                            else
-                                image = _menuImages.Images[(int)ImageIndex.Radio];
+                            image = hotCommand && (_style == VisualStyle.Plain)
+                                ? _menuImages.Images[(int)ImageIndex.RadioSelected]
+                                : _menuImages.Images[(int)ImageIndex.Radio];
                         }
                         else
                         {
-                            if (hotCommand && (_style == VisualStyle.Plain))
-                                image = _menuImages.Images[(int)ImageIndex.CheckSelected];
-                            else
-                                image = _menuImages.Images[(int)ImageIndex.Check];
+                            image = hotCommand && (_style == VisualStyle.Plain)
+                                ? _menuImages.Images[(int)ImageIndex.CheckSelected]
+                                : _menuImages.Images[(int)ImageIndex.Check];
                         }
                     }
                     else
@@ -2428,7 +2414,7 @@ namespace Crownwood.Magic.Menus
                     {
                         if (mc.Enabled)
                         {
-                            if ((hotCommand) && (!mc.Checked) && (_style == VisualStyle.IDE))
+                            if (hotCommand && (!mc.Checked) && (_style == VisualStyle.IDE))
                             {
                                 // Draw a gray icon offset down and right
                                 Bitmap shadowImage = new Bitmap((Bitmap) image);
@@ -2463,9 +2449,9 @@ namespace Crownwood.Magic.Menus
                                         Color pixelColor = fadedImage.GetPixel(pixelX, pixelY);
                                         if (pixelColor != transparent) 
                                         {
-                                            Color newPixelColor = Color.FromArgb((pixelColor.R + 76) - (((pixelColor.R + 32) / 64) * 19), 			
-                                                (pixelColor.G + 76) - (((pixelColor.G + 32) / 64) * 19), 
-                                                (pixelColor.B + 76) - (((pixelColor.B + 32) / 64) * 19));
+                                            Color newPixelColor = Color.FromArgb(pixelColor.R + 76 - ((pixelColor.R + 32) / 64 * 19), 			
+                                                pixelColor.G + 76 - ((pixelColor.G + 32) / 64 * 19), 
+                                                pixelColor.B + 76 - ((pixelColor.B + 32) / 64 * 19));
 									
                                             fadedImage.SetPixel(pixelX, pixelY, newPixelColor);
                                         }
@@ -2518,7 +2504,7 @@ namespace Crownwood.Magic.Menus
                 DrawCommand dc = _drawCommands[i] as DrawCommand;
 
                 // Draw this command only
-                DrawSingleCommand(g, dc, (i == _trackItem));
+                DrawSingleCommand(g, dc, i == _trackItem);
             }
         }
 
@@ -2710,7 +2696,7 @@ namespace Crownwood.Magic.Menus
         protected bool ProcessKeyRight()
         {
             // Are we the first submenu of a parent control?
-            bool autoRight = (_parentControl != null);
+            bool autoRight = _parentControl != null;
             bool checkKeys = false;
             bool ret = false;
 
@@ -2877,10 +2863,7 @@ namespace Crownwood.Magic.Menus
 				
         internal PopupMenu ParentPopupMenuWantsMouseMessage(POINT screenPos, ref MSG msg)
         {
-            if (_parentMenu != null)
-                return _parentMenu.WantMouseMessage(screenPos);
-
-            return null;
+            return _parentMenu != null ? _parentMenu.WantMouseMessage(screenPos) : null;
         }
 
         protected PopupMenu WantMouseMessage(POINT screenPos)
@@ -2894,10 +2877,7 @@ namespace Crownwood.Magic.Menus
                 (screenPos.y >= rectRaw.top) && (screenPos.y <= rectRaw.bottom))
                 return this;
 
-            if (_parentMenu != null)
-                return _parentMenu.WantMouseMessage(screenPos);
-
-            return null;
+            return _parentMenu != null ? _parentMenu.WantMouseMessage(screenPos) : null;
         }
 
         protected void SwitchSelection(int oldItem, int newItem, bool mouseChange, bool reverting)
@@ -2951,10 +2931,7 @@ namespace Crownwood.Magic.Menus
                         if (!reverting && mouseChange)
                         {
                             //...should we start a timer to test for sub menu displaying
-							if (dc.Expansion)
-								_timer.Interval = _expansionDelay;
-							else
-								_timer.Interval = _selectionDelay;
+							_timer.Interval = dc.Expansion ? _expansionDelay : _selectionDelay;
 
                             _timer.Start();
                         }
@@ -3029,7 +3006,7 @@ namespace Crownwood.Magic.Menus
         protected void OnWM_OPERATE_SUBMENU(ref Message m)
         {
 			int popupItem = (int)m.WParam;
-			bool selectFirst = (m.LParam != IntPtr.Zero);
+			bool selectFirst = m.LParam != IntPtr.Zero;
 
             _popupItem = popupItem;
             _childMenu = new PopupMenu();
@@ -3459,7 +3436,7 @@ namespace Crownwood.Magic.Menus
             unsafe
             {
                 // Direct pointer to first line
-                uint* pixptr = (uint*)(data.Scan0);
+                uint* pixptr = (uint*)data.Scan0;
 					
 			    // For each row
                 for (int y = 0; y < height; y++)

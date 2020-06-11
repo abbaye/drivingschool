@@ -28,11 +28,8 @@ namespace UtilityLibrary.WinControls
 		{
 			get 
 			{
-				if ( useRange )
-					return new Size(minimum, maximum);
-				else 
-					return new Size(-1, -1);
-			}
+                return useRange ? new Size(minimum, maximum) : new Size(-1, -1);
+            }
 			set 
 			{
 				minimum = value.Width;
@@ -60,13 +57,8 @@ namespace UtilityLibrary.WinControls
 		{
 			// Allow only numeric characters
 			base.OnKeyPress(e);
-			if ( Char.IsLetter(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsSeparator(e.KeyChar) )
-				e.Handled = true;
-			else 
-			{
-				e.Handled = false;
-			}
-		}
+			e.Handled = Char.IsLetter(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsSeparator(e.KeyChar);
+        }
 
         /// <summary>
         /// Valeur numerique du control

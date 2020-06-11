@@ -148,7 +148,7 @@ namespace ICSharpCode.SharpZipLib.Zip.Compression.Streams
 		/// </summary>
 		public void SkipToByteBoundary()
 		{
-			buffer_ >>= (bitsInBuffer_ & 7);
+			buffer_ >>= bitsInBuffer_ & 7;
 			bitsInBuffer_ &= ~7;
 		}
 

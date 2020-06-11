@@ -142,7 +142,7 @@ namespace ICSharpCode.SharpZipLib.BZip2
 		/// <summary>
 		/// Backend constant
 		/// </summary>
-		public const int MaximumSelectors = (2 + (900000 / GroupSize));
+		public const int MaximumSelectors = 2 + (900000 / GroupSize);
 		
 		/// <summary>
 		/// Backend constant

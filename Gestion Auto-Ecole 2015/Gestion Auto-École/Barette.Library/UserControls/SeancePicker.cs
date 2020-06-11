@@ -226,12 +226,8 @@ namespace Barette.Library.UserControls
 		}
 
 		private void cbAbsence_CheckedChanged(object sender, EventArgs e) {
-			if (cbAbsence.Checked) {
-				cbAbsence.ForeColor = Color.Red;
-			} else {
-				cbAbsence.ForeColor = SystemColors.ControlText;
-			}
-		}
+			cbAbsence.ForeColor = cbAbsence.Checked ? Color.Red : SystemColors.ControlText;
+        }
 
         private void DateSceance_ValueChanged(object sender, EventArgs e)
         {

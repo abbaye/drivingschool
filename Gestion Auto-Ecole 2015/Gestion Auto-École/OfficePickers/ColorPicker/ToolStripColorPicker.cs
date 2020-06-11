@@ -134,15 +134,10 @@ namespace OfficePickers.ColorPicker
             set 
             {
                 _originalToolTipText = value;
-                if (_addColorNameToToolTip)
-                {
-                    base.ToolTipText = _originalToolTipText + 
-                        " (" + _colorPicker.ColorName  + ")";
-                }
-                else
-                {
-                    base.ToolTipText = value;
-                }
+                base.ToolTipText = _addColorNameToToolTip
+                    ? _originalToolTipText +
+                        " (" + _colorPicker.ColorName  + ")"
+                    : value;
             }
         }        
 

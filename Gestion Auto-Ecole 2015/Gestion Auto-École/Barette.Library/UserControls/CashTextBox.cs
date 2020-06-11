@@ -55,20 +55,16 @@ namespace Barette.Library.UserControls
 				e.Handled = false;
 			else if( key == ',' || key == '.'){ //virgule
 				//Recherche si une autre virgule existe
-				if (HaveComma() == true)
-					e.Handled = true;
-				else
-					e.Handled = false;
-			} else if (key == '-') {
+				e.Handled = HaveComma() == true;
+            } else if (key == '-') {
 				int Position = -1;
 				if (HaveMinus(out Position) == true) {
 					e.Handled = true;
-				} else if (SelectionStart == 0) {
-					e.Handled = false;
 				} else
-					e.Handled = true;
-
-			} else
+                {
+                    e.Handled = SelectionStart != 0;
+                }
+            } else
 				e.Handled = true;
 		}
 

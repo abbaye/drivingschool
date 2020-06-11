@@ -102,7 +102,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public bool OnFileFailure(string file, Exception e)
 		{
 			FileFailureHandler handler = FileFailure;
-            bool result = (handler != null);
+            bool result = handler != null;
 
 			if ( result ) {
 				ScanFailureEventArgs args = new ScanFailureEventArgs(file, e);
@@ -266,13 +266,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 		{
 			get { return entryFactory_; }
 			set {
-				if ( value == null ) {
-					entryFactory_ = new ZipEntryFactory();
-				}
-				else {
-					entryFactory_ = value;
-				}
-			}
+				entryFactory_ = value == null ? new ZipEntryFactory() : value;
+            }
 		}
 		
 		/// <summary>
@@ -561,13 +556,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 			bool proceed = true;
 			if ( overwrite_ != Overwrite.Always ) {
 				if ( File.Exists(targetName) ) {
-					if ( (overwrite_ == Overwrite.Prompt) && (confirmDelegate_ != null) ) {
-						proceed = confirmDelegate_(targetName);
-					}
-					else {
-						proceed = false;
-					}
-				}
+					proceed = (overwrite_ == Overwrite.Prompt) && (confirmDelegate_ != null) ? confirmDelegate_(targetName) : false;
+                }
 			}
 			
 			if ( proceed ) {
@@ -604,7 +594,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 						if ( RestoreAttributesOnExtract && entry.IsDOSEntry && (entry.ExternalFileAttributes != -1)) {
 							FileAttributes fileAttributes = (FileAttributes) entry.ExternalFileAttributes;
 							// TODO: FastZip - Setting of other file attributes on extraction is a little trickier.
-							fileAttributes &= (FileAttributes.Archive | FileAttributes.Normal | FileAttributes.ReadOnly | FileAttributes.Hidden);
+							fileAttributes &= FileAttributes.Archive | FileAttributes.Normal | FileAttributes.ReadOnly | FileAttributes.Hidden;
 							File.SetAttributes(targetName, fileAttributes);
 						}
 #endif						
@@ -643,13 +633,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 			string dirName = null;
 			
 			if ( doExtraction ) {
-					if ( entry.IsDirectory ) {
-						dirName = targetName;
-					}
-					else {
-						dirName = Path.GetDirectoryName(Path.GetFullPath(targetName));
-					}
-			}
+					dirName = entry.IsDirectory ? targetName : Path.GetDirectoryName(Path.GetFullPath(targetName));
+            }
 			
 			if ( doExtraction && !Directory.Exists(dirName) ) {
 				if ( !entry.IsDirectory || CreateEmptyDirectories ) {
@@ -659,13 +644,8 @@ namespace ICSharpCode.SharpZipLib.Zip
 					catch (Exception ex) {
 						doExtraction = false;
 						if ( events_ != null ) {
-							if ( entry.IsDirectory ) {
-								continueRunning_ = events_.OnDirectoryFailure(targetName, ex);
-							}
-							else {
-								continueRunning_ = events_.OnFileFailure(targetName, ex);
-							}
-						}
+							continueRunning_ = entry.IsDirectory ? events_.OnDirectoryFailure(targetName, ex) : events_.OnFileFailure(targetName, ex);
+                        }
 						else {
 							continueRunning_ = false;
                             throw;

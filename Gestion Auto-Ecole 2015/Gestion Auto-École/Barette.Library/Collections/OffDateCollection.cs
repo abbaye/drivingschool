@@ -42,7 +42,7 @@ namespace Barette.Library.Collections
 		}
 
 		public OffDate this[int index] {
-			get { return (base.List[index] as OffDate); }
+			get { return base.List[index] as OffDate; }
 		}
 
 		public int IndexOf(OffDate value) {

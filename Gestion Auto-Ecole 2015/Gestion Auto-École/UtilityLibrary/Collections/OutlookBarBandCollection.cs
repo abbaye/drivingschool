@@ -65,12 +65,10 @@ namespace UtilityLibrary.Collections
 		
 		public OutlookBarBand this[int index]
 		{
-			get { 
-				if ( index < 0 || index >= Count) 
-					return null;
-				return (OutlookBarBand) InnerList[index]; 
-			}
-		}
+			get {
+                return index < 0 || index >= Count ? null : (OutlookBarBand) InnerList[index];
+            }
+        }
 		#endregion
 	
 		#region Implementation

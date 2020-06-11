@@ -108,11 +108,8 @@ namespace Barette.IDE.Forms.Calendar
 		}
 
 		private void lvDate_SelectedIndexChanged(object sender, EventArgs e) {
-			if (lvDate.SelectedItems.Count > 0)
-				tbbDeleteDate.Enabled = true;
-			else
-				tbbDeleteDate.Enabled = false;
-		}
+			tbbDeleteDate.Enabled = lvDate.SelectedItems.Count > 0;
+        }
 
 		//Afficher tous les jours dans le calendrié
 		private void UpdateBoldedDate() {

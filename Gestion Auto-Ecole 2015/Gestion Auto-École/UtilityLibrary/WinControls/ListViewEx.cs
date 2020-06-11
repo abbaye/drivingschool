@@ -169,11 +169,8 @@ namespace UtilityLibrary.WinControls
 						}
 						else 
 						{
-							if ( listView.Sorting == SortOrder.Ascending )
-								listView.Sorting = SortOrder.Descending;
-							else
-								listView.Sorting = SortOrder.Ascending;
-						}
+							listView.Sorting = listView.Sorting == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
+                        }
 						break;
 					}
 				}
@@ -387,7 +384,7 @@ namespace UtilityLibrary.WinControls
 			switch (message.Msg)
 			{
 				case (int)Msg.WM_ERASEBKGND:
-					IntPtr hDC = (IntPtr)message.WParam;
+					IntPtr hDC = message.WParam;
 					PaintBackground(hDC);
 					break;
 				
@@ -876,7 +873,7 @@ namespace UtilityLibrary.WinControls
 			hti.pt.x = LastMousePosition.X;
 			hti.pt.y = LastMousePosition.Y;
 			WindowsAPI.SendMessage(hHeader, (int)HeaderControlMessages.HDM_HITTEST, 0, ref hti); 
-			bool hit = (hti.flags == (int)HeaderControlHitTestFlags.HHT_ONDIVIDER);
+			bool hit = hti.flags == (int)HeaderControlHitTestFlags.HHT_ONDIVIDER;
 			return hit;
 		}
 

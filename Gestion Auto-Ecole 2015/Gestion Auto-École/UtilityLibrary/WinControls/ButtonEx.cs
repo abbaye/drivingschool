@@ -152,14 +152,10 @@ namespace UtilityLibrary.WinControls
 			if ( state == DrawState.Normal || state == DrawState.Disable )
 			{
 				g.FillRectangle(new SolidBrush(SystemColors.Control), rc);
-				SolidBrush rcBrush;
-				if ( state == DrawState.Disable )
-					rcBrush = new SolidBrush(SystemColors.ControlDark);
-				else
-					rcBrush = new SolidBrush(SystemColors.ControlDarkDark);
-				
-				// Draw border rectangle
-				g.DrawRectangle(new Pen(rcBrush), rc.Left, rc.Top, rc.Width-1, rc.Height-1);
+				SolidBrush rcBrush = state == DrawState.Disable ? new SolidBrush(SystemColors.ControlDark) : new SolidBrush(SystemColors.ControlDarkDark);
+
+                // Draw border rectangle
+                g.DrawRectangle(new Pen(rcBrush), rc.Left, rc.Top, rc.Width-1, rc.Height-1);
 
 			}
 			else if ( state == DrawState.Hot || state == DrawState.Pressed  )

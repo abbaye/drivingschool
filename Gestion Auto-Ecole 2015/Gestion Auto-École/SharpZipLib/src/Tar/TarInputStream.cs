@@ -467,7 +467,7 @@ namespace ICSharpCode.SharpZipLib.Tar
 						longName = new StringBuilder();
 						
 						while (numToRead > 0) {
-							int numRead = this.Read(nameBuffer, 0, (numToRead > nameBuffer.Length ? nameBuffer.Length : (int)numToRead));
+							int numRead = this.Read(nameBuffer, 0, numToRead > nameBuffer.Length ? nameBuffer.Length : (int)numToRead);
 							
 							if (numRead == -1) {
 								throw new InvalidHeaderException("Failed to read long name entry");

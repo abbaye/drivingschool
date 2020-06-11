@@ -68,7 +68,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 		public long Crc
 		{
 			get { return crc; }
-			set { crc = (value & 0xffffffff); }
+			set { crc = value & 0xffffffff; }
 		}
 
 		#region Instance Fields
@@ -565,7 +565,7 @@ namespace ICSharpCode.SharpZipLib.Zip
 				// The signature is not PKZIP originally but is now described as optional
 				// in the PKZIP Appnote documenting trhe format.
 				WriteLEInt(ZipConstants.DataDescriptorSignature);
-				WriteLEInt(unchecked((int)(entry.Crc)));
+				WriteLEInt(unchecked((int)entry.Crc));
 
 				result+=8;
 

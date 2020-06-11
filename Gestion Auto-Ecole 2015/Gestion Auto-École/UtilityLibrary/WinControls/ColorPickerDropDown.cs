@@ -207,7 +207,7 @@ namespace UtilityLibrary.WinControls
 			bool callBase = true;
 			switch(m.Msg)
 			{
-				case ((int)Msg.WM_PAINT):
+				case (int)Msg.WM_PAINT:
 					callBase = false;
 					base.WndProc(ref m);
 					exitLoop = false;
@@ -392,7 +392,7 @@ namespace UtilityLibrary.WinControls
 
 			for ( int i = 0; i < CUSTOM_COLORS_HORIZ_ITEMS; i++ ) 
 			{
-				for ( int j = (CUSTOM_COLORS_VERT_ITEMS-2); j < CUSTOM_COLORS_VERT_ITEMS; j++ )
+				for ( int j = CUSTOM_COLORS_VERT_ITEMS-2; j < CUSTOM_COLORS_VERT_ITEMS; j++ )
 				{
 					if ( customColorsRects[i*8 + j].Contains(p) )
 					{
@@ -577,7 +577,7 @@ namespace UtilityLibrary.WinControls
 							if ( msg.message == (int)Msg.WM_MOUSEMOVE  ) 
 							{
 								// Is the mouse event for this popup window?
-								if ((msg.hwnd != this.Handle && !IsChild(msg.hwnd)) )
+								if (msg.hwnd != this.Handle && !IsChild(msg.hwnd) )
 								{
                                     // Eat the message to prevent the destination getting it
                                     MSG eat = new MSG();

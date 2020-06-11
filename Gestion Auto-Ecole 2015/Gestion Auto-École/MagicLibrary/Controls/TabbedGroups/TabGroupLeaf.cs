@@ -212,15 +212,15 @@ namespace Crownwood.Magic.Controls
                             _tabControl.HideTabsMode = Magic.Controls.TabControl.HideTabsModes.HideAlways;
                             break;
                         case Crownwood.Magic.Controls.TabbedGroups.DisplayTabModes.ShowActiveLeaf:
-                            _tabControl.HideTabsMode = (_tabbedGroups.ActiveLeaf == this ? Magic.Controls.TabControl.HideTabsModes.ShowAlways :
-                                                                                           Magic.Controls.TabControl.HideTabsModes.HideAlways);
+                            _tabControl.HideTabsMode = _tabbedGroups.ActiveLeaf == this ? Magic.Controls.TabControl.HideTabsModes.ShowAlways :
+                                                                                           Magic.Controls.TabControl.HideTabsModes.HideAlways;
                             break;
                         case Crownwood.Magic.Controls.TabbedGroups.DisplayTabModes.ShowMouseOver:
                             _tabControl.HideTabsMode = Magic.Controls.TabControl.HideTabsModes.HideWithoutMouse;
                             break;
                         case Crownwood.Magic.Controls.TabbedGroups.DisplayTabModes.ShowActiveAndMouseOver:
-                            _tabControl.HideTabsMode = (_tabbedGroups.ActiveLeaf == this ? Magic.Controls.TabControl.HideTabsModes.ShowAlways :
-                                                                                           Magic.Controls.TabControl.HideTabsModes.HideWithoutMouse);
+                            _tabControl.HideTabsMode = _tabbedGroups.ActiveLeaf == this ? Magic.Controls.TabControl.HideTabsModes.ShowAlways :
+                                                                                           Magic.Controls.TabControl.HideTabsModes.HideWithoutMouse;
                             break;
                     }
                     break;
@@ -238,10 +238,7 @@ namespace Crownwood.Magic.Controls
             TabGroupLeaf prominent = _tabbedGroups.ProminentLeaf;
 
             // Valid value to test against?            
-            if (prominent != null)
-                return (this == prominent);
-            else
-                return false;
+            return prominent != null ? this == prominent : false;
         }
 
         public override void SaveToXml(XmlTextWriter xmlOut)
@@ -382,7 +379,7 @@ namespace Crownwood.Magic.Controls
                     {
                         // Check it has the expected name
                         if (xmlIn.NodeType == XmlNodeType.EndElement)
-                            finished = (xmlIn.Name == "CustomPageData");
+                            finished = xmlIn.Name == "CustomPageData";
 
                         if (!finished)
                         {
@@ -461,7 +458,7 @@ namespace Crownwood.Magic.Controls
 			if (!_tabbedGroups.LayoutLock)
 			{        
 				// Are any pages selected
-				bool valid = (_tabControl.SelectedIndex != -1);
+				bool valid = _tabControl.SelectedIndex != -1;
 	        
 				// Define the latest text string
 				_mcClose.Text = _tabbedGroups.CloseMenuText;
@@ -477,7 +474,7 @@ namespace Crownwood.Magic.Controls
 				_mcSep1.Visible = _tabControl.ShowClose && valid;
 	            
 				// Update the radio button for prominent
-				_mcProm.Checked = (_tabbedGroups.ProminentLeaf == this);
+				_mcProm.Checked = _tabbedGroups.ProminentLeaf == this;
 	            
 				// Can only create new group if at least two pages exist
 				bool split = valid && (_tabControl.TabPages.Count > 1);
@@ -535,7 +532,7 @@ namespace Crownwood.Magic.Controls
 					visibleCommands++;
             
 			// Pass back cancel value or always cancel if no commands are visible
-			e.Cancel = (tge.Cancel || (visibleCommands == 0));			
+			e.Cancel = tge.Cancel || (visibleCommands == 0);			
         }
         
         internal void OnClose(object sender, EventArgs e)
@@ -557,10 +554,7 @@ namespace Crownwood.Magic.Controls
         internal void OnToggleProminent(object sender, EventArgs e)
         {
             // Toggel the prominent mode
-            if (_tabbedGroups.ProminentLeaf == this)
-                _tabbedGroups.ProminentLeaf = null;
-            else
-                _tabbedGroups.ProminentLeaf = this;
+            _tabbedGroups.ProminentLeaf = _tabbedGroups.ProminentLeaf == this ? null : (this);
         }
 
         internal void OnRebalance(object sender, EventArgs e)
@@ -674,10 +668,7 @@ namespace Crownwood.Magic.Controls
             else
             {
                 // No, are we at the end of the collection?
-                if (pos == (tgs.Count - 1))
-                    newGroup = tgs.AddNewLeaf();
-                else
-                    newGroup = tgs.InsertNewLeaf(pos + 1);
+                newGroup = pos == (tgs.Count - 1) ? tgs.AddNewLeaf() : tgs.InsertNewLeaf(pos + 1);
             }
 
             // Get tab control for source leaf

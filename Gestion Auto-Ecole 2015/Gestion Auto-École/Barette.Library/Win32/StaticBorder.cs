@@ -7,7 +7,7 @@ namespace Barette.Library.Win32
     /// </summary>	
     public sealed class StaticBorder {
 		//Constante 
-		private const short GWL_EXSTYLE = (-20);
+		private const short GWL_EXSTYLE = -20;
 		private const short WS_EX_CLIENTEDGE = 0x200;
 		private const int WS_EX_STATICEDGE = 0x20000;
 		private const short SWP_FRAMECHANGED = 0x20;

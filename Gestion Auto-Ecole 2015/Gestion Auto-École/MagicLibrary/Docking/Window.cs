@@ -276,7 +276,7 @@ namespace Crownwood.Magic.Docking
             _fullTitle = fullTitle;
             
             if (FullTitleChanged != null)
-                FullTitleChanged((object)fullTitle, EventArgs.Empty);
+                FullTitleChanged(fullTitle, EventArgs.Empty);
         }
 
 		public virtual Restore RecordRestore(object child) 

@@ -39,14 +39,8 @@ namespace Crownwood.Magic.Common
 			{
 				Control c = controls[index];
 
-				string typeName;
-				
-				if (fullName)
-					typeName = c.GetType().FullName;
-				else
-					typeName = c.GetType().Name;
-
-				Console.WriteLine("{0} V:{1} T:{2} N:{3}", index, c.Visible, typeName, c.Name);
+				string typeName = fullName ? c.GetType().FullName : c.GetType().Name;
+                Console.WriteLine("{0} V:{1} T:{2} N:{3}", index, c.Visible, typeName, c.Name);
 			}
         }
     }

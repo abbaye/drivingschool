@@ -38,15 +38,10 @@ namespace Crownwood.Magic.Docking
                 _autoHidePanel = autoHidePanel;
                 _borderEdge = borderEdge;
 				
-				DirectionUL direction;
-				
-				if ((borderEdge == Edge.Left) || (borderEdge == Edge.Right))
-					direction = DirectionUL.Horizontal;
-				else
-					direction = DirectionUL.Vertical;
+				DirectionUL direction = (borderEdge == Edge.Left) || (borderEdge == Edge.Right) ? DirectionUL.Horizontal : DirectionUL.Vertical;
 
-				// Create a resizing bar
-				_resizeAutoBar = new ResizeAutoBar(direction, this);
+                // Create a resizing bar
+                _resizeAutoBar = new ResizeAutoBar(direction, this);
 				
 				// Add to the display
 				Controls.Add(_resizeAutoBar);
@@ -331,7 +326,7 @@ namespace Crownwood.Magic.Docking
             {
                 if (this.BackColor != value)
                 {
-                    _defaultColor = (value == SystemColors.Control);
+                    _defaultColor = value == SystemColors.Control;
                     base.BackColor = value;
                     Invalidate();
                 }
@@ -400,7 +395,7 @@ namespace Crownwood.Magic.Docking
 
         public bool ContainsContent(Content c)
         {
-            return (TabStubForContent(c) != null);
+            return TabStubForContent(c) != null;
         }
 
         protected TabStub TabStubForContent(Content c)
@@ -1300,7 +1295,7 @@ namespace Crownwood.Magic.Docking
 
                 // Is this the last sliding step? 
                 // (increase test by 1 because we have not yet incremented it)
-                bool lastStep = ((_slideStep+1) >= _slideSteps);
+                bool lastStep = (_slideStep+1) >= _slideSteps;
 
                 // Bringing the Panel into view?
                 if (_slideOut)
@@ -1309,47 +1304,43 @@ namespace Crownwood.Magic.Docking
                     switch(this.Dock)
                     {
                         case DockStyle.Left:
-                            if (lastStep)
-                                rect.Width = _slideRect.Width + barSize.Width;
-                            else
-                                rect.Width = (_slideRect.Width + barSize.Width) / 
+                            rect.Width = lastStep
+                                ? _slideRect.Width + barSize.Width
+                                : (_slideRect.Width + barSize.Width) /
                                             _slideSteps * (_slideStep + 1);
-                            
+
                             // Want the right hand side of WCT showing
                             _currentWCT.Location = new Point(rect.Width - _currentWCT.Width - barSize.Width, 0);
                             break;
                         case DockStyle.Right:
                             int right = _currentPanel.Right;
                             
-                            if (lastStep)
-                                rect.Width = _slideRect.Width + barSize.Width;
-                            else
-                                rect.Width = (_slideRect.Width + barSize.Width) / 
+                            rect.Width = lastStep
+                                ? _slideRect.Width + barSize.Width
+                                : (_slideRect.Width + barSize.Width) /
                                             _slideSteps * (_slideStep + 1);
-                                              
+
                             rect.X -= rect.Right - right;
                             
                             _currentWCT.Location = new Point(barSize.Width, 0);
                             break;
                         case DockStyle.Top:
-                            if (lastStep)
-                                rect.Height = _slideRect.Height + barSize.Height;
-                            else
-                                rect.Height = (_slideRect.Height + barSize.Height) / 
+                            rect.Height = lastStep
+                                ? _slideRect.Height + barSize.Height
+                                : (_slideRect.Height + barSize.Height) /
                                             _slideSteps * (_slideStep + 1);
-                            
+
                             // Want the bottom of the WCT showing
                             _currentWCT.Location = new Point(0, rect.Height - _currentWCT.Height - barSize.Height);
                             break;
                         case DockStyle.Bottom:
                             int bottom = _currentPanel.Bottom;
                             
-                            if (lastStep)
-                                rect.Height = _slideRect.Height + barSize.Height;
-                            else
-                                rect.Height = (_slideRect.Height + barSize.Height) / 
+                            rect.Height = lastStep
+                                ? _slideRect.Height + barSize.Height
+                                : (_slideRect.Height + barSize.Height) /
                                             _slideSteps * (_slideStep + 1);
-                                              
+
                             rect.Y -= rect.Bottom - bottom;
 
                             _currentWCT.Location = new Point(0, barSize.Height);
@@ -1382,39 +1373,35 @@ namespace Crownwood.Magic.Docking
                     switch(this.Dock)
                     {
                         case DockStyle.Left:
-                            if (lastStep)
-                                rect.Width = 0;
-                            else
-                                rect.Width = (_slideRect.Width + barSize.Width) / 
+                            rect.Width = lastStep
+                                ? 0
+                                : (_slideRect.Width + barSize.Width) /
                                             _slideSteps * steps;
                             break;
                         case DockStyle.Right:
                             int right = _currentPanel.Right;
                             
-                            if (lastStep)
-                                rect.Width = 0;
-                            else
-                                rect.Width = (_slideRect.Width + barSize.Width) / 
+                            rect.Width = lastStep
+                                ? 0
+                                : (_slideRect.Width + barSize.Width) /
                                             _slideSteps * steps;
-                                             
+
                             rect.X += right - rect.Right;
                             break;
                         case DockStyle.Top:
-                            if (lastStep)
-                                rect.Height = 0;
-                            else
-                                rect.Height = (_slideRect.Height + barSize.Height) / 
+                            rect.Height = lastStep
+                                ? 0
+                                : (_slideRect.Height + barSize.Height) /
                                             _slideSteps * steps;
                             break;
                         case DockStyle.Bottom:
                             int bottom = _currentPanel.Bottom;
                             
-                            if (lastStep)
-                                rect.Height = 0;
-                            else
-                                rect.Height = (_slideRect.Height + barSize.Height) / 
+                            rect.Height = lastStep
+                                ? 0
+                                : (_slideRect.Height + barSize.Height) /
                                             _slideSteps * steps;
-                                              
+
                             rect.Y += bottom - rect.Bottom;
                             break;
                     }
@@ -1562,10 +1549,9 @@ namespace Crownwood.Magic.Docking
 
             if (_manager.Style == VisualStyle.IDE)
             {
-                if (_defaultColor)
-                    backColor = ColorHelper.TabBackgroundFromBaseColor(SystemColors.Control);
-                else
-                    backColor = ColorHelper.TabBackgroundFromBaseColor(backColor);
+                backColor = _defaultColor
+                    ? ColorHelper.TabBackgroundFromBaseColor(SystemColors.Control)
+                    : ColorHelper.TabBackgroundFromBaseColor(backColor);
             }
             else        
                 if (_defaultColor)

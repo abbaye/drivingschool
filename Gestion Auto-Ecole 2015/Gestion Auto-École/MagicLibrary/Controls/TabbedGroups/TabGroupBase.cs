@@ -80,10 +80,7 @@ namespace Crownwood.Magic.Controls
                     if (_parent.Parent == null)
                     {
                         // Then our space is determined by the containment of the prominent leaf
-                        if (this.ContainsProminent(true))
-                            return 100m;
-                        else
-                            return 0m;
+                        return this.ContainsProminent(true) ? 100m : 0m;
                     }
                     else
                     {
@@ -91,10 +88,7 @@ namespace Crownwood.Magic.Controls
                         if (_parent.ContainsProminent(true))
                         {
                             // Then we need to decide on all or nothing allocation
-                            if (this.ContainsProminent(true))
-                                return 100m;
-                            else
-                                return 0m;
+                            return this.ContainsProminent(true) ? 100m : 0m;
                         }
                         else
                         {

@@ -55,11 +55,8 @@ namespace Barette.Library.UserControls
 				e.Handled = false;
 			else if( key == ',' || key == '.'){ //virgule
 				//Recherche si une autre virgule existe
-				if (HaveComma() == true)
-					e.Handled = true;
-				else
-					e.Handled = false;	
-			}
+				e.Handled = HaveComma() == true;
+            }
 			else
 				e.Handled = true;
 		}
@@ -151,12 +148,9 @@ namespace Barette.Library.UserControls
 				cmp = rtn.Replace(".", ",");
 				rtn = rtn.Replace(",", "");
 
-				if (Convert.ToDouble(cmp) >= 10)
-					rtn = "0," + rtn;
-				else 
-					rtn = "0,0" + rtn;
+				rtn = Convert.ToDouble(cmp) >= 10 ? "0," + rtn : "0,0" + rtn;
 
-				return Convert.ToDecimal(rtn);
+                return Convert.ToDecimal(rtn);
 			}			
 		}
 

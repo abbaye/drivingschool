@@ -181,11 +181,8 @@ namespace Crownwood.Magic.Controls
 	        Target t = _targets.Contains(mousePos);
 	    
 	        // Set appropriate cursor
-	        if (t != null)
-                _source.Cursor = _validCursor;
-            else
-                _source.Cursor = _invalidCursor;
-                
+	        _source.Cursor = t != null ? _validCursor : _invalidCursor;
+
             if (t != _lastTarget)
             {
                 // Remove the old indicator

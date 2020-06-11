@@ -68,7 +68,7 @@ namespace Crownwood.Magic.Collections
         public TabGroupBase this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as TabGroupBase); }
+            get { return base.List[index] as TabGroupBase; }
             set { base.List[index] = value; }
         }
 

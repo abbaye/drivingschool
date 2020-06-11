@@ -391,7 +391,7 @@ namespace Crownwood.Magic.Controls
 				{
 					if (value != base.Font)
 					{
-						_defaultFont = (value == SystemInformation.MenuFont);
+						_defaultFont = value == SystemInformation.MenuFont;
 
 						DefineFont(value);
 
@@ -450,7 +450,7 @@ namespace Crownwood.Magic.Controls
             {
                 if (this.BackColor != value)
                 {
-                    _defaultColor = (value == SystemColors.Control);
+                    _defaultColor = value == SystemColors.Control;
 
                     DefineBackColor(value);
 		
@@ -1394,10 +1394,7 @@ namespace Crownwood.Magic.Controls
             get 
             {
                 // If nothing is selected we return null
-                if (_pageSelected == -1)
-                    return null;
-                else
-                    return _tabPages[_pageSelected];
+                return _pageSelected == -1 ? null : _tabPages[_pageSelected];
             }
 
             set
@@ -1755,10 +1752,7 @@ namespace Crownwood.Magic.Controls
             _dimUnselected = true;						// draw dimmed non selected pages
 
             // Define then starting page for drawing
-            if (_tabPages.Count > 0)
-                _startPage = 0;
-            else
-                _startPage = -1;
+            _startPage = _tabPages.Count > 0 ? 0 : -1;
 
             _appearance = appearance;
 
@@ -1794,7 +1788,7 @@ namespace Crownwood.Magic.Controls
                     hideTabs = true;
                     break;
                 case HideTabsModes.HideUsingLogic:
-                    hideTabs = (_tabPages.Count <= 1);                            
+                    hideTabs = _tabPages.Count <= 1;                            
                     break;
                 case HideTabsModes.HideWithoutMouse:
                     hideTabs = !_mouseOver;
@@ -1856,20 +1850,17 @@ namespace Crownwood.Magic.Controls
             {
                 // The minimum size of a button includes its left and right borders for width,
                 // and then fixed height which is based on the size of the image and font
-                Rectangle tabPosition;
-				
-                if (_positionAtTop)
-                    tabPosition = new Rectangle(0,		
-                                                _tabsAreaRect.Bottom - tabButtonHeight - 
+                Rectangle tabPosition = _positionAtTop
+                    ? new Rectangle(0,
+                                                _tabsAreaRect.Bottom - tabButtonHeight -
                                                 _position[_styleIndex, (int)PositionIndex.BorderTop],
-                                                _position[_styleIndex, (int)PositionIndex.BorderLeft] + 
+                                                _position[_styleIndex, (int)PositionIndex.BorderLeft] +
                                                 _position[_styleIndex, (int)PositionIndex.BorderRight],
-                                                tabButtonHeight);
-                else
-                    tabPosition = new Rectangle(0,		
-                                                _tabsAreaRect.Top + 
+                                                tabButtonHeight)
+                    : new Rectangle(0,
+                                                _tabsAreaRect.Top +
                                                 _position[_styleIndex, (int)PositionIndex.BorderTop],
-                                                _position[_styleIndex, (int)PositionIndex.BorderLeft] + 
+                                                _position[_styleIndex, (int)PositionIndex.BorderLeft] +
                                                 _position[_styleIndex, (int)PositionIndex.BorderRight],
                                                 tabButtonHeight);
 
@@ -1979,7 +1970,7 @@ namespace Crownwood.Magic.Controls
                 Rectangle rect = (Rectangle)_tabRects[_tabPages.Count - 1];
 				
 				// Determine is the right scrolling button should be enabled
-                _rightScroll = (rect.Right > xEndPos);
+                _rightScroll = rect.Right > xEndPos;
             }
             else
             {
@@ -1988,7 +1979,7 @@ namespace Crownwood.Magic.Controls
             }
 
             // Determine if left scrolling is possible
-            _leftScroll = (_startPage > 0);
+            _leftScroll = _startPage > 0;
 
             // Handle then display and positioning of buttons
             RecalculateButtons();
@@ -2124,7 +2115,7 @@ namespace Crownwood.Magic.Controls
                         if (itemEntry.Rect.Right < (xEndPos - 1))
                         {
                             // Work out how much extra to give each one
-                            int extra = (int)((xEndPos - itemEntry.Rect.Right - 1) / numLines);
+                            int extra = (xEndPos - itemEntry.Rect.Right - 1) / numLines;
                                         
                             // Keep track of how much items need moving across
                             int totalMove = 0;
@@ -2139,14 +2130,14 @@ namespace Crownwood.Magic.Controls
                                 expandEntry.X += totalMove;
                                             
                                 // Add extra width
-                                expandEntry.Width += (int)extra;
+                                expandEntry.Width += extra;
 
                                 // All items after this needing moving
                                 totalMove += extra;
                             }
                                         
                             // Extend the last position, in case rounding errors means its short
-                            itemEntry.Width += (xEndPos - itemEntry.Rect.Right - 1);
+                            itemEntry.Width += xEndPos - itemEntry.Rect.Right - 1;
                         }
                     }
                                 
@@ -2158,7 +2149,7 @@ namespace Crownwood.Magic.Controls
                     // If the selected line is not the bottom line
                     if (selectedLine != (lineList.Count - 1))
                     {
-                        ArrayList lastLine = (ArrayList)(lineList[lineList.Count - 1]);
+                        ArrayList lastLine = (ArrayList)lineList[lineList.Count - 1];
                                     
                         // Find y offset of last line
                         int lastOffset = ((MultiRect)lastLine[0]).Rect.Y;
@@ -2190,7 +2181,7 @@ namespace Crownwood.Magic.Controls
                     // If the selected line is not the top line
                     if (selectedLine != 0)
                     {
-                        ArrayList topLine = (ArrayList)(lineList[0]);
+                        ArrayList topLine = (ArrayList)lineList[0];
                                     
                         // Find y offset of top line
                         int topOffset = ((MultiRect)topLine[0]).Rect.Y;
@@ -2246,10 +2237,7 @@ namespace Crownwood.Magic.Controls
                 for(int i=0; i<_tabPages.Count; i++)
                 {
                     // Is this page before those displayed?
-                    if (i < _startPage)
-                        _tabRects[i] = (object)_nullPosition;  // Yes, position off screen
-                    else
-                        _tabRects[i]= (object)tabPosition;	 // No, create minimum size
+                    _tabRects[i] = i < _startPage ? _nullPosition : (object)tabPosition;	 // No, create minimum size
                 }
 
                 // Subtract the minimum tab sizes already allocated
@@ -2312,7 +2300,7 @@ namespace Crownwood.Magic.Controls
                             // Give space to tab
                             rectPos.Width += xSpace;
 
-                            _tabRects[index] = (object)rectPos;
+                            _tabRects[index] = rectPos;
 
                             // Reduce extra left for remaining tabs
                             xWidth -= xSpace;
@@ -2328,7 +2316,7 @@ namespace Crownwood.Magic.Controls
                     // Define position of tab page
                     rectPos.X = xStartPos;
 
-                    _tabRects[i] = (object)rectPos;
+                    _tabRects[i] = rectPos;
 
                     // Next button must be the width of this one across
                     xStartPos += rectPos.Width + 1;
@@ -2420,10 +2408,9 @@ namespace Crownwood.Magic.Controls
                 _rightArrow.Hide();
             }
 
-            if ((_appearance == VisualAppearance.MultiBox) || (_style == VisualStyle.Plain))
-                _closeButton.BackColor = _leftArrow.BackColor = _rightArrow.BackColor = this.BackColor;
-            else
-                _closeButton.BackColor = _leftArrow.BackColor = _rightArrow.BackColor = _backIDE;
+            _closeButton.BackColor = (_appearance == VisualAppearance.MultiBox) || (_style == VisualStyle.Plain)
+                ? (_leftArrow.BackColor = _rightArrow.BackColor = this.BackColor)
+                : (_leftArrow.BackColor = _rightArrow.BackColor = _backIDE);
         }
 
         protected virtual int GetMaximumDrawPos()
@@ -2958,12 +2945,9 @@ namespace Crownwood.Magic.Controls
                     if (page.Selected)
                     {
                         // Calculate the rectangle that covers half the top border area
-                        int yBorder;
-						
-                        if (_positionAtTop)
-                            yBorder = rectPage.Top + (_position[_styleIndex, (int)PositionIndex.BorderTop] / 2);
-                        else
-                            yBorder = rectPage.Top - (_position[_styleIndex, (int)PositionIndex.BorderTop] / 2);
+                        int yBorder = _positionAtTop
+                            ? rectPage.Top + (_position[_styleIndex, (int)PositionIndex.BorderTop] / 2)
+                            : rectPage.Top - (_position[_styleIndex, (int)PositionIndex.BorderTop] / 2);
 
                         // Construct rectangle that covers the outer part of the border
                         Rectangle rectBorder = new Rectangle(rectPage.Left, yBorder, rectPage.Width - 1, rectPage.Height);
@@ -3156,7 +3140,7 @@ namespace Crownwood.Magic.Controls
             AddTabPage(page);
 			
             // Do we want to select this page?
-            if ((_pageSelected == -1) || (page.Selected))
+            if ((_pageSelected == -1) || page.Selected)
             {
                 // Raise selection changing event
                 OnSelectionChanging(EventArgs.Empty);
@@ -3179,7 +3163,7 @@ namespace Crownwood.Magic.Controls
             // Add new rectangle to match new number of pages, this must be done before
             // the 'SelectPage' or 'OnSelectionChanged' to ensure the number of _tabRects 
             // entries matches the number of _tabPages entries.
-            _tabRects.Add((object)new Rectangle());
+            _tabRects.Add(new Rectangle());
 
             // Cause the new page to be the selected one
             if (selectPage)
@@ -3599,11 +3583,8 @@ namespace Crownwood.Magic.Controls
 				if (_recordFocus)
 				{
 					// Record current focus location on Control
-					if (page.Control.ContainsFocus)
-						page.StartFocus = FindFocus(page.Control);
-					else
-						page.StartFocus = null;
-				}
+					page.StartFocus = page.Control.ContainsFocus ? FindFocus(page.Control) : null;
+                }
 
                 page.Control.Hide();
 			}
@@ -3613,11 +3594,8 @@ namespace Crownwood.Magic.Controls
 				if (_recordFocus)
 				{
 					// Record current focus location on Control
-					if (page.ContainsFocus)
-						page.StartFocus = FindFocus(page);
-					else
-						page.StartFocus = null;
-				}
+					page.StartFocus = page.ContainsFocus ? FindFocus(page) : null;
+                }
 
                 page.Hide();
 			}

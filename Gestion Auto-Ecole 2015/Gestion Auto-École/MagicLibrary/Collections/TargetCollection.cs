@@ -52,7 +52,7 @@ namespace Crownwood.Magic.Collections
         public Target this[int index]
         {
             // Use base class to process actual collection operation
-            get { return (base.List[index] as Target); }
+            get { return base.List[index] as Target; }
         }
 
         public int IndexOf(Target value)

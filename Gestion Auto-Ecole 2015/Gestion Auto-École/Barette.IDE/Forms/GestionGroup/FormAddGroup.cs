@@ -43,7 +43,7 @@ namespace Barette.IDE.Forms.GestionGroup
         /// </summary>
         private void MakeAutoNumber() {
             var req = from v in _groupList
-                      select (v.GroupeNumber);
+                      select v.GroupeNumber;
 
             try {
                 ntbGroupNumber.Text = (req.Max() + 1).ToString();

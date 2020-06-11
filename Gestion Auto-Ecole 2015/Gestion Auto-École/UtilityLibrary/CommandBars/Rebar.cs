@@ -41,7 +41,7 @@ namespace UtilityLibrary.CommandBars
                 };
                 WindowsAPI.GetCommonControlDLLVersion(ref dllVersion);
 				bGotIsCommonCtrl6 = true;
-				isCommonCtrl6 = (dllVersion.dwMajorVersion >= 6);
+				isCommonCtrl6 = dllVersion.dwMajorVersion >= 6;
 			}
 			return isCommonCtrl6;
 		}
@@ -164,11 +164,8 @@ namespace UtilityLibrary.CommandBars
 			bool hit = HitGripper(e);
 			if ( hit )
 			{
-				if ( ShowMoveCursor(e) )
-					Cursor.Current = Cursors.SizeAll;
-				else
-					Cursor.Current = Cursors.SizeWE;
-			}
+				Cursor.Current = ShowMoveCursor(e) ? Cursors.SizeAll : Cursors.SizeWE;
+            }
 			else
 				Cursor.Current = Cursors.Default;
 		}
@@ -211,11 +208,8 @@ namespace UtilityLibrary.CommandBars
 			if ( hit ) 
 			{
 					Capture = true;
-				if ( ShowMoveCursor(e) )
-					Cursor.Current = Cursors.SizeAll;
-				else
-					Cursor.Current = Cursors.VSplit;
-			}
+				Cursor.Current = ShowMoveCursor(e) ? Cursors.SizeAll : Cursors.VSplit;
+            }
 			else
 				Cursor.Current = Cursors.Default;
 
@@ -228,11 +222,8 @@ namespace UtilityLibrary.CommandBars
 			Capture = false;
 			if ( hit )
 			{
-				if ( ShowMoveCursor(e) )
-					Cursor.Current = Cursors.SizeAll;
-				else
-					Cursor.Current = Cursors.SizeWE;
-			}
+				Cursor.Current = ShowMoveCursor(e) ? Cursors.SizeAll : Cursors.SizeWE;
+            }
 			else
 				Cursor.Current = Cursors.Default;
 			
@@ -322,7 +313,7 @@ namespace UtilityLibrary.CommandBars
 					PaintBackground();
 					break;
 				case (int)Msg.WM_NOTIFY:
-				case (int)((int)Msg.WM_NOTIFY + (int)Msg.WM_REFLECT):
+				case (int)Msg.WM_NOTIFY + (int)Msg.WM_REFLECT:
 				{
 					NMHDR note = (NMHDR)m.GetLParam(typeof(NMHDR));
 					switch (note.code)
@@ -353,7 +344,7 @@ namespace UtilityLibrary.CommandBars
 			int bandIndex = nrch.uBand;
 			rb = GetRebarInfo(bandIndex);
 			int actualIndex = rb.wID;
-			Control band = (Control)bands[actualIndex];
+			Control band = bands[actualIndex];
 			Point point = new Point(nrch.rc.left, nrch.rc.bottom);
 			(band as IChevron).Show(this, point);
 			
@@ -518,22 +509,22 @@ namespace UtilityLibrary.CommandBars
 			rbbi.fStyle = (int)(RebarStylesEx.RBBS_CHILDEDGE | RebarStylesEx.RBBS_FIXEDBMP | RebarStylesEx.RBBS_GRIPPERALWAYS);
 			ToolBarEx tb = (ToolBarEx)band;
 			if ( tb.UseNewRow == true)
-				rbbi.fStyle |= (int)(RebarStylesEx.RBBS_BREAK);
+				rbbi.fStyle |= (int)RebarStylesEx.RBBS_BREAK;
 			rbbi.fStyle |= (band is IChevron) ? (int)RebarStylesEx.RBBS_USECHEVRON : 0;
 
-			rbbi.fMask |= (int)(RebarInfoMask.RBBIM_CHILD);
+			rbbi.fMask |= (int)RebarInfoMask.RBBIM_CHILD;
 			rbbi.hwndChild = band.Handle; 
 
-			rbbi.fMask |= (int)(RebarInfoMask.RBBIM_CHILDSIZE);
+			rbbi.fMask |= (int)RebarInfoMask.RBBIM_CHILDSIZE;
 			rbbi.cyMinChild = band.Height;
 			rbbi.cxMinChild = 0;
 			rbbi.cyChild = 0;
 			rbbi.cyMaxChild = 0; 
 			rbbi.cyIntegral = 0;
 			
-			rbbi.fMask |= (int)(RebarInfoMask.RBBIM_SIZE);
+			rbbi.fMask |= (int)RebarInfoMask.RBBIM_SIZE;
 			rbbi.cx = band.Width;
-			rbbi.fMask |= (int)(RebarInfoMask.RBBIM_IDEALSIZE);
+			rbbi.fMask |= (int)RebarInfoMask.RBBIM_IDEALSIZE;
 			rbbi.cxIdeal = band.Width;
 			
 			return rbbi;				

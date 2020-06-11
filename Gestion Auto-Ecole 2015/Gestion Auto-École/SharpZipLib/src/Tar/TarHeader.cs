@@ -516,13 +516,8 @@ namespace ICSharpCode.SharpZipLib.Tar
 		{
 			get { return groupName; }
 			set { 
-				if ( value == null ) {
-					groupName = "None";
-				}
-				else {
-					groupName = value; 
-				}
-			}
+				groupName = value == null ? "None" : value;
+            }
 		}
 		
 		
@@ -691,30 +686,24 @@ namespace ICSharpCode.SharpZipLib.Tar
 		{
 			TarHeader localHeader = obj as TarHeader;
 
-		    bool result;
-			if ( localHeader != null ) 
-			{
-				result = (name == localHeader.name)
-					&& (mode == localHeader.mode)
-					&& (UserId == localHeader.UserId)
-					&& (GroupId == localHeader.GroupId)
-					&& (Size == localHeader.Size)
-					&& (ModTime == localHeader.ModTime)
-					&& (Checksum == localHeader.Checksum)
-					&& (TypeFlag == localHeader.TypeFlag)
-					&& (LinkName == localHeader.LinkName)
-					&& (Magic == localHeader.Magic)
-					&& (Version == localHeader.Version)
-					&& (UserName == localHeader.UserName)
-					&& (GroupName == localHeader.GroupName)
-					&& (DevMajor == localHeader.DevMajor)
-					&& (DevMinor == localHeader.DevMinor);
-			}
-			else 
-			{
-				result = false;
-			}
-		    return result;
+		    bool result = localHeader != null
+                ? (name == localHeader.name)
+                    && (mode == localHeader.mode)
+                    && (UserId == localHeader.UserId)
+                    && (GroupId == localHeader.GroupId)
+                    && (Size == localHeader.Size)
+                    && (ModTime == localHeader.ModTime)
+                    && (Checksum == localHeader.Checksum)
+                    && (TypeFlag == localHeader.TypeFlag)
+                    && (LinkName == localHeader.LinkName)
+                    && (Magic == localHeader.Magic)
+                    && (Version == localHeader.Version)
+                    && (UserName == localHeader.UserName)
+                    && (GroupName == localHeader.GroupName)
+                    && (DevMajor == localHeader.DevMajor)
+                    && (DevMinor == localHeader.DevMinor)
+                : false;
+            return result;
 		}
 		
 		/// <summary>

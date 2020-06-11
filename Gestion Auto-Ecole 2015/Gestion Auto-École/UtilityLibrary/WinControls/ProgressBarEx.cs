@@ -180,7 +180,7 @@ namespace UtilityLibrary.WinControls
 							+ " is out of range. It needs to be between " +
 							min.ToString() + " and " + max.ToString();
 						ArgumentOutOfRangeException outRangeException = new ArgumentOutOfRangeException("Value", message);
-						throw(outRangeException);
+						throw outRangeException;
 					}
 					_value = value; 
 					FirePropertyChange(ProgressBarProperty.Value);
@@ -230,7 +230,7 @@ namespace UtilityLibrary.WinControls
 							+ value.ToString() + " is out of range. It needs to be less than " +
 							"Maximun value: " + max.ToString();	
 						ArgumentOutOfRangeException outRangeException = new ArgumentOutOfRangeException("Value", message);
-						throw(outRangeException);
+						throw outRangeException;
 					}
 					min = value;
 					FirePropertyChange(ProgressBarProperty.Minimun);
@@ -252,7 +252,7 @@ namespace UtilityLibrary.WinControls
 							+ " is out of range. It needs to be greater than " +
 							"Minimum value: " + min.ToString();	
 						ArgumentOutOfRangeException outRangeException = new ArgumentOutOfRangeException("Value", message);
-						throw(outRangeException);
+						throw outRangeException;
 					}
 					max = value;
 					FirePropertyChange(ProgressBarProperty.Maximun);
@@ -557,7 +557,7 @@ namespace UtilityLibrary.WinControls
 			Rectangle segmentRect = new Rectangle(2, 
 				windowRect.Top + 2, segmentWidth, windowRect.Height-4);
 			   			
-			int progressWidth = (GetScaledValue() - 2);
+			int progressWidth = GetScaledValue() - 2;
 			if ( progressWidth < 0 ) progressWidth = 0;
 			int gap = 2;
 			if ( smooth ) gap = 0;
@@ -604,28 +604,16 @@ namespace UtilityLibrary.WinControls
 				- Math.Min(gradientEndColor.B, gradientStartColor.B);
 
 			// Do we need to increase or decrease
-			int redDirection; 
-			if ( gradientEndColor.R > gradientStartColor.R ) 
-				redDirection = 1;
-			else
-				redDirection = -1;
+			int redDirection = gradientEndColor.R > gradientStartColor.R ? 1 : -1; 
 
-			int greenDirection;
-			if (  gradientEndColor.G >  gradientStartColor.G )
-				greenDirection = 1;
-			else
-				greenDirection = -1;
+			int greenDirection = gradientEndColor.G >  gradientStartColor.G ? 1 : -1;
 
-			int blueDirection;
-			if ( gradientEndColor.B > gradientStartColor.B )
-				blueDirection = 1;
-			else
-				blueDirection = -1;
-						
-			// The progress control won't allow its height to be anything other than
-			// and even number since the width of the segment needs to be a perfect 3/4
-			// of the control (height - 4) -- Four pixels are padding --
-			int segmentWidth = (windowRect.Height-4)*3/4;
+			int blueDirection = gradientEndColor.B > gradientStartColor.B ? 1 : -1;
+
+            // The progress control won't allow its height to be anything other than
+            // and even number since the width of the segment needs to be a perfect 3/4
+            // of the control (height - 4) -- Four pixels are padding --
+            int segmentWidth = (windowRect.Height-4)*3/4;
 			segmentWidth -= 2;
 
 			// how many segements we need to draw
@@ -641,7 +629,7 @@ namespace UtilityLibrary.WinControls
 			Rectangle segmentRect = new Rectangle(2, 
 				windowRect.Top + 2, segmentWidth, windowRect.Height-4);
 			   			
-			int progressWidth = (GetScaledValue() - 2);
+			int progressWidth = GetScaledValue() - 2;
 			if ( progressWidth < 0 ) progressWidth = 0;
 			int counter = 0;
 			for ( int i = 0; i < progressWidth; i += segmentRect.Width+gap )
@@ -684,47 +672,23 @@ namespace UtilityLibrary.WinControls
 				- Math.Min(gradientEndColor.B, gradientMiddleColor.B);
 			
 			// Do we need to increase or decrease for the first half
-			int redDirectionFirst; 
-			if ( gradientStartColor.R < gradientMiddleColor.R ) 
-				redDirectionFirst = 1;
-			else
-				redDirectionFirst = -1;
+			int redDirectionFirst = gradientStartColor.R < gradientMiddleColor.R ? 1 : -1; 
 
-			int greenDirectionFirst;
-			if (  gradientStartColor.G <  gradientMiddleColor.G )
-				greenDirectionFirst = 1;
-			else
-				greenDirectionFirst = -1;
+			int greenDirectionFirst = gradientStartColor.G <  gradientMiddleColor.G ? 1 : -1;
 
-			int blueDirectionFirst;
-			if ( gradientStartColor.B < gradientMiddleColor.B )
-				blueDirectionFirst = 1;
-			else
-				blueDirectionFirst = -1;
+			int blueDirectionFirst = gradientStartColor.B < gradientMiddleColor.B ? 1 : -1;
 
 			// Do we need to increase or decrease for the second half
-			int redDirectionSecond; 
-			if ( gradientMiddleColor.R < gradientEndColor.R ) 
-				redDirectionSecond = 1;
-			else
-				redDirectionSecond = -1;
+			int redDirectionSecond = gradientMiddleColor.R < gradientEndColor.R ? 1 : -1; 
 
-			int greenDirectionSecond;
-			if (  gradientMiddleColor.G <  gradientEndColor.G )
-				greenDirectionSecond = 1;
-			else
-				greenDirectionSecond = -1;
+			int greenDirectionSecond = gradientMiddleColor.G <  gradientEndColor.G ? 1 : -1;
 
-			int blueDirectionSecond;
-			if ( gradientMiddleColor.B < gradientEndColor.B )
-				blueDirectionSecond = 1;
-			else
-				blueDirectionSecond = -1;
+			int blueDirectionSecond = gradientMiddleColor.B < gradientEndColor.B ? 1 : -1;
 
-			// The progress control won't allow its height to be anything other than
-			// and even number since the width of the segment needs to be a perfect 3/4
-			// of the control (height - 4) -- Four pixels are padding --
-			int segmentWidth = (windowRect.Height-4)*3/4;
+            // The progress control won't allow its height to be anything other than
+            // and even number since the width of the segment needs to be a perfect 3/4
+            // of the control (height - 4) -- Four pixels are padding --
+            int segmentWidth = (windowRect.Height-4)*3/4;
 			segmentWidth -= 2;
 
 			// how many segements we need to draw
@@ -733,17 +697,17 @@ namespace UtilityLibrary.WinControls
 			int numOfSegments = (windowRect.Width - 4)/(segmentWidth + gap);
 			
 			// calculate the actual RGB step for every segment
-			redStepFirst /= (numOfSegments/2);
-			greenStepFirst /= (numOfSegments/2);
-			blueStepFirst /= (numOfSegments/2);
-			redStepSecond /= (numOfSegments/2);
-			greenStepSecond /= (numOfSegments/2);
-			blueStepSecond /= (numOfSegments/2);
+			redStepFirst /= numOfSegments/2;
+			greenStepFirst /= numOfSegments/2;
+			blueStepFirst /= numOfSegments/2;
+			redStepSecond /= numOfSegments/2;
+			greenStepSecond /= numOfSegments/2;
+			blueStepSecond /= numOfSegments/2;
 
 			Rectangle segmentRect = new Rectangle(2, 
 				windowRect.Top + 2, segmentWidth, windowRect.Height-4);
 			   			
-			int progressWidth = (GetScaledValue() - 2);
+			int progressWidth = GetScaledValue() - 2;
 			if ( progressWidth < 0 ) progressWidth = 0;
 			int counter = 0;
 			bool counterReset = true;
@@ -795,7 +759,7 @@ namespace UtilityLibrary.WinControls
 			Rectangle segmentRect = new Rectangle(2, 
 				windowRect.Top + 2, segmentWidth, windowRect.Height-4);
 			
-			int progressWidth = (GetScaledValue() - 2);
+			int progressWidth = GetScaledValue() - 2;
 			if ( progressWidth < 0 ) progressWidth = 0;
 			for ( int i = 0; i < progressWidth; i += segmentRect.Width+2 )
 			{
@@ -815,7 +779,7 @@ namespace UtilityLibrary.WinControls
 
 		void DrawStandardForegroundSmooth(Graphics g, Rectangle windowRect)
 		{
-			int progressWidth = (GetScaledValue() - 4);
+			int progressWidth = GetScaledValue() - 4;
 			g.FillRectangle(new SolidBrush(foregroundColor), windowRect.Left + 2, windowRect.Top+2, 
 				progressWidth, windowRect.Height-4);
 			if ( ShowProgressText)

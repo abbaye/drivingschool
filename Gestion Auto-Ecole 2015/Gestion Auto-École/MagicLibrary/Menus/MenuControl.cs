@@ -141,7 +141,7 @@ namespace Crownwood.Magic.Menus
                                                          new Point(0,0));
 
             // We need to know if the OS supports layered windows
-            _supportsLayered = (OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) != null);
+            _supportsLayered = OSFeature.Feature.GetVersionPresent(OSFeature.LayeredWindows) != null;
         }
 
         public MenuControl()
@@ -261,7 +261,7 @@ namespace Crownwood.Magic.Menus
             {
 				if (value != base.Font)
 				{
-					_defaultFont = (value == SystemInformation.MenuFont);
+					_defaultFont = value == SystemInformation.MenuFont;
 
 					DefineFont(value);
 
@@ -279,7 +279,7 @@ namespace Crownwood.Magic.Menus
 			{
 				if (value != base.BackColor)
 				{
-					_defaultBackColor = (value == SystemColors.Control);
+					_defaultBackColor = value == SystemColors.Control;
                     base.BackColor = value;
                     _backBrush = new SolidBrush(base.BackColor);
                     
@@ -304,7 +304,7 @@ namespace Crownwood.Magic.Menus
                 if (value != _textColor)
                 {
                     _textColor = value;
-                    _defaultTextColor = (value == SystemColors.MenuText);
+                    _defaultTextColor = value == SystemColors.MenuText;
 
                     Recalculate();
                     Invalidate();
@@ -326,7 +326,7 @@ namespace Crownwood.Magic.Menus
             {
                 if (value != _highlightBackColor)
                 {
-                    _defaultHighlightBackColor = (value == SystemColors.Highlight);
+                    _defaultHighlightBackColor = value == SystemColors.Highlight;
                     DefineHighlightBackColors(value);                    
 
                     Recalculate();
@@ -350,7 +350,7 @@ namespace Crownwood.Magic.Menus
                 if (value != _highlightTextColor)
                 {
                     _highlightTextColor = value;
-                    _defaultHighlightTextColor = (value == SystemColors.MenuText);
+                    _defaultHighlightTextColor = value == SystemColors.MenuText;
 
                     Recalculate();
                     Invalidate();
@@ -373,7 +373,7 @@ namespace Crownwood.Magic.Menus
                 if (value != _selectedBackColor)
                 {
                     DefineSelectedBackColors(value);
-                    _defaultSelectedBackColor = (value == SystemColors.Control);
+                    _defaultSelectedBackColor = value == SystemColors.Control;
 
                     Recalculate();
                     Invalidate();
@@ -396,7 +396,7 @@ namespace Crownwood.Magic.Menus
                 if (value != _selectedTextColor)
                 {
                     _selectedTextColor = value;
-                    _defaultSelectedTextColor = (value == SystemColors.MenuText);
+                    _defaultSelectedTextColor = value == SystemColors.MenuText;
 
                     Recalculate();
                     Invalidate();
@@ -419,7 +419,7 @@ namespace Crownwood.Magic.Menus
                 if (value != _plainSelectedTextColor)
                 {
                     _plainSelectedTextColor = value;
-                    _defaultPlainSelectedTextColor = (value == SystemColors.ActiveCaptionText);
+                    _defaultPlainSelectedTextColor = value == SystemColors.ActiveCaptionText;
 
                     Recalculate();
                     Invalidate();
@@ -1150,7 +1150,7 @@ namespace Crownwood.Magic.Menus
         internal void DrawSelectionUpwards()
         {
             // Double check the state is correct for this method to be called
-            if ((_trackItem != -1) && (_selected))
+            if ((_trackItem != -1) && _selected)
             {
                 // This flag is tested in the DrawCommand method
                 _drawUpwards = true;
@@ -1178,12 +1178,7 @@ namespace Crownwood.Magic.Menus
 
         protected void Recalculate()
         {
-            int length;
-
-            if (_direction == DirectionUL.Horizontal)
-                length = this.Width;
-            else 
-                length = this.Height;
+            int length = _direction == DirectionUL.Horizontal ? this.Width : this.Height;
 
             // Is there space for any commands?
             if (length > 0)
@@ -1207,9 +1202,9 @@ namespace Crownwood.Magic.Menus
                 int lengthStart = 0;
 
 				// Allow enough space to draw a chevron
-                length -= (cellMinLength + _chevronLength);
+                length -= cellMinLength + _chevronLength;
 
-                bool showPendant = ((rows == 0) && (_activeChild != null));
+                bool showPendant = (rows == 0) && (_activeChild != null);
 
 				// If we are showing on a single line but the active child is not 
 				// currently maximized then we can show a menu item in pendant space
@@ -1225,9 +1220,9 @@ namespace Crownwood.Magic.Menus
                 // First line needs extra space for pendant
                 if (showPendant)
                 {
-                    length -= (_pendantLength + _pendantOffset + _shadowGap);
+                    length -= _pendantLength + _pendantOffset + _shadowGap;
 
-                    bool popupStyle = (_style == VisualStyle.IDE);
+                    bool popupStyle = _style == VisualStyle.IDE;
                     int borderWidth = (_style == VisualStyle.IDE) ? 1 : 2;
 
                     // Define the correct visual style
@@ -1285,13 +1280,11 @@ namespace Crownwood.Magic.Menus
                             cellLength = cellMinLength + (int)dimension.Width + 1;
                         }
 
-                        Rectangle cellRect;
+                        Rectangle cellRect = _direction == DirectionUL.Horizontal
+                            ? new Rectangle(lengthStart, _rowHeight * rows, cellLength, _rowHeight)
+                            : new Rectangle(_rowWidth * rows, lengthStart, _rowWidth, cellLength);
 
                         // Create a new position rectangle
-                        if (_direction == DirectionUL.Horizontal)
-                            cellRect = new Rectangle(lengthStart, _rowHeight * rows, cellLength, _rowHeight);
-                        else
-                            cellRect = new Rectangle(_rowWidth * rows, lengthStart, _rowWidth, cellLength);
 
                         lengthStart += cellLength;
                         columns++;
@@ -1325,7 +1318,7 @@ namespace Crownwood.Magic.Menus
 
                                 // Only the first line needs extra space for pendant
                                 if (showPendant && (rows == 1))
-                                    length += (_pendantLength + _pendantOffset);
+                                    length += _pendantLength + _pendantOffset;
                             }
                             else
                             {
@@ -1373,7 +1366,7 @@ namespace Crownwood.Magic.Menus
 						{
 							// Modify depending on orientation
 							if (_direction == DirectionUL.Horizontal)
-								selectRect.Height -= (_lengthGap + 2);
+								selectRect.Height -= _lengthGap + 2;
 							else
 								selectRect.Width -= _breadthGap;
 						}
@@ -1504,15 +1497,12 @@ namespace Crownwood.Magic.Menus
                         }
                         else
                         {					
-                            if (!dc.Chevron)
-                            {
-                                boxRect = new Rectangle(textRect.Left,
+                            boxRect = !dc.Chevron
+                                ? new Rectangle(textRect.Left,
                                                         textRect.Top - _boxExpandSides,
                                                         textRect.Width - _boxExpandSides,
-                                                        textRect.Height + _boxExpandSides * 2);
-                            }
-                            else
-                                boxRect = textRect;
+                                                        textRect.Height + _boxExpandSides * 2)
+                                : textRect;
                         }
 
                         switch(_style)
@@ -1824,7 +1814,7 @@ namespace Crownwood.Magic.Menus
                 DrawCommand dc = _drawCommands[i] as DrawCommand;
 
                 // Draw this command only
-                DrawSingleCommand(g, dc, (i == _trackItem));
+                DrawSingleCommand(g, dc, i == _trackItem);
             }
         }
 
@@ -1897,43 +1887,35 @@ namespace Crownwood.Magic.Menus
 			
             if (_style == VisualStyle.IDE)
             {
-				if (_direction == DirectionUL.Horizontal)
-					screenPos = PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Bottom - _lengthGap - 2));
-                else
-                    screenPos = PointToScreen(new Point(dc.DrawRect.Right - _breadthGap, drawRect.Top + _boxExpandSides - 1));
+				screenPos = _direction == DirectionUL.Horizontal
+                    ? PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Bottom - _lengthGap - 2))
+                    : PointToScreen(new Point(dc.DrawRect.Right - _breadthGap, drawRect.Top + _boxExpandSides - 1));
             }
             else
             {
-				if (_direction == DirectionUL.Horizontal)
-					screenPos = PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Bottom));
-                else
-                    screenPos = PointToScreen(new Point(dc.DrawRect.Right, drawRect.Top));
+				screenPos = _direction == DirectionUL.Horizontal
+                    ? PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Bottom))
+                    : PointToScreen(new Point(dc.DrawRect.Right, drawRect.Top));
             }
 
             Point aboveScreenPos;
 			
             if (_style == VisualStyle.IDE)
             {
-				if (_direction == DirectionUL.Horizontal)
-					aboveScreenPos = PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Top + _breadthGap + _lengthGap - 1));
-                else
-                    aboveScreenPos = PointToScreen(new Point(dc.DrawRect.Right - _breadthGap, drawRect.Bottom + _lengthGap + 1));
+				aboveScreenPos = _direction == DirectionUL.Horizontal
+                    ? PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Top + _breadthGap + _lengthGap - 1))
+                    : PointToScreen(new Point(dc.DrawRect.Right - _breadthGap, drawRect.Bottom + _lengthGap + 1));
             }
             else
             {
-				if (_direction == DirectionUL.Horizontal)
-					aboveScreenPos = PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Top));
-                else
-                    aboveScreenPos = PointToScreen(new Point(dc.DrawRect.Right, drawRect.Bottom));
+				aboveScreenPos = _direction == DirectionUL.Horizontal
+                    ? PointToScreen(new Point(dc.DrawRect.Left + 1, drawRect.Top))
+                    : PointToScreen(new Point(dc.DrawRect.Right, drawRect.Bottom));
             }
 
-            int borderGap;
+            int borderGap = _direction == DirectionUL.Horizontal ? dc.DrawRect.Width - _subMenuBorderAdjust : dc.DrawRect.Height - _subMenuBorderAdjust;
 
             // Calculate the missing gap in the PopupMenu border
-			if (_direction == DirectionUL.Horizontal)
-				borderGap = dc.DrawRect.Width - _subMenuBorderAdjust;
-            else
-                borderGap = dc.DrawRect.Height - _subMenuBorderAdjust;
 
             _popupMenu = new PopupMenu
             {
@@ -2544,15 +2526,15 @@ namespace Crownwood.Magic.Menus
                             int code = (int)msg.WParam;
 
                             // ...plus the modifier for SHIFT...
-                            if (((int)shiftKey & 0x00008000) != 0)
+                            if ((shiftKey & 0x00008000) != 0)
                                 code += 0x00010000;
 
                             // ...plus the modifier for CONTROL
-                            if (((int)controlKey & 0x00008000) != 0)
+                            if ((controlKey & 0x00008000) != 0)
                                 code += 0x00020000;
 
 							// Construct shortcut from keystate and keychar
-							Shortcut sc = (Shortcut)(code);
+							Shortcut sc = (Shortcut)code;
 
 							// Search for a matching command
 							return GenerateShortcut(sc, _menuCommands);
@@ -2653,11 +2635,11 @@ namespace Crownwood.Magic.Menus
 					int code = basecode;
 
 					// ...plus the modifier for SHIFT...
-					if (((int)shiftKey & 0x00008000) != 0)
+					if ((shiftKey & 0x00008000) != 0)
 						code += 0x00010000;
 
 					// ...plus the modifier for CONTROL
-					if (((int)controlKey & 0x00008000) != 0)
+					if ((controlKey & 0x00008000) != 0)
 						code += 0x00020000;
 
 					if (code == (int)Win32.VirtualKeys.VK_ESCAPE)
@@ -2730,7 +2712,7 @@ namespace Crownwood.Magic.Menus
 					else
 					{
 						// Construct shortcut from keystate and keychar
-						Shortcut sc = (Shortcut)(code);
+						Shortcut sc = (Shortcut)code;
 
 						// Search for a matching command
 						if (!GenerateShortcut(sc, _menuCommands))
@@ -2839,7 +2821,7 @@ namespace Crownwood.Magic.Menus
             {
                 DrawCommand dc = _drawCommands[_trackItem] as DrawCommand;
 
-                OperateSubMenu(dc, (m.LParam != IntPtr.Zero), (m.WParam != IntPtr.Zero));
+                OperateSubMenu(dc, m.LParam != IntPtr.Zero, m.WParam != IntPtr.Zero);
             }
         }
 

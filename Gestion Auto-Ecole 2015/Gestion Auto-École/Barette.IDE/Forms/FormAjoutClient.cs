@@ -76,7 +76,7 @@ namespace Barette.IDE.Forms
             // 
             // cmdCancel
             // 
-            cmdCancel.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             cmdCancel.Image = global::Barette.IDE.Properties.Resources.Cancel_2_icon;
             cmdCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,7 +145,7 @@ namespace Barette.IDE.Forms
             // 
             // cmdAddClient
             // 
-            cmdAddClient.Anchor = ((AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            cmdAddClient.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             cmdAddClient.Image = global::Barette.IDE.Properties.Resources.accept_icon;
             cmdAddClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdAddClient.Location = new System.Drawing.Point(467, 546);
