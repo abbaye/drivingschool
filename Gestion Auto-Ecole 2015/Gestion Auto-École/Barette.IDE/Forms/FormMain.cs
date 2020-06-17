@@ -30,7 +30,6 @@ namespace Barette.IDE.Forms
     /// </summary>
     public partial class FormMain : Form
     {
-
         /// <summary>
         /// instance de la fenetre client
         /// </summary>
@@ -1397,12 +1396,10 @@ namespace Barette.IDE.Forms
         /// <summary>
         /// Enregistrement des clients
         /// </summary>
-        /// <param name="FileName"></param>
-        /// <param name="CustomerList"></param>
         private void SaveClient(string FileName, CustomerCollection CustomerList)
         {
             XDocument doc = new XDocument(new XElement("EcoleConduiteBarrette",
-                new XAttribute("Version", "2.1"),
+                new XAttribute("Version", "2.2"),
                 new XElement("BarretteClients", new XAttribute("Count", CustomerList.Count))));
 
             XElement SchoolInfoRoot = doc.Element("EcoleConduiteBarrette").Element("BarretteClients");
@@ -1503,6 +1500,7 @@ namespace Barette.IDE.Forms
                     new XAttribute("DateAttestation2", client.DateAttestation2.ToShortDateString()),
                     new XAttribute("NumeroGroupe", client.NumeroGroupe),
                     new XAttribute("email", client.Email),
+                    new XAttribute("IsSpyder", client.IsSpyder),
                     SeancePratiqueList,
                     SeanceTheoriqueList,
                     PaimentList));
@@ -1628,6 +1626,9 @@ namespace Barette.IDE.Forms
                                 break;
                             case "email":
                                 client.Email = at.Value;
+                                break;
+                            case "IsSpyder":
+                                client.IsSpyder = Convert.ToBoolean(at.Value);
                                 break;
                             case "VehiculeType":
                                 //Type de Vehicule
