@@ -9,6 +9,7 @@ namespace Barette.Library.Client
 		Automatique,
 		Moto,
         Automobile,
+		Spyder,
 		Nothing //Sert juste pour une asignation null
 	}
 
