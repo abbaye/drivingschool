@@ -578,7 +578,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
                     {
                         if ((mcLigue1.SelectionStart.Date <= ClientList[i].DateInscription.Date) &&
                             (mcLigue2.SelectionStart.Date >= ClientList[i].DateInscription.Date))
-                            if (!ClientList[i].ClientNull && (ClientList[i].TypeVehicule == VehiculeType.Cyclomoteur))
+                            if (!ClientList[i].ClientNull && (ClientList[i].TypeVehicule == VehiculeType.Cyclomoteur && !ClientList[i].IsSpyder))
                                 AddClientToList(ClientList[i]);
 
                     }
