@@ -360,8 +360,8 @@ namespace Barette.IDE.Forms.LigueSecuriter
             // 
             // listFindResult
             // 
-            this.listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listFindResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colheadContratNumber,
@@ -646,7 +646,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
             };
             itm.SubItems.Add(client.DateInscription.ToShortDateString());
             itm.SubItems.Add(client.FirstName + " " + client.Name);
-            itm.SubItems.Add(client.StreetNumber + " " + client.StreetName + " " + client.StreetApp + ", " + client.City + " " + client.CodePostal);
+            itm.SubItems.Add(client.GetFullAdresse());
             itm.SubItems.Add(client.NumeroPermis);
             itm.SubItems.Add(client.DateNaissance.ToShortDateString());
             itm.SubItems.Add(client.Phone);
@@ -756,7 +756,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
 
                 //Date(s) de relever : Choisi le bon type de Header a écrire
                 yPos = topMargin + 5;
-                e.Graphics.DrawString($"Ligue de Sécurité du Québec - Régistre d'incription : {GetTypeRapport()}", printFontBold16, Brushes.Black, leftMargin + 200, yPos, new StringFormat());
+                e.Graphics.DrawString($"Ligue de Sécurité du Québec - Régistre d'incription: {GetTypeRapport()}", printFontBold16, Brushes.Black, leftMargin + 200, yPos, new StringFormat());
                 yPos += printFontBold16.Height + 15;
                 e.Graphics.DrawString($"Relevé : {mcLigue1.SelectionStart.Date.ToLongDateString()} au {mcLigue2.SelectionStart.Date.ToLongDateString()}", printFontBold16, Brushes.Black, leftMargin + 200, yPos, new StringFormat());
 
@@ -770,55 +770,58 @@ namespace Barette.IDE.Forms.LigueSecuriter
             e.Graphics.DrawString("inscription", printFontBold, Brushes.Black, leftMargin + 50, yPos + printFont.Height, new StringFormat());
 
             e.Graphics.DrawString("Nom du client", printFontBold, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
-            e.Graphics.DrawString("Adresse", printFontBold, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+            e.Graphics.DrawString("Adresse", printFontBold, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
             e.Graphics.DrawString("No. Permis.", printFontBold, Brushes.Black, leftMargin + 560, yPos, new StringFormat());
 
             e.Graphics.DrawString("Date", printFontBold, Brushes.Black, leftMargin + 660, yPos, new StringFormat());
             e.Graphics.DrawString("Naissance", printFontBold, Brushes.Black, leftMargin + 660, yPos + printFont.Height, new StringFormat());
 
-            e.Graphics.DrawString("No.", printFontBold, Brushes.Black, leftMargin + 740, yPos, new StringFormat());
-            e.Graphics.DrawString("Contrat", printFontBold, Brushes.Black, leftMargin + 740, yPos + printFont.Height, new StringFormat());
+            e.Graphics.DrawString("No.", printFontBold, Brushes.Black, leftMargin + 730, yPos, new StringFormat());
+            e.Graphics.DrawString("Contrat", printFontBold, Brushes.Black, leftMargin + 730, yPos + printFont.Height, new StringFormat());
 
-            e.Graphics.DrawString("T / TP", printFontBold, Brushes.Black, leftMargin + 800, yPos, new StringFormat());
-            e.Graphics.DrawString("Téléphone", printFontBold, Brushes.Black, leftMargin + 875, yPos, new StringFormat());
+            e.Graphics.DrawString("T / TP", printFontBold, Brushes.Black, leftMargin + 785, yPos, new StringFormat());
+            e.Graphics.DrawString("Téléphone", printFontBold, Brushes.Black, leftMargin + 840, yPos, new StringFormat());
 
-            e.Graphics.DrawString("No.", printFontBold, Brushes.Black, leftMargin + 950, yPos, new StringFormat());
-            e.Graphics.DrawString("Attestation", printFontBold, Brushes.Black, leftMargin + 950, yPos + printFont.Height, new StringFormat());
-
-            //Creation de l'objet client
-            Customer client = null;
+            e.Graphics.DrawString("Attestation", printFontBold, Brushes.Black, leftMargin + 920, yPos, new StringFormat());
+            e.Graphics.DrawString("No.", printFontBold, Brushes.Black, leftMargin + 920, yPos + printFont.Height, new StringFormat());
+            e.Graphics.DrawString("Date", printFontBold, Brushes.Black, leftMargin + 995, yPos + printFont.Height, new StringFormat());
 
             yPos += printFont.Height + 20;
+            
             //Impression de toute les lignes du tableau
             while (_LinePrinted < listFindResult.Items.Count - 1)
             {
                 _LinePrinted++;
 
-                client = GetClient(listFindResult.Items[_LinePrinted].Text);
+                //Creation de l'objet client
+                var client = GetClient(listFindResult.Items[_LinePrinted].Text);
 
                 if (client != null)
                 {
-
-                    yPos += printFont.Height;
+                    yPos += printFont.Height * 2 + 5; //changement de ligne plus espacement
                     e.Graphics.DrawString(_LinePrinted + 1 + " - ", printFont, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
-
                     e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[1].Text, printFont, Brushes.Black, leftMargin + 50, yPos, new StringFormat());
-                    e.Graphics.DrawString(client.FirstName + " " + client.Name, printFont, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
-                    e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[3].Text, printFont, Brushes.Black, leftMargin + 300, yPos, new StringFormat());
+                    
+                    e.Graphics.DrawString(client.GetFullName(false), printFont, Brushes.Black, leftMargin + 125, yPos, new StringFormat());
+                    e.Graphics.DrawString(client.Email, printFont, Brushes.Black, leftMargin + 125, yPos + printFont.Height, new StringFormat());
+                    
+                    e.Graphics.DrawString(client.GetFullAdresse(), printFont, Brushes.Black, leftMargin + 280, yPos, new StringFormat());
+
                     e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[4].Text, printFont, Brushes.Black, leftMargin + 560, yPos, new StringFormat());
                     e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[5].Text, printFont, Brushes.Black, leftMargin + 660, yPos, new StringFormat());
-                    e.Graphics.DrawString(listFindResult.Items[_LinePrinted].Text, printFont, Brushes.Black, leftMargin + 740, yPos, new StringFormat());
-                    e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[6].Text, printFont, Brushes.Black, leftMargin + 875, yPos, new StringFormat());
-                    e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[7].Text, printFont, Brushes.Black, leftMargin + 950, yPos, new StringFormat());
+                    e.Graphics.DrawString(listFindResult.Items[_LinePrinted].Text, printFont, Brushes.Black, leftMargin + 730, yPos, new StringFormat());
+                    e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[6].Text, printFont, Brushes.Black, leftMargin + 840, yPos, new StringFormat());
+                    e.Graphics.DrawString(listFindResult.Items[_LinePrinted].SubItems[7].Text, printFont, Brushes.Black, leftMargin + 920, yPos, new StringFormat());
+                    e.Graphics.DrawString(client.DateAttestation1.ToShortDateString(), printFont, Brushes.Black, leftMargin + 995, yPos, new StringFormat());
 
                     //Print la case check 2x
                     //Ecriture du header (image)
-                    Stream strm = Type.GetType("Barette.IDE.Forms.LigueSecuriter.FormLigueSecuriter").Assembly.GetManifestResourceStream("Barette.IDE.Resources.check.png");
-                    Bitmap img = new Bitmap(strm);
-                    e.Graphics.DrawImage(img, leftMargin + 800, yPos + 2);
-                    e.Graphics.DrawString("/", printFontBold, Brushes.Black, leftMargin + 815, yPos, new StringFormat());
-                    e.Graphics.DrawImage(img, leftMargin + 830, yPos + 2);
-
+                    var strm = Type.GetType("Barette.IDE.Forms.LigueSecuriter.FormLigueSecuriter").Assembly.GetManifestResourceStream("Barette.IDE.Resources.check.png");
+                    var img = new Bitmap(strm);
+                    e.Graphics.DrawImage(img, leftMargin + 785, yPos + 2);
+                    e.Graphics.DrawString("/", printFontBold, Brushes.Black, leftMargin + 800, yPos, new StringFormat());
+                    e.Graphics.DrawImage(img, leftMargin + 815, yPos + 2);
+                    
                     #region Creation d'une nouvelle page et numéro de page
                     string PageNumber = "Page : " + _TotalPagePrinted.ToString(); // +"/" + _TotalPage.ToString();
                     if (yPos >= e.MarginBounds.Height + 50)
@@ -827,7 +830,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
                         e.Graphics.DrawString(PageNumber,
                             printFontBold,
                             Brushes.Black,
-                            e.MarginBounds.Right - e.Graphics.MeasureString(PageNumber, printFontBold).Width,
+                            1000,
                             e.MarginBounds.Bottom,
                             new StringFormat());
 
@@ -841,7 +844,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
                         e.Graphics.DrawString(PageNumber,
                             printFontBold,
                             Brushes.Black,
-                            e.MarginBounds.Right - e.Graphics.MeasureString(PageNumber, printFontBold).Width,
+                            1000,
                             e.MarginBounds.Bottom,
                             new StringFormat());
                     }
@@ -860,7 +863,7 @@ namespace Barette.IDE.Forms.LigueSecuriter
             switch (RapportType)
             {
                 case TypeRapport.All:
-                    return "Automobile, Motocyclette et Cyclomoteur";
+                    return "Automobile, Motocyclette, Cyclomoteur et Spyder";
                 case TypeRapport.Auto:
                     return "Automobile";
                 case TypeRapport.Moto:
@@ -869,9 +872,9 @@ namespace Barette.IDE.Forms.LigueSecuriter
                     return "Cyclomoteur";
                 case TypeRapport.Spyder:
                     return "Spyder";
+                default:
+                    return "";
             }
-
-            return "";
         }
 
 

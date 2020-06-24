@@ -3,6 +3,7 @@ using System.Linq;
 
 using Barette.Library.Collections;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Barette.Library.Client
 {
@@ -411,6 +412,7 @@ namespace Barette.Library.Client
             catch { return null; }
         }
 
+        public string GetFullAdresse() => $"{StreetNumber} {StreetName} {StreetApp} {City} {CodePostal}";
         #endregion
     }
 }
