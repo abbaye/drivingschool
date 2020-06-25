@@ -1,3 +1,5 @@
 # driving school management (Quebec)
 
-Pretty old C#/winform project (2003) ... But it's work fine and can be used as sample in many way 😁
+Pretty old C # project / winform (2003) ... But it works well and can be used as an example in several ways 😁
+
+Culture is 100% in French 😅😁
