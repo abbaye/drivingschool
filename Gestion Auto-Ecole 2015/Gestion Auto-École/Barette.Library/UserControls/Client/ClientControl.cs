@@ -15338,7 +15338,6 @@ namespace Barette.Library.UserControls.Client
             switch (_Client.TypeVehicule)
             {
                 case VehiculeType.Moto:
-
                     nbHeureTaux = _Client.ProgramMoto == ProgramMoto.Program2015 ? 32 : 31;
 
                     //Theorie
@@ -15346,14 +15345,14 @@ namespace Barette.Library.UserControls.Client
                     nbHeure = _Client.ProgramMoto == ProgramMoto.Program2015 ? 6 : 9;
 
                     e.Graphics.DrawString($"Théorie : {nbHeure} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{_Client.MontantCoursDecimal / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
                     nbHeure = _Client.ProgramMoto == ProgramMoto.Program2015 ? 26 : 22;
 
                     e.Graphics.DrawString($"Pratique: {nbHeure} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{_Client.MontantCoursDecimal / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
                 case VehiculeType.Cyclomoteur:
@@ -15362,25 +15361,27 @@ namespace Barette.Library.UserControls.Client
                     //theorie
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Théorie : 3 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{_Client.MontantCoursDecimal / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
 
                     e.Graphics.DrawString($"Pratique: {(_Client.IsSpyder ? 4 : 3)} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{_Client.MontantCoursDecimal / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
                 default:
+                    nbHeureTaux = 39;
+
                     //theorie
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Théorie : 24 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(_Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Pratique: 15 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(_Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
             }
