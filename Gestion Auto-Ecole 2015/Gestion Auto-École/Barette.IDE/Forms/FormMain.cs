@@ -2117,6 +2117,13 @@ namespace Barette.IDE.Forms
         {
             Cursor = Cursors.WaitCursor;
 
+            //create folder
+            Directory.CreateDirectory(@"c:\GAEC backup");
+
+            //Backup avant
+            GAEBackup.CompressFolder(Application.StartupPath + @"\data", @"c:\GAEC backup\GAE2023 " + DateTime.Now.ToShortDateString() + " - presave.gaec", TauxCompression.Maximum, true);
+            //
+
             SaveClient(@"Data\client.xml", ClientList);
             SavePostIt(@"Data\postit.xml", PostItList);
             SavePostIt(@"Data\HorraireNotes.xml", NotesHoraire);
@@ -2125,6 +2132,10 @@ namespace Barette.IDE.Forms
             SaveInfoSchool(@"Data\SchoolInfo.xml");
             SaveStudentGroup();
             SaveConfig(@"Data\config.xml");
+
+            //Backup après
+            GAEBackup.CompressFolder(Application.StartupPath + @"\data", @"c:\GAEC backup\GAE2023 " + DateTime.Now.ToShortDateString() + ".gaec", TauxCompression.Maximum, true);
+            //
 
             Cursor = Cursors.Default;
         }

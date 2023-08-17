@@ -21,15 +21,11 @@ namespace Barette.Library.Collections
 				Add(item);
 		}
 
-		public void Remove(Customer value) {
-			base.List.Remove(value as object);
-		}
+        public void Remove(Customer value) => base.List.Remove(value as object);
 
-		public void Insert(int index, Customer value) {
-			base.List.Insert(index, value as object);
-		}
+        public void Insert(int index, Customer value) => base.List.Insert(index, value as object);
 
-		public bool Contains(Customer value) {
+        public bool Contains(Customer value) {
 			foreach(Customer s in base.List)
 				if (value.Equals(s))
 					return true;
@@ -50,17 +46,15 @@ namespace Barette.Library.Collections
 			get { return base.List[index] as Customer; }
 		}
 
-		public int IndexOf(Customer value) {
-			return base.List.IndexOf(value);
-		}
+        public int IndexOf(Customer value) => base.List.IndexOf(value);
 
-		#region Methodes
-		/// <summary>
-		/// Obtien le client demandé par le parametre ContratNumber
-		/// </summary>
-		/// <param name="ContratNumber">Numéro de contrat</param>
-		/// <returns>Retourne le client demandé. Si la valeur est null, c'est qu'il n'a pas trouvé de client correspondante</returns>
-		public Customer GetClient(string ContratNumber) {
+        #region Methodes
+        /// <summary>
+        /// Obtien le client demandé par le parametre ContratNumber
+        /// </summary>
+        /// <param name="ContratNumber">Numéro de contrat</param>
+        /// <returns>Retourne le client demandé. Si la valeur est null, c'est qu'il n'a pas trouvé de client correspondante</returns>
+        public Customer GetClient(string ContratNumber) {
             foreach (Customer client in this) {
                 if (client.ContratNumber == ContratNumber)
                     return client;

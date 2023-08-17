@@ -19,15 +19,11 @@ namespace Barette.Library.Collections
 				Add(item);
 		}
 
-		public void Remove(Paiement value) {
-			base.List.Remove(value as object);
-		}
+        public void Remove(Paiement value) => base.List.Remove(value as object);
 
-		public void Insert(int index, Paiement value) {
-			base.List.Insert(index, value as object);
-		}
+        public void Insert(int index, Paiement value) => base.List.Insert(index, value as object);
 
-		public bool Contains(Paiement value) {
+        public bool Contains(Paiement value) {
 			foreach(Paiement s in base.List)
 				if (value.Equals(s))
 					return true;
@@ -48,9 +44,7 @@ namespace Barette.Library.Collections
 			get { return base.List[index] as Paiement; }
 		}
 
-		public int IndexOf(Paiement value) {
-			return base.List.IndexOf(value);
-		}
+        public int IndexOf(Paiement value) => base.List.IndexOf(value);
 
         /// <summary>
         /// Retourne la valeur total des paiments dans la collection (Taxe incluse)

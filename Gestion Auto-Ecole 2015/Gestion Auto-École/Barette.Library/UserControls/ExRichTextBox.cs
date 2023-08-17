@@ -305,118 +305,104 @@ namespace Barette.Library.UserControls.Khendys.Controls
             SelectedRtf = _rtf;
 		}
 
-		/// <summary>
-		/// Assumes that the string passed as a parameter is valid RTF text and
-		/// attempts to insert it as RTF into the content of the control.
-		/// </summary>
-		/// <remarks>
-		/// NOTE: The text is inserted wherever the caret is at the time of the call,
-		/// and if any text is selected, that text is replaced.
-		/// </remarks>
-		/// <param name="_rtf"></param>
-		public void InsertRtf(string _rtf) {
-            SelectedRtf = _rtf;
-		}
+        /// <summary>
+        /// Assumes that the string passed as a parameter is valid RTF text and
+        /// attempts to insert it as RTF into the content of the control.
+        /// </summary>
+        /// <remarks>
+        /// NOTE: The text is inserted wherever the caret is at the time of the call,
+        /// and if any text is selected, that text is replaced.
+        /// </remarks>
+        /// <param name="_rtf"></param>
+        public void InsertRtf(string _rtf) => SelectedRtf = _rtf;
 
-		/// <summary>
-		/// Appends the text using the current font, text, and highlight colors.
-		/// </summary>
-		/// <param name="_text"></param>
-		public void AppendTextAsRtf(string _text) {
-			AppendTextAsRtf(_text, Font);
-		}
+        /// <summary>
+        /// Appends the text using the current font, text, and highlight colors.
+        /// </summary>
+        /// <param name="_text"></param>
+        public void AppendTextAsRtf(string _text) => AppendTextAsRtf(_text, Font);
 
 
-		/// <summary>
-		/// Appends the text using the given font, and current text and highlight
-		/// colors.
-		/// </summary>
-		/// <param name="_text"></param>
-		/// <param name="_font"></param>
-		public void AppendTextAsRtf(string _text, Font _font) {
-			AppendTextAsRtf(_text, _font, textColor);
-		}
-		
-		/// <summary>
-		/// Appends the text using the given font and text color, and the current
-		/// highlight color.
-		/// </summary>
-		/// <param name="_text"></param>
-		/// <param name="_font"></param>
-		/// <param name="_color"></param>
-		public void AppendTextAsRtf(string _text, Font _font, RtfColor _textColor) {
-			AppendTextAsRtf(_text, _font, _textColor, highlightColor);
-		}
+        /// <summary>
+        /// Appends the text using the given font, and current text and highlight
+        /// colors.
+        /// </summary>
+        /// <param name="_text"></param>
+        /// <param name="_font"></param>
+        public void AppendTextAsRtf(string _text, Font _font) => AppendTextAsRtf(_text, _font, textColor);
 
-		/// <summary>
-		/// Appends the text using the given font, text, and highlight colors.  Simply
-		/// moves the caret to the end of the RichTextBox's text and makes a call to
-		/// insert.
-		/// </summary>
-		/// <param name="_text"></param>
-		/// <param name="_font"></param>
-		/// <param name="_textColor"></param>
-		/// <param name="_backColor"></param>
-		public void AppendTextAsRtf(string _text, Font _font, RtfColor _textColor, RtfColor _backColor) {
+        /// <summary>
+        /// Appends the text using the given font and text color, and the current
+        /// highlight color.
+        /// </summary>
+        /// <param name="_text"></param>
+        /// <param name="_font"></param>
+        /// <param name="_color"></param>
+        public void AppendTextAsRtf(string _text, Font _font, RtfColor _textColor) => AppendTextAsRtf(_text, _font, _textColor, highlightColor);
+
+        /// <summary>
+        /// Appends the text using the given font, text, and highlight colors.  Simply
+        /// moves the caret to the end of the RichTextBox's text and makes a call to
+        /// insert.
+        /// </summary>
+        /// <param name="_text"></param>
+        /// <param name="_font"></param>
+        /// <param name="_textColor"></param>
+        /// <param name="_backColor"></param>
+        public void AppendTextAsRtf(string _text, Font _font, RtfColor _textColor, RtfColor _backColor) {
             // Move carret to the end of the text
             Select(TextLength, 0);
 
 			InsertTextAsRtf(_text, _font, _textColor, _backColor);
 		}
 
-		#endregion
+        #endregion
 
-		#region Insert Plain Text
+        #region Insert Plain Text
 
-		/// <summary>
-		/// Inserts the text using the current font, text, and highlight colors.
-		/// </summary>
-		/// <param name="_text"></param>
-		public void InsertTextAsRtf(string _text) {
-			InsertTextAsRtf(_text, Font);
-		}
+        /// <summary>
+        /// Inserts the text using the current font, text, and highlight colors.
+        /// </summary>
+        /// <param name="_text"></param>
+        public void InsertTextAsRtf(string _text) => InsertTextAsRtf(_text, Font);
 
 
-		/// <summary>
-		/// Inserts the text using the given font, and current text and highlight
-		/// colors.
-		/// </summary>
-		/// <param name="_text"></param>
-		/// <param name="_font"></param>
-		public void InsertTextAsRtf(string _text, Font _font) {
-			InsertTextAsRtf(_text, _font, textColor);
-		}
-		
-		/// <summary>
-		/// Inserts the text using the given font and text color, and the current
-		/// highlight color.
-		/// </summary>
-		/// <param name="_text"></param>
-		/// <param name="_font"></param>
-		/// <param name="_color"></param>
-		public void InsertTextAsRtf(string _text, Font _font, RtfColor _textColor) {
-			InsertTextAsRtf(_text, _font, _textColor, highlightColor);
-		}
+        /// <summary>
+        /// Inserts the text using the given font, and current text and highlight
+        /// colors.
+        /// </summary>
+        /// <param name="_text"></param>
+        /// <param name="_font"></param>
+        public void InsertTextAsRtf(string _text, Font _font) => InsertTextAsRtf(_text, _font, textColor);
 
-		/// <summary>
-		/// Inserts the text using the given font, text, and highlight colors.  The
-		/// text is wrapped in RTF codes so that the specified formatting is kept.
-		/// You can only assign valid RTF to the RichTextBox.Rtf property, else
-		/// an exception is thrown.  The RTF string should follow this format ...
-		/// 
-		/// {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{[FONTS]}{\colortbl ;[COLORS]}}
-		/// \viewkind4\uc1\pard\cf1\f0\fs20 [DOCUMENT AREA] }
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// NOTE: The text is inserted wherever the caret is at the time of the call,
-		/// and if any text is selected, that text is replaced.
-		/// </remarks>
-		/// <param name="_text"></param>
-		/// <param name="_font"></param>
-		/// <param name="_color"></param>
-		/// <param name="_color"></param>
-		public void InsertTextAsRtf(string _text, Font _font, RtfColor _textColor, RtfColor _backColor) {
+        /// <summary>
+        /// Inserts the text using the given font and text color, and the current
+        /// highlight color.
+        /// </summary>
+        /// <param name="_text"></param>
+        /// <param name="_font"></param>
+        /// <param name="_color"></param>
+        public void InsertTextAsRtf(string _text, Font _font, RtfColor _textColor) => InsertTextAsRtf(_text, _font, _textColor, highlightColor);
+
+        /// <summary>
+        /// Inserts the text using the given font, text, and highlight colors.  The
+        /// text is wrapped in RTF codes so that the specified formatting is kept.
+        /// You can only assign valid RTF to the RichTextBox.Rtf property, else
+        /// an exception is thrown.  The RTF string should follow this format ...
+        /// 
+        /// {\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{[FONTS]}{\colortbl ;[COLORS]}}
+        /// \viewkind4\uc1\pard\cf1\f0\fs20 [DOCUMENT AREA] }
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// NOTE: The text is inserted wherever the caret is at the time of the call,
+        /// and if any text is selected, that text is replaced.
+        /// </remarks>
+        /// <param name="_text"></param>
+        /// <param name="_font"></param>
+        /// <param name="_color"></param>
+        /// <param name="_color"></param>
+        public void InsertTextAsRtf(string _text, Font _font, RtfColor _textColor, RtfColor _backColor) {
 
 			StringBuilder _rtf = new StringBuilder();
 
@@ -845,17 +831,15 @@ namespace Barette.Library.UserControls.Khendys.Controls
 			return _colorTable.ToString();
 		}
 
-		/// <summary>
-		/// Called by overrided RichTextBox.Rtf accessor.
-		/// Removes the null character from the RTF.  This is residue from developing
-		/// the control for a specific instant messaging protocol and can be ommitted.
-		/// </summary>
-		/// <param name="_originalRtf"></param>
-		/// <returns>RTF without null character</returns>
-		private string RemoveBadChars(string _originalRtf) {			
-			return _originalRtf.Replace("\0", "");
-		}
+        /// <summary>
+        /// Called by overrided RichTextBox.Rtf accessor.
+        /// Removes the null character from the RTF.  This is residue from developing
+        /// the control for a specific instant messaging protocol and can be ommitted.
+        /// </summary>
+        /// <param name="_originalRtf"></param>
+        /// <returns>RTF without null character</returns>
+        private string RemoveBadChars(string _originalRtf) => _originalRtf.Replace("\0", "");
 
-		#endregion
-	}
+        #endregion
+    }
 }

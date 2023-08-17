@@ -19,15 +19,11 @@ namespace Barette.Library.Collections
 				Add(item);
 		}
 
-		public void Remove(ScheduleDescription value) {
-			base.List.Remove(value as object);
-		}
+        public void Remove(ScheduleDescription value) => base.List.Remove(value as object);
 
-		public void Insert(int index, ScheduleDescription value) {
-			base.List.Insert(index, value as object);
-		}
+        public void Insert(int index, ScheduleDescription value) => base.List.Insert(index, value as object);
 
-		public bool Contains(ScheduleDescription value) {
+        public bool Contains(ScheduleDescription value) {
 			foreach(ScheduleDescription s in base.List)
 				if (value.Equals(s))
 					return true;
@@ -48,8 +44,6 @@ namespace Barette.Library.Collections
 			get { return base.List[index] as ScheduleDescription; }
 		}
 
-		public int IndexOf(ScheduleDescription value) {
-			return base.List.IndexOf(value);
-		}
-	}
+        public int IndexOf(ScheduleDescription value) => base.List.IndexOf(value);
+    }
 }

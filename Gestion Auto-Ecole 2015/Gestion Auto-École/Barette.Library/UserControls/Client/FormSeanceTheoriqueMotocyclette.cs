@@ -289,18 +289,16 @@ namespace Barette.Library.UserControls.Client
             this.ResumeLayout(false);
 
 		}
-		#endregion
+        #endregion
 
-		private void button2_Click(object sender, EventArgs e) {
-            Close();
-		}
+        private void button2_Click(object sender, EventArgs e) => Close();
 
-		/// <summary>
-		/// enregistrement des Seance
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void cmdOK_Click(object sender, EventArgs e) 
+        /// <summary>
+        /// enregistrement des Seance
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdOK_Click(object sender, EventArgs e) 
 		{
             //Suppression des seance en cours
             _client.SeancesTheorique.Clear();

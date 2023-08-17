@@ -16,15 +16,11 @@ namespace Barette.Library.Collections
 				Add(item);
 		}
 
-		public void Remove(PostIt value) {
-			base.List.Remove(value as object);
-		}
+        public void Remove(PostIt value) => base.List.Remove(value as object);
 
-		public void Insert(int index, PostIt value) {
-			base.List.Insert(index, value as object);
-		}
+        public void Insert(int index, PostIt value) => base.List.Insert(index, value as object);
 
-		public bool Contains(PostIt value) {
+        public bool Contains(PostIt value) {
 			foreach(PostIt s in base.List)
 				if (value.Equals(s))
 					return true;
@@ -45,8 +41,6 @@ namespace Barette.Library.Collections
 			get { return base.List[index] as PostIt; }
 		}
 
-		public int IndexOf(PostIt value) {
-			return base.List.IndexOf(value);
-		}		
-	}
+        public int IndexOf(PostIt value) => base.List.IndexOf(value);
+    }
 }

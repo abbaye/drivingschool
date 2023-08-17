@@ -16,15 +16,11 @@ namespace Barette.Library.Collections
 				Add(item);
 		}
 
-		public void Remove(OffDate value) {
-			base.List.Remove(value as object);
-		}
+        public void Remove(OffDate value) => base.List.Remove(value as object);
 
-		public void Insert(int index, OffDate value) {
-			base.List.Insert(index, value as object);
-		}
+        public void Insert(int index, OffDate value) => base.List.Insert(index, value as object);
 
-		public bool Contains(OffDate value) {
+        public bool Contains(OffDate value) {
 			foreach (OffDate s in base.List)
 				if (value.Equals(s))
 					return true;
@@ -45,8 +41,6 @@ namespace Barette.Library.Collections
 			get { return base.List[index] as OffDate; }
 		}
 
-		public int IndexOf(OffDate value) {
-			return base.List.IndexOf(value);
-		}
-	}
+        public int IndexOf(OffDate value) => base.List.IndexOf(value);
+    }
 }

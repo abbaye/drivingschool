@@ -13618,10 +13618,7 @@ namespace Barette.Library.UserControls.Client
         }
         #endregion
 
-        private void cmdShowSeance_Click(object sender, EventArgs e)
-        {
-            ShowCours();
-        }
+        private void cmdShowSeance_Click(object sender, EventArgs e) => ShowCours();
 
         #region Type de Seance
         private void rbManuel_CheckedChanged(object sender, EventArgs e)
@@ -13766,10 +13763,7 @@ namespace Barette.Library.UserControls.Client
         /// <summary>
         /// Mettre la date d'inscription sur La date du jour
         /// </summary>
-        public void Now()
-        {
-            DateInscription.Value = DateTime.Now;
-        }
+        public void Now() => DateInscription.Value = DateTime.Now;
 
         /// <summary>
         /// Affiche la liste de cours.
@@ -14668,8 +14662,8 @@ namespace Barette.Library.UserControls.Client
             e.Graphics.DrawString("Signature du professeur : ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
             e.Graphics.DrawString("___________________", printFont, Brushes.Black, leftMargin + 230, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Nom du professeur       : Gérald Barrette", printFont, Brushes.Black, leftMargin, yPos, new StringFormat()); ;
-            e.Graphics.DrawString("No. Permis : L1761", printFont, Brushes.Black, leftMargin + 475, yPos, new StringFormat());
+            e.Graphics.DrawString("Nom du professeur       : François Laberge", printFont, Brushes.Black, leftMargin, yPos, new StringFormat()); ;
+            e.Graphics.DrawString("No. Permis : L-14003", printFont, Brushes.Black, leftMargin + 475, yPos, new StringFormat());
             yPos += printFont.Height * 2;
             e.Graphics.DrawString("Signature de l'élève : ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
             e.Graphics.DrawString("___________________", printFont, Brushes.Black, leftMargin + 230, yPos, new StringFormat());
@@ -14937,8 +14931,8 @@ namespace Barette.Library.UserControls.Client
             e.Graphics.DrawString("Signature du professeur : ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
             e.Graphics.DrawString("___________________", printFont, Brushes.Black, leftMargin + 230, yPos, new StringFormat());
             yPos += printFont.Height;
-            e.Graphics.DrawString("Nom du professeur       : Gérald Barrette", printFont, Brushes.Black, leftMargin, yPos, new StringFormat()); ;
-            e.Graphics.DrawString("No. Permis : L1761", printFont, Brushes.Black, leftMargin + 475, yPos, new StringFormat());
+            e.Graphics.DrawString("Nom du professeur       : François Laberge", printFont, Brushes.Black, leftMargin, yPos, new StringFormat()); ;
+            e.Graphics.DrawString("No. Permis : L-14003", printFont, Brushes.Black, leftMargin + 475, yPos, new StringFormat());
             yPos += printFont.Height * 2;
             e.Graphics.DrawString("Signature de l'élève : ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
             e.Graphics.DrawString("___________________", printFont, Brushes.Black, leftMargin + 230, yPos, new StringFormat());
@@ -15009,13 +15003,7 @@ namespace Barette.Library.UserControls.Client
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ShowPaiement();
-
-            //Afficher le solde et le dernier numero de recu
-            //...
-        }
+        private void button1_Click(object sender, EventArgs e) => ShowPaiement();//Afficher le solde et le dernier numero de recu//...
 
         private void txtNotes_TextChanged(object sender, EventArgs e)
         {
@@ -15047,10 +15035,7 @@ namespace Barette.Library.UserControls.Client
 
         }
 
-        private void cbBVA_CheckedChanged(object sender, EventArgs e)
-        {
-            dtpBVA.Enabled = cbBVA.Checked;
-        }
+        private void cbBVA_CheckedChanged(object sender, EventArgs e) => dtpBVA.Enabled = cbBVA.Checked;
 
         private void timerCheckClientValid_Tick(object sender, EventArgs e)
         {
@@ -15071,15 +15056,9 @@ namespace Barette.Library.UserControls.Client
 
         }
 
-        private void dtpDatePermis_ValueChanged(object sender, EventArgs e)
-        {
-            dtpDatePermisPlus8.Value = dtpDatePermis.Value.AddMonths(8);
-        }
+        private void dtpDatePermis_ValueChanged(object sender, EventArgs e) => dtpDatePermisPlus8.Value = dtpDatePermis.Value.AddMonths(8);
 
-        private void cbPermisObtenue_CheckedChanged(object sender, EventArgs e)
-        {
-            dtpDatePermis.Enabled = dtpDatePermisPlus8.Enabled = cbPermisObtenue.Checked;
-        }
+        private void cbPermisObtenue_CheckedChanged(object sender, EventArgs e) => dtpDatePermis.Enabled = dtpDatePermisPlus8.Enabled = cbPermisObtenue.Checked;
 
         public VehiculeType TypeVehicule
         {
@@ -15131,15 +15110,9 @@ namespace Barette.Library.UserControls.Client
             }
         }
 
-        private void txtCodePostal_Leave(object sender, EventArgs e)
-        {
-            txtCodePostal.Text = txtCodePostal.Text.ToUpper();
-        }
+        private void txtCodePostal_Leave(object sender, EventArgs e) => txtCodePostal.Text = txtCodePostal.Text.ToUpper();
 
-        private void txtCodePostal_Enter(object sender, EventArgs e)
-        {
-            txtCodePostal.SelectionStart = 0;
-        }
+        private void txtCodePostal_Enter(object sender, EventArgs e) => txtCodePostal.SelectionStart = 0;
 
         private void txtPhoneNumber_Enter(object sender, EventArgs e)
         {
@@ -15157,10 +15130,7 @@ namespace Barette.Library.UserControls.Client
             //    txtPhoneBureau.SelectionStart = 0;
         }
 
-        private void cmdShowSeanceTheorique_Click(object sender, EventArgs e)
-        {
-            ShowCoursTheorique();
-        }
+        private void cmdShowSeanceTheorique_Click(object sender, EventArgs e) => ShowCoursTheorique();
 
         private void printDocContract_PrintPage(object sender, PrintPageEventArgs e)
         {
@@ -15224,6 +15194,8 @@ namespace Barette.Library.UserControls.Client
             switch (_Client.TypeVehicule)
             {
                 case VehiculeType.Moto:
+                case VehiculeType.Spyder:
+                case VehiculeType.Cyclomoteur:
                     e.Graphics.DrawString(_infoSchool.RegistrationMoto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
                     break;
                 default:
@@ -15338,13 +15310,13 @@ namespace Barette.Library.UserControls.Client
             TaxeExtractor taxe = new TaxeExtractor();
 
             if (_Client.DateInscription.Year == 2011)
-                taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2011);
+                taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2011);
             else if (_Client.DateInscription.Year < 2011)
-                taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2008_to_2010);
+                taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2008_to_2010);
             else if (_Client.DateInscription.Year >= 2012 && _Client.DateInscription.Year < 2014)
-                taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2012);
+                taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2012);
             else if (_Client.DateInscription.Year >= 2014)
-                taxe = new TaxeExtractor(Convert.ToDecimal(_Client.MontantCours.Replace("$", "").Trim()), TaxeExtractor.Years.Y2014);
+                taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2014);
 
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Prix du cours :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
@@ -15359,43 +15331,44 @@ namespace Barette.Library.UserControls.Client
             e.Graphics.DrawString("Total :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
             e.Graphics.DrawString(taxe.Value.Total.ToString() + " $", printFontBold10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
+            var nbHeure = 0;
+            var nbHeureTaux = 0;
 
             //Théorie et pratique 
             switch (_Client.TypeVehicule)
             {
                 case VehiculeType.Moto:
+
+                    nbHeureTaux = _Client.ProgramMoto == ProgramMoto.Program2015 ? 32 : 31;
+
                     //Theorie
                     hauteurDescription += printFontTime10.Height;
+                    nbHeure = _Client.ProgramMoto == ProgramMoto.Program2015 ? 6 : 9;
 
-                    if (_Client.ProgramMoto == ProgramMoto.Program2015)
-                        e.Graphics.DrawString("Théorie : 6 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    else
-                        e.Graphics.DrawString("Théorie : 9 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-
-                    e.Graphics.DrawString(_Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"Théorie : {nbHeure} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{_Client.MontantCoursDecimal / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
+                    nbHeure = _Client.ProgramMoto == ProgramMoto.Program2015 ? 26 : 22;
 
-                    if (_Client.ProgramMoto == ProgramMoto.Program2015)
-                        e.Graphics.DrawString("Pratique: 26 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    else
-                        e.Graphics.DrawString("Pratique: 22 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-
-                    e.Graphics.DrawString(_Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"Pratique: {nbHeure} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{_Client.MontantCoursDecimal / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
                 case VehiculeType.Cyclomoteur:
+                    nbHeureTaux = _Client.IsSpyder ? 7 : 6;
+
                     //theorie
                     hauteurDescription += printFontTime10.Height;
                     e.Graphics.DrawString("Théorie : 3 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(_Client.TauxHoraireTheorique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{_Client.MontantCoursDecimal / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
 
                     e.Graphics.DrawString($"Pratique: {(_Client.IsSpyder ? 4 : 3)} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString(_Client.TauxHorairePratique + " / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                    e.Graphics.DrawString($"{_Client.MontantCoursDecimal / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
                     break;
                 default:
@@ -15490,10 +15463,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             #endregion
         }
 
-        private void cmdAutoDateExpiration_Click(object sender, EventArgs e)
-        {
-            DateExpiration.Value = DateInscription.Value.AddMonths(18);
-        }
+        private void cmdAutoDateExpiration_Click(object sender, EventArgs e) => DateExpiration.Value = DateInscription.Value.AddMonths(18);
 
         private void DateInscription_ValueChanged(object sender, EventArgs e)
         {
@@ -15525,10 +15495,7 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
                 EmailError.SetError(txtEmail, "");
         }
 
-        private void cmdShowSeancesMoto2015_Click(object sender, EventArgs e)
-        {
-            ShowCours2015();
-        }
+        private void cmdShowSeancesMoto2015_Click(object sender, EventArgs e) => ShowCours2015();
 
         private void printDocMoto2015_PrintPage(object sender, PrintPageEventArgs e)
         {
@@ -15795,15 +15762,9 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
 
         }
 
-        private void rbProgramMotoNormal_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateProgramMotoControl();
-        }
+        private void rbProgramMotoNormal_CheckedChanged(object sender, EventArgs e) => UpdateProgramMotoControl();
 
-        private void rbProgramMoto2015_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdateProgramMotoControl();
-        }
+        private void rbProgramMoto2015_CheckedChanged(object sender, EventArgs e) => UpdateProgramMotoControl();
 
         private void printDocAttestationMoto2015_PrintPage(object sender, PrintPageEventArgs e)
         {
@@ -16085,9 +16046,6 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             if (txtNumeroAttestation.Value == 0) txtNumeroAttestation.Text = "";
         }
 
-        private void cbSpyder_Click(object sender, EventArgs e)
-        {
-            rbVehiculMotocyclette.Checked = true;
-        }
+        private void cbSpyder_Click(object sender, EventArgs e) => rbVehiculMotocyclette.Checked = true;
     }
 }

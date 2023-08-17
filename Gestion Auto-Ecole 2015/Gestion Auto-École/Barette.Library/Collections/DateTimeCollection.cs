@@ -18,15 +18,11 @@ namespace Barette.Library.Collections
 				Add(item);
 		}
 
-		public void Remove(DateTime value) {
-			base.List.Remove(value as object);
-		}
+        public void Remove(DateTime value) => base.List.Remove(value as object);
 
-		public void Insert(int index, DateTime value) {
-			base.List.Insert(index, value as object);
-		}
+        public void Insert(int index, DateTime value) => base.List.Insert(index, value as object);
 
-		public bool Contains(DateTime value) {
+        public bool Contains(DateTime value) {
 			foreach(DateTime s in base.List)
 				if (value.Equals(s))
 					return true;
@@ -50,8 +46,6 @@ namespace Barette.Library.Collections
 			}
 		}
 
-		public int IndexOf(DateTime value) {
-			return base.List.IndexOf(value);
-		}		
-	}
+        public int IndexOf(DateTime value) => base.List.IndexOf(value);
+    }
 }

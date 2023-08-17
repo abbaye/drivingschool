@@ -19,15 +19,11 @@ namespace Barette.Library.Collections
 				Add(item);
 		}
 
-		public void Remove(Seance value) {
-			base.List.Remove(value as object);
-		}
+        public void Remove(Seance value) => base.List.Remove(value as object);
 
-		public void Insert(int index, Seance value) {
-			base.List.Insert(index, value as object);
-		}
+        public void Insert(int index, Seance value) => base.List.Insert(index, value as object);
 
-		public bool Contains(Seance value) {
+        public bool Contains(Seance value) {
 			foreach(Seance s in base.List)
 				if (value.Equals(s))
 					return true;
@@ -48,8 +44,6 @@ namespace Barette.Library.Collections
 			get { return base.List[index] as Seance; }
 		}
 
-		public int IndexOf(Seance value) {
-			return base.List.IndexOf(value);
-		}		
-	}
+        public int IndexOf(Seance value) => base.List.IndexOf(value);
+    }
 }

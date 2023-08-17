@@ -18,15 +18,11 @@ namespace Barette.Library.Collections
 				Add(item);
 		}
 
-		public void Remove(Employe value) {
-			base.List.Remove(value as object);
-		}
+        public void Remove(Employe value) => base.List.Remove(value as object);
 
-		public void Insert(int index, Employe value) {
-			base.List.Insert(index, value as object);
-		}
+        public void Insert(int index, Employe value) => base.List.Insert(index, value as object);
 
-		public bool Contains(Employe value) {
+        public bool Contains(Employe value) {
 			foreach(Employe s in base.List)
 				if (value.Equals(s))
 					return true;
@@ -47,9 +43,7 @@ namespace Barette.Library.Collections
 			get { return base.List[index] as Employe; }
 		}
 
-		public int IndexOf(Employe value) {
-			return base.List.IndexOf(value);
-		}
+        public int IndexOf(Employe value) => base.List.IndexOf(value);
 
         public Employe GetFromName(string Name)
         {

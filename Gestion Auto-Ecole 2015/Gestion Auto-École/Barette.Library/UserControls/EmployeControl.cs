@@ -226,10 +226,8 @@ namespace Barette.Library.UserControls
 				MakeControl();
 			}
 		}
-		#endregion
+        #endregion
 
-		private void cbLastDay_CheckedChanged(object sender, EventArgs e) {
-			dtpLastDay.Enabled = cbLastDay.Checked;
-		}
-	}
+        private void cbLastDay_CheckedChanged(object sender, EventArgs e) => dtpLastDay.Enabled = cbLastDay.Checked;
+    }
 }

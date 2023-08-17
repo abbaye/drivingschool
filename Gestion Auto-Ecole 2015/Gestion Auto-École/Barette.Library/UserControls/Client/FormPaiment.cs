@@ -798,17 +798,15 @@ namespace Barette.Library.UserControls.Client
 			ShowSolde();
 		}
 
-		/// <summary>
-		/// Affiche le Solde et l'arrondi a 2 decimal
-		/// </summary>
-		private void ShowSolde() {
-			lblSolde.Text = Decimal.Round(Convert.ToDecimal(CalculSolde()), 2).ToString() + " $";
-		}
+        /// <summary>
+        /// Affiche le Solde et l'arrondi a 2 decimal
+        /// </summary>
+        private void ShowSolde() => lblSolde.Text = Decimal.Round(Convert.ToDecimal(CalculSolde()), 2).ToString() + " $";
 
-		/// <summary>
-		/// Ajouter un paiment à la viste
-		/// </summary>
-		private void AjouterPaiement() {
+        /// <summary>
+        /// Ajouter un paiment à la viste
+        /// </summary>
+        private void AjouterPaiement() {
 			string type;
 			string typePaiment = "";
 
@@ -1010,14 +1008,12 @@ namespace Barette.Library.UserControls.Client
 			ShowSolde();
 		}
 
-		private void cbTotalCours_Leave(object sender, EventArgs e) {
-			ShowSolde();
-		}
+        private void cbTotalCours_Leave(object sender, EventArgs e) => ShowSolde();
 
-		/// <summary>
-		/// Ajout de paiment dans le client en cours
-		/// </summary>
-		private void cmdApply_Click(object sender, EventArgs e) {
+        /// <summary>
+        /// Ajout de paiment dans le client en cours
+        /// </summary>
+        private void cmdApply_Click(object sender, EventArgs e) {
             _ClientCtrl.CashBox_Solde.Text = lblSolde.Text;
             _ClientCtrl._MontantCours = cbTotalCours.Text;
 
@@ -1086,15 +1082,13 @@ namespace Barette.Library.UserControls.Client
             Close();
 		}
 
-		private void cbTotalCours_TextChanged(object sender, EventArgs e) {
-			gbPaiment.Enabled = cbTotalCours.Value > 0;
-        }
+        private void cbTotalCours_TextChanged(object sender, EventArgs e) => gbPaiment.Enabled = cbTotalCours.Value > 0;
 
-		/// <summary>
-		/// Selectionne un paiment dans la liste
-		/// </summary>
-		/// <param name="Number">Numéro du paiment a sélectionné</param>
-		public void SelectPaiment(int Number) {
+        /// <summary>
+        /// Selectionne un paiment dans la liste
+        /// </summary>
+        /// <param name="Number">Numéro du paiment a sélectionné</param>
+        public void SelectPaiment(int Number) {
 			for (int i = 0; i < ListViewPaiment.Items.Count; i++) {
 				if (Number.ToString() == ListViewPaiment.Items[i].SubItems[2].Text) {
 					ListViewPaiment.Items[i].Selected = true;
@@ -1433,10 +1427,7 @@ namespace Barette.Library.UserControls.Client
 				ModifierPaiment();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			cbAbsence.Checked = cbLocationAuto.Checked = cbRetourLivre.Checked = false;
-		}
+        private void button1_Click(object sender, EventArgs e) => cbAbsence.Checked = cbLocationAuto.Checked = cbRetourLivre.Checked = false;
 
     }
 }

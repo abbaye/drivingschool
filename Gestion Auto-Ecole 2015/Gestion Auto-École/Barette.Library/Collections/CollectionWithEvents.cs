@@ -77,10 +77,8 @@ namespace Barette.Library.Collections
 			}
 		}
 
-		protected int IndexOf(object value)
-		{
-			// Find the 0 based index of the requested entry
-			return base.List.IndexOf(value);
-		}
-	}
+        protected int IndexOf(object value) =>
+            // Find the 0 based index of the requested entry
+            base.List.IndexOf(value);
+    }
 }

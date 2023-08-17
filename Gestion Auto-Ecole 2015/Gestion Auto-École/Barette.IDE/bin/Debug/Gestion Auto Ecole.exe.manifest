@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Gestion Auto Ecole.exe" version="1.0.0.33" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Gestion Auto Ecole.exe" version="1.0.0.36" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="user-group.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Gestion Auto Ecole" version="1.2.8599.22570" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Gestion Auto Ecole" version="1.2.8628.39928" language="neutral" processorArchitecture="msil" />
     <commandLine file="Gestion Auto Ecole.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,26 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Barette.Library.dll" size="24223744">
-      <assemblyIdentity name="Barette.Library" version="1.0.8599.22570" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Barette.Library.dll" size="24219648">
+      <assemblyIdentity name="Barette.Library" version="1.0.8628.39927" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DRhhCKGI0p3vhGxSq10j1mXXs2kt2DEjZSvwGOVpSkg=</dsig:DigestValue>
+        <dsig:DigestValue>wQFho1dQ7zvaXfmYcwZLzKzP254ZwAbx3Tll3kZbOQ8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gestion Auto Ecole.exe" size="1339392">
-      <assemblyIdentity name="Gestion Auto Ecole" version="1.2.8599.22570" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Gestion Auto Ecole" version="1.2.8628.39928" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iMkr87UEFsaN4a4fpIZ/wfvBB3J9L5RmCH3wzVTiCZs=</dsig:DigestValue>
+        <dsig:DigestValue>AjEHDRVA1ZbcKcCRxKeys8kJ4cIYYBTxzuB1leilcyE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9qewmvBMNUt3e2GpY/ZzpzW4WP3Srknk7LvAM2qSoUQ=</dsig:DigestValue>
+        <dsig:DigestValue>p1Y43U0ysIv/RJ27VMSlcEaV1/jgHJ8fKyzxV//V/40=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -85,19 +85,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6sIVibSiai3DD8xLAKaX4y/S4v60Ev4X3vxrvoLmgtE=</dsig:DigestValue>
+        <dsig:DigestValue>4+it86ULL3r5r/feeb8UUb6Y7bCRtRb7CVnDAir4F3Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OfficePickers.dll" size="31744">
-      <assemblyIdentity name="OfficePickers" version="1.0.8599.22570" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="OfficePickers" version="1.0.8622.15901" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>74MQFz/tXENCdMMY154VrlBxJOfKprf5mt9T9juVons=</dsig:DigestValue>
+        <dsig:DigestValue>IY9K49IQj+ZXln32h1BgzxaRtrildviCQ/uo0CVD7xQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>d0WfMcEr+82uRvLMlOCyRwx8hiOKW1i4IHSP2bM45c8=</dsig:DigestValue>
+        <dsig:DigestValue>mXVQfEUg3kCbrG9hfJ84czUojgH1GhYZUxOX1qfsWNI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

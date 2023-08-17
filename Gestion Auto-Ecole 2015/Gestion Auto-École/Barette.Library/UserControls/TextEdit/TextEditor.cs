@@ -101,56 +101,48 @@ namespace Barette.Library.UserControls.TextEdit
 			Barette.Library.Win32.StaticBorder.ThinBorder(richTextBox1.Handle.ToInt32(), true);
 		}
 
-		/// <summary>
-		/// Est activé lors du clic sur une couleur.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void ColorToolStripButton_Click(object sender, EventArgs e) {
-            richTextBox1.SelectionColor = Color.FromName(sender.ToString());
+        /// <summary>
+        /// Est activé lors du clic sur une couleur.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void ColorToolStripButton_Click(object sender, EventArgs e) => richTextBox1.SelectionColor = Color.FromName(sender.ToString());
+
+        /// <summary>
+        /// Bouton imprimer (fonction non encore implémentée.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void printToolStripButton_Click(object sender, EventArgs e) {
 		}
 
-		/// <summary>
-		/// Bouton imprimer (fonction non encore implémentée.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void printToolStripButton_Click(object sender, EventArgs e) {
-		}
+        /// <summary>
+        /// Bouton couper.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void cutToolStripButton_Click(object sender, EventArgs e) => richTextBox1.Cut();
 
-		/// <summary>
-		/// Bouton couper.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void cutToolStripButton_Click(object sender, EventArgs e) {
-            richTextBox1.Cut();
-		}
+        /// <summary>
+        /// Bouton copier.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void copyToolStripButton_Click(object sender, EventArgs e) => richTextBox1.Copy();
 
-		/// <summary>
-		/// Bouton copier.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void copyToolStripButton_Click(object sender, EventArgs e) {
-            richTextBox1.Copy();
-		}
+        /// <summary>
+        /// Bouton coller.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void pasteToolStripButton_Click(object sender, EventArgs e) => richTextBox1.Paste();
 
-		/// <summary>
-		/// Bouton coller.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void pasteToolStripButton_Click(object sender, EventArgs e) {
-            richTextBox1.Paste();
-		}
-
-		/// <summary>
-		/// Mise à jour des boutons lorsque la sélection du texte change.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void richTextBox1_SelectionChanged(object sender, EventArgs e) {
+        /// <summary>
+        /// Mise à jour des boutons lorsque la sélection du texte change.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void richTextBox1_SelectionChanged(object sender, EventArgs e) {
 			if (richTextBox1.SelectionFont == null) return;
             boldToolStripButton.Checked = richTextBox1.SelectionFont.Bold;
             italicToolStripButton.Checked = richTextBox1.SelectionFont.Italic;
@@ -184,21 +176,19 @@ namespace Barette.Library.UserControls.TextEdit
             richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, (FontStyle)style);
 		}
 
-		/// <summary>
-		/// Mise à jour de la police utilisée.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void fontToolStripComboBox_SelectedIndexChanged(object sender, EventArgs e) {
-            richTextBox1.SelectionFont = new Font(fontToolStripComboBox.Text, richTextBox1.SelectionFont.Size, richTextBox1.SelectionFont.Style);
-		}
+        /// <summary>
+        /// Mise à jour de la police utilisée.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void fontToolStripComboBox_SelectedIndexChanged(object sender, EventArgs e) => richTextBox1.SelectionFont = new Font(fontToolStripComboBox.Text, richTextBox1.SelectionFont.Size, richTextBox1.SelectionFont.Style);
 
-		/// <summary>
-		/// Mise à jour de la taille de la police.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void fontSizeToolStripButton_SelectedIndexChanged(object sender, EventArgs e) {
+        /// <summary>
+        /// Mise à jour de la taille de la police.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void fontSizeToolStripButton_SelectedIndexChanged(object sender, EventArgs e) {
 			try {
 				int i = System.Convert.ToInt32(fontSizeToolStripButton.Text);
                 richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.Name, i, richTextBox1.SelectionFont.Style);
@@ -262,34 +252,28 @@ namespace Barette.Library.UserControls.TextEdit
 			rightToolStripButton.Checked = true;
 		}
 
-		/// <summary>
-		/// Création d'une liste dans le texte.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void bulletToolStripButton_Click(object sender, EventArgs e) {
-            richTextBox1.SelectionBullet = bulletToolStripButton.Checked;
-		}
+        /// <summary>
+        /// Création d'une liste dans le texte.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void bulletToolStripButton_Click(object sender, EventArgs e) => richTextBox1.SelectionBullet = bulletToolStripButton.Checked;
 
-		/// <summary>
-		/// Survient lorsque le texte change.
-		/// </summary>
-		/// <param name="sender">Voir la documentation MSDN.</param>
-		/// <param name="e">Voir la documentation MSDN.</param>
-		private void richTextBox1_RTFTextChanged(object sender, EventArgs e) {
+        /// <summary>
+        /// Survient lorsque le texte change.
+        /// </summary>
+        /// <param name="sender">Voir la documentation MSDN.</param>
+        /// <param name="e">Voir la documentation MSDN.</param>
+        private void richTextBox1_RTFTextChanged(object sender, EventArgs e) {
 			if (OnChange != null) OnChange(this, EventArgs.Empty);
 			m_RTFTextChanged = true;
 		}
 
-		private void UndoToolStripButton_Click(object sender, EventArgs e) {
-            richTextBox1.Undo();
-		}
+        private void UndoToolStripButton_Click(object sender, EventArgs e) => richTextBox1.Undo();
 
-		private void RedoToolStripButton_Click(object sender, EventArgs e) {
-            richTextBox1.Redo();
-		}
+        private void RedoToolStripButton_Click(object sender, EventArgs e) => richTextBox1.Redo();
 
-		private void DateToolStripButton_Click(object sender, EventArgs e) {
+        private void DateToolStripButton_Click(object sender, EventArgs e) {
 			FormDateTime frmDateTime = new FormDateTime();
 
 
@@ -299,12 +283,8 @@ namespace Barette.Library.UserControls.TextEdit
 			}
 		}
 
-		private void SurligneToolStripButton_Click(object sender, EventArgs e) {
-			richTextBox1.SelectionBackColor = richTextBox1.SelectionBackColor != Color.Yellow ? Color.Yellow : Color.Transparent;
-        }
+        private void SurligneToolStripButton_Click(object sender, EventArgs e) => richTextBox1.SelectionBackColor = richTextBox1.SelectionBackColor != Color.Yellow ? Color.Yellow : Color.Transparent;
 
-        private void toolStripColorPicker1_SelectedColorChanged(object sender, EventArgs e) {
-            richTextBox1.SelectionColor = toolStripColorPicker1.Color;
-        }
-	}
+        private void toolStripColorPicker1_SelectedColorChanged(object sender, EventArgs e) => richTextBox1.SelectionColor = toolStripColorPicker1.Color;
+    }
 }

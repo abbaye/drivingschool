@@ -378,11 +378,9 @@ namespace Barette.Library.Forms
 			txtCode.Focus();
 		}
 
-		private void cmdCancel_Click(object sender, EventArgs e) {
-            Close();
-		}
+        private void cmdCancel_Click(object sender, EventArgs e) => Close();
 
-		private void tbCode_ButtonClick(object sender, ToolBarButtonClickEventArgs e) {
+        private void tbCode_ButtonClick(object sender, ToolBarButtonClickEventArgs e) {
 			switch (e.Button.Tag.ToString()) {
 				case "ADD":
 					NewCodeSeance();
@@ -393,11 +391,9 @@ namespace Barette.Library.Forms
 			}
 		}
 
-		private void TimerButton_Tick(object sender, EventArgs e) {
-			tbbDelete.Enabled = lvCode.SelectedItems.Count > 0;
-        }
+        private void TimerButton_Tick(object sender, EventArgs e) => tbbDelete.Enabled = lvCode.SelectedItems.Count > 0;
 
-		private void lvCode_KeyUp(object sender, KeyEventArgs e) {
+        private void lvCode_KeyUp(object sender, KeyEventArgs e) {
 			switch (e.KeyCode) {
 				case Keys.Delete:
 					DeleteSelection();

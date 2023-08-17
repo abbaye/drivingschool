@@ -124,532 +124,532 @@ namespace Barette.IDE.Forms.Finance
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFinance));
-            Customer customer1 = new Customer();
-            cmdEqual = new Button();
-            rbOr = new RadioButton();
-            rbBetween = new RadioButton();
-            dtpFixeDate = new DateTimePicker();
-            mcRecu2 = new MonthCalendar();
-            mcRecu1 = new MonthCalendar();
-            chkDisponibilityPM = new CheckBox();
-            chkDisponibilityAM = new CheckBox();
-            imageList1 = new ImageList(components);
-            toolBar1 = new ToolBar();
-            ttbRefresh = new ToolBarButton();
-            tbbSeparator = new ToolBarButton();
-            tbbHorraireInfo = new ToolBarButton();
-            tbbSeparator2 = new ToolBarButton();
-            tbbShowClient = new ToolBarButton();
-            tbbShowSeance = new ToolBarButton();
-            tbbSeparator1 = new ToolBarButton();
-            tbbPrintClientInfo = new ToolBarButton();
-            tbbTPSTVQ = new ToolBarButton();
-            timer1 = new Timer(components);
-            PrintRelever = new System.Drawing.Printing.PrintDocument();
-            groupBox1 = new GroupBox();
-            label4 = new Label();
-            lblTPS = new Label();
-            label3 = new Label();
-            lblTVQ = new Label();
-            label2 = new Label();
-            lblMontantExcluTaxe = new Label();
-            label1 = new Label();
-            lblMontantIncluTaxe = new Label();
-            lblMontantPD = new Label();
-            lblMontantCheque = new Label();
-            cbAutoFind = new CheckBox();
-            label5 = new Label();
-            label6 = new Label();
-            groupBox2 = new GroupBox();
-            txtTPS = new PourCentTextBox();
-            txtTVQ = new PourCentTextBox();
-            ImageListSmall = new ImageList(components);
-            lblMontantAutre = new Label();
-            tcRapportType = new TabControl();
-            tpRapportTaxe = new TabPage();
-            tpCompteARecevoir = new TabPage();
-            mcCompteARecevoir = new MonthCalendar();
-            lblMontantAC = new Label();
-            PrintCompteARecevoir = new System.Drawing.Printing.PrintDocument();
-            clientControl1 = new ClientControl();
-            listFindResult = new ListViewEx();
-            colheadContratNumber = new ColumnHeader();
-            colheadName = new ColumnHeader();
-            colheadDate = new ColumnHeader();
-            colHeadPhone = new ColumnHeader();
-            colHeadTypeVehicule = new ColumnHeader();
-            colHeadSolde = new ColumnHeader();
-            colHeadLastRecuNumber = new ColumnHeader();
-            colHeadMontant = new ColumnHeader();
-            colHeadDateRecu = new ColumnHeader();
-            colHeadRL = new ColumnHeader();
-            colHeadTypePaiment = new ColumnHeader();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            tcRapportType.SuspendLayout();
-            tpRapportTaxe.SuspendLayout();
-            tpCompteARecevoir.SuspendLayout();
-            SuspendLayout();
+            Barette.Library.Client.Customer customer1 = new Barette.Library.Client.Customer();
+            this.cmdEqual = new System.Windows.Forms.Button();
+            this.rbOr = new System.Windows.Forms.RadioButton();
+            this.rbBetween = new System.Windows.Forms.RadioButton();
+            this.dtpFixeDate = new System.Windows.Forms.DateTimePicker();
+            this.mcRecu2 = new System.Windows.Forms.MonthCalendar();
+            this.mcRecu1 = new System.Windows.Forms.MonthCalendar();
+            this.chkDisponibilityPM = new System.Windows.Forms.CheckBox();
+            this.chkDisponibilityAM = new System.Windows.Forms.CheckBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolBar1 = new System.Windows.Forms.ToolBar();
+            this.ttbRefresh = new System.Windows.Forms.ToolBarButton();
+            this.tbbSeparator = new System.Windows.Forms.ToolBarButton();
+            this.tbbHorraireInfo = new System.Windows.Forms.ToolBarButton();
+            this.tbbSeparator2 = new System.Windows.Forms.ToolBarButton();
+            this.tbbShowClient = new System.Windows.Forms.ToolBarButton();
+            this.tbbShowSeance = new System.Windows.Forms.ToolBarButton();
+            this.tbbSeparator1 = new System.Windows.Forms.ToolBarButton();
+            this.tbbPrintClientInfo = new System.Windows.Forms.ToolBarButton();
+            this.tbbTPSTVQ = new System.Windows.Forms.ToolBarButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.PrintRelever = new System.Drawing.Printing.PrintDocument();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTPS = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTVQ = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblMontantExcluTaxe = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblMontantIncluTaxe = new System.Windows.Forms.Label();
+            this.lblMontantPD = new System.Windows.Forms.Label();
+            this.lblMontantCheque = new System.Windows.Forms.Label();
+            this.cbAutoFind = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ImageListSmall = new System.Windows.Forms.ImageList(this.components);
+            this.lblMontantAutre = new System.Windows.Forms.Label();
+            this.tcRapportType = new System.Windows.Forms.TabControl();
+            this.tpRapportTaxe = new System.Windows.Forms.TabPage();
+            this.tpCompteARecevoir = new System.Windows.Forms.TabPage();
+            this.mcCompteARecevoir = new System.Windows.Forms.MonthCalendar();
+            this.lblMontantAC = new System.Windows.Forms.Label();
+            this.PrintCompteARecevoir = new System.Drawing.Printing.PrintDocument();
+            this.txtTPS = new Barette.Library.UserControls.PourCentTextBox();
+            this.txtTVQ = new Barette.Library.UserControls.PourCentTextBox();
+            this.clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
+            this.listFindResult = new Barette.Library.Listview.ListViewEx();
+            this.colheadContratNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colheadName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colheadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadTypeVehicule = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadSolde = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadLastRecuNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadMontant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadDateRecu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadRL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colHeadTypePaiment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tcRapportType.SuspendLayout();
+            this.tpRapportTaxe.SuspendLayout();
+            this.tpCompteARecevoir.SuspendLayout();
+            this.SuspendLayout();
             // 
             // cmdEqual
             // 
-            cmdEqual.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            cmdEqual.Location = new Point(248, 58);
-            cmdEqual.Margin = new Padding(3, 3, 3, 1);
-            cmdEqual.Name = "cmdEqual";
-            cmdEqual.Size = new Size(48, 23);
-            cmdEqual.TabIndex = 9;
-            cmdEqual.Text = "=";
-            cmdEqual.Click += new EventHandler(cmdEqual_Click);
+            this.cmdEqual.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cmdEqual.Location = new System.Drawing.Point(248, 58);
+            this.cmdEqual.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.cmdEqual.Name = "cmdEqual";
+            this.cmdEqual.Size = new System.Drawing.Size(48, 23);
+            this.cmdEqual.TabIndex = 9;
+            this.cmdEqual.Text = "=";
+            this.cmdEqual.Click += new System.EventHandler(this.cmdEqual_Click);
             // 
             // rbOr
             // 
-            rbOr.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbOr.Location = new Point(240, 180);
-            rbOr.Name = "rbOr";
-            rbOr.Size = new Size(72, 24);
-            rbOr.TabIndex = 8;
-            rbOr.Text = "Date fixe";
+            this.rbOr.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbOr.Location = new System.Drawing.Point(240, 180);
+            this.rbOr.Name = "rbOr";
+            this.rbOr.Size = new System.Drawing.Size(72, 24);
+            this.rbOr.TabIndex = 8;
+            this.rbOr.Text = "Date fixe";
             // 
             // rbBetween
             // 
-            rbBetween.Checked = true;
-            rbBetween.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            rbBetween.Location = new Point(240, 82);
-            rbBetween.Margin = new Padding(3, 0, 4, 3);
-            rbBetween.Name = "rbBetween";
-            rbBetween.Size = new Size(64, 24);
-            rbBetween.TabIndex = 7;
-            rbBetween.TabStop = true;
-            rbBetween.Text = "Intervale";
+            this.rbBetween.Checked = true;
+            this.rbBetween.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.rbBetween.Location = new System.Drawing.Point(240, 82);
+            this.rbBetween.Margin = new System.Windows.Forms.Padding(3, 0, 4, 3);
+            this.rbBetween.Name = "rbBetween";
+            this.rbBetween.Size = new System.Drawing.Size(64, 24);
+            this.rbBetween.TabIndex = 7;
+            this.rbBetween.TabStop = true;
+            this.rbBetween.Text = "Intervale";
             // 
             // dtpFixeDate
             // 
-            dtpFixeDate.Location = new Point(312, 180);
-            dtpFixeDate.Name = "dtpFixeDate";
-            dtpFixeDate.Size = new Size(128, 20);
-            dtpFixeDate.TabIndex = 6;
-            dtpFixeDate.ValueChanged += new EventHandler(dtpFixeDate_ValueChanged);
+            this.dtpFixeDate.Location = new System.Drawing.Point(312, 180);
+            this.dtpFixeDate.Name = "dtpFixeDate";
+            this.dtpFixeDate.Size = new System.Drawing.Size(128, 20);
+            this.dtpFixeDate.TabIndex = 6;
+            this.dtpFixeDate.ValueChanged += new System.EventHandler(this.dtpFixeDate_ValueChanged);
             // 
             // mcRecu2
             // 
-            mcRecu2.Location = new Point(312, 12);
-            mcRecu2.Margin = new Padding(4, 9, 9, 9);
-            mcRecu2.MaxSelectionCount = 1;
-            mcRecu2.Name = "mcRecu2";
-            mcRecu2.TabIndex = 4;
-            mcRecu2.DateChanged += new DateRangeEventHandler(mcRecu2_DateChanged);
+            this.mcRecu2.Location = new System.Drawing.Point(312, 12);
+            this.mcRecu2.Margin = new System.Windows.Forms.Padding(4, 9, 9, 9);
+            this.mcRecu2.MaxSelectionCount = 1;
+            this.mcRecu2.Name = "mcRecu2";
+            this.mcRecu2.TabIndex = 4;
+            this.mcRecu2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mcRecu2_DateChanged);
             // 
             // mcRecu1
             // 
-            mcRecu1.Location = new Point(9, 12);
-            mcRecu1.MaxSelectionCount = 1;
-            mcRecu1.Name = "mcRecu1";
-            mcRecu1.TabIndex = 3;
-            mcRecu1.DateChanged += new DateRangeEventHandler(mcRecu1_DateChanged);
+            this.mcRecu1.Location = new System.Drawing.Point(9, 12);
+            this.mcRecu1.MaxSelectionCount = 1;
+            this.mcRecu1.Name = "mcRecu1";
+            this.mcRecu1.TabIndex = 3;
+            this.mcRecu1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mcRecu1_DateChanged);
             // 
             // chkDisponibilityPM
             // 
-            chkDisponibilityPM.Location = new Point(0, 0);
-            chkDisponibilityPM.Name = "chkDisponibilityPM";
-            chkDisponibilityPM.Size = new Size(104, 24);
-            chkDisponibilityPM.TabIndex = 0;
+            this.chkDisponibilityPM.Location = new System.Drawing.Point(0, 0);
+            this.chkDisponibilityPM.Name = "chkDisponibilityPM";
+            this.chkDisponibilityPM.Size = new System.Drawing.Size(104, 24);
+            this.chkDisponibilityPM.TabIndex = 0;
             // 
             // chkDisponibilityAM
             // 
-            chkDisponibilityAM.Location = new Point(0, 0);
-            chkDisponibilityAM.Name = "chkDisponibilityAM";
-            chkDisponibilityAM.Size = new Size(104, 24);
-            chkDisponibilityAM.TabIndex = 0;
+            this.chkDisponibilityAM.Location = new System.Drawing.Point(0, 0);
+            this.chkDisponibilityAM.Name = "chkDisponibilityAM";
+            this.chkDisponibilityAM.Size = new System.Drawing.Size(104, 24);
+            this.chkDisponibilityAM.TabIndex = 0;
             // 
             // imageList1
             // 
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            imageList1.Images.SetKeyName(0, "");
-            imageList1.Images.SetKeyName(1, "");
-            imageList1.Images.SetKeyName(2, "");
-            imageList1.Images.SetKeyName(3, "user-group-icon.png");
-            imageList1.Images.SetKeyName(4, "");
-            imageList1.Images.SetKeyName(5, "");
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "");
+            this.imageList1.Images.SetKeyName(1, "");
+            this.imageList1.Images.SetKeyName(2, "");
+            this.imageList1.Images.SetKeyName(3, "user-group-icon.png");
+            this.imageList1.Images.SetKeyName(4, "");
+            this.imageList1.Images.SetKeyName(5, "");
             // 
             // toolBar1
             // 
-            toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
-            toolBar1.Buttons.AddRange(new ToolBarButton[] {
-            ttbRefresh,
-            tbbSeparator,
-            tbbHorraireInfo,
-            tbbSeparator2,
-            tbbShowClient,
-            tbbShowSeance,
-            tbbSeparator1,
-            tbbPrintClientInfo,
-            tbbTPSTVQ});
-            toolBar1.Divider = false;
-            toolBar1.Dock = System.Windows.Forms.DockStyle.None;
-            toolBar1.DropDownArrows = true;
-            toolBar1.ImageList = imageList1;
-            toolBar1.Location = new Point(8, 8);
-            toolBar1.Name = "toolBar1";
-            toolBar1.ShowToolTips = true;
-            toolBar1.Size = new Size(376, 42);
-            toolBar1.TabIndex = 13;
-            toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
-            toolBar1.ButtonClick += new ToolBarButtonClickEventHandler(toolBar1_ButtonClick);
+            this.toolBar1.Appearance = System.Windows.Forms.ToolBarAppearance.Flat;
+            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            this.ttbRefresh,
+            this.tbbSeparator,
+            this.tbbHorraireInfo,
+            this.tbbSeparator2,
+            this.tbbShowClient,
+            this.tbbShowSeance,
+            this.tbbSeparator1,
+            this.tbbPrintClientInfo,
+            this.tbbTPSTVQ});
+            this.toolBar1.Divider = false;
+            this.toolBar1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolBar1.DropDownArrows = true;
+            this.toolBar1.ImageList = this.imageList1;
+            this.toolBar1.Location = new System.Drawing.Point(8, 8);
+            this.toolBar1.Name = "toolBar1";
+            this.toolBar1.ShowToolTips = true;
+            this.toolBar1.Size = new System.Drawing.Size(376, 42);
+            this.toolBar1.TabIndex = 13;
+            this.toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
+            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
             // 
             // ttbRefresh
             // 
-            ttbRefresh.ImageIndex = 4;
-            ttbRefresh.Name = "ttbRefresh";
-            ttbRefresh.Tag = "REFRESH";
-            ttbRefresh.ToolTipText = "Rafraîchir la recherche";
+            this.ttbRefresh.ImageIndex = 4;
+            this.ttbRefresh.Name = "ttbRefresh";
+            this.ttbRefresh.Tag = "REFRESH";
+            this.ttbRefresh.ToolTipText = "Rafraîchir la recherche";
             // 
             // tbbSeparator
             // 
-            tbbSeparator.Name = "tbbSeparator";
-            tbbSeparator.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
+            this.tbbSeparator.Name = "tbbSeparator";
+            this.tbbSeparator.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
             // 
             // tbbHorraireInfo
             // 
-            tbbHorraireInfo.ImageIndex = 5;
-            tbbHorraireInfo.Name = "tbbHorraireInfo";
-            tbbHorraireInfo.Tag = "ETATSGLOBAL";
-            tbbHorraireInfo.ToolTipText = "Affiche l\'état global de l\'année en court";
+            this.tbbHorraireInfo.ImageIndex = 5;
+            this.tbbHorraireInfo.Name = "tbbHorraireInfo";
+            this.tbbHorraireInfo.Tag = "ETATSGLOBAL";
+            this.tbbHorraireInfo.ToolTipText = "Affiche l\'état global de l\'année en court";
             // 
             // tbbSeparator2
             // 
-            tbbSeparator2.Name = "tbbSeparator2";
-            tbbSeparator2.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
+            this.tbbSeparator2.Name = "tbbSeparator2";
+            this.tbbSeparator2.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
             // 
             // tbbShowClient
             // 
-            tbbShowClient.ImageIndex = 3;
-            tbbShowClient.Name = "tbbShowClient";
-            tbbShowClient.Tag = "SHOWCLIENT";
-            tbbShowClient.ToolTipText = "Affiche le client";
+            this.tbbShowClient.ImageIndex = 3;
+            this.tbbShowClient.Name = "tbbShowClient";
+            this.tbbShowClient.Tag = "SHOWCLIENT";
+            this.tbbShowClient.ToolTipText = "Affiche le client";
             // 
             // tbbShowSeance
             // 
-            tbbShowSeance.ImageIndex = 1;
-            tbbShowSeance.Name = "tbbShowSeance";
-            tbbShowSeance.Tag = "OPENSEANCE";
-            tbbShowSeance.ToolTipText = "Affiche la boîte de Paiment";
+            this.tbbShowSeance.ImageIndex = 1;
+            this.tbbShowSeance.Name = "tbbShowSeance";
+            this.tbbShowSeance.Tag = "OPENSEANCE";
+            this.tbbShowSeance.ToolTipText = "Affiche la boîte de Paiment";
             // 
             // tbbSeparator1
             // 
-            tbbSeparator1.Name = "tbbSeparator1";
-            tbbSeparator1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
+            this.tbbSeparator1.Name = "tbbSeparator1";
+            this.tbbSeparator1.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
             // 
             // tbbPrintClientInfo
             // 
-            tbbPrintClientInfo.ImageIndex = 0;
-            tbbPrintClientInfo.Name = "tbbPrintClientInfo";
-            tbbPrintClientInfo.Tag = "PRINT";
-            tbbPrintClientInfo.Text = "Infos Client";
+            this.tbbPrintClientInfo.ImageIndex = 0;
+            this.tbbPrintClientInfo.Name = "tbbPrintClientInfo";
+            this.tbbPrintClientInfo.Tag = "PRINT";
+            this.tbbPrintClientInfo.Text = "Infos Client";
             // 
             // tbbTPSTVQ
             // 
-            tbbTPSTVQ.ImageIndex = 0;
-            tbbTPSTVQ.Name = "tbbTPSTVQ";
-            tbbTPSTVQ.Tag = "RELEVERTPSTVQ";
-            tbbTPSTVQ.Text = "Relevé";
+            this.tbbTPSTVQ.ImageIndex = 0;
+            this.tbbTPSTVQ.Name = "tbbTPSTVQ";
+            this.tbbTPSTVQ.Tag = "RELEVERTPSTVQ";
+            this.tbbTPSTVQ.Text = "Relevé";
             // 
             // timer1
             // 
-            timer1.Enabled = true;
-            timer1.Interval = 200;
-            timer1.Tick += new EventHandler(timer1_Tick);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // PrintRelever
             // 
-            PrintRelever.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(PrintRelever_PrintPage);
+            this.PrintRelever.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintRelever_PrintPage);
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(lblTPS);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(lblTVQ);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(lblMontantExcluTaxe);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(lblMontantIncluTaxe);
-            groupBox1.Location = new Point(8, 56);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(245, 112);
-            groupBox1.TabIndex = 16;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Information sur la période";
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lblTPS);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblTVQ);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lblMontantExcluTaxe);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblMontantIncluTaxe);
+            this.groupBox1.Location = new System.Drawing.Point(8, 56);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(245, 112);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Information sur la période";
             // 
             // label4
             // 
-            label4.Location = new Point(10, 40);
-            label4.Name = "label4";
-            label4.Size = new Size(78, 16);
-            label4.TabIndex = 7;
-            label4.Text = "TPS :";
-            label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(10, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 16);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "TPS :";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTPS
             // 
-            lblTPS.ForeColor = System.Drawing.Color.Blue;
-            lblTPS.Location = new Point(135, 40);
-            lblTPS.Margin = new Padding(3, 1, 3, 3);
-            lblTPS.Name = "lblTPS";
-            lblTPS.Size = new Size(97, 16);
-            lblTPS.TabIndex = 6;
-            lblTPS.Text = "-";
-            lblTPS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTPS.ForeColor = System.Drawing.Color.Blue;
+            this.lblTPS.Location = new System.Drawing.Point(135, 40);
+            this.lblTPS.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            this.lblTPS.Name = "lblTPS";
+            this.lblTPS.Size = new System.Drawing.Size(97, 16);
+            this.lblTPS.TabIndex = 6;
+            this.lblTPS.Text = "-";
+            this.lblTPS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
-            label3.Location = new Point(10, 64);
-            label3.Margin = new Padding(3, 3, 3, 1);
-            label3.Name = "label3";
-            label3.Size = new Size(78, 16);
-            label3.TabIndex = 5;
-            label3.Text = "TVQ :";
-            label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(10, 64);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 16);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "TVQ :";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTVQ
             // 
-            lblTVQ.ForeColor = System.Drawing.Color.Blue;
-            lblTVQ.Location = new Point(135, 64);
-            lblTVQ.Name = "lblTVQ";
-            lblTVQ.Size = new Size(97, 16);
-            lblTVQ.TabIndex = 4;
-            lblTVQ.Text = "-";
-            lblTVQ.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTVQ.ForeColor = System.Drawing.Color.Blue;
+            this.lblTVQ.Location = new System.Drawing.Point(135, 64);
+            this.lblTVQ.Name = "lblTVQ";
+            this.lblTVQ.Size = new System.Drawing.Size(97, 16);
+            this.lblTVQ.TabIndex = 4;
+            this.lblTVQ.Text = "-";
+            this.lblTVQ.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            label2.Location = new Point(10, 16);
-            label2.Name = "label2";
-            label2.Size = new Size(78, 16);
-            label2.TabIndex = 3;
-            label2.Text = "Total partiel :";
-            label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(10, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Total partiel :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMontantExcluTaxe
             // 
-            lblMontantExcluTaxe.ForeColor = System.Drawing.Color.Blue;
-            lblMontantExcluTaxe.Location = new Point(135, 16);
-            lblMontantExcluTaxe.Margin = new Padding(3, 3, 3, 2);
-            lblMontantExcluTaxe.Name = "lblMontantExcluTaxe";
-            lblMontantExcluTaxe.Size = new Size(97, 16);
-            lblMontantExcluTaxe.TabIndex = 2;
-            lblMontantExcluTaxe.Text = "-";
-            lblMontantExcluTaxe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblMontantExcluTaxe.ForeColor = System.Drawing.Color.Blue;
+            this.lblMontantExcluTaxe.Location = new System.Drawing.Point(135, 16);
+            this.lblMontantExcluTaxe.Margin = new System.Windows.Forms.Padding(3, 3, 3, 2);
+            this.lblMontantExcluTaxe.Name = "lblMontantExcluTaxe";
+            this.lblMontantExcluTaxe.Size = new System.Drawing.Size(97, 16);
+            this.lblMontantExcluTaxe.TabIndex = 2;
+            this.lblMontantExcluTaxe.Text = "-";
+            this.lblMontantExcluTaxe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            label1.Location = new Point(10, 88);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 16);
-            label1.TabIndex = 1;
-            label1.Text = "Total  :";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(10, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Total  :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMontantIncluTaxe
             // 
-            lblMontantIncluTaxe.ForeColor = System.Drawing.Color.Blue;
-            lblMontantIncluTaxe.Location = new Point(135, 88);
-            lblMontantIncluTaxe.Margin = new Padding(3, 2, 3, 3);
-            lblMontantIncluTaxe.Name = "lblMontantIncluTaxe";
-            lblMontantIncluTaxe.Size = new Size(97, 16);
-            lblMontantIncluTaxe.TabIndex = 0;
-            lblMontantIncluTaxe.Text = "-";
-            lblMontantIncluTaxe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblMontantIncluTaxe.ForeColor = System.Drawing.Color.Blue;
+            this.lblMontantIncluTaxe.Location = new System.Drawing.Point(135, 88);
+            this.lblMontantIncluTaxe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.lblMontantIncluTaxe.Name = "lblMontantIncluTaxe";
+            this.lblMontantIncluTaxe.Size = new System.Drawing.Size(97, 16);
+            this.lblMontantIncluTaxe.TabIndex = 0;
+            this.lblMontantIncluTaxe.Text = "-";
+            this.lblMontantIncluTaxe.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblMontantPD
             // 
-            lblMontantPD.AutoSize = true;
-            lblMontantPD.ForeColor = System.Drawing.Color.Blue;
-            lblMontantPD.Location = new Point(601, 18);
-            lblMontantPD.Name = "lblMontantPD";
-            lblMontantPD.Size = new Size(10, 13);
-            lblMontantPD.TabIndex = 12;
-            lblMontantPD.Text = "-";
-            lblMontantPD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            lblMontantPD.Visible = false;
+            this.lblMontantPD.AutoSize = true;
+            this.lblMontantPD.ForeColor = System.Drawing.Color.Blue;
+            this.lblMontantPD.Location = new System.Drawing.Point(601, 18);
+            this.lblMontantPD.Name = "lblMontantPD";
+            this.lblMontantPD.Size = new System.Drawing.Size(10, 13);
+            this.lblMontantPD.TabIndex = 12;
+            this.lblMontantPD.Text = "-";
+            this.lblMontantPD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblMontantPD.Visible = false;
             // 
             // lblMontantCheque
             // 
-            lblMontantCheque.AutoSize = true;
-            lblMontantCheque.ForeColor = System.Drawing.Color.Blue;
-            lblMontantCheque.Location = new Point(615, 18);
-            lblMontantCheque.Name = "lblMontantCheque";
-            lblMontantCheque.Size = new Size(10, 13);
-            lblMontantCheque.TabIndex = 10;
-            lblMontantCheque.Text = "-";
-            lblMontantCheque.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            lblMontantCheque.Visible = false;
+            this.lblMontantCheque.AutoSize = true;
+            this.lblMontantCheque.ForeColor = System.Drawing.Color.Blue;
+            this.lblMontantCheque.Location = new System.Drawing.Point(615, 18);
+            this.lblMontantCheque.Name = "lblMontantCheque";
+            this.lblMontantCheque.Size = new System.Drawing.Size(10, 13);
+            this.lblMontantCheque.TabIndex = 10;
+            this.lblMontantCheque.Text = "-";
+            this.lblMontantCheque.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblMontantCheque.Visible = false;
             // 
             // cbAutoFind
             // 
-            cbAutoFind.Checked = true;
-            cbAutoFind.CheckState = System.Windows.Forms.CheckState.Checked;
-            cbAutoFind.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            cbAutoFind.Location = new Point(8, 255);
-            cbAutoFind.Name = "cbAutoFind";
-            cbAutoFind.Size = new Size(232, 24);
-            cbAutoFind.TabIndex = 17;
-            cbAutoFind.Text = "Recherche automatique lors d\'un clique";
-            cbAutoFind.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            cbAutoFind.CheckedChanged += new EventHandler(cbAutoFind_CheckedChanged);
+            this.cbAutoFind.Checked = true;
+            this.cbAutoFind.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbAutoFind.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbAutoFind.Location = new System.Drawing.Point(8, 255);
+            this.cbAutoFind.Name = "cbAutoFind";
+            this.cbAutoFind.Size = new System.Drawing.Size(232, 24);
+            this.cbAutoFind.TabIndex = 17;
+            this.cbAutoFind.Text = "Recherche automatique lors d\'un clique";
+            this.cbAutoFind.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbAutoFind.CheckedChanged += new System.EventHandler(this.cbAutoFind_CheckedChanged);
             // 
             // label5
             // 
-            label5.Location = new Point(9, 39);
-            label5.Name = "label5";
-            label5.Size = new Size(32, 16);
-            label5.TabIndex = 18;
-            label5.Text = "TPS :";
+            this.label5.Location = new System.Drawing.Point(9, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 16);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "TPS :";
             // 
             // label6
             // 
-            label6.Location = new Point(9, 71);
-            label6.Name = "label6";
-            label6.Size = new Size(43, 16);
-            label6.TabIndex = 20;
-            label6.Text = "TVQ :";
+            this.label6.Location = new System.Drawing.Point(9, 71);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 16);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "TVQ :";
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(txtTPS);
-            groupBox2.Controls.Add(txtTVQ);
-            groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(label6);
-            groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            groupBox2.Location = new Point(264, 56);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(120, 112);
-            groupBox2.TabIndex = 22;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Taxes";
-            // 
-            // txtTPS
-            // 
-            txtTPS.Location = new Point(49, 37);
-            txtTPS.Name = "txtTPS";
-            txtTPS.Size = new Size(65, 20);
-            txtTPS.TabIndex = 19;
-            txtTPS.Text = "5 %";
-            txtTPS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtTVQ
-            // 
-            txtTVQ.Location = new Point(49, 69);
-            txtTVQ.Name = "txtTVQ";
-            txtTVQ.Size = new Size(65, 20);
-            txtTVQ.TabIndex = 21;
-            txtTVQ.Text = "8,5 %";
-            txtTVQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.groupBox2.Controls.Add(this.txtTPS);
+            this.groupBox2.Controls.Add(this.txtTVQ);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBox2.Location = new System.Drawing.Point(264, 56);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(120, 112);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Taxes";
             // 
             // ImageListSmall
             // 
-            ImageListSmall.ImageStream = (ImageListStreamer)resources.GetObject("ImageListSmall.ImageStream");
-            ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
-            ImageListSmall.Images.SetKeyName(0, "Moto");
-            ImageListSmall.Images.SetKeyName(1, "Auto");
-            ImageListSmall.Images.SetKeyName(2, "Camion");
+            this.ImageListSmall.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageListSmall.ImageStream")));
+            this.ImageListSmall.TransparentColor = System.Drawing.Color.Transparent;
+            this.ImageListSmall.Images.SetKeyName(0, "Moto");
+            this.ImageListSmall.Images.SetKeyName(1, "Auto");
+            this.ImageListSmall.Images.SetKeyName(2, "Camion");
             // 
             // lblMontantAutre
             // 
-            lblMontantAutre.AutoSize = true;
-            lblMontantAutre.Location = new Point(576, 17);
-            lblMontantAutre.Name = "lblMontantAutre";
-            lblMontantAutre.Size = new Size(10, 13);
-            lblMontantAutre.TabIndex = 23;
-            lblMontantAutre.Text = "-";
-            lblMontantAutre.Visible = false;
+            this.lblMontantAutre.AutoSize = true;
+            this.lblMontantAutre.Location = new System.Drawing.Point(576, 17);
+            this.lblMontantAutre.Name = "lblMontantAutre";
+            this.lblMontantAutre.Size = new System.Drawing.Size(10, 13);
+            this.lblMontantAutre.TabIndex = 23;
+            this.lblMontantAutre.Text = "-";
+            this.lblMontantAutre.Visible = false;
             // 
             // tcRapportType
             // 
-            tcRapportType.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left
-                        | System.Windows.Forms.AnchorStyles.Right;
-            tcRapportType.Controls.Add(tpRapportTaxe);
-            tcRapportType.Controls.Add(tpCompteARecevoir);
-            tcRapportType.Location = new Point(390, 47);
-            tcRapportType.Name = "tcRapportType";
-            tcRapportType.SelectedIndex = 0;
-            tcRapportType.Size = new Size(633, 236);
-            tcRapportType.TabIndex = 24;
-            tcRapportType.Selected += new TabControlEventHandler(tcRapportType_Selected);
+            this.tcRapportType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tcRapportType.Controls.Add(this.tpRapportTaxe);
+            this.tcRapportType.Controls.Add(this.tpCompteARecevoir);
+            this.tcRapportType.Location = new System.Drawing.Point(390, 47);
+            this.tcRapportType.Name = "tcRapportType";
+            this.tcRapportType.SelectedIndex = 0;
+            this.tcRapportType.Size = new System.Drawing.Size(633, 236);
+            this.tcRapportType.TabIndex = 24;
+            this.tcRapportType.Selected += new System.Windows.Forms.TabControlEventHandler(this.tcRapportType_Selected);
             // 
             // tpRapportTaxe
             // 
-            tpRapportTaxe.Controls.Add(mcRecu1);
-            tpRapportTaxe.Controls.Add(mcRecu2);
-            tpRapportTaxe.Controls.Add(dtpFixeDate);
-            tpRapportTaxe.Controls.Add(rbOr);
-            tpRapportTaxe.Controls.Add(cmdEqual);
-            tpRapportTaxe.Controls.Add(rbBetween);
-            tpRapportTaxe.Location = new Point(4, 22);
-            tpRapportTaxe.Name = "tpRapportTaxe";
-            tpRapportTaxe.Padding = new Padding(3);
-            tpRapportTaxe.Size = new Size(625, 210);
-            tpRapportTaxe.TabIndex = 0;
-            tpRapportTaxe.Tag = "TAXE";
-            tpRapportTaxe.Text = "Relevé de paiment";
+            this.tpRapportTaxe.Controls.Add(this.mcRecu1);
+            this.tpRapportTaxe.Controls.Add(this.mcRecu2);
+            this.tpRapportTaxe.Controls.Add(this.dtpFixeDate);
+            this.tpRapportTaxe.Controls.Add(this.rbOr);
+            this.tpRapportTaxe.Controls.Add(this.cmdEqual);
+            this.tpRapportTaxe.Controls.Add(this.rbBetween);
+            this.tpRapportTaxe.Location = new System.Drawing.Point(4, 22);
+            this.tpRapportTaxe.Name = "tpRapportTaxe";
+            this.tpRapportTaxe.Padding = new System.Windows.Forms.Padding(3);
+            this.tpRapportTaxe.Size = new System.Drawing.Size(625, 210);
+            this.tpRapportTaxe.TabIndex = 0;
+            this.tpRapportTaxe.Tag = "TAXE";
+            this.tpRapportTaxe.Text = "Relevé de paiment";
             // 
             // tpCompteARecevoir
             // 
-            tpCompteARecevoir.Controls.Add(mcCompteARecevoir);
-            tpCompteARecevoir.Location = new Point(4, 22);
-            tpCompteARecevoir.Name = "tpCompteARecevoir";
-            tpCompteARecevoir.Padding = new Padding(3);
-            tpCompteARecevoir.Size = new Size(567, 210);
-            tpCompteARecevoir.TabIndex = 1;
-            tpCompteARecevoir.Tag = "COMPTEARECEVOIR";
-            tpCompteARecevoir.Text = "Compte à recevoir";
+            this.tpCompteARecevoir.Controls.Add(this.mcCompteARecevoir);
+            this.tpCompteARecevoir.Location = new System.Drawing.Point(4, 22);
+            this.tpCompteARecevoir.Name = "tpCompteARecevoir";
+            this.tpCompteARecevoir.Padding = new System.Windows.Forms.Padding(3);
+            this.tpCompteARecevoir.Size = new System.Drawing.Size(625, 210);
+            this.tpCompteARecevoir.TabIndex = 1;
+            this.tpCompteARecevoir.Tag = "COMPTEARECEVOIR";
+            this.tpCompteARecevoir.Text = "Compte à recevoir";
             // 
             // mcCompteARecevoir
             // 
-            mcCompteARecevoir.Location = new Point(34, 27);
-            mcCompteARecevoir.MaxSelectionCount = 1;
-            mcCompteARecevoir.Name = "mcCompteARecevoir";
-            mcCompteARecevoir.TabIndex = 4;
-            mcCompteARecevoir.DateChanged += new DateRangeEventHandler(mcCompteARecevoir_DateChanged);
+            this.mcCompteARecevoir.Location = new System.Drawing.Point(34, 27);
+            this.mcCompteARecevoir.MaxSelectionCount = 1;
+            this.mcCompteARecevoir.Name = "mcCompteARecevoir";
+            this.mcCompteARecevoir.TabIndex = 4;
+            this.mcCompteARecevoir.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mcCompteARecevoir_DateChanged);
             // 
             // lblMontantAC
             // 
-            lblMontantAC.AutoSize = true;
-            lblMontantAC.ForeColor = System.Drawing.Color.Blue;
-            lblMontantAC.Location = new Point(588, 18);
-            lblMontantAC.Name = "lblMontantAC";
-            lblMontantAC.Size = new Size(10, 13);
-            lblMontantAC.TabIndex = 14;
-            lblMontantAC.Text = "-";
-            lblMontantAC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            lblMontantAC.Visible = false;
+            this.lblMontantAC.AutoSize = true;
+            this.lblMontantAC.ForeColor = System.Drawing.Color.Blue;
+            this.lblMontantAC.Location = new System.Drawing.Point(588, 18);
+            this.lblMontantAC.Name = "lblMontantAC";
+            this.lblMontantAC.Size = new System.Drawing.Size(10, 13);
+            this.lblMontantAC.TabIndex = 14;
+            this.lblMontantAC.Text = "-";
+            this.lblMontantAC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblMontantAC.Visible = false;
             // 
             // PrintCompteARecevoir
             // 
-            PrintCompteARecevoir.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(PrintCompteARecevoir_PrintPage);
+            this.PrintCompteARecevoir.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintCompteARecevoir_PrintPage);
+            // 
+            // txtTPS
+            // 
+            this.txtTPS.Location = new System.Drawing.Point(49, 37);
+            this.txtTPS.Name = "txtTPS";
+            this.txtTPS.Size = new System.Drawing.Size(65, 20);
+            this.txtTPS.TabIndex = 19;
+            this.txtTPS.Text = "5 %";
+            this.txtTPS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtTVQ
+            // 
+            this.txtTVQ.Location = new System.Drawing.Point(49, 69);
+            this.txtTVQ.Name = "txtTVQ";
+            this.txtTVQ.Size = new System.Drawing.Size(65, 20);
+            this.txtTVQ.TabIndex = 21;
+            this.txtTVQ.Text = "9,5 %";
+            this.txtTVQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // clientControl1
             // 
-            clientControl1.AutoUpdate = true;
-            clientControl1.BackColor = System.Drawing.SystemColors.Control;
+            this.clientControl1.AutoUpdate = true;
+            this.clientControl1.BackColor = System.Drawing.SystemColors.Control;
             customer1.AttestationNumber1 = "";
             customer1.AttestationNumber2 = "";
             customer1.BVA = false;
-            customer1.BVADate = new DateTime(2005, 2, 20, 21, 27, 11, 328);
+            customer1.BVADate = new System.DateTime(2005, 2, 20, 21, 27, 11, 328);
             customer1.City = "";
             customer1.ClientNull = false;
             customer1.CodePostal = "   -";
             customer1.ContratNumber = "0";
-            customer1.DateAttestation1 = new DateTime(2011, 3, 31, 21, 12, 18, 576);
-            customer1.DateAttestation2 = new DateTime(2011, 3, 31, 21, 12, 18, 576);
-            customer1.DateDebutCours = new DateTime(2010, 3, 12, 6, 47, 55, 192);
-            customer1.DateExpiration = new DateTime(2010, 3, 12, 6, 47, 55, 192);
-            customer1.DateInscription = new DateTime(2003, 8, 26, 0, 0, 0, 0);
-            customer1.DateNaissance = new DateTime(2010, 3, 12, 6, 47, 55, 192);
-            customer1.DateTemporaire = new DateTime(2005, 2, 20, 21, 27, 11, 328);
+            customer1.DateAttestation1 = new System.DateTime(2011, 3, 31, 21, 12, 18, 576);
+            customer1.DateAttestation2 = new System.DateTime(2011, 3, 31, 21, 12, 18, 576);
+            customer1.DateDebutCours = new System.DateTime(2010, 3, 12, 6, 47, 55, 192);
+            customer1.DateExpiration = new System.DateTime(2010, 3, 12, 6, 47, 55, 192);
+            customer1.DateInscription = new System.DateTime(2003, 8, 26, 0, 0, 0, 0);
+            customer1.DateNaissance = new System.DateTime(2010, 3, 12, 6, 47, 55, 192);
+            customer1.DateTemporaire = new System.DateTime(2005, 2, 20, 21, 27, 11, 328);
             customer1.DisponibilityAlway = false;
             customer1.DisponibilityAM = false;
             customer1.DisponibilityDimanche = false;
@@ -659,6 +659,7 @@ namespace Barette.IDE.Forms.Finance
             customer1.Email = "";
             customer1.FirstName = "";
             customer1.HaveTemporaire = false;
+            customer1.IsSpyder = false;
             customer1.LastRecuNumber = "";
             customer1.LocationAutomobile = false;
             customer1.LocationMoto = false;
@@ -666,12 +667,14 @@ namespace Barette.IDE.Forms.Finance
             customer1.MontantLocation = "0 $";
             customer1.Name = "";
             customer1.No6R = "";
-            customer1.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft S" +
-                "ans Serif;}}\r\n\\viewkind4\\uc1\\pard\\f0\\fs17\\par\r\n}\r\n";
+            customer1.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 " +
+    "Microsoft Sans Serif;}}\r\n{\\*\\generator Riched20 10.0.22621}\\viewkind4\\uc1 \r\n\\par" +
+    "d\\f0\\fs17\\par\r\n}\r\n";
             customer1.NumeroGroupe = 0;
             customer1.NumeroPermis = "";
             customer1.Phone = "(   )   -";
             customer1.PhoneBureau = "(   )   -";
+            customer1.ProgramMoto = Barette.Library.Client.ProgramMoto.Nothing;
             customer1.Solde = "0 $";
             customer1.StreetApp = "";
             customer1.StreetName = "";
@@ -680,128 +683,128 @@ namespace Barette.IDE.Forms.Finance
             customer1.TauxHoraireTheorique = "";
             customer1.TypeClient = Barette.Library.Client.ProfileType.Actif;
             customer1.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
-            clientControl1.Client = customer1;
-            clientControl1.Location = new Point(434, 300);
-            clientControl1.Name = "clientControl1";
-            clientControl1.School = null;
-            clientControl1.Size = new Size(149, 152);
-            clientControl1.TabIndex = 15;
-            clientControl1.Visible = false;
+            this.clientControl1.Client = customer1;
+            this.clientControl1.Location = new System.Drawing.Point(434, 300);
+            this.clientControl1.Name = "clientControl1";
+            this.clientControl1.School = null;
+            this.clientControl1.Size = new System.Drawing.Size(149, 152);
+            this.clientControl1.TabIndex = 15;
+            this.clientControl1.Visible = false;
             // 
             // listFindResult
             // 
-            listFindResult.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom
-                        | System.Windows.Forms.AnchorStyles.Left
-                        | System.Windows.Forms.AnchorStyles.Right;
-            listFindResult.Columns.AddRange(new ColumnHeader[] {
-            colheadContratNumber,
-            colheadName,
-            colheadDate,
-            colHeadPhone,
-            colHeadTypeVehicule,
-            colHeadSolde,
-            colHeadLastRecuNumber,
-            colHeadMontant,
-            colHeadDateRecu,
-            colHeadRL,
-            colHeadTypePaiment});
-            listFindResult.FullRowSelect = true;
-            listFindResult.HideSelection = false;
-            listFindResult.Location = new Point(8, 286);
-            listFindResult.MultiSelect = false;
-            listFindResult.Name = "listFindResult";
-            listFindResult.Size = new Size(1011, 226);
-            listFindResult.SmallImageList = ImageListSmall;
-            listFindResult.TabIndex = 0;
-            listFindResult.UseCompatibleStateImageBehavior = false;
-            listFindResult.View = System.Windows.Forms.View.Details;
-            listFindResult.Click += new EventHandler(listFindResult_Click);
+            this.listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listFindResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colheadContratNumber,
+            this.colheadName,
+            this.colheadDate,
+            this.colHeadPhone,
+            this.colHeadTypeVehicule,
+            this.colHeadSolde,
+            this.colHeadLastRecuNumber,
+            this.colHeadMontant,
+            this.colHeadDateRecu,
+            this.colHeadRL,
+            this.colHeadTypePaiment});
+            this.listFindResult.FullRowSelect = true;
+            this.listFindResult.HideSelection = false;
+            this.listFindResult.Location = new System.Drawing.Point(8, 286);
+            this.listFindResult.MultiSelect = false;
+            this.listFindResult.Name = "listFindResult";
+            this.listFindResult.Size = new System.Drawing.Size(1011, 226);
+            this.listFindResult.SmallImageList = this.ImageListSmall;
+            this.listFindResult.TabIndex = 0;
+            this.listFindResult.UseCompatibleStateImageBehavior = false;
+            this.listFindResult.View = System.Windows.Forms.View.Details;
+            this.listFindResult.Click += new System.EventHandler(this.listFindResult_Click);
             // 
             // colheadContratNumber
             // 
-            colheadContratNumber.Text = "# Contrat";
-            colheadContratNumber.Width = 66;
+            this.colheadContratNumber.Text = "# Contrat";
+            this.colheadContratNumber.Width = 66;
             // 
             // colheadName
             // 
-            colheadName.Text = "Nom du client";
-            colheadName.Width = 156;
+            this.colheadName.Text = "Nom du client";
+            this.colheadName.Width = 156;
             // 
             // colheadDate
             // 
-            colheadDate.Text = "Date du paiment";
-            colheadDate.Width = 91;
+            this.colheadDate.Text = "Date du paiment";
+            this.colheadDate.Width = 91;
             // 
             // colHeadPhone
             // 
-            colHeadPhone.Text = "Téléphone";
-            colHeadPhone.Width = 91;
+            this.colHeadPhone.Text = "Téléphone";
+            this.colHeadPhone.Width = 91;
             // 
             // colHeadTypeVehicule
             // 
-            colHeadTypeVehicule.Text = "Type de cours";
-            colHeadTypeVehicule.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            colHeadTypeVehicule.Width = 92;
+            this.colHeadTypeVehicule.Text = "Type de cours";
+            this.colHeadTypeVehicule.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colHeadTypeVehicule.Width = 92;
             // 
             // colHeadSolde
             // 
-            colHeadSolde.Text = "Solde";
-            colHeadSolde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            colHeadSolde.Width = 64;
+            this.colHeadSolde.Text = "Solde";
+            this.colHeadSolde.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.colHeadSolde.Width = 64;
             // 
             // colHeadLastRecuNumber
             // 
-            colHeadLastRecuNumber.Text = "Numéro de recu";
-            colHeadLastRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            colHeadLastRecuNumber.Width = 89;
+            this.colHeadLastRecuNumber.Text = "Numéro de recu";
+            this.colHeadLastRecuNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colHeadLastRecuNumber.Width = 89;
             // 
             // colHeadMontant
             // 
-            colHeadMontant.Text = "Montant";
-            colHeadMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            colHeadMontant.Width = 63;
+            this.colHeadMontant.Text = "Montant";
+            this.colHeadMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.colHeadMontant.Width = 63;
             // 
             // colHeadDateRecu
             // 
-            colHeadDateRecu.Text = "Date reçu";
-            colHeadDateRecu.Width = 0;
+            this.colHeadDateRecu.Text = "Date reçu";
+            this.colHeadDateRecu.Width = 0;
             // 
             // colHeadRL
             // 
-            colHeadRL.Text = "Type";
-            colHeadRL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colHeadRL.Text = "Type";
+            this.colHeadRL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // colHeadTypePaiment
             // 
-            colHeadTypePaiment.Text = "Type Paiment";
-            colHeadTypePaiment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            colHeadTypePaiment.Width = 84;
+            this.colHeadTypePaiment.Text = "Type Paiment";
+            this.colHeadTypePaiment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colHeadTypePaiment.Width = 84;
             // 
             // FormFinance
             // 
-            ClientSize = new Size(1027, 518);
-            Controls.Add(tcRapportType);
-            Controls.Add(toolBar1);
-            Controls.Add(lblMontantAutre);
-            Controls.Add(lblMontantAC);
-            Controls.Add(groupBox2);
-            Controls.Add(lblMontantCheque);
-            Controls.Add(lblMontantPD);
-            Controls.Add(cbAutoFind);
-            Controls.Add(clientControl1);
-            Controls.Add(listFindResult);
-            Controls.Add(groupBox1);
-            Name = "FormFinance";
-            Text = "FormFinance";
-            Load += new EventHandler(FormFindClient_Load);
-            groupBox1.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            tcRapportType.ResumeLayout(false);
-            tpRapportTaxe.ResumeLayout(false);
-            tpCompteARecevoir.ResumeLayout(false);
-            ResumeLayout(false);
-            PerformLayout();
+            this.ClientSize = new System.Drawing.Size(1027, 518);
+            this.Controls.Add(this.tcRapportType);
+            this.Controls.Add(this.toolBar1);
+            this.Controls.Add(this.lblMontantAutre);
+            this.Controls.Add(this.lblMontantAC);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.lblMontantCheque);
+            this.Controls.Add(this.lblMontantPD);
+            this.Controls.Add(this.cbAutoFind);
+            this.Controls.Add(this.clientControl1);
+            this.Controls.Add(this.listFindResult);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "FormFinance";
+            this.Text = "FormFinance";
+            this.Load += new System.EventHandler(this.FormFindClient_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tcRapportType.ResumeLayout(false);
+            this.tpRapportTaxe.ResumeLayout(false);
+            this.tpCompteARecevoir.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         #endregion

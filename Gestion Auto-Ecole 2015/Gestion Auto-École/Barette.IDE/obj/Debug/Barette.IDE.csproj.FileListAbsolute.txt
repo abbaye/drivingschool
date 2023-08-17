@@ -17,7 +17,6 @@ C:\Users\khens\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-�
 C:\Users\khens\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Debug\ICSharpCode.SharpZipLib.pdb
 C:\Users\khens\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Debug\ICSharpCode.SharpZipLib.xml
 C:\Users\khens\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Debug\Barette.IDE.csproj.AssemblyReference.cache
-C:\Users\khens\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Debug\Barette.IDE.csproj.SuggestedBindingRedirects.cache
 C:\Users\khens\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Debug\Barette.IDE.Forms.GestionGroup.FormExport.resources
 C:\Users\khens\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Debug\Barette.IDE.Forms.FormClientFind.resources
 C:\Users\khens\Source\Repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Debug\Barette.IDE.Forms.FormStatistiques.resources

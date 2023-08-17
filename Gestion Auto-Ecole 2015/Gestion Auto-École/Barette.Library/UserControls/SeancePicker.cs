@@ -149,11 +149,9 @@ namespace Barette.Library.UserControls
 			}
 		}
 
-		private void SeancePicker_Resize(object sender, EventArgs e) {
-            Height = 25;
-		}
+        private void SeancePicker_Resize(object sender, EventArgs e) => Height = 25;
 
-		private void lblSceanceNumber_CheckedChanged(object sender, EventArgs e) {
+        private void lblSceanceNumber_CheckedChanged(object sender, EventArgs e) {
 
 			if (lblSceanceNumber.Checked == true)
 				DateSceance.Value = DateTime.Now;
@@ -225,23 +223,12 @@ namespace Barette.Library.UserControls
 			gfx.DrawRectangle(pen , rec);
 		}
 
-		private void cbAbsence_CheckedChanged(object sender, EventArgs e) {
-			cbAbsence.ForeColor = cbAbsence.Checked ? Color.Red : SystemColors.ControlText;
-        }
+        private void cbAbsence_CheckedChanged(object sender, EventArgs e) => cbAbsence.ForeColor = cbAbsence.Checked ? Color.Red : SystemColors.ControlText;
 
-        private void DateSceance_ValueChanged(object sender, EventArgs e)
-        {
-            AutoUpdateTime();
-        }
+        private void DateSceance_ValueChanged(object sender, EventArgs e) => AutoUpdateTime();
 
-        public void AutoUpdateTime()
-        {
-            DateModifiedPicker.Value = DateSceance.Value.AddHours(AutoAddEndCoursHours);
-        }
+        public void AutoUpdateTime() => DateModifiedPicker.Value = DateSceance.Value.AddHours(AutoAddEndCoursHours);
 
-        private void cmdUpdateTime_Click(object sender, EventArgs e)
-        {
-            AutoUpdateTime();
-        }
-	}
+        private void cmdUpdateTime_Click(object sender, EventArgs e) => AutoUpdateTime();
+    }
 }

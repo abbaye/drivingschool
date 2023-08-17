@@ -15,21 +15,19 @@
 			base.Dispose(disposing);
 		}
 
-		#region Component Designer generated code
+        #region Component Designer generated code
 
-		/// <summary> 
-		/// Required method for Designer support - do not modify 
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent() {
-// 
-// ListViewEx
-// 
-			this.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListViewEx_ColumnClick);
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent() =>
+            // 
+            // ListViewEx
+            // 
+            this.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListViewEx_ColumnClick);
 
-		}
+        #endregion
 
-		#endregion
-
-	}
+    }
 }

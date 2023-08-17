@@ -57,8 +57,6 @@ namespace Barette.Library.Forms
             Close();
 		}
 
-		private void cmdClose_Click(object sender, EventArgs e) {
-			_notes.Alerte = false;
-		}
-	}
+        private void cmdClose_Click(object sender, EventArgs e) => _notes.Alerte = false;
+    }
 }

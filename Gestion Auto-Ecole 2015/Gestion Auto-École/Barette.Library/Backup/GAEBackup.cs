@@ -22,9 +22,7 @@ namespace Barette.Library.Backup
         /// </summary>
         /// <param name="InPath">Dossier d'entré</param>
         /// <param name="OutPath">Fichier zip de sorti</param>
-        public static void CompressFolder(string InPath, string OutPath) {
-            CompressFolder(InPath, OutPath, TauxCompression.Maximum, false);
-        }
+        public static void CompressFolder(string InPath, string OutPath) => CompressFolder(InPath, OutPath, TauxCompression.Maximum, false);
 
         /// <summary>
         /// Compresse un répertoire au format zip
@@ -34,9 +32,7 @@ namespace Barette.Library.Backup
         /// <param name="CompressionLevel">Taux de compression
         /// 0 -> Compression minimale 
         /// 9 -> Compression maximale  </param>
-        public static void CompressFolder(string InPath, string OutPath, TauxCompression CompressionLevel) {
-            CompressFolder(InPath, OutPath, CompressionLevel, false);
-        }
+        public static void CompressFolder(string InPath, string OutPath, TauxCompression CompressionLevel) => CompressFolder(InPath, OutPath, CompressionLevel, false);
 
         /// <summary>
         /// Compresse un répertoire au format zip

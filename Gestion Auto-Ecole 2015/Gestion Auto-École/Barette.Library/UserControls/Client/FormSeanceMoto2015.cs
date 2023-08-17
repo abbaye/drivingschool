@@ -930,13 +930,11 @@ namespace Barette.Library.UserControls.Client
             ResumeLayout(false);
 
 		}
-		#endregion
+        #endregion
 
-		private void cmdCancel_Click(object sender, EventArgs e) {
-            Close();
-		}
+        private void cmdCancel_Click(object sender, EventArgs e) => Close();
 
-		private void cmdOK_Click(object sender, EventArgs e) {
+        private void cmdOK_Click(object sender, EventArgs e) {
             //Suppression des seance en cours
             _client.Seances.Clear();
             _client.SeancesTheorique.Clear();

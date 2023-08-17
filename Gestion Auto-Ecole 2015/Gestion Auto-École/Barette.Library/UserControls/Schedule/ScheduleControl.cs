@@ -230,14 +230,12 @@ namespace Barette.Library.UserControls.Schedule
 			return null;
 		}
 
-		private void txtNotes_KeyUp(object sender, KeyEventArgs e) {
-			NotesChanged(sender, e);
-		}
+        private void txtNotes_KeyUp(object sender, KeyEventArgs e) => NotesChanged(sender, e);
 
-		/// <summary>
-		/// Obtenir de l'information sur l'item sélectioné dans la list
-		/// </summary>
-		public ScheduleInfos SelectedItemInfos {
+        /// <summary>
+        /// Obtenir de l'information sur l'item sélectioné dans la list
+        /// </summary>
+        public ScheduleInfos SelectedItemInfos {
 			get {
 				if (listViewEx1.SelectedItems.Count > 0) {
 					ScheduleInfos infos = new ScheduleInfos();

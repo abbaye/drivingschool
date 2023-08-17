@@ -83,6 +83,16 @@ namespace Barette.Library.Client
 
         public string MontantCours { get; set; } = "";
 
+        public decimal MontantCoursDecimal
+        {
+            get
+            {
+                if (MontantCours == string.Empty) return 0;
+
+                return Convert.ToDecimal(Convert.ToDouble(MontantCours.Replace(" $", "")));
+            }
+        }
+
         public string FirstName { get; set; }
 
         public string StreetName { get; set; }
