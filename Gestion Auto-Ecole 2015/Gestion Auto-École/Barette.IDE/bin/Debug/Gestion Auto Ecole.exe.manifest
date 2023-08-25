@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Gestion Auto Ecole.exe" version="1.0.0.36" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Gestion Auto Ecole.exe" version="1.0.0.38" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="user-group.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Gestion Auto Ecole" version="1.2.8628.40204" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Gestion Auto Ecole" version="1.2.8637.30179" language="neutral" processorArchitecture="msil" />
     <commandLine file="Gestion Auto Ecole.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,38 +42,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Barette.Library.dll" size="24219648">
-      <assemblyIdentity name="Barette.Library" version="1.0.8628.40203" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Barette.Library.dll" size="24223744">
+      <assemblyIdentity name="Barette.Library" version="1.0.8637.30179" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>6bHtksT2W5ApuCe97CCts+NKCB1OcXMp+oQcT18YwQk=</dsig:DigestValue>
+        <dsig:DigestValue>UNYlakxqMIE/jkP7jyykeSOM3H3IjCHj0nkl6Z2PNfc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gestion Auto Ecole.exe" size="1339392">
-      <assemblyIdentity name="Gestion Auto Ecole" version="1.2.8628.40204" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Gestion Auto Ecole" version="1.2.8637.30179" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>apc/iRD3t9LnKwk3FMPz2qYbo+gx84RfQopIPHEL1tM=</dsig:DigestValue>
+        <dsig:DigestValue>QbHszycRkkUzG08jN1VQlLNFEwGZIDwoSZGmg9NFwHA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICSharpCode.SharpZipLib.dll" size="221184">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ICSharpCode.SharpZipLib.dll" size="192512">
       <assemblyIdentity name="ICSharpCode.SharpZipLib" version="0.86.0.518" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>p1Y43U0ysIv/RJ27VMSlcEaV1/jgHJ8fKyzxV//V/40=</dsig:DigestValue>
+        <dsig:DigestValue>r7Pw+DkRBRnGsmme5Icx5K2leSibh3xo495jXMJCjj4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

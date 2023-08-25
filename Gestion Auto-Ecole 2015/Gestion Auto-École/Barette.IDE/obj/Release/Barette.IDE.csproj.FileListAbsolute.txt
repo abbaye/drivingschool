@@ -1,0 +1,48 @@
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\Gestion Auto Ecole.exe.config
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\Gestion Auto Ecole.exe.manifest
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\Gestion Auto Ecole.application
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\Gestion Auto Ecole.exe
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\Barette.Library.dll
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\MagicLocalLibrary.dll
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\UtilityLibrary.dll
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\VerticalCalendar.dll
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\OfficePickers.dll
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\VerticalCalendar.xml
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\OfficePickers.pdb
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\ICSharpCode.SharpZipLib.pdb
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\bin\Release\ICSharpCode.SharpZipLib.xml
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.csproj.AssemblyReference.cache
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.GestionGroup.FormExport.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormClientFind.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormStatistiques.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormSuivieCoursMoto2015.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.GestionGroup.FormModifieGroup.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.GestionGroup.FormGroupSeanceTheorique.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.GestionGroup.FormAddGroup.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.GestionGroup.FormAddStudent.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.GestionGroup.FormGestionGroupe.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormSuivieCours.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.GestionGroup.FormGroupSeancePratique.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.Calendar.FormHoraire.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.Calendar.FormJourFerier.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.Finance.FormFinance.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.Finance.FormFinanceEtatsGlobal.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormAjoutClient.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormAjoutEmploye.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormClients.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormEmploye.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormFindClient.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.FormMain.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.InfoEcole.FormInfoEcole.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.LigueSecuriter.FormLigueSecuriter.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.Notes.FormAddEditPostIt.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Forms.Notes.FormPostIt.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.Properties.Resources.resources
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.csproj.GenerateResource.cache
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.csproj.CoreCompileInputs.cache
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Gestion Auto Ecole.TrustInfo.xml
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Gestion Auto Ecole.exe.manifest
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Gestion Auto Ecole.application
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Barette.IDE.csproj.CopyComplete
+C:\Users\khens\source\repos\drivingschool\Gestion Auto-Ecole 2015\Gestion Auto-École\Barette.IDE\obj\Release\Gestion Auto Ecole.exe

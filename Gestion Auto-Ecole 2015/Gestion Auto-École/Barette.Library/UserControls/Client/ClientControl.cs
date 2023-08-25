@@ -15136,6 +15136,7 @@ namespace Barette.Library.UserControls.Client
         {
             //Fabrication des fonts
             Font printFont = new Font("Courier New", 11);
+            Font printFontTime7 = new Font("Times New Roman", 7, FontStyle.Regular);
             Font printFontTime8 = new Font("Times New Roman", 8, FontStyle.Regular);
             Font printFontTime10 = new Font("Times New Roman", 10, FontStyle.Regular);
             //Font printFontTime12 = new Font("Times New Roman", 12, FontStyle.Regular);
@@ -15179,7 +15180,7 @@ namespace Barette.Library.UserControls.Client
             #endregion
 
             #region Informations Ecole
-            yPos = 130;
+            yPos = 110;
             e.Graphics.DrawString("Informations sur l'école", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
             yPos += printFontBold14.Height;
             e.Graphics.DrawString(_infoSchool.SchoolName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
@@ -15189,7 +15190,7 @@ namespace Barette.Library.UserControls.Client
             e.Graphics.DrawString(_infoSchool.City + ", QC, " + _infoSchool.PostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 
             //Numero de permis
-            yPos = 130 + printFontBold14.Height;
+            yPos = 110 + printFontBold14.Height;
             e.Graphics.DrawString("Permis : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
             switch (_Client.TypeVehicule)
             {
@@ -15365,7 +15366,6 @@ namespace Barette.Library.UserControls.Client
 
                     //Pratique
                     hauteurDescription += printFontTime10.Height;
-
                     e.Graphics.DrawString($"Pratique: {(_Client.IsSpyder ? 4 : 3)} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
                     e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
 
@@ -15392,7 +15392,7 @@ namespace Barette.Library.UserControls.Client
             //Ajouter le lieu de formation de moto en cas de client moto ou cylclomoteur
             if ((_Client.TypeVehicule == VehiculeType.Moto) || (_Client.TypeVehicule == VehiculeType.Cyclomoteur))
             {
-                yPos += printFontBold24.Height;
+                yPos += printFontBold14.Height;
                 e.Graphics.DrawString("Lieu de formation en circuit fermé", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
                 yPos += printFontBold14.Height;
                 e.Graphics.DrawString(_infoSchool.CourseBatisseName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
@@ -15404,49 +15404,68 @@ namespace Barette.Library.UserControls.Client
             #endregion
 
             #region Mention légal
-            yPos += printFontBold24.Height;
+            yPos += printFontBold14.Height;
             e.Graphics.DrawString("Mention légale", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
 
-            e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 810, 19 * printFontTime8.Height + 5);
+            e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 810, 15 * printFontTime7.Height + 5);
             //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 825, 11 * printFont.Height + 5);
 
             yPos += printFontBold14.Height + 10;
-            string MentionLegal = @"Mention exigée par la Loi sur la Protection du Consommateur (Contrat de louage de services à exécution successive) Résiliation : Le consommateur peut, à tout moment 
-et à sa discrétion, résilier ce contrat en envoyant la formule ci-annexée ou un autre avis écrit à cet effet au commerçant. Le contrat est résilié de plein droit 
-à compter de l'envoie de la formule ou de l'avis. Frais : Si le consommateur résilie ce contrat avant que le commerçant n'ait commencé à exécuter son obligation 
-principale, la résiliation s'effectue sans frais ni pénalité pour le consommateur. Sommes exigées: Si le consommateur résilie ce contrat après que le 
-commerçant ait commencé à exécuter son obligation principale, les seules sommes que le commerçant peut exiger de lui sont : A) le prix des services qui lui ont 
-été fournis, calculé au taux stipulé dans le contrat et B) à titre de pénalité, la moins élevée des sommes suivantes : 50$ ou 10% du prix des services qui 
-ne lui ont pas été fournis. Restitution : Dans les dix (10) jours qui suivent la résiliation du contrat, le commerçant doit restituer au consommateur la somme
-d'argent à ce dernier. Le consommateur aura avantage à consulter les articles 190 à 196 de la loi la protection du consommateur (L.R.Q., c. P-40.1) et, au besoin, 
-à communiquer avec l'Offices de la Protection du Consommateur.
+            string MentionLegal = @"Mention exigée par la Loi sur la Protection du Consommateur (Contrat de louage de services à exécution successive) Résiliation : Le consommateur peut, à tout moment et à sa discrétion, 
+résilier ce contrat en envoyant la formule ci-annexée ou un autre avis écrit à cet effet au commerçant. Le contrat est résilié de plein droit à compter de l'envoie de la formule ou de l'avis. 
+Frais : Si le consommateur résilie ce contrat avant que le commerçant n'ait commencé à exécuter son obligation principale, la résiliation s'effectue sans frais ni pénalité pour le consommateur. 
+Sommes exigées: Si le consommateur résilie ce contrat après que le commerçant ait commencé à exécuter son obligation principale, les seules sommes que le commerçant peut exiger de lui sont : 
+A) le prix des services qui lui ont été fournis, calculé au taux stipulé dans le contrat et B) à titre de pénalité, la moins élevée des sommes suivantes : 50$ ou 10% du prix des services qui 
+ne lui ont pas été fournis. Restitution : Dans les dix (10) jours qui suivent la résiliation du contrat, le commerçant doit restituer au consommateur la somme d'argent à ce dernier. Le consommateur 
+aura avantage à consulter les articles 190 à 196 de la loi la protection du consommateur (L.R.Q., c. P-40.1) et, au besoin, à communiquer avec l'Offices de la Protection du Consommateur.
 
-Ce contrat est d'une durée maximum de 549 jours à compter de la date d'émission. Si le solde n'est pas payé durant cette période, un ajustement de prix peut être 
-effectué par l'école. L'élève devra informer l'école au moins 48 heures à l'avance (deux jours ouvrable) pour annuler ou reporter une ou des leçons pratiques, 
-sinon une pénalité de 50$ de l'heure sera exigée. Des frais de 50$ seront exigés pour ré-ouvrir un dossier fermé ou annulé un contrat actif. J'autorise l'école 
-à transmettre mes coordonnées à l'A.Q.T.R (Association Québecoise du Transport et des Routes) pour lui permettre d'effectuer des sondages de satisfaction au 
-sujet de mon cours de conduite. NON ( )
+Ce contrat est d'une durée maximum de 549 jours à compter de la date d'émission. Si le solde n'est pas payé durant cette période, un ajustement de prix peut être effectué par l'école. L'élève devra 
+informer l'école au moins 48 heures à l'avance (deux jours ouvrable) pour annuler ou reporter une ou des leçons pratiques, sinon une pénalité de 50$ de l'heure sera exigée. Des frais de 50$ seront 
+exigés pour ré-ouvrir un dossier fermé ou annulé un contrat actif. J'autorise l'école à transmettre mes coordonnées à l'A.Q.T.R (Association Québecoise du Transport et des Routes) pour lui 
+permettre d'effectuer des sondages de satisfaction au sujet de mon cours de conduite. NON ( )
 
 INFORMATION: Un frais de 10,00$ s’ajoutera au contrat si le client ne se présente pas à son cours théorique.   ______ Initiales de l’élève";
 
-            e.Graphics.DrawString(MentionLegal, printFontTime8, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+            e.Graphics.DrawString(MentionLegal, printFontTime7, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+            #endregion
 
+            #region Modalités de paiement
+            yPos += printFontTime7.Height * 15;
+            e.Graphics.DrawString("Modalités de paiement", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+            e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 810, 10 * printFontTime7.Height + 5);
+            //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 825, 11 * printFont.Height + 5);
+
+            yPos += printFontBold14.Height + 10;
+            string ModalitePaiement = @"Le coût TOTAL du contrat est payable en :
+- quatre versements égaux pour le PESR portant sur la conduite d’une motocyclette (classes 6A, 6B et 6C), étalés de la façon suivante :
+  - un versement au début de chacun des deux blocs, soit la conduite en circuit fermé et la conduite sur route;
+  - un versement une fois que l’élève aura terminé 50 % des apprentissages du bloc 1 (conduite en circuit fermé);
+  - un versement une fois que l’élève aura terminé 50 % des apprentissages du bloc 2 (conduite sur route).
+- deux versements égaux pour le PESR portant sur la conduite d’un cyclomoteur (classe 6D) ou d’une moto à trois roues (classe 6E) (à moins que toute la formation soit
+  donnée en une seule journée), étalés de la façon suivante:
+  - un versement au début du cours;
+  - un versement une fois que l’élève aura terminé 50 % du cours.";
+
+            e.Graphics.DrawString(ModalitePaiement, printFontTime7, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
             #endregion
 
             #region Formule de résiliation
-            string resiliation = @"Clause de non-cession ou sous-traitance à un enseignant. En vertu de l'article 193
-de la Loi sur la protection du consommateur, je résilie le présent contrat.
+            string resiliation = @"Clause de non-cession ou sous-traitance à un enseignant. En vertu de l'article 193 de la Loi sur la protection du consommateur, 
+je résilie le présent contrat.
 
 Date : __________________  Signature du résiliataire : ____________________";
 
-            yPos += printFontTime8.Height * 19;
+            yPos += printFontTime8.Height * 8;
             //yPos += printFontBold14.Height;
             e.Graphics.DrawString("Formule de résiliation", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
 
             yPos += printFontBold14.Height;
             e.Graphics.DrawString(resiliation, printFontTime10, Brushes.Black, leftMargin + 5, yPos + 5, new StringFormat());
             e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos, 810, 4 * printFont.Height + 10);
+            #endregion
 
+            #region Signature
             yPos += printFontTime10.Height * 6;
             e.Graphics.DrawString("Fait et signé à " + _infoSchool.City + " le " + DateTime.Now.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
             yPos += printFontTime10.Height * 2;
@@ -15458,10 +15477,9 @@ automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessat
             yPos += printFontTime10.Height;
             e.Graphics.DrawString("Signature du commercant", printFontTime10, Brushes.Black, leftMargin, yPos + 3, new StringFormat());
             e.Graphics.DrawString("Signature d'un parent ou tuteur", printFontTime10, Brushes.Black, leftMargin + 215, yPos + 3, new StringFormat());
-            e.Graphics.DrawString("Signature de l'élève", printFontTime10, Brushes.Black, leftMargin + 455, yPos + 3, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("(Si moins de 18 ans)", printFontTime10, Brushes.Black, leftMargin + 215, yPos + 3, new StringFormat());
+            e.Graphics.DrawString("Signature de l'élève (<18 ans)", printFontTime10, Brushes.Black, leftMargin + 455, yPos + 3, new StringFormat());
             #endregion
+
         }
 
         private void cmdAutoDateExpiration_Click(object sender, EventArgs e) => DateExpiration.Value = DateInscription.Value.AddMonths(18);
