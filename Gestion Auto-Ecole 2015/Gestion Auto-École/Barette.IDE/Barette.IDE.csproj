@@ -50,7 +50,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Gestion Auto-Ecole 2015</ProductName>
     <PublisherName>Derek Tremblay 418-550-6494</PublisherName>
-    <ApplicationRevision>38</ApplicationRevision>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

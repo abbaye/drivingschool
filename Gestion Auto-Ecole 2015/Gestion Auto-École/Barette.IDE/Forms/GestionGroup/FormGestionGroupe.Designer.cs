@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestionGroupe));
+            Barette.Library.Client.Customer customer2 = new Barette.Library.Client.Customer();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tbStudentsList = new System.Windows.Forms.ToolBar();
             this.tbbRefresh = new System.Windows.Forms.ToolBarButton();
@@ -34,6 +35,8 @@
             this.tbbAddStudentInGroup = new System.Windows.Forms.ToolBarButton();
             this.tbbDeleteStudentFromGroup = new System.Windows.Forms.ToolBarButton();
             this.tbbSeparator3 = new System.Windows.Forms.ToolBarButton();
+            this.tbbPrintAll = new System.Windows.Forms.ToolBarButton();
+            this.toolBarButton2 = new System.Windows.Forms.ToolBarButton();
             this.tbbModifieSeancePratique = new System.Windows.Forms.ToolBarButton();
             this.tbbModifieSeanceTheorique = new System.Windows.Forms.ToolBarButton();
             this.ListGroup = new System.Windows.Forms.ListView();
@@ -46,10 +49,13 @@
             this.tbbSeparator2 = new System.Windows.Forms.ToolBarButton();
             this.tbbAddGroupe = new System.Windows.Forms.ToolBarButton();
             this.tbbDeleteGroupe = new System.Windows.Forms.ToolBarButton();
+            this.tbbEdit = new System.Windows.Forms.ToolBarButton();
             this.toolBarButton1 = new System.Windows.Forms.ToolBarButton();
             this.tbbPrint = new System.Windows.Forms.ToolBarButton();
             this.ImageListSmall = new System.Windows.Forms.ImageList(this.components);
             this.timerActivateButton = new System.Windows.Forms.Timer(this.components);
+            this.PrintRelever = new System.Drawing.Printing.PrintDocument();
+            this.clientControl1 = new Barette.Library.UserControls.Client.ClientControl();
             this.listFindResult = new Barette.Library.Listview.ListViewEx();
             this.colheadContratNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colheadDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,8 +63,7 @@
             this.colHeadNumeroPermis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadPhone2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PrintRelever = new System.Drawing.Printing.PrintDocument();
-            this.tbbEdit = new System.Windows.Forms.ToolBarButton();
+            this.tbbPrintTheorie = new System.Windows.Forms.ToolBarButton();
             this.SuspendLayout();
             // 
             // imageList1
@@ -87,9 +92,12 @@
             this.tbbSeparator,
             this.tbbAddStudentInGroup,
             this.tbbDeleteStudentFromGroup,
+            this.toolBarButton2,
+            this.tbbPrintTheorie,
+            this.tbbPrintAll,
             this.tbbSeparator3,
-            this.tbbModifieSeancePratique,
-            this.tbbModifieSeanceTheorique});
+            this.tbbModifieSeanceTheorique,
+            this.tbbModifieSeancePratique});
             this.tbStudentsList.Divider = false;
             this.tbStudentsList.Dock = System.Windows.Forms.DockStyle.None;
             this.tbStudentsList.DropDownArrows = true;
@@ -98,7 +106,7 @@
             this.tbStudentsList.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.tbStudentsList.Name = "tbStudentsList";
             this.tbStudentsList.ShowToolTips = true;
-            this.tbStudentsList.Size = new System.Drawing.Size(686, 42);
+            this.tbStudentsList.Size = new System.Drawing.Size(788, 42);
             this.tbStudentsList.TabIndex = 10;
             this.tbStudentsList.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
             this.tbStudentsList.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.tbStudentsList_ButtonClick);
@@ -145,6 +153,18 @@
             this.tbbSeparator3.Name = "tbbSeparator3";
             this.tbbSeparator3.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
             // 
+            // tbbPrintAll
+            // 
+            this.tbbPrintAll.ImageIndex = 3;
+            this.tbbPrintAll.Name = "tbbPrintAll";
+            this.tbbPrintAll.Tag = "PRINTALL";
+            this.tbbPrintAll.ToolTipText = "Imprimer scéances Pratique";
+            // 
+            // toolBarButton2
+            // 
+            this.toolBarButton2.Name = "toolBarButton2";
+            this.toolBarButton2.Style = System.Windows.Forms.ToolBarButtonStyle.Separator;
+            // 
             // tbbModifieSeancePratique
             // 
             this.tbbModifieSeancePratique.ImageKey = "book-icon.png";
@@ -161,8 +181,8 @@
             // 
             // ListGroup
             // 
-            this.ListGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.ListGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ListGroup.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colHeaderGroupeList,
             this.colHeaderGroupName,
@@ -251,6 +271,12 @@
             this.tbbDeleteGroupe.Tag = "DELETEGROUP";
             this.tbbDeleteGroupe.ToolTipText = "Effacer un client";
             // 
+            // tbbEdit
+            // 
+            this.tbbEdit.ImageKey = "Edit-icon.png";
+            this.tbbEdit.Name = "tbbEdit";
+            this.tbbEdit.Tag = "EDIT";
+            // 
             // toolBarButton1
             // 
             this.toolBarButton1.Name = "toolBarButton1";
@@ -277,11 +303,76 @@
             this.timerActivateButton.Interval = 250;
             this.timerActivateButton.Tick += new System.EventHandler(this.timerActivateButton_Tick);
             // 
+            // PrintRelever
+            // 
+            this.PrintRelever.DocumentName = "Rapport Ligue Sécurité";
+            this.PrintRelever.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintRelever_PrintPage);
+            // 
+            // clientControl1
+            // 
+            this.clientControl1.AutoUpdate = true;
+            this.clientControl1.BackColor = System.Drawing.SystemColors.Control;
+            customer2.AttestationNumber1 = "0";
+            customer2.AttestationNumber2 = "0";
+            customer2.BVA = false;
+            customer2.BVADate = new System.DateTime(2023, 8, 30, 22, 41, 6, 44);
+            customer2.City = "";
+            customer2.ClientNull = false;
+            customer2.CodePostal = "   -";
+            customer2.ContratNumber = "0";
+            customer2.DateAttestation1 = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            customer2.DateAttestation2 = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            customer2.DateDebutCours = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            customer2.DateExpiration = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            customer2.DateInscription = new System.DateTime(2015, 4, 11, 0, 0, 0, 0);
+            customer2.DateNaissance = new System.DateTime(2023, 8, 30, 22, 41, 6, 182);
+            customer2.DateTemporaire = new System.DateTime(2023, 8, 30, 22, 41, 6, 41);
+            customer2.DisponibilityAlway = false;
+            customer2.DisponibilityAM = false;
+            customer2.DisponibilityDimanche = false;
+            customer2.DisponibilityPM = false;
+            customer2.DisponibilitySamedi = false;
+            customer2.DisponibilitySoirer = false;
+            customer2.Email = "";
+            customer2.FirstName = "";
+            customer2.HaveTemporaire = false;
+            customer2.IsSpyder = false;
+            customer2.LastRecuNumber = "0";
+            customer2.LocationAutomobile = false;
+            customer2.LocationMoto = false;
+            customer2.MontantCours = "";
+            customer2.MontantLocation = "0 $";
+            customer2.Name = "";
+            customer2.No6R = "";
+            customer2.Notes = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang3084{\\fonttbl{\\f0\\fnil\\fcharset0 " +
+    "Microsoft Sans Serif;}}\r\n{\\*\\generator Riched20 10.0.22621}\\viewkind4\\uc1 \r\n\\par" +
+    "d\\f0\\fs17\\par\r\n}\r\n";
+            customer2.NumeroGroupe = 0;
+            customer2.NumeroPermis = "";
+            customer2.Phone = "(   )   -";
+            customer2.PhoneBureau = "(   )   -";
+            customer2.ProgramMoto = Barette.Library.Client.ProgramMoto.Nothing;
+            customer2.Solde = "0 $";
+            customer2.StreetApp = "";
+            customer2.StreetName = "";
+            customer2.StreetNumber = "0";
+            customer2.TauxHorairePratique = "0 $";
+            customer2.TauxHoraireTheorique = "0 $";
+            customer2.TypeClient = Barette.Library.Client.ProfileType.Actif;
+            customer2.TypeVehicule = Barette.Library.Client.VehiculeType.Automatique;
+            this.clientControl1.Client = customer2;
+            this.clientControl1.Location = new System.Drawing.Point(1046, 32);
+            this.clientControl1.Name = "clientControl1";
+            this.clientControl1.School = null;
+            this.clientControl1.Size = new System.Drawing.Size(133, 116);
+            this.clientControl1.TabIndex = 13;
+            this.clientControl1.Visible = false;
+            // 
             // listFindResult
             // 
-            this.listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listFindResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listFindResult.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colheadContratNumber,
             this.colheadDate,
@@ -330,21 +421,18 @@
             this.colHeadPhone2.Text = "Téléphone Autre";
             this.colHeadPhone2.Width = 101;
             // 
-            // PrintRelever
+            // tbbPrintTheorie
             // 
-            this.PrintRelever.DocumentName = "Rapport Ligue Sécurité";
-            this.PrintRelever.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintRelever_PrintPage);
-            // 
-            // tbbEdit
-            // 
-            this.tbbEdit.ImageKey = "Edit-icon.png";
-            this.tbbEdit.Name = "tbbEdit";
-            this.tbbEdit.Tag = "EDIT";
+            this.tbbPrintTheorie.ImageIndex = 3;
+            this.tbbPrintTheorie.Name = "tbbPrintTheorie";
+            this.tbbPrintTheorie.Tag = "PRINTTHEORIE";
+            this.tbbPrintTheorie.ToolTipText = "Imprimer scéances théorique";
             // 
             // FormGestionGroupe
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1232, 608);
+            this.Controls.Add(this.clientControl1);
             this.Controls.Add(this.tbStudentGroup);
             this.Controls.Add(this.ListGroup);
             this.Controls.Add(this.tbStudentsList);
@@ -392,6 +480,10 @@
         private System.Windows.Forms.ToolBarButton toolBarButton1;
         private System.Drawing.Printing.PrintDocument PrintRelever;
         private System.Windows.Forms.ToolBarButton tbbEdit;
-
+        private System.Windows.Forms.ToolBarButton tbbPrintAll;
+        private System.Windows.Forms.ToolBarButton tbbSeparator5;
+        private System.Windows.Forms.ToolBarButton toolBarButton2;
+        private Library.UserControls.Client.ClientControl clientControl1;
+        private System.Windows.Forms.ToolBarButton tbbPrintTheorie;
     }
 }

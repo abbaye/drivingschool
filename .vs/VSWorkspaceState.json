@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Gestion Auto-Ecole 2015",
+    "\\Gestion Auto-Ecole 2015\\Gestion Auto-École",
+    "\\Gestion Auto-Ecole 2015\\Gestion Auto-École\\Barette.IDE",
+    "\\Gestion Auto-Ecole 2015\\Gestion Auto-École\\Barette.IDE\\bin",
+    "\\Gestion Auto-Ecole 2015\\Gestion Auto-École\\Barette.Library",
+    "\\Gestion Auto-Ecole 2015\\Gestion Auto-École\\Barette.Library\\UserControls",
+    "\\Gestion Auto-Ecole 2015\\Gestion Auto-École\\Barette.Library\\UserControls\\Client"
   ],
-  "SelectedNode": "\\Gestion Auto-École.sln (Gestion Auto-Ecole 2015\\Gestion Auto-École\\Gestion Auto-École.sln)",
   "PreviewInSolutionExplorer": false
 }

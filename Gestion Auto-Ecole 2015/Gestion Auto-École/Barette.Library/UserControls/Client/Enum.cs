@@ -18,6 +18,6 @@ namespace Barette.Library.UserControls.Client
         Contract,
         PaimentList,
         Moto2015,
-        AttestationMoto2015
+        AttestationMoto2015,
     }
 }

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Barette.Library;
 using Barette.Library.Client;
 using Barette.Library.Collections;
+using Barette.Library.UserControls.Client;
 
 namespace Barette.IDE.Forms.GestionGroup
 {
@@ -341,12 +342,50 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
                 case "SEANCETHEORIQUE":
                     ModifieSeanceTheorique();
                     break;
+                case "PRINTALL":
+                    PrintAllStudentPratique();
+                    break;
+                case "PRINTTHEORIE":
+                    PrintAllStudentTheorie();
+                    break;                    
                 case "SHOWCLIENT":
                     try {
                         _FormMain.CreationListClient(listFindResult.SelectedItems[0].Text);
                     }
                     catch { };
                     break;
+            }
+        }
+
+        private void PrintAllStudentTheorie()
+        {
+            Customer client;
+
+            foreach (ListViewItem item in listFindResult.Items)
+            {
+                client = _ClientList.GetClient(item.Text);
+
+                if (client != null)
+                {
+                    clientControl1.Client = client;
+                    clientControl1.PrintDoc(false, true, true, PrintDocumentType.InfoClientTheorique);
+                }
+            }
+        }
+
+        private void PrintAllStudentPratique()
+        {
+            Customer client;
+
+            foreach (ListViewItem item in listFindResult.Items)
+            {
+                client = _ClientList.GetClient(item.Text);
+
+                if (client != null)
+                {
+                    clientControl1.Client = client;
+                    clientControl1.PrintDoc(false, true, true, PrintDocumentType.InfoClient);
+                }
             }
         }
 
@@ -456,7 +495,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
                 yPos = topMargin + 5;
                 e.Graphics.DrawString("Liste du groupe No : " + ListGroup.SelectedItems[0].Text, printFontBold16, Brushes.Black, leftMargin + 200, yPos, new StringFormat());
                 yPos += printFontBold16.Height + 15;
-                e.Graphics.DrawString("Date : " + DateTime.Now.ToLongDateString(), printFontBold16, Brushes.Black, leftMargin + 200, yPos, new StringFormat());
+                e.Graphics.DrawString("Nom groupe : " + ListGroup.SelectedItems[0].SubItems[1].Text, printFontBold16, Brushes.Black, leftMargin + 200, yPos, new StringFormat());
 
                 _HeaderPrinted = true; //Header Imprimé
             }
@@ -503,6 +542,7 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
  
                     #region Creation d'une nouvelle page et numéro de page
                     string PageNumber = "Page : " + _TotalPagePrinted.ToString(); // +"/" + _TotalPage.ToString();
+
                     if (yPos >= e.MarginBounds.Height + 50) {
                         //Numéro de page
                         e.Graphics.DrawString(PageNumber,
@@ -511,6 +551,8 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
                             e.MarginBounds.Right - e.Graphics.MeasureString(PageNumber, printFontBold).Width,
                             e.MarginBounds.Bottom,
                             new StringFormat());
+
+                        e.Graphics.DrawString("Date impression : " + DateTime.Now.ToLongDateString(), printFontBold, Brushes.Black, leftMargin, e.MarginBounds.Bottom, new StringFormat());
 
                         _TotalPagePrinted++;
                         e.HasMorePages = true; // Imprimer une nouvelle page ... sorte de boucle qui me fait mettre des maudite variable global grr lol
@@ -523,11 +565,22 @@ Cette opération ne supprimera pas les clients. Par contre tous les clients du g
                             e.MarginBounds.Right - e.Graphics.MeasureString(PageNumber, printFontBold).Width,
                             e.MarginBounds.Bottom,
                             new StringFormat());
+
+                        e.Graphics.DrawString("Date impression : " + DateTime.Now.ToLongDateString(), printFontBold, Brushes.Black, leftMargin, e.MarginBounds.Bottom, new StringFormat());
                     }
                     #endregion
 
                 }
             }
+
+            yPos += printFont.Height * 3;
+            e.Graphics.DrawString("Date / Heure : ___________________ ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            yPos += printFont.Height * 2;
+            e.Graphics.DrawString("Signature du professeur \t\t: ___________________ ", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            yPos += printFont.Height;
+            e.Graphics.DrawString("Nom du professeur \t\t: François Laberge", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+            yPos += printFont.Height;
+            e.Graphics.DrawString("No. Permis \t\t: L-14003", printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
         }
     }
 }

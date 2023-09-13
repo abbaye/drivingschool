@@ -45,7 +45,7 @@ namespace Barette.IDE.Forms.GestionGroup
 
             RadioButton rbseance = (RadioButton)sender;
 
-            seancePicker1.NumeroSeance = Convert.ToInt32(rbseance.Text); 
+            seancePicker1.NumeroSeance = Convert.ToInt32(rbseance.Tag); 
         }
 
         /// <summary>
@@ -63,7 +63,18 @@ namespace Barette.IDE.Forms.GestionGroup
                     rb4.Visible = rb5.Visible = rb6.Visible = rb7.Visible = rb8.Visible = rb9.Visible = rb10.Visible = rb11.Visible = rb12.Visible = rb13.Visible = rb14.Visible = rb15.Visible = false;
                     break;
                 case StudentGroup.GroupType.Moto:
-                    rb7.Visible = rb8.Visible = rb9.Visible = rb10.Visible = rb11.Visible = rb12.Visible = rb13.Visible = rb14.Visible = rb15.Visible = false;
+                    rb1.Visible = rb6.Visible = rb12.Visible = rb13.Visible = rb14.Visible = rb15.Visible = false;
+                    
+                    rb2.Text = "1";
+                    rb3.Text = "2";
+                    rb4.Text = "3";
+                    rb5.Text = "4";
+                    
+                    rb7.Text = "5";
+                    rb8.Text = "6";
+                    rb9.Text = "7";
+                    rb10.Text = "8";
+                    rb11.Text = "9";
                     break;
             }
         }

@@ -65,7 +65,6 @@ namespace Barette.IDE.Forms
         /// </summary>
         private FormEmploye _formEmploye = null;
 
-
         /// <summary>
         /// instance de la fenetre de Statistique
         /// </summary>
