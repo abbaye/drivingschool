@@ -47,6 +47,7 @@ namespace Barette.Library.UserControls.Client
         private bool _AutoUpdate = true;
         public string _MontantCours = "";
         private SchoolInfo _infoSchool = null;
+        private bool _HasMorePageActivate = false;
 
         private GroupBox groupBox2;
         private Label label11;
@@ -15575,6 +15576,8 @@ namespace Barette.Library.UserControls.Client
             if (confirmation == true)
                 if (printConfig.ShowDialog(this) != DialogResult.OK) return;
 
+            _HasMorePageActivate = false;
+
             // Type de document à imprimé
             switch (DocType)
             {
@@ -16321,17 +16324,18 @@ namespace Barette.Library.UserControls.Client
         {
             //Fabrication des fonts
             Font printFont = new Font("Courier New", 11);
+            Font printFontTime6 = new Font("Times New Roman", 6, FontStyle.Regular);
             Font printFontTime7 = new Font("Times New Roman", 7, FontStyle.Regular);
             Font printFontTime8 = new Font("Times New Roman", 8, FontStyle.Regular);
             Font printFontTime10 = new Font("Times New Roman", 10, FontStyle.Regular);
-            //Font printFontTime12 = new Font("Times New Roman", 12, FontStyle.Regular);
-            //Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
-            //Font printFontBold8 = new Font("Times New Roman", 8, FontStyle.Bold);
+            Font printFontTime12 = new Font("Times New Roman", 12, FontStyle.Regular);
+            Font printFontBold = new Font("Times New Roman", 12, FontStyle.Bold);
+            Font printFontBold8 = new Font("Times New Roman", 8, FontStyle.Bold);
             Font printFontBold10 = new Font("Times New Roman", 10, FontStyle.Bold);
             Font printFontBold14 = new Font("Times New Roman", 14, FontStyle.Bold);
-            //Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
+            Font printFontBold16 = new Font("Times New Roman", 16, FontStyle.Bold);
             Font printFontBold24 = new Font("Times New Roman", 24, FontStyle.Bold);
-            //Font printFontBoldItalic16 = new Font("Times New Roman", 16, FontStyle.Bold & FontStyle.Italic);
+            Font printFontBoldItalic16 = new Font("Times New Roman", 16, FontStyle.Bold & FontStyle.Italic);
 
             float leftMargin = 0;//e.MarginBounds.Left;
             float yPos = 0f;
@@ -16340,329 +16344,380 @@ namespace Barette.Library.UserControls.Client
             //Fabrication du client avant impression	
             MakeClient();
 
-            #region Header
-            //Ecriture du header (image et texte)
-            Stream strm = Type.GetType("Barette.Library.UserControls.Client.ClientControl").Assembly.GetManifestResourceStream("Barette.Library.res.Printlogo.png");
-            Bitmap img = new Bitmap(strm);
-            e.Graphics.DrawImage(img, 0, 0, 180, 100);
 
-            //Info Ecole et Adresse
-            yPos = 5;
-            e.Graphics.DrawString(_infoSchool.SchoolName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString(_infoSchool.StreetNumber + " " + _infoSchool.StreetName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString(_infoSchool.City + ", QC, " + _infoSchool.PostalCode, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Tel." + _infoSchool.Phone + "   Fax." + _infoSchool.Fax, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+                #region Header
+                //Ecriture du header (image et texte)
+                Stream strm = Type.GetType("Barette.Library.UserControls.Client.ClientControl").Assembly.GetManifestResourceStream("Barette.Library.res.Printlogo.png");
+                Bitmap img = new Bitmap(strm);
+                e.Graphics.DrawImage(img, 0, 0, 180, 100);
 
-            yPos += printFontBold14.Height;
-            e.Graphics.DrawString("Contrat de service", printFontBold24, Brushes.Black, 225, yPos, new StringFormat());
+                //Info Ecole et Adresse
+                yPos = 5;
+                e.Graphics.DrawString(_infoSchool.SchoolName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString(_infoSchool.StreetNumber + " " + _infoSchool.StreetName, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString(_infoSchool.City + ", QC, " + _infoSchool.PostalCode, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Tel." + _infoSchool.Phone + "   Fax." + _infoSchool.Fax, printFontTime10, Brushes.Black, 225, yPos, new StringFormat());
+
+                yPos += printFontBold14.Height;
+                e.Graphics.DrawString("Contrat de service", printFontBold24, Brushes.Black, 225, yPos, new StringFormat());
 
 
             //yPos += printFontBold24.Height + 50;
             //e.Graphics.DrawString("Imprimé le : " + DateTime.Now.ToShortDateString(), printFontTime12, Brushes.Black, leftMargin + 600, yPos, new StringFormat());
             #endregion
 
-            #region Informations Ecole
-            yPos = 110;
-            e.Graphics.DrawString("Informations sur l'école", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
-            yPos += printFontBold14.Height;
-            e.Graphics.DrawString(_infoSchool.SchoolName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString(_infoSchool.StreetNumber + " " + _infoSchool.StreetName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString(_infoSchool.City + ", QC, " + _infoSchool.PostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-
-            //Numero de permis
-            yPos = 110 + printFontBold14.Height;
-            e.Graphics.DrawString("Permis : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
-            switch (_Client.TypeVehicule)
+            if (!_HasMorePageActivate)
             {
-                case VehiculeType.Moto:
-                case VehiculeType.Spyder:
-                case VehiculeType.Cyclomoteur:
-                    e.Graphics.DrawString(_infoSchool.RegistrationMoto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
-                    break;
-                default:
-                    e.Graphics.DrawString(_infoSchool.RegistrationAuto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
-                    break;
-            }
 
-            //Contrat
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Contrat : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
-            e.Graphics.DrawString(_Client.ContratNumber, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
-
-            //TPS et TVQ
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("TPS : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
-            e.Graphics.DrawString(_infoSchool.TPS, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("TVQ : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
-            e.Graphics.DrawString(_infoSchool.TVQ, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
-            #endregion
-
-            #region Eleves
-            float hauteurEleve;
-
-            yPos += printFontBold14.Height;
-            e.Graphics.DrawString("Informations sur l'élève", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
-
-            //Nom
-            yPos += printFontBold14.Height;
-            hauteurEleve = yPos;
-            e.Graphics.DrawString("Nom :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(_Client.Name, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-
-            //Prénom
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Prénom :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(_Client.FirstName, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-
-            //Adresse
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Adresse :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-
-            if (_Client.StreetApp != "")
-                e.Graphics.DrawString(_Client.StreetNumber + " " + _Client.StreetName + "    App # " + _Client.StreetApp, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-            else
-                e.Graphics.DrawString(_Client.StreetNumber + " " + _Client.StreetName, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Ville :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(_Client.City + ", QC", printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Code Postal :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(_Client.CodePostal, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
-
-            //Date de naissance            
-            e.Graphics.DrawString("Date de naissance : ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
-            e.Graphics.DrawString(_Client.DateNaissance.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
-
-            // Telephone
-            hauteurEleve += printFontTime10.Height;
-            e.Graphics.DrawString("Téléphone (domicile): ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
-            e.Graphics.DrawString(_Client.Phone, printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
-
-            // Telephone (autre)
-            hauteurEleve += printFontTime10.Height;
-            e.Graphics.DrawString("Téléphone (autre): ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
-            e.Graphics.DrawString(_Client.PhoneBureau, printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
-            #endregion
-
-            #region Détail du cours
-            float hauteurDescription;
-
-            yPos += printFontBold14.Height;
-            e.Graphics.DrawString("Détails du cours", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
-
-            //Type de cours
-            yPos += printFontBold14.Height;
-            hauteurDescription = yPos;
-            e.Graphics.DrawString("Type de cours :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            switch (_Client.TypeVehicule)
-            {
-                case VehiculeType.Moto:
-                    e.Graphics.DrawString("Motocyclette", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
-                    break;
-                case VehiculeType.Cyclomoteur:
-                    if (_Client.IsSpyder)
-                        e.Graphics.DrawString("Spyder", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
-                    else
-                        e.Graphics.DrawString("Cyclomoteur", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
-                    break;
-                default:
-                    e.Graphics.DrawString("Automobile", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
-                    break;
-            }
-
-            //Date inscription
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Date d'inscription :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(_Client.DateInscription.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
-
-            //Date expiration
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Date d'expiration :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(_Client.DateExpiration.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
-
-            //Date debut cours
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Date début du cours :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            e.Graphics.DrawString(_Client.DateDebutCours.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
-
-            //Prix du cours
-            TaxeExtractor taxe = new TaxeExtractor();
-
-            if (_Client.DateInscription.Year == 2011)
-                taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2011);
-            else if (_Client.DateInscription.Year < 2011)
-                taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2008_to_2010);
-            else if (_Client.DateInscription.Year >= 2012 && _Client.DateInscription.Year < 2014)
-                taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2012);
-            else if (_Client.DateInscription.Year >= 2014)
-                taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2014);
-
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Prix du cours :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-            e.Graphics.DrawString(taxe.Value.NoTaxe.ToString() + " $", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-            hauteurDescription += printFontTime10.Height;
-            e.Graphics.DrawString("TPS :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-            e.Graphics.DrawString(taxe.Value.TPS.ToString() + " $", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-            hauteurDescription += printFontTime10.Height;
-            e.Graphics.DrawString("TVQ :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-            e.Graphics.DrawString(taxe.Value.TVQ.ToString() + " $", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-            hauteurDescription += printFontTime10.Height;
-            e.Graphics.DrawString("Total :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-            e.Graphics.DrawString(taxe.Value.Total.ToString() + " $", printFontBold10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-
-            var nbHeure = 0;
-            var nbHeureTaux = 0;
-
-            //Théorie et pratique 
-            switch (_Client.TypeVehicule)
-            {
-                case VehiculeType.Moto:
-                    nbHeureTaux = _Client.ProgramMoto == ProgramMoto.Program2015 ? 32 : 31;
-
-                    //Theorie
-                    hauteurDescription += printFontTime10.Height;
-                    nbHeure = _Client.ProgramMoto == ProgramMoto.Program2015 ? 6 : 9;
-
-                    e.Graphics.DrawString($"Théorie : {nbHeure} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-
-                    //Pratique
-                    hauteurDescription += printFontTime10.Height;
-                    nbHeure = _Client.ProgramMoto == ProgramMoto.Program2015 ? 26 : 22;
-
-                    e.Graphics.DrawString($"Pratique: {nbHeure} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-
-                    break;
-                case VehiculeType.Cyclomoteur:
-                    nbHeureTaux = _Client.IsSpyder ? 7 : 6;
-
-                    //theorie
-                    hauteurDescription += printFontTime10.Height;
-                    e.Graphics.DrawString("Théorie : 3 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-
-                    //Pratique
-                    hauteurDescription += printFontTime10.Height;
-                    e.Graphics.DrawString($"Pratique: {(_Client.IsSpyder ? 4 : 3)} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-
-                    break;
-                default:
-                    nbHeureTaux = 39;
-
-                    //theorie
-                    hauteurDescription += printFontTime10.Height;
-                    e.Graphics.DrawString("Théorie : 24 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-
-                    //Pratique
-                    hauteurDescription += printFontTime10.Height;
-                    e.Graphics.DrawString("Pratique: 15 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
-                    e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
-
-                    break;
-            }
-
-            #endregion
-
-            #region Lieu de formation en circuit fermé pour moto et cylclo
-            //Ajouter le lieu de formation de moto en cas de client moto ou cylclomoteur
-            if ((_Client.TypeVehicule == VehiculeType.Moto) || (_Client.TypeVehicule == VehiculeType.Cyclomoteur))
-            {
+                #region Informations Ecole
+                yPos = 130;
+                e.Graphics.DrawString("Informations sur l'école", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
                 yPos += printFontBold14.Height;
-                e.Graphics.DrawString("Lieu de formation en circuit fermé", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_infoSchool.SchoolName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString(_infoSchool.StreetNumber + " " + _infoSchool.StreetName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString(_infoSchool.City + ", QC, " + _infoSchool.PostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+                //Numero de permis
+                yPos = 130 + printFontBold14.Height;
+                e.Graphics.DrawString("Permis : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
+                switch (_Client.TypeVehicule)
+                {
+                    case VehiculeType.Moto:
+                    case VehiculeType.Spyder:
+                    case VehiculeType.Cyclomoteur:
+                        e.Graphics.DrawString(_infoSchool.RegistrationMoto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+                        break;
+                    default:
+                        e.Graphics.DrawString(_infoSchool.RegistrationAuto, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+                        break;
+                }
+
+                //Contrat
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Contrat : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.ContratNumber, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+
+                //TPS et TVQ
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("TPS : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
+                e.Graphics.DrawString(_infoSchool.TPS, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("TVQ : ", printFontTime10, Brushes.Black, leftMargin + 400, yPos, new StringFormat());
+                e.Graphics.DrawString(_infoSchool.TVQ, printFontTime10, Brushes.Black, leftMargin + 530, yPos, new StringFormat());
+                #endregion
+
+                #region Eleves
+                float hauteurEleve;
+
                 yPos += printFontBold14.Height;
-                e.Graphics.DrawString(_infoSchool.CourseBatisseName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString("Informations sur l'élève", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+                //Nom
+                yPos += printFontBold14.Height;
+                hauteurEleve = yPos;
+                e.Graphics.DrawString("Nom :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.Name, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+
+                //Prénom
                 yPos += printFontTime10.Height;
-                e.Graphics.DrawString(_infoSchool.CourseStreetNumber + " " + _infoSchool.CourseStreetName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString("Prénom :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.FirstName, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+
+                //Adresse
                 yPos += printFontTime10.Height;
-                e.Graphics.DrawString(_infoSchool.CourseCity + ", QC, " + _infoSchool.CoursePostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
-            }
-            #endregion
+                e.Graphics.DrawString("Adresse :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
 
-            #region Mention légal
-            yPos += printFontBold14.Height;
-            e.Graphics.DrawString("Mention légale", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+                if (_Client.StreetApp != "")
+                    e.Graphics.DrawString(_Client.StreetNumber + " " + _Client.StreetName + "    App # " + _Client.StreetApp, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                else
+                    e.Graphics.DrawString(_Client.StreetNumber + " " + _Client.StreetName, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
 
-            e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 810, 15 * printFontTime7.Height + 5);
-            //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 825, 11 * printFont.Height + 5);
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Ville :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.City + ", QC", printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Code Postal :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.CodePostal, printFontTime10, Brushes.Black, leftMargin + 80, yPos, new StringFormat());
 
-            yPos += printFontBold14.Height + 10;
-            string MentionLegal = @"Mention exigée par la Loi sur la Protection du Consommateur (Contrat de louage de services à exécution successive) Résiliation : Le consommateur peut, à tout moment et à sa discrétion, 
-résilier ce contrat en envoyant la formule ci-annexée ou un autre avis écrit à cet effet au commerçant. Le contrat est résilié de plein droit à compter de l'envoie de la formule ou de l'avis. 
-Frais : Si le consommateur résilie ce contrat avant que le commerçant n'ait commencé à exécuter son obligation principale, la résiliation s'effectue sans frais ni pénalité pour le consommateur. 
-Sommes exigées: Si le consommateur résilie ce contrat après que le commerçant ait commencé à exécuter son obligation principale, les seules sommes que le commerçant peut exiger de lui sont : 
-A) le prix des services qui lui ont été fournis, calculé au taux stipulé dans le contrat et B) à titre de pénalité, la moins élevée des sommes suivantes : 50$ ou 10% du prix des services qui 
-ne lui ont pas été fournis. Restitution : Dans les dix (10) jours qui suivent la résiliation du contrat, le commerçant doit restituer au consommateur la somme d'argent à ce dernier. Le consommateur 
-aura avantage à consulter les articles 190 à 196 de la loi la protection du consommateur (L.R.Q., c. P-40.1) et, au besoin, à communiquer avec l'Offices de la Protection du Consommateur.
+                //Date de naissance            
+                e.Graphics.DrawString("Date de naissance : ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
+                e.Graphics.DrawString(_Client.DateNaissance.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
 
-Ce contrat est d'une durée maximum de 549 jours à compter de la date d'émission. Si le solde n'est pas payé durant cette période, un ajustement de prix peut être effectué par l'école. L'élève devra 
-informer l'école au moins 48 heures à l'avance (deux jours ouvrable) pour annuler ou reporter une ou des leçons pratiques, sinon une pénalité de 50$ de l'heure sera exigée. Des frais de 50$ seront 
-exigés pour ré-ouvrir un dossier fermé ou annulé un contrat actif. J'autorise l'école à transmettre mes coordonnées à l'A.Q.T.R (Association Québecoise du Transport et des Routes) pour lui 
-permettre d'effectuer des sondages de satisfaction au sujet de mon cours de conduite. NON ( )
+                // Telephone
+                hauteurEleve += printFontTime10.Height;
+                e.Graphics.DrawString("Téléphone (domicile): ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
+                e.Graphics.DrawString(_Client.Phone, printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
 
-INFORMATION: Un frais de 10,00$ s’ajoutera au contrat si le client ne se présente pas à son cours théorique.   ______ Initiales de l’élève";
+                // Telephone (autre)
+                hauteurEleve += printFontTime10.Height;
+                e.Graphics.DrawString("Téléphone (autre): ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurEleve, new StringFormat());
+                e.Graphics.DrawString(_Client.PhoneBureau, printFontTime10, Brushes.Black, leftMargin + 530, hauteurEleve, new StringFormat());
+                #endregion
 
-            e.Graphics.DrawString(MentionLegal, printFontTime7, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
-            #endregion
+                #region Détail du cours
+                float hauteurDescription;
 
-            #region Modalités de paiement
-            yPos += printFontTime7.Height * 15;
-            e.Graphics.DrawString("Modalités de paiement", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+                yPos += printFontBold14.Height;
+                e.Graphics.DrawString("Détails du cours", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
 
-            e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 810, 10 * printFontTime7.Height + 5);
-            //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 825, 11 * printFont.Height + 5);
+                //Type de cours
+                yPos += printFontBold14.Height;
+                hauteurDescription = yPos;
+                e.Graphics.DrawString("Type de cours :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                switch (_Client.TypeVehicule)
+                {
+                    case VehiculeType.Moto:
+                        e.Graphics.DrawString("Motocyclette", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+                        break;
+                    case VehiculeType.Cyclomoteur:
+                        if (_Client.IsSpyder)
+                            e.Graphics.DrawString("Spyder", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+                        else
+                            e.Graphics.DrawString("Cyclomoteur", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+                        break;
+                    default:
+                        e.Graphics.DrawString("Automobile", printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+                        break;
+                }
 
-            yPos += printFontBold14.Height + 10;
-            string ModalitePaiement = @"Le coût TOTAL du contrat est payable en :
+                //Date inscription
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Date d'inscription :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.DateInscription.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+
+                //Date expiration
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Date d'expiration :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.DateExpiration.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+
+                //Date debut cours
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Date début du cours :", printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                e.Graphics.DrawString(_Client.DateDebutCours.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 120, yPos, new StringFormat());
+
+                //Prix du cours
+                TaxeExtractor taxe = new TaxeExtractor();
+
+                if (_Client.DateInscription.Year == 2011)
+                    taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2011);
+                else if (_Client.DateInscription.Year < 2011)
+                    taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2008_to_2010);
+                else if (_Client.DateInscription.Year >= 2012 && _Client.DateInscription.Year < 2014)
+                    taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2012);
+                else if (_Client.DateInscription.Year >= 2014)
+                    taxe = new TaxeExtractor(_Client.MontantCoursDecimal, TaxeExtractor.Years.Y2014);
+
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Prix du cours :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                e.Graphics.DrawString(taxe.Value.NoTaxe.ToString() + " $", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                hauteurDescription += printFontTime10.Height;
+                e.Graphics.DrawString("TPS :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                e.Graphics.DrawString(taxe.Value.TPS.ToString() + " $", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                hauteurDescription += printFontTime10.Height;
+                e.Graphics.DrawString("TVQ :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                e.Graphics.DrawString(taxe.Value.TVQ.ToString() + " $", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+                hauteurDescription += printFontTime10.Height;
+                e.Graphics.DrawString("Total :", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                e.Graphics.DrawString(taxe.Value.Total.ToString() + " $", printFontBold10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+
+                var nbHeure = 0;
+                var nbHeureTaux = 0;
+
+                //Théorie et pratique 
+                switch (_Client.TypeVehicule)
+                {
+                    case VehiculeType.Moto:
+                        nbHeureTaux = _Client.ProgramMoto == ProgramMoto.Program2015 ? 32 : 31;
+
+                        //Theorie
+                        hauteurDescription += printFontTime10.Height;
+                        nbHeure = _Client.ProgramMoto == ProgramMoto.Program2015 ? 6 : 9;
+
+                        e.Graphics.DrawString($"Théorie : {nbHeure} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                        e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+
+                        //Pratique
+                        hauteurDescription += printFontTime10.Height;
+                        nbHeure = _Client.ProgramMoto == ProgramMoto.Program2015 ? 26 : 22;
+
+                        e.Graphics.DrawString($"Pratique: {nbHeure} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                        e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+
+                        break;
+                    case VehiculeType.Cyclomoteur:
+                        nbHeureTaux = _Client.IsSpyder ? 7 : 6;
+
+                        //theorie
+                        hauteurDescription += printFontTime10.Height;
+                        e.Graphics.DrawString("Théorie : 3 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                        e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+
+                        //Pratique
+                        hauteurDescription += printFontTime10.Height;
+                        e.Graphics.DrawString($"Pratique: {(_Client.IsSpyder ? 4 : 3)} Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                        e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+
+                        break;
+                    default:
+                        nbHeureTaux = 39;
+
+                        //theorie
+                        hauteurDescription += printFontTime10.Height;
+                        e.Graphics.DrawString("Théorie : 24 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                        e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+
+                        //Pratique
+                        hauteurDescription += printFontTime10.Height;
+                        e.Graphics.DrawString("Pratique: 15 Heures @ ", printFontTime10, Brushes.Black, leftMargin + 400, hauteurDescription, new StringFormat());
+                        e.Graphics.DrawString($"{taxe.Value.NoTaxe / nbHeureTaux:C2} / heures", printFontTime10, Brushes.Black, leftMargin + 540, hauteurDescription, new StringFormat());
+
+                        break;
+                }
+
+                #endregion
+
+                #region Lieu de formation en circuit fermé pour moto et cylclo
+                //Ajouter le lieu de formation de moto en cas de client moto ou cylclomoteur
+                if ((_Client.TypeVehicule == VehiculeType.Moto) || (_Client.TypeVehicule == VehiculeType.Cyclomoteur))
+                {
+                    yPos += printFontBold14.Height * 2;
+                    e.Graphics.DrawString("Lieu de formation en circuit fermé", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+                    yPos += printFontBold14.Height;
+                    e.Graphics.DrawString(_infoSchool.CourseBatisseName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                    yPos += printFontTime10.Height;
+                    e.Graphics.DrawString(_infoSchool.CourseStreetNumber + " " + _infoSchool.CourseStreetName, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                    yPos += printFontTime10.Height;
+                    e.Graphics.DrawString(_infoSchool.CourseCity + ", QC, " + _infoSchool.CoursePostalCode, printFontTime10, Brushes.Black, leftMargin, yPos, new StringFormat());
+                }
+                #endregion
+
+                #region Modalités de paiement
+                yPos += printFontTime7.Height * 4;
+                e.Graphics.DrawString("Modalités de paiement", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+                e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 810, 10 * printFontTime10.Height + 5);
+                //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 825, 11 * printFont.Height + 5);
+
+                yPos += printFontBold14.Height + 10;
+                string ModalitePaiement = @"Le coût TOTAL du contrat est payable en :
 - quatre versements égaux pour le PESR portant sur la conduite d’une motocyclette (classes 6A, 6B et 6C), étalés de la façon suivante :
   - un versement au début de chacun des deux blocs, soit la conduite en circuit fermé et la conduite sur route;
   - un versement une fois que l’élève aura terminé 50 % des apprentissages du bloc 1 (conduite en circuit fermé);
   - un versement une fois que l’élève aura terminé 50 % des apprentissages du bloc 2 (conduite sur route).
-- deux versements égaux pour le PESR portant sur la conduite d’un cyclomoteur (classe 6D) ou d’une moto à trois roues (classe 6E) (à moins que toute la formation soit
-  donnée en une seule journée), étalés de la façon suivante:
+- deux versements égaux pour le PESR portant sur la conduite d’un cyclomoteur (classe 6D) ou d’une moto à trois roues 
+  (classe 6E) (à moins que toute la formation soit donnée en une seule journée), étalés de la façon suivante:
   - un versement au début du cours;
   - un versement une fois que l’élève aura terminé 50 % du cours.";
 
-            e.Graphics.DrawString(ModalitePaiement, printFontTime7, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
-            #endregion
+                e.Graphics.DrawString(ModalitePaiement, printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+                #endregion
 
-            #region Formule de résiliation
-            string resiliation = @"Clause de non-cession ou sous-traitance à un enseignant. En vertu de l'article 193 de la Loi sur la protection du consommateur, 
+                #region Formule de résiliation
+                string resiliation = @"Clause de non-cession ou sous-traitance à un enseignant. En vertu de l'article 193 de la Loi sur la protection du consommateur, 
 je résilie le présent contrat.
 
 Date : __________________  Signature du résiliataire : ____________________";
 
-            yPos += printFontTime8.Height * 8;
-            //yPos += printFontBold14.Height;
-            e.Graphics.DrawString("Formule de résiliation", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+                yPos += printFontTime8.Height * 14;
+                //yPos += printFontBold14.Height;
+                e.Graphics.DrawString("Formule de résiliation", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
 
-            yPos += printFontBold14.Height;
-            e.Graphics.DrawString(resiliation, printFontTime10, Brushes.Black, leftMargin + 5, yPos + 5, new StringFormat());
-            e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos, 810, 4 * printFont.Height + 10);
-            #endregion
+                yPos += printFontBold14.Height;
+                e.Graphics.DrawString(resiliation, printFontTime10, Brushes.Black, leftMargin + 5, yPos + 5, new StringFormat());
+                e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos, 810, 4 * printFont.Height + 10);
+                #endregion
 
-            #region Signature
-            yPos += printFontTime10.Height * 6;
-            e.Graphics.DrawString("Fait et signé à " + _infoSchool.City + " le " + DateTime.Now.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
-            yPos += printFontTime10.Height * 2;
-            e.Graphics.DrawString(@"J’autorise l’école de conduite ci-haut mentionnée à transmettre mes coordonnées à l’organisme accréditeur et à la  Société de l’assurance
+                #region Signature
+                yPos += printFontTime10.Height * 6;
+                e.Graphics.DrawString("Fait et signé à " + _infoSchool.City + " le " + DateTime.Now.ToLongDateString(), printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
+                yPos += printFontTime10.Height * 2;
+                e.Graphics.DrawString(@"J’autorise l’école de conduite ci-haut mentionnée à transmettre mes coordonnées à l’organisme accréditeur et à la  Société de l’assurance
 automobile du Québec pour fins de sondage ainsi que mon dossier en cas de cessation d’activités : ______ Initiales de l’élève", printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
 
-            yPos += (printFontTime10.Height * 3) - 5;
-            e.Graphics.DrawString("_________________________            _________________________                 _________________________", printFontTime10, Brushes.Black, leftMargin, yPos + 3, new StringFormat());
-            yPos += printFontTime10.Height;
-            e.Graphics.DrawString("Signature du commercant", printFontTime10, Brushes.Black, leftMargin, yPos + 3, new StringFormat());
-            e.Graphics.DrawString("Signature d'un parent ou tuteur", printFontTime10, Brushes.Black, leftMargin + 215, yPos + 3, new StringFormat());
-            e.Graphics.DrawString("Signature de l'élève (<18 ans)", printFontTime10, Brushes.Black, leftMargin + 455, yPos + 3, new StringFormat());
+                yPos += (printFontTime10.Height * 4) - 5;
+                e.Graphics.DrawString("_________________________            _________________________                 _________________________", printFontTime10, Brushes.Black, leftMargin, yPos + 3, new StringFormat());
+                yPos += printFontTime10.Height;
+                e.Graphics.DrawString("Signature du commercant", printFontTime10, Brushes.Black, leftMargin, yPos + 3, new StringFormat());
+                e.Graphics.DrawString("Signature d'un parent ou tuteur", printFontTime10, Brushes.Black, leftMargin + 215, yPos + 3, new StringFormat());
+                e.Graphics.DrawString("Signature de l'élève (<18 ans)", printFontTime10, Brushes.Black, leftMargin + 455, yPos + 3, new StringFormat());
+                #endregion
+            }
+
+            #region Mention légal
+
+            if (!_HasMorePageActivate)
+            {
+                _HasMorePageActivate = true;
+                e.HasMorePages = true;
+                return;
+            }
+
+            yPos = 140;
+            e.Graphics.DrawString("Mention légale", printFontBold14, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+            //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 810, 40 * printFontTime7.Height + 5);
+            //e.Graphics.DrawRectangle(new Pen(Color.Black), leftMargin, yPos + 20, 825, 11 * printFont.Height + 5);
+
+            yPos += printFontBold14.Height * 2;
+            string MentionLegal = @"Mention exigée par la Loi sur la Protection du Consommateur (Contrat de louage de services à exécution successive) 
+Résiliation : Le consommateur peut, à tout moment et à sa discrétion, résilier ce contrat en envoyant la formule 
+ci-annexée ou un autre avis écrit à cet effet au commerçant. Le contrat est résilié de plein droit à compter de l'envoie
+de la formule ou de l'avis. Frais : Si le consommateur résilie ce contrat avant que le commerçant n'ait commencé à exécuter 
+son obligation principale, la résiliation s'effectue sans frais ni pénalité pour le consommateur. 
+Sommes exigées: Si le consommateur résilie ce contrat après que le commerçant ait commencé à exécuter son obligation principale, 
+les seules sommes que le commerçant peut exiger de lui sont : 
+
+A) le prix des services qui lui ont été fournis, calculé au taux stipulé dans le contrat et 
+B) à titre de pénalité, la moins élevée des sommes suivantes : 50$ ou 10% du prix des services qui ne lui ont pas été fournis. 
+
+Restitution : Dans les dix (10) jours qui suivent la résiliation du contrat, le commerçant doit restituer au consommateur 
+la somme d'argent à ce dernier. 
+
+Le consommateur aura avantage à consulter les articles 190 à 196 de la loi la protection du consommateur (L.R.Q., c. P-40.1) et, 
+au besoin, à communiquer avec l'Offices de la Protection du Consommateur.
+
+L'ÉLÈVE:
+- Bénéficie d'un délais de 18 mois à compter de la date de début du cours pour terminer son cours de conduite. 
+  Si le solde n'est  as payé durant cette période, un ajustement de prix peut être effectué par l'école. 
+- Devra informer l'école au moins 48 heures à l'avance (deux jours ouvrable) pour annuler ou reporter une ou des leçons pratiques, 
+  sinon une pénalité de 50$ de l'heure sera exigée. Des frais de 50$ seront exigés pour ré-ouvrir un dossier fermé ou annulé un contrat actif. 
+- En cas de différend avec l'école, l'élève peut adresser une plainte auprès de la Société
+
+L'ÉCOLE:
+- L'école ne peut obliger l'élève à suivre d'autres cours que ceux prévus au PESR. Tout cours supplémentaire ou tout outil 
+  d'apprentissage supplémentaire offert par l'école doit être facultatif et ne peut remplacer les cours obligatoires du PESR.
+- Doit remettre à l'élève un original du contrat signé, qui doit être conservé par l'élève jusqu'à l'obtention de sa classe 
+  ou de son permis, selon le PESR suivi.
+- Doit remettre à l'élève un reçu pour chaque paiement effectué, lesquels doivent être conservés par l'élève jusqu'à l'obtention 
+  de sa classe ou de son permis, selon le PESR suivi.
+- Doit remettre à l'élève, sans frais, une attestation de cours consignant le résultat obtenu ou les étapes terminées, 
+  et ce, que le contrat de l'élève soit échu ou non.
+- Doit remettre une attestation de cours à l'élève à la fin du cours ou dans les 10 jours suivant la résiliation du contrat.
+- Doit conserver le dossier de l'élève conformément aux loi applicables et ne peut le détruire avant l'expiration d'une 
+  période de sept ans, suivant la fin du contrat de service avec l'élève.
+
+CONSENTEMENT:
+- L'élève consent à ce que les informations consignées dans son dossier soient transmises à la Société afin de s'assurer 
+  du respect des exigences du CSR (chapitre C-24.2), notamment pour le suivi des plaintes, le contrôle de la qualité des 
+  services reçus et la validation des attestations de cours.
+- L'élève consent à ce que, en cas de cessation des activités de l'école ou de retrait de sa reconnaissance, 
+  son dossier puisse être transféré à la Société ou à une autre école, selon les circonstances.
+- L'élève consent à transmettre ses coordonnées et son adresse électronique à la Société aux fins de sondage ou lorsqu'il 
+  ne peut terminer sa formation, afin de lui transmettre les documents requis.
+
+FRAIS: 
+- Un frais de 10,00$ s’ajoutera au contrat si le client ne se présente pas à son cours théorique.   
+
+
+
+________ Initiales de l’élève";
+
+            e.Graphics.DrawString(MentionLegal, printFontTime10, Brushes.Black, leftMargin + 5, yPos, new StringFormat());
             #endregion
 
         }
